@@ -1,0 +1,723 @@
+[
+    {
+        "ruleId": "COMMA_COMPOUND_SENTENCE",
+        "message": "Use a comma before ‘and’ if it connects two independent clauses (unless they are closely connected and short).",
+        "replacements": [
+            ", and"
+        ],
+        "offsetInContext": 43,
+        "context": "...m going to give each of you a photograph and I'd like you to talk about it.",
+        "offset": 42,
+        "errorLength": 4,
+        "category": "PUNCTUATION",
+        "ruleIssueType": "typographical",
+        "sentence": "I'm going to give each of you a photograph and I'd like you to talk about it.",
+        "id": 0,
+        "speakerId": "SPEAKER_01"
+    },
+    {
+        "ruleId": "MORFOLOGIK_RULE_EN_US",
+        "message": "Possible spelling mistake found.",
+        "replacements": [
+            "mark sheets"
+        ],
+        "offsetInContext": 16,
+        "context": "Can I have your marksheets please?",
+        "offset": 16,
+        "errorLength": 10,
+        "category": "TYPOS",
+        "ruleIssueType": "misspelling",
+        "sentence": "Can I have your marksheets please?",
+        "id": 1,
+        "speakerId": "SPEAKER_01"
+    },
+    {
+        "ruleId": "MORFOLOGIK_RULE_EN_US",
+        "message": "Possible spelling mistake found.",
+        "replacements": [
+            "Chowder",
+            "Chowders"
+        ],
+        "offsetInContext": 43,
+        "context": "...'m Susan Watson and this is Brother Roy Chowdery.",
+        "offset": 41,
+        "errorLength": 8,
+        "category": "TYPOS",
+        "ruleIssueType": "misspelling",
+        "sentence": "I'm Susan Watson and this is Brother Roy Chowdery.",
+        "id": 2,
+        "speakerId": "SPEAKER_01"
+    },
+    {
+        "ruleId": "MORFOLOGIK_RULE_EN_US",
+        "message": "Possible spelling mistake found.",
+        "replacements": [
+            "Kenya"
+        ],
+        "offsetInContext": 4,
+        "context": "And Kenza, do you work or are you a student? what...",
+        "offset": 4,
+        "errorLength": 5,
+        "category": "TYPOS",
+        "ruleIssueType": "misspelling",
+        "sentence": "And Kenza, do you work or are you a student?",
+        "id": 3,
+        "speakerId": "SPEAKER_01"
+    },
+    {
+        "ruleId": "MORFOLOGIK_RULE_EN_US",
+        "message": "Possible spelling mistake found.",
+        "replacements": [
+            "Kinda"
+        ],
+        "offsetInContext": 0,
+        "context": "Kinza, how do you get to work every day?",
+        "offset": 0,
+        "errorLength": 5,
+        "category": "TYPOS",
+        "ruleIssueType": "misspelling",
+        "sentence": "Kinza, how do you get to work every day?",
+        "id": 4,
+        "speakerId": "SPEAKER_01"
+    },
+    {
+        "ruleId": "MORFOLOGIK_RULE_EN_US",
+        "message": "Possible spelling mistake found.",
+        "replacements": [
+            "Kenya"
+        ],
+        "offsetInContext": 0,
+        "context": "Kenza, here is your photograph.",
+        "offset": 0,
+        "errorLength": 5,
+        "category": "TYPOS",
+        "ruleIssueType": "misspelling",
+        "sentence": "Kenza, here is your photograph.",
+        "id": 5,
+        "speakerId": "SPEAKER_01"
+    },
+    {
+        "ruleId": "MORFOLOGIK_RULE_EN_US",
+        "message": "Possible spelling mistake found.",
+        "replacements": [
+            "Kenya"
+        ],
+        "offsetInContext": 0,
+        "context": "Kenza, please tell us what you can see in the...",
+        "offset": 0,
+        "errorLength": 5,
+        "category": "TYPOS",
+        "ruleIssueType": "misspelling",
+        "sentence": "Kenza, please tell us what you can see in the photograph.",
+        "id": 6,
+        "speakerId": "SPEAKER_01"
+    },
+    {
+        "ruleId": "UPPERCASE_SENTENCE_START",
+        "message": "This sentence does not start with an uppercase letter.",
+        "replacements": [
+            "What"
+        ],
+        "offsetInContext": 43,
+        "context": "...enza, do you work or are you a student? what you do.",
+        "offset": 45,
+        "errorLength": 4,
+        "category": "CASING",
+        "ruleIssueType": "typographical",
+        "sentence": "what you do.",
+        "id": 7,
+        "speakerId": "SPEAKER_01"
+    },
+    {
+        "ruleId": "UPPERCASE_SENTENCE_START",
+        "message": "This sentence does not start with an uppercase letter.",
+        "replacements": [
+            "Which"
+        ],
+        "offsetInContext": 11,
+        "context": "It's okay. which sports do you like?",
+        "offset": 11,
+        "errorLength": 5,
+        "category": "CASING",
+        "ruleIssueType": "typographical",
+        "sentence": "which sports do you like?",
+        "id": 8,
+        "speakerId": "SPEAKER_01"
+    },
+    {
+        "ruleId": "THANKS_SENT_END_COMMA",
+        "message": "Consider adding a comma here.",
+        "replacements": [
+            ", Thank"
+        ],
+        "offsetInContext": 25,
+        "context": "Would have been about Per Thank you.",
+        "offset": 25,
+        "errorLength": 6,
+        "category": "PUNCTUATION",
+        "ruleIssueType": "typographical",
+        "sentence": "Would have been about Per Thank you.",
+        "id": 0,
+        "speakerId": "SPEAKER_03"
+    },
+    {
+        "ruleId": "COMMA_COMPOUND_SENTENCE",
+        "message": "Use a comma before ‘or’ if it connects two independent clauses (unless they are closely connected and short).",
+        "replacements": [
+            ", or"
+        ],
+        "offsetInContext": 27,
+        "context": "He is normally in a library or I don't think she is at home.",
+        "offset": 27,
+        "errorLength": 3,
+        "category": "PUNCTUATION",
+        "ruleIssueType": "typographical",
+        "sentence": "He is normally in a library or I don't think she is at home.",
+        "id": 0,
+        "speakerId": "SPEAKER_02"
+    },
+    {
+        "ruleId": "COMMA_COMPOUND_SENTENCE",
+        "message": "Use a comma before ‘and’ if it connects two independent clauses (unless they are closely connected and short).",
+        "replacements": [
+            ", and"
+        ],
+        "offsetInContext": 43,
+        "context": "...mMM mMM But at least you have it at home and you can see it, even if you don't wear ...",
+        "offset": 108,
+        "errorLength": 4,
+        "category": "PUNCTUATION",
+        "ruleIssueType": "typographical",
+        "sentence": "mMM mMM But at least you have it at home and you can see it, even if you don't wear it.",
+        "id": 1,
+        "speakerId": "SPEAKER_02"
+    },
+    {
+        "ruleId": "COMMA_COMPOUND_SENTENCE",
+        "message": "Use a comma before ‘and’ if it connects two independent clauses (unless they are closely connected and short).",
+        "replacements": [
+            ", and"
+        ],
+        "offsetInContext": 43,
+        "context": "...e can put all her pictures in this album and he can watch pictures whatever he wants...",
+        "offset": 67,
+        "errorLength": 4,
+        "category": "PUNCTUATION",
+        "ruleIssueType": "typographical",
+        "sentence": "so that he can put all her pictures in this album and he can watch pictures whatever he wants and you keep remembering your team, bye!",
+        "id": 2,
+        "speakerId": "SPEAKER_02"
+    },
+    {
+        "ruleId": "COMMA_COMPOUND_SENTENCE",
+        "message": "Use a comma before ‘and’ if it connects two independent clauses (unless they are closely connected and short).",
+        "replacements": [
+            ", and"
+        ],
+        "offsetInContext": 43,
+        "context": "... he can watch pictures whatever he wants and you keep remembering your team, bye!",
+        "offset": 111,
+        "errorLength": 4,
+        "category": "PUNCTUATION",
+        "ruleIssueType": "typographical",
+        "sentence": "so that he can put all her pictures in this album and he can watch pictures whatever he wants and you keep remembering your team, bye!",
+        "id": 3,
+        "speakerId": "SPEAKER_02"
+    },
+    {
+        "ruleId": "ENGLISH_WORD_REPEAT_RULE",
+        "message": "Possible typo: you repeated a word",
+        "replacements": [
+            "mMM"
+        ],
+        "offsetInContext": 43,
+        "context": "...h him, he can always remember the team. mMM mMM But at least you have it at home and yo...",
+        "offset": 68,
+        "errorLength": 7,
+        "category": "MISC",
+        "ruleIssueType": "duplication",
+        "sentence": "mMM mMM But at least you have it at home and you can see it, even if you don't wear it.",
+        "id": 4,
+        "speakerId": "SPEAKER_02"
+    },
+    {
+        "ruleId": "EXTREME_ADJECTIVES",
+        "message": "Consider using an extreme adjective for ‘good’.",
+        "replacements": [
+            "perfect",
+            "excellent",
+            "superb",
+            "wonderful",
+            "fantastic"
+        ],
+        "offsetInContext": 15,
+        "context": "I think it's a really good idea for the Paloan football.",
+        "offset": 15,
+        "errorLength": 11,
+        "category": "STYLE",
+        "ruleIssueType": "style",
+        "sentence": "I think it's a really good idea for the Paloan football.",
+        "id": 5,
+        "speakerId": "SPEAKER_02"
+    },
+    {
+        "ruleId": "IT_IS_2",
+        "message": "It seems that the possessive pronoun “its” fits better in this context.",
+        "replacements": [
+            "its waste"
+        ],
+        "offsetInContext": 16,
+        "context": "Because I think it's waste of time and I don't have enough time to...",
+        "offset": 16,
+        "errorLength": 10,
+        "category": "TYPOS",
+        "ruleIssueType": "misspelling",
+        "sentence": "Because I think it's waste of time and I don't have enough time to study, so I can't go to this kind of activities.",
+        "id": 6,
+        "speakerId": "SPEAKER_02"
+    },
+    {
+        "ruleId": "MORFOLOGIK_RULE_EN_US",
+        "message": "Possible spelling mistake found.",
+        "replacements": [
+            "Kenya"
+        ],
+        "offsetInContext": 11,
+        "context": "My name is Kenza.",
+        "offset": 11,
+        "errorLength": 5,
+        "category": "TYPOS",
+        "ruleIssueType": "misspelling",
+        "sentence": "My name is Kenza.",
+        "id": 7,
+        "speakerId": "SPEAKER_02"
+    },
+    {
+        "ruleId": "MORFOLOGIK_RULE_EN_US",
+        "message": "Possible spelling mistake found.",
+        "replacements": [
+            "Pa loan"
+        ],
+        "offsetInContext": 43,
+        "context": "...I think it's a really good idea for the Paloan football.",
+        "offset": 40,
+        "errorLength": 6,
+        "category": "TYPOS",
+        "ruleIssueType": "misspelling",
+        "sentence": "I think it's a really good idea for the Paloan football.",
+        "id": 8,
+        "speakerId": "SPEAKER_02"
+    },
+    {
+        "ruleId": "MORFOLOGIK_RULE_EN_US",
+        "message": "Possible spelling mistake. ‘favourite’ is British English.",
+        "replacements": [
+            "favorite"
+        ],
+        "offsetInContext": 8,
+        "context": "It's my favourite activity to do.",
+        "offset": 8,
+        "errorLength": 9,
+        "category": "TYPOS",
+        "ruleIssueType": "misspelling",
+        "sentence": "It's my favourite activity to do.",
+        "id": 9,
+        "speakerId": "SPEAKER_02"
+    },
+    {
+        "ruleId": "MORFOLOGIK_RULE_EN_US",
+        "message": "Possible spelling mistake. ‘favourite’ is British English.",
+        "replacements": [
+            "favorite"
+        ],
+        "offsetInContext": 14,
+        "context": "Do you have a favourite sports team?",
+        "offset": 14,
+        "errorLength": 9,
+        "category": "TYPOS",
+        "ruleIssueType": "misspelling",
+        "sentence": "Do you have a favourite sports team?",
+        "id": 10,
+        "speakerId": "SPEAKER_02"
+    },
+    {
+        "ruleId": "PRP_COMMA",
+        "message": "Consider adding a comma here.",
+        "replacements": [
+            "me,"
+        ],
+        "offsetInContext": 9,
+        "context": "Yes, for me it's the Algerian team.",
+        "offset": 9,
+        "errorLength": 2,
+        "category": "PUNCTUATION",
+        "ruleIssueType": "typographical",
+        "sentence": "Yes, for me it's the Algerian team.",
+        "id": 11,
+        "speakerId": "SPEAKER_02"
+    },
+    {
+        "ruleId": "QUALITY_PARTITIVE",
+        "message": "In a quality partitive structure like “this kind of X”, X should usually match the grammatical number of “kind”.",
+        "replacements": [
+            "this kind of activity",
+            "these kinds of activities"
+        ],
+        "offsetInContext": 43,
+        "context": "... enough time to study, so I can't go to this kind of activities.",
+        "offset": 91,
+        "errorLength": 23,
+        "category": "GRAMMAR",
+        "ruleIssueType": "grammar",
+        "sentence": "Because I think it's waste of time and I don't have enough time to study, so I can't go to this kind of activities.",
+        "id": 12,
+        "speakerId": "SPEAKER_02"
+    },
+    {
+        "ruleId": "THERE_IS_A_LOT_OF",
+        "message": "Consider using the plural verb form for the plural noun “teams”.",
+        "replacements": [
+            "there are"
+        ],
+        "offsetInContext": 33,
+        "context": "In every country we can see that there is a lot of teams which play in football.",
+        "offset": 33,
+        "errorLength": 8,
+        "category": "GRAMMAR",
+        "ruleIssueType": "grammar",
+        "sentence": "In every country we can see that there is a lot of teams which play in football.",
+        "id": 13,
+        "speakerId": "SPEAKER_02"
+    },
+    {
+        "ruleId": "UPPERCASE_SENTENCE_START",
+        "message": "This sentence does not start with an uppercase letter.",
+        "replacements": [
+            "Lady"
+        ],
+        "offsetInContext": 32,
+        "context": "I generally get to work by car. lady which is maybe connected on a laptop an...",
+        "offset": 32,
+        "errorLength": 4,
+        "category": "CASING",
+        "ruleIssueType": "typographical",
+        "sentence": "lady which is maybe connected on a laptop and reading on a book.",
+        "id": 14,
+        "speakerId": "SPEAKER_02"
+    },
+    {
+        "ruleId": "UPPERCASE_SENTENCE_START",
+        "message": "This sentence does not start with an uppercase letter.",
+        "replacements": [
+            "So"
+        ],
+        "offsetInContext": 18,
+        "context": "All for pictures. so that he can put all her pictures in thi...",
+        "offset": 18,
+        "errorLength": 2,
+        "category": "CASING",
+        "ruleIssueType": "typographical",
+        "sentence": "so that he can put all her pictures in this album and he can watch pictures whatever he wants and you keep remembering your team, bye!",
+        "id": 15,
+        "speakerId": "SPEAKER_02"
+    },
+    {
+        "ruleId": "A_NNS",
+        "message": "The plural noun “players” cannot be used with the article “a”. Did you mean “a new player” or “new players”?",
+        "replacements": [
+            "a new player",
+            "new players"
+        ],
+        "offsetInContext": 43,
+        "context": "...on some positions or if we need to have a new players or discuss about the gomers if they hav...",
+        "offset": 163,
+        "errorLength": 13,
+        "category": "GRAMMAR",
+        "ruleIssueType": "grammar",
+        "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+        "id": 0,
+        "speakerId": "SPEAKER_00"
+    },
+    {
+        "ruleId": "COMMA_COMPOUND_SENTENCE",
+        "message": "Use a comma before ‘and’ if it connects two independent clauses (unless they are closely connected and short).",
+        "replacements": [
+            ", and"
+        ],
+        "offsetInContext": 35,
+        "context": "I live with my family in my country and we have neighbors and there are some of...",
+        "offset": 35,
+        "errorLength": 4,
+        "category": "PUNCTUATION",
+        "ruleIssueType": "typographical",
+        "sentence": "I live with my family in my country and we have neighbors and there are some of them are cousins of us, of me.",
+        "id": 1,
+        "speakerId": "SPEAKER_00"
+    },
+    {
+        "ruleId": "COMMA_COMPOUND_SENTENCE",
+        "message": "Use a comma before ‘and’ if it connects two independent clauses (unless they are closely connected and short).",
+        "replacements": [
+            ", and"
+        ],
+        "offsetInContext": 35,
+        "context": "I've been gathering with my friends and we go into one Middle East restaurant h...",
+        "offset": 35,
+        "errorLength": 4,
+        "category": "PUNCTUATION",
+        "ruleIssueType": "typographical",
+        "sentence": "I've been gathering with my friends and we go into one Middle East restaurant here in Cambridge.",
+        "id": 2,
+        "speakerId": "SPEAKER_00"
+    },
+    {
+        "ruleId": "COMMA_COMPOUND_SENTENCE",
+        "message": "Use a comma before ‘and’ if it connects two independent clauses (unless they are closely connected and short).",
+        "replacements": [
+            ", and"
+        ],
+        "offsetInContext": 34,
+        "context": "Yeah, I see one man, he's relaxing and he's so far.",
+        "offset": 34,
+        "errorLength": 4,
+        "category": "PUNCTUATION",
+        "ruleIssueType": "typographical",
+        "sentence": "Yeah, I see one man, he's relaxing and he's so far.",
+        "id": 3,
+        "speakerId": "SPEAKER_00"
+    },
+    {
+        "ruleId": "COMMA_COMPOUND_SENTENCE",
+        "message": "Use a comma before ‘and’ if it connects two independent clauses (unless they are closely connected and short).",
+        "replacements": [
+            ", and"
+        ],
+        "offsetInContext": 35,
+        "context": "And maybe he just came from outside and he didn't take out his clothes.",
+        "offset": 35,
+        "errorLength": 4,
+        "category": "PUNCTUATION",
+        "ruleIssueType": "typographical",
+        "sentence": "And maybe he just came from outside and he didn't take out his clothes.",
+        "id": 4,
+        "speakerId": "SPEAKER_00"
+    },
+    {
+        "ruleId": "COMMA_COMPOUND_SENTENCE",
+        "message": "Use a comma before ‘and’ if it connects two independent clauses (unless they are closely connected and short).",
+        "replacements": [
+            ", and"
+        ],
+        "offsetInContext": 43,
+        "context": "... just check in the day I can see my club and they are enjoying by the fifth annivers...",
+        "offset": 153,
+        "errorLength": 4,
+        "category": "PUNCTUATION",
+        "ruleIssueType": "typographical",
+        "sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying by the fifth anniversary for the four fifth established for their club.",
+        "id": 5,
+        "speakerId": "SPEAKER_00"
+    },
+    {
+        "ruleId": "EVERYDAY_EVERY_DAY",
+        "message": "‘Everyday’ is an adjective. Did you mean “every day”?",
+        "replacements": [
+            "every day"
+        ],
+        "offsetInContext": 43,
+        "context": "...metimes you can't wear the same t-shirt everyday.",
+        "offset": 50,
+        "errorLength": 8,
+        "category": "CONFUSED_WORDS",
+        "ruleIssueType": "misspelling",
+        "sentence": "but sometimes you can't wear the same t-shirt everyday.",
+        "id": 6,
+        "speakerId": "SPEAKER_00"
+    },
+    {
+        "ruleId": "INTERJECTIONS_PUNCTUATION",
+        "message": "Interjections are usually punctuated.",
+        "replacements": [
+            "Yeah,",
+            "Yeah!",
+            "Yeah?",
+            "Yeah."
+        ],
+        "offsetInContext": 0,
+        "context": "Yeah swimming helped me sometimes to relax.",
+        "offset": 0,
+        "errorLength": 4,
+        "category": "PUNCTUATION",
+        "ruleIssueType": "typographical",
+        "sentence": "Yeah swimming helped me sometimes to relax.",
+        "id": 7,
+        "speakerId": "SPEAKER_00"
+    },
+    {
+        "ruleId": "IT_IS_2",
+        "message": "It seems that the possessive pronoun “its” fits better in this context.",
+        "replacements": [
+            "its album"
+        ],
+        "offsetInContext": 43,
+        "context": "...eir children. for work or album I think it's album for our pictures.",
+        "offset": 147,
+        "errorLength": 10,
+        "category": "TYPOS",
+        "ruleIssueType": "misspelling",
+        "sentence": "for work or album I think it's album for our pictures.",
+        "id": 8,
+        "speakerId": "SPEAKER_00"
+    },
+    {
+        "ruleId": "MENTION_ABOUT",
+        "message": "Did you mean simply “discussing our”? You do not need the word “about” here.",
+        "replacements": [
+            "discussing our"
+        ],
+        "offsetInContext": 43,
+        "context": "...azing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions...",
+        "offset": 80,
+        "errorLength": 20,
+        "category": "COLLOCATIONS",
+        "ruleIssueType": "grammar",
+        "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+        "id": 9,
+        "speakerId": "SPEAKER_00"
+    },
+    {
+        "ruleId": "MENTION_ABOUT",
+        "message": "Did you mean simply “discuss the”? You do not need the word “about” here.",
+        "replacements": [
+            "discuss the"
+        ],
+        "offsetInContext": 43,
+        "context": "... or if we need to have a new players or discuss about the gomers if they have like one player tha...",
+        "offset": 180,
+        "errorLength": 17,
+        "category": "COLLOCATIONS",
+        "ruleIssueType": "grammar",
+        "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+        "id": 10,
+        "speakerId": "SPEAKER_00"
+    },
+    {
+        "ruleId": "MORFOLOGIK_RULE_EN_US",
+        "message": "Possible spelling mistake found.",
+        "replacements": [
+            "goers",
+            "homers",
+            "comers",
+            "Gompers",
+            "gofers",
+            "goners",
+            "Gomes",
+            "gamers"
+        ],
+        "offsetInContext": 43,
+        "context": "...have a new players or discuss about the gomers if they have like one player that they ...",
+        "offset": 198,
+        "errorLength": 6,
+        "category": "TYPOS",
+        "ruleIssueType": "misspelling",
+        "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+        "id": 11,
+        "speakerId": "SPEAKER_00"
+    },
+    {
+        "ruleId": "THERE_S_MANY",
+        "message": "Did you mean “There are no toys”?",
+        "replacements": [
+            "There are no toys"
+        ],
+        "offsetInContext": 0,
+        "context": "There's no toys for his children or something.",
+        "offset": 0,
+        "errorLength": 15,
+        "category": "GRAMMAR",
+        "ruleIssueType": "grammar",
+        "sentence": "There's no toys for his children or something.",
+        "id": 12,
+        "speakerId": "SPEAKER_00"
+    },
+    {
+        "ruleId": "THERE_S_MANY",
+        "message": "Did you mean “there are some students”?",
+        "replacements": [
+            "there are some students"
+        ],
+        "offsetInContext": 3,
+        "context": "If there is some students or from their fans, they can't play and...",
+        "offset": 3,
+        "errorLength": 22,
+        "category": "GRAMMAR",
+        "ruleIssueType": "grammar",
+        "sentence": "If there is some students or from their fans, they can't play and keep it away from their studying or something.",
+        "id": 13,
+        "speakerId": "SPEAKER_00"
+    },
+    {
+        "ruleId": "UPPERCASE_SENTENCE_START",
+        "message": "This sentence does not start with an uppercase letter.",
+        "replacements": [
+            "From"
+        ],
+        "offsetInContext": 21,
+        "context": "My name is Mohammed. from Saudi Arabia.",
+        "offset": 21,
+        "errorLength": 4,
+        "category": "CASING",
+        "ruleIssueType": "typographical",
+        "sentence": "from Saudi Arabia.",
+        "id": 14,
+        "speakerId": "SPEAKER_00"
+    },
+    {
+        "ruleId": "UPPERCASE_SENTENCE_START",
+        "message": "This sentence does not start with an uppercase letter.",
+        "replacements": [
+            "But"
+        ],
+        "offsetInContext": 4,
+        "context": "No. but sometimes you can't wear the same t-shi...",
+        "offset": 4,
+        "errorLength": 3,
+        "category": "CASING",
+        "ruleIssueType": "typographical",
+        "sentence": "but sometimes you can't wear the same t-shirt everyday.",
+        "id": 15,
+        "speakerId": "SPEAKER_00"
+    },
+    {
+        "ruleId": "UPPERCASE_SENTENCE_START",
+        "message": "This sentence does not start with an uppercase letter.",
+        "replacements": [
+            "For"
+        ],
+        "offsetInContext": 43,
+        "context": "...ans they can give it to their children. for work or album I think it's album for ou...",
+        "offset": 121,
+        "errorLength": 3,
+        "category": "CASING",
+        "ruleIssueType": "typographical",
+        "sentence": "for work or album I think it's album for our pictures.",
+        "id": 16,
+        "speakerId": "SPEAKER_00"
+    },
+    {
+        "ruleId": "UPPERCASE_SENTENCE_START",
+        "message": "This sentence does not start with an uppercase letter.",
+        "replacements": [
+            "Because"
+        ],
+        "offsetInContext": 6,
+        "context": "Yeah. because everyone can watch it.",
+        "offset": 6,
+        "errorLength": 7,
+        "category": "CASING",
+        "ruleIssueType": "typographical",
+        "sentence": "because everyone can watch it.",
+        "id": 17,
+        "speakerId": "SPEAKER_00"
+    }
+]

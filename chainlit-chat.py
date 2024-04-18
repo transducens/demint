@@ -13,6 +13,7 @@ RAG_search_k = 1
 
 @cl.on_settings_update
 async def setup_agent(settings):
+    print("Settings update start...")
     english_tutor = cl.user_session.get("english_tutor")
 
     speakerId = settings["SpeakerId"]
@@ -24,12 +25,12 @@ async def setup_agent(settings):
     current_LLM = settings["CurrentLLM"]
     if english_tutor.get_llm_model_id() != current_LLM:
         print(f'LLM updated: {current_LLM}')
-        english_tutor = english_tutor.set_llm_model_id(current_LLM)
+        english_tutor.set_llm_model_id(current_LLM)
 
     current_RAG = settings["CurrentRAG"]
     if english_tutor.get_rag_engine_id() != current_RAG:
         print(f'RAG Engine updated: {current_RAG}')
-        english_tutor = english_tutor.set_rag_engine(current_RAG)
+        english_tutor.set_rag_engine(current_RAG)
 
     cl.user_session.set("aitana_bot", english_tutor)
 
@@ -103,14 +104,14 @@ async def on_message(message: cl.Message):
     english_tutor = cl.user_session.get("english_tutor")
     counter = cl.user_session.get("counter")
 
-    tema = None
+    theme = None
     if counter == 0:
         print(f'counter: {counter}')
         study_plan: list = cl.user_session.get("study_plan")
         res = None
         while res is None or res.get("value") != "continue":
-            tema = random.choice(study_plan)
-            res = await ask_action(tema['llm_response'])
+            theme = random.choice(study_plan)
+            res = await ask_action(theme['llm_response'])
 
         msg = cl.Message(content='')
         await msg.send()
@@ -118,12 +119,12 @@ async def on_message(message: cl.Message):
         context = ""
 
         # selected_speaker_text = cl.user_session.get("selected_speaker_text")
-        mistake_description = tema['llm_response']
+        mistake_description = theme['llm_response']
 
-        _, _, RAG_context = await cl.make_async(english_tutor.search_in_index)(mistake_description,
-                                                                                     RAG_search_k)
+        RAG_context = await cl.make_async(english_tutor.search_in_index)(mistake_description, RAG_search_k)
 
-        context_str = "\n".join(RAG_context)
+        content_list = [f'{item["content"]}' for item in RAG_context]
+        context_str = "\n----------\n".join(content_list)
 
         context += "\n\nThe English rule:\n"
         context += "\n\n" + context_str + "\n"

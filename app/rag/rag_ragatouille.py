@@ -38,11 +38,11 @@ class RAGatouilleTutor(IRagEngine):
 
         if self.INDEX is None:
             print(f"'RAGatouille INDEX' is None. Loading from index {self.index_path}.")
-            self.RAG = RAGPretrainedModel.from_index(self.index_path)
+            self.INDEX = RAGPretrainedModel.from_index(self.index_path)
 
         if self.INDEX is not None:
             print(f"'RAGatouille' exists. Searching..")
-            results = self.RAG.search(query, k=k)
+            results = self.INDEX.search(query, k=k)
 
             output = [
                 {

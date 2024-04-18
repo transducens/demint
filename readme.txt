@@ -161,8 +161,8 @@ RELOAD terminal
     Create token (developer settings)
     https://github.com/settings/tokens?type=beta
 
-    git clone https://[user]:[token]@github.com/levnikolaevich/EnglishTutor.git
-    cd EnglishTutor
+    git clone https://github.com/transducens/demint.git
+    cd demint
 
 Variant 1:
     conda env create -f environment-ubuntu.yml

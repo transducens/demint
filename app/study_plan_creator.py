@@ -17,10 +17,8 @@ class StudyPlanCreator:
         self.__grammar_checker = GrammarChecker()
 
     def create_study_plan(self, speaker_context: dict, speaker_id: str):
-
         study_plan = self.__use_language_tool(speaker_context, speaker_id)
         study_plan = self.__use_llm_model(study_plan)
-        #print(study_plan)
 
         return study_plan
 

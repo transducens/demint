@@ -102,6 +102,10 @@ Launching the Application
          ```
          conda activate DeMINT
          ```
+    - Set up the Hugging Face credentials by running and following the instructions in the terminal:
+         ```
+         huggingface-cli login
+         ```
     - Run the application with Gradio by executing the following command:
 
         python gradio-chat.py
@@ -142,7 +146,8 @@ https://chat.openai.com/share/7eef562a-30cb-44dc-924d-992c97b7a5a1
 =================
 Ubuntu 20.04
     sudo apt-get update
-    sudo apt-get install libtiff5 build-essential git wget
+    sudo apt-get upgrade -y
+    sudo apt-get install ffmpeg libtiff5 build-essential git wget
 
     mkdir -p ~/miniconda3
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
@@ -172,8 +177,7 @@ For clean system:
     conda create --name DeMINT
     conda activate DeMINT
     conda install pymupdf faiss-gpu pytorch torchvision torchaudio pytorch-cuda=12.1 cuda-toolkit -c pytorch -c nvidia -c conda-forge
-    pip install gradio chainlit sentence-transformers ragatouille dspy-ai huggingface_hub
-    pip install pyannote.audio whisper-openai
+    pip install yt-dlp sentence-splitter language-tool-python gradio==4.21.0 chainlit sentence-transformers ragatouille dspy-ai huggingface_hub pyannote.audio whisper-openai
     conda env export > environment-ubuntu.yml
 
 

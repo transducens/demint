@@ -76,4 +76,12 @@ class RagFAISS(IRagEngine):
         # Perform the search on the index
         D, I = self.__indexFlatIP.search(xq, k)  # D - cosine similarities, I - indices of nearest neighbors
         RAG_context = [self.__text[idx] for idx in I[0]]
-        return D, I, RAG_context
+
+        output = [
+            {
+                "content": item,
+            }
+            for item in RAG_context
+        ]
+        
+        return output

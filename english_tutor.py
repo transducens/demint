@@ -47,6 +47,8 @@ class EnglishTutor:
     # = Audio Extractor Region
     # ====================
 
+    # Get the speakers context from the audio file
+    # The context is a list of transcripts for each speaker sorted by time
     def get_speakers_context(self, file_name="audio/extracted_audio.wav"):
         if self.__speakers_context is None:
             if self.__audio_extractor is None:
@@ -59,6 +61,7 @@ class EnglishTutor:
                 self.__file_manager.save_to_json_file(self.cache_files_paths['diarization_result'], diarization)
 
             if diarization is not None:
+                # Load the diarization results in a list of transcripts for each speaker
                 self.__speakers_context = self.__audio_extractor.get_diarization_grouped_by_speaker(diarization)
 
         return self.__speakers_context

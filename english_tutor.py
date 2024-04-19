@@ -129,9 +129,13 @@ class EnglishTutor:
     # ====================
     # = AudioDownloader Region
     # ====================
-    def download_audio(self, video_url, output_filename="audio/extracted_audio"):
+    def download_audio(
+            self, 
+            video_url="https://www.youtube.com/watch?v=wv_nEUnhFFE", 
+            output_filename="audio/extracted_audio", 
+            audio_format="wav"):
         audio_downloader = self.__get_audio_downloader()
-        audio_downloader.download_audio(video_url, output_filename)
+        audio_downloader.download_audio(video_url, output_filename + "." + audio_format)
 
     def get_video_info(self, video_url):
         audio_downloader = self.__get_audio_downloader()

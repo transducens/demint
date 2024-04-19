@@ -118,7 +118,7 @@ def refresh_audio(_=None):
 
 def clean_cache():
     global speakers_context, selected_speaker_text, english_tutor
-    english_tutor.clean_cache()
+    #english_tutor.clean_cache()
     speakers_context = None
     selected_speaker_text = None
 

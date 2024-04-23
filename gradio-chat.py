@@ -106,46 +106,46 @@ def update_dropdown(_=None):
         sorted_speakers += sorted( {speaker_context[1] for speaker_context in speakers_context} )
     return sorted_speakers
 
-# TODO: finish this function
-# Labels the speaker text to highlight the errors and speaker's name.
-def label_speaker_text(speaker_selection):
-    global selected_speaker_text, speakers_context, english_tutor, speaker_colors
 
-    colors = default_colors.copy()
-    labeled_speaker_text = []
-    if speakers_context is not None:
-        if speaker_selection == "All speakers":
-            for speaker_context in speakers_context:
-                # time
-                labeled_speaker_text.append( ("\n\n" + speaker_context[0] + "] ", "time") )
-                # speaker name
-                if speaker_context[1] not in speaker_colors:
-                    # speaker_name = speaker_color_key
-                    speaker_colors[speaker_context[1]] = colors.pop()
-                labeled_speaker_text.append( (speaker_context[1], speaker_context[1]) )
-                # speaker text
-                labeled_speaker_text.append( (speaker_context[2], None) )
-        else:
-            # specific speaker
-            for speaker_context in speakers_context:
-                if speaker_context[1] == speaker_selection:
-                    labeled_speaker_text.append( ("\n\n" + speaker_context[0] + "] ", "time") )
-                    if speaker_context[1] not in speaker_colors:
-                        # speaker_name = speaker_color_key
-                        speaker_colors[speaker_context[1]] = colors.pop()
-                    labeled_speaker_text.append( (speaker_context[1], speaker_context[1]) )
-                    labeled_speaker_text.append( (speaker_context[2], None) )
+# Given a text, font color, and background color
+# Returns the text with the given font and background color.
+# Markdown is used to highlight the text.
+def highlight_text(text="", font_color="#FFFFFF", background_color="#000000"):
+    return f'<span style="color: {font_color}; background-color: {background_color}">{text}</span>'
 
-    return labeled_speaker_text
 
 # Receives as a parameter the name of the speaker selected in the dropdown.
 # Returns a string that is the text spoken by the selected speaker or speakers.
 # 0 -> time, 1 -> speaker, 2 -> text
 def handle_dropdown_selection(speaker_selection):
-    global selected_speaker_text, speakers_context, english_tutor
-    tuple_labels = label_speaker_text(speaker_selection)
-    
-    return tuple_labels
+    global selected_speaker_text, speakers_context, english_tutor, speaker_colors
+
+    colors = default_colors.copy()
+    selected_speaker_text = 'No hay texto que enseñar.'
+    if speakers_context is not None:
+        for speaker_context in speakers_context:
+            speaker_name = speaker_context[1]
+            if speaker_name not in speaker_colors:
+                speaker_colors[speaker_name] = colors.pop()
+        if speaker_selection == 'All speakers':
+            selected_speaker_text = "\n\n".join(
+                speaker_context[0] + " "
+                + highlight_text(text=speaker_context[1], background_color=speaker_colors[speaker_context[1]]) + " "
+                + speaker_context[2] + "\n"
+                for speaker_context in speakers_context)
+        
+        else:
+            # specific speaker text
+            selected_speaker_text = "\n\n".join(
+                speaker_context[0] + " " 
+                + highlight_text(text=speaker_context[1], background_color=speaker_colors[speaker_context[1]]) + " "
+                + speaker_context[2] + "\n" 
+                for speaker_context in speakers_context if speaker_context[1] == speaker_selection)
+
+    # Add scrollable container
+    result = f"<div style='overflow-y: scroll; height: 400px; padding: 10px; border: 1px solid #ddd; border-radius: 5px;'>{selected_speaker_text}</div>"
+
+    return selected_speaker_text
         
 
 
@@ -214,25 +214,14 @@ def main():
             with gr.Column():
                 sorted_speakers = update_dropdown()
                 default_value = sorted_speakers[0] if sorted_speakers else None
-                dropdown = gr.Dropdown(label="Select a speaker", choices=sorted_speakers, value=default_value)
+                dropdown = gr.Dropdown(label="Select a speaker", choices=sorted_speakers, value=default_value, interactive=True)
                 #speaker_text = gr.Textbox(label="Speaker's text", value=handle_dropdown_selection(default_value),
                 #                          interactive=False, lines=10, elem_id="speaker_text")
-                speaker_colors.update({"time": "#18848E"})
-                speaker_text = gr.HighlightedText(
-                    label="Transcript",
+                speaker_text = gr.Markdown(
                     value=handle_dropdown_selection(default_value),
-                    interactive=False,
-                    combine_adjacent=True,
-                    show_legend=True,
-                    container=True,
-                    color_map=speaker_colors, # add an item to a dictionary
-                    # 
-                )
+                    latex_delimiters=[] # Disable LaTeX rendering
+                    )
                 dropdown.change(fn=handle_dropdown_selection, inputs=[dropdown], outputs=[speaker_text])
-
-            # Block markdown trying to highlight the speaker's name and the time.
-            with gr.Column():
-                gr.Markdown("Speaker's text")
                 
 
 

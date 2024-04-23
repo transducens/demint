@@ -4,20 +4,24 @@ import time
 from english_tutor import EnglishTutor
 import re
 
-global speakers_context, selected_speaker_text, english_tutor
+global speakers_context, selected_speaker_text, english_tutor, default_colors, speaker_colors
 english_tutor = None
 speakers_context = None
 selected_speaker_text = None
-speaker_colors = {"speaker1": "#40E0D0", 
-                  "speaker2": "#FFA07A", 
-                  "speaker3": "#FFD700", 
-                  "speaker4": "#FF6347", 
-                  "speaker5": "#FF69B4", 
-                  "speaker6": "#7B68EE", 
-                  "speaker7": "#00FF7F", 
-                  "speaker8": "#FF4500", 
-                  "speaker9": "#FF1493", 
-                  "speaker10": "#FF33FF",}
+default_colors = {
+    "#FF33FF",
+    "#FF1493",
+    "#FF4500",
+    "#00FF7F",
+    "#7B68EE",
+    "#FF69B4",
+    "#FF6347",
+    "#FFD700",
+    "#FFA07A",
+    "#40E0D0"
+}
+speaker_colors = {}
+
 
 tracemalloc.start()
 
@@ -105,28 +109,32 @@ def update_dropdown(_=None):
 # TODO: finish this function
 # Labels the speaker text to highlight the errors and speaker's name.
 def label_speaker_text(speaker_selection):
-    global selected_speaker_text, speakers_context, english_tutor
+    global selected_speaker_text, speakers_context, english_tutor, speaker_colors
 
-    colors = speaker_colors.copy()
+    colors = default_colors.copy()
     labeled_speaker_text = []
-    speakers = {}
     if speakers_context is not None:
         if speaker_selection == "All speakers":
             for speaker_context in speakers_context:
+                # time
                 labeled_speaker_text.append( ("\n\n" + speaker_context[0] + "] ", "time") )
-                #labeled_speaker_text.append( (speaker_context[1], "speaker") )
-                if speaker_context[1] not in speakers:
+                # speaker name
+                if speaker_context[1] not in speaker_colors:
                     # speaker_name = speaker_color_key
-                    speakers[speaker_context[1]] = colors.popitem()[0]
-                labeled_speaker_text.append( (speaker_context[1], speakers[speaker_context[1]]) )
-                labeled_speaker_text.append( (speaker_context[2], "text") )
-        #else:
-            # specific speaker text
-        #    selected_speaker_text = "\n\n".join(
-        #        speaker_context[0] + "] " 
-        #        + "**" + speaker_context[1] + "** "
-        #        + speaker_context[2] + "\n" 
-        #        for speaker_context in speakers_context if speaker_context[1] == speaker_selection)
+                    speaker_colors[speaker_context[1]] = colors.pop()
+                labeled_speaker_text.append( (speaker_context[1], speaker_context[1]) )
+                # speaker text
+                labeled_speaker_text.append( (speaker_context[2], None) )
+        else:
+            # specific speaker
+            for speaker_context in speakers_context:
+                if speaker_context[1] == speaker_selection:
+                    labeled_speaker_text.append( ("\n\n" + speaker_context[0] + "] ", "time") )
+                    if speaker_context[1] not in speaker_colors:
+                        # speaker_name = speaker_color_key
+                        speaker_colors[speaker_context[1]] = colors.pop()
+                    labeled_speaker_text.append( (speaker_context[1], speaker_context[1]) )
+                    labeled_speaker_text.append( (speaker_context[2], None) )
 
     return labeled_speaker_text
 
@@ -179,7 +187,7 @@ def label_text(text, input, label=None):
 def main():
     print(gr.__version__)
     # Create the Gradio interface.
-    with gr.Blocks() as demo:
+    with gr.Blocks(fill_height=True) as demo:
         gr.Markdown("Chat with English Tutor AI")
         with gr.Row():
             # Block for downloading the audio from the YouTube video.
@@ -209,16 +217,24 @@ def main():
                 dropdown = gr.Dropdown(label="Select a speaker", choices=sorted_speakers, value=default_value)
                 #speaker_text = gr.Textbox(label="Speaker's text", value=handle_dropdown_selection(default_value),
                 #                          interactive=False, lines=10, elem_id="speaker_text")
-
+                speaker_colors.update({"time": "#18848E"})
                 speaker_text = gr.HighlightedText(
                     label="Transcript",
                     value=handle_dropdown_selection(default_value),
                     interactive=False,
                     combine_adjacent=True,
                     show_legend=True,
-                    color_map=speaker_colors
+                    container=True,
+                    color_map=speaker_colors, # add an item to a dictionary
+                    # 
                 )
                 dropdown.change(fn=handle_dropdown_selection, inputs=[dropdown], outputs=[speaker_text])
+
+            # Block markdown trying to highlight the speaker's name and the time.
+            with gr.Column():
+                gr.Markdown("Speaker's text")
+                
+
 
             # Block for chatting with the AI.
             with gr.Column():

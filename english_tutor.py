@@ -1,7 +1,7 @@
+from app.llm.ChatFactory import ChatFactory
 from app.rag.RAGFactory import RAGFactory
 from app.audio_downloader import AudioDownloader
 from app.audio_extractor import AudioExtractor
-from app.chat_llm import Chat
 from app.file_manager import FileManager
 import os
 import shutil
@@ -10,10 +10,11 @@ from app.study_plan_creator import StudyPlanCreator
 
 
 class EnglishTutor:
-    def __init__(self, llm_model_id="google/gemma-1.1-2b-it", rag_engine="ragatouille"):
+    def __init__(self, rag_engine="ragatouille"):
         # LLM
-        self.__llm_model_id = llm_model_id
         self.__chat_llm = None
+        self.__chat_factory = ChatFactory()
+        self.__chat_history = []
 
         # RAG
         self.__rag_engine = rag_engine
@@ -30,11 +31,10 @@ class EnglishTutor:
     def __get_rag_engine(self):
         return self.__rag_factory.get_instance(self.__rag_engine)
 
-    def __get_chat_llm(self):
+    def __get_chat_llm(self, llm_id="google/gemma-1.1-2b-it",):
         if self.__chat_llm is None:
-            self.__chat_llm = Chat(self.__llm_model_id)
+            self.__chat_llm = self.__chat_factory.get_instance(llm_id)
 
-        print(f"Model {self.__llm_model_id} loaded for Chat LLM")
         return self.__chat_llm
 
     def __get_audio_downloader(self):
@@ -68,8 +68,7 @@ class EnglishTutor:
 
     def clean_cache(self):
         self.__speakers_context = None
-        chat_llm = self.__get_chat_llm()
-        chat_llm.clean_chat_history()
+        self.__chat_history = []
 
         cache_folder = 'cache'
         if os.path.isdir(cache_folder):
@@ -89,8 +88,8 @@ class EnglishTutor:
             except Exception as e:
                 print(f'Failed to delete the folder {ragatouille_folder}. Reason: {e}')
 
-    def get_llm_model_id(self):
-        return self.__llm_model_id
+    def get_current_llm_model_id(self):
+        return self.__chat_llm.get_my_name()
 
     def get_rag_engine_id(self):
         return self.__rag_engine
@@ -98,18 +97,22 @@ class EnglishTutor:
     # ====================
     # = Chat LLM Region
     # ====================
+    def set_chat_llm(self, llm_id):
+        self.__chat_llm = self.__chat_factory.get_instance(llm_id)
 
     def get_answer(self, content, max_new_tokens=250):
         chat_llm = self.__get_chat_llm()
         return chat_llm.get_answer(content, max_new_tokens)
 
+    @staticmethod
+    def get_available_llm():
+        return ChatFactory.get_supported_llm_ids()
+
     def update_chat_history(self, text):
-        chat_llm = self.__get_chat_llm()
-        return chat_llm.update_chat_history(text)
+        return self.__chat_history.extend(text)
 
     def get_chat_history(self):
-        chat_llm = self.__get_chat_llm()
-        return chat_llm.get_chat_history()
+        return self.__chat_history
 
     # ====================
     # = Rag FAISS Region
@@ -124,10 +127,6 @@ class EnglishTutor:
 
     def set_rag_engine(self, rag_engine):
         self.__rag_engine = rag_engine
-
-    def set_llm_model_id(self, llm_model_id):
-        self.__llm_model_id = llm_model_id
-        self.__chat_llm = None
 
     # ====================
     # = AudioDownloader Region

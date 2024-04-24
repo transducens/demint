@@ -4,9 +4,8 @@ import time
 from english_tutor import EnglishTutor
 import re
 
-global speakers_context, selected_speaker_text, english_tutor, default_colors, speaker_colors
-english_tutor = None
-speakers_context = None
+english_tutor: EnglishTutor | None = None
+speakers_context: dict | None = None
 selected_speaker_text = None
 default_colors = {
     "#FF33FF",
@@ -32,6 +31,7 @@ def initialize_global_variables():
     if english_tutor is None:
         print("initialize english_tutor started")
         english_tutor = EnglishTutor()
+        english_tutor.set_rag_engine("faiss")
         print("initialize english_tutor finished")
 
     if speakers_context is None:
@@ -49,7 +49,7 @@ def chat_with_ai(query):
         context += "\nYou are given direct speech from a user. When responding, address the user by name: \n"
         context += selected_speaker_text
 
-    D, I, RAG_context = english_tutor.search_in_faiss_index(query, k=3)
+    D, I, RAG_context = english_tutor.search_in_index(query, k=3)
     context_str = "\n".join(RAG_context)
 
     context += "\n\nThe English rule:\n"

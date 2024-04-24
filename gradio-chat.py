@@ -145,7 +145,7 @@ def handle_dropdown_selection(speaker_selection):
     # Add scrollable container
     result = f"<div style='overflow-y: scroll; height: 400px; padding: 10px; border: 1px solid #ddd; border-radius: 5px;'>{selected_speaker_text}</div>"
 
-    return selected_speaker_text
+    return result
         
 
 

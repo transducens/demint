@@ -145,21 +145,18 @@ https://chat.openai.com/share/7eef562a-30cb-44dc-924d-992c97b7a5a1
 
 =================
 Ubuntu 20.04
-    sudo apt-get update
-    sudo apt-get upgrade -y
+    sudo apt-get update && \
+    sudo apt-get upgrade -y && \
     sudo apt-get install ffmpeg libtiff5 build-essential git wget
 
-    mkdir -p ~/miniconda3
-    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
-    bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
-    rm -rf ~/miniconda3/miniconda.sh
-    ~/miniconda3/bin/conda init bash
+    mkdir -p ~/miniconda3 && \
+    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh && \
+    bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3 && \
+    rm -rf ~/miniconda3/miniconda.sh && \
+    ~/miniconda3/bin/conda init bash && \
     ~/miniconda3/bin/conda init zsh
 
 RELOAD terminal
-
-    Create token (developer settings)
-    https://github.com/settings/tokens?type=beta
 
     git clone https://github.com/transducens/demint.git
     cd demint
@@ -199,3 +196,5 @@ docker run -e HF_TOKEN='your token' --gpus all -p 8080:8000 levnikolaevich87/eng
 
 nvcc --version
 nvidia-smi
+
+git clone -b features/DEMINT-001-llm-factory https://github.com/transducens/demint.git

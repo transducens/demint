@@ -2,7 +2,12 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import time
 
-class Chat:
+from app.llm.chat_interface import IChat
+
+supported_models = ["google/gemma-1.1-2b-it", "google/gemma-1.1-7b-it"]
+
+
+class GemmaChat(IChat):
     """
     A chat class for interacting with a conversational language model.
 
@@ -18,6 +23,10 @@ class Chat:
         Args:
             model_id (str): Identifier for the model to load (default is "google/gemma-1.1-2b-it").
         """
+        if model_id not in supported_models:
+            raise ValueError(
+                f"model_id '{model_id}' is not supported. Please use one of the following: {', '.join(supported_models)}")
+
         self.__device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         print("Device detected: ", self.__device)
 
@@ -25,9 +34,10 @@ class Chat:
 
         self.__tokenizer = AutoTokenizer.from_pretrained(model_id)
         self.__model = AutoModelForCausalLM.from_pretrained(
-                        model_id,
-                        torch_dtype=torch_dtype).to(self.__device)
-        self.__chat_history = []
+            model_id,
+            torch_dtype=torch_dtype).to(self.__device)
+        self.__model_id = model_id
+        print(f"Model loaded: {model_id}")
 
     def __clean_model_response(self, response_text):
         """
@@ -81,11 +91,16 @@ class Chat:
         print(f"get_answer from LLM finished. Time taken to get answer from LLM: {elapsed_time} seconds")
         return self.__clean_model_response(response_text)
 
-    def update_chat_history(self, histories):
-        self.__chat_history.extend(histories)
+    def get_my_name(self):
+        return self.__model_id
 
-    def get_chat_history(self):
-        return self.__chat_history
+    @staticmethod
+    def get_supported_models():
+        """
+        Returns the list of supported models for the GemmaChat class.
 
-    def clean_chat_history(self):
-        self.__chat_history = []
+        Returns:
+            list: A list of supported model identifiers.
+        """
+        return supported_models
+

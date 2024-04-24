@@ -2,61 +2,54 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import time
 
+# Importing the interface IChat from the chat_interface module within the app.llm package.
 from app.llm.chat_interface import IChat
 
+# List of model identifiers that are supported by this class.
 supported_models = ["google/gemma-1.1-2b-it", "google/gemma-1.1-7b-it"]
 
 
 class GemmaChat(IChat):
     """
-    A chat class for interacting with a conversational language model.
-
-    Attributes:
-        __tokenizer (AutoTokenizer): The tokenizer for the specified model.
-        __model (AutoModelForCausalLM): The causal language model for generating responses.
+    A class for interacting with a conversational language model, inheriting from IChat interface.
+    It handles model loading, input processing, and response generation.
     """
 
     def __init__(self, model_id="google/gemma-1.1-2b-it"):
         """
-        Initializes the Chat class with a specified conversational model.
-
-        Args:
-            model_id (str): Identifier for the model to load (default is "google/gemma-1.1-2b-it").
+        Initializes the GemmaChat class with a model specified by its ID. The default model is "google/gemma-1.1-2b-it".
+        Raises an exception if an unsupported model ID is provided.
         """
-        if model_id not in supported_models:
-            raise ValueError(
-                f"model_id '{model_id}' is not supported. Please use one of the following: {', '.join(supported_models)}")
+        # Validates if the provided model ID is supported, raises ValueError if not.
+        super().__init__(model_id)
 
+        # Setup device for model computations (GPU if available, otherwise CPU).
         self.__device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         print("Device detected: ", self.__device)
 
+        # Defines data type for tensors based on the availability of CUDA.
         torch_dtype = torch.bfloat16 if torch.cuda.is_available() else torch.float32
 
+        # Load tokenizer and model using the specified model ID, adjusting for the computed torch_dtype.
         self.__tokenizer = AutoTokenizer.from_pretrained(model_id)
         self.__model = AutoModelForCausalLM.from_pretrained(
-            model_id,
-            torch_dtype=torch_dtype).to(self.__device)
-        self.__model_id = model_id
-        print(f"Model loaded: {model_id}")
+            model_id, torch_dtype=torch_dtype).to(self.__device)
 
     def __clean_model_response(self, response_text):
         """
-        Cleans the model's response by removing predefined tokens that indicate the start of the model's turn and
-        any service tokens indicating the end of a turn or end of sequence. This makes the response more human-readable.
-
-        Args:
-            response_text (str): The raw response text from the model.
-
-        Returns:
-            str: The cleaned response text, ready for presentation to the user.
+        Processes the raw response text from the model, removing unnecessary tokens that signify turns or sequence ends,
+        making the response more suitable for human reading.
         """
+        # Predefined tokens used to indicate the beginning and end of the model's turn.
         start_token = "<start_of_turn>model"
         end_tokens = ["<end_of_turn>", "<eos>"]
 
+        # Remove the start token from the response if present.
         start_index = response_text.find(start_token)
         if start_index != -1:
             response_text = response_text[start_index + len(start_token):]
 
+        # Remove any end tokens from the response if present.
         for token in end_tokens:
             end_index = response_text.find(token)
             if end_index != -1:
@@ -66,25 +59,23 @@ class GemmaChat(IChat):
 
     def get_answer(self, content, max_new_tokens=150):
         """
-        Generates a response to the input content using the loaded model.
-
-        Args:
-            content (str): The input text content to generate a response to.
-            max_new_tokens (int): The maximum number of new tokens to generate (default is 150).
-
-        Returns:
-            str: The generated response text.
+        Generates a response from the model for the provided input content.
+        Utilizes the loaded model and tokenizer to process and generate the response.
         """
         print("get_answer from LLM started")
         start_time = time.time()
 
+        # Create the prompt from user content.
         chat = [{"role": "user", "content": content}]
         prompt = self.__tokenizer.apply_chat_template(chat, tokenize=False, add_generation_prompt=True)
 
+        # Encode the prompt to tensor, send to appropriate device.
         input_ids = self.__tokenizer.encode(prompt, add_special_tokens=False, return_tensors="pt").to(self.__device)
 
+        # Generate response using the model.
         outputs = self.__model.generate(input_ids=input_ids, max_new_tokens=max_new_tokens)
 
+        # Decode the output tensors to text.
         response_text = self.__tokenizer.decode(outputs[0])
         end_time = time.time()
         elapsed_time = end_time - start_time
@@ -92,15 +83,14 @@ class GemmaChat(IChat):
         return self.__clean_model_response(response_text)
 
     def get_my_name(self):
+        """
+        Returns the model identifier currently used by this GemmaChat instance.
+        """
         return self.__model_id
 
     @staticmethod
     def get_supported_models():
         """
-        Returns the list of supported models for the GemmaChat class.
-
-        Returns:
-            list: A list of supported model identifiers.
+        Provides a list of model identifiers that are supported by the GemmaChat class.
         """
         return supported_models
-

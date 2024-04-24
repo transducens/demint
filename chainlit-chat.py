@@ -6,7 +6,7 @@ import random
 
 from english_tutor import EnglishTutor
 
-available_llm = ["google/gemma-1.1-2b-it", "google/gemma-1.1-7b-it"]
+available_llm = EnglishTutor.get_available_llm()
 max_new_tokens = 200
 RAG_search_k = 1
 
@@ -23,9 +23,9 @@ async def setup_agent(settings):
     cl.user_session.set("selected_speaker_text", selected_speaker_text)
 
     current_LLM = settings["CurrentLLM"]
-    if english_tutor.get_llm_model_id() != current_LLM:
+    if english_tutor.get_current_llm_model_id() != current_LLM:
         print(f'LLM updated: {current_LLM}')
-        english_tutor.set_llm_model_id(current_LLM)
+        english_tutor.set_chat_llm(current_LLM)
 
     current_RAG = settings["CurrentRAG"]
     if english_tutor.get_rag_engine_id() != current_RAG:
@@ -71,7 +71,7 @@ async def on_chat_start():
 
     available_RAG = english_tutor.get_supported_rag_engines()
 
-    english_tutor.set_llm_model_id(available_llm[0])
+    english_tutor.set_chat_llm(available_llm[0])
     english_tutor.set_rag_engine(available_RAG[0])
     cl.user_session.set("english_tutor", english_tutor)
 

@@ -1,12 +1,11 @@
 from sentence_splitter import SentenceSplitter
 
-from app.chat_llm import Chat
 from app.file_manager import FileManager
 from app.grammar_checker import GrammarChecker
 
 
 class StudyPlanCreator:
-    def __init__(self, llm_model: Chat, max_new_tokens=250):
+    def __init__(self, llm_model, max_new_tokens=250):
         self.cache_files_paths = {'lang_tool_errors': 'cache/lang_tool_result.json'}
 
         self.__chat_llm = llm_model

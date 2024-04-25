@@ -26,7 +26,8 @@ class EnglishTutor:
         self.__file_manager = FileManager()
 
         self.cache_files_paths = {'diarization_result': 'cache/diarization_result.json',
-                                  'study_plan': 'cache/study_plan.json'}
+                                  'study_plan': 'cache/study_plan.json',
+                                  'manual_dialog': 'cache/manual_dialog.json'}
 
     def __get_rag_engine(self):
         return self.__rag_factory.get_instance(self.__rag_engine)
@@ -54,7 +55,7 @@ class EnglishTutor:
             if self.__audio_extractor is None:
                 self.__audio_extractor = AudioExtractor()
 
-            diarization = self.__file_manager.read_from_json_file(self.cache_files_paths['diarization_result'])
+            diarization = self.__file_manager.read_from_json_file(self.cache_files_paths['manual_dialog'])
 
             if diarization is None:
                 diarization = self.__audio_extractor.perform_diarization(file_name)

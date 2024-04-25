@@ -11,9 +11,9 @@ dependencies:
   - brotli-python=1.1.0=py312h30efb56_1
   - bzip2=1.0.8=hd590300_5
   - c-ares=1.28.1=hd590300_0
-  - ca-certificates=2024.2.2=hbcca054_0
+  - ca-certificates=2024.3.11=h06a4308_0
   - cairo=1.18.0=h3faef2a_0
-  - certifi=2024.2.2=pyhd8ed1ab_0
+  - certifi=2024.2.2=py312h06a4308_0
   - charset-normalizer=3.3.2=pyhd8ed1ab_0
   - cuda-cccl=12.4.127=0
   - cuda-command-line-tools=12.1.1=0
@@ -249,6 +249,7 @@ dependencies:
       - fastapi-socketio==0.0.10
       - ffmpeg-python==0.2.0
       - ffmpy==0.3.2
+      - ffprobe==0.5
       - filetype==1.2.0
       - flask==3.0.3
       - fonttools==4.51.0
@@ -366,6 +367,7 @@ dependencies:
       - python-socketio==5.11.2
       - pytorch-lightning==2.2.2
       - pytorch-metric-learning==2.5.0
+      - pytube==15.0.0
       - pytz==2024.1
       - ragatouille==0.0.8.post2
       - referencing==0.34.0
@@ -420,12 +422,13 @@ dependencies:
       - uvicorn==0.25.0
       - voyager==2.0.6
       - watchfiles==0.20.0
-      - websockets==11.0.3
+      - websockets==12.0
       - werkzeug==3.0.2
       - whisper-openai==1.0.0
       - wrapt==1.16.0
       - wsproto==1.2.0
       - xxhash==3.4.1
       - yarl==1.9.4
-      - yt-dlp==2023.11.16
+      - yt-dlp==2024.4.9
       - zipp==3.18.1
+prefix: /home/rastapar/miniconda3/envs/DeMINT

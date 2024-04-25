@@ -1,6 +1,6 @@
 import os
 import requests
-import yt_dlp
+import pytube as yt
 from subprocess import call
 import platform
 
@@ -49,34 +49,29 @@ class AudioDownloader:
                 return True
 
     def download_audio(self, video_url, output_filename="audio/extracted_audio.wav"):
-        ffmpeg_is_local = False
-
-        # Ensure FFmpeg is downloaded before attempting to download audio
-        if platform.system() == 'Windows':
-            ffmpeg_is_local = self.__download_ffmpeg()
-
         print(f"Downloading AUDIO... {video_url}")
-        # yt-dlp options for downloading audio in the best quality and converting to wav
-        ydl_opts = {
-            'format': 'bestaudio/best',
-            'postprocessors': [{
-                'key': 'FFmpegExtractAudio',
-                'preferredcodec': 'wav',
-                'preferredquality': '192',
-            }],
-            'outtmpl': output_filename,
-        }
 
-        if ffmpeg_is_local:
-            ydl_opts['ffmpeg_location'] = os.path.join(self.ffmpeg_path, self.ffmpeg_v_name + "/bin")
+        # Use pytube(yt) to download audio from the given URL
+        yt_handler =  yt.YouTube(video_url)
+        # Get the best audio stream
+        audio_stream = yt_handler.streams.filter(only_audio=True).first()
+        # Download the audio
+        audio_stream.download(filename=output_filename)
+        print(f"Audio saved as {output_filename}")
 
-        # Use yt-dlp to download audio from the given URL
-        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            ydl.download([video_url])
-            print(f"Audio saved as {output_filename}")
-
+    # Use pytube(yt) to get information about the video from the given URL
     def get_video_info(self, video_url):
-        with yt_dlp.YoutubeDL() as ydl:
-            info_dict = ydl.extract_info(video_url, download=False)
+            yt_handler = yt.YouTube(video_url)
+            # Extract the video information
+            # Create a dictionary to store video information
+            video_info = {
+                "title": yt_handler.title,
+                "author": yt_handler.author,
+                "duration": yt_handler.length,
+                "thumbnail_url": yt_handler.thumbnail_url,
+                "description": yt_handler.description,
+                "views": yt_handler.views,
+                "publish_date": yt_handler.publish_date
+            }
 
-        return info_dict
+            return video_info

@@ -148,7 +148,6 @@ def handle_dropdown_selection(speaker_selection):
     return result
         
 
-
 def get_audio_path():
     audio_path = "audio/extracted_audio.wav"
     return audio_path
@@ -165,10 +164,14 @@ def clean_cache():
     selected_speaker_text = None
 
 
+# Splits the text by the separator and includes the separator in the result.
+# Returns a list of strings.
 def split_inclusive(text, separator):
     return re.split(f'({re.escape(separator)})', text)
 
 
+# Highlights the input text with the given label in the text.
+# Returns a list of tuples with the text and the label.
 def label_text(text, input, label=None):
     separated_text = split_inclusive(text, input)
     

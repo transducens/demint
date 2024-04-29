@@ -10,12 +10,19 @@ from typing import Any, Dict, List, Union
 
 from datasets import load_dataset, DatasetDict
 
+import os
+
+from transformers import WhisperForConditionalGeneration
+from datasets import Audio
+
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 torch_dtype = torch.float16 if torch.cuda.is_available() else torch.float32
 
 from huggingface_hub import notebook_login
 
 notebook_login()
+
+#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
 
 class DataCollatorSpeechSeq2SeqWithPadding:
     processor: any
@@ -39,29 +46,51 @@ class DataCollatorSpeechSeq2SeqWithPadding:
 
 class Whisper:
     def __init__(self, model_id = "openai/whisper-large-v3"):
+        """
         self.__model = AutoModelForSpeechSeq2Seq.from_pretrained(
             model_id,
             # QLoRA
             #load_in_4bit = True,
             #device_map = "auto",
-            torch_dtype = torch_dtype,
+            torch_dtype = torch.torch_dtype,
             low_cpu_mem_usage = True,
             use_safetensors = True
         )
+        """
+
+        self.__model = WhisperForConditionalGeneration.from_pretrained(model_id)
+
+        self.__model.generation_config.language = "english"
+        self.__model.generation_config.task = "transcribe"
+
+        self.__model.generation_config.forced_decoder_ids = None
 
         self.__model.to(device)
 
         self.__feature_extractor = WhisperFeatureExtractor.from_pretrained(model_id)
-        self.__processor = WhisperProcessor.from_pretrained(model_id, language="eng", task="transcribe")
-        self.__tokenizer = WhisperTokenizer.from_pretrained(model_id, language="eng", task="transcribe")
+        self.__processor = WhisperProcessor.from_pretrained(model_id, language="english", task="transcribe")
+        self.__tokenizer = WhisperTokenizer.from_pretrained(model_id, language="english", task="transcribe")
         self.__metric = evaluate.load("wer")
 
+    """
     def load_dataset(self):
         common_voice = DatasetDict()
 
         common_voice["train"] = load_dataset("mozilla-foundation/common_voice_11_0", "es", split="train+validation", use_auth_token=True)
         common_voice["test"] = load_dataset("mozilla-foundation/common_voice_11_0", "es", split="test", use_auth_token=True)
+        print(common_voice)
+        print(common_voice["train"][15])
         common_voice = common_voice.remove_columns(["accent", "age", "client_id", "down_votes", "gender", "locale", "path", "segment", "up_votes"])
+        print(common_voice)
+        print(common_voice["train"][15])
+
+        return common_voice
+    """
+
+    def load_dataset(self):
+        common_voice = load_dataset("audiofolder", data_dir=os.path.join("TSCC_database"))
+        print(common_voice)
+        print(common_voice["train"][15])
 
         return common_voice
 
@@ -94,7 +123,7 @@ class Whisper:
         return {"wer": wer}
     
     def training(self, common_voice):
-        common_voice = common_voice.map(self.prepare_dataset, remove_columns=common_voice.column_names["train"], num_proc=2)
+        common_voice = common_voice.map(self.prepare_dataset, remove_columns=common_voice.column_names["train"], num_proc=1)
         data_collator = DataCollatorSpeechSeq2SeqWithPadding(
             processor=self.__processor,
             decoder_start_token_id=self.__model.config.decoder_start_token_id,
@@ -135,7 +164,8 @@ class Whisper:
         trainer.train()
 
 if __name__ == '__main__':
-    whisper_model = Whisper()
+    whisper_model = Whisper("openai/whisper-small")
 
     common_voice = whisper_model.load_dataset()
+    common_voice = common_voice.cast_column("audio", Audio(sampling_rate=16000))
     whisper_model.training(common_voice)

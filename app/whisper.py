@@ -22,8 +22,6 @@ from huggingface_hub import notebook_login
 
 notebook_login()
 
-#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
-
 class DataCollatorSpeechSeq2SeqWithPadding:
     processor: any
     decoder_start_token_id: int

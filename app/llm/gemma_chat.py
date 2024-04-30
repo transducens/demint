@@ -32,8 +32,16 @@ class GemmaChat(IChat):
 
         # Load tokenizer and model using the specified model ID, adjusting for the computed torch_dtype.
         self.__tokenizer = AutoTokenizer.from_pretrained(model_id)
-        self.__model = AutoModelForCausalLM.from_pretrained(
-            model_id, torch_dtype=torch_dtype).to(self.__device)
+
+        if torch.cuda.is_available():
+            self.__model = AutoModelForCausalLM.from_pretrained(
+                model_id,
+                attn_implementation="flash_attention_2",
+                torch_dtype=torch_dtype).to(self.__device)
+        else:
+            self.__model = AutoModelForCausalLM.from_pretrained(
+                model_id,
+                torch_dtype=torch_dtype).to(self.__device)
 
     def __clean_model_response(self, response_text):
         """
@@ -86,7 +94,7 @@ class GemmaChat(IChat):
         """
         Returns the model identifier currently used by this GemmaChat instance.
         """
-        return self.__model_id
+        return self.get_model_id()
 
     @staticmethod
     def get_supported_models():

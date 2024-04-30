@@ -28,10 +28,19 @@ class PhiChat(IChat):
         print("Device detected: ", self.__device)
 
         self.__tokenizer = AutoTokenizer.from_pretrained(model_id)
-        self.__model = AutoModelForCausalLM.from_pretrained(model_id,
-                                                            device_map=self.__device,
-                                                            torch_dtype="auto",
-                                                            trust_remote_code=True)
+
+        if torch.cuda.is_available():
+            self.__model = AutoModelForCausalLM.from_pretrained(model_id,
+                                                                device_map=self.__device,
+                                                                torch_dtype="auto",
+                                                                attn_implementation="flash_attention_2",
+                                                                trust_remote_code=True)
+        else:
+            self.__model = AutoModelForCausalLM.from_pretrained(model_id,
+                                                                device_map=self.__device,
+                                                                torch_dtype="auto",
+                                                                trust_remote_code=True)
+
         self.__pipe = pipeline("text-generation",
                                model=self.__model,
                                tokenizer=self.__tokenizer)
@@ -98,7 +107,7 @@ class PhiChat(IChat):
         """
         Returns the model identifier.
         """
-        return self.__model_id
+        return self.get_model_id()
 
     @staticmethod
     def get_supported_models():

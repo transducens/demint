@@ -2,6 +2,7 @@ import json
 import os
 import re
 
+import deprecated
 import torch
 import whisper
 from pyannote.audio import Pipeline
@@ -115,6 +116,7 @@ class AudioExtractor:
 
         return groups
 
+    @deprecated
     def get_diarization_grouped_by_speaker(self, diarization_result):
         # Loads diarization results from a file, if it exists
         speakers_context = [] # List of the transcripts for each speaker
@@ -132,6 +134,22 @@ class AudioExtractor:
                     speakers_context[speaker_label] = text
                 """
         return speakers_context
+    
+
+    # Given a list of diarization results
+    # Return a list of transcripts separating for time, speaker, and text
+    def process_diarizated_text(self, diarization_result):
+        # Loads diarization results from a file, if it exists
+        speakers_context = [] # List of the transcripts for each speaker
+        for transcript in diarization_result:
+            parts = transcript.split("||")
+            if len(parts) > 1:
+                text_time, speaker_label, text = parts[0].split("]")[0].strip(), parts[0].split("]")[1].strip(), parts[1].strip()
+                # Appens the time, speaker, and text to the 3D list
+                speakers_context.append([text_time, speaker_label, text])
+
+        return speakers_context
+
 
     def perform_diarization(self, wav_file):
         # Main method to perform diarization and transcription

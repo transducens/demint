@@ -63,7 +63,7 @@ class EnglishTutor:
 
             if diarization is not None:
                 # Load the diarization results in a list of transcripts for each speaker
-                self.__speakers_context = self.__audio_extractor.get_diarization_grouped_by_speaker(diarization)
+                self.__speakers_context = self.__audio_extractor.process_diarizated_text(diarization)
 
         return self.__speakers_context
 

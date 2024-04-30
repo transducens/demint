@@ -2,7 +2,6 @@ import json
 import os
 import re
 
-import deprecated
 import torch
 import whisper
 from pyannote.audio import Pipeline
@@ -116,7 +115,7 @@ class AudioExtractor:
 
         return groups
 
-    @deprecated
+
     def get_diarization_grouped_by_speaker(self, diarization_result):
         # Loads diarization results from a file, if it exists
         speakers_context = [] # List of the transcripts for each speaker

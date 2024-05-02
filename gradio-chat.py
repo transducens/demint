@@ -8,16 +8,16 @@ english_tutor: EnglishTutor | None = None
 speakers_context: dict | None = None
 selected_speaker_text = None
 default_colors = {
-    "#FF33FF",
-    "#FF1493",
-    "#FF4500",
-    "#00FF7F",
-    "#7B68EE",
-    "#FF69B4",
-    "#FF6347",
-    "#FFD700",
-    "#FFA07A",
-    "#40E0D0"
+    "#fd0000",  # Red
+    "#4a95ce",  # Blue
+    "#c0d6e4",  # Light blue
+    "#819090",  # Gray
+    "#800080",  # Purple
+    "#ff80ed",  # Pink
+    "#c1813b",  # Brown
+    "#edb626",  # Orange
+    "#213a85",  # Dark blue
+    "#947825"   # Olive
 }
 speaker_colors = {}
 
@@ -107,6 +107,12 @@ def update_dropdown(_=None):
     return sorted_speakers
 
 
+# Given a text and the word to highlight, it returns the text with the word highlighted.
+def highlight_error(text, word, font_color="#e43b29", background_color="#4f5b66"):
+    style = f'"color: {font_color}; background-color: {background_color}; font-weight: bold"'
+    return text.replace(word, f'<span style={style} >{word}</span>')
+
+
 # Given a text, font color, and background color
 # Returns the text with the given font and background color.
 # Markdown is used to highlight the text.
@@ -115,6 +121,7 @@ def highlight_text(text="", font_color="#FFFFFF", background_color="#000000"):
 
 
 # Receives as a parameter the name of the speaker selected in the dropdown.
+# Using speaker_context, it joins each sentence in a string.
 # Returns a string that is the text spoken by the selected speaker or speakers.
 # 0 -> time, 1 -> speaker, 2 -> text
 def handle_dropdown_selection(speaker_selection):
@@ -141,6 +148,9 @@ def handle_dropdown_selection(speaker_selection):
                 + highlight_text(text=speaker_context[1], background_color=speaker_colors[speaker_context[1]]) + " "
                 + speaker_context[2] + "\n" 
                 for speaker_context in speakers_context if speaker_context[1] == speaker_selection)
+
+    # Temp highlights error
+    selected_speaker_text = highlight_error(selected_speaker_text, "Egyp")
 
     # Add scrollable container
     result = f"<div style='overflow-y: scroll; height: 400px; padding: 10px; border: 1px solid #ddd; border-radius: 5px;'>{selected_speaker_text}</div>"
@@ -214,12 +224,10 @@ def main():
 
         with gr.Row(equal_height=True):
             # Block for the transcript of the speakers in the audio.
-            with gr.Column():
+            with gr.Column(scale=0.7):
                 sorted_speakers = update_dropdown()
                 default_value = sorted_speakers[0] if sorted_speakers else None
                 dropdown = gr.Dropdown(label="Select a speaker", choices=sorted_speakers, value=default_value, interactive=True)
-                #speaker_text = gr.Textbox(label="Speaker's text", value=handle_dropdown_selection(default_value),
-                #                          interactive=False, lines=10, elem_id="speaker_text")
                 speaker_text = gr.Markdown(
                     value=handle_dropdown_selection(default_value),
                     latex_delimiters=[] # Disable LaTeX rendering
@@ -229,13 +237,16 @@ def main():
 
 
             # Block for chatting with the AI.
-            with gr.Column():
+            with gr.Column(scale=1):
                 #gr.Markdown("Chat with English Tutor AI")
                 response = gr.Textbox(label="Chat History:", interactive=False, lines=10, autoscroll=True, elem_id="chatbot_response")
                 query = gr.Textbox(label="Enter your query: (ex. How does past perfect work? )")
                 submit_button = gr.Button("Submit")
                 # Process the user query when the submit button is clicked.
                 submit_button.click(fn=chat_with_ai, inputs=[query], outputs=[response])
+                # Or when the user presses the Enter key.
+                query.submit(fn=chat_with_ai, inputs=[query], outputs=[response])
+
                 gr.HighlightedText(
                     value=[
                         ("In your phrase", None),

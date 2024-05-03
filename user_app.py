@@ -8,18 +8,18 @@ english_tutor: EnglishTutor | None = None
 speakers_context: dict | None = None
 selected_speaker_text = None
 default_colors = {
-    "#fd0000",  # Red
-    "#4a95ce",  # Blue
-    "#c0d6e4",  # Light blue
-    "#819090",  # Gray
-    "#800080",  # Purple
-    "#ff80ed",  # Pink
-    "#c1813b",  # Brown
-    "#edb626",  # Orange
-    "#213a85",  # Dark blue
-    "#947825"   # Olive
+    "red": "#fd0000",
+    "blue": "#4a95ce",
+    "light blue": "#c0d6e4",
+    "gray": "#819090",
+    "purple": "#800080",
+    "pink": "#ff80ed",
+    "brown": "#c1813b",
+    "orange": "#edb626",
+    "dark blue": "#213a85",
+    "olive": "#947825"
 }
-speaker_colors = {}
+speaker_color = default_colors['dark blue']
 
 tracemalloc.start()
 
@@ -126,19 +126,17 @@ def highlight_text(text="", font_color="#FFFFFF", background_color="#000000"):
 def handle_dropdown_selection(speaker_selection):
     global selected_speaker_text, speakers_context, english_tutor, speaker_colors
 
-    colors = default_colors.copy()
     selected_speaker_text = 'No text to show.'
     if speakers_context is not None:
-        for speaker_context in speakers_context:
-            speaker_name = speaker_context[1]
-            if speaker_name not in speaker_colors:
-                speaker_colors[speaker_name] = colors.pop()
+        # All speakers text
         if speaker_selection == 'All speakers':
-            selected_speaker_text = "\n\n".join(
-                speaker_context[0] + " "
-                + highlight_text(text=speaker_context[1], background_color=speaker_colors[speaker_context[1]]) + " "
-                + speaker_context[2] + "\n"
-                for speaker_context in speakers_context)
+            selected_speaker_text = "\n\n"
+            for speaker_context in speakers_context:
+                selected_speaker_text += (
+                    speaker_context[0] + " " 
+                    + speaker_context[1] + " " 
+                    + speaker_context[2] + "\n\n"
+                )
         else:
             # specific speaker text
             selected_speaker_text = "\n\n"
@@ -148,10 +146,14 @@ def handle_dropdown_selection(speaker_selection):
                             speaker_context[0] + " " 
                             + speaker_context[1] + " " 
                             + speaker_context[2],
-                            background_color=speaker_colors[speaker_context[1]]
+                            background_color=speaker_color
                         ) + "\n\n"
                 else:
-                    selected_speaker_text += speaker_context[0] + " " + speaker_context[1] + " " + speaker_context[2] + "\n\n"
+                    selected_speaker_text += (
+                        speaker_context[0] + " " 
+                        + speaker_context[1] + " " 
+                        + speaker_context[2] + "\n\n"
+                    )
 
     # Add scrollable container
     result = f"<div>{selected_speaker_text}</div>"

@@ -41,6 +41,7 @@ def initialize_global_variables():
 
 # Chat with the AI using the given query.
 def chat_with_ai(query):
+    print("pressed")
     global selected_speaker_text, english_tutor
     context = ""
 
@@ -133,9 +134,11 @@ def handle_dropdown_selection(speaker_selection):
             selected_speaker_text = "\n\n"
             for speaker_context in speakers_context:
                 selected_speaker_text += (
-                    speaker_context[0] + " " 
+                    '<a id="' + speaker_context[0] + '">'
+                    + speaker_context[0] + " " 
                     + speaker_context[1] + " " 
                     + speaker_context[2] + "\n\n"
+                    + "</a>"
                 )
         else:
             # specific speaker text
@@ -198,7 +201,14 @@ def label_text(text, input, label=None):
                 result.append((subtext, None))
         return result
     
-js = ""
+js = """
+document.getElementById('markdown-id').addEventListener('DOMSubtreeModified', function() {
+  var anchor = document.getElementById('autoscroll-point');
+  if (anchor) {
+    anchor.scrollIntoView();
+  }
+});
+"""
 css = """
     .fullscreen {
        height: 90vh;
@@ -216,6 +226,12 @@ css = """
     }
     .chat-container {
         height: 73vh;
+    }
+    a {
+        color: inherit;
+        outline: none;
+        text-decoration: none;
+        -webkit-tap-highlight-color: white;
     }
 
 """

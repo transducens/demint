@@ -1,6 +1,7 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import time
+from accelerate import disk_offload
 
 # Importing the interface IChat from the chat_interface module within the app.llm package.
 from app.llm.chat_interface import IChat
@@ -33,30 +34,7 @@ class LLamaChat(IChat):
         self.__model = AutoModelForCausalLM.from_pretrained(
             model_id,
             torch_dtype=torch.bfloat16,
-            device_map="auto",
-        )
-
-    def __clean_model_response(self, response_text):
-        """
-        Processes the raw response text from the model, removing unnecessary tokens that signify turns or sequence ends,
-        making the response more suitable for human reading.
-        """
-        # Predefined tokens used to indicate the beginning and end of the model's turn.
-        start_token = "<start_of_turn>model"
-        end_tokens = ["<end_of_turn>", "<eos>"]
-
-        # Remove the start token from the response if present.
-        start_index = response_text.find(start_token)
-        if start_index != -1:
-            response_text = response_text[start_index + len(start_token):]
-
-        # Remove any end tokens from the response if present.
-        for token in end_tokens:
-            end_index = response_text.find(token)
-            if end_index != -1:
-                response_text = response_text[:end_index].strip()
-
-        return response_text
+            low_cpu_mem_usage=True).to(self.__device)
 
     def get_answer(self, content, max_new_tokens=150, system_prompt="You are english teacher!"):
         """
@@ -90,6 +68,7 @@ class LLamaChat(IChat):
             do_sample=True,
             temperature=0.6,
             top_p=0.9,
+            pad_token_id=self.__tokenizer.eos_token_id
         )
 
         # Generate response using the model.
@@ -101,7 +80,7 @@ class LLamaChat(IChat):
         end_time = time.time()
         elapsed_time = end_time - start_time
         print(f"get_answer from LLM finished. Time taken to get answer from LLM: {elapsed_time} seconds")
-        return response_text #self.__clean_model_response(response_text)
+        return response_text
 
     def get_my_name(self):
         """

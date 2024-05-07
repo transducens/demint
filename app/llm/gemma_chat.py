@@ -1,6 +1,8 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import time
+from transformers import BitsAndBytesConfig # For 4-bit or 8-bit quantization
+
 
 from app.llm.chat_interface import IChat
 
@@ -32,12 +34,24 @@ class GemmaChat(IChat):
 
         torch_dtype = torch.bfloat16 if torch.cuda.is_available() else torch.float32
 
-        self.__tokenizer = AutoTokenizer.from_pretrained(model_id)
-        self.__model = AutoModelForCausalLM.from_pretrained(
-            model_id,
-            torch_dtype=torch_dtype).to(self.__device)
-        self.__model_id = model_id
-        print(f"Model loaded: {model_id}")
+        # 4-bit quantization
+        quantization_config = BitsAndBytesConfig(
+            load_in_4bit=True, 
+            bnb_4bit_use_double_quant=True, 
+            bnb_4bit_compute_dtype=torch_dtype)
+
+        # Loading the LLM
+        try: 
+            self.__tokenizer = AutoTokenizer.from_pretrained(model_id)
+            self.__model = AutoModelForCausalLM.from_pretrained(
+                model_id,
+                device_map=self.__device,
+                quantization_config=quantization_config)
+            self.__model_id = model_id
+            print(f"Model loaded: {model_id}")
+        except Exception as e:
+            print(f"Failed to load model '{model_id}': {e.message}")
+            raise
 
     def __clean_model_response(self, response_text):
         """
@@ -83,7 +97,12 @@ class GemmaChat(IChat):
 
         input_ids = self.__tokenizer.encode(prompt, add_special_tokens=False, return_tensors="pt").to(self.__device)
 
-        outputs = self.__model.generate(input_ids=input_ids, max_new_tokens=max_new_tokens)
+        try:
+            outputs = self.__model.generate(input_ids=input_ids, max_new_tokens=max_new_tokens)
+        except Exception as e:
+            print(f"Failed to generate response: {e}")
+            return "I'm sorry, I'm having trouble generating a response right now."
+
 
         response_text = self.__tokenizer.decode(outputs[0])
         end_time = time.time()

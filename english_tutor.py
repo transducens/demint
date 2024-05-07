@@ -51,7 +51,7 @@ class EnglishTutor:
 
     # Get the speakers context from the audio file
     # The context is a list of transcripts for each speaker sorted by time
-    def get_speakers_context(self, file_name="audio/extracted_audio.wav", group_by_speaker=True):
+    def get_speakers_context(self, file_name="audio/extracted_audio.wav", group_by_speaker=False):
         if self.__speakers_context is None:
             if self.__audio_extractor is None:
                 self.__audio_extractor = AudioExtractor()

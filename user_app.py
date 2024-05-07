@@ -201,14 +201,7 @@ def label_text(text, input, label=None):
                 result.append((subtext, None))
         return result
     
-js = """
-document.getElementById('markdown-id').addEventListener('DOMSubtreeModified', function() {
-  var anchor = document.getElementById('autoscroll-point');
-  if (anchor) {
-    anchor.scrollIntoView();
-  }
-});
-"""
+js = """"""
 css = """
     .fullscreen {
        height: 90vh;
@@ -301,4 +294,5 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
 
 
 if __name__ == '__main__':
-    demo.launch()
+    is_public_link = True
+    demo.launch(share=is_public_link)

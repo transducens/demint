@@ -8,19 +8,18 @@ english_tutor: EnglishTutor | None = None
 speakers_context: dict | None = None
 selected_speaker_text = None
 default_colors = {
-    "#fd0000",  # Red
-    "#4a95ce",  # Blue
-    "#c0d6e4",  # Light blue
-    "#819090",  # Gray
-    "#800080",  # Purple
-    "#ff80ed",  # Pink
-    "#c1813b",  # Brown
-    "#edb626",  # Orange
-    "#213a85",  # Dark blue
-    "#947825"   # Olive
+    "red": "#fd0000",
+    "blue": "#4a95ce",
+    "light blue": "#c0d6e4",
+    "gray": "#819090",
+    "purple": "#800080",
+    "pink": "#ff80ed",
+    "brown": "#c1813b",
+    "orange": "#edb626",
+    "dark blue": "#213a85",
+    "olive": "#947825"
 }
-speaker_colors = {}
-
+speaker_color = default_colors['dark blue']
 
 tracemalloc.start()
 
@@ -42,6 +41,7 @@ def initialize_global_variables():
 
 # Chat with the AI using the given query.
 def chat_with_ai(query):
+    print("pressed")
     global selected_speaker_text, english_tutor
     context = ""
 
@@ -107,7 +107,6 @@ def update_dropdown(_=None):
     return sorted_speakers
 
 
-
 # Given a text and the word to highlight, it returns the text with the word highlighted.
 def highlight_error(text, word, font_color="#e43b29", background_color="#4f5b66"):
     style = f'"color: {font_color}; background-color: {background_color}; font-weight: bold"'
@@ -128,34 +127,39 @@ def highlight_text(text="", font_color="#FFFFFF", background_color="#000000"):
 def handle_dropdown_selection(speaker_selection):
     global selected_speaker_text, speakers_context, english_tutor, speaker_colors
 
-    colors = default_colors.copy()
-    selected_speaker_text = 'No hay texto que enseñar.'
+    selected_speaker_text = 'No text to show.'
     if speakers_context is not None:
-        for speaker_context in speakers_context:
-            speaker_name = speaker_context[1]
-            if speaker_name not in speaker_colors:
-                speaker_colors[speaker_name] = colors.pop()
+        # All speakers text
         if speaker_selection == 'All speakers':
-            selected_speaker_text = "\n\n".join(
-                speaker_context[0] + " "
-                + highlight_text(text=speaker_context[1], background_color=speaker_colors[speaker_context[1]]) + " "
-                + speaker_context[2] + "\n"
-                for speaker_context in speakers_context)
-        
+            selected_speaker_text = "\n\n"
+            for speaker_context in speakers_context:
+                selected_speaker_text += (
+                    '<a id="' + speaker_context[0] + '">'
+                    + speaker_context[0] + " " 
+                    + speaker_context[1] + " " 
+                    + speaker_context[2] + "\n\n"
+                    + "</a>"
+                )
         else:
             # specific speaker text
-            selected_speaker_text = "\n\n".join(
-                speaker_context[0] + " " 
-                + highlight_text(text=speaker_context[1], background_color=speaker_colors[speaker_context[1]]) + " "
-                + speaker_context[2] + "\n" 
-                for speaker_context in speakers_context if speaker_context[1] == speaker_selection)
-
-    # Temp highlights error
-    selected_speaker_text = highlight_error(selected_speaker_text, "Egyp")
+            selected_speaker_text = "\n\n"
+            for speaker_context in speakers_context:
+                if speaker_context[1] == speaker_selection:
+                    selected_speaker_text += highlight_text(text=
+                            speaker_context[0] + " " 
+                            + speaker_context[1] + " " 
+                            + speaker_context[2],
+                            background_color=speaker_color
+                        ) + "\n\n"
+                else:
+                    selected_speaker_text += (
+                        speaker_context[0] + " " 
+                        + speaker_context[1] + " " 
+                        + speaker_context[2] + "\n\n"
+                    )
 
     # Add scrollable container
-    result = f"<div style='overflow-y: scroll; height: 400px; padding: 10px; border: 1px solid #ddd; border-radius: 5px;'>{selected_speaker_text}</div>"
-
+    result = f"<div>{selected_speaker_text}</div>"
     return result
         
 
@@ -173,7 +177,6 @@ def clean_cache():
     #english_tutor.clean_cache()
     speakers_context = None
     selected_speaker_text = None
-
 
 
 # Splits the text by the separator and includes the separator in the result.
@@ -198,76 +201,98 @@ def label_text(text, input, label=None):
                 result.append((subtext, None))
         return result
     
+js = """"""
+css = """
+    .fullscreen {
+       height: 90vh;
+       width: 150vh;
+    }
+    .dropdown {
+        height: 10vh;
+    }
+    .transcript {
+        height: 80vh;
+        overflow-y: scroll;
+        padding: 10px; 
+        border: 1px solid #ddd; 
+        border-radius: 5px;
+    }
+    .chat-container {
+        height: 73vh;
+    }
+    a {
+        color: inherit;
+        outline: none;
+        text-decoration: none;
+        -webkit-tap-highlight-color: white;
+    }
 
-def main():
-    print(gr.__version__)
-    # Create the Gradio interface.
-    with gr.Blocks(fill_height=True) as demo:
-        gr.Markdown("Chat with English Tutor AI")
-        with gr.Row():
-            # Block for downloading the audio from the YouTube video.
-            with gr.Column():
-                link = gr.Textbox(
-                        lines=2,
-                        label="Enter link to YouTube's video: (ex. https://www.youtube.com/watch?v=wv_nEUnhFFE )"
+"""
+head_html = ""
+
+
+print("Version of gradio: " + gr.__version__)
+# Create the Gradio interface.
+with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=head_html) as demo:
+    initialize_global_variables()
+    # All Components container
+    with gr.Row():
+        # Block for the transcript of the speakers in the audio.
+        with gr.Column(scale=0.3):
+            sorted_speakers = update_dropdown()
+            default_value = sorted_speakers[0] if sorted_speakers else None
+            with gr.Row(elem_classes="dropdown"):
+                dropdown = gr.Dropdown(
+                    label="Select a speaker", 
+                    choices=sorted_speakers, 
+                    value=default_value, 
+                    interactive=True,
+                    scale=1,
+                    every=1
                     )
-                with gr.Column():
-                    # Process the YouTube link when the submit button is clicked.
-                    info_markdown = gr.Markdown("Video info:")
-
-                    submit_button_yt = gr.Button("Download audio")
-                    submit_button_yt.click(fn=get_video, inputs=[link], outputs=[info_markdown])
-
-            # Block for playing the audio.
-            with gr.Column():
-                audio_player = gr.Audio(value=get_audio_path, label="Listen to the audio", type="filepath")
-                refresh_button = gr.Button("Refresh video")
-                refresh_button.click(fn=get_audio_path, inputs=[], outputs=audio_player)
-
-        with gr.Row(equal_height=True):
-            # Block for the transcript of the speakers in the audio.
-            with gr.Column(scale=0.7):
-                sorted_speakers = update_dropdown()
-                default_value = sorted_speakers[0] if sorted_speakers else None
-                dropdown = gr.Dropdown(label="Select a speaker", choices=sorted_speakers, value=default_value, interactive=True)
+            with gr.Row(elem_classes="transcript"):
                 speaker_text = gr.Markdown(
                     value=handle_dropdown_selection(default_value),
-                    latex_delimiters=[] # Disable LaTeX rendering
+                        latex_delimiters=[], # Disable LaTeX rendering
+                        every=10
                     )
                 dropdown.change(fn=handle_dropdown_selection, inputs=[dropdown], outputs=[speaker_text])
-                
+            
 
 
-            # Block for chatting with the AI.
-            with gr.Column(scale=1):
-                #gr.Markdown("Chat with English Tutor AI")
-                response = gr.Textbox(label="Chat History:", interactive=False, lines=10, autoscroll=True, elem_id="chatbot_response")
-                query = gr.Textbox(label="Enter your query: (ex. How does past perfect work? )")
-                submit_button = gr.Button("Submit")
-                # Process the user query when the submit button is clicked.
-                submit_button.click(fn=chat_with_ai, inputs=[query], outputs=[response])
+        # Block for chatting with the AI.
+        with gr.Column(scale=0.7):
+            response = gr.Textbox(
+                label="Chat History:", 
+                interactive=False,  
+                autoscroll=True, 
+                elem_classes="chat-container",
+                lines=33,
+                max_lines=33,
+                scale=3
+                )
+            query = gr.Textbox(
+                label="Enter your query: (ex. How does past perfect work? )",
+                lines=2,
+                autoscroll=True,
+                max_lines=2,
+                scale=1
+                )
+            submit_button = gr.Button(
+                value="Submit",
+                scale=1,
+                )
+            # Process the user query when the submit button is clicked.
+            submit_button.click(fn=chat_with_ai, inputs=[query], outputs=[response])
+            # Or when the user presses the Enter key.
+            query.submit(fn=chat_with_ai, inputs=[query], outputs=[response])
+    
+    theme=gr.themes.Base()
 
-                # Or when the user presses the Enter key.
-                query.submit(fn=chat_with_ai, inputs=[query], outputs=[response])
-
-                gr.HighlightedText(
-                    value=[
-                        ("In your phrase", None),
-                        ("'I likes tomato'", "neutro"),
-                        ("you should use", None), 
-                        ("like", "bien"),
-                        ("instead of", None),
-                        ("likes", "mal")
-                    ],
-                    combine_adjacent=True,
-                    show_legend=True,
-                    color_map={"bien": "#36f802", "mal": "#FF0000", "neutro": "white"},),
-                theme=gr.themes.Base()
-
-    demo.launch()
+    
 
 
 
 if __name__ == '__main__':
-    initialize_global_variables()
-    main()
+    is_public_link = False
+    demo.launch(share=is_public_link)

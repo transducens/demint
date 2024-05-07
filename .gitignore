@@ -8,6 +8,3 @@ __pycache__
 /.files
 /.ragatouille
 /logs
-app/azure_openai_usage.log
-app/assertion.log
-app/openai_usage.log

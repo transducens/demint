@@ -1,6 +1,8 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import time
+from transformers import BitsAndBytesConfig # For 4-bit or 8-bit quantization
+
 
 # Importing the interface IChat from the chat_interface module within the app.llm package.
 from app.llm.chat_interface import IChat
@@ -30,18 +32,34 @@ class GemmaChat(IChat):
         # Defines data type for tensors based on the availability of CUDA.
         torch_dtype = torch.bfloat16 if torch.cuda.is_available() else torch.float32
 
-        # Load tokenizer and model using the specified model ID, adjusting for the computed torch_dtype.
-        self.__tokenizer = AutoTokenizer.from_pretrained(model_id)
+        # 4-bit quantization
+        quantization_config = BitsAndBytesConfig(
+            load_in_4bit=True, 
+            bnb_4bit_use_double_quant=True, 
+            bnb_4bit_compute_type=torch_dtype,
+            llm_int8_enable_fp32_cpu_offload=True)
 
-        if torch.cuda.is_available():
-            self.__model = AutoModelForCausalLM.from_pretrained(
-                model_id,
-                attn_implementation="flash_attention_2",
-                torch_dtype=torch_dtype).to(self.__device)
-        else:
-            self.__model = AutoModelForCausalLM.from_pretrained(
-                model_id,
-                torch_dtype=torch_dtype).to(self.__device)
+        # Loading the LLM
+        try: 
+            self.__tokenizer = AutoTokenizer.from_pretrained(model_id)
+            if torch.cuda.is_available():
+                self.__model = AutoModelForCausalLM.from_pretrained(
+                    model_id,
+                    device_map=self.__device,
+                    attn_implementation="flash_attention_2",
+                    quantization_config=quantization_config)
+            else:
+                self.__model = AutoModelForCausalLM.from_pretrained(
+                    model_id,
+                    device_map=self.__device,
+                    torch_dtype=torch_dtype)
+            
+            self.__model_id = model_id
+            print(f"Model loaded: {model_id}")
+        except Exception as e:
+            print(f"Failed to load model '{model_id}': {e.message}")
+            raise
+
 
     def __clean_model_response(self, response_text):
         """
@@ -80,8 +98,12 @@ class GemmaChat(IChat):
         # Encode the prompt to tensor, send to appropriate device.
         input_ids = self.__tokenizer.encode(prompt, add_special_tokens=False, return_tensors="pt").to(self.__device)
 
-        # Generate response using the model.
-        outputs = self.__model.generate(input_ids=input_ids, max_new_tokens=max_new_tokens)
+        try:
+            outputs = self.__model.generate(input_ids=input_ids, max_new_tokens=max_new_tokens)
+        except Exception as e:
+            print(f"Failed to generate response: {e}")
+            return "I'm sorry, I'm having trouble generating a response right now."
+
 
         # Decode the output tensors to text.
         response_text = self.__tokenizer.decode(outputs[0])

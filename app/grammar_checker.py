@@ -14,15 +14,18 @@ import language_tool_python as lt
 
 class GrammarChecker:
     # Can run in public API mode or local mode (.jar server)
+
     def __init__(self, language='en-US', public_api=False, filter_errors=True):
         if public_api:
             self.__tool = lt.LanguageToolPublicAPI(language)
             print("Using language tool public API.")
         else:
+
             self.__tool = lt.LanguageTool(language, config={
                 'cacheSize': 1024, # Improves performance
                 'pipelineCaching': True,
             })
+
             print("Using language tool local.")
         self.__categories = [
             'COLLOCATIONS',
@@ -108,29 +111,3 @@ class GrammarChecker:
     # Close the language tool (for background .jar server)
     def close(self):
         self.__tool.close()
-
-
-# Testing LanguageTool
-if __name__ == '__main__':
-    # Load JSON file
-    import json
-    with open('./cache/example_error_sentences.json', 'r') as file:
-        data = json.load(file)
-
-    # Get the text
-    sentences = [item['sentence'] for item in data]
-    #for sentence in sentences:
-    #    print(sentence)
-    #print("#########################################################")
-    
-    # Create the grammar checker
-    grammar_checker = GrammarChecker(public_api=False, filter_errors=False)
-
-    # Check the sentences
-    matches = grammar_checker.check_sentences(sentences)
-    for match in matches:
-        print(match, end='\n\n')
-
-    grammar_checker.close()
-
-    

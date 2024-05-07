@@ -10,8 +10,9 @@ from app.study_plan_creator import StudyPlanCreator
 
 
 class EnglishTutor:
-    def __init__(self, rag_engine="ragatouille"):
+    def __init__(self, rag_engine="ragatouille", llm_model_name="google/gemma-1.1-2b-it"):
         # LLM
+        self.__llm_model_name = llm_model_name
         self.__chat_llm = None
         self.__chat_factory = ChatFactory()
         self.__chat_history = []
@@ -32,9 +33,9 @@ class EnglishTutor:
     def __get_rag_engine(self):
         return self.__rag_factory.get_instance(self.__rag_engine)
 
-    def __get_chat_llm(self, llm_id="google/gemma-1.1-2b-it",):
+    def __get_chat_llm(self):
         if self.__chat_llm is None:
-            self.__chat_llm = self.__chat_factory.get_instance(llm_id)
+            self.__chat_llm = self.__chat_factory.get_instance(self.__llm_model_name)
 
         return self.__chat_llm
 
@@ -50,7 +51,7 @@ class EnglishTutor:
 
     # Get the speakers context from the audio file
     # The context is a list of transcripts for each speaker sorted by time
-    def get_speakers_context(self, file_name="audio/extracted_audio.wav"):
+    def get_speakers_context(self, file_name="audio/extracted_audio.wav", group_by_speaker=True):
         if self.__speakers_context is None:
             if self.__audio_extractor is None:
                 self.__audio_extractor = AudioExtractor()
@@ -63,7 +64,13 @@ class EnglishTutor:
 
             if diarization is not None:
                 # Load the diarization results in a list of transcripts for each speaker
-                self.__speakers_context = self.__audio_extractor.process_diarizated_text(diarization)
+                if group_by_speaker:
+                    self.__speakers_context = self.__audio_extractor.get_diarization_grouped_by_speaker(diarization)
+                else:
+                    self.__speakers_context = self.__audio_extractor.process_diarizated_text(diarization)
+
+                
+
 
         return self.__speakers_context
 
@@ -90,6 +97,9 @@ class EnglishTutor:
                 print(f'Failed to delete the folder {ragatouille_folder}. Reason: {e}')
 
     def get_current_llm_model_id(self):
+        if self.__chat_llm is None:
+            return None
+
         return self.__chat_llm.get_my_name()
 
     def get_rag_engine_id(self):
@@ -99,7 +109,8 @@ class EnglishTutor:
     # = Chat LLM Region
     # ====================
     def set_chat_llm(self, llm_id):
-        self.__chat_llm = self.__chat_factory.get_instance(llm_id)
+        self.__llm_model_name = llm_id
+        self.__chat_llm = None
 
     def get_answer(self, content, max_new_tokens=250):
         chat_llm = self.__get_chat_llm()

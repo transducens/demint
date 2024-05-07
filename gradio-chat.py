@@ -107,6 +107,7 @@ def update_dropdown(_=None):
     return sorted_speakers
 
 
+
 # Given a text and the word to highlight, it returns the text with the word highlighted.
 def highlight_error(text, word, font_color="#e43b29", background_color="#4f5b66"):
     style = f'"color: {font_color}; background-color: {background_color}; font-weight: bold"'
@@ -172,6 +173,7 @@ def clean_cache():
     #english_tutor.clean_cache()
     speakers_context = None
     selected_speaker_text = None
+
 
 
 # Splits the text by the separator and includes the separator in the result.
@@ -244,6 +246,7 @@ def main():
                 submit_button = gr.Button("Submit")
                 # Process the user query when the submit button is clicked.
                 submit_button.click(fn=chat_with_ai, inputs=[query], outputs=[response])
+
                 # Or when the user presses the Enter key.
                 query.submit(fn=chat_with_ai, inputs=[query], outputs=[response])
 

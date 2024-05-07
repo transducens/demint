@@ -4,6 +4,7 @@ import re
 
 import torch
 import whisper
+from nltk import deprecated
 from pyannote.audio import Pipeline
 from pyannote.audio.pipelines.utils.hook import ProgressHook
 from pydub import AudioSegment
@@ -116,11 +117,11 @@ class AudioExtractor:
         return groups
     
 
-    # Given a list of diarization results
-    # Return a list of transcripts separating for time, speaker, and text
-    def process_diarizated_text(self, diarization_result):
+
+    def get_diarization_grouped_by_speaker(self, diarization_result):
         # Loads diarization results from a file, if it exists
-        speakers_context = [] # List of the transcripts for each speaker
+        speakers_context = {} # List of the transcripts for each speaker
+
         for transcript in diarization_result:
             parts = transcript.split("||")
             if len(parts) > 1:

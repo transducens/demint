@@ -294,5 +294,5 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
 
 
 if __name__ == '__main__':
-    is_public_link = False
+    is_public_link = True
     demo.launch(share=is_public_link)

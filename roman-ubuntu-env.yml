@@ -346,6 +346,7 @@ dependencies:
       - pandas==2.2.2
       - platformdirs==4.2.0
       - pooch==1.8.1
+      - pretty-errors==1.2.25
       - primepy==1.3
       - protobuf==4.25.3
       - psutil==5.9.8
@@ -431,13 +432,13 @@ dependencies:
       - uvicorn==0.25.0
       - voyager==2.0.6
       - watchfiles==0.20.0
-      - websockets==12.0
+      - websockets==10.0
       - werkzeug==3.0.2
+      - whisper==1.1.10
       - whisper-openai==1.0.0
       - wrapt==1.16.0
       - wsproto==1.2.0
       - xxhash==3.4.1
       - yarl==1.9.4
-      - yt-dlp==2024.4.9
       - zipp==3.18.1
-prefix: /home/rastapar/miniconda3/envs/DeMINT
+prefix: /home/roman/miniconda3/envs/DeMINT

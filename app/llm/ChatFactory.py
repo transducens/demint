@@ -1,9 +1,11 @@
 from app.llm.gemma_chat import GemmaChat
+from app.llm.llama_chat import LLamaChat
 from app.llm.phi_chat import PhiChat
 
 # Retrieve a list of all supported models
 gemma_family = GemmaChat.get_supported_models()
 phi_family = PhiChat.get_supported_models()
+llama_family = LLamaChat.get_supported_models()
 
 
 class ChatFactory:
@@ -12,7 +14,7 @@ class ChatFactory:
     _supported_llm_types = {
          'gemma': GemmaChat,
          'phi': PhiChat,
-        # 'lamma': LlamaChat,
+         'llama': LLamaChat,
         # 'chatGPT': OpenAIChat,
     }
 
@@ -33,6 +35,9 @@ class ChatFactory:
         # Check if the model ID provided is in the list of supported PhiChat models.
         if llm_model_id in phi_family:
             llm_type = 'phi'  # Set the type to 'phi' if found.
+
+        if llm_model_id in llama_family:
+            llm_type = 'llama'  # Set the type to 'phi' if found.
 
         # Create and return an instance of the chat model using the determined llm_type.
         return ChatFactory._supported_llm_types[llm_type](llm_model_id)

@@ -48,7 +48,7 @@ async def on_chat_start():
     cl.user_session.set("counter", 0)
     english_tutor = EnglishTutor()
 
-    speakers_context = english_tutor.get_speakers_context()
+    speakers_context = english_tutor.get_speakers_context(group_by_speaker=True)
     cl.user_session.set("speakers_context", speakers_context)
     sorted_speakers = sorted(speakers_context.keys())
 

@@ -1,0 +1,10 @@
+{
+  "module": {
+    "lm": null,
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature_instructions": "\n    Correct grammatical errors in sentences and provide explanations for the corrections.\n    ",
+    "signature_prefix": "Explanation:"
+  }
+}

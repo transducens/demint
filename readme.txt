@@ -174,7 +174,7 @@ For clean system:
     conda create --name DeMINT
     conda activate DeMINT
     conda install pymupdf faiss-gpu pytorch torchvision torchaudio pytorch-cuda=12.1 cuda-toolkit -c pytorch -c nvidia -c conda-forge
-    pip install pytube flash_attn sentence-splitter language-tool-python gradio==4.21.0 chainlit sentence-transformers ragatouille dspy-ai huggingface_hub pyannote.audio whisper-openai accelerate
+    pip install bitsandbytes pytube flash_attn sentence-splitter language-tool-python gradio==4.21.0 chainlit sentence-transformers ragatouille dspy-ai huggingface_hub pyannote.audio whisper-openai accelerate
     conda env export > environment-ubuntu.yml
 
 

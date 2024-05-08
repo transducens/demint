@@ -41,12 +41,13 @@ class GemmaChat(IChat):
 
         # Loading the LLM
         try: 
-            self.__tokenizer = AutoTokenizer.from_pretrained(model_id)
+            self.__tokenizer = AutoTokenizer.from_pretrained(
+                model_id,
+                quantization_config=quantization_config)
             if torch.cuda.is_available():
                 self.__model = AutoModelForCausalLM.from_pretrained(
                     model_id,
                     device_map=self.__device,
-                    attn_implementation="flash_attention_2",
                     quantization_config=quantization_config)
             else:
                 self.__model = AutoModelForCausalLM.from_pretrained(
@@ -57,7 +58,7 @@ class GemmaChat(IChat):
             self.__model_id = model_id
             print(f"Model loaded: {model_id}")
         except Exception as e:
-            print(f"Failed to load model '{model_id}': {e.message}")
+            print(f"Failed to load model '{model_id}': {e}")
             raise
 
 

@@ -35,15 +35,12 @@ class GemmaChat(IChat):
         # 4-bit quantization
         quantization_config = BitsAndBytesConfig(
             load_in_4bit=True, 
-            bnb_4bit_use_double_quant=True, 
-            bnb_4bit_compute_type=torch_dtype,
-            llm_int8_enable_fp32_cpu_offload=True)
+            bnb_4bit_use_double_quant=True)
 
         # Loading the LLM
         try: 
             self.__tokenizer = AutoTokenizer.from_pretrained(
-                model_id,
-                quantization_config=quantization_config)
+                model_id)
             if torch.cuda.is_available():
                 self.__model = AutoModelForCausalLM.from_pretrained(
                     model_id,

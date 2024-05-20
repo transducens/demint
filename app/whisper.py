@@ -1,8 +1,7 @@
 import torch
 import evaluate
 
-from typing import Any
-from transformers import AutoModelForSpeechSeq2Seq, Seq2SeqTrainer, WhisperTokenizer, WhisperProcessor, WhisperFeatureExtractor, Seq2SeqTrainingArguments
+from transformers import Seq2SeqTrainer, WhisperTokenizer, WhisperProcessor, WhisperFeatureExtractor, Seq2SeqTrainingArguments
 from datasets import load_dataset
 
 from dataclasses import dataclass
@@ -19,8 +18,6 @@ device = "cuda:0" if torch.cuda.is_available() else "cpu"
 torch_dtype = torch.float16 if torch.cuda.is_available() else torch.float32
 
 from huggingface_hub import notebook_login
-
-notebook_login()
 
 class DataCollatorSpeechSeq2SeqWithPadding:
     processor: any

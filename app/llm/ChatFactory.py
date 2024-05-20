@@ -1,6 +1,6 @@
-from app.llm.gemma_chat import GemmaChat
-from app.llm.llama_chat import LLamaChat
-from app.llm.phi_chat import PhiChat
+from .gemma_chat import GemmaChat
+from .llama_chat import LLamaChat
+from .phi_chat import PhiChat
 
 # Retrieve a list of all supported models
 gemma_family = GemmaChat.get_supported_models()

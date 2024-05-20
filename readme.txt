@@ -202,4 +202,14 @@ nvidia-smi
 
 git clone -b features/DEMINT-027-Implement-the-error-verification-algorithm https://github.com/transducens/demint.git
 
+TGI
+model=meta-llama/Meta-Llama-3-8B-Instruct # set to the specific Hugging Face model ID you wish to use.
+num_shard=1 # set to the number of shards you wish to use.
+volume=$PWD/data # share a volume with the Docker container to avoid downloading weights every run
+
+HuggingFaceH4/zephyr-7b-beta
+meta-llama/Llama-2-13b-chat-hf
+meta-llama/Meta-Llama-3-8B-Instruct
+google/gemma-1.1-2b-it
+
 docker run --gpus all --shm-size 2g -p 8083:80 -v D:/Development/UNIVERSIDAD/BECA/tgi:/data -e DISABLE_EXLLAMA=True -e HUGGING_FACE_HUB_TOKEN=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 ghcr.io/huggingface/text-generation-inference:2.0 --model-id google/gemma-1.1-2b-it --num-shard 1 --max-input-tokens 1000 --max-batch-prefill-tokens 1000

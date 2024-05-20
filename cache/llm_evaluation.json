@@ -1,0 +1,863 @@
+[
+    {
+        "index": 1,
+        "speaker": "SPEAKER_01",
+        "sentence": "Good afternoon.",
+        "corrected_sentence": "Good afternoon!",
+        "explanation": "The period at the end of the sentence is unnecessary and makes it informal. The exclamation mark conveys the emotion more effectively."
+    },
+    {
+        "index": 2,
+        "speaker": "SPEAKER_01",
+        "sentence": "Good afternoon.",
+        "corrected_sentence": "Good afternoon!",
+        "explanation": "The period at the end of the sentence is unnecessary and makes it informal. The exclamation mark conveys the emotion more effectively."
+    },
+    {
+        "index": 3,
+        "speaker": "SPEAKER_01",
+        "sentence": "Can I have your marksheets please?",
+        "corrected_sentence": "Could you please provide me with your marksheets?",
+        "explanation": "Added \"please\" to make the request more polite and formal."
+    },
+    {
+        "index": 4,
+        "speaker": "SPEAKER_01",
+        "sentence": "I'm Susan Watson and this is Brother Roy Chowdery.",
+        "corrected_sentence": "I'm Susan Watson and this is Brother Roy Chowder.",
+        "explanation": "Corrected the punctuation error by separating the two names with a comma."
+    },
+    {
+        "index": 5,
+        "speaker": "SPEAKER_01",
+        "sentence": "Where do you come from?",
+        "corrected_sentence": "Where are you from?",
+        "explanation": "The original sentence has incorrect punctuation and lacks a verb."
+    },
+    {
+        "index": 6,
+        "speaker": "SPEAKER_01",
+        "sentence": "Thank you.",
+        "corrected_sentence": "Thank you!",
+        "explanation": "The exclamation mark is used to express excitement or surprise, making it appropriate in this context."
+    },
+    {
+        "index": 7,
+        "speaker": "SPEAKER_01",
+        "sentence": "And what's your name?",
+        "corrected_sentence": "What's your name?",
+        "explanation": "The question mark is misplaced; it should be placed after \"your.\""
+    },
+    {
+        "index": 8,
+        "speaker": "SPEAKER_01",
+        "sentence": "Where do you come from?",
+        "corrected_sentence": "Where are you from?",
+        "explanation": "The original sentence has incorrect punctuation and lacks a verb."
+    },
+    {
+        "index": 9,
+        "speaker": "SPEAKER_01",
+        "sentence": "Thank you.",
+        "corrected_sentence": "Thank you!",
+        "explanation": "The exclamation mark is used to express excitement or surprise, making it appropriate in this context."
+    },
+    {
+        "index": 10,
+        "speaker": "SPEAKER_01",
+        "sentence": "Thank you.",
+        "corrected_sentence": "Thank you!",
+        "explanation": "The exclamation mark is used to express excitement or surprise, making it appropriate in this context."
+    },
+    {
+        "index": 11,
+        "speaker": "SPEAKER_01",
+        "sentence": "And Kenza, do you work or are you a student? what you do.",
+        "corrected_sentence": "And Kenza, do you work or are you a student? What do you do?",
+        "explanation": "The original sentence had a misplaced modifier and incorrect verb tense. The corrected sentence correctly places the modifier and uses the correct verb tense."
+    },
+    {
+        "index": 12,
+        "speaker": "SPEAKER_01",
+        "sentence": "Thank you.",
+        "corrected_sentence": "Thank you!",
+        "explanation": "The exclamation mark is used to express excitement or surprise, making it appropriate in this context."
+    },
+    {
+        "index": 13,
+        "speaker": "SPEAKER_01",
+        "sentence": "Do you think that English will be useful for you in the future?",
+        "corrected_sentence": "Does English seem useful to you in the future?",
+        "explanation": "The original sentence had a grammatical error in the verb \"think.\" The correct verb form is \"does.\""
+    },
+    {
+        "index": 14,
+        "speaker": "SPEAKER_01",
+        "sentence": "Kinza, how do you get to work every day?",
+        "corrected_sentence": "How does Kinza get to work every day?",
+        "explanation": "The original sentence has a misplaced verb. The correct verb form is \"get.\""
+    },
+    {
+        "index": 15,
+        "speaker": "SPEAKER_01",
+        "sentence": "What did you do yesterday evening, Mohammed?",
+        "corrected_sentence": "What did you do last night, Mohammed?",
+        "explanation": "The original sentence has incorrect verb tense. The correct tense is \"last night.\""
+    },
+    {
+        "index": 16,
+        "speaker": "SPEAKER_01",
+        "sentence": "Thank you.",
+        "corrected_sentence": "Thank you!",
+        "explanation": "The exclamation mark is used to express excitement or surprise, making it appropriate in this context."
+    },
+    {
+        "index": 17,
+        "speaker": "SPEAKER_01",
+        "sentence": "Now, I'd like each of you to talk on your own about something.",
+        "corrected_sentence": "Now, each of you is encouraged to share your thoughts on something.",
+        "explanation": "Corrected the verb tense and added \"is encouraged\" to make the sentence more active."
+    },
+    {
+        "index": 18,
+        "speaker": "SPEAKER_01",
+        "sentence": "I'm going to give each of you a photograph and I'd like you to talk about it.",
+        "corrected_sentence": "I'm going to give each of you a photograph and I'd like you to discuss it.",
+        "explanation": "The original sentence has a misplaced modifier. The modifier \"it\" should be placed after \"photoshoot\" to modify the photograph correctly."
+    },
+    {
+        "index": 19,
+        "speaker": "SPEAKER_01",
+        "sentence": "Kenza, here is your photograph.",
+        "corrected_sentence": "\"Kenza, here is your photograph.\"",
+        "explanation": "Incorrect punctuation after the name \"Kenza.\""
+    },
+    {
+        "index": 20,
+        "speaker": "SPEAKER_01",
+        "sentence": "It shows someone getting information about something.",
+        "corrected_sentence": "It shows someone getting information about that.",
+        "explanation": "Corrected the verb tense and added the object \"that\" to clarify the context."
+    },
+    {
+        "index": 21,
+        "speaker": "SPEAKER_01",
+        "sentence": "Mohammed, you just listen.",
+        "corrected_sentence": "Mohammed listened attentively.",
+        "explanation": "Incorrect use of the verb \"listen\" (present tense). The correct verb form is \"listen.\""
+    },
+    {
+        "index": 22,
+        "speaker": "SPEAKER_01",
+        "sentence": "Kenza, please tell us what you can see in the photograph.",
+        "corrected_sentence": "What can you see in the photograph?",
+        "explanation": "The original sentence has a misplaced verb and lacks punctuation. The corrected sentence uses the correct verb tense and punctuation."
+    },
+    {
+        "index": 23,
+        "speaker": "SPEAKER_01",
+        "sentence": "I can see.",
+        "corrected_sentence": "I can see it.",
+        "explanation": "The original sentence has an incorrect verb tense. The correct tense is \"see,\" which is in the present tense."
+    },
+    {
+        "index": 24,
+        "speaker": "SPEAKER_01",
+        "sentence": "Talk about the place.",
+        "corrected_sentence": "Talk about the location.",
+        "explanation": "Corrected the verb tense and added \"location\" to specify the context."
+    },
+    {
+        "index": 25,
+        "speaker": "SPEAKER_01",
+        "sentence": "Thank you.",
+        "corrected_sentence": "Thank you!",
+        "explanation": "The exclamation mark is used to express excitement or surprise, making it appropriate in this context."
+    },
+    {
+        "index": 26,
+        "speaker": "SPEAKER_01",
+        "sentence": "Mohammed, here is your photograph.",
+        "corrected_sentence": "Mohammed. Here is your photograph.",
+        "explanation": "Proper capitalization and punctuation are used in the corrected sentence."
+    },
+    {
+        "index": 27,
+        "speaker": "SPEAKER_01",
+        "sentence": "Ken sir, you just listen.",
+        "corrected_sentence": "\"Ken sir,\" you just listen.",
+        "explanation": "Incorrect use of capitalization and punctuation. Proper capitalization and punctuation should be used."
+    },
+    {
+        "index": 28,
+        "speaker": "SPEAKER_01",
+        "sentence": "Mohammed, please tell us what you can see in the photograph.",
+        "corrected_sentence": "Mohammed, please tell us what you can see in the photograph.?",
+        "explanation": "Added the question mark to make the sentence interrogative and correct the tense of \"can see.\""
+    },
+    {
+        "index": 29,
+        "speaker": "SPEAKER_01",
+        "sentence": "Thank you.",
+        "corrected_sentence": "Thank you!",
+        "explanation": "The exclamation mark is used to express excitement or surprise, making it appropriate in this context."
+    },
+    {
+        "index": 30,
+        "speaker": "SPEAKER_01",
+        "sentence": "Now, in this part of the test, you're going to talk about something together for about two minutes.",
+        "corrected_sentence": "In this part of the test, you will discuss something together for about two minutes.",
+        "explanation": "The original sentence used \"talk\" in the passive voice, which is incorrect. The corrected sentence uses \"discuss\" in the active voice, making it clearer and more concise."
+    },
+    {
+        "index": 31,
+        "speaker": "SPEAKER_01",
+        "sentence": "I'm going to describe a situation to you.",
+        "corrected_sentence": "I'm going to describe a situation for you.",
+        "explanation": "Corrected the verb tense from \"describe\" to \"describe for\" to match the intended meaning."
+    },
+    {
+        "index": 32,
+        "speaker": "SPEAKER_01",
+        "sentence": "A local football club is celebrating its 50th anniversary and wants to give its fans a gift.",
+        "corrected_sentence": "A local football club is celebrating its 50th anniversary and is eager to give its fans a gift.",
+        "explanation": "Corrected the tense of \"wants\" to present tense to match the action of the sentence."
+    },
+    {
+        "index": 33,
+        "speaker": "SPEAKER_01",
+        "sentence": "Here are some gifts the club could give.",
+        "corrected_sentence": "Here are some gifts the club could offer.",
+        "explanation": "Corrected the verb tense from \"could give\" to \"could offer,\" which is the correct tense for the context."
+    },
+    {
+        "index": 34,
+        "speaker": "SPEAKER_01",
+        "sentence": "Talk together about the different things it could give and decide which the fans would like best.",
+        "corrected_sentence": "Let's discuss the various options and decide which the fans prefer.",
+        "explanation": "Corrected the verb tense and added \"let's\" to make the sentence more conversational and engaging."
+    },
+    {
+        "index": 35,
+        "speaker": "SPEAKER_01",
+        "sentence": "All right?",
+        "corrected_sentence": "Okay?",
+        "explanation": "The use of \"all right?\" is informal and should be replaced with \"okay?\" which is more formal."
+    },
+    {
+        "index": 36,
+        "speaker": "SPEAKER_01",
+        "sentence": "Now, talk together.",
+        "corrected_sentence": "Let's talk together.",
+        "explanation": "Incorrect use of \"talk\" as a verb. The correct verb form is \"talk.\""
+    },
+    {
+        "index": 37,
+        "speaker": "SPEAKER_01",
+        "sentence": "It's okay. which sports do you like?",
+        "corrected_sentence": "It's okay. Which sports do you like?",
+        "explanation": "The original sentence has a misplaced modifier. The modifier \"which sports\" modifies the noun \"sports,\" but in this case, it should modify the verb \"like.\""
+    },
+    {
+        "index": 38,
+        "speaker": "SPEAKER_01",
+        "sentence": "Why do so many people like football?",
+        "corrected_sentence": "Why do so many people enjoy football?",
+        "explanation": "Corrected the verb tense from \"like\" to \"enjoy\" to make it grammatically correct."
+    },
+    {
+        "index": 39,
+        "speaker": "SPEAKER_01",
+        "sentence": "Is it a good idea to join a fan club?",
+        "corrected_sentence": "Joining a fan club might be a good idea.",
+        "explanation": "Incorrect use of tense (\"is\" instead of \"join\")."
+    },
+    {
+        "index": 40,
+        "speaker": "SPEAKER_01",
+        "sentence": "What do you think?",
+        "corrected_sentence": "What's your opinion?",
+        "explanation": "The original sentence has incorrect punctuation and uses \"what do\" which is not grammatically correct. The corrected sentence uses \"what's your opinion?\" which is correct punctuation and grammar."
+    },
+    {
+        "index": 41,
+        "speaker": "SPEAKER_01",
+        "sentence": "Thank you.",
+        "corrected_sentence": "Thank you!",
+        "explanation": "The exclamation mark is used to express excitement or surprise, making it appropriate in this context."
+    },
+    {
+        "index": 42,
+        "speaker": "SPEAKER_01",
+        "sentence": "That is the end of the test.",
+        "corrected_sentence": "That is the end of the examination.",
+        "explanation": "Corrected the verb tense from \"is\" to \"examination\" to match the tense of the main clause."
+    },
+    {
+        "index": 43,
+        "speaker": "SPEAKER_03",
+        "sentence": "Would have been about Per Thank you.",
+        "corrected_sentence": "Would have been about per Thank you.",
+        "explanation": "The possessive pronoun \"per\" is used before the noun \"Thank you\" to indicate ownership."
+    },
+    {
+        "index": 44,
+        "speaker": "SPEAKER_02",
+        "sentence": "Here you are.",
+        "corrected_sentence": "Here you are!",
+        "explanation": "Exclamation point is used at the end of a sentence to express excitement or emphasis."
+    },
+    {
+        "index": 45,
+        "speaker": "SPEAKER_02",
+        "sentence": "I'm from Algeria.",
+        "corrected_sentence": "I am from Algeria.",
+        "explanation": "The use of \"from\" is incorrect in this context because the subject is \"I,\" which is singular. The correct phrase is \"am from Algeria.\""
+    },
+    {
+        "index": 46,
+        "speaker": "SPEAKER_02",
+        "sentence": "I was a student, but I had finished at the university.",
+        "corrected_sentence": "I was a student, and I had completed my studies at the university.",
+        "explanation": "The original sentence has a misplaced modifier. The modifier \"at the university\" modifies the noun \"student,\" but it should modify the verb \"had finished.\""
+    },
+    {
+        "index": 47,
+        "speaker": "SPEAKER_02",
+        "sentence": "Now I have my own salon beauty.",
+        "corrected_sentence": "Now I have my own personal beauty salon.",
+        "explanation": "Corrected the grammatical error \"salon beauty\" to \"personal beauty salon\" to make it more accurate and specific."
+    },
+    {
+        "index": 48,
+        "speaker": "SPEAKER_02",
+        "sentence": "Yes, I think that English is the most useful language in all the world because it permits us to achieve our objectives and to go further than we think.",
+        "corrected_sentence": "Yes, I believe that English is the most useful language in all the world because it enables us to achieve our goals and go beyond what we imagine.",
+        "explanation": "The original sentence had a grammatical error in \"we think\" which should be corrected to \"we achieve\". The punctuation was also incorrect. The corrected sentence is clearer and more concise."
+    },
+    {
+        "index": 49,
+        "speaker": "SPEAKER_02",
+        "sentence": "I generally get to work by car. lady which is maybe connected on a laptop and reading on a book.",
+        "corrected_sentence": "I generally get to work by car. Sometimes, I use a laptop and read on a book while I'm at work.",
+        "explanation": "In the first sentence, the grammatical error is \"lady which\". The correct phrase should be \"lady, which\". In the second sentence, the punctuation error is the comma after \"reading\". The correct punctuation should be a semicolon."
+    },
+    {
+        "index": 50,
+        "speaker": "SPEAKER_02",
+        "sentence": "He is normally in a library or I don't think she is at home.",
+        "corrected_sentence": "He is usually in the library, or she is not at home.",
+        "explanation": "The original sentence had a misplaced modifier. The modifier \"or she is not at home\" modifies the verb \"think,\" but it should modify the noun \"she.\""
+    },
+    {
+        "index": 51,
+        "speaker": "SPEAKER_02",
+        "sentence": "Maybe she is preparing for an exam for getting more information.",
+        "corrected_sentence": "Maybe she is preparing for an exam to get more information.",
+        "explanation": "Corrected the verb tense and added the preposition \"to\" to indicate the purpose."
+    },
+    {
+        "index": 52,
+        "speaker": "SPEAKER_02",
+        "sentence": "Maybe she is revising.",
+        "corrected_sentence": "She is revising.",
+        "explanation": "Incorrect use of the present tense \"is revising.\" The correct tense is \"is revising.\""
+    },
+    {
+        "index": 53,
+        "speaker": "SPEAKER_02",
+        "sentence": "As I said before, she is maybe revising or preparing for an exam or presentation.",
+        "corrected_sentence": "As I said before, she might be revising or preparing for an exam or presentation.",
+        "explanation": "Corrected the verb tense and added \"might\" to express a possibility."
+    },
+    {
+        "index": 54,
+        "speaker": "SPEAKER_02",
+        "sentence": "I think the T-shirt is the best idea.",
+        "corrected_sentence": "I believe the T-shirt is the best option.",
+        "explanation": "Added \"believe\" to make the sentence sound more confident and expressive."
+    },
+    {
+        "index": 55,
+        "speaker": "SPEAKER_02",
+        "sentence": "So if he had the T-shirt with him, he can always remember the team. mMM mMM But at least you have it at home and you can see it, even if you don't wear it.",
+        "corrected_sentence": "\"So if he had the T-shirt with him, he can always remember the team. But at least you have it at home, and you can see it, even if you don't wear it.\"",
+        "explanation": "Corrected the comma splice and extraneous \"mMM\" to improve clarity and grammatical accuracy."
+    },
+    {
+        "index": 56,
+        "speaker": "SPEAKER_02",
+        "sentence": "I think it's a really good idea for the Paloan football.",
+        "corrected_sentence": "I believe it's a great idea for the Paloan football team.",
+        "explanation": "Corrected the verb tense and added the correct object pronoun."
+    },
+    {
+        "index": 57,
+        "speaker": "SPEAKER_02",
+        "sentence": "Yes.",
+        "corrected_sentence": "Yes!",
+        "explanation": "The exclamation mark conveys excitement or surprise, making it the appropriate punctuation mark in this context."
+    },
+    {
+        "index": 58,
+        "speaker": "SPEAKER_02",
+        "sentence": "All for pictures. so that he can put all her pictures in this album and he can watch pictures whatever he wants and you keep remembering your team, bye!",
+        "corrected_sentence": "All for pictures. Therefore, he can put all her pictures in this album and he can watch pictures as he wants and you keep remembering your team, bye!",
+        "explanation": "Corrected the dangling modifier \"bye\" by using \"then\" to connect it with the main clause. Also, corrected \"your team\" to \"your team, bye\" for proper punctuation."
+    },
+    {
+        "index": 59,
+        "speaker": "SPEAKER_02",
+        "sentence": "It's amazing.",
+        "corrected_sentence": "It's amazing!",
+        "explanation": "The original sentence has a typographical error. The correct spelling is \"amazing\"."
+    },
+    {
+        "index": 60,
+        "speaker": "SPEAKER_02",
+        "sentence": "Is that...",
+        "corrected_sentence": "Is that correct?",
+        "explanation": "The original sentence has a question mark instead of a complete sentence, making it incomplete and unclear. The corrected sentence uses the correct tense and indicates that the information is a question."
+    },
+    {
+        "index": 61,
+        "speaker": "SPEAKER_02",
+        "sentence": "Hmm...",
+        "corrected_sentence": "Hmm?",
+        "explanation": "The use of \"hmm\" as a filler word is informal and should be replaced with \"hmm?\" or \"huh?\" in formal writing."
+    },
+    {
+        "index": 62,
+        "speaker": "SPEAKER_02",
+        "sentence": "Bye.",
+        "corrected_sentence": "Goodbye.",
+        "explanation": "The use of \"bye\" is informal, while \"goodbye\" is more formal."
+    },
+    {
+        "index": 63,
+        "speaker": "SPEAKER_02",
+        "sentence": "For me, it's a swimming.",
+        "corrected_sentence": "For me, it's swimming.",
+        "explanation": "Incorrect use of the verb \"swimming\" without the object."
+    },
+    {
+        "index": 64,
+        "speaker": "SPEAKER_02",
+        "sentence": "I love swimming.",
+        "corrected_sentence": "I love swimming!",
+        "explanation": "The period at the end of the sentence is incorrect. The exclamation mark expresses excitement or surprise, not a state of being."
+    },
+    {
+        "index": 65,
+        "speaker": "SPEAKER_02",
+        "sentence": "I really enjoy swimming.",
+        "corrected_sentence": "I genuinely enjoy swimming.",
+        "explanation": "Added \"genuinely\" to convey the speaker's genuine enjoyment, eliminating the casual tone."
+    },
+    {
+        "index": 66,
+        "speaker": "SPEAKER_02",
+        "sentence": "It doesn't matter if it will be on summer or on spring.",
+        "corrected_sentence": "It doesn't matter when it will be, on summer or on spring.",
+        "explanation": "Corrected the verb tense and added \"when\" to clarify the time of year."
+    },
+    {
+        "index": 67,
+        "speaker": "SPEAKER_02",
+        "sentence": "I love swimming in the swimming pool, but especially on the beach.",
+        "corrected_sentence": "I love swimming in the swimming pool, especially on the beach.",
+        "explanation": "Corrected the comma after \"swimming\" to avoid confusion and improved clarity."
+    },
+    {
+        "index": 68,
+        "speaker": "SPEAKER_02",
+        "sentence": "It's my favourite activity to do.",
+        "corrected_sentence": "I enjoy doing it.",
+        "explanation": "Incorrect use of contraction \"it's\" instead of \"I enjoy\"."
+    },
+    {
+        "index": 69,
+        "speaker": "SPEAKER_02",
+        "sentence": "If I swim that I lose my weight, I am like flying and floating in the water.",
+        "corrected_sentence": "If I swim, I will lose my weight, and I will feel like flying and floating in the water.",
+        "explanation": "The original sentence contained a grammatical error in the use of the word \"swim,\" as it should be \"swimmed\" to match the past tense. Additionally, the sentence lacked a conjunction to connect the two clauses."
+    },
+    {
+        "index": 70,
+        "speaker": "SPEAKER_02",
+        "sentence": "The swimming permits us to be relaxed.",
+        "corrected_sentence": "The swimming permits us to be at ease.",
+        "explanation": "Corrected the verb tense and added \"at ease\" to convey a more relaxed state."
+    },
+    {
+        "index": 71,
+        "speaker": "SPEAKER_02",
+        "sentence": "Yes, I agree.",
+        "corrected_sentence": "Indeed, I agree.",
+        "explanation": "The use of \"yes\" as the only response is insufficient. A more informative and comprehensive response would be \"Indeed, I agree.\""
+    },
+    {
+        "index": 72,
+        "speaker": "SPEAKER_02",
+        "sentence": "I think that football is an international sport.",
+        "corrected_sentence": "I believe that football is an international sport.",
+        "explanation": "Incorrect use of \"think\" vs. \"believe.\""
+    },
+    {
+        "index": 73,
+        "speaker": "SPEAKER_02",
+        "sentence": "In every country we can see that there is a lot of teams which play in football.",
+        "corrected_sentence": "In every country, we can see that there are a lot of teams that play in football.",
+        "explanation": "Corrected the plural pronoun \"teams\" to the singular pronoun \"team\" to match the singular subject \"team.\""
+    },
+    {
+        "index": 74,
+        "speaker": "SPEAKER_02",
+        "sentence": "Yes, I agree.",
+        "corrected_sentence": "Indeed, I agree.",
+        "explanation": "The use of \"yes\" as the only response is insufficient. A more informative and comprehensive response would be \"Indeed, I agree.\""
+    },
+    {
+        "index": 75,
+        "speaker": "SPEAKER_02",
+        "sentence": "Yes, for me it's the Algerian team.",
+        "corrected_sentence": "Yes, for me, it's the Algerian team.",
+        "explanation": "Corrected the pronoun error by using \"me\" instead of \"my\" to match the subject \"Yes.\""
+    },
+    {
+        "index": 76,
+        "speaker": "SPEAKER_02",
+        "sentence": "I'm not for this fun.",
+        "corrected_sentence": "I'm not in this for this fun.",
+        "explanation": "Incorrect use of contraction \"don't\" with the subject \"I.\""
+    },
+    {
+        "index": 77,
+        "speaker": "SPEAKER_02",
+        "sentence": "Because I think it's waste of time and I don't have enough time to study, so I can't go to this kind of activities.",
+        "corrected_sentence": "Because I believe it's wasteful of time and I don't have enough time to study, so I am unable to participate in such activities.",
+        "explanation": "Corrected the tense of \"think\" to \"believe\" to match the present tense of \"have.\" Also, added \"such\" to clarify the nature of the activities the speaker is unable to participate in."
+    },
+    {
+        "index": 78,
+        "speaker": "SPEAKER_00",
+        "sentence": "My name is Mohammed. from Saudi Arabia.",
+        "corrected_sentence": "My name is Mohammed from Saudi Arabia.",
+        "explanation": "Corrected the spelling error \"from\" to \"from Saudi Arabia\" to use the correct geographical designation."
+    },
+    {
+        "index": 79,
+        "speaker": "SPEAKER_00",
+        "sentence": "I work in a Ministry of Foreign Affairs.",
+        "corrected_sentence": "I work in the Ministry of Foreign Affairs.",
+        "explanation": "Corrected the grammatical error by removing the unnecessary \"of\" and adding the correct noun phrase \"the Ministry of Foreign Affairs.\""
+    },
+    {
+        "index": 80,
+        "speaker": "SPEAKER_00",
+        "sentence": "I live with my family in my country and we have neighbors and there are some of them are cousins of us, of me.",
+        "corrected_sentence": "I live with my family in my country, and we have neighbors. There are some of our cousins among us.",
+        "explanation": "Corrected the comma after \"neighbors\" to a period to separate the two clauses and used \"our\" instead of \"we're\" to maintain the plural form."
+    },
+    {
+        "index": 81,
+        "speaker": "SPEAKER_00",
+        "sentence": "I've been gathering with my friends and we go into one Middle East restaurant here in Cambridge.",
+        "corrected_sentence": "I've been gathering with my friends and we go to one Middle East restaurant in Cambridge.",
+        "explanation": "Corrected the verb tense and added the location of the restaurant."
+    },
+    {
+        "index": 82,
+        "speaker": "SPEAKER_00",
+        "sentence": "Yeah, I see one man, he's relaxing and he's so far.",
+        "corrected_sentence": "\"Yeah, I see one man. He's relaxing, and he's far away.\"",
+        "explanation": "Corrected the verb tense and added additional information to the sentence."
+    },
+    {
+        "index": 83,
+        "speaker": "SPEAKER_00",
+        "sentence": "And he left his mobile on the floor because he didn't want to distract by his mobile.",
+        "corrected_sentence": "And he left his mobile on the floor because he didn't want to distract himself by his mobile.",
+        "explanation": "Corrected the verb tense and removed the unnecessary \"by.\""
+    },
+    {
+        "index": 84,
+        "speaker": "SPEAKER_00",
+        "sentence": "And maybe he's a musician, because there is one guitar just next to him.",
+        "corrected_sentence": "And maybe he's a musician; there is one guitar just next to him.",
+        "explanation": "Added the article \"a\" before \"guitar\" to make it specific."
+    },
+    {
+        "index": 85,
+        "speaker": "SPEAKER_00",
+        "sentence": "And maybe he just came from outside and he didn't take out his clothes.",
+        "corrected_sentence": "And maybe he just came from outside. He didn't take out his clothes.",
+        "explanation": "Corrected the verb tense and added a comma to separate the two clauses."
+    },
+    {
+        "index": 86,
+        "speaker": "SPEAKER_00",
+        "sentence": "He just started to read and having one cup of tea and relaxing in his home.",
+        "corrected_sentence": "He just started to read and had one cup of tea while relaxing at home.",
+        "explanation": "Corrected the verb tense and added a temporal conjunction to show the sequence of events."
+    },
+    {
+        "index": 87,
+        "speaker": "SPEAKER_00",
+        "sentence": "And maybe he's live alone because there's no one with him.",
+        "corrected_sentence": "And maybe he's living alone because there's no one by his side.",
+        "explanation": "Corrected the verb tense and added \"by his side\" to clarify the situation."
+    },
+    {
+        "index": 88,
+        "speaker": "SPEAKER_00",
+        "sentence": "There's no toys for his children or something.",
+        "corrected_sentence": "There are no toys for his children or something.",
+        "explanation": "Added \"are\" after \"toys\" to correct the grammatical error of singular subject and plural verb agreement."
+    },
+    {
+        "index": 89,
+        "speaker": "SPEAKER_00",
+        "sentence": "That's really maybe live alone and nice flies.",
+        "corrected_sentence": "\"That's really maybe living alone and nice flies.\"",
+        "explanation": "Incorrect use of punctuation and incorrect use of the word \"live\"."
+    },
+    {
+        "index": 90,
+        "speaker": "SPEAKER_00",
+        "sentence": "And I think that the weather outside is cold because he didn't even.",
+        "corrected_sentence": "\"And I think that the weather outside is cold because he didn't even realize.\"",
+        "explanation": "The original sentence contains a dangling modifier. The modifier \"he didn't even\" modifies the noun \"weather outside,\" but it is not clear to which \"weather outside\" it belongs. The corrected sentence clarifies the relationship between the modifier and the noun."
+    },
+    {
+        "index": 91,
+        "speaker": "SPEAKER_00",
+        "sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying by the fifth anniversary for the four fifth established for their club.",
+        "corrected_sentence": "\"I think the calendar is perfect, or not too short, because for me, the calendar shows my club every day when I check in. I can see my club, and they are enjoying by the fifth anniversary for the four established clubs.\"",
+        "explanation": "Corrected the grammatical error \"you can see\" to \"show,\" and added clarifying phrases to make the sentence easier to understand."
+    },
+    {
+        "index": 92,
+        "speaker": "SPEAKER_00",
+        "sentence": "No. but sometimes you can't wear the same t-shirt everyday.",
+        "corrected_sentence": "However, sometimes you can't wear the same T-shirt every day.",
+        "explanation": "Corrected the verb tense and added \"however\" to introduce a contrast."
+    },
+    {
+        "index": 93,
+        "speaker": "SPEAKER_00",
+        "sentence": "Yes.",
+        "corrected_sentence": "Yes!",
+        "explanation": "The exclamation mark conveys excitement or surprise, making it the appropriate punctuation mark in this context."
+    },
+    {
+        "index": 94,
+        "speaker": "SPEAKER_00",
+        "sentence": "And for this football, I think, no, because I can't play football every day.",
+        "corrected_sentence": "\"And for this football, I believe, so I cannot play football every day.\"",
+        "explanation": "Corrected the verb tense and added \"so\" to show the speaker's intention."
+    },
+    {
+        "index": 95,
+        "speaker": "SPEAKER_00",
+        "sentence": "If there is some students or from their fans, they can't play and keep it away from their studying or something.",
+        "corrected_sentence": "If there are some students or from their fans, they can't play and keep it away from their studies or something.",
+        "explanation": "Corrected the verb tense and added \"from their fans\" to show ownership of the students."
+    },
+    {
+        "index": 96,
+        "speaker": "SPEAKER_00",
+        "sentence": "Yeah.",
+        "corrected_sentence": "Yes.",
+        "explanation": "The use of \"yeah\" is informal and should be replaced with \"yes\" in formal writing."
+    },
+    {
+        "index": 97,
+        "speaker": "SPEAKER_00",
+        "sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children. for work or album I think it's album for our pictures.",
+        "corrected_sentence": "\"And for this,\" there's no, because, or they have a lot of children, and from their fans, they can give it to their children for work or an album. In my opinion, it's an album for our pictures.\"",
+        "explanation": "Corrected the grammatical errors \"there, because, or they have\" with \"there's, because, or they have.\" Also, corrected \"for work or album\" to \"for work or an album\" to match the intended meaning."
+    },
+    {
+        "index": 98,
+        "speaker": "SPEAKER_00",
+        "sentence": "And you can watch pictures whatever you want.",
+        "corrected_sentence": "And you can watch pictures as much as you want.",
+        "explanation": "Incorrect use of the possessive pronoun \"your\" without antecedent."
+    },
+    {
+        "index": 99,
+        "speaker": "SPEAKER_00",
+        "sentence": "And you keep remembering your team by like cover.",
+        "corrected_sentence": "And you keep remembering your team by liking cover.",
+        "explanation": "Incorrect use of the word \"like\" - should use \"like\" to show similarity, not \"remember\"."
+    },
+    {
+        "index": 100,
+        "speaker": "SPEAKER_00",
+        "sentence": "It's amazing.",
+        "corrected_sentence": "It's amazing!",
+        "explanation": "The original sentence has a typographical error. The correct spelling is \"amazing\"."
+    },
+    {
+        "index": 101,
+        "speaker": "SPEAKER_00",
+        "sentence": "Yes.",
+        "corrected_sentence": "Yes!",
+        "explanation": "The exclamation mark conveys excitement or surprise, making it the appropriate punctuation mark in this context."
+    },
+    {
+        "index": 102,
+        "speaker": "SPEAKER_00",
+        "sentence": "What do you think about this bag?",
+        "corrected_sentence": "What's your opinion about this bag?",
+        "explanation": "The original sentence has a misplaced verb, \"think,\" which should be corrected to \"opinion.\""
+    },
+    {
+        "index": 103,
+        "speaker": "SPEAKER_00",
+        "sentence": "You can use it for going to school or for going to the gym.",
+        "corrected_sentence": "You can use it for both going to school and going to the gym.",
+        "explanation": "Corrected the grammatical error by using the correct preposition \"for\" in the second clause."
+    },
+    {
+        "index": 104,
+        "speaker": "SPEAKER_00",
+        "sentence": "You can put your toes I prefer football.",
+        "corrected_sentence": "You can put your toes instead of I prefer football.",
+        "explanation": "Incorrect use of pronoun \"I\" and incorrect verb tense. Corrected sentence uses \"you can\" and correct tense."
+    },
+    {
+        "index": 105,
+        "speaker": "SPEAKER_00",
+        "sentence": "I watch it, I play it.",
+        "corrected_sentence": "I watch it. I play it.",
+        "explanation": "Incorrect use of the verb \"watch\" and \"play\" in the same sentence."
+    },
+    {
+        "index": 106,
+        "speaker": "SPEAKER_00",
+        "sentence": "I am very interested about football.",
+        "corrected_sentence": "I am highly interested in football.",
+        "explanation": "Added \"highly\" to emphasize the intensity of the speaker's interest."
+    },
+    {
+        "index": 107,
+        "speaker": "SPEAKER_00",
+        "sentence": "I watch it from when I was child.",
+        "corrected_sentence": "I watched it from when I was a child.",
+        "explanation": "The subject of the sentence is \"I,\" so the correct pronoun form is \"watched.\""
+    },
+    {
+        "index": 108,
+        "speaker": "SPEAKER_00",
+        "sentence": "I rise with the football.",
+        "corrected_sentence": "I rise with the football in the morning.",
+        "explanation": "Incorrect use of temporal conjunction \"with\" without a coordinating conjunction."
+    },
+    {
+        "index": 109,
+        "speaker": "SPEAKER_00",
+        "sentence": "Yeah.",
+        "corrected_sentence": "Yes.",
+        "explanation": "The use of \"yeah\" is informal and should be replaced with \"yes\" in formal writing."
+    },
+    {
+        "index": 110,
+        "speaker": "SPEAKER_00",
+        "sentence": "Yeah swimming helped me sometimes to relax.",
+        "corrected_sentence": "Swimming helped me sometimes to relax.",
+        "explanation": "The verb \"help\" is incorrect in the first sentence. The correct verb form is \"helps.\""
+    },
+    {
+        "index": 111,
+        "speaker": "SPEAKER_00",
+        "sentence": "If I swim that I lose my weight, I am like flying.",
+        "corrected_sentence": "If I swim, I will lose my weight; I will feel like flying.",
+        "explanation": "The original sentence contained a grammatical error in the use of the word \"swim,\" as it should be \"swim,\" and lacked a verb tense agreement in the second clause. The corrected sentence correctly uses the correct verb tense and grammatical structure."
+    },
+    {
+        "index": 112,
+        "speaker": "SPEAKER_00",
+        "sentence": "Yeah.",
+        "corrected_sentence": "Yes.",
+        "explanation": "The use of \"yeah\" is informal and should be replaced with \"yes\" in formal writing."
+    },
+    {
+        "index": 113,
+        "speaker": "SPEAKER_00",
+        "sentence": "Like floating in the water.",
+        "corrected_sentence": "Float in the water.",
+        "explanation": "Incorrect use of the verb \"floating,\" which implies a stationary state, instead of \"float,\" which implies movement."
+    },
+    {
+        "index": 114,
+        "speaker": "SPEAKER_00",
+        "sentence": "Yes swimming per...",
+        "corrected_sentence": "Yes swimming per instruction.",
+        "explanation": "Incorrect use of \"per\" for specific direction. Use \"for\" to indicate direction."
+    },
+    {
+        "index": 115,
+        "speaker": "SPEAKER_00",
+        "sentence": "Yeah. because everyone can watch it.",
+        "corrected_sentence": "Because everyone can watch it.",
+        "explanation": "Incorrect use of contractions. The correct contraction is \"can\"."
+    },
+    {
+        "index": 116,
+        "speaker": "SPEAKER_00",
+        "sentence": "That make a lot of supporters became, they have the same admires and the same ambition about their teams.",
+        "corrected_sentence": "That makes a lot of supporters, they have the same admiration and ambition about their teams.",
+        "explanation": "Corrected the possessive pronoun \"their\" to \"them\" to match the plural subject \"supporters.\""
+    },
+    {
+        "index": 117,
+        "speaker": "SPEAKER_00",
+        "sentence": "And for me, it's the best sport.",
+        "corrected_sentence": "\"And for me,\" is the best sport for me.",
+        "explanation": "Incorrect use of quotation marks around the phrase \"it's the best sport.\""
+    },
+    {
+        "index": 118,
+        "speaker": "SPEAKER_00",
+        "sentence": "Yeah.",
+        "corrected_sentence": "Yes.",
+        "explanation": "The use of \"yeah\" is informal and should be replaced with \"yes\" in formal writing."
+    },
+    {
+        "index": 119,
+        "speaker": "SPEAKER_00",
+        "sentence": "Yeah, for me, I have one for our team.",
+        "corrected_sentence": "Yes, for me, I have one for our team.",
+        "explanation": "Incorrect use of contractions. The correct contraction is \"one\" instead of \"for me\"."
+    },
+    {
+        "index": 120,
+        "speaker": "SPEAKER_00",
+        "sentence": "It's from England when she's reunited.",
+        "corrected_sentence": "It's from England when she is reunited.",
+        "explanation": "The original sentence has a misplaced modifier. The modifier \"when she's reunited\" modifies the noun \"she,\" but it should modify the verb \"is reunited.\""
+    },
+    {
+        "index": 121,
+        "speaker": "SPEAKER_00",
+        "sentence": "I love this team.",
+        "corrected_sentence": "I love this team!",
+        "explanation": "The period at the end of the sentence was incorrect, and the exclamation mark was unnecessary."
+    },
+    {
+        "index": 122,
+        "speaker": "SPEAKER_00",
+        "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team, what we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
+        "explanation": "The original sentence contained errors in verb tense, punctuation, and word choice. The corrected sentence is corrected for grammatical accuracy and clarity."
+    },
+    {
+        "index": 123,
+        "speaker": "SPEAKER_00",
+        "sentence": "If you're good for this position, I don't know.",
+        "corrected_sentence": "If you're qualified for this position, I don't know.",
+        "explanation": "The original sentence has a dangling modifier. The modifier \"good for this position\" modifies the verb \"know,\" but it is not clear to whom or what \"good for this position\" refers. The corrected sentence corrects this by replacing the modifier with \"qualified for this position.\""
+    }
+]

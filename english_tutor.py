@@ -56,7 +56,7 @@ class EnglishTutor:
             if self.__audio_extractor is None:
                 self.__audio_extractor = AudioExtractor()
 
-            diarization = self.__file_manager.read_from_json_file(self.cache_files_paths['manual_dialog'])
+            diarization = self.__file_manager.read_from_json_file(self.cache_files_paths['diarization_result'])
 
             if diarization is None:
                 diarization = self.__audio_extractor.perform_diarization(file_name)
@@ -68,9 +68,6 @@ class EnglishTutor:
                     self.__speakers_context = self.__audio_extractor.get_diarization_grouped_by_speaker(diarization)
                 else:
                     self.__speakers_context = self.__audio_extractor.process_diarizated_text(diarization)
-
-                
-
 
         return self.__speakers_context
 
@@ -156,16 +153,16 @@ class EnglishTutor:
         return audio_downloader.get_video_info(video_url)
 
     def get_study_plan(self, speakerId: str) -> list:
-        study_plan = self.__file_manager.read_from_json_file(self.cache_files_paths['study_plan'])
-
-        if study_plan:
-            print("Study plan loaded from file.")
-            return study_plan
+        # study_plan = self.__file_manager.read_from_json_file(self.cache_files_paths['study_plan'])
+        #
+        # if study_plan:
+        #     print("study plan loaded from file.")
+        #     return study_plan
 
         chat_llm = self.__get_chat_llm()
         plan_creator = StudyPlanCreator(chat_llm)
         speakers_context = self.get_speakers_context()
         study_plan = plan_creator.create_study_plan(speakers_context, speakerId)
 
-        self.__file_manager.save_to_json_file(self.cache_files_paths['study_plan'], study_plan)
+        #self.__file_manager.save_to_json_file(self.cache_files_paths['study_plan'], study_plan)
         return study_plan

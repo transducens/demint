@@ -160,6 +160,7 @@ RELOAD terminal
 
     git clone https://github.com/transducens/demint.git
     cd demint
+    git pull https://github.com/transducens/demint.git
 
 Variant 1:
     conda env create -f environment-ubuntu.yml
@@ -173,8 +174,10 @@ Variant 2:
 For clean system:
     conda create --name DeMINT
     conda activate DeMINT
-    conda install pymupdf faiss-gpu pytorch torchvision torchaudio pytorch-cuda=12.1 cuda-toolkit -c pytorch -c nvidia -c conda-forge
-    pip install bitsandbytes pytube flash_attn sentence-splitter language-tool-python gradio==4.21.0 chainlit sentence-transformers ragatouille dspy-ai huggingface_hub pyannote.audio whisper-openai accelerate
+    conda install faiss-gpu pytorch torchvision torchaudio pytorch-cuda=12.1 cuda-toolkit -c pytorch -c nvidia -c conda-forge
+    pip install pymupdf evaluate bitsandbytes pytube sentence-splitter language-tool-python gradio chainlit sentence-transformers ragatouille dspy-ai huggingface_hub pyannote.audio whisper-openai accelerate
+    pip install errant
+    python -m spacy download en_core_web_sm
     conda env export > environment-ubuntu.yml
 
 
@@ -198,3 +201,5 @@ nvcc --version
 nvidia-smi
 
 git clone -b features/DEMINT-001-llm-factory https://github.com/transducens/demint.git
+
+docker run --gpus all --shm-size 2g -p 8083:80 -v D:/Development/UNIVERSIDAD/BECA/tgi:/data -e DISABLE_EXLLAMA=True -e HUGGING_FACE_HUB_TOKEN=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 ghcr.io/huggingface/text-generation-inference:2.0 --model-id google/gemma-1.1-2b-it --num-shard 1 --max-input-tokens 1000 --max-batch-prefill-tokens 1000

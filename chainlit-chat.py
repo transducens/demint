@@ -111,7 +111,7 @@ async def on_message(message: cl.Message):
         res = None
         while res is None or res.get("value") != "continue":
             theme = random.choice(study_plan)
-            res = await ask_action(theme['llm_response'])
+            res = await ask_action(theme['explanation'])
 
         msg = cl.Message(content='')
         await msg.send()
@@ -119,7 +119,7 @@ async def on_message(message: cl.Message):
         context = ""
 
         # selected_speaker_text = cl.user_session.get("selected_speaker_text")
-        mistake_description = theme['llm_response']
+        mistake_description = theme['explanation']
 
         RAG_context = await cl.make_async(english_tutor.search_in_index)(mistake_description, RAG_search_k)
 

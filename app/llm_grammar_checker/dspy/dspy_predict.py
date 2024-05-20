@@ -1,6 +1,6 @@
 import dspy
 
-from app.llm_grammar_checker.dspy.dspy_signature import SignatureSEC
+from .dspy_signature import SignatureSEC
 
 
 class PredictorSEC(dspy.Module):

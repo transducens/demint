@@ -17,16 +17,15 @@ class GrammarChecker:
 
     def __init__(self, language='en-US', public_api=False, filter_errors=True):
         if public_api:
-            self.__tool = lt.LanguageToolPublicAPI(language)
             print("Using language tool public API.")
+            self.__tool = lt.LanguageToolPublicAPI(language)
         else:
-
+            print("Using language tool local.")
             self.__tool = lt.LanguageTool(language, config={
                 'cacheSize': 1024, # Improves performance
                 'pipelineCaching': True,
             })
 
-            print("Using language tool local.")
         self.__categories = [
             'COLLOCATIONS',
             'CONFUSED_WORDS',
@@ -80,8 +79,6 @@ class GrammarChecker:
     def check_sentences(self, sentences: list):
         all_matches = []
         for sentence in sentences:
-            print(sentence)
-            print()
             matches = self.check(sentence)
             if matches:
                 all_matches.extend(matches)

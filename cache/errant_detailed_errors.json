@@ -1,0 +1,516 @@
+{
+    "R:VERB:TENSE|Could|Can": [
+        3
+    ],
+    "R:SPELL|marksheets?|marksheets": [
+        3
+    ],
+    "U:PUNCT||please?": [
+        3
+    ],
+    "R:NOUN|Chowder.|Chowdery.": [
+        4
+    ],
+    "R:VERB:TENSE|are|do": [
+        5,
+        8
+    ],
+    "U:VERB||come": [
+        5,
+        8
+    ],
+    "U:CONJ|What's|And what's": [
+        7
+    ],
+    "R:VERB|seem|will be": [
+        13
+    ],
+    "R:PREP|to|for": [
+        13
+    ],
+    "U:NOUN|How|Kinza, how": [
+        14
+    ],
+    "R:VERB:SVA|does|do": [
+        14
+    ],
+    "U:OTHER||I'd like": [
+        17
+    ],
+    "M:VERB|is encouraged|": [
+        17
+    ],
+    "R:PREP|on|about": [
+        17
+    ],
+    "R:NOUN|\"Kenza,|Kenza,": [
+        19
+    ],
+    "R:NOUN|photograph.\"|photograph.": [
+        19
+    ],
+    "R:NOUN|that.|something.": [
+        20
+    ],
+    "U:OTHER||you just": [
+        21
+    ],
+    "R:VERB|listened|listen.": [
+        21
+    ],
+    "M:NOUN|attentively.|": [
+        21
+    ],
+    "U:OTHER|What|Kenza, please tell us what": [
+        22
+    ],
+    "R:WO|can you|you can": [
+        22
+    ],
+    "R:NOUN|photograph?|photograph.": [
+        22
+    ],
+    "R:VERB|see|see.": [
+        23
+    ],
+    "M:NOUN|it.|": [
+        23
+    ],
+    "R:NOUN|location.|place.": [
+        24
+    ],
+    "R:NOUN|Mohammed.|Mohammed,": [
+        26
+    ],
+    "R:ORTH|Here|here": [
+        26
+    ],
+    "R:NOUN|\"Ken|Ken": [
+        27
+    ],
+    "R:NOUN|photograph.?|photograph.": [
+        28
+    ],
+    "U:VERB:TENSE|In|Now, in": [
+        30
+    ],
+    "R:VERB|will discuss|going to talk": [
+        30
+    ],
+    "U:PREP||about": [
+        30
+    ],
+    "R:PREP|for|to": [
+        31
+    ],
+    "R:VERB|offer.|give.": [
+        33
+    ],
+    "R:VERB|discuss|about": [
+        34
+    ],
+    "R:ADJ|various|different": [
+        34
+    ],
+    "R:ORTH|Which|which": [
+        37
+    ],
+    "U:OTHER||Is it a good idea": [
+        39
+    ],
+    "R:VERB:FORM|Joining|to join": [
+        39
+    ],
+    "M:OTHER|might be a good idea.|": [
+        39
+    ],
+    "U:VERB:TENSE||do": [
+        40,
+        102
+    ],
+    "R:DET|your|you": [
+        40,
+        102
+    ],
+    "R:NOUN|examination.|test.": [
+        42
+    ],
+    "R:ORTH|per|Per": [
+        43
+    ],
+    "R:CONJ|and|but": [
+        46
+    ],
+    "R:ADJ|personal|salon": [
+        47
+    ],
+    "R:NOUN|beauty salon.|beauty.": [
+        47
+    ],
+    "R:VERB|believe|think": [
+        48,
+        54,
+        56,
+        72,
+        77
+    ],
+    "R:VERB|enables|permits": [
+        48
+    ],
+    "R:NOUN|goals|objectives": [
+        48
+    ],
+    "U:VERB:FORM||to": [
+        48
+    ],
+    "R:PREP|beyond|further": [
+        48
+    ],
+    "R:SPELL|what|than": [
+        48
+    ],
+    "R:VERB|imagine.|think.": [
+        48
+    ],
+    "R:NOUN|Sometimes,|lady": [
+        49
+    ],
+    "R:VERB:FORM|read|reading": [
+        49
+    ],
+    "R:NOUN|book|book.": [
+        49
+    ],
+    "M:OTHER|while I'm at work.|": [
+        49
+    ],
+    "R:ADV|usually|normally": [
+        50
+    ],
+    "R:DET|the|a": [
+        50,
+        79
+    ],
+    "R:NOUN|library,|library": [
+        50
+    ],
+    "U:OTHER||I don't think": [
+        50
+    ],
+    "M:ADV|not|": [
+        50
+    ],
+    "R:PART|to|for": [
+        51
+    ],
+    "R:VERB:FORM|get|getting": [
+        51
+    ],
+    "U:ADV|She|Maybe she": [
+        52
+    ],
+    "R:VERB:TENSE|might|is": [
+        53
+    ],
+    "R:NOUN|option.|idea.": [
+        54
+    ],
+    "U:NOUN||mMM mMM": [
+        55
+    ],
+    "R:NOUN|home,|home": [
+        55
+    ],
+    "R:NOUN|it.\"|it.": [
+        55
+    ],
+    "R:NOUN|football team.|football.": [
+        56
+    ],
+    "U:PREP||that": [
+        58,
+        69,
+        111
+    ],
+    "R:NOUN|amazing!|amazing.": [
+        59,
+        100
+    ],
+    "M:NOUN|correct?|": [
+        60
+    ],
+    "R:NOUN|Hmm?|Hmm...": [
+        61
+    ],
+    "R:NOUN|Goodbye.|Bye.": [
+        62
+    ],
+    "U:DET||a": [
+        63
+    ],
+    "R:ADV|genuinely|really": [
+        65
+    ],
+    "U:CONJ||but": [
+        67
+    ],
+    "R:VERB|swim,|swim": [
+        69,
+        111
+    ],
+    "M:VERB:TENSE|will|": [
+        69,
+        111
+    ],
+    "M:CONJ|and|": [
+        69
+    ],
+    "R:VERB|will feel|am": [
+        69,
+        111
+    ],
+    "R:VERB:SVA|are|is": [
+        73,
+        95
+    ],
+    "R:DET|that|which": [
+        73
+    ],
+    "M:OTHER|in this|": [
+        76
+    ],
+    "R:MORPH|wasteful|waste": [
+        77
+    ],
+    "R:VERB|am|can't": [
+        77
+    ],
+    "R:NOUN|country,|country": [
+        80
+    ],
+    "R:SPELL|neighbors.|neighbors": [
+        80
+    ],
+    "U:CONJ||and": [
+        80,
+        85
+    ],
+    "R:ORTH|There|there": [
+        80
+    ],
+    "U:PREP||of": [
+        80
+    ],
+    "U:NOUN||us,": [
+        80
+    ],
+    "R:PREP|among|of": [
+        80
+    ],
+    "R:NOUN|us.|me.": [
+        80
+    ],
+    "R:PREP|to|into": [
+        81
+    ],
+    "U:ADV||here": [
+        81
+    ],
+    "R:NOUN|man.|man,": [
+        82
+    ],
+    "R:ORTH|He's|he's": [
+        82
+    ],
+    "U:ADV||so": [
+        82
+    ],
+    "M:PUNCT|away.\"|": [
+        82
+    ],
+    "M:PRON|himself|": [
+        83
+    ],
+    "R:NOUN|musician;|musician,": [
+        84
+    ],
+    "U:PREP||because": [
+        84
+    ],
+    "R:ORTH|He|he": [
+        85
+    ],
+    "R:VERB:FORM|had|having": [
+        86
+    ],
+    "R:PREP|at|in": [
+        86
+    ],
+    "U:DET||his": [
+        86
+    ],
+    "R:VERB:FORM|living|live": [
+        87,
+        89
+    ],
+    "M:VERB|are|": [
+        88
+    ],
+    "R:ADV|even|even.": [
+        90
+    ],
+    "M:PUNCT|realize.\"|": [
+        90
+    ],
+    "R:ADJ|perfect,|perfect": [
+        91
+    ],
+    "U:PRON||you": [
+        91
+    ],
+    "R:VERB|shows|can see": [
+        91
+    ],
+    "U:ADV||just": [
+        91
+    ],
+    "U:OTHER||the day": [
+        91
+    ],
+    "R:NOUN|club,|club": [
+        91
+    ],
+    "U:NOUN||fifth": [
+        91
+    ],
+    "U:OTHER||for their": [
+        91
+    ],
+    "R:NOUN|clubs.\"|club.": [
+        91
+    ],
+    "R:ORTH|T-shirt every day.|t-shirt everyday.": [
+        92
+    ],
+    "R:VERB:TENSE|cannot|can't": [
+        94
+    ],
+    "R:NOUN|day.\"|day.": [
+        94
+    ],
+    "R:MORPH|studies|studying": [
+        95
+    ],
+    "R:NOUN|this,\"|this,": [
+        97
+    ],
+    "R:NOUN|children,|children": [
+        97
+    ],
+    "R:NOUN|fans,|fans": [
+        97
+    ],
+    "R:NOUN|children|children.": [
+        97
+    ],
+    "M:DET|an|": [
+        97,
+        97
+    ],
+    "R:NOUN|album.|album": [
+        97
+    ],
+    "R:NOUN|pictures.\"|pictures.": [
+        97
+    ],
+    "R:NOUN|opinion|think": [
+        102
+    ],
+    "M:DET|both|": [
+        103
+    ],
+    "R:CONJ|and|or": [
+        103
+    ],
+    "U:PREP||for": [
+        103
+    ],
+    "M:OTHER|instead of|": [
+        104
+    ],
+    "R:ADV|highly|very": [
+        106
+    ],
+    "R:PREP|in|about": [
+        106
+    ],
+    "R:VERB:TENSE|watched|watch": [
+        107
+    ],
+    "M:DET|a|": [
+        107
+    ],
+    "R:NOUN|football|football.": [
+        108
+    ],
+    "M:OTHER|in the morning.|": [
+        108
+    ],
+    "U:OTHER|Swimming|Yeah swimming": [
+        110
+    ],
+    "R:NOUN|weight;|weight,": [
+        111
+    ],
+    "U:ADJ|Because|Yeah. because": [
+        115
+    ],
+    "R:VERB:SVA|makes|make": [
+        116
+    ],
+    "R:NOUN|supporters,|supporters": [
+        116
+    ],
+    "U:PUNCT||became,": [
+        116
+    ],
+    "R:MORPH|admiration|admires": [
+        116
+    ],
+    "U:OTHER||the same": [
+        116
+    ],
+    "R:NOUN|me,\"|me,": [
+        117
+    ],
+    "R:NOUN|sport|sport.": [
+        117
+    ],
+    "M:OTHER|for me.|": [
+        117
+    ],
+    "R:NOUN|team!|team.": [
+        121
+    ],
+    "R:ORTH|go|Go": [
+        122
+    ],
+    "R:NOUN:NUM|truffle|truffles": [
+        122
+    ],
+    "U:DET||some": [
+        122
+    ],
+    "R:NOUN:NUM|player|players": [
+        122
+    ],
+    "R:NOUN|goals|gomers": [
+        122
+    ],
+    "R:MORPH|construction|construct": [
+        122
+    ],
+    "R:ADJ|qualified|good": [
+        123
+    ]
+}

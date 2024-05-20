@@ -4,14 +4,14 @@ import dsp
 from dspy.evaluate import Evaluate
 from dspy.teleprompt import BootstrapFewShotWithRandomSearch
 
-from app.llm_grammar_checker.dspy.dspy_predict import PredictorSEC
+from .dspy_predict import PredictorSEC
 
 #llama = dspy.OllamaLocal(model='llama3')
 
-llama = dspy.HFClientTGI(model="google/gemma-1.1-2b-it", port=8083, url="http://localhost")
-dspy.settings.configure(lm=llama)
+#llama = dspy.HFClientTGI(model="google/gemma-1.1-2b-it", port=8083, url="http://localhost")
+llm = dspy.HFClientTGI(model="google/gemma-1.1-2b-it", port=8083, url="http://localhost")
+dspy.settings.configure(lm=llm)
 
-compile_turn_on = True
 compile_file_name = 'SECPredictor.json'
 
 
@@ -33,6 +33,9 @@ class DSPYModule:
 
         if os.path.exists(compile_file_name):
             self.predictorSEC.load(compile_file_name)
+
+    def predict(self, original_sentence: str):
+        return self.predictorSEC(original_sentence=original_sentence)
 
     def compile(self):
         train_sentences = [
@@ -69,7 +72,6 @@ class DSPYModule:
         sec_compiled = optimizer.compile(PredictorSEC(), trainset=train)
         sec_compiled.save(compile_file_name)
 
-
     def evaluate(self):
         print("Evaluating the model on the development set STARTED")
         dev_sentences = [
@@ -100,31 +102,26 @@ class DSPYModule:
         print("Evaluating the model on the development set FINISHED")
 
 
+if __name__ == '__main__':
+    dspyModule = DSPYModule()
+    sample_sentence = "He have been working here for three years."
+    result = dspyModule.predict(original_sentence=sample_sentence)
 
-    def predict(self, original_sentence: str):
-        return self.predictorSEC(original_sentence=original_sentence)
+    print("BEFORE compile")
+    print("Original Sentence:", sample_sentence)
+    print("-----------------------")
+    print("Corrected Sentence:", result['corrected_sentence'])
+    print("-----------------------")
+    print("Explanation:", result['explanation'])
 
+    dspyModule.compile()
 
+    sample_sentence = "She do not like to read books."
+    result = dspyModule.predict(original_sentence=sample_sentence)
 
-dspyModule = DSPYModule()
-sample_sentence = "He have been working here for three years."
-result = dspyModule.predict(original_sentence=sample_sentence)
-
-print("BEFORE compile")
-print("Original Sentence:", sample_sentence)
-print("-----------------------")
-print("Corrected Sentence:", result['corrected_sentence'])
-print("-----------------------")
-print("Explanation:", result['explanation'])
-
-dspyModule.compile()
-
-sample_sentence = "She do not like to read books."
-result = dspyModule.predict(original_sentence=sample_sentence)
-
-print("AFTER compile")
-print("Original Sentence:", sample_sentence)
-print("-----------------------")
-print("Corrected Sentence:", result['corrected_sentence'])
-print("-----------------------")
-print("Explanation:", result['explanation'])
+    print("AFTER compile")
+    print("Original Sentence:", sample_sentence)
+    print("-----------------------")
+    print("Corrected Sentence:", result['corrected_sentence'])
+    print("-----------------------")
+    print("Explanation:", result['explanation'])

@@ -1,0 +1,270 @@
+[
+    {
+        "ruleId": "ENGLISH_WORD_REPEAT_RULE",
+        "message": "Possible typo: you repeated a word",
+        "replacements": [
+            "mMM"
+        ],
+        "offsetInContext": 43,
+        "context": "...h him, he can always remember the team. mMM mMM But at least you have it at home and yo...",
+        "offset": 68,
+        "errorLength": 7,
+        "category": "MISC",
+        "ruleIssueType": "duplication",
+        "sentence": "mMM mMM But at least you have it at home and you can see it, even if you don't wear it.",
+        "index": 55,
+        "speaker": "SPEAKER_02",
+        "corrected_sentence": "\"So if he had the T-shirt with him, he can always remember the team. But at least you have it at home, and you can see it, even if you don't wear it.\"",
+        "original_sentence": "So if he had the T-shirt with him, he can always remember the team. mMM mMM But at least you have it at home and you can see it, even if you don't wear it.",
+        "explanation": "Corrected the comma splice and extraneous \"mMM\" to improve clarity and grammatical accuracy."
+    },
+    {
+        "ruleId": "AI_HYDRA_LEO_MISSING_COMMA",
+        "message": "Possible missing comma found.",
+        "replacements": [
+            ", But"
+        ],
+        "offsetInContext": 43,
+        "context": "...he can always remember the team. mMM mMM But at least you have it at home and you ca...",
+        "offset": 75,
+        "errorLength": 4,
+        "category": "MISC",
+        "ruleIssueType": "uncategorized",
+        "sentence": "mMM mMM But at least you have it at home and you can see it, even if you don't wear it.",
+        "index": 55,
+        "speaker": "SPEAKER_02",
+        "corrected_sentence": "\"So if he had the T-shirt with him, he can always remember the team. But at least you have it at home, and you can see it, even if you don't wear it.\"",
+        "original_sentence": "So if he had the T-shirt with him, he can always remember the team. mMM mMM But at least you have it at home and you can see it, even if you don't wear it.",
+        "explanation": "Corrected the comma splice and extraneous \"mMM\" to improve clarity and grammatical accuracy."
+    },
+    {
+        "ruleId": "THERE_IS_A_LOT_OF",
+        "message": "Consider using the plural verb form for the plural noun “teams”.",
+        "replacements": [
+            "there are"
+        ],
+        "offsetInContext": 33,
+        "context": "In every country we can see that there is a lot of teams which play in football.",
+        "offset": 33,
+        "errorLength": 8,
+        "category": "GRAMMAR",
+        "ruleIssueType": "grammar",
+        "sentence": "In every country we can see that there is a lot of teams which play in football.",
+        "index": 73,
+        "speaker": "SPEAKER_02",
+        "corrected_sentence": "In every country, we can see that there are a lot of teams that play in football.",
+        "original_sentence": "In every country we can see that there is a lot of teams which play in football.",
+        "explanation": "Corrected the plural pronoun \"teams\" to the singular pronoun \"team\" to match the singular subject \"team.\""
+    },
+    {
+        "ruleId": "QUALITY_PARTITIVE",
+        "message": "In a quality partitive structure like “this kind of X”, X should usually match the grammatical number of “kind”.",
+        "replacements": [
+            "this kind of activity",
+            "these kinds of activities"
+        ],
+        "offsetInContext": 43,
+        "context": "... enough time to study, so I can't go to this kind of activities.",
+        "offset": 91,
+        "errorLength": 23,
+        "category": "GRAMMAR",
+        "ruleIssueType": "grammar",
+        "sentence": "Because I think it's waste of time and I don't have enough time to study, so I can't go to this kind of activities.",
+        "index": 77,
+        "speaker": "SPEAKER_02",
+        "corrected_sentence": "Because I believe it's wasteful of time and I don't have enough time to study, so I am unable to participate in such activities.",
+        "original_sentence": "Because I think it's waste of time and I don't have enough time to study, so I can't go to this kind of activities.",
+        "explanation": "Corrected the tense of \"think\" to \"believe\" to match the present tense of \"have.\" Also, added \"such\" to clarify the nature of the activities the speaker is unable to participate in."
+    },
+    {
+        "ruleId": "AI_HYDRA_LEO_MISSING_TO",
+        "message": "Possible missing preposition found.",
+        "replacements": [
+            "to live"
+        ],
+        "offsetInContext": 15,
+        "context": "And maybe he's live alone because there's no one with him.",
+        "offset": 15,
+        "errorLength": 4,
+        "category": "MISC",
+        "ruleIssueType": "uncategorized",
+        "sentence": "And maybe he's live alone because there's no one with him.",
+        "index": 87,
+        "speaker": "SPEAKER_00",
+        "corrected_sentence": "And maybe he's living alone because there's no one by his side.",
+        "original_sentence": "And maybe he's live alone because there's no one with him.",
+        "explanation": "Corrected the verb tense and added \"by his side\" to clarify the situation."
+    },
+    {
+        "ruleId": "THERE_S_MANY",
+        "message": "Did you mean “There are no toys”?",
+        "replacements": [
+            "There are no toys"
+        ],
+        "offsetInContext": 0,
+        "context": "There's no toys for his children or something.",
+        "offset": 0,
+        "errorLength": 15,
+        "category": "GRAMMAR",
+        "ruleIssueType": "grammar",
+        "sentence": "There's no toys for his children or something.",
+        "index": 88,
+        "speaker": "SPEAKER_00",
+        "corrected_sentence": "There are no toys for his children or something.",
+        "original_sentence": "There's no toys for his children or something.",
+        "explanation": "Added \"are\" after \"toys\" to correct the grammatical error of singular subject and plural verb agreement."
+    },
+    {
+        "ruleId": "EVERYDAY_EVERY_DAY",
+        "message": "‘Everyday’ is an adjective. Did you mean “every day”?",
+        "replacements": [
+            "every day"
+        ],
+        "offsetInContext": 43,
+        "context": "...metimes you can't wear the same t-shirt everyday.",
+        "offset": 50,
+        "errorLength": 8,
+        "category": "CONFUSED_WORDS",
+        "ruleIssueType": "misspelling",
+        "sentence": "but sometimes you can't wear the same t-shirt everyday.",
+        "index": 92,
+        "speaker": "SPEAKER_00",
+        "corrected_sentence": "However, sometimes you can't wear the same T-shirt every day.",
+        "original_sentence": "No. but sometimes you can't wear the same t-shirt everyday.",
+        "explanation": "Corrected the verb tense and added \"however\" to introduce a contrast."
+    },
+    {
+        "ruleId": "THERE_S_MANY",
+        "message": "Did you mean “there are some students”?",
+        "replacements": [
+            "there are some students"
+        ],
+        "offsetInContext": 3,
+        "context": "If there is some students or from their fans, they can't play and...",
+        "offset": 3,
+        "errorLength": 22,
+        "category": "GRAMMAR",
+        "ruleIssueType": "grammar",
+        "sentence": "If there is some students or from their fans, they can't play and keep it away from their studying or something.",
+        "index": 95,
+        "speaker": "SPEAKER_00",
+        "corrected_sentence": "If there are some students or from their fans, they can't play and keep it away from their studies or something.",
+        "original_sentence": "If there is some students or from their fans, they can't play and keep it away from their studying or something.",
+        "explanation": "Corrected the verb tense and added \"from their fans\" to show ownership of the students."
+    },
+    {
+        "ruleId": "AI_HYDRA_LEO_MISSING_COMMA",
+        "message": "Possible missing comma found.",
+        "replacements": [
+            "album,"
+        ],
+        "offsetInContext": 43,
+        "context": "... give it to their children. for work or album I think it's album for our pictures.",
+        "offset": 133,
+        "errorLength": 5,
+        "category": "MISC",
+        "ruleIssueType": "uncategorized",
+        "sentence": "for work or album I think it's album for our pictures.",
+        "index": 97,
+        "speaker": "SPEAKER_00",
+        "corrected_sentence": "\"And for this,\" there's no, because, or they have a lot of children, and from their fans, they can give it to their children for work or an album. In my opinion, it's an album for our pictures.\"",
+        "original_sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children. for work or album I think it's album for our pictures.",
+        "explanation": "Corrected the grammatical errors \"there, because, or they have\" with \"there's, because, or they have.\" Also, corrected \"for work or album\" to \"for work or an album\" to match the intended meaning."
+    },
+    {
+        "ruleId": "AI_HYDRA_LEO_MISSING_COMMA",
+        "message": "Possible missing comma found.",
+        "replacements": [
+            "toes,"
+        ],
+        "offsetInContext": 17,
+        "context": "You can put your toes I prefer football.",
+        "offset": 17,
+        "errorLength": 4,
+        "category": "MISC",
+        "ruleIssueType": "uncategorized",
+        "sentence": "You can put your toes I prefer football.",
+        "index": 104,
+        "speaker": "SPEAKER_00",
+        "corrected_sentence": "You can put your toes instead of I prefer football.",
+        "original_sentence": "You can put your toes I prefer football.",
+        "explanation": "Incorrect use of pronoun \"I\" and incorrect verb tense. Corrected sentence uses \"you can\" and correct tense."
+    },
+    {
+        "ruleId": "AI_HYDRA_LEO_MISSING_A",
+        "message": "Possible missing article found.",
+        "replacements": [
+            "a child"
+        ],
+        "offsetInContext": 27,
+        "context": "I watch it from when I was child.",
+        "offset": 27,
+        "errorLength": 5,
+        "category": "MISC",
+        "ruleIssueType": "uncategorized",
+        "sentence": "I watch it from when I was child.",
+        "index": 107,
+        "speaker": "SPEAKER_00",
+        "corrected_sentence": "I watched it from when I was a child.",
+        "original_sentence": "I watch it from when I was child.",
+        "explanation": "The subject of the sentence is \"I,\" so the correct pronoun form is \"watched.\""
+    },
+    {
+        "ruleId": "MENTION_ABOUT",
+        "message": "Did you mean simply “discussing our”? You do not need the word “about” here.",
+        "replacements": [
+            "discussing our"
+        ],
+        "offsetInContext": 43,
+        "context": "...azing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions...",
+        "offset": 80,
+        "errorLength": 20,
+        "category": "COLLOCATIONS",
+        "ruleIssueType": "grammar",
+        "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+        "index": 122,
+        "speaker": "SPEAKER_00",
+        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team, what we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
+        "original_sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+        "explanation": "The original sentence contained errors in verb tense, punctuation, and word choice. The corrected sentence is corrected for grammatical accuracy and clarity."
+    },
+    {
+        "ruleId": "A_NNS",
+        "message": "The plural noun “players” cannot be used with the article “a”. Did you mean “a new player” or “new players”?",
+        "replacements": [
+            "a new player",
+            "new players"
+        ],
+        "offsetInContext": 43,
+        "context": "...on some positions or if we need to have a new players or discuss about the gomers if they hav...",
+        "offset": 163,
+        "errorLength": 13,
+        "category": "GRAMMAR",
+        "ruleIssueType": "grammar",
+        "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+        "index": 122,
+        "speaker": "SPEAKER_00",
+        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team, what we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
+        "original_sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+        "explanation": "The original sentence contained errors in verb tense, punctuation, and word choice. The corrected sentence is corrected for grammatical accuracy and clarity."
+    },
+    {
+        "ruleId": "MENTION_ABOUT",
+        "message": "Did you mean simply “discuss the”? You do not need the word “about” here.",
+        "replacements": [
+            "discuss the"
+        ],
+        "offsetInContext": 43,
+        "context": "... or if we need to have a new players or discuss about the gomers if they have like one player tha...",
+        "offset": 180,
+        "errorLength": 17,
+        "category": "COLLOCATIONS",
+        "ruleIssueType": "grammar",
+        "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+        "index": 122,
+        "speaker": "SPEAKER_00",
+        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team, what we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
+        "original_sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+        "explanation": "The original sentence contained errors in verb tense, punctuation, and word choice. The corrected sentence is corrected for grammatical accuracy and clarity."
+    }
+]

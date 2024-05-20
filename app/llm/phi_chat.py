@@ -2,7 +2,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 import torch
 import time
 
-from app.llm.chat_interface import IChat
+from .chat_interface import IChat
 
 supported_models = ["microsoft/Phi-3-mini-4k-instruct"]
 

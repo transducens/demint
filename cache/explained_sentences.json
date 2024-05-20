@@ -1,0 +1,863 @@
+{
+    "And Kenza, do you work or are you a student? what you do.": [
+        {
+            "index": 12,
+            "speaker": "SPEAKER_01",
+            "t5_checked_sentence": "And Kenza, do you work or are you a student? what do you do?",
+            "llm_explanation": "\n**Errors in the original sentence:**\n\n**1. Incorrect word order:**\n- \"what you do\" should be \"what do you do\"\n\n**2. Lack of subject-verb agreement:**\n- \"do you work or are you a student?\" is incorrect because it doesn't clearly indicate who is being asked to do the action.\n\n\n**Corrections in the revised sentence:**\n\n**1. Correct word order:**\n- \"what do you do?\" is the correct word order for a question asking about someone's action or activity.\n\n**2. Subject-verb agreement:**\n- \"Do you work or are you a student?\" is corrected by using the correct subject-verb agreement. The subject is \"you",
+            "language_tool": [],
+            "errant": [
+                {
+                    "index": 12,
+                    "speaker": "SPEAKER_01",
+                    "sentence": "And Kenza, do you work or are you a student? what you do.",
+                    "corrected_sentence": "And Kenza, do you work or are you a student? what do you do?",
+                    "o_start": 11,
+                    "o_end": 11,
+                    "original_text": "",
+                    "c_start": 11,
+                    "c_end": 12,
+                    "corrected_text": "do",
+                    "error_type": "M:VERB",
+                    "corrected_key": "M:VERB|do"
+                }
+            ]
+        }
+    ],
+    "Talk together about the different things it could give and decide which the fans would like best.": [
+        {
+            "index": 37,
+            "speaker": "SPEAKER_01",
+            "t5_checked_sentence": "Talk about the different things it could give and decide which fans would like best.",
+            "llm_explanation": "**Errors Corrected:**\n\n**1. Talk together:**\n- Original: \"Talk together\" implies that two or more people are engaging in the action of talking simultaneously.\n- Corrected: \"Talk\" alone is sufficient as it indicates that the action of talking is being performed.\n\n\n**2. Which the fans would like best:**\n- Original: \"Which the fans would like best\" is incorrect grammar.\n- Corrected: \"Which fans would like best\" is the correct way to express the idea of choosing the most favored option among the fans.",
+            "language_tool": [],
+            "errant": [
+                {
+                    "index": 37,
+                    "speaker": "SPEAKER_01",
+                    "sentence": "Talk together about the different things it could give and decide which the fans would like best.",
+                    "corrected_sentence": "Talk about the different things it could give and decide which fans would like best.",
+                    "o_start": 1,
+                    "o_end": 2,
+                    "original_text": "together",
+                    "c_start": 1,
+                    "c_end": 1,
+                    "corrected_text": "",
+                    "error_type": "U:ADV",
+                    "corrected_key": "U:ADV|"
+                },
+                {
+                    "index": 37,
+                    "speaker": "SPEAKER_01",
+                    "sentence": "Talk together about the different things it could give and decide which the fans would like best.",
+                    "corrected_sentence": "Talk about the different things it could give and decide which fans would like best.",
+                    "o_start": 12,
+                    "o_end": 13,
+                    "original_text": "the",
+                    "c_start": 11,
+                    "c_end": 11,
+                    "corrected_text": "",
+                    "error_type": "U:DET",
+                    "corrected_key": "U:DET|"
+                }
+            ]
+        }
+    ],
+    "I generally get to work by car. lady which is maybe connected on a laptop and reading on a book.": [
+        {
+            "index": 54,
+            "speaker": "SPEAKER_02",
+            "t5_checked_sentence": "I generally get to work by car, which is maybe connected to a laptop and reading a book.",
+            "llm_explanation": "\n**Errors in the original sentence:**\n\n**1. Gender inconsistency:**\n- \"lady\" should be \"people\" or \"someone\" to maintain gender neutrality and inclusivity.\n\n\n**2. Comma placement:**\n- The comma after \"car\" is incorrect. It should be placed after \"laptop and reading a book.\"\n\n\n**3. Incorrect tense:**\n- \"is maybe connected\" should be \"is often connected\" or \"is sometimes connected\" to express a possibility or probability.\n\n\n**Corrected sentence:**\n\n\"I generally get to work by car, which is often connected to a laptop and reading a book.\"\n\n**Explanation of the corrections:**\n\n* **Gender inconsistency** was addressed by replacing \"lady\" with a",
+            "language_tool": [],
+            "errant": [
+                {
+                    "index": 54,
+                    "speaker": "SPEAKER_02",
+                    "sentence": "I generally get to work by car. lady which is maybe connected on a laptop and reading on a book.",
+                    "corrected_sentence": "I generally get to work by car, which is maybe connected to a laptop and reading a book.",
+                    "o_start": 6,
+                    "o_end": 8,
+                    "original_text": "car. lady",
+                    "c_start": 6,
+                    "c_end": 7,
+                    "corrected_text": "car,",
+                    "error_type": "R:NOUN",
+                    "corrected_key": "R:NOUN|car,"
+                },
+                {
+                    "index": 54,
+                    "speaker": "SPEAKER_02",
+                    "sentence": "I generally get to work by car. lady which is maybe connected on a laptop and reading on a book.",
+                    "corrected_sentence": "I generally get to work by car, which is maybe connected to a laptop and reading a book.",
+                    "o_start": 12,
+                    "o_end": 13,
+                    "original_text": "on",
+                    "c_start": 11,
+                    "c_end": 12,
+                    "corrected_text": "to",
+                    "error_type": "R:PREP",
+                    "corrected_key": "R:PREP|to"
+                },
+                {
+                    "index": 54,
+                    "speaker": "SPEAKER_02",
+                    "sentence": "I generally get to work by car. lady which is maybe connected on a laptop and reading on a book.",
+                    "corrected_sentence": "I generally get to work by car, which is maybe connected to a laptop and reading a book.",
+                    "o_start": 17,
+                    "o_end": 18,
+                    "original_text": "on",
+                    "c_start": 16,
+                    "c_end": 16,
+                    "corrected_text": "",
+                    "error_type": "U:PREP",
+                    "corrected_key": "U:PREP|"
+                }
+            ]
+        }
+    ],
+    "Maybe she is preparing for an exam for getting more information.": [
+        {
+            "index": 56,
+            "speaker": "SPEAKER_02",
+            "t5_checked_sentence": "Maybe she is preparing for an exam to get more information.",
+            "llm_explanation": "**Errors in the original sentence:**\n\n**1. \"for getting more information\"**\n- This phrase is incorrect because it implies that the action of preparing for the exam is done to obtain more information.\n- The correct way to express this idea is \"to get more information.\"\n\n\n**Corrected sentence:**\n\n\"Maybe she is preparing for an exam to get more information.\"\n\n**Explanation of the correction:**\n\n- The corrected sentence uses the correct preposition \"to\" to indicate that the purpose of preparing for the exam is to obtain more information.\n- This is a more logical and grammatically correct way to express the intended meaning.",
+            "language_tool": [],
+            "errant": [
+                {
+                    "index": 56,
+                    "speaker": "SPEAKER_02",
+                    "sentence": "Maybe she is preparing for an exam for getting more information.",
+                    "corrected_sentence": "Maybe she is preparing for an exam to get more information.",
+                    "o_start": 7,
+                    "o_end": 8,
+                    "original_text": "for",
+                    "c_start": 7,
+                    "c_end": 8,
+                    "corrected_text": "to",
+                    "error_type": "R:PART",
+                    "corrected_key": "R:PART|to"
+                },
+                {
+                    "index": 56,
+                    "speaker": "SPEAKER_02",
+                    "sentence": "Maybe she is preparing for an exam for getting more information.",
+                    "corrected_sentence": "Maybe she is preparing for an exam to get more information.",
+                    "o_start": 8,
+                    "o_end": 9,
+                    "original_text": "getting",
+                    "c_start": 8,
+                    "c_end": 9,
+                    "corrected_text": "get",
+                    "error_type": "R:VERB:FORM",
+                    "corrected_key": "R:VERB:FORM|get"
+                }
+            ]
+        }
+    ],
+    "So if he had the T-shirt with him, he can always remember the team. mMM mMM But at least you have it at home and you can see it, even if you don't wear it.": [
+        {
+            "index": 62,
+            "speaker": "SPEAKER_02",
+            "t5_checked_sentence": "So if he had the T-shirt with him, he can always remember the team. mMM mMM But at least you have it at home and you can see it, even if you don't wear",
+            "llm_explanation": "\n**Errors Corrected:**\n\n**1. Can should be could:**\n- \"Can\" implies a present ability or possibility, which is inappropriate in this context.\n- \"Could\" suggests a hypothetical or conditional situation, which is appropriate because the sentence describes a hypothetical scenario.\n\n\n**2. mMM mMM should be maybe:**\n- \"mMM mMM\" is an informal contraction that means \"maybe,\" but it is not appropriate in formal writing.\n- \"Maybe\" clearly conveys the idea of a possible or uncertain outcome.\n\n\n**3. Don't wear should be didn't wear:**\n- \"Don't wear\" is a present tense negative form, but the sentence describes a hypothetical situation in the past.",
+            "language_tool": [
+                {
+                    "ruleId": "ENGLISH_WORD_REPEAT_RULE",
+                    "message": "Possible typo: you repeated a word",
+                    "replacements": [
+                        "mMM"
+                    ],
+                    "offsetInContext": 43,
+                    "context": "...h him, he can always remember the team. mMM mMM But at least you have it at home and yo...",
+                    "offset": 68,
+                    "errorLength": 7,
+                    "category": "MISC",
+                    "ruleIssueType": "duplication",
+                    "sentence": "mMM mMM But at least you have it at home and you can see it, even if you don't wear it."
+                }
+            ],
+            "errant": [
+                {
+                    "index": 62,
+                    "speaker": "SPEAKER_02",
+                    "sentence": "So if he had the T-shirt with him, he can always remember the team. mMM mMM But at least you have it at home and you can see it, even if you don't wear it.",
+                    "corrected_sentence": "So if he had the T-shirt with him, he can always remember the team. mMM mMM But at least you have it at home and you can see it, even if you don't wear",
+                    "o_start": 34,
+                    "o_end": 35,
+                    "original_text": "it.",
+                    "c_start": 34,
+                    "c_end": 34,
+                    "corrected_text": "",
+                    "error_type": "U:NOUN",
+                    "corrected_key": "U:NOUN|"
+                }
+            ]
+        }
+    ],
+    "All for pictures. so that he can put all her pictures in this album and he can watch pictures whatever he wants and you keep remembering your team, bye!": [
+        {
+            "index": 65,
+            "speaker": "SPEAKER_02",
+            "t5_checked_sentence": "All for pictures, so that he can put all her pictures in this album and he can watch pictures whatever he wants and you keep remembering your team, bye!",
+            "llm_explanation": "\n**Errors in the original sentence:**\n\n**1. \"All for pictures. so that...\"**\n- The period after \"pictures\" is incorrect.\n- \"So that\" should be preceded by a conjunction (e.g., \"to\", \"in order to\").\n\n\n**2. \"he can watch pictures whatever he wants and you keep remembering your team, bye!\"**\n- \"Whatever he wants and you keep remembering your team\" is a fragment lacking a subject.\n- \"Bye!\" is an incomplete sentence and should be replaced with a proper closing statement.\n\n\n**Corrected sentence:**\n\n\"All for pictures, so that he can put all her pictures in this album and he can watch pictures whatever he wants. You keep",
+            "language_tool": [],
+            "errant": [
+                {
+                    "index": 65,
+                    "speaker": "SPEAKER_02",
+                    "sentence": "All for pictures. so that he can put all her pictures in this album and he can watch pictures whatever he wants and you keep remembering your team, bye!",
+                    "corrected_sentence": "All for pictures, so that he can put all her pictures in this album and he can watch pictures whatever he wants and you keep remembering your team, bye!",
+                    "o_start": 2,
+                    "o_end": 3,
+                    "original_text": "pictures.",
+                    "c_start": 2,
+                    "c_end": 3,
+                    "corrected_text": "pictures,",
+                    "error_type": "R:NOUN",
+                    "corrected_key": "R:NOUN|pictures,"
+                }
+            ]
+        }
+    ],
+    "Is that...": [
+        {
+            "index": 67,
+            "speaker": "SPEAKER_02",
+            "t5_checked_sentence": "Is that?",
+            "llm_explanation": "**Errors Corrected:**\n\n- **Missing question mark:** The original sentence lacks the necessary question mark, which indicates that it is a question.\n- **Incorrect word order:** The original sentence has the subject (\"Is that...\") followed by a pause, but the correct word order for a question is to place the question mark immediately after the subject.\n\n**How the errors were corrected:**\n\n- The addition of the question mark at the end of the sentence clarifies that it is a question.\n- The correct word order ensures that the sentence is grammatically correct and conveys the intended meaning.",
+            "language_tool": [],
+            "errant": []
+        }
+    ],
+    "For me, it's a swimming.": [
+        {
+            "index": 71,
+            "speaker": "SPEAKER_02",
+            "t5_checked_sentence": "For me, it's swimming.",
+            "llm_explanation": "**Errors in the original sentence:**\n\n* **Missing verb:** \"it's a swimming\" lacks a verb, making the sentence incomplete and grammatically incorrect.\n* **Incorrect word choice:** \"swimming\" is a noun, not a verb. It refers to the act of swimming rather than the activity itself.\n\n\n**Corrections in the revised sentence:**\n\n* **Addition of a verb:** \"it's swimming\" includes the present continuous tense of the verb \"to swim,\" which is appropriate for describing an ongoing activity.\n* **Correct word choice:** \"Swimming\" is used as a gerund, which functions as a noun and refers to the activity of swimming.",
+            "language_tool": [],
+            "errant": [
+                {
+                    "index": 71,
+                    "speaker": "SPEAKER_02",
+                    "sentence": "For me, it's a swimming.",
+                    "corrected_sentence": "For me, it's swimming.",
+                    "o_start": 3,
+                    "o_end": 4,
+                    "original_text": "a",
+                    "c_start": 3,
+                    "c_end": 3,
+                    "corrected_text": "",
+                    "error_type": "U:DET",
+                    "corrected_key": "U:DET|"
+                }
+            ]
+        }
+    ],
+    "In every country we can see that there is a lot of teams which play in football.": [
+        {
+            "index": 82,
+            "speaker": "SPEAKER_02",
+            "t5_checked_sentence": "In every country we can see that there are a lot of teams which play in football.",
+            "llm_explanation": "\n**Errors in the original sentence:**\n\n**1. Singular-plural agreement:**\n- \"teams which play\" should be \"team which plays\" because \"team\" is a singular noun.\n\n\n**2. Incorrect word choice:**\n- \"a lot of teams\" implies multiple teams, but the context suggests that there are many teams in each country, not multiple teams in each country.\n\n\n**Corrected sentence:**\n\n\"In every country we can see that there are a lot of teams which play in football.\"\n\n**Explanation of the corrections:**\n\n- The singular-plural agreement is corrected by using \"are\" instead of \"is\" to match the plural noun \"teams\".\n- The word choice is corrected by using \"are\"",
+            "language_tool": [
+                {
+                    "ruleId": "THERE_IS_A_LOT_OF",
+                    "message": "Consider using the plural verb form for the plural noun “teams”.",
+                    "replacements": [
+                        "there are"
+                    ],
+                    "offsetInContext": 33,
+                    "context": "In every country we can see that there is a lot of teams which play in football.",
+                    "offset": 33,
+                    "errorLength": 8,
+                    "category": "GRAMMAR",
+                    "ruleIssueType": "grammar",
+                    "sentence": "In every country we can see that there is a lot of teams which play in football."
+                }
+            ],
+            "errant": [
+                {
+                    "index": 82,
+                    "speaker": "SPEAKER_02",
+                    "sentence": "In every country we can see that there is a lot of teams which play in football.",
+                    "corrected_sentence": "In every country we can see that there are a lot of teams which play in football.",
+                    "o_start": 8,
+                    "o_end": 9,
+                    "original_text": "is",
+                    "c_start": 8,
+                    "c_end": 9,
+                    "corrected_text": "are",
+                    "error_type": "R:VERB:SVA",
+                    "corrected_key": "R:VERB:SVA|are"
+                }
+            ]
+        }
+    ],
+    "Because I think it's waste of time and I don't have enough time to study, so I can't go to this kind of activities.": [
+        {
+            "index": 88,
+            "speaker": "SPEAKER_02",
+            "t5_checked_sentence": "Because I think it's a waste of time and I don't have enough time to study, so I can't go to this kind of activities.",
+            "llm_explanation": "\n**Errors in the original sentence:**\n\n**1. \"waste of time\" should be \"a waste of time\"**\n- \"Waste of time\" is incorrect as it implies that time is being discarded or thrown away.\n- \"A waste of time\" correctly suggests that time is being used inefficiently or without purpose.\n\n\n**2. Lack of agreement between the subject and the verb**\n- \"I can't go\" should be \"I can't go to\"\n- The verb \"go\" is in the first person singular form, so it should be followed by the preposition \"to\" and the object \"this kind of activities\".\n\n\n**Corrected sentence:**\n\n\"Because I think it's a waste",
+            "language_tool": [
+                {
+                    "ruleId": "QUALITY_PARTITIVE",
+                    "message": "In a quality partitive structure like “this kind of X”, X should usually match the grammatical number of “kind”.",
+                    "replacements": [
+                        "this kind of activity",
+                        "these kinds of activities"
+                    ],
+                    "offsetInContext": 43,
+                    "context": "... enough time to study, so I can't go to this kind of activities.",
+                    "offset": 91,
+                    "errorLength": 23,
+                    "category": "GRAMMAR",
+                    "ruleIssueType": "grammar",
+                    "sentence": "Because I think it's waste of time and I don't have enough time to study, so I can't go to this kind of activities."
+                }
+            ],
+            "errant": [
+                {
+                    "index": 88,
+                    "speaker": "SPEAKER_02",
+                    "sentence": "Because I think it's waste of time and I don't have enough time to study, so I can't go to this kind of activities.",
+                    "corrected_sentence": "Because I think it's a waste of time and I don't have enough time to study, so I can't go to this kind of activities.",
+                    "o_start": 4,
+                    "o_end": 4,
+                    "original_text": "",
+                    "c_start": 4,
+                    "c_end": 5,
+                    "corrected_text": "a",
+                    "error_type": "M:DET",
+                    "corrected_key": "M:DET|a"
+                }
+            ]
+        }
+    ],
+    "My name is Mohammed. from Saudi Arabia.": [
+        {
+            "index": 89,
+            "speaker": "SPEAKER_00",
+            "t5_checked_sentence": "My name is Mohammed, from Saudi Arabia.",
+            "llm_explanation": "**Errors in the original sentence:**\n\n* **Missing comma:** The sentence lacks a comma after the nominative phrase \"Mohammed.\"\n* **Incorrect word order:** \"from Saudi Arabia\" is placed after the subject, which is incorrect in standard English sentence structure.\n\n\n**Corrections in the revised sentence:**\n\n* **Insertion of a comma:** The comma is placed after the nominative phrase \"Mohammed,\" correctly separating it from the rest of the sentence.\n* **Correct word order:** \"From Saudi Arabia\" is moved to the end of the sentence, following the subject and other modifiers. This adheres to the standard English sentence structure.",
+            "language_tool": [],
+            "errant": []
+        }
+    ],
+    "And maybe he just came from outside and he didn't take out his clothes.": [
+        {
+            "index": 96,
+            "speaker": "SPEAKER_00",
+            "t5_checked_sentence": "And maybe he just came from outside and didn't take out his clothes.",
+            "llm_explanation": "\n**Errors in the original sentence:**\n\n**1. Dangling modifier:**\n- \"he just came from outside\" is a dangling modifier because it modifies \"he\" but is not clearly connected to the action of not taking out the clothes.\n\n\n**2. Incorrect tense:**\n- \"he didn't take out his clothes\" is incorrect because it implies that the action of taking out clothes happened in the past, but the reference point \"just came from outside\" suggests that the action happened recently.\n\n\n**Corrected sentence:**\n\n\"And maybe he just came from outside and didn't take out his clothes.\"\n\n**Corrections:**\n\n- The dangling modifier is resolved by adding the action of not taking out the clothes to the main",
+            "language_tool": [],
+            "errant": [
+                {
+                    "index": 96,
+                    "speaker": "SPEAKER_00",
+                    "sentence": "And maybe he just came from outside and he didn't take out his clothes.",
+                    "corrected_sentence": "And maybe he just came from outside and didn't take out his clothes.",
+                    "o_start": 8,
+                    "o_end": 9,
+                    "original_text": "he",
+                    "c_start": 8,
+                    "c_end": 8,
+                    "corrected_text": "",
+                    "error_type": "U:PRON",
+                    "corrected_key": "U:PRON|"
+                }
+            ]
+        }
+    ],
+    "He just started to read and having one cup of tea and relaxing in his home.": [
+        {
+            "index": 97,
+            "speaker": "SPEAKER_00",
+            "t5_checked_sentence": "He just started to read and have one cup of tea and relax in his home.",
+            "llm_explanation": "\n**Errors in the original sentence:**\n\n**1. Having** should be **have**\n- \"Having\" is in the present participle form, which is used for ongoing actions.\n- \"Have\" is the correct present tense verb for the action of drinking.\n\n\n**2. Relaxing** should be **relax**\n- \"Relaxing\" is in the present participle form, which describes an ongoing action.\n- \"Relax\" is the correct present tense verb for the action of calming down.\n\n\n**3. In his home** should be **at home**\n- \"In his home\" is not idiomatic.\n- \"At home\" is the correct prepositional phrase for being in one's own home.",
+            "language_tool": [],
+            "errant": [
+                {
+                    "index": 97,
+                    "speaker": "SPEAKER_00",
+                    "sentence": "He just started to read and having one cup of tea and relaxing in his home.",
+                    "corrected_sentence": "He just started to read and have one cup of tea and relax in his home.",
+                    "o_start": 6,
+                    "o_end": 7,
+                    "original_text": "having",
+                    "c_start": 6,
+                    "c_end": 7,
+                    "corrected_text": "have",
+                    "error_type": "R:VERB:FORM",
+                    "corrected_key": "R:VERB:FORM|have"
+                },
+                {
+                    "index": 97,
+                    "speaker": "SPEAKER_00",
+                    "sentence": "He just started to read and having one cup of tea and relaxing in his home.",
+                    "corrected_sentence": "He just started to read and have one cup of tea and relax in his home.",
+                    "o_start": 12,
+                    "o_end": 13,
+                    "original_text": "relaxing",
+                    "c_start": 12,
+                    "c_end": 13,
+                    "corrected_text": "relax",
+                    "error_type": "R:VERB:FORM",
+                    "corrected_key": "R:VERB:FORM|relax"
+                }
+            ]
+        }
+    ],
+    "There's no toys for his children or something.": [
+        {
+            "index": 100,
+            "speaker": "SPEAKER_00",
+            "t5_checked_sentence": "There are no toys for his children or something.",
+            "llm_explanation": "\n**Errors in the original sentence:**\n\n**1. Incorrect tense:**\n- \"There's\" is a contraction of \"there is\" or \"there has.\" In this sentence, a plural noun (\"toys\") is being referred to, so \"there are\" should be used instead of \"there's.\"\n\n**2. Missing article:**\n- \"For his children or something\" lacks an article (such as \"a\" or \"some\") before \"or something.\" This makes the sentence incomplete and grammatically incorrect.\n\n\n**Corrections in the revised sentence:**\n\n- \"There are\" correctly replaces \"There's\" to match the plural noun \"toys.\"\n- \"A\" is added before \"his children or",
+            "language_tool": [
+                {
+                    "ruleId": "THERE_S_MANY",
+                    "message": "Did you mean “There are no toys”?",
+                    "replacements": [
+                        "There are no toys"
+                    ],
+                    "offsetInContext": 0,
+                    "context": "There's no toys for his children or something.",
+                    "offset": 0,
+                    "errorLength": 15,
+                    "category": "GRAMMAR",
+                    "ruleIssueType": "grammar",
+                    "sentence": "There's no toys for his children or something."
+                }
+            ],
+            "errant": [
+                {
+                    "index": 100,
+                    "speaker": "SPEAKER_00",
+                    "sentence": "There's no toys for his children or something.",
+                    "corrected_sentence": "There are no toys for his children or something.",
+                    "o_start": 1,
+                    "o_end": 1,
+                    "original_text": "",
+                    "c_start": 1,
+                    "c_end": 2,
+                    "corrected_text": "are",
+                    "error_type": "M:VERB",
+                    "corrected_key": "M:VERB|are"
+                }
+            ]
+        }
+    ],
+    "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying by the fifth anniversary for the four fifth established for their club.": [
+        {
+            "index": 103,
+            "speaker": "SPEAKER_00",
+            "t5_checked_sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying the fifth anniversary for the four fifth established for their club",
+            "llm_explanation": "\n## Errors Corrected in the Original Sentence:\n\n**1. Incorrect word choice:**\n\n- \"they are enjoying by the fifth anniversary\" should be \"they are celebrating their fifth anniversary\" or \"they are enjoying their fifth anniversary celebration.\"\n\n**2. Incorrect grammar:**\n\n- \"for the four fifth established for their club\" should be \"for the fourth fifth of their club's existence.\"\n\n\n**3. Clarity issues:**\n\n- \"when I just check in the day\" is ambiguous and could be interpreted in multiple ways. It should be \"when I just check the day\" or \"every time I check the day.\"\n\n\n**4. Word order errors:**\n\n- The sentence is unnecessarily complex and difficult to understand. It could",
+            "language_tool": [],
+            "errant": [
+                {
+                    "index": 103,
+                    "speaker": "SPEAKER_00",
+                    "sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying by the fifth anniversary for the four fifth established for their club.",
+                    "corrected_sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying the fifth anniversary for the four fifth established for their club",
+                    "o_start": 38,
+                    "o_end": 39,
+                    "original_text": "by",
+                    "c_start": 38,
+                    "c_end": 38,
+                    "corrected_text": "",
+                    "error_type": "U:PREP",
+                    "corrected_key": "U:PREP|"
+                },
+                {
+                    "index": 103,
+                    "speaker": "SPEAKER_00",
+                    "sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying by the fifth anniversary for the four fifth established for their club.",
+                    "corrected_sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying the fifth anniversary for the four fifth established for their club",
+                    "o_start": 49,
+                    "o_end": 50,
+                    "original_text": "club.",
+                    "c_start": 48,
+                    "c_end": 49,
+                    "corrected_text": "club",
+                    "error_type": "R:NOUN",
+                    "corrected_key": "R:NOUN|club"
+                }
+            ]
+        }
+    ],
+    "No. but sometimes you can't wear the same t-shirt everyday.": [
+        {
+            "index": 104,
+            "speaker": "SPEAKER_00",
+            "t5_checked_sentence": "No, but sometimes you can't wear the same t-shirt everyday.",
+            "llm_explanation": "\n**Errors in the original sentence:**\n\n**1. Syntax error:**\n- \"No. but\" is incorrect. It should be \"No, but\" to form a correct sentence structure.\n\n\n**2. Lack of agreement:**\n- \"you can't wear the same t-shirt everyday\" should be \"you can't wear the same t-shirt every day\" to make the tense and frequency consistent.\n\n\n**Corrected sentence:**\n\n\"No, but sometimes you can't wear the same t-shirt every day.\"\n\n**Explanation of the corrections:**\n\n* **\"No, but\"** was corrected to **\"No, but\"** to fix the syntax error.\n* **\"you can't",
+            "language_tool": [
+                {
+                    "ruleId": "EVERYDAY_EVERY_DAY",
+                    "message": "‘Everyday’ is an adjective. Did you mean “every day”?",
+                    "replacements": [
+                        "every day"
+                    ],
+                    "offsetInContext": 43,
+                    "context": "...metimes you can't wear the same t-shirt everyday.",
+                    "offset": 50,
+                    "errorLength": 8,
+                    "category": "CONFUSED_WORDS",
+                    "ruleIssueType": "misspelling",
+                    "sentence": "but sometimes you can't wear the same t-shirt everyday."
+                }
+            ],
+            "errant": [
+                {
+                    "index": 104,
+                    "speaker": "SPEAKER_00",
+                    "sentence": "No. but sometimes you can't wear the same t-shirt everyday.",
+                    "corrected_sentence": "No, but sometimes you can't wear the same t-shirt everyday.",
+                    "o_start": 0,
+                    "o_end": 1,
+                    "original_text": "No.",
+                    "c_start": 0,
+                    "c_end": 1,
+                    "corrected_text": "No,",
+                    "error_type": "R:NOUN",
+                    "corrected_key": "R:NOUN|No,"
+                }
+            ]
+        }
+    ],
+    "If there is some students or from their fans, they can't play and keep it away from their studying or something.": [
+        {
+            "index": 107,
+            "speaker": "SPEAKER_00",
+            "t5_checked_sentence": "If there are some students or from their fans, they can't play and keep it away from their studying or something.",
+            "llm_explanation": "\n**Errors in the original sentence:**\n\n**1. Incorrect subject-verb agreement:**\n- \"If there is some students\" should be \"If there are some students\" (plural subject requires a plural verb).\n\n\n**2. Incorrect word choice:**\n- \"from their fans\" is redundant and unnecessary. It is already implied that the fans are the source of the problem.\n\n\n**3. Incorrect tense:**\n- \"they can't play and keep it away from their studying or something\" should be \"they can't play and keep it away from their studies or something\" (present tense).\n\n\n**Corrections in the revised sentence:**\n\n- The subject-verb agreement is corrected by using \"are\" instead of \"",
+            "language_tool": [
+                {
+                    "ruleId": "THERE_S_MANY",
+                    "message": "Did you mean “there are some students”?",
+                    "replacements": [
+                        "there are some students"
+                    ],
+                    "offsetInContext": 3,
+                    "context": "If there is some students or from their fans, they can't play and...",
+                    "offset": 3,
+                    "errorLength": 22,
+                    "category": "GRAMMAR",
+                    "ruleIssueType": "grammar",
+                    "sentence": "If there is some students or from their fans, they can't play and keep it away from their studying or something."
+                }
+            ],
+            "errant": [
+                {
+                    "index": 107,
+                    "speaker": "SPEAKER_00",
+                    "sentence": "If there is some students or from their fans, they can't play and keep it away from their studying or something.",
+                    "corrected_sentence": "If there are some students or from their fans, they can't play and keep it away from their studying or something.",
+                    "o_start": 2,
+                    "o_end": 3,
+                    "original_text": "is",
+                    "c_start": 2,
+                    "c_end": 3,
+                    "corrected_text": "are",
+                    "error_type": "R:VERB:SVA",
+                    "corrected_key": "R:VERB:SVA|are"
+                }
+            ]
+        }
+    ],
+    "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children. for work or album I think it's album for our pictures.": [
+        {
+            "index": 109,
+            "speaker": "SPEAKER_00",
+            "t5_checked_sentence": "And for this, there is no, because they have a lot of children and from their fans they can give it to their children. for work or album I think it's album for our pictures.",
+            "llm_explanation": "\n**Errors in the original sentence:**\n\n**1. \"there, no\" should be \"there is no\":**\n- \"There, no\" is incorrect. It should be \"there is no\" to form a correct affirmative negative construction.\n\n\n**2. \"or they have a lot of children\" should be \"they have a lot of children\":**\n- The placement of \"or\" is incorrect. It should be placed after \"children\" to form a correct conditional statement.\n\n\n**3. \"from their fans they can give it to their children\" should be \"from their fans, they can give it to their children\":**\n- The sentence lacks clarity due to the incorrect placement of the comma and the lack of",
+            "language_tool": [],
+            "errant": [
+                {
+                    "index": 109,
+                    "speaker": "SPEAKER_00",
+                    "sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children. for work or album I think it's album for our pictures.",
+                    "corrected_sentence": "And for this, there is no, because they have a lot of children and from their fans they can give it to their children. for work or album I think it's album for our pictures.",
+                    "o_start": 4,
+                    "o_end": 4,
+                    "original_text": "",
+                    "c_start": 4,
+                    "c_end": 5,
+                    "corrected_text": "is",
+                    "error_type": "M:VERB",
+                    "corrected_key": "M:VERB|is"
+                },
+                {
+                    "index": 109,
+                    "speaker": "SPEAKER_00",
+                    "sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children. for work or album I think it's album for our pictures.",
+                    "corrected_sentence": "And for this, there is no, because they have a lot of children and from their fans they can give it to their children. for work or album I think it's album for our pictures.",
+                    "o_start": 6,
+                    "o_end": 7,
+                    "original_text": "or",
+                    "c_start": 7,
+                    "c_end": 7,
+                    "corrected_text": "",
+                    "error_type": "U:CONJ",
+                    "corrected_key": "U:CONJ|"
+                }
+            ]
+        }
+    ],
+    "I am very interested about football.": [
+        {
+            "index": 123,
+            "speaker": "SPEAKER_00",
+            "t5_checked_sentence": "I am very interested in football.",
+            "llm_explanation": "**Errors in the original sentence:**\n\n* **About** should be **in** to indicate an interest in something. \"About\" is used to refer to a general idea or topic, while \"in\" is used to indicate a specific interest or participation in something.\n\n\n**Corrected sentence:**\n\n\"I am very interested **in** football.\"\n\n**The correction:**\n\n* The word \"in\" was correctly inserted to express the specific interest in football.",
+            "language_tool": [],
+            "errant": [
+                {
+                    "index": 123,
+                    "speaker": "SPEAKER_00",
+                    "sentence": "I am very interested about football.",
+                    "corrected_sentence": "I am very interested in football.",
+                    "o_start": 4,
+                    "o_end": 5,
+                    "original_text": "about",
+                    "c_start": 4,
+                    "c_end": 5,
+                    "corrected_text": "in",
+                    "error_type": "R:PREP",
+                    "corrected_key": "R:PREP|in"
+                }
+            ]
+        }
+    ],
+    "I watch it from when I was child.": [
+        {
+            "index": 124,
+            "speaker": "SPEAKER_00",
+            "t5_checked_sentence": "I watched it from when I was a child.",
+            "llm_explanation": "\n**Errors in the original sentence:**\n\n* **Watch** should be **watched** (past tense).\n* **From when** should be **when I was**.\n\n**Explanation of the errors:**\n\n* **Watch** is a present tense verb. It is incorrect to use it in a past context.\n* **From when** is an awkward and unnatural construction. It should be replaced with a more concise and grammatically correct phrase like \"when I was\".\n\n**Corrected sentence:**\n\n\"I watched it from when I was a child.\"\n\n**Explanation of the correction:**\n\n* The past tense of \"watch\" is \"watched\".\n* \"When I was a child\" clearly indicates the time frame when the action of",
+            "language_tool": [],
+            "errant": [
+                {
+                    "index": 124,
+                    "speaker": "SPEAKER_00",
+                    "sentence": "I watch it from when I was child.",
+                    "corrected_sentence": "I watched it from when I was a child.",
+                    "o_start": 1,
+                    "o_end": 2,
+                    "original_text": "watch",
+                    "c_start": 1,
+                    "c_end": 2,
+                    "corrected_text": "watched",
+                    "error_type": "R:VERB:TENSE",
+                    "corrected_key": "R:VERB:TENSE|watched"
+                },
+                {
+                    "index": 124,
+                    "speaker": "SPEAKER_00",
+                    "sentence": "I watch it from when I was child.",
+                    "corrected_sentence": "I watched it from when I was a child.",
+                    "o_start": 7,
+                    "o_end": 7,
+                    "original_text": "",
+                    "c_start": 7,
+                    "c_end": 8,
+                    "corrected_text": "a",
+                    "error_type": "M:DET",
+                    "corrected_key": "M:DET|a"
+                }
+            ]
+        }
+    ],
+    "Yeah. because everyone can watch it.": [
+        {
+            "index": 132,
+            "speaker": "SPEAKER_00",
+            "t5_checked_sentence": "Yeah, because everyone can watch it.",
+            "llm_explanation": "**Errors in the original sentence:**\n\n* **Capitalization:** \"Yeah. because...\" should be \"Yeah, because...\" (a conjunction should be capitalized).\n* **Punctuation:** \"because everyone can watch it\" should be \"because everyone can watch it.\" (a period is needed after the dependent clause).\n\n**Corrections in the revised sentence:**\n\n* The first word \"Yeah\" is capitalized, as it is a conjunction.\n* The sentence is punctuated correctly with a period after the dependent clause \"because everyone can watch it.\"",
+            "language_tool": [],
+            "errant": []
+        }
+    ],
+    "That make a lot of supporters became, they have the same admires and the same ambition about their teams.": [
+        {
+            "index": 134,
+            "speaker": "SPEAKER_00",
+            "t5_checked_sentence": "That makes a lot of supporters become, they have the same admirations and the same ambition about their teams.",
+            "llm_explanation": "\n**Errors in the original sentence:**\n\n**1. \"That make\" should be \"That makes\":**\n- \"Make\" is a singular verb, and \"that\" is a singular subject. So \"make\" should be \"makes\" in this sentence.\n\n\n**2. \"became\" should be \"become\":**\n- \"Became\" is a past tense of \"become,\" but the sentence is in the present tense. So \"became\" should be \"become.\"\n\n\n**3. \"admires\" should be \"admirations\":**\n- \"Admires\" is a plural form of \"admiration,\" but the sentence needs a singular noun to refer to the shared admiration of the supporters. So \"",
+            "language_tool": [],
+            "errant": [
+                {
+                    "index": 134,
+                    "speaker": "SPEAKER_00",
+                    "sentence": "That make a lot of supporters became, they have the same admires and the same ambition about their teams.",
+                    "corrected_sentence": "That makes a lot of supporters become, they have the same admirations and the same ambition about their teams.",
+                    "o_start": 1,
+                    "o_end": 2,
+                    "original_text": "make",
+                    "c_start": 1,
+                    "c_end": 2,
+                    "corrected_text": "makes",
+                    "error_type": "R:VERB:SVA",
+                    "corrected_key": "R:VERB:SVA|makes"
+                },
+                {
+                    "index": 134,
+                    "speaker": "SPEAKER_00",
+                    "sentence": "That make a lot of supporters became, they have the same admires and the same ambition about their teams.",
+                    "corrected_sentence": "That makes a lot of supporters become, they have the same admirations and the same ambition about their teams.",
+                    "o_start": 6,
+                    "o_end": 7,
+                    "original_text": "became,",
+                    "c_start": 6,
+                    "c_end": 7,
+                    "corrected_text": "become,",
+                    "error_type": "R:PUNCT",
+                    "corrected_key": "R:PUNCT|become,"
+                },
+                {
+                    "index": 134,
+                    "speaker": "SPEAKER_00",
+                    "sentence": "That make a lot of supporters became, they have the same admires and the same ambition about their teams.",
+                    "corrected_sentence": "That makes a lot of supporters become, they have the same admirations and the same ambition about their teams.",
+                    "o_start": 11,
+                    "o_end": 12,
+                    "original_text": "admires",
+                    "c_start": 11,
+                    "c_end": 12,
+                    "corrected_text": "admirations",
+                    "error_type": "R:MORPH",
+                    "corrected_key": "R:MORPH|admirations"
+                }
+            ]
+        }
+    ],
+    "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.": [
+        {
+            "index": 140,
+            "speaker": "SPEAKER_00",
+            "t5_checked_sentence": "I went to all truffles two times It was amazing Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the gomers ",
+            "llm_explanation": "\n**Errors in the original sentence:**\n\n**1. Subject-verb agreement:**\n- \"I Go\" should be \"I go\" (singular subject \"I\" requires a singular verb \"go\").\n\n\n**2. Incorrect tense:**\n- \"It was amazing\" should be \"it was amazing!\" (past tense of \"to be\" requires an exclamation mark).\n\n\n**3. Word choice:**\n- \"players\" should be \"player\" (singular noun, referring to one individual).\n- \"gomers\" should be \"gamers\" (incorrect spelling).\n- \"like\" should be \"likes\" (third-person singular verb).\n- \"construct\" should be \"contract\" (incorrect spelling).\n\n\n**",
+            "language_tool": [
+                {
+                    "ruleId": "MENTION_ABOUT",
+                    "message": "Did you mean simply “discussing our”? You do not need the word “about” here.",
+                    "replacements": [
+                        "discussing our"
+                    ],
+                    "offsetInContext": 43,
+                    "context": "...azing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions...",
+                    "offset": 80,
+                    "errorLength": 20,
+                    "category": "COLLOCATIONS",
+                    "ruleIssueType": "grammar",
+                    "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him."
+                },
+                {
+                    "ruleId": "A_NNS",
+                    "message": "The plural noun “players” cannot be used with the article “a”. Did you mean “a new player” or “new players”?",
+                    "replacements": [
+                        "a new player",
+                        "new players"
+                    ],
+                    "offsetInContext": 43,
+                    "context": "...on some positions or if we need to have a new players or discuss about the gomers if they hav...",
+                    "offset": 163,
+                    "errorLength": 13,
+                    "category": "GRAMMAR",
+                    "ruleIssueType": "grammar",
+                    "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him."
+                },
+                {
+                    "ruleId": "MENTION_ABOUT",
+                    "message": "Did you mean simply “discuss the”? You do not need the word “about” here.",
+                    "replacements": [
+                        "discuss the"
+                    ],
+                    "offsetInContext": 43,
+                    "context": "... or if we need to have a new players or discuss about the gomers if they have like one player tha...",
+                    "offset": 180,
+                    "errorLength": 17,
+                    "category": "COLLOCATIONS",
+                    "ruleIssueType": "grammar",
+                    "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him."
+                }
+            ],
+            "errant": [
+                {
+                    "index": 140,
+                    "speaker": "SPEAKER_00",
+                    "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+                    "corrected_sentence": "I went to all truffles two times It was amazing Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the gomers ",
+                    "o_start": 1,
+                    "o_end": 2,
+                    "original_text": "Go",
+                    "c_start": 1,
+                    "c_end": 2,
+                    "corrected_text": "went",
+                    "error_type": "R:VERB:TENSE",
+                    "corrected_key": "R:VERB:TENSE|went"
+                },
+                {
+                    "index": 140,
+                    "speaker": "SPEAKER_00",
+                    "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+                    "corrected_sentence": "I went to all truffles two times It was amazing Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the gomers ",
+                    "o_start": 16,
+                    "o_end": 17,
+                    "original_text": "to",
+                    "c_start": 16,
+                    "c_end": 16,
+                    "corrected_text": "",
+                    "error_type": "U:VERB:FORM",
+                    "corrected_key": "U:VERB:FORM|"
+                },
+                {
+                    "index": 140,
+                    "speaker": "SPEAKER_00",
+                    "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+                    "corrected_sentence": "I went to all truffles two times It was amazing Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the gomers ",
+                    "o_start": 26,
+                    "o_end": 27,
+                    "original_text": "on",
+                    "c_start": 25,
+                    "c_end": 25,
+                    "corrected_text": "",
+                    "error_type": "U:PREP",
+                    "corrected_key": "U:PREP|"
+                },
+                {
+                    "index": 140,
+                    "speaker": "SPEAKER_00",
+                    "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+                    "corrected_sentence": "I went to all truffles two times It was amazing Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the gomers ",
+                    "o_start": 28,
+                    "o_end": 29,
+                    "original_text": "positions",
+                    "c_start": 26,
+                    "c_end": 27,
+                    "corrected_text": "positions,",
+                    "error_type": "R:NOUN",
+                    "corrected_key": "R:NOUN|positions,"
+                },
+                {
+                    "index": 140,
+                    "speaker": "SPEAKER_00",
+                    "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+                    "corrected_sentence": "I went to all truffles two times It was amazing Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the gomers ",
+                    "o_start": 37,
+                    "o_end": 38,
+                    "original_text": "players",
+                    "c_start": 35,
+                    "c_end": 36,
+                    "corrected_text": "player",
+                    "error_type": "R:NOUN:NUM",
+                    "corrected_key": "R:NOUN:NUM|player"
+                }
+            ]
+        }
+    ]
+}

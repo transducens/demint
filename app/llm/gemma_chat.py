@@ -5,7 +5,7 @@ from transformers import BitsAndBytesConfig # For 4-bit or 8-bit quantization
 
 
 # Importing the interface IChat from the chat_interface module within the app.llm package.
-from app.llm.chat_interface import IChat
+from .chat_interface import IChat
 
 # List of model identifiers that are supported by this class.
 supported_models = ["google/gemma-1.1-2b-it", "google/gemma-1.1-7b-it"]
@@ -46,8 +46,9 @@ class GemmaChat(IChat):
                 self.__model = AutoModelForCausalLM.from_pretrained(
                     model_id,
                     device_map=self.__device,
-                    attn_implementation="flash_attention_2",
-                    quantization_config=quantization_config)
+                    #attn_implementation="flash_attention_2",
+                    quantization_config=quantization_config
+                )
             else:
                 self.__model = AutoModelForCausalLM.from_pretrained(
                     model_id,
@@ -57,7 +58,7 @@ class GemmaChat(IChat):
             self.__model_id = model_id
             print(f"Model loaded: {model_id}")
         except Exception as e:
-            print(f"Failed to load model '{model_id}': {e.message}")
+            print(f"Failed to load model '{model_id}': {e}")
             raise
 
 
@@ -88,7 +89,7 @@ class GemmaChat(IChat):
         Generates a response from the model for the provided input content.
         Utilizes the loaded model and tokenizer to process and generate the response.
         """
-        print("get_answer from LLM started")
+        print(f"get_answer from LLM GEMMA {self.__model_id} started")
         start_time = time.time()
 
         # Create the prompt from user content.

@@ -147,7 +147,7 @@ https://chat.openai.com/share/7eef562a-30cb-44dc-924d-992c97b7a5a1
 Ubuntu 20.04
     sudo apt-get update && \
     sudo apt-get upgrade -y && \
-    sudo apt-get install ffmpeg libtiff5 build-essential git wget
+    sudo apt-get install ffmpeg libtiff5 build-essential git wget -y
 
     mkdir -p ~/miniconda3 && \
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh && \
@@ -167,16 +167,16 @@ Variant 1:
     conda activate DeMINT
 
 Variant 2:
-    conda create --name DeMINT
+    conda create --name DeMINT python=3.11
     conda activate DeMINT
     conda env update --name DeMINT --file environment-ubuntu.yml --prune
 
 For clean system:
-    conda create --name DeMINT
+    conda create --name DeMINT python=3.11
     conda activate DeMINT
-    conda install faiss-gpu pytorch torchvision torchaudio pytorch-cuda=12.1 cuda-toolkit -c pytorch -c nvidia -c conda-forge
-    pip install pymupdf evaluate bitsandbytes pytube sentence-splitter language-tool-python gradio chainlit sentence-transformers ragatouille dspy-ai huggingface_hub pyannote.audio whisper-openai accelerate
-    pip install errant
+    conda install pytorch torchvision torchaudio pytorch-cuda=11.8 cuda-toolkit faiss-gpu -c defaults -c pytorch -c nvidia -c conda-forge -y
+    pip install errant chainlit gradio pyannote.audio language-tool-python pymupdf evaluate bitsandbytes pytube sentence-splitter sentence-transformers ragatouille dspy-ai huggingface_hub  whisper-openai accelerate
+
     python -m spacy download en_core_web_sm
     conda env export > environment-ubuntu.yml
 
@@ -200,6 +200,6 @@ docker run -e HF_TOKEN='your token' --gpus all -p 8080:8000 levnikolaevich87/eng
 nvcc --version
 nvidia-smi
 
-git clone -b features/DEMINT-001-llm-factory https://github.com/transducens/demint.git
+git clone -b features/DEMINT-027-Implement-the-error-verification-algorithm https://github.com/transducens/demint.git
 
 docker run --gpus all --shm-size 2g -p 8083:80 -v D:/Development/UNIVERSIDAD/BECA/tgi:/data -e DISABLE_EXLLAMA=True -e HUGGING_FACE_HUB_TOKEN=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 ghcr.io/huggingface/text-generation-inference:2.0 --model-id google/gemma-1.1-2b-it --num-shard 1 --max-input-tokens 1000 --max-batch-prefill-tokens 1000

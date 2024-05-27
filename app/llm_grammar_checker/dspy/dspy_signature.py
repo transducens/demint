@@ -1,6 +1,5 @@
 import dspy
 
-
 class SignatureSEC(dspy.Signature):
     """
     Correct grammatical or punctuation errors in sentences if there are ones and provide explanations for the corrections.

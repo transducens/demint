@@ -6,6 +6,10 @@ from file_manager import FileManager
 from grammar_checker import GrammarChecker
 from llm.ChatFactory import ChatFactory
 
+#from .file_manager import FileManager
+#from .grammar_checker import GrammarChecker
+#from .llm.ChatFactory import ChatFactory
+
 import errant
 
 
@@ -13,7 +17,7 @@ class StudyPlanCreator:
     def __init__(self, llm_model, max_new_tokens=250):
         # TODO: to cache/llm_evaluation.json
         prefix = "../"
-        prefix = ""
+        #prefix = ""
         self.cache_files_paths = {
             'lang_tool_errors': 'cache/lang_tool_result.json',
             'llm_evaluation': prefix+'cache/llm_evaluation.json',
@@ -22,9 +26,14 @@ class StudyPlanCreator:
             'errant_detailed_errors':  prefix+'cache/errant_detailed_errors.json',
             'errant_corrected_errors':  prefix+'cache/errant_corrected_errors.json',
             'errant_simple_errors':  prefix+'cache/errant_simple_errors.json',
+            'final_index_errors': prefix + 'cache/final_index_errors.json',
         }
 
+        print("StudyPlanCreator llm: ", llm_model)
         self.__chat_llm = llm_model
+
+        llm = dspy.HFClientTGI(model=llm_model, port=8083, url="http://localhost")
+        dspy.settings.configure(lm=llm)
 
         self.__max_new_tokens = max_new_tokens
 
@@ -33,28 +42,40 @@ class StudyPlanCreator:
         self.__grammar_checker = GrammarChecker(public_api=True)
 
     def create_study_plan(self, speaker_context: dict):
+        print("create_study_plan is started...")
         llm_evaluation = self.__file_manager.read_from_json_file(self.cache_files_paths['llm_evaluation'])
 
         if llm_evaluation is None:
+            print("LLM is processing...")
             llm_evaluation = self.use_llm_model(speaker_context)
             self.__file_manager.save_to_json_file(self.cache_files_paths['llm_evaluation'], llm_evaluation)
 
         language_tool_evaluation = self.__file_manager.read_from_json_file(self.cache_files_paths['language_tool_evaluation'])
         if language_tool_evaluation is None:
+            print("Language tool is processing...")
             language_tool_evaluation = self.use_language_tool(llm_evaluation)
             self.__file_manager.save_to_json_file(self.cache_files_paths['language_tool_evaluation'],
                                                   language_tool_evaluation)
 
-        all_errors = self.__file_manager.read_from_json_file(self.cache_files_paths['errant_all_errors'])
-        detailed_errors = self.__file_manager.read_from_json_file(self.cache_files_paths['errant_detailed_errors'])
-        corrected_errors = self.__file_manager.read_from_json_file(self.cache_files_paths['errant_corrected_errors'])
-        simple_errors = self.__file_manager.read_from_json_file(self.cache_files_paths['errant_simple_errors'])
-        if all_errors is None:
-            all_errors, detailed_errors, corrected_errors, simple_errors = self.use_errant(llm_evaluation)
-            self.__file_manager.save_to_json_file(self.cache_files_paths['errant_all_errors'], all_errors)
-            self.__file_manager.save_to_json_file(self.cache_files_paths['errant_detailed_errors'], detailed_errors)
-            self.__file_manager.save_to_json_file(self.cache_files_paths['errant_corrected_errors'], corrected_errors)
-            self.__file_manager.save_to_json_file(self.cache_files_paths['errant_simple_errors'], simple_errors)
+        errant_all_errors = self.__file_manager.read_from_json_file(self.cache_files_paths['errant_all_errors'])
+        errant_detailed_errors = self.__file_manager.read_from_json_file(self.cache_files_paths['errant_detailed_errors'])
+        errant_corrected_errors = self.__file_manager.read_from_json_file(self.cache_files_paths['errant_corrected_errors'])
+        errant_sorted_simple_errors = self.__file_manager.read_from_json_file(self.cache_files_paths['errant_simple_errors'])
+        if errant_all_errors is None:
+            print("ERRANT is processing...")
+            errant_all_errors, errant_detailed_errors, errant_corrected_errors, errant_simple_errors = self.use_errant(llm_evaluation)
+            self.__file_manager.save_to_json_file(self.cache_files_paths['errant_all_errors'], errant_all_errors)
+            self.__file_manager.save_to_json_file(self.cache_files_paths['errant_detailed_errors'], errant_detailed_errors)
+            self.__file_manager.save_to_json_file(self.cache_files_paths['errant_corrected_errors'], errant_corrected_errors)
+
+            sorted_errant_simple_errors = sorted(errant_simple_errors.items(), key=lambda item: len(item[1]), reverse=True)
+            self.__file_manager.save_to_json_file(self.cache_files_paths['errant_simple_errors'], sorted_errant_simple_errors)
+
+        final_index_errors = self.__file_manager.read_from_json_file(self.cache_files_paths['final_index_errors'])
+        if final_index_errors is None:
+            print("Final index error is creating...")
+            final_index_errors = self.create_final_index(llm_evaluation, errant_all_errors, language_tool_evaluation)
+            self.__file_manager.save_to_json_file(self.cache_files_paths['final_index_errors'], final_index_errors)
 
         return language_tool_evaluation
 
@@ -85,7 +106,6 @@ class StudyPlanCreator:
         return sentence_collection
 
     def use_language_tool(self, llm_evaluation: list):
-        print("Language tool is processing...")
         errors_list = []
         for evaluation in llm_evaluation:
 
@@ -106,7 +126,6 @@ class StudyPlanCreator:
         return errors_list
 
     def use_errant(self, llm_evaluation: list, lang='en'):
-        print("ERRANT is processing...")
         annotator = errant.load(lang)
 
         detailed_errors = {}
@@ -162,6 +181,29 @@ class StudyPlanCreator:
                 )
 
         return all_errors, detailed_errors, corrected_errors, simple_errors
+
+    def create_final_index(self, llm_evaluation, errant_errors: dict, language_tool_errors):
+        errors_by_sentence = {}
+
+        for evaluation in llm_evaluation:
+            key = evaluation['sentence']
+
+            if key not in errors_by_sentence:
+                errors_by_sentence[key] = []
+
+            for error in errant_errors:
+                if key == error["sentence"]:
+                   error["source"] = "errant"
+                   errors_by_sentence[key].append(error)
+
+            for lt_error in language_tool_errors:
+                if key == lt_error["original_sentence"]:
+                   lt_error["source"] = "language_tool"
+                   errors_by_sentence[key].append(lt_error)
+
+        errors_by_sentence = {k: v for k, v in errors_by_sentence.items() if v}
+        return errors_by_sentence
+
     def get_diarization_grouped_by_speaker(self, diarization_result):
         # Loads diarization results from a file, if it exists
         speakers_context = {}  # List of the transcripts for each speaker
@@ -179,7 +221,7 @@ class StudyPlanCreator:
 
 
 if __name__ == '__main__':
-    llm_model = "meta-llama/Meta-Llama-3-8B-Instruct"  # "google/gemma-1.1-2b-it"
+    llm_model = "google/gemma-1.1-2b-it"  # "google/gemma-1.1-2b-it"
     file_manager = FileManager()
     diarization = file_manager.read_from_json_file("../cache/diarization_result_test.json")
     chat_llm = ChatFactory.get_instance(llm_model)

@@ -162,7 +162,7 @@ class EnglishTutor:
         chat_llm = self.__get_chat_llm()
         plan_creator = StudyPlanCreator(chat_llm)
         speakers_context = self.get_speakers_context()
-        study_plan = plan_creator.create_study_plan(speakers_context, speakerId)
-
+        study_plan = plan_creator.create_study_plan(speakers_context)
+        print("get_study_plan: ", study_plan)
         #self.__file_manager.save_to_json_file(self.cache_files_paths['study_plan'], study_plan)
         return study_plan

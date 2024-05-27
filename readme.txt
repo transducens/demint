@@ -171,14 +171,26 @@ Variant 2:
     conda activate DeMINT
     conda env update --name DeMINT --file environment-ubuntu.yml --prune
 
-For clean system:
+For clean system (Ubuntu 20.04):
     conda create --name DeMINT python=3.11
     conda activate DeMINT
     conda install pytorch torchvision torchaudio pytorch-cuda=11.8 cuda-toolkit faiss-gpu -c defaults -c pytorch -c nvidia -c conda-forge -y
-    pip install errant chainlit gradio pyannote.audio language-tool-python pymupdf evaluate bitsandbytes pytube sentence-splitter sentence-transformers ragatouille dspy-ai huggingface_hub  whisper-openai accelerate
-
+    pip install errant chainlit gradio pyannote.audio language-tool-python pymupdf evaluate bitsandbytes pytube sentence-splitter sentence-transformers ragatouille dspy-ai huggingface_hub whisper-openai accelerate
     python -m spacy download en_core_web_sm
     conda env export > environment-ubuntu.yml
+
+For clean system (Windows 11):
+    conda create --name DeMINT
+    conda activate DeMINT
+
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+    pip install language-tool-python
+    pip install errant pyannote.audio pymupdf
+
+    pip install chainlit gradio pytube sentence-splitter sentence-transformers whisper-openai
+    pip install evaluate bitsandbytes ragatouille dspy-ai huggingface_hub accelerate
+
+
 
 
 ===========
@@ -212,4 +224,4 @@ meta-llama/Llama-2-13b-chat-hf
 meta-llama/Meta-Llama-3-8B-Instruct
 google/gemma-1.1-2b-it
 
-docker run --gpus all --shm-size 2g -p 8083:80 -v D:/Development/UNIVERSIDAD/BECA/tgi:/data -e DISABLE_EXLLAMA=True -e HUGGING_FACE_HUB_TOKEN=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 ghcr.io/huggingface/text-generation-inference:2.0 --model-id google/gemma-1.1-2b-it --num-shard 1 --max-input-tokens 1000 --max-batch-prefill-tokens 1000
+docker run --gpus all --shm-size 64g -e HUGGING_FACE_HUB_TOKEN=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 -p 8083:80 -v D:/Development/UNIVERSIDAD/BECA/tgi:/data ghcr.io/huggingface/text-generation-inference:2.0.3 --model-id google/gemma-1.1-2b-it --num-shard 1 --max-input-tokens 1000 --max-batch-prefill-tokens 1000

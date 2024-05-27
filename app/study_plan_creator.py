@@ -1,9 +1,10 @@
 from sentence_splitter import SentenceSplitter
+import dspy
 
-from app.llm_grammar_checker.dspy.dspy_checker import DSPYModule
-from .file_manager import FileManager
-from .grammar_checker import GrammarChecker
-from .llm.ChatFactory import ChatFactory
+from app.llm_grammar_checker.dspy.dspy_signature import SignatureSEC
+from file_manager import FileManager
+from grammar_checker import GrammarChecker
+from llm.ChatFactory import ChatFactory
 
 import errant
 
@@ -31,7 +32,7 @@ class StudyPlanCreator:
         self.__splitter = SentenceSplitter(language='en')
         self.__grammar_checker = GrammarChecker(public_api=True)
 
-    def create_study_plan(self, speaker_context: dict, speaker_id: str):
+    def create_study_plan(self, speaker_context: dict):
         llm_evaluation = self.__file_manager.read_from_json_file(self.cache_files_paths['llm_evaluation'])
 
         if llm_evaluation is None:
@@ -62,14 +63,14 @@ class StudyPlanCreator:
     # ====================
     # The method uses the LanguageTool API to check the grammar of the speaker's text.
     def use_llm_model(self, speaker_context: dict):
-        dspyModule = DSPYModule()
+        dspyModule = dspy.Predict(SignatureSEC)
 
         sentence_collection = []
         index = 1
         for speaker in speaker_context.keys():
             sentences = self.__splitter.split(speaker_context[speaker])
             for sentence in sentences:
-                result = dspyModule.predict(original_sentence=sentence)
+                result = dspyModule(original_sentence=sentence)
                 corrected_sentence = result['corrected_sentence']
                 if corrected_sentence != sentence:
                     sentence_collection.append({
@@ -184,4 +185,4 @@ if __name__ == '__main__':
     chat_llm = ChatFactory.get_instance(llm_model)
     creator = StudyPlanCreator(chat_llm)
     speakers_context = creator.get_diarization_grouped_by_speaker(diarization)
-    study_plan = creator.create_study_plan(speakers_context, "SPEAKER_02")
+    study_plan = creator.create_study_plan(speakers_context)

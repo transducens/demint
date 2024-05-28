@@ -142,30 +142,13 @@ class StudyPlanCreator:
             for e in annotations:
                 error_type = e.type
 
-                if error_type == "R:OTHER":
+                if error_type.split(':')[1] in ['OTHER']:
                     continue
 
                 corrected_text = e.c_str
                 original_text = e.o_str
 
-                # Formato 1: { Tipo de error: Texto corregido: Texto original } - { lista de oraciones con este error }
-                detailed_key = f"{error_type}|{corrected_text}|{original_text}"
-                if detailed_key not in detailed_errors:
-                    detailed_errors[detailed_key] = []
-                detailed_errors[detailed_key].append(index)
-
-                # Formato 2: { Tipo de error: Texto corregido } - { lista de oraciones с este error }
-                corrected_key = f"{error_type}|{corrected_text}"
-                if corrected_key not in corrected_errors:
-                    corrected_errors[corrected_key] = []
-                corrected_errors[corrected_key].append(index)
-
-                # Formato 3: { Tipo de error } - { lista de oraciones con este error }
-                if error_type not in simple_errors:
-                    simple_errors[error_type] = []
-                simple_errors[error_type].append(index)
-
-                all_errors.append({
+                error_description = {
                     'index': index,
                     'speaker': evaluation['speaker'],
                     'sentence': evaluation['sentence'],
@@ -178,7 +161,30 @@ class StudyPlanCreator:
                     'corrected_text': corrected_text,
                     'error_type': error_type,
                     }
-                )
+
+                # Formato 1: { Tipo de error: Texto corregido: Texto original } - { lista de oraciones con este error }
+                detailed_key = f"{error_type}|{corrected_text}|{original_text}"
+                if detailed_key not in detailed_errors:
+                    detailed_errors[detailed_key] = []
+                detailed_errors[detailed_key].append(error_description)
+
+                # Formato 2: { Tipo de error: Texto corregido } - { lista de oraciones с este error }
+                corrected_key = f"{error_type}|{corrected_text}"
+                if corrected_key not in corrected_errors:
+                    corrected_errors[corrected_key] = []
+
+                error_description['original_text'] = original_text
+                corrected_errors[corrected_key].append(error_description)
+
+                # Formato 3: { Tipo de error } - { lista de oraciones con este error }
+                if error_type not in simple_errors:
+                    simple_errors[error_type] = []
+
+                error_description['corrected_key'] = corrected_key
+                simple_errors[error_type].append(error_description)
+
+                error_description['error_type'] = error_type
+                all_errors.append(error_description)
 
         return all_errors, detailed_errors, corrected_errors, simple_errors
 

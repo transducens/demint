@@ -10,7 +10,8 @@
         "c_start": 0,
         "c_end": 1,
         "corrected_text": "Could",
-        "error_type": "R:VERB:TENSE"
+        "error_type": "R:VERB:TENSE",
+        "corrected_key": "R:VERB:TENSE|Could"
     },
     {
         "index": 3,
@@ -23,7 +24,8 @@
         "c_start": 7,
         "c_end": 8,
         "corrected_text": "marksheets?",
-        "error_type": "R:SPELL"
+        "error_type": "R:SPELL",
+        "corrected_key": "R:SPELL|marksheets?"
     },
     {
         "index": 3,
@@ -36,7 +38,8 @@
         "c_start": 8,
         "c_end": 8,
         "corrected_text": "",
-        "error_type": "U:PUNCT"
+        "error_type": "U:PUNCT",
+        "corrected_key": "U:PUNCT|"
     },
     {
         "index": 4,
@@ -49,7 +52,8 @@
         "c_start": 8,
         "c_end": 9,
         "corrected_text": "Chowder.",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|Chowder."
     },
     {
         "index": 5,
@@ -62,7 +66,8 @@
         "c_start": 1,
         "c_end": 2,
         "corrected_text": "are",
-        "error_type": "R:VERB:TENSE"
+        "error_type": "R:VERB:TENSE",
+        "corrected_key": "R:VERB:TENSE|are"
     },
     {
         "index": 5,
@@ -75,7 +80,8 @@
         "c_start": 3,
         "c_end": 3,
         "corrected_text": "",
-        "error_type": "U:VERB"
+        "error_type": "U:VERB",
+        "corrected_key": "U:VERB|"
     },
     {
         "index": 7,
@@ -88,7 +94,8 @@
         "c_start": 0,
         "c_end": 1,
         "corrected_text": "What's",
-        "error_type": "U:CONJ"
+        "error_type": "U:CONJ",
+        "corrected_key": "U:CONJ|What's"
     },
     {
         "index": 8,
@@ -101,7 +108,8 @@
         "c_start": 1,
         "c_end": 2,
         "corrected_text": "are",
-        "error_type": "R:VERB:TENSE"
+        "error_type": "R:VERB:TENSE",
+        "corrected_key": "R:VERB:TENSE|are"
     },
     {
         "index": 8,
@@ -114,7 +122,8 @@
         "c_start": 3,
         "c_end": 3,
         "corrected_text": "",
-        "error_type": "U:VERB"
+        "error_type": "U:VERB",
+        "corrected_key": "U:VERB|"
     },
     {
         "index": 13,
@@ -127,7 +136,8 @@
         "c_start": 2,
         "c_end": 3,
         "corrected_text": "seem",
-        "error_type": "R:VERB"
+        "error_type": "R:VERB",
+        "corrected_key": "R:VERB|seem"
     },
     {
         "index": 13,
@@ -140,7 +150,8 @@
         "c_start": 4,
         "c_end": 5,
         "corrected_text": "to",
-        "error_type": "R:PREP"
+        "error_type": "R:PREP",
+        "corrected_key": "R:PREP|to"
     },
     {
         "index": 14,
@@ -153,7 +164,8 @@
         "c_start": 0,
         "c_end": 1,
         "corrected_text": "How",
-        "error_type": "U:NOUN"
+        "error_type": "U:NOUN",
+        "corrected_key": "U:NOUN|How"
     },
     {
         "index": 14,
@@ -166,75 +178,25 @@
         "c_start": 1,
         "c_end": 2,
         "corrected_text": "does",
-        "error_type": "R:VERB:SVA"
+        "error_type": "R:VERB:SVA",
+        "corrected_key": "R:VERB:SVA|does"
     },
     {
         "index": 17,
         "speaker": "SPEAKER_01",
         "sentence": "Now, I'd like each of you to talk on your own about something.",
-        "corrected_sentence": "Now, each of you is encouraged to share your thoughts on something.",
-        "o_start": 1,
-        "o_end": 3,
-        "original_text": "I'd like",
-        "c_start": 1,
-        "c_end": 1,
-        "corrected_text": "",
-        "error_type": "U:OTHER"
-    },
-    {
-        "index": 17,
-        "speaker": "SPEAKER_01",
-        "sentence": "Now, I'd like each of you to talk on your own about something.",
-        "corrected_sentence": "Now, each of you is encouraged to share your thoughts on something.",
+        "corrected_sentence": "Now, each of you is encouraged to share their thoughts on something.",
         "o_start": 6,
         "o_end": 6,
         "original_text": "",
         "c_start": 4,
         "c_end": 6,
         "corrected_text": "is encouraged",
-        "error_type": "M:VERB"
-    },
-    {
-        "index": 17,
-        "speaker": "SPEAKER_01",
-        "sentence": "Now, I'd like each of you to talk on your own about something.",
-        "corrected_sentence": "Now, each of you is encouraged to share your thoughts on something.",
-        "o_start": 11,
-        "o_end": 12,
-        "original_text": "about",
-        "c_start": 10,
-        "c_end": 11,
-        "corrected_text": "on",
-        "error_type": "R:PREP"
+        "error_type": "M:VERB",
+        "corrected_key": "M:VERB|is encouraged"
     },
     {
         "index": 19,
-        "speaker": "SPEAKER_01",
-        "sentence": "Kenza, here is your photograph.",
-        "corrected_sentence": "\"Kenza, here is your photograph.\"",
-        "o_start": 0,
-        "o_end": 1,
-        "original_text": "Kenza,",
-        "c_start": 0,
-        "c_end": 1,
-        "corrected_text": "\"Kenza,",
-        "error_type": "R:NOUN"
-    },
-    {
-        "index": 19,
-        "speaker": "SPEAKER_01",
-        "sentence": "Kenza, here is your photograph.",
-        "corrected_sentence": "\"Kenza, here is your photograph.\"",
-        "o_start": 4,
-        "o_end": 5,
-        "original_text": "photograph.",
-        "c_start": 4,
-        "c_end": 5,
-        "corrected_text": "photograph.\"",
-        "error_type": "R:NOUN"
-    },
-    {
-        "index": 20,
         "speaker": "SPEAKER_01",
         "sentence": "It shows someone getting information about something.",
         "corrected_sentence": "It shows someone getting information about that.",
@@ -244,23 +206,11 @@
         "c_start": 6,
         "c_end": 7,
         "corrected_text": "that.",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|that."
     },
     {
-        "index": 21,
-        "speaker": "SPEAKER_01",
-        "sentence": "Mohammed, you just listen.",
-        "corrected_sentence": "Mohammed listened attentively.",
-        "o_start": 1,
-        "o_end": 3,
-        "original_text": "you just",
-        "c_start": 1,
-        "c_end": 1,
-        "corrected_text": "",
-        "error_type": "U:OTHER"
-    },
-    {
-        "index": 21,
+        "index": 20,
         "speaker": "SPEAKER_01",
         "sentence": "Mohammed, you just listen.",
         "corrected_sentence": "Mohammed listened attentively.",
@@ -270,10 +220,11 @@
         "c_start": 1,
         "c_end": 2,
         "corrected_text": "listened",
-        "error_type": "R:VERB"
+        "error_type": "R:VERB",
+        "corrected_key": "R:VERB|listened"
     },
     {
-        "index": 21,
+        "index": 20,
         "speaker": "SPEAKER_01",
         "sentence": "Mohammed, you just listen.",
         "corrected_sentence": "Mohammed listened attentively.",
@@ -283,49 +234,25 @@
         "c_start": 2,
         "c_end": 3,
         "corrected_text": "attentively.",
-        "error_type": "M:NOUN"
+        "error_type": "M:NOUN",
+        "corrected_key": "M:NOUN|attentively."
     },
     {
-        "index": 22,
+        "index": 21,
         "speaker": "SPEAKER_01",
         "sentence": "Kenza, please tell us what you can see in the photograph.",
-        "corrected_sentence": "What can you see in the photograph?",
-        "o_start": 0,
-        "o_end": 5,
-        "original_text": "Kenza, please tell us what",
-        "c_start": 0,
-        "c_end": 1,
-        "corrected_text": "What",
-        "error_type": "U:OTHER"
-    },
-    {
-        "index": 22,
-        "speaker": "SPEAKER_01",
-        "sentence": "Kenza, please tell us what you can see in the photograph.",
-        "corrected_sentence": "What can you see in the photograph?",
-        "o_start": 5,
-        "o_end": 7,
-        "original_text": "you can",
-        "c_start": 1,
-        "c_end": 3,
-        "corrected_text": "can you",
-        "error_type": "R:WO"
-    },
-    {
-        "index": 22,
-        "speaker": "SPEAKER_01",
-        "sentence": "Kenza, please tell us what you can see in the photograph.",
-        "corrected_sentence": "What can you see in the photograph?",
+        "corrected_sentence": "Kenza, please tell us what you can see in the photograph.?",
         "o_start": 10,
         "o_end": 11,
         "original_text": "photograph.",
-        "c_start": 6,
-        "c_end": 7,
-        "corrected_text": "photograph?",
-        "error_type": "R:NOUN"
+        "c_start": 10,
+        "c_end": 11,
+        "corrected_text": "photograph.?",
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|photograph.?"
     },
     {
-        "index": 23,
+        "index": 22,
         "speaker": "SPEAKER_01",
         "sentence": "I can see.",
         "corrected_sentence": "I can see it.",
@@ -335,10 +262,11 @@
         "c_start": 2,
         "c_end": 3,
         "corrected_text": "see",
-        "error_type": "R:VERB"
+        "error_type": "R:VERB",
+        "corrected_key": "R:VERB|see"
     },
     {
-        "index": 23,
+        "index": 22,
         "speaker": "SPEAKER_01",
         "sentence": "I can see.",
         "corrected_sentence": "I can see it.",
@@ -348,10 +276,11 @@
         "c_start": 3,
         "c_end": 4,
         "corrected_text": "it.",
-        "error_type": "M:NOUN"
+        "error_type": "M:NOUN",
+        "corrected_key": "M:NOUN|it."
     },
     {
-        "index": 24,
+        "index": 23,
         "speaker": "SPEAKER_01",
         "sentence": "Talk about the place.",
         "corrected_sentence": "Talk about the location.",
@@ -361,10 +290,11 @@
         "c_start": 3,
         "c_end": 4,
         "corrected_text": "location.",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|location."
     },
     {
-        "index": 26,
+        "index": 25,
         "speaker": "SPEAKER_01",
         "sentence": "Mohammed, here is your photograph.",
         "corrected_sentence": "Mohammed. Here is your photograph.",
@@ -374,10 +304,11 @@
         "c_start": 0,
         "c_end": 1,
         "corrected_text": "Mohammed.",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|Mohammed."
     },
     {
-        "index": 26,
+        "index": 25,
         "speaker": "SPEAKER_01",
         "sentence": "Mohammed, here is your photograph.",
         "corrected_sentence": "Mohammed. Here is your photograph.",
@@ -387,10 +318,11 @@
         "c_start": 1,
         "c_end": 2,
         "corrected_text": "Here",
-        "error_type": "R:ORTH"
+        "error_type": "R:ORTH",
+        "corrected_key": "R:ORTH|Here"
     },
     {
-        "index": 27,
+        "index": 26,
         "speaker": "SPEAKER_01",
         "sentence": "Ken sir, you just listen.",
         "corrected_sentence": "\"Ken sir,\" you just listen.",
@@ -400,10 +332,11 @@
         "c_start": 0,
         "c_end": 1,
         "corrected_text": "\"Ken",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|\"Ken"
     },
     {
-        "index": 28,
+        "index": 27,
         "speaker": "SPEAKER_01",
         "sentence": "Mohammed, please tell us what you can see in the photograph.",
         "corrected_sentence": "Mohammed, please tell us what you can see in the photograph.?",
@@ -413,10 +346,11 @@
         "c_start": 10,
         "c_end": 11,
         "corrected_text": "photograph.?",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|photograph.?"
     },
     {
-        "index": 30,
+        "index": 29,
         "speaker": "SPEAKER_01",
         "sentence": "Now, in this part of the test, you're going to talk about something together for about two minutes.",
         "corrected_sentence": "In this part of the test, you will discuss something together for about two minutes.",
@@ -426,10 +360,11 @@
         "c_start": 0,
         "c_end": 1,
         "corrected_text": "In",
-        "error_type": "U:VERB:TENSE"
+        "error_type": "U:VERB:TENSE",
+        "corrected_key": "U:VERB:TENSE|In"
     },
     {
-        "index": 30,
+        "index": 29,
         "speaker": "SPEAKER_01",
         "sentence": "Now, in this part of the test, you're going to talk about something together for about two minutes.",
         "corrected_sentence": "In this part of the test, you will discuss something together for about two minutes.",
@@ -439,10 +374,11 @@
         "c_start": 7,
         "c_end": 9,
         "corrected_text": "will discuss",
-        "error_type": "R:VERB"
+        "error_type": "R:VERB",
+        "corrected_key": "R:VERB|will discuss"
     },
     {
-        "index": 30,
+        "index": 29,
         "speaker": "SPEAKER_01",
         "sentence": "Now, in this part of the test, you're going to talk about something together for about two minutes.",
         "corrected_sentence": "In this part of the test, you will discuss something together for about two minutes.",
@@ -452,10 +388,11 @@
         "c_start": 9,
         "c_end": 9,
         "corrected_text": "",
-        "error_type": "U:PREP"
+        "error_type": "U:PREP",
+        "corrected_key": "U:PREP|"
     },
     {
-        "index": 31,
+        "index": 30,
         "speaker": "SPEAKER_01",
         "sentence": "I'm going to describe a situation to you.",
         "corrected_sentence": "I'm going to describe a situation for you.",
@@ -465,10 +402,11 @@
         "c_start": 6,
         "c_end": 7,
         "corrected_text": "for",
-        "error_type": "R:PREP"
+        "error_type": "R:PREP",
+        "corrected_key": "R:PREP|for"
     },
     {
-        "index": 33,
+        "index": 32,
         "speaker": "SPEAKER_01",
         "sentence": "Here are some gifts the club could give.",
         "corrected_sentence": "Here are some gifts the club could offer.",
@@ -478,10 +416,11 @@
         "c_start": 7,
         "c_end": 8,
         "corrected_text": "offer.",
-        "error_type": "R:VERB"
+        "error_type": "R:VERB",
+        "corrected_key": "R:VERB|offer."
     },
     {
-        "index": 34,
+        "index": 33,
         "speaker": "SPEAKER_01",
         "sentence": "Talk together about the different things it could give and decide which the fans would like best.",
         "corrected_sentence": "Let's discuss the various options and decide which the fans prefer.",
@@ -491,10 +430,11 @@
         "c_start": 1,
         "c_end": 2,
         "corrected_text": "discuss",
-        "error_type": "R:VERB"
+        "error_type": "R:VERB",
+        "corrected_key": "R:VERB|discuss"
     },
     {
-        "index": 34,
+        "index": 33,
         "speaker": "SPEAKER_01",
         "sentence": "Talk together about the different things it could give and decide which the fans would like best.",
         "corrected_sentence": "Let's discuss the various options and decide which the fans prefer.",
@@ -504,10 +444,11 @@
         "c_start": 3,
         "c_end": 4,
         "corrected_text": "various",
-        "error_type": "R:ADJ"
+        "error_type": "R:ADJ",
+        "corrected_key": "R:ADJ|various"
     },
     {
-        "index": 37,
+        "index": 36,
         "speaker": "SPEAKER_01",
         "sentence": "It's okay. which sports do you like?",
         "corrected_sentence": "It's okay. Which sports do you like?",
@@ -517,23 +458,11 @@
         "c_start": 2,
         "c_end": 3,
         "corrected_text": "Which",
-        "error_type": "R:ORTH"
+        "error_type": "R:ORTH",
+        "corrected_key": "R:ORTH|Which"
     },
     {
-        "index": 39,
-        "speaker": "SPEAKER_01",
-        "sentence": "Is it a good idea to join a fan club?",
-        "corrected_sentence": "Joining a fan club might be a good idea.",
-        "o_start": 0,
-        "o_end": 5,
-        "original_text": "Is it a good idea",
-        "c_start": 0,
-        "c_end": 0,
-        "corrected_text": "",
-        "error_type": "U:OTHER"
-    },
-    {
-        "index": 39,
+        "index": 38,
         "speaker": "SPEAKER_01",
         "sentence": "Is it a good idea to join a fan club?",
         "corrected_sentence": "Joining a fan club might be a good idea.",
@@ -543,49 +472,25 @@
         "c_start": 0,
         "c_end": 1,
         "corrected_text": "Joining",
-        "error_type": "R:VERB:FORM"
+        "error_type": "R:VERB:FORM",
+        "corrected_key": "R:VERB:FORM|Joining"
     },
     {
         "index": 39,
         "speaker": "SPEAKER_01",
-        "sentence": "Is it a good idea to join a fan club?",
-        "corrected_sentence": "Joining a fan club might be a good idea.",
-        "o_start": 10,
-        "o_end": 10,
+        "sentence": "What do you think?",
+        "corrected_sentence": "What do you think about?",
+        "o_start": 4,
+        "o_end": 4,
         "original_text": "",
         "c_start": 4,
-        "c_end": 9,
-        "corrected_text": "might be a good idea.",
-        "error_type": "M:OTHER"
+        "c_end": 5,
+        "corrected_text": "about?",
+        "error_type": "M:PRON",
+        "corrected_key": "M:PRON|about?"
     },
     {
-        "index": 40,
-        "speaker": "SPEAKER_01",
-        "sentence": "What do you think?",
-        "corrected_sentence": "What's your opinion?",
-        "o_start": 1,
-        "o_end": 2,
-        "original_text": "do",
-        "c_start": 1,
-        "c_end": 1,
-        "corrected_text": "",
-        "error_type": "U:VERB:TENSE"
-    },
-    {
-        "index": 40,
-        "speaker": "SPEAKER_01",
-        "sentence": "What do you think?",
-        "corrected_sentence": "What's your opinion?",
-        "o_start": 2,
-        "o_end": 3,
-        "original_text": "you",
-        "c_start": 1,
-        "c_end": 2,
-        "corrected_text": "your",
-        "error_type": "R:DET"
-    },
-    {
-        "index": 42,
+        "index": 41,
         "speaker": "SPEAKER_01",
         "sentence": "That is the end of the test.",
         "corrected_sentence": "That is the end of the examination.",
@@ -595,10 +500,11 @@
         "c_start": 6,
         "c_end": 7,
         "corrected_text": "examination.",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|examination."
     },
     {
-        "index": 43,
+        "index": 42,
         "speaker": "SPEAKER_03",
         "sentence": "Would have been about Per Thank you.",
         "corrected_sentence": "Would have been about per Thank you.",
@@ -608,10 +514,11 @@
         "c_start": 4,
         "c_end": 5,
         "corrected_text": "per",
-        "error_type": "R:ORTH"
+        "error_type": "R:ORTH",
+        "corrected_key": "R:ORTH|per"
     },
     {
-        "index": 46,
+        "index": 45,
         "speaker": "SPEAKER_02",
         "sentence": "I was a student, but I had finished at the university.",
         "corrected_sentence": "I was a student, and I had completed my studies at the university.",
@@ -621,10 +528,11 @@
         "c_start": 4,
         "c_end": 5,
         "corrected_text": "and",
-        "error_type": "R:CONJ"
+        "error_type": "R:CONJ",
+        "corrected_key": "R:CONJ|and"
     },
     {
-        "index": 47,
+        "index": 46,
         "speaker": "SPEAKER_02",
         "sentence": "Now I have my own salon beauty.",
         "corrected_sentence": "Now I have my own personal beauty salon.",
@@ -634,10 +542,11 @@
         "c_start": 5,
         "c_end": 6,
         "corrected_text": "personal",
-        "error_type": "R:ADJ"
+        "error_type": "R:ADJ",
+        "corrected_key": "R:ADJ|personal"
     },
     {
-        "index": 47,
+        "index": 46,
         "speaker": "SPEAKER_02",
         "sentence": "Now I have my own salon beauty.",
         "corrected_sentence": "Now I have my own personal beauty salon.",
@@ -647,10 +556,11 @@
         "c_start": 6,
         "c_end": 8,
         "corrected_text": "beauty salon.",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|beauty salon."
     },
     {
-        "index": 48,
+        "index": 47,
         "speaker": "SPEAKER_02",
         "sentence": "Yes, I think that English is the most useful language in all the world because it permits us to achieve our objectives and to go further than we think.",
         "corrected_sentence": "Yes, I believe that English is the most useful language in all the world because it enables us to achieve our goals and go beyond what we imagine.",
@@ -660,10 +570,11 @@
         "c_start": 2,
         "c_end": 3,
         "corrected_text": "believe",
-        "error_type": "R:VERB"
+        "error_type": "R:VERB",
+        "corrected_key": "R:VERB|believe"
     },
     {
-        "index": 48,
+        "index": 47,
         "speaker": "SPEAKER_02",
         "sentence": "Yes, I think that English is the most useful language in all the world because it permits us to achieve our objectives and to go further than we think.",
         "corrected_sentence": "Yes, I believe that English is the most useful language in all the world because it enables us to achieve our goals and go beyond what we imagine.",
@@ -673,10 +584,11 @@
         "c_start": 16,
         "c_end": 17,
         "corrected_text": "enables",
-        "error_type": "R:VERB"
+        "error_type": "R:VERB",
+        "corrected_key": "R:VERB|enables"
     },
     {
-        "index": 48,
+        "index": 47,
         "speaker": "SPEAKER_02",
         "sentence": "Yes, I think that English is the most useful language in all the world because it permits us to achieve our objectives and to go further than we think.",
         "corrected_sentence": "Yes, I believe that English is the most useful language in all the world because it enables us to achieve our goals and go beyond what we imagine.",
@@ -686,10 +598,11 @@
         "c_start": 21,
         "c_end": 22,
         "corrected_text": "goals",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|goals"
     },
     {
-        "index": 48,
+        "index": 47,
         "speaker": "SPEAKER_02",
         "sentence": "Yes, I think that English is the most useful language in all the world because it permits us to achieve our objectives and to go further than we think.",
         "corrected_sentence": "Yes, I believe that English is the most useful language in all the world because it enables us to achieve our goals and go beyond what we imagine.",
@@ -699,10 +612,11 @@
         "c_start": 23,
         "c_end": 23,
         "corrected_text": "",
-        "error_type": "U:VERB:FORM"
+        "error_type": "U:VERB:FORM",
+        "corrected_key": "U:VERB:FORM|"
     },
     {
-        "index": 48,
+        "index": 47,
         "speaker": "SPEAKER_02",
         "sentence": "Yes, I think that English is the most useful language in all the world because it permits us to achieve our objectives and to go further than we think.",
         "corrected_sentence": "Yes, I believe that English is the most useful language in all the world because it enables us to achieve our goals and go beyond what we imagine.",
@@ -712,10 +626,11 @@
         "c_start": 24,
         "c_end": 25,
         "corrected_text": "beyond",
-        "error_type": "R:PREP"
+        "error_type": "R:PREP",
+        "corrected_key": "R:PREP|beyond"
     },
     {
-        "index": 48,
+        "index": 47,
         "speaker": "SPEAKER_02",
         "sentence": "Yes, I think that English is the most useful language in all the world because it permits us to achieve our objectives and to go further than we think.",
         "corrected_sentence": "Yes, I believe that English is the most useful language in all the world because it enables us to achieve our goals and go beyond what we imagine.",
@@ -725,10 +640,11 @@
         "c_start": 25,
         "c_end": 26,
         "corrected_text": "what",
-        "error_type": "R:SPELL"
+        "error_type": "R:SPELL",
+        "corrected_key": "R:SPELL|what"
     },
     {
-        "index": 48,
+        "index": 47,
         "speaker": "SPEAKER_02",
         "sentence": "Yes, I think that English is the most useful language in all the world because it permits us to achieve our objectives and to go further than we think.",
         "corrected_sentence": "Yes, I believe that English is the most useful language in all the world because it enables us to achieve our goals and go beyond what we imagine.",
@@ -738,62 +654,53 @@
         "c_start": 27,
         "c_end": 28,
         "corrected_text": "imagine.",
-        "error_type": "R:VERB"
+        "error_type": "R:VERB",
+        "corrected_key": "R:VERB|imagine."
     },
     {
-        "index": 49,
+        "index": 48,
         "speaker": "SPEAKER_02",
         "sentence": "I generally get to work by car. lady which is maybe connected on a laptop and reading on a book.",
-        "corrected_sentence": "I generally get to work by car. Sometimes, I use a laptop and read on a book while I'm at work.",
+        "corrected_sentence": "I generally get to work by car. Sometimes, I use a laptop and read on a book while I'm working.",
         "o_start": 7,
         "o_end": 8,
         "original_text": "lady",
         "c_start": 7,
         "c_end": 8,
         "corrected_text": "Sometimes,",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|Sometimes,"
     },
     {
-        "index": 49,
+        "index": 48,
         "speaker": "SPEAKER_02",
         "sentence": "I generally get to work by car. lady which is maybe connected on a laptop and reading on a book.",
-        "corrected_sentence": "I generally get to work by car. Sometimes, I use a laptop and read on a book while I'm at work.",
+        "corrected_sentence": "I generally get to work by car. Sometimes, I use a laptop and read on a book while I'm working.",
         "o_start": 16,
         "o_end": 17,
         "original_text": "reading",
         "c_start": 13,
         "c_end": 14,
         "corrected_text": "read",
-        "error_type": "R:VERB:FORM"
+        "error_type": "R:VERB:FORM",
+        "corrected_key": "R:VERB:FORM|read"
     },
     {
-        "index": 49,
+        "index": 48,
         "speaker": "SPEAKER_02",
         "sentence": "I generally get to work by car. lady which is maybe connected on a laptop and reading on a book.",
-        "corrected_sentence": "I generally get to work by car. Sometimes, I use a laptop and read on a book while I'm at work.",
+        "corrected_sentence": "I generally get to work by car. Sometimes, I use a laptop and read on a book while I'm working.",
         "o_start": 19,
         "o_end": 20,
         "original_text": "book.",
         "c_start": 16,
         "c_end": 17,
         "corrected_text": "book",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|book"
     },
     {
         "index": 49,
-        "speaker": "SPEAKER_02",
-        "sentence": "I generally get to work by car. lady which is maybe connected on a laptop and reading on a book.",
-        "corrected_sentence": "I generally get to work by car. Sometimes, I use a laptop and read on a book while I'm at work.",
-        "o_start": 20,
-        "o_end": 20,
-        "original_text": "",
-        "c_start": 17,
-        "c_end": 21,
-        "corrected_text": "while I'm at work.",
-        "error_type": "M:OTHER"
-    },
-    {
-        "index": 50,
         "speaker": "SPEAKER_02",
         "sentence": "He is normally in a library or I don't think she is at home.",
         "corrected_sentence": "He is usually in the library, or she is not at home.",
@@ -803,10 +710,11 @@
         "c_start": 2,
         "c_end": 3,
         "corrected_text": "usually",
-        "error_type": "R:ADV"
+        "error_type": "R:ADV",
+        "corrected_key": "R:ADV|usually"
     },
     {
-        "index": 50,
+        "index": 49,
         "speaker": "SPEAKER_02",
         "sentence": "He is normally in a library or I don't think she is at home.",
         "corrected_sentence": "He is usually in the library, or she is not at home.",
@@ -816,10 +724,11 @@
         "c_start": 4,
         "c_end": 5,
         "corrected_text": "the",
-        "error_type": "R:DET"
+        "error_type": "R:DET",
+        "corrected_key": "R:DET|the"
     },
     {
-        "index": 50,
+        "index": 49,
         "speaker": "SPEAKER_02",
         "sentence": "He is normally in a library or I don't think she is at home.",
         "corrected_sentence": "He is usually in the library, or she is not at home.",
@@ -829,23 +738,11 @@
         "c_start": 5,
         "c_end": 6,
         "corrected_text": "library,",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|library,"
     },
     {
-        "index": 50,
-        "speaker": "SPEAKER_02",
-        "sentence": "He is normally in a library or I don't think she is at home.",
-        "corrected_sentence": "He is usually in the library, or she is not at home.",
-        "o_start": 7,
-        "o_end": 10,
-        "original_text": "I don't think",
-        "c_start": 7,
-        "c_end": 7,
-        "corrected_text": "",
-        "error_type": "U:OTHER"
-    },
-    {
-        "index": 50,
+        "index": 49,
         "speaker": "SPEAKER_02",
         "sentence": "He is normally in a library or I don't think she is at home.",
         "corrected_sentence": "He is usually in the library, or she is not at home.",
@@ -855,10 +752,11 @@
         "c_start": 9,
         "c_end": 10,
         "corrected_text": "not",
-        "error_type": "M:ADV"
+        "error_type": "M:ADV",
+        "corrected_key": "M:ADV|not"
     },
     {
-        "index": 51,
+        "index": 50,
         "speaker": "SPEAKER_02",
         "sentence": "Maybe she is preparing for an exam for getting more information.",
         "corrected_sentence": "Maybe she is preparing for an exam to get more information.",
@@ -868,10 +766,11 @@
         "c_start": 7,
         "c_end": 8,
         "corrected_text": "to",
-        "error_type": "R:PART"
+        "error_type": "R:PART",
+        "corrected_key": "R:PART|to"
     },
     {
-        "index": 51,
+        "index": 50,
         "speaker": "SPEAKER_02",
         "sentence": "Maybe she is preparing for an exam for getting more information.",
         "corrected_sentence": "Maybe she is preparing for an exam to get more information.",
@@ -881,10 +780,11 @@
         "c_start": 8,
         "c_end": 9,
         "corrected_text": "get",
-        "error_type": "R:VERB:FORM"
+        "error_type": "R:VERB:FORM",
+        "corrected_key": "R:VERB:FORM|get"
     },
     {
-        "index": 52,
+        "index": 51,
         "speaker": "SPEAKER_02",
         "sentence": "Maybe she is revising.",
         "corrected_sentence": "She is revising.",
@@ -894,23 +794,39 @@
         "c_start": 0,
         "c_end": 1,
         "corrected_text": "She",
-        "error_type": "U:ADV"
+        "error_type": "U:ADV",
+        "corrected_key": "U:ADV|She"
     },
     {
-        "index": 53,
+        "index": 52,
         "speaker": "SPEAKER_02",
         "sentence": "As I said before, she is maybe revising or preparing for an exam or presentation.",
-        "corrected_sentence": "As I said before, she might be revising or preparing for an exam or presentation.",
+        "corrected_sentence": "\"As I said before, she might be revising or preparing for an exam or presentation.\"",
         "o_start": 5,
         "o_end": 6,
         "original_text": "is",
         "c_start": 5,
         "c_end": 6,
         "corrected_text": "might",
-        "error_type": "R:VERB:TENSE"
+        "error_type": "R:VERB:TENSE",
+        "corrected_key": "R:VERB:TENSE|might"
     },
     {
-        "index": 54,
+        "index": 52,
+        "speaker": "SPEAKER_02",
+        "sentence": "As I said before, she is maybe revising or preparing for an exam or presentation.",
+        "corrected_sentence": "\"As I said before, she might be revising or preparing for an exam or presentation.\"",
+        "o_start": 14,
+        "o_end": 15,
+        "original_text": "presentation.",
+        "c_start": 14,
+        "c_end": 15,
+        "corrected_text": "presentation.\"",
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|presentation.\""
+    },
+    {
+        "index": 53,
         "speaker": "SPEAKER_02",
         "sentence": "I think the T-shirt is the best idea.",
         "corrected_sentence": "I believe the T-shirt is the best option.",
@@ -920,10 +836,11 @@
         "c_start": 1,
         "c_end": 2,
         "corrected_text": "believe",
-        "error_type": "R:VERB"
+        "error_type": "R:VERB",
+        "corrected_key": "R:VERB|believe"
     },
     {
-        "index": 54,
+        "index": 53,
         "speaker": "SPEAKER_02",
         "sentence": "I think the T-shirt is the best idea.",
         "corrected_sentence": "I believe the T-shirt is the best option.",
@@ -933,10 +850,11 @@
         "c_start": 7,
         "c_end": 8,
         "corrected_text": "option.",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|option."
     },
     {
-        "index": 55,
+        "index": 54,
         "speaker": "SPEAKER_02",
         "sentence": "So if he had the T-shirt with him, he can always remember the team. mMM mMM But at least you have it at home and you can see it, even if you don't wear it.",
         "corrected_sentence": "\"So if he had the T-shirt with him, he can always remember the team. But at least you have it at home, and you can see it, even if you don't wear it.\"",
@@ -946,10 +864,11 @@
         "c_start": 14,
         "c_end": 14,
         "corrected_text": "",
-        "error_type": "U:NOUN"
+        "error_type": "U:NOUN",
+        "corrected_key": "U:NOUN|"
     },
     {
-        "index": 55,
+        "index": 54,
         "speaker": "SPEAKER_02",
         "sentence": "So if he had the T-shirt with him, he can always remember the team. mMM mMM But at least you have it at home and you can see it, even if you don't wear it.",
         "corrected_sentence": "\"So if he had the T-shirt with him, he can always remember the team. But at least you have it at home, and you can see it, even if you don't wear it.\"",
@@ -959,10 +878,11 @@
         "c_start": 21,
         "c_end": 22,
         "corrected_text": "home,",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|home,"
     },
     {
-        "index": 55,
+        "index": 54,
         "speaker": "SPEAKER_02",
         "sentence": "So if he had the T-shirt with him, he can always remember the team. mMM mMM But at least you have it at home and you can see it, even if you don't wear it.",
         "corrected_sentence": "\"So if he had the T-shirt with him, he can always remember the team. But at least you have it at home, and you can see it, even if you don't wear it.\"",
@@ -972,10 +892,11 @@
         "c_start": 32,
         "c_end": 33,
         "corrected_text": "it.\"",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|it.\""
     },
     {
-        "index": 56,
+        "index": 55,
         "speaker": "SPEAKER_02",
         "sentence": "I think it's a really good idea for the Paloan football.",
         "corrected_sentence": "I believe it's a great idea for the Paloan football team.",
@@ -985,10 +906,11 @@
         "c_start": 1,
         "c_end": 2,
         "corrected_text": "believe",
-        "error_type": "R:VERB"
+        "error_type": "R:VERB",
+        "corrected_key": "R:VERB|believe"
     },
     {
-        "index": 56,
+        "index": 55,
         "speaker": "SPEAKER_02",
         "sentence": "I think it's a really good idea for the Paloan football.",
         "corrected_sentence": "I believe it's a great idea for the Paloan football team.",
@@ -998,10 +920,11 @@
         "c_start": 9,
         "c_end": 11,
         "corrected_text": "football team.",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|football team."
     },
     {
-        "index": 58,
+        "index": 57,
         "speaker": "SPEAKER_02",
         "sentence": "All for pictures. so that he can put all her pictures in this album and he can watch pictures whatever he wants and you keep remembering your team, bye!",
         "corrected_sentence": "All for pictures. Therefore, he can put all her pictures in this album and he can watch pictures as he wants and you keep remembering your team, bye!",
@@ -1011,10 +934,11 @@
         "c_start": 4,
         "c_end": 4,
         "corrected_text": "",
-        "error_type": "U:PREP"
+        "error_type": "U:PREP",
+        "corrected_key": "U:PREP|"
     },
     {
-        "index": 59,
+        "index": 58,
         "speaker": "SPEAKER_02",
         "sentence": "It's amazing.",
         "corrected_sentence": "It's amazing!",
@@ -1024,10 +948,11 @@
         "c_start": 1,
         "c_end": 2,
         "corrected_text": "amazing!",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|amazing!"
     },
     {
-        "index": 60,
+        "index": 59,
         "speaker": "SPEAKER_02",
         "sentence": "Is that...",
         "corrected_sentence": "Is that correct?",
@@ -1037,10 +962,11 @@
         "c_start": 2,
         "c_end": 3,
         "corrected_text": "correct?",
-        "error_type": "M:NOUN"
+        "error_type": "M:NOUN",
+        "corrected_key": "M:NOUN|correct?"
     },
     {
-        "index": 61,
+        "index": 60,
         "speaker": "SPEAKER_02",
         "sentence": "Hmm...",
         "corrected_sentence": "Hmm?",
@@ -1050,10 +976,11 @@
         "c_start": 0,
         "c_end": 1,
         "corrected_text": "Hmm?",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|Hmm?"
     },
     {
-        "index": 62,
+        "index": 61,
         "speaker": "SPEAKER_02",
         "sentence": "Bye.",
         "corrected_sentence": "Goodbye.",
@@ -1063,10 +990,11 @@
         "c_start": 0,
         "c_end": 1,
         "corrected_text": "Goodbye.",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|Goodbye."
     },
     {
-        "index": 63,
+        "index": 62,
         "speaker": "SPEAKER_02",
         "sentence": "For me, it's a swimming.",
         "corrected_sentence": "For me, it's swimming.",
@@ -1076,23 +1004,39 @@
         "c_start": 3,
         "c_end": 3,
         "corrected_text": "",
-        "error_type": "U:DET"
+        "error_type": "U:DET",
+        "corrected_key": "U:DET|"
     },
     {
-        "index": 65,
+        "index": 64,
         "speaker": "SPEAKER_02",
         "sentence": "I really enjoy swimming.",
-        "corrected_sentence": "I genuinely enjoy swimming.",
+        "corrected_sentence": "I enjoy swimming very much.",
         "o_start": 1,
         "o_end": 2,
         "original_text": "really",
         "c_start": 1,
-        "c_end": 2,
-        "corrected_text": "genuinely",
-        "error_type": "R:ADV"
+        "c_end": 1,
+        "corrected_text": "",
+        "error_type": "U:ADV",
+        "corrected_key": "U:ADV|"
     },
     {
-        "index": 67,
+        "index": 65,
+        "speaker": "SPEAKER_02",
+        "sentence": "It doesn't matter if it will be on summer or on spring.",
+        "corrected_sentence": "It doesn't matter when it will be on summer or spring.",
+        "o_start": 10,
+        "o_end": 11,
+        "original_text": "on",
+        "c_start": 10,
+        "c_end": 10,
+        "corrected_text": "",
+        "error_type": "U:PREP",
+        "corrected_key": "U:PREP|"
+    },
+    {
+        "index": 66,
         "speaker": "SPEAKER_02",
         "sentence": "I love swimming in the swimming pool, but especially on the beach.",
         "corrected_sentence": "I love swimming in the swimming pool, especially on the beach.",
@@ -1102,10 +1046,11 @@
         "c_start": 7,
         "c_end": 7,
         "corrected_text": "",
-        "error_type": "U:CONJ"
+        "error_type": "U:CONJ",
+        "corrected_key": "U:CONJ|"
     },
     {
-        "index": 69,
+        "index": 68,
         "speaker": "SPEAKER_02",
         "sentence": "If I swim that I lose my weight, I am like flying and floating in the water.",
         "corrected_sentence": "If I swim, I will lose my weight, and I will feel like flying and floating in the water.",
@@ -1115,10 +1060,11 @@
         "c_start": 2,
         "c_end": 3,
         "corrected_text": "swim,",
-        "error_type": "R:VERB"
+        "error_type": "R:VERB",
+        "corrected_key": "R:VERB|swim,"
     },
     {
-        "index": 69,
+        "index": 68,
         "speaker": "SPEAKER_02",
         "sentence": "If I swim that I lose my weight, I am like flying and floating in the water.",
         "corrected_sentence": "If I swim, I will lose my weight, and I will feel like flying and floating in the water.",
@@ -1128,10 +1074,11 @@
         "c_start": 3,
         "c_end": 3,
         "corrected_text": "",
-        "error_type": "U:PREP"
+        "error_type": "U:PREP",
+        "corrected_key": "U:PREP|"
     },
     {
-        "index": 69,
+        "index": 68,
         "speaker": "SPEAKER_02",
         "sentence": "If I swim that I lose my weight, I am like flying and floating in the water.",
         "corrected_sentence": "If I swim, I will lose my weight, and I will feel like flying and floating in the water.",
@@ -1141,10 +1088,11 @@
         "c_start": 4,
         "c_end": 5,
         "corrected_text": "will",
-        "error_type": "M:VERB:TENSE"
+        "error_type": "M:VERB:TENSE",
+        "corrected_key": "M:VERB:TENSE|will"
     },
     {
-        "index": 69,
+        "index": 68,
         "speaker": "SPEAKER_02",
         "sentence": "If I swim that I lose my weight, I am like flying and floating in the water.",
         "corrected_sentence": "If I swim, I will lose my weight, and I will feel like flying and floating in the water.",
@@ -1154,10 +1102,11 @@
         "c_start": 8,
         "c_end": 9,
         "corrected_text": "and",
-        "error_type": "M:CONJ"
+        "error_type": "M:CONJ",
+        "corrected_key": "M:CONJ|and"
     },
     {
-        "index": 69,
+        "index": 68,
         "speaker": "SPEAKER_02",
         "sentence": "If I swim that I lose my weight, I am like flying and floating in the water.",
         "corrected_sentence": "If I swim, I will lose my weight, and I will feel like flying and floating in the water.",
@@ -1167,10 +1116,11 @@
         "c_start": 10,
         "c_end": 12,
         "corrected_text": "will feel",
-        "error_type": "R:VERB"
+        "error_type": "R:VERB",
+        "corrected_key": "R:VERB|will feel"
     },
     {
-        "index": 72,
+        "index": 71,
         "speaker": "SPEAKER_02",
         "sentence": "I think that football is an international sport.",
         "corrected_sentence": "I believe that football is an international sport.",
@@ -1180,10 +1130,11 @@
         "c_start": 1,
         "c_end": 2,
         "corrected_text": "believe",
-        "error_type": "R:VERB"
+        "error_type": "R:VERB",
+        "corrected_key": "R:VERB|believe"
     },
     {
-        "index": 73,
+        "index": 72,
         "speaker": "SPEAKER_02",
         "sentence": "In every country we can see that there is a lot of teams which play in football.",
         "corrected_sentence": "In every country, we can see that there are a lot of teams that play in football.",
@@ -1193,10 +1144,11 @@
         "c_start": 8,
         "c_end": 9,
         "corrected_text": "are",
-        "error_type": "R:VERB:SVA"
+        "error_type": "R:VERB:SVA",
+        "corrected_key": "R:VERB:SVA|are"
     },
     {
-        "index": 73,
+        "index": 72,
         "speaker": "SPEAKER_02",
         "sentence": "In every country we can see that there is a lot of teams which play in football.",
         "corrected_sentence": "In every country, we can see that there are a lot of teams that play in football.",
@@ -1206,62 +1158,39 @@
         "c_start": 13,
         "c_end": 14,
         "corrected_text": "that",
-        "error_type": "R:DET"
+        "error_type": "R:DET",
+        "corrected_key": "R:DET|that"
     },
     {
         "index": 76,
         "speaker": "SPEAKER_02",
-        "sentence": "I'm not for this fun.",
-        "corrected_sentence": "I'm not in this for this fun.",
-        "o_start": 2,
-        "o_end": 2,
-        "original_text": "",
-        "c_start": 2,
-        "c_end": 4,
-        "corrected_text": "in this",
-        "error_type": "M:OTHER"
-    },
-    {
-        "index": 77,
-        "speaker": "SPEAKER_02",
         "sentence": "Because I think it's waste of time and I don't have enough time to study, so I can't go to this kind of activities.",
-        "corrected_sentence": "Because I believe it's wasteful of time and I don't have enough time to study, so I am unable to participate in such activities.",
+        "corrected_sentence": "Because I believe it's waste of time and I don't have enough time to study, so I am unable to participate in such activities.",
         "o_start": 2,
         "o_end": 3,
         "original_text": "think",
         "c_start": 2,
         "c_end": 3,
         "corrected_text": "believe",
-        "error_type": "R:VERB"
+        "error_type": "R:VERB",
+        "corrected_key": "R:VERB|believe"
     },
     {
-        "index": 77,
+        "index": 76,
         "speaker": "SPEAKER_02",
         "sentence": "Because I think it's waste of time and I don't have enough time to study, so I can't go to this kind of activities.",
-        "corrected_sentence": "Because I believe it's wasteful of time and I don't have enough time to study, so I am unable to participate in such activities.",
-        "o_start": 4,
-        "o_end": 5,
-        "original_text": "waste",
-        "c_start": 4,
-        "c_end": 5,
-        "corrected_text": "wasteful",
-        "error_type": "R:MORPH"
-    },
-    {
-        "index": 77,
-        "speaker": "SPEAKER_02",
-        "sentence": "Because I think it's waste of time and I don't have enough time to study, so I can't go to this kind of activities.",
-        "corrected_sentence": "Because I believe it's wasteful of time and I don't have enough time to study, so I am unable to participate in such activities.",
+        "corrected_sentence": "Because I believe it's waste of time and I don't have enough time to study, so I am unable to participate in such activities.",
         "o_start": 17,
         "o_end": 18,
         "original_text": "can't",
         "c_start": 17,
         "c_end": 18,
         "corrected_text": "am",
-        "error_type": "R:VERB"
+        "error_type": "R:VERB",
+        "corrected_key": "R:VERB|am"
     },
     {
-        "index": 79,
+        "index": 78,
         "speaker": "SPEAKER_00",
         "sentence": "I work in a Ministry of Foreign Affairs.",
         "corrected_sentence": "I work in the Ministry of Foreign Affairs.",
@@ -1271,10 +1200,11 @@
         "c_start": 3,
         "c_end": 4,
         "corrected_text": "the",
-        "error_type": "R:DET"
+        "error_type": "R:DET",
+        "corrected_key": "R:DET|the"
     },
     {
-        "index": 80,
+        "index": 79,
         "speaker": "SPEAKER_00",
         "sentence": "I live with my family in my country and we have neighbors and there are some of them are cousins of us, of me.",
         "corrected_sentence": "I live with my family in my country, and we have neighbors. There are some of our cousins among us.",
@@ -1284,10 +1214,11 @@
         "c_start": 7,
         "c_end": 8,
         "corrected_text": "country,",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|country,"
     },
     {
-        "index": 80,
+        "index": 79,
         "speaker": "SPEAKER_00",
         "sentence": "I live with my family in my country and we have neighbors and there are some of them are cousins of us, of me.",
         "corrected_sentence": "I live with my family in my country, and we have neighbors. There are some of our cousins among us.",
@@ -1297,10 +1228,11 @@
         "c_start": 11,
         "c_end": 12,
         "corrected_text": "neighbors.",
-        "error_type": "R:SPELL"
+        "error_type": "R:SPELL",
+        "corrected_key": "R:SPELL|neighbors."
     },
     {
-        "index": 80,
+        "index": 79,
         "speaker": "SPEAKER_00",
         "sentence": "I live with my family in my country and we have neighbors and there are some of them are cousins of us, of me.",
         "corrected_sentence": "I live with my family in my country, and we have neighbors. There are some of our cousins among us.",
@@ -1310,10 +1242,11 @@
         "c_start": 12,
         "c_end": 12,
         "corrected_text": "",
-        "error_type": "U:CONJ"
+        "error_type": "U:CONJ",
+        "corrected_key": "U:CONJ|"
     },
     {
-        "index": 80,
+        "index": 79,
         "speaker": "SPEAKER_00",
         "sentence": "I live with my family in my country and we have neighbors and there are some of them are cousins of us, of me.",
         "corrected_sentence": "I live with my family in my country, and we have neighbors. There are some of our cousins among us.",
@@ -1323,10 +1256,11 @@
         "c_start": 12,
         "c_end": 13,
         "corrected_text": "There",
-        "error_type": "R:ORTH"
+        "error_type": "R:ORTH",
+        "corrected_key": "R:ORTH|There"
     },
     {
-        "index": 80,
+        "index": 79,
         "speaker": "SPEAKER_00",
         "sentence": "I live with my family in my country and we have neighbors and there are some of them are cousins of us, of me.",
         "corrected_sentence": "I live with my family in my country, and we have neighbors. There are some of our cousins among us.",
@@ -1336,10 +1270,11 @@
         "c_start": 18,
         "c_end": 18,
         "corrected_text": "",
-        "error_type": "U:PREP"
+        "error_type": "U:PREP",
+        "corrected_key": "U:PREP|"
     },
     {
-        "index": 80,
+        "index": 79,
         "speaker": "SPEAKER_00",
         "sentence": "I live with my family in my country and we have neighbors and there are some of them are cousins of us, of me.",
         "corrected_sentence": "I live with my family in my country, and we have neighbors. There are some of our cousins among us.",
@@ -1349,10 +1284,11 @@
         "c_start": 18,
         "c_end": 18,
         "corrected_text": "",
-        "error_type": "U:NOUN"
+        "error_type": "U:NOUN",
+        "corrected_key": "U:NOUN|"
     },
     {
-        "index": 80,
+        "index": 79,
         "speaker": "SPEAKER_00",
         "sentence": "I live with my family in my country and we have neighbors and there are some of them are cousins of us, of me.",
         "corrected_sentence": "I live with my family in my country, and we have neighbors. There are some of our cousins among us.",
@@ -1362,10 +1298,11 @@
         "c_start": 18,
         "c_end": 19,
         "corrected_text": "among",
-        "error_type": "R:PREP"
+        "error_type": "R:PREP",
+        "corrected_key": "R:PREP|among"
     },
     {
-        "index": 80,
+        "index": 79,
         "speaker": "SPEAKER_00",
         "sentence": "I live with my family in my country and we have neighbors and there are some of them are cousins of us, of me.",
         "corrected_sentence": "I live with my family in my country, and we have neighbors. There are some of our cousins among us.",
@@ -1375,10 +1312,11 @@
         "c_start": 19,
         "c_end": 20,
         "corrected_text": "us.",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|us."
     },
     {
-        "index": 81,
+        "index": 80,
         "speaker": "SPEAKER_00",
         "sentence": "I've been gathering with my friends and we go into one Middle East restaurant here in Cambridge.",
         "corrected_sentence": "I've been gathering with my friends and we go to one Middle East restaurant in Cambridge.",
@@ -1388,10 +1326,11 @@
         "c_start": 9,
         "c_end": 10,
         "corrected_text": "to",
-        "error_type": "R:PREP"
+        "error_type": "R:PREP",
+        "corrected_key": "R:PREP|to"
     },
     {
-        "index": 81,
+        "index": 80,
         "speaker": "SPEAKER_00",
         "sentence": "I've been gathering with my friends and we go into one Middle East restaurant here in Cambridge.",
         "corrected_sentence": "I've been gathering with my friends and we go to one Middle East restaurant in Cambridge.",
@@ -1401,62 +1340,53 @@
         "c_start": 14,
         "c_end": 14,
         "corrected_text": "",
-        "error_type": "U:ADV"
+        "error_type": "U:ADV",
+        "corrected_key": "U:ADV|"
     },
     {
-        "index": 82,
+        "index": 81,
         "speaker": "SPEAKER_00",
         "sentence": "Yeah, I see one man, he's relaxing and he's so far.",
-        "corrected_sentence": "\"Yeah, I see one man. He's relaxing, and he's far away.\"",
+        "corrected_sentence": "\"Yeah,\" I see one man. He's relaxing, and he's far away.",
         "o_start": 4,
         "o_end": 5,
         "original_text": "man,",
         "c_start": 4,
         "c_end": 5,
         "corrected_text": "man.",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|man."
     },
     {
-        "index": 82,
+        "index": 81,
         "speaker": "SPEAKER_00",
         "sentence": "Yeah, I see one man, he's relaxing and he's so far.",
-        "corrected_sentence": "\"Yeah, I see one man. He's relaxing, and he's far away.\"",
+        "corrected_sentence": "\"Yeah,\" I see one man. He's relaxing, and he's far away.",
         "o_start": 5,
         "o_end": 6,
         "original_text": "he's",
         "c_start": 5,
         "c_end": 6,
         "corrected_text": "He's",
-        "error_type": "R:ORTH"
+        "error_type": "R:ORTH",
+        "corrected_key": "R:ORTH|He's"
     },
     {
-        "index": 82,
+        "index": 81,
         "speaker": "SPEAKER_00",
         "sentence": "Yeah, I see one man, he's relaxing and he's so far.",
-        "corrected_sentence": "\"Yeah, I see one man. He's relaxing, and he's far away.\"",
+        "corrected_sentence": "\"Yeah,\" I see one man. He's relaxing, and he's far away.",
         "o_start": 9,
         "o_end": 10,
         "original_text": "so",
         "c_start": 9,
-        "c_end": 9,
-        "corrected_text": "",
-        "error_type": "U:ADV"
+        "c_end": 10,
+        "corrected_text": "far",
+        "error_type": "R:ADV",
+        "corrected_key": "R:ADV|far"
     },
     {
         "index": 82,
-        "speaker": "SPEAKER_00",
-        "sentence": "Yeah, I see one man, he's relaxing and he's so far.",
-        "corrected_sentence": "\"Yeah, I see one man. He's relaxing, and he's far away.\"",
-        "o_start": 11,
-        "o_end": 11,
-        "original_text": "",
-        "c_start": 10,
-        "c_end": 11,
-        "corrected_text": "away.\"",
-        "error_type": "M:PUNCT"
-    },
-    {
-        "index": 83,
         "speaker": "SPEAKER_00",
         "sentence": "And he left his mobile on the floor because he didn't want to distract by his mobile.",
         "corrected_sentence": "And he left his mobile on the floor because he didn't want to distract himself by his mobile.",
@@ -1466,36 +1396,53 @@
         "c_start": 14,
         "c_end": 15,
         "corrected_text": "himself",
-        "error_type": "M:PRON"
+        "error_type": "M:PRON",
+        "corrected_key": "M:PRON|himself"
     },
     {
-        "index": 84,
+        "index": 83,
         "speaker": "SPEAKER_00",
         "sentence": "And maybe he's a musician, because there is one guitar just next to him.",
-        "corrected_sentence": "And maybe he's a musician; there is one guitar just next to him.",
+        "corrected_sentence": "And maybe he's a musician; there's one guitar just next to him.",
         "o_start": 4,
         "o_end": 5,
         "original_text": "musician,",
         "c_start": 4,
         "c_end": 5,
         "corrected_text": "musician;",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|musician;"
     },
     {
-        "index": 84,
+        "index": 83,
         "speaker": "SPEAKER_00",
         "sentence": "And maybe he's a musician, because there is one guitar just next to him.",
-        "corrected_sentence": "And maybe he's a musician; there is one guitar just next to him.",
+        "corrected_sentence": "And maybe he's a musician; there's one guitar just next to him.",
         "o_start": 5,
         "o_end": 6,
         "original_text": "because",
         "c_start": 5,
         "c_end": 5,
         "corrected_text": "",
-        "error_type": "U:PREP"
+        "error_type": "U:PREP",
+        "corrected_key": "U:PREP|"
     },
     {
-        "index": 85,
+        "index": 83,
+        "speaker": "SPEAKER_00",
+        "sentence": "And maybe he's a musician, because there is one guitar just next to him.",
+        "corrected_sentence": "And maybe he's a musician; there's one guitar just next to him.",
+        "o_start": 7,
+        "o_end": 8,
+        "original_text": "is",
+        "c_start": 6,
+        "c_end": 6,
+        "corrected_text": "",
+        "error_type": "U:VERB",
+        "corrected_key": "U:VERB|"
+    },
+    {
+        "index": 84,
         "speaker": "SPEAKER_00",
         "sentence": "And maybe he just came from outside and he didn't take out his clothes.",
         "corrected_sentence": "And maybe he just came from outside. He didn't take out his clothes.",
@@ -1505,10 +1452,11 @@
         "c_start": 7,
         "c_end": 7,
         "corrected_text": "",
-        "error_type": "U:CONJ"
+        "error_type": "U:CONJ",
+        "corrected_key": "U:CONJ|"
     },
     {
-        "index": 85,
+        "index": 84,
         "speaker": "SPEAKER_00",
         "sentence": "And maybe he just came from outside and he didn't take out his clothes.",
         "corrected_sentence": "And maybe he just came from outside. He didn't take out his clothes.",
@@ -1518,10 +1466,11 @@
         "c_start": 7,
         "c_end": 8,
         "corrected_text": "He",
-        "error_type": "R:ORTH"
+        "error_type": "R:ORTH",
+        "corrected_key": "R:ORTH|He"
     },
     {
-        "index": 86,
+        "index": 85,
         "speaker": "SPEAKER_00",
         "sentence": "He just started to read and having one cup of tea and relaxing in his home.",
         "corrected_sentence": "He just started to read and had one cup of tea while relaxing at home.",
@@ -1531,10 +1480,11 @@
         "c_start": 6,
         "c_end": 7,
         "corrected_text": "had",
-        "error_type": "R:VERB:FORM"
+        "error_type": "R:VERB:FORM",
+        "corrected_key": "R:VERB:FORM|had"
     },
     {
-        "index": 86,
+        "index": 85,
         "speaker": "SPEAKER_00",
         "sentence": "He just started to read and having one cup of tea and relaxing in his home.",
         "corrected_sentence": "He just started to read and had one cup of tea while relaxing at home.",
@@ -1544,10 +1494,11 @@
         "c_start": 13,
         "c_end": 14,
         "corrected_text": "at",
-        "error_type": "R:PREP"
+        "error_type": "R:PREP",
+        "corrected_key": "R:PREP|at"
     },
     {
-        "index": 86,
+        "index": 85,
         "speaker": "SPEAKER_00",
         "sentence": "He just started to read and having one cup of tea and relaxing in his home.",
         "corrected_sentence": "He just started to read and had one cup of tea while relaxing at home.",
@@ -1557,10 +1508,11 @@
         "c_start": 14,
         "c_end": 14,
         "corrected_text": "",
-        "error_type": "U:DET"
+        "error_type": "U:DET",
+        "corrected_key": "U:DET|"
     },
     {
-        "index": 87,
+        "index": 86,
         "speaker": "SPEAKER_00",
         "sentence": "And maybe he's live alone because there's no one with him.",
         "corrected_sentence": "And maybe he's living alone because there's no one by his side.",
@@ -1570,10 +1522,11 @@
         "c_start": 3,
         "c_end": 4,
         "corrected_text": "living",
-        "error_type": "R:VERB:FORM"
+        "error_type": "R:VERB:FORM",
+        "corrected_key": "R:VERB:FORM|living"
     },
     {
-        "index": 88,
+        "index": 87,
         "speaker": "SPEAKER_00",
         "sentence": "There's no toys for his children or something.",
         "corrected_sentence": "There are no toys for his children or something.",
@@ -1583,10 +1536,11 @@
         "c_start": 1,
         "c_end": 2,
         "corrected_text": "are",
-        "error_type": "M:VERB"
+        "error_type": "M:VERB",
+        "corrected_key": "M:VERB|are"
     },
     {
-        "index": 89,
+        "index": 88,
         "speaker": "SPEAKER_00",
         "sentence": "That's really maybe live alone and nice flies.",
         "corrected_sentence": "\"That's really maybe living alone and nice flies.\"",
@@ -1596,10 +1550,11 @@
         "c_start": 3,
         "c_end": 4,
         "corrected_text": "living",
-        "error_type": "R:VERB:FORM"
+        "error_type": "R:VERB:FORM",
+        "corrected_key": "R:VERB:FORM|living"
     },
     {
-        "index": 90,
+        "index": 89,
         "speaker": "SPEAKER_00",
         "sentence": "And I think that the weather outside is cold because he didn't even.",
         "corrected_sentence": "\"And I think that the weather outside is cold because he didn't even realize.\"",
@@ -1609,10 +1564,11 @@
         "c_start": 12,
         "c_end": 13,
         "corrected_text": "even",
-        "error_type": "R:ADV"
+        "error_type": "R:ADV",
+        "corrected_key": "R:ADV|even"
     },
     {
-        "index": 90,
+        "index": 89,
         "speaker": "SPEAKER_00",
         "sentence": "And I think that the weather outside is cold because he didn't even.",
         "corrected_sentence": "\"And I think that the weather outside is cold because he didn't even realize.\"",
@@ -1622,140 +1578,95 @@
         "c_start": 13,
         "c_end": 14,
         "corrected_text": "realize.\"",
-        "error_type": "M:PUNCT"
+        "error_type": "M:PUNCT",
+        "corrected_key": "M:PUNCT|realize.\""
     },
     {
-        "index": 91,
+        "index": 90,
         "speaker": "SPEAKER_00",
         "sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying by the fifth anniversary for the four fifth established for their club.",
-        "corrected_sentence": "\"I think the calendar is perfect, or not too short, because for me, the calendar shows my club every day when I check in. I can see my club, and they are enjoying by the fifth anniversary for the four established clubs.\"",
-        "o_start": 5,
-        "o_end": 6,
-        "original_text": "perfect",
-        "c_start": 5,
-        "c_end": 6,
-        "corrected_text": "perfect,",
-        "error_type": "R:ADJ"
-    },
-    {
-        "index": 91,
-        "speaker": "SPEAKER_00",
-        "sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying by the fifth anniversary for the four fifth established for their club.",
-        "corrected_sentence": "\"I think the calendar is perfect, or not too short, because for me, the calendar shows my club every day when I check in. I can see my club, and they are enjoying by the fifth anniversary for the four established clubs.\"",
+        "corrected_sentence": "I think the calendar is perfect or not too short because for me, the calendar shows my club every day when I check in. I can see my club and they are enjoying by the fifth anniversary for the four fifth established clubs.",
         "o_start": 15,
         "o_end": 16,
         "original_text": "you",
         "c_start": 15,
         "c_end": 15,
         "corrected_text": "",
-        "error_type": "U:PRON"
+        "error_type": "U:PRON",
+        "corrected_key": "U:PRON|"
     },
     {
-        "index": 91,
+        "index": 90,
         "speaker": "SPEAKER_00",
         "sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying by the fifth anniversary for the four fifth established for their club.",
-        "corrected_sentence": "\"I think the calendar is perfect, or not too short, because for me, the calendar shows my club every day when I check in. I can see my club, and they are enjoying by the fifth anniversary for the four established clubs.\"",
+        "corrected_sentence": "I think the calendar is perfect or not too short because for me, the calendar shows my club every day when I check in. I can see my club and they are enjoying by the fifth anniversary for the four fifth established clubs.",
         "o_start": 16,
         "o_end": 18,
         "original_text": "can see",
         "c_start": 15,
         "c_end": 16,
         "corrected_text": "shows",
-        "error_type": "R:VERB"
+        "error_type": "R:VERB",
+        "corrected_key": "R:VERB|shows"
     },
     {
-        "index": 91,
+        "index": 90,
         "speaker": "SPEAKER_00",
         "sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying by the fifth anniversary for the four fifth established for their club.",
-        "corrected_sentence": "\"I think the calendar is perfect, or not too short, because for me, the calendar shows my club every day when I check in. I can see my club, and they are enjoying by the fifth anniversary for the four established clubs.\"",
+        "corrected_sentence": "I think the calendar is perfect or not too short because for me, the calendar shows my club every day when I check in. I can see my club and they are enjoying by the fifth anniversary for the four fifth established clubs.",
         "o_start": 24,
         "o_end": 25,
         "original_text": "just",
         "c_start": 22,
         "c_end": 22,
         "corrected_text": "",
-        "error_type": "U:ADV"
+        "error_type": "U:ADV",
+        "corrected_key": "U:ADV|"
     },
     {
-        "index": 91,
+        "index": 90,
         "speaker": "SPEAKER_00",
         "sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying by the fifth anniversary for the four fifth established for their club.",
-        "corrected_sentence": "\"I think the calendar is perfect, or not too short, because for me, the calendar shows my club every day when I check in. I can see my club, and they are enjoying by the fifth anniversary for the four established clubs.\"",
-        "o_start": 27,
-        "o_end": 29,
-        "original_text": "the day",
-        "c_start": 24,
-        "c_end": 24,
-        "corrected_text": "",
-        "error_type": "U:OTHER"
-    },
-    {
-        "index": 91,
-        "speaker": "SPEAKER_00",
-        "sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying by the fifth anniversary for the four fifth established for their club.",
-        "corrected_sentence": "\"I think the calendar is perfect, or not too short, because for me, the calendar shows my club every day when I check in. I can see my club, and they are enjoying by the fifth anniversary for the four established clubs.\"",
-        "o_start": 33,
-        "o_end": 34,
-        "original_text": "club",
-        "c_start": 28,
-        "c_end": 29,
-        "corrected_text": "club,",
-        "error_type": "R:NOUN"
-    },
-    {
-        "index": 91,
-        "speaker": "SPEAKER_00",
-        "sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying by the fifth anniversary for the four fifth established for their club.",
-        "corrected_sentence": "\"I think the calendar is perfect, or not too short, because for me, the calendar shows my club every day when I check in. I can see my club, and they are enjoying by the fifth anniversary for the four established clubs.\"",
-        "o_start": 45,
-        "o_end": 46,
-        "original_text": "fifth",
-        "c_start": 40,
-        "c_end": 40,
-        "corrected_text": "",
-        "error_type": "U:NOUN"
-    },
-    {
-        "index": 91,
-        "speaker": "SPEAKER_00",
-        "sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying by the fifth anniversary for the four fifth established for their club.",
-        "corrected_sentence": "\"I think the calendar is perfect, or not too short, because for me, the calendar shows my club every day when I check in. I can see my club, and they are enjoying by the fifth anniversary for the four established clubs.\"",
-        "o_start": 47,
-        "o_end": 49,
-        "original_text": "for their",
-        "c_start": 41,
-        "c_end": 41,
-        "corrected_text": "",
-        "error_type": "U:OTHER"
-    },
-    {
-        "index": 91,
-        "speaker": "SPEAKER_00",
-        "sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying by the fifth anniversary for the four fifth established for their club.",
-        "corrected_sentence": "\"I think the calendar is perfect, or not too short, because for me, the calendar shows my club every day when I check in. I can see my club, and they are enjoying by the fifth anniversary for the four established clubs.\"",
+        "corrected_sentence": "I think the calendar is perfect or not too short because for me, the calendar shows my club every day when I check in. I can see my club and they are enjoying by the fifth anniversary for the four fifth established clubs.",
         "o_start": 49,
         "o_end": 50,
         "original_text": "club.",
-        "c_start": 41,
-        "c_end": 42,
-        "corrected_text": "clubs.\"",
-        "error_type": "R:NOUN"
+        "c_start": 42,
+        "c_end": 43,
+        "corrected_text": "clubs.",
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|clubs."
     },
     {
-        "index": 92,
+        "index": 91,
         "speaker": "SPEAKER_00",
         "sentence": "No. but sometimes you can't wear the same t-shirt everyday.",
-        "corrected_sentence": "However, sometimes you can't wear the same T-shirt every day.",
+        "corrected_sentence": "No, but sometimes you can't wear the same T-shirt every day.",
+        "o_start": 0,
+        "o_end": 1,
+        "original_text": "No.",
+        "c_start": 0,
+        "c_end": 1,
+        "corrected_text": "No,",
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|No,"
+    },
+    {
+        "index": 91,
+        "speaker": "SPEAKER_00",
+        "sentence": "No. but sometimes you can't wear the same t-shirt everyday.",
+        "corrected_sentence": "No, but sometimes you can't wear the same T-shirt every day.",
         "o_start": 8,
         "o_end": 10,
         "original_text": "t-shirt everyday.",
-        "c_start": 7,
-        "c_end": 10,
+        "c_start": 8,
+        "c_end": 11,
         "corrected_text": "T-shirt every day.",
-        "error_type": "R:ORTH"
+        "error_type": "R:ORTH",
+        "corrected_key": "R:ORTH|T-shirt every day."
     },
     {
-        "index": 94,
+        "index": 93,
         "speaker": "SPEAKER_00",
         "sentence": "And for this football, I think, no, because I can't play football every day.",
         "corrected_sentence": "\"And for this football, I believe, so I cannot play football every day.\"",
@@ -1765,10 +1676,11 @@
         "c_start": 8,
         "c_end": 9,
         "corrected_text": "cannot",
-        "error_type": "R:VERB:TENSE"
+        "error_type": "R:VERB:TENSE",
+        "corrected_key": "R:VERB:TENSE|cannot"
     },
     {
-        "index": 94,
+        "index": 93,
         "speaker": "SPEAKER_00",
         "sentence": "And for this football, I think, no, because I can't play football every day.",
         "corrected_sentence": "\"And for this football, I believe, so I cannot play football every day.\"",
@@ -1778,10 +1690,11 @@
         "c_start": 12,
         "c_end": 13,
         "corrected_text": "day.\"",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|day.\""
     },
     {
-        "index": 95,
+        "index": 94,
         "speaker": "SPEAKER_00",
         "sentence": "If there is some students or from their fans, they can't play and keep it away from their studying or something.",
         "corrected_sentence": "If there are some students or from their fans, they can't play and keep it away from their studies or something.",
@@ -1791,10 +1704,11 @@
         "c_start": 2,
         "c_end": 3,
         "corrected_text": "are",
-        "error_type": "R:VERB:SVA"
+        "error_type": "R:VERB:SVA",
+        "corrected_key": "R:VERB:SVA|are"
     },
     {
-        "index": 95,
+        "index": 94,
         "speaker": "SPEAKER_00",
         "sentence": "If there is some students or from their fans, they can't play and keep it away from their studying or something.",
         "corrected_sentence": "If there are some students or from their fans, they can't play and keep it away from their studies or something.",
@@ -1804,114 +1718,67 @@
         "c_start": 18,
         "c_end": 19,
         "corrected_text": "studies",
-        "error_type": "R:MORPH"
+        "error_type": "R:MORPH",
+        "corrected_key": "R:MORPH|studies"
     },
     {
-        "index": 97,
+        "index": 96,
         "speaker": "SPEAKER_00",
         "sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children. for work or album I think it's album for our pictures.",
-        "corrected_sentence": "\"And for this,\" there's no, because, or they have a lot of children, and from their fans, they can give it to their children for work or an album. In my opinion, it's an album for our pictures.\"",
-        "o_start": 2,
-        "o_end": 3,
-        "original_text": "this,",
-        "c_start": 2,
-        "c_end": 3,
-        "corrected_text": "this,\"",
-        "error_type": "R:NOUN"
-    },
-    {
-        "index": 97,
-        "speaker": "SPEAKER_00",
-        "sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children. for work or album I think it's album for our pictures.",
-        "corrected_sentence": "\"And for this,\" there's no, because, or they have a lot of children, and from their fans, they can give it to their children for work or an album. In my opinion, it's an album for our pictures.\"",
+        "corrected_sentence": "\"And for this, there's no, because, or they have a lot of children. Therefore, it's for work or an album for our pictures.\"",
         "o_start": 12,
         "o_end": 13,
         "original_text": "children",
         "c_start": 12,
         "c_end": 13,
-        "corrected_text": "children,",
-        "error_type": "R:NOUN"
+        "corrected_text": "children.",
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|children."
     },
     {
-        "index": 97,
+        "index": 96,
         "speaker": "SPEAKER_00",
         "sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children. for work or album I think it's album for our pictures.",
-        "corrected_sentence": "\"And for this,\" there's no, because, or they have a lot of children, and from their fans, they can give it to their children for work or an album. In my opinion, it's an album for our pictures.\"",
-        "o_start": 16,
-        "o_end": 17,
-        "original_text": "fans",
-        "c_start": 16,
-        "c_end": 17,
-        "corrected_text": "fans,",
-        "error_type": "R:NOUN"
+        "corrected_sentence": "\"And for this, there's no, because, or they have a lot of children. Therefore, it's for work or an album for our pictures.\"",
+        "o_start": 18,
+        "o_end": 20,
+        "original_text": "can give",
+        "c_start": 13,
+        "c_end": 14,
+        "corrected_text": "Therefore,",
+        "error_type": "R:VERB",
+        "corrected_key": "R:VERB|Therefore,"
     },
     {
-        "index": 97,
+        "index": 96,
         "speaker": "SPEAKER_00",
         "sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children. for work or album I think it's album for our pictures.",
-        "corrected_sentence": "\"And for this,\" there's no, because, or they have a lot of children, and from their fans, they can give it to their children for work or an album. In my opinion, it's an album for our pictures.\"",
-        "o_start": 23,
-        "o_end": 24,
-        "original_text": "children.",
-        "c_start": 23,
-        "c_end": 24,
-        "corrected_text": "children",
-        "error_type": "R:NOUN"
-    },
-    {
-        "index": 97,
-        "speaker": "SPEAKER_00",
-        "sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children. for work or album I think it's album for our pictures.",
-        "corrected_sentence": "\"And for this,\" there's no, because, or they have a lot of children, and from their fans, they can give it to their children for work or an album. In my opinion, it's an album for our pictures.\"",
-        "o_start": 27,
-        "o_end": 27,
-        "original_text": "",
-        "c_start": 27,
-        "c_end": 28,
-        "corrected_text": "an",
-        "error_type": "M:DET"
-    },
-    {
-        "index": 97,
-        "speaker": "SPEAKER_00",
-        "sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children. for work or album I think it's album for our pictures.",
-        "corrected_sentence": "\"And for this,\" there's no, because, or they have a lot of children, and from their fans, they can give it to their children for work or an album. In my opinion, it's an album for our pictures.\"",
-        "o_start": 27,
-        "o_end": 28,
-        "original_text": "album",
-        "c_start": 28,
-        "c_end": 29,
-        "corrected_text": "album.",
-        "error_type": "R:NOUN"
-    },
-    {
-        "index": 97,
-        "speaker": "SPEAKER_00",
-        "sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children. for work or album I think it's album for our pictures.",
-        "corrected_sentence": "\"And for this,\" there's no, because, or they have a lot of children, and from their fans, they can give it to their children for work or an album. In my opinion, it's an album for our pictures.\"",
-        "o_start": 31,
-        "o_end": 31,
-        "original_text": "",
-        "c_start": 33,
-        "c_end": 34,
-        "corrected_text": "an",
-        "error_type": "M:DET"
-    },
-    {
-        "index": 97,
-        "speaker": "SPEAKER_00",
-        "sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children. for work or album I think it's album for our pictures.",
-        "corrected_sentence": "\"And for this,\" there's no, because, or they have a lot of children, and from their fans, they can give it to their children for work or an album. In my opinion, it's an album for our pictures.\"",
+        "corrected_sentence": "\"And for this, there's no, because, or they have a lot of children. Therefore, it's for work or an album for our pictures.\"",
         "o_start": 34,
         "o_end": 35,
         "original_text": "pictures.",
-        "c_start": 37,
-        "c_end": 38,
+        "c_start": 22,
+        "c_end": 23,
         "corrected_text": "pictures.\"",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|pictures.\""
     },
     {
-        "index": 100,
+        "index": 98,
+        "speaker": "SPEAKER_00",
+        "sentence": "And you keep remembering your team by like cover.",
+        "corrected_sentence": "And you keep remembering your team by liking covers.",
+        "o_start": 8,
+        "o_end": 9,
+        "original_text": "cover.",
+        "c_start": 8,
+        "c_end": 9,
+        "corrected_text": "covers.",
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|covers."
+    },
+    {
+        "index": 99,
         "speaker": "SPEAKER_00",
         "sentence": "It's amazing.",
         "corrected_sentence": "It's amazing!",
@@ -1921,10 +1788,11 @@
         "c_start": 1,
         "c_end": 2,
         "corrected_text": "amazing!",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|amazing!"
     },
     {
-        "index": 102,
+        "index": 101,
         "speaker": "SPEAKER_00",
         "sentence": "What do you think about this bag?",
         "corrected_sentence": "What's your opinion about this bag?",
@@ -1934,10 +1802,11 @@
         "c_start": 1,
         "c_end": 1,
         "corrected_text": "",
-        "error_type": "U:VERB:TENSE"
+        "error_type": "U:VERB:TENSE",
+        "corrected_key": "U:VERB:TENSE|"
     },
     {
-        "index": 102,
+        "index": 101,
         "speaker": "SPEAKER_00",
         "sentence": "What do you think about this bag?",
         "corrected_sentence": "What's your opinion about this bag?",
@@ -1947,10 +1816,11 @@
         "c_start": 1,
         "c_end": 2,
         "corrected_text": "your",
-        "error_type": "R:DET"
+        "error_type": "R:DET",
+        "corrected_key": "R:DET|your"
     },
     {
-        "index": 102,
+        "index": 101,
         "speaker": "SPEAKER_00",
         "sentence": "What do you think about this bag?",
         "corrected_sentence": "What's your opinion about this bag?",
@@ -1960,62 +1830,53 @@
         "c_start": 2,
         "c_end": 3,
         "corrected_text": "opinion",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|opinion"
+    },
+    {
+        "index": 102,
+        "speaker": "SPEAKER_00",
+        "sentence": "You can use it for going to school or for going to the gym.",
+        "corrected_sentence": "You can use it for going to school or going to the gym.",
+        "o_start": 9,
+        "o_end": 10,
+        "original_text": "for",
+        "c_start": 9,
+        "c_end": 9,
+        "corrected_text": "",
+        "error_type": "U:PREP",
+        "corrected_key": "U:PREP|"
     },
     {
         "index": 103,
         "speaker": "SPEAKER_00",
-        "sentence": "You can use it for going to school or for going to the gym.",
-        "corrected_sentence": "You can use it for both going to school and going to the gym.",
+        "sentence": "You can put your toes I prefer football.",
+        "corrected_sentence": "You can put your toes in my preference for football.",
         "o_start": 5,
         "o_end": 5,
         "original_text": "",
         "c_start": 5,
         "c_end": 6,
-        "corrected_text": "both",
-        "error_type": "M:DET"
+        "corrected_text": "in",
+        "error_type": "M:PREP",
+        "corrected_key": "M:PREP|in"
     },
     {
         "index": 103,
-        "speaker": "SPEAKER_00",
-        "sentence": "You can use it for going to school or for going to the gym.",
-        "corrected_sentence": "You can use it for both going to school and going to the gym.",
-        "o_start": 8,
-        "o_end": 9,
-        "original_text": "or",
-        "c_start": 9,
-        "c_end": 10,
-        "corrected_text": "and",
-        "error_type": "R:CONJ"
-    },
-    {
-        "index": 103,
-        "speaker": "SPEAKER_00",
-        "sentence": "You can use it for going to school or for going to the gym.",
-        "corrected_sentence": "You can use it for both going to school and going to the gym.",
-        "o_start": 9,
-        "o_end": 10,
-        "original_text": "for",
-        "c_start": 10,
-        "c_end": 10,
-        "corrected_text": "",
-        "error_type": "U:PREP"
-    },
-    {
-        "index": 104,
         "speaker": "SPEAKER_00",
         "sentence": "You can put your toes I prefer football.",
-        "corrected_sentence": "You can put your toes instead of I prefer football.",
+        "corrected_sentence": "You can put your toes in my preference for football.",
         "o_start": 5,
-        "o_end": 5,
-        "original_text": "",
-        "c_start": 5,
+        "o_end": 6,
+        "original_text": "I",
+        "c_start": 6,
         "c_end": 7,
-        "corrected_text": "instead of",
-        "error_type": "M:OTHER"
+        "corrected_text": "my",
+        "error_type": "R:DET",
+        "corrected_key": "R:DET|my"
     },
     {
-        "index": 106,
+        "index": 105,
         "speaker": "SPEAKER_00",
         "sentence": "I am very interested about football.",
         "corrected_sentence": "I am highly interested in football.",
@@ -2025,10 +1886,11 @@
         "c_start": 2,
         "c_end": 3,
         "corrected_text": "highly",
-        "error_type": "R:ADV"
+        "error_type": "R:ADV",
+        "corrected_key": "R:ADV|highly"
     },
     {
-        "index": 106,
+        "index": 105,
         "speaker": "SPEAKER_00",
         "sentence": "I am very interested about football.",
         "corrected_sentence": "I am highly interested in football.",
@@ -2038,10 +1900,11 @@
         "c_start": 4,
         "c_end": 5,
         "corrected_text": "in",
-        "error_type": "R:PREP"
+        "error_type": "R:PREP",
+        "corrected_key": "R:PREP|in"
     },
     {
-        "index": 107,
+        "index": 106,
         "speaker": "SPEAKER_00",
         "sentence": "I watch it from when I was child.",
         "corrected_sentence": "I watched it from when I was a child.",
@@ -2051,10 +1914,11 @@
         "c_start": 1,
         "c_end": 2,
         "corrected_text": "watched",
-        "error_type": "R:VERB:TENSE"
+        "error_type": "R:VERB:TENSE",
+        "corrected_key": "R:VERB:TENSE|watched"
     },
     {
-        "index": 107,
+        "index": 106,
         "speaker": "SPEAKER_00",
         "sentence": "I watch it from when I was child.",
         "corrected_sentence": "I watched it from when I was a child.",
@@ -2064,10 +1928,11 @@
         "c_start": 7,
         "c_end": 8,
         "corrected_text": "a",
-        "error_type": "M:DET"
+        "error_type": "M:DET",
+        "corrected_key": "M:DET|a"
     },
     {
-        "index": 108,
+        "index": 107,
         "speaker": "SPEAKER_00",
         "sentence": "I rise with the football.",
         "corrected_sentence": "I rise with the football in the morning.",
@@ -2077,36 +1942,53 @@
         "c_start": 4,
         "c_end": 5,
         "corrected_text": "football",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|football"
     },
     {
-        "index": 108,
+        "index": 109,
         "speaker": "SPEAKER_00",
-        "sentence": "I rise with the football.",
-        "corrected_sentence": "I rise with the football in the morning.",
-        "o_start": 5,
+        "sentence": "Yeah swimming helped me sometimes to relax.",
+        "corrected_sentence": "Swimming helped me to relax sometimes.",
+        "o_start": 4,
         "o_end": 5,
+        "original_text": "sometimes",
+        "c_start": 3,
+        "c_end": 3,
+        "corrected_text": "",
+        "error_type": "U:ADV",
+        "corrected_key": "U:ADV|"
+    },
+    {
+        "index": 109,
+        "speaker": "SPEAKER_00",
+        "sentence": "Yeah swimming helped me sometimes to relax.",
+        "corrected_sentence": "Swimming helped me to relax sometimes.",
+        "o_start": 6,
+        "o_end": 7,
+        "original_text": "relax.",
+        "c_start": 4,
+        "c_end": 5,
+        "corrected_text": "relax",
+        "error_type": "R:VERB",
+        "corrected_key": "R:VERB|relax"
+    },
+    {
+        "index": 109,
+        "speaker": "SPEAKER_00",
+        "sentence": "Yeah swimming helped me sometimes to relax.",
+        "corrected_sentence": "Swimming helped me to relax sometimes.",
+        "o_start": 7,
+        "o_end": 7,
         "original_text": "",
         "c_start": 5,
-        "c_end": 8,
-        "corrected_text": "in the morning.",
-        "error_type": "M:OTHER"
+        "c_end": 6,
+        "corrected_text": "sometimes.",
+        "error_type": "M:NOUN",
+        "corrected_key": "M:NOUN|sometimes."
     },
     {
         "index": 110,
-        "speaker": "SPEAKER_00",
-        "sentence": "Yeah swimming helped me sometimes to relax.",
-        "corrected_sentence": "Swimming helped me sometimes to relax.",
-        "o_start": 0,
-        "o_end": 2,
-        "original_text": "Yeah swimming",
-        "c_start": 0,
-        "c_end": 1,
-        "corrected_text": "Swimming",
-        "error_type": "U:OTHER"
-    },
-    {
-        "index": 111,
         "speaker": "SPEAKER_00",
         "sentence": "If I swim that I lose my weight, I am like flying.",
         "corrected_sentence": "If I swim, I will lose my weight; I will feel like flying.",
@@ -2116,10 +1998,11 @@
         "c_start": 2,
         "c_end": 3,
         "corrected_text": "swim,",
-        "error_type": "R:VERB"
+        "error_type": "R:VERB",
+        "corrected_key": "R:VERB|swim,"
     },
     {
-        "index": 111,
+        "index": 110,
         "speaker": "SPEAKER_00",
         "sentence": "If I swim that I lose my weight, I am like flying.",
         "corrected_sentence": "If I swim, I will lose my weight; I will feel like flying.",
@@ -2129,10 +2012,11 @@
         "c_start": 3,
         "c_end": 3,
         "corrected_text": "",
-        "error_type": "U:PREP"
+        "error_type": "U:PREP",
+        "corrected_key": "U:PREP|"
     },
     {
-        "index": 111,
+        "index": 110,
         "speaker": "SPEAKER_00",
         "sentence": "If I swim that I lose my weight, I am like flying.",
         "corrected_sentence": "If I swim, I will lose my weight; I will feel like flying.",
@@ -2142,10 +2026,11 @@
         "c_start": 4,
         "c_end": 5,
         "corrected_text": "will",
-        "error_type": "M:VERB:TENSE"
+        "error_type": "M:VERB:TENSE",
+        "corrected_key": "M:VERB:TENSE|will"
     },
     {
-        "index": 111,
+        "index": 110,
         "speaker": "SPEAKER_00",
         "sentence": "If I swim that I lose my weight, I am like flying.",
         "corrected_sentence": "If I swim, I will lose my weight; I will feel like flying.",
@@ -2155,10 +2040,11 @@
         "c_start": 7,
         "c_end": 8,
         "corrected_text": "weight;",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|weight;"
     },
     {
-        "index": 111,
+        "index": 110,
         "speaker": "SPEAKER_00",
         "sentence": "If I swim that I lose my weight, I am like flying.",
         "corrected_sentence": "If I swim, I will lose my weight; I will feel like flying.",
@@ -2168,10 +2054,11 @@
         "c_start": 9,
         "c_end": 11,
         "corrected_text": "will feel",
-        "error_type": "R:VERB"
+        "error_type": "R:VERB",
+        "corrected_key": "R:VERB|will feel"
     },
     {
-        "index": 115,
+        "index": 114,
         "speaker": "SPEAKER_00",
         "sentence": "Yeah. because everyone can watch it.",
         "corrected_sentence": "Because everyone can watch it.",
@@ -2181,75 +2068,53 @@
         "c_start": 0,
         "c_end": 1,
         "corrected_text": "Because",
-        "error_type": "U:ADJ"
+        "error_type": "U:ADJ",
+        "corrected_key": "U:ADJ|Because"
     },
     {
-        "index": 116,
+        "index": 115,
         "speaker": "SPEAKER_00",
         "sentence": "That make a lot of supporters became, they have the same admires and the same ambition about their teams.",
-        "corrected_sentence": "That makes a lot of supporters, they have the same admiration and ambition about their teams.",
+        "corrected_sentence": "That makes a lot of supporters, and they have the same admiration and ambition about their teams.",
         "o_start": 1,
         "o_end": 2,
         "original_text": "make",
         "c_start": 1,
         "c_end": 2,
         "corrected_text": "makes",
-        "error_type": "R:VERB:SVA"
+        "error_type": "R:VERB:SVA",
+        "corrected_key": "R:VERB:SVA|makes"
     },
     {
-        "index": 116,
+        "index": 115,
         "speaker": "SPEAKER_00",
         "sentence": "That make a lot of supporters became, they have the same admires and the same ambition about their teams.",
-        "corrected_sentence": "That makes a lot of supporters, they have the same admiration and ambition about their teams.",
+        "corrected_sentence": "That makes a lot of supporters, and they have the same admiration and ambition about their teams.",
         "o_start": 5,
         "o_end": 6,
         "original_text": "supporters",
         "c_start": 5,
         "c_end": 6,
         "corrected_text": "supporters,",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|supporters,"
     },
     {
-        "index": 116,
+        "index": 115,
         "speaker": "SPEAKER_00",
         "sentence": "That make a lot of supporters became, they have the same admires and the same ambition about their teams.",
-        "corrected_sentence": "That makes a lot of supporters, they have the same admiration and ambition about their teams.",
-        "o_start": 6,
-        "o_end": 7,
-        "original_text": "became,",
-        "c_start": 6,
-        "c_end": 6,
-        "corrected_text": "",
-        "error_type": "U:PUNCT"
-    },
-    {
-        "index": 116,
-        "speaker": "SPEAKER_00",
-        "sentence": "That make a lot of supporters became, they have the same admires and the same ambition about their teams.",
-        "corrected_sentence": "That makes a lot of supporters, they have the same admiration and ambition about their teams.",
+        "corrected_sentence": "That makes a lot of supporters, and they have the same admiration and ambition about their teams.",
         "o_start": 11,
         "o_end": 12,
         "original_text": "admires",
-        "c_start": 10,
-        "c_end": 11,
+        "c_start": 11,
+        "c_end": 12,
         "corrected_text": "admiration",
-        "error_type": "R:MORPH"
+        "error_type": "R:MORPH",
+        "corrected_key": "R:MORPH|admiration"
     },
     {
         "index": 116,
-        "speaker": "SPEAKER_00",
-        "sentence": "That make a lot of supporters became, they have the same admires and the same ambition about their teams.",
-        "corrected_sentence": "That makes a lot of supporters, they have the same admiration and ambition about their teams.",
-        "o_start": 13,
-        "o_end": 15,
-        "original_text": "the same",
-        "c_start": 12,
-        "c_end": 12,
-        "corrected_text": "",
-        "error_type": "U:OTHER"
-    },
-    {
-        "index": 117,
         "speaker": "SPEAKER_00",
         "sentence": "And for me, it's the best sport.",
         "corrected_sentence": "\"And for me,\" is the best sport for me.",
@@ -2259,10 +2124,11 @@
         "c_start": 2,
         "c_end": 3,
         "corrected_text": "me,\"",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|me,\""
     },
     {
-        "index": 117,
+        "index": 116,
         "speaker": "SPEAKER_00",
         "sentence": "And for me, it's the best sport.",
         "corrected_sentence": "\"And for me,\" is the best sport for me.",
@@ -2272,23 +2138,11 @@
         "c_start": 6,
         "c_end": 7,
         "corrected_text": "sport",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|sport"
     },
     {
-        "index": 117,
-        "speaker": "SPEAKER_00",
-        "sentence": "And for me, it's the best sport.",
-        "corrected_sentence": "\"And for me,\" is the best sport for me.",
-        "o_start": 7,
-        "o_end": 7,
-        "original_text": "",
-        "c_start": 7,
-        "c_end": 9,
-        "corrected_text": "for me.",
-        "error_type": "M:OTHER"
-    },
-    {
-        "index": 121,
+        "index": 119,
         "speaker": "SPEAKER_00",
         "sentence": "I love this team.",
         "corrected_sentence": "I love this team!",
@@ -2298,88 +2152,123 @@
         "c_start": 3,
         "c_end": 4,
         "corrected_text": "team!",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|team!"
     },
     {
-        "index": 122,
+        "index": 120,
         "speaker": "SPEAKER_00",
         "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
-        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team, what we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
+        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team. What we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
         "o_start": 1,
         "o_end": 2,
         "original_text": "Go",
         "c_start": 1,
         "c_end": 2,
         "corrected_text": "go",
-        "error_type": "R:ORTH"
+        "error_type": "R:ORTH",
+        "corrected_key": "R:ORTH|go"
     },
     {
-        "index": 122,
+        "index": 120,
         "speaker": "SPEAKER_00",
         "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
-        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team, what we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
+        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team. What we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
         "o_start": 4,
         "o_end": 5,
         "original_text": "truffles",
         "c_start": 4,
         "c_end": 5,
         "corrected_text": "truffle",
-        "error_type": "R:NOUN:NUM"
+        "error_type": "R:NOUN:NUM",
+        "corrected_key": "R:NOUN:NUM|truffle"
     },
     {
-        "index": 122,
+        "index": 120,
         "speaker": "SPEAKER_00",
         "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
-        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team, what we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
+        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team. What we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
+        "o_start": 21,
+        "o_end": 22,
+        "original_text": "team,",
+        "c_start": 20,
+        "c_end": 21,
+        "corrected_text": "team.",
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|team."
+    },
+    {
+        "index": 120,
+        "speaker": "SPEAKER_00",
+        "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team. What we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
+        "o_start": 22,
+        "o_end": 23,
+        "original_text": "what",
+        "c_start": 21,
+        "c_end": 22,
+        "corrected_text": "What",
+        "error_type": "R:ORTH",
+        "corrected_key": "R:ORTH|What"
+    },
+    {
+        "index": 120,
+        "speaker": "SPEAKER_00",
+        "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team. What we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
         "o_start": 27,
         "o_end": 28,
         "original_text": "some",
         "c_start": 26,
         "c_end": 26,
         "corrected_text": "",
-        "error_type": "U:DET"
+        "error_type": "U:DET",
+        "corrected_key": "U:DET|"
     },
     {
-        "index": 122,
+        "index": 120,
         "speaker": "SPEAKER_00",
         "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
-        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team, what we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
+        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team. What we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
         "o_start": 37,
         "o_end": 38,
         "original_text": "players",
         "c_start": 35,
         "c_end": 36,
         "corrected_text": "player",
-        "error_type": "R:NOUN:NUM"
+        "error_type": "R:NOUN:NUM",
+        "corrected_key": "R:NOUN:NUM|player"
     },
     {
-        "index": 122,
+        "index": 120,
         "speaker": "SPEAKER_00",
         "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
-        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team, what we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
+        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team. What we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
         "o_start": 42,
         "o_end": 43,
         "original_text": "gomers",
         "c_start": 40,
         "c_end": 41,
         "corrected_text": "goals",
-        "error_type": "R:NOUN"
+        "error_type": "R:NOUN",
+        "corrected_key": "R:NOUN|goals"
     },
     {
-        "index": 122,
+        "index": 120,
         "speaker": "SPEAKER_00",
         "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
-        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team, what we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
+        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team. What we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
         "o_start": 55,
         "o_end": 56,
         "original_text": "construct",
         "c_start": 53,
         "c_end": 54,
         "corrected_text": "construction",
-        "error_type": "R:MORPH"
+        "error_type": "R:MORPH",
+        "corrected_key": "R:MORPH|construction"
     },
     {
-        "index": 123,
+        "index": 121,
         "speaker": "SPEAKER_00",
         "sentence": "If you're good for this position, I don't know.",
         "corrected_sentence": "If you're qualified for this position, I don't know.",
@@ -2389,6 +2278,7 @@
         "c_start": 2,
         "c_end": 3,
         "corrected_text": "qualified",
-        "error_type": "R:ADJ"
+        "error_type": "R:ADJ",
+        "corrected_key": "R:ADJ|qualified"
     }
 ]

@@ -1,5 +1,24 @@
 [
     {
+        "ruleId": "AI_HYDRA_LEO_MISSING_COMMA",
+        "message": "Possible missing comma found.",
+        "replacements": [
+            "Ken,"
+        ],
+        "offsetInContext": 0,
+        "context": "Ken sir, you just listen.",
+        "offset": 0,
+        "errorLength": 3,
+        "category": "MISC",
+        "ruleIssueType": "uncategorized",
+        "sentence": "Ken sir, you just listen.",
+        "index": 26,
+        "speaker": "SPEAKER_01",
+        "corrected_sentence": "\"Ken sir,\" you just listen.",
+        "original_sentence": "Ken sir, you just listen.",
+        "explanation": "Incorrect use of capitalization and punctuation. Proper capitalization and punctuation should be used."
+    },
+    {
         "ruleId": "ENGLISH_WORD_REPEAT_RULE",
         "message": "Possible typo: you repeated a word",
         "replacements": [
@@ -12,11 +31,11 @@
         "category": "MISC",
         "ruleIssueType": "duplication",
         "sentence": "mMM mMM But at least you have it at home and you can see it, even if you don't wear it.",
-        "index": 55,
+        "index": 54,
         "speaker": "SPEAKER_02",
         "corrected_sentence": "\"So if he had the T-shirt with him, he can always remember the team. But at least you have it at home, and you can see it, even if you don't wear it.\"",
         "original_sentence": "So if he had the T-shirt with him, he can always remember the team. mMM mMM But at least you have it at home and you can see it, even if you don't wear it.",
-        "explanation": "Corrected the comma splice and extraneous \"mMM\" to improve clarity and grammatical accuracy."
+        "explanation": "Corrected the comma splice and extraneous \"mMM\" words, ensuring correct punctuation and clarity."
     },
     {
         "ruleId": "AI_HYDRA_LEO_MISSING_COMMA",
@@ -31,11 +50,11 @@
         "category": "MISC",
         "ruleIssueType": "uncategorized",
         "sentence": "mMM mMM But at least you have it at home and you can see it, even if you don't wear it.",
-        "index": 55,
+        "index": 54,
         "speaker": "SPEAKER_02",
         "corrected_sentence": "\"So if he had the T-shirt with him, he can always remember the team. But at least you have it at home, and you can see it, even if you don't wear it.\"",
         "original_sentence": "So if he had the T-shirt with him, he can always remember the team. mMM mMM But at least you have it at home and you can see it, even if you don't wear it.",
-        "explanation": "Corrected the comma splice and extraneous \"mMM\" to improve clarity and grammatical accuracy."
+        "explanation": "Corrected the comma splice and extraneous \"mMM\" words, ensuring correct punctuation and clarity."
     },
     {
         "ruleId": "THERE_IS_A_LOT_OF",
@@ -50,11 +69,11 @@
         "category": "GRAMMAR",
         "ruleIssueType": "grammar",
         "sentence": "In every country we can see that there is a lot of teams which play in football.",
-        "index": 73,
+        "index": 72,
         "speaker": "SPEAKER_02",
         "corrected_sentence": "In every country, we can see that there are a lot of teams that play in football.",
         "original_sentence": "In every country we can see that there is a lot of teams which play in football.",
-        "explanation": "Corrected the plural pronoun \"teams\" to the singular pronoun \"team\" to match the singular subject \"team.\""
+        "explanation": "Corrected the plural pronoun \"teams\" to the singular pronoun \"team\" to match the singular subject \"we.\""
     },
     {
         "ruleId": "QUALITY_PARTITIVE",
@@ -70,11 +89,11 @@
         "category": "GRAMMAR",
         "ruleIssueType": "grammar",
         "sentence": "Because I think it's waste of time and I don't have enough time to study, so I can't go to this kind of activities.",
-        "index": 77,
+        "index": 76,
         "speaker": "SPEAKER_02",
-        "corrected_sentence": "Because I believe it's wasteful of time and I don't have enough time to study, so I am unable to participate in such activities.",
+        "corrected_sentence": "Because I believe it's waste of time and I don't have enough time to study, so I am unable to participate in such activities.",
         "original_sentence": "Because I think it's waste of time and I don't have enough time to study, so I can't go to this kind of activities.",
-        "explanation": "Corrected the tense of \"think\" to \"believe\" to match the present tense of \"have.\" Also, added \"such\" to clarify the nature of the activities the speaker is unable to participate in."
+        "explanation": "Corrected the verb tense and added \"is\" to show the speaker's current inability."
     },
     {
         "ruleId": "AI_HYDRA_LEO_MISSING_TO",
@@ -89,7 +108,7 @@
         "category": "MISC",
         "ruleIssueType": "uncategorized",
         "sentence": "And maybe he's live alone because there's no one with him.",
-        "index": 87,
+        "index": 86,
         "speaker": "SPEAKER_00",
         "corrected_sentence": "And maybe he's living alone because there's no one by his side.",
         "original_sentence": "And maybe he's live alone because there's no one with him.",
@@ -108,11 +127,30 @@
         "category": "GRAMMAR",
         "ruleIssueType": "grammar",
         "sentence": "There's no toys for his children or something.",
-        "index": 88,
+        "index": 87,
         "speaker": "SPEAKER_00",
         "corrected_sentence": "There are no toys for his children or something.",
         "original_sentence": "There's no toys for his children or something.",
-        "explanation": "Added \"are\" after \"toys\" to correct the grammatical error of singular subject and plural verb agreement."
+        "explanation": "The original sentence has a grammatical error. The correct phrase is \"there are no toys\" instead of \"there's no toys\"."
+    },
+    {
+        "ruleId": "AI_HYDRA_LEO_MISSING_COMMA",
+        "message": "Possible missing comma found.",
+        "replacements": [
+            "really,"
+        ],
+        "offsetInContext": 7,
+        "context": "That's really maybe live alone and nice flies.",
+        "offset": 7,
+        "errorLength": 6,
+        "category": "MISC",
+        "ruleIssueType": "uncategorized",
+        "sentence": "That's really maybe live alone and nice flies.",
+        "index": 88,
+        "speaker": "SPEAKER_00",
+        "corrected_sentence": "\"That's really maybe living alone and nice flies.\"",
+        "original_sentence": "That's really maybe live alone and nice flies.",
+        "explanation": "The original sentence has a misplaced modifier. The modifier \"live alone\" should be placed after \"maybe.\""
     },
     {
         "ruleId": "EVERYDAY_EVERY_DAY",
@@ -127,11 +165,11 @@
         "category": "CONFUSED_WORDS",
         "ruleIssueType": "misspelling",
         "sentence": "but sometimes you can't wear the same t-shirt everyday.",
-        "index": 92,
+        "index": 91,
         "speaker": "SPEAKER_00",
-        "corrected_sentence": "However, sometimes you can't wear the same T-shirt every day.",
+        "corrected_sentence": "No, but sometimes you can't wear the same T-shirt every day.",
         "original_sentence": "No. but sometimes you can't wear the same t-shirt everyday.",
-        "explanation": "Corrected the verb tense and added \"however\" to introduce a contrast."
+        "explanation": "Corrected the verb tense and punctuation to make it grammatically correct."
     },
     {
         "ruleId": "THERE_S_MANY",
@@ -146,11 +184,11 @@
         "category": "GRAMMAR",
         "ruleIssueType": "grammar",
         "sentence": "If there is some students or from their fans, they can't play and keep it away from their studying or something.",
-        "index": 95,
+        "index": 94,
         "speaker": "SPEAKER_00",
         "corrected_sentence": "If there are some students or from their fans, they can't play and keep it away from their studies or something.",
         "original_sentence": "If there is some students or from their fans, they can't play and keep it away from their studying or something.",
-        "explanation": "Corrected the verb tense and added \"from their fans\" to show ownership of the students."
+        "explanation": "Corrected the verb tense and added \"from their\" to show ownership of the fans."
     },
     {
         "ruleId": "AI_HYDRA_LEO_MISSING_COMMA",
@@ -165,11 +203,11 @@
         "category": "MISC",
         "ruleIssueType": "uncategorized",
         "sentence": "for work or album I think it's album for our pictures.",
-        "index": 97,
+        "index": 96,
         "speaker": "SPEAKER_00",
-        "corrected_sentence": "\"And for this,\" there's no, because, or they have a lot of children, and from their fans, they can give it to their children for work or an album. In my opinion, it's an album for our pictures.\"",
+        "corrected_sentence": "\"And for this, there's no, because, or they have a lot of children. Therefore, it's for work or an album for our pictures.\"",
         "original_sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children. for work or album I think it's album for our pictures.",
-        "explanation": "Corrected the grammatical errors \"there, because, or they have\" with \"there's, because, or they have.\" Also, corrected \"for work or album\" to \"for work or an album\" to match the intended meaning."
+        "explanation": "Corrected the grammar error \"there, because, or they have a lot of children\" by using \"there's\" to replace \"there\". Also, added the word \"therefore\" to connect the two clauses."
     },
     {
         "ruleId": "AI_HYDRA_LEO_MISSING_COMMA",
@@ -184,11 +222,11 @@
         "category": "MISC",
         "ruleIssueType": "uncategorized",
         "sentence": "You can put your toes I prefer football.",
-        "index": 104,
+        "index": 103,
         "speaker": "SPEAKER_00",
-        "corrected_sentence": "You can put your toes instead of I prefer football.",
+        "corrected_sentence": "You can put your toes in my preference for football.",
         "original_sentence": "You can put your toes I prefer football.",
-        "explanation": "Incorrect use of pronoun \"I\" and incorrect verb tense. Corrected sentence uses \"you can\" and correct tense."
+        "explanation": "Incorrect use of plural pronouns (\"you can put your toes\"). The correct pronoun should be \"your toes.\""
     },
     {
         "ruleId": "AI_HYDRA_LEO_MISSING_A",
@@ -203,11 +241,11 @@
         "category": "MISC",
         "ruleIssueType": "uncategorized",
         "sentence": "I watch it from when I was child.",
-        "index": 107,
+        "index": 106,
         "speaker": "SPEAKER_00",
         "corrected_sentence": "I watched it from when I was a child.",
         "original_sentence": "I watch it from when I was child.",
-        "explanation": "The subject of the sentence is \"I,\" so the correct pronoun form is \"watched.\""
+        "explanation": "The subject of the sentence is \"I\", so the correct pronoun form is \"watched\"."
     },
     {
         "ruleId": "MENTION_ABOUT",
@@ -222,11 +260,11 @@
         "category": "COLLOCATIONS",
         "ruleIssueType": "grammar",
         "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
-        "index": 122,
+        "index": 120,
         "speaker": "SPEAKER_00",
-        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team, what we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
+        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team. What we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
         "original_sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
-        "explanation": "The original sentence contained errors in verb tense, punctuation, and word choice. The corrected sentence is corrected for grammatical accuracy and clarity."
+        "explanation": "Corrected the verb tense, added a comma after \"players\" and \"construction\", and removed unnecessary \"if\" statements."
     },
     {
         "ruleId": "A_NNS",
@@ -242,11 +280,11 @@
         "category": "GRAMMAR",
         "ruleIssueType": "grammar",
         "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
-        "index": 122,
+        "index": 120,
         "speaker": "SPEAKER_00",
-        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team, what we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
+        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team. What we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
         "original_sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
-        "explanation": "The original sentence contained errors in verb tense, punctuation, and word choice. The corrected sentence is corrected for grammatical accuracy and clarity."
+        "explanation": "Corrected the verb tense, added a comma after \"players\" and \"construction\", and removed unnecessary \"if\" statements."
     },
     {
         "ruleId": "MENTION_ABOUT",
@@ -261,10 +299,10 @@
         "category": "COLLOCATIONS",
         "ruleIssueType": "grammar",
         "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
-        "index": 122,
+        "index": 120,
         "speaker": "SPEAKER_00",
-        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team, what we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
+        "corrected_sentence": "I go to all truffle twice. It was amazing. Yeah, to take an idea and to keep discussing about our team. What we miss in certain positions or if we need to have a new player or discuss about the goals if they have like one player that they decide to have a construction with him.",
         "original_sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
-        "explanation": "The original sentence contained errors in verb tense, punctuation, and word choice. The corrected sentence is corrected for grammatical accuracy and clarity."
+        "explanation": "Corrected the verb tense, added a comma after \"players\" and \"construction\", and removed unnecessary \"if\" statements."
     }
 ]

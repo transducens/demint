@@ -2,37 +2,41 @@ from sentence_splitter import SentenceSplitter
 import dspy
 
 from app.llm_grammar_checker.dspy.dspy_signature import SignatureSEC
-from file_manager import FileManager
-from grammar_checker import GrammarChecker
-from llm.ChatFactory import ChatFactory
 
-#from .file_manager import FileManager
-#from .grammar_checker import GrammarChecker
-#from .llm.ChatFactory import ChatFactory
+local = True
+
+if local:
+    from file_manager import FileManager
+    from grammar_checker import GrammarChecker
+    from llm.ChatFactory import ChatFactory
+    prefix = "../"
+else:
+    from .file_manager import FileManager
+    from .grammar_checker import GrammarChecker
+    from .llm.ChatFactory import ChatFactory
+    prefix = ""
 
 import errant
 
+url = "http://localhost"
+port = 8083
 
 class StudyPlanCreator:
     def __init__(self, llm_model, max_new_tokens=250):
-        # TODO: to cache/llm_evaluation.json
-        prefix = "../"
-        #prefix = ""
         self.cache_files_paths = {
             'lang_tool_errors': 'cache/lang_tool_result.json',
             'llm_evaluation': prefix+'cache/llm_evaluation.json',
             'language_tool_evaluation':  prefix+'cache/language_tool_evaluation.json',
-            'errant_all_errors':  prefix+'cache/errant_all_errors.json',
-            'errant_detailed_errors':  prefix+'cache/errant_detailed_errors.json',
-            'errant_corrected_errors':  prefix+'cache/errant_corrected_errors.json',
-            'errant_simple_errors':  prefix+'cache/errant_simple_errors.json',
-            'final_index_errors': prefix + 'cache/final_index_errors.json',
+            'errant_all_errors':  prefix+'cache/errant_all_evaluation.json',
+            'errant_detailed_errors':  prefix+'cache/errant_detailed_evaluation.json',
+            'errant_corrected_errors':  prefix+'cache/errant_corrected_evaluation.json',
+            'errant_simple_errors':  prefix+'cache/errant_simple_evaluation.json',
+            'final_index_errors': prefix + 'cache/final_index_evaluation.json',
         }
 
-        print("StudyPlanCreator llm: ", llm_model)
         self.__chat_llm = llm_model
 
-        llm = dspy.HFClientTGI(model=llm_model, port=8083, url="http://localhost")
+        llm = dspy.HFClientTGI(model=llm_model, port=port, url=url)
         dspy.settings.configure(lm=llm)
 
         self.__max_new_tokens = max_new_tokens
@@ -89,7 +93,9 @@ class StudyPlanCreator:
         sentence_collection = []
         index = 1
         for speaker in speaker_context.keys():
+            print("Speaker started: ", speaker)
             sentences = self.__splitter.split(speaker_context[speaker])
+            print("Count of sentences: ", len(sentences))
             for sentence in sentences:
                 result = dspyModule(original_sentence=sentence)
                 corrected_sentence = result['corrected_sentence']

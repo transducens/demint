@@ -3,6 +3,7 @@ import dspy
 class SignatureSEC(dspy.Signature):
     """
     Correct grammatical or punctuation errors in sentences if there are ones and provide explanations for the corrections.
+    Ignore other types of errors. If there are no errors, return the original sentence in the corrected_sentence field.
     """
     original_sentence = dspy.InputField(desc="The original sentence that contains errors.")
     corrected_sentence = dspy.OutputField(

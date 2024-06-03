@@ -1,4 +1,5 @@
 import language_tool_python as lt
+from happytransformer import HappyTextToText, TTSettings
 
 ###
 # Errors detected by the grammar checker:
@@ -42,6 +43,7 @@ class GrammarChecker:
             'REP_THANK_YOU_FOR'
         ]
         self.__filter_errors = filter_errors
+        self.__t5_model = HappyTextToText("T5", "vennify/t5-base-grammar-correction")
 
 
     # Given a text (string)
@@ -103,6 +105,11 @@ class GrammarChecker:
     def filter_errors(self, matches: list):
         filtered_matches = [match for match in matches if match['category'] in self.__categories and match['ruleId'] not in self.__avoid_rule_ids]
         return filtered_matches
+
+    def t5_check_sentence(self, sentence: str):
+        args = TTSettings(num_beams=5, min_length=1)
+        result = self.__t5_model.generate_text(f"grammar: {sentence}", args=args)
+        return result.text
     
 
     # Close the language tool (for background .jar server)

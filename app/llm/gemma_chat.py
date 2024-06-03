@@ -89,7 +89,7 @@ class GemmaChat(IChat):
         Generates a response from the model for the provided input content.
         Utilizes the loaded model and tokenizer to process and generate the response.
         """
-        print("get_answer from LLM GEMMA started")
+        print(f"get_answer from LLM GEMMA {self.__model_id} started")
         start_time = time.time()
 
         # Create the prompt from user content.
@@ -108,7 +108,6 @@ class GemmaChat(IChat):
 
         # Decode the output tensors to text.
         response_text = self.__tokenizer.decode(outputs[0])
-        print(response_text)
         end_time = time.time()
         elapsed_time = end_time - start_time
         print(f"get_answer from LLM finished. Time taken to get answer from LLM: {elapsed_time} seconds")

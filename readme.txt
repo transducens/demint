@@ -10,7 +10,7 @@ Before you start, make sure you have the following prerequisites installed and s
 Step 1: Install Miniconda and essential libraries
     sudo apt-get update && \
     sudo apt-get upgrade -y && \
-    sudo apt-get install ffmpeg libtiff5 build-essential p7zip-full git wget -y
+    sudo apt-get install ffmpeg libtiff5 build-essential p7zip-full git wget openjdk-11-jdk -y
 
     mkdir -p ~/miniconda3 && \
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh && \
@@ -28,24 +28,24 @@ Step 2: Clone the Project Repository
     #to update: git pull https://github.com/transducens/demint.git
 
 Step 3: Create a Conda Environment
-Option 1:
-    conda env create -f environment-ubuntu.yml
-    conda activate DeMINT
-    python -m spacy download en_core_web_sm
+    Option 1:
+        conda env create -f environment.yml
+        conda activate DeMINT
+        python -m spacy download en_core_web_sm
 
-Option 2:
-    conda create --name DeMINT python=3.11
-    conda activate DeMINT
-    conda env update --name DeMINT --file environment-ubuntu.yml --prune
-    python -m spacy download en_core_web_sm
+    Option 2:
+        conda create --name DeMINT python=3.11
+        conda activate DeMINT
+        conda env update --name DeMINT --file environment.yml --prune
+        python -m spacy download en_core_web_sm
 
-Option 3 (for clean system):
-    conda create --name DeMINT python=3.11
-    conda activate DeMINT
-    conda install pytorch torchvision torchaudio pytorch-cuda=11.8 cuda-toolkit faiss-gpu -c defaults -c pytorch -c nvidia -c conda-forge -y
-    pip install errant chainlit gradio pyannote.audio language-tool-python pymupdf evaluate bitsandbytes pytube sentence-splitter sentence-transformers ragatouille dspy-ai huggingface_hub whisper-openai accelerate
-    python -m spacy download en_core_web_sm
-    conda env export > environment-ubuntu.yml
+    Option 3 (for clean system):
+        conda create --name DeMINT python=3.11
+        conda activate DeMINT
+        conda install pytorch torchvision torchaudio pytorch-cuda=11.8 cuda-toolkit faiss-gpu -c defaults -c pytorch -c nvidia -c conda-forge -y
+        pip install errant chainlit gradio pyannote.audio language-tool-python pymupdf evaluate bitsandbytes pytube sentence-splitter sentence-transformers ragatouille huggingface_hub whisper-openai accelerate happytransformer
+        python -m spacy download en_core_web_sm
+        conda env export > environment.yml
 
 Step 4: Hugging Face CLI Login
    To use models from the Hugging Face Hub, you'll need to log in via their CLI tool. This is essential for downloading model files:

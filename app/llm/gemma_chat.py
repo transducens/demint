@@ -35,7 +35,9 @@ class GemmaChat(IChat):
         # 4-bit quantization
         quantization_config = BitsAndBytesConfig(
             load_in_4bit=True, 
-            bnb_4bit_use_double_quant=True)
+            bnb_4bit_use_double_quant=True, 
+            bnb_4bit_compute_type=torch_dtype,
+            llm_int8_enable_fp16_cpu_offload=True)
 
         # Loading the LLM
         try: 

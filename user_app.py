@@ -160,6 +160,11 @@ def handle_dropdown_selection(speaker_selection):
 
     # Add scrollable container
     result = f"<div>{selected_speaker_text}</div>"
+    print("##################")
+    print("##################")
+    print(result)
+    print("##################")
+    print("##################")
     return result
         
 

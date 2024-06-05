@@ -1,0 +1,568 @@
+[
+    [
+        "R:NOUN",
+        [
+            {
+                "index": 54,
+                "speaker": "SPEAKER_02",
+                "sentence": "I generally get to work by car. lady which is maybe connected on a laptop and reading on a book.",
+                "corrected_sentence": "I generally get to work by car, which is maybe connected to a laptop and reading a book.",
+                "o_start": 6,
+                "o_end": 8,
+                "original_text": "car. lady",
+                "c_start": 6,
+                "c_end": 7,
+                "corrected_text": "car,",
+                "error_type": "R:NOUN",
+                "corrected_key": "R:NOUN|car,"
+            },
+            {
+                "index": 65,
+                "speaker": "SPEAKER_02",
+                "sentence": "All for pictures. so that he can put all her pictures in this album and he can watch pictures whatever he wants and you keep remembering your team, bye!",
+                "corrected_sentence": "All for pictures, so that he can put all her pictures in this album and he can watch pictures whatever he wants and you keep remembering your team, bye!",
+                "o_start": 2,
+                "o_end": 3,
+                "original_text": "pictures.",
+                "c_start": 2,
+                "c_end": 3,
+                "corrected_text": "pictures,",
+                "error_type": "R:NOUN",
+                "corrected_key": "R:NOUN|pictures,"
+            },
+            {
+                "index": 103,
+                "speaker": "SPEAKER_00",
+                "sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying by the fifth anniversary for the four fifth established for their club.",
+                "corrected_sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying the fifth anniversary for the four fifth established for their club",
+                "o_start": 49,
+                "o_end": 50,
+                "original_text": "club.",
+                "c_start": 48,
+                "c_end": 49,
+                "corrected_text": "club",
+                "error_type": "R:NOUN",
+                "corrected_key": "R:NOUN|club"
+            },
+            {
+                "index": 104,
+                "speaker": "SPEAKER_00",
+                "sentence": "No. but sometimes you can't wear the same t-shirt everyday.",
+                "corrected_sentence": "No, but sometimes you can't wear the same t-shirt everyday.",
+                "o_start": 0,
+                "o_end": 1,
+                "original_text": "No.",
+                "c_start": 0,
+                "c_end": 1,
+                "corrected_text": "No,",
+                "error_type": "R:NOUN",
+                "corrected_key": "R:NOUN|No,"
+            },
+            {
+                "index": 140,
+                "speaker": "SPEAKER_00",
+                "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+                "corrected_sentence": "I went to all truffles two times It was amazing Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the gomers ",
+                "o_start": 28,
+                "o_end": 29,
+                "original_text": "positions",
+                "c_start": 26,
+                "c_end": 27,
+                "corrected_text": "positions,",
+                "error_type": "R:NOUN",
+                "corrected_key": "R:NOUN|positions,"
+            }
+        ]
+    ],
+    [
+        "M:VERB",
+        [
+            {
+                "index": 12,
+                "speaker": "SPEAKER_01",
+                "sentence": "And Kenza, do you work or are you a student? what you do.",
+                "corrected_sentence": "And Kenza, do you work or are you a student? what do you do?",
+                "o_start": 11,
+                "o_end": 11,
+                "original_text": "",
+                "c_start": 11,
+                "c_end": 12,
+                "corrected_text": "do",
+                "error_type": "M:VERB",
+                "corrected_key": "M:VERB|do"
+            },
+            {
+                "index": 100,
+                "speaker": "SPEAKER_00",
+                "sentence": "There's no toys for his children or something.",
+                "corrected_sentence": "There are no toys for his children or something.",
+                "o_start": 1,
+                "o_end": 1,
+                "original_text": "",
+                "c_start": 1,
+                "c_end": 2,
+                "corrected_text": "are",
+                "error_type": "M:VERB",
+                "corrected_key": "M:VERB|are"
+            },
+            {
+                "index": 109,
+                "speaker": "SPEAKER_00",
+                "sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children. for work or album I think it's album for our pictures.",
+                "corrected_sentence": "And for this, there is no, because they have a lot of children and from their fans they can give it to their children. for work or album I think it's album for our pictures.",
+                "o_start": 4,
+                "o_end": 4,
+                "original_text": "",
+                "c_start": 4,
+                "c_end": 5,
+                "corrected_text": "is",
+                "error_type": "M:VERB",
+                "corrected_key": "M:VERB|is"
+            }
+        ]
+    ],
+    [
+        "U:PREP",
+        [
+            {
+                "index": 54,
+                "speaker": "SPEAKER_02",
+                "sentence": "I generally get to work by car. lady which is maybe connected on a laptop and reading on a book.",
+                "corrected_sentence": "I generally get to work by car, which is maybe connected to a laptop and reading a book.",
+                "o_start": 17,
+                "o_end": 18,
+                "original_text": "on",
+                "c_start": 16,
+                "c_end": 16,
+                "corrected_text": "",
+                "error_type": "U:PREP",
+                "corrected_key": "U:PREP|"
+            },
+            {
+                "index": 103,
+                "speaker": "SPEAKER_00",
+                "sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying by the fifth anniversary for the four fifth established for their club.",
+                "corrected_sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying the fifth anniversary for the four fifth established for their club",
+                "o_start": 38,
+                "o_end": 39,
+                "original_text": "by",
+                "c_start": 38,
+                "c_end": 38,
+                "corrected_text": "",
+                "error_type": "U:PREP",
+                "corrected_key": "U:PREP|"
+            },
+            {
+                "index": 140,
+                "speaker": "SPEAKER_00",
+                "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+                "corrected_sentence": "I went to all truffles two times It was amazing Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the gomers ",
+                "o_start": 26,
+                "o_end": 27,
+                "original_text": "on",
+                "c_start": 25,
+                "c_end": 25,
+                "corrected_text": "",
+                "error_type": "U:PREP",
+                "corrected_key": "U:PREP|"
+            }
+        ]
+    ],
+    [
+        "R:VERB:FORM",
+        [
+            {
+                "index": 56,
+                "speaker": "SPEAKER_02",
+                "sentence": "Maybe she is preparing for an exam for getting more information.",
+                "corrected_sentence": "Maybe she is preparing for an exam to get more information.",
+                "o_start": 8,
+                "o_end": 9,
+                "original_text": "getting",
+                "c_start": 8,
+                "c_end": 9,
+                "corrected_text": "get",
+                "error_type": "R:VERB:FORM",
+                "corrected_key": "R:VERB:FORM|get"
+            },
+            {
+                "index": 97,
+                "speaker": "SPEAKER_00",
+                "sentence": "He just started to read and having one cup of tea and relaxing in his home.",
+                "corrected_sentence": "He just started to read and have one cup of tea and relax in his home.",
+                "o_start": 6,
+                "o_end": 7,
+                "original_text": "having",
+                "c_start": 6,
+                "c_end": 7,
+                "corrected_text": "have",
+                "error_type": "R:VERB:FORM",
+                "corrected_key": "R:VERB:FORM|have"
+            },
+            {
+                "index": 97,
+                "speaker": "SPEAKER_00",
+                "sentence": "He just started to read and having one cup of tea and relaxing in his home.",
+                "corrected_sentence": "He just started to read and have one cup of tea and relax in his home.",
+                "o_start": 12,
+                "o_end": 13,
+                "original_text": "relaxing",
+                "c_start": 12,
+                "c_end": 13,
+                "corrected_text": "relax",
+                "error_type": "R:VERB:FORM",
+                "corrected_key": "R:VERB:FORM|relax"
+            }
+        ]
+    ],
+    [
+        "R:VERB:SVA",
+        [
+            {
+                "index": 82,
+                "speaker": "SPEAKER_02",
+                "sentence": "In every country we can see that there is a lot of teams which play in football.",
+                "corrected_sentence": "In every country we can see that there are a lot of teams which play in football.",
+                "o_start": 8,
+                "o_end": 9,
+                "original_text": "is",
+                "c_start": 8,
+                "c_end": 9,
+                "corrected_text": "are",
+                "error_type": "R:VERB:SVA",
+                "corrected_key": "R:VERB:SVA|are"
+            },
+            {
+                "index": 107,
+                "speaker": "SPEAKER_00",
+                "sentence": "If there is some students or from their fans, they can't play and keep it away from their studying or something.",
+                "corrected_sentence": "If there are some students or from their fans, they can't play and keep it away from their studying or something.",
+                "o_start": 2,
+                "o_end": 3,
+                "original_text": "is",
+                "c_start": 2,
+                "c_end": 3,
+                "corrected_text": "are",
+                "error_type": "R:VERB:SVA",
+                "corrected_key": "R:VERB:SVA|are"
+            },
+            {
+                "index": 134,
+                "speaker": "SPEAKER_00",
+                "sentence": "That make a lot of supporters became, they have the same admires and the same ambition about their teams.",
+                "corrected_sentence": "That makes a lot of supporters become, they have the same admirations and the same ambition about their teams.",
+                "o_start": 1,
+                "o_end": 2,
+                "original_text": "make",
+                "c_start": 1,
+                "c_end": 2,
+                "corrected_text": "makes",
+                "error_type": "R:VERB:SVA",
+                "corrected_key": "R:VERB:SVA|makes"
+            }
+        ]
+    ],
+    [
+        "U:DET",
+        [
+            {
+                "index": 37,
+                "speaker": "SPEAKER_01",
+                "sentence": "Talk together about the different things it could give and decide which the fans would like best.",
+                "corrected_sentence": "Talk about the different things it could give and decide which fans would like best.",
+                "o_start": 12,
+                "o_end": 13,
+                "original_text": "the",
+                "c_start": 11,
+                "c_end": 11,
+                "corrected_text": "",
+                "error_type": "U:DET",
+                "corrected_key": "U:DET|"
+            },
+            {
+                "index": 71,
+                "speaker": "SPEAKER_02",
+                "sentence": "For me, it's a swimming.",
+                "corrected_sentence": "For me, it's swimming.",
+                "o_start": 3,
+                "o_end": 4,
+                "original_text": "a",
+                "c_start": 3,
+                "c_end": 3,
+                "corrected_text": "",
+                "error_type": "U:DET",
+                "corrected_key": "U:DET|"
+            }
+        ]
+    ],
+    [
+        "R:PREP",
+        [
+            {
+                "index": 54,
+                "speaker": "SPEAKER_02",
+                "sentence": "I generally get to work by car. lady which is maybe connected on a laptop and reading on a book.",
+                "corrected_sentence": "I generally get to work by car, which is maybe connected to a laptop and reading a book.",
+                "o_start": 12,
+                "o_end": 13,
+                "original_text": "on",
+                "c_start": 11,
+                "c_end": 12,
+                "corrected_text": "to",
+                "error_type": "R:PREP",
+                "corrected_key": "R:PREP|to"
+            },
+            {
+                "index": 123,
+                "speaker": "SPEAKER_00",
+                "sentence": "I am very interested about football.",
+                "corrected_sentence": "I am very interested in football.",
+                "o_start": 4,
+                "o_end": 5,
+                "original_text": "about",
+                "c_start": 4,
+                "c_end": 5,
+                "corrected_text": "in",
+                "error_type": "R:PREP",
+                "corrected_key": "R:PREP|in"
+            }
+        ]
+    ],
+    [
+        "M:DET",
+        [
+            {
+                "index": 88,
+                "speaker": "SPEAKER_02",
+                "sentence": "Because I think it's waste of time and I don't have enough time to study, so I can't go to this kind of activities.",
+                "corrected_sentence": "Because I think it's a waste of time and I don't have enough time to study, so I can't go to this kind of activities.",
+                "o_start": 4,
+                "o_end": 4,
+                "original_text": "",
+                "c_start": 4,
+                "c_end": 5,
+                "corrected_text": "a",
+                "error_type": "M:DET",
+                "corrected_key": "M:DET|a"
+            },
+            {
+                "index": 124,
+                "speaker": "SPEAKER_00",
+                "sentence": "I watch it from when I was child.",
+                "corrected_sentence": "I watched it from when I was a child.",
+                "o_start": 7,
+                "o_end": 7,
+                "original_text": "",
+                "c_start": 7,
+                "c_end": 8,
+                "corrected_text": "a",
+                "error_type": "M:DET",
+                "corrected_key": "M:DET|a"
+            }
+        ]
+    ],
+    [
+        "R:VERB:TENSE",
+        [
+            {
+                "index": 124,
+                "speaker": "SPEAKER_00",
+                "sentence": "I watch it from when I was child.",
+                "corrected_sentence": "I watched it from when I was a child.",
+                "o_start": 1,
+                "o_end": 2,
+                "original_text": "watch",
+                "c_start": 1,
+                "c_end": 2,
+                "corrected_text": "watched",
+                "error_type": "R:VERB:TENSE",
+                "corrected_key": "R:VERB:TENSE|watched"
+            },
+            {
+                "index": 140,
+                "speaker": "SPEAKER_00",
+                "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+                "corrected_sentence": "I went to all truffles two times It was amazing Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the gomers ",
+                "o_start": 1,
+                "o_end": 2,
+                "original_text": "Go",
+                "c_start": 1,
+                "c_end": 2,
+                "corrected_text": "went",
+                "error_type": "R:VERB:TENSE",
+                "corrected_key": "R:VERB:TENSE|went"
+            }
+        ]
+    ],
+    [
+        "U:ADV",
+        [
+            {
+                "index": 37,
+                "speaker": "SPEAKER_01",
+                "sentence": "Talk together about the different things it could give and decide which the fans would like best.",
+                "corrected_sentence": "Talk about the different things it could give and decide which fans would like best.",
+                "o_start": 1,
+                "o_end": 2,
+                "original_text": "together",
+                "c_start": 1,
+                "c_end": 1,
+                "corrected_text": "",
+                "error_type": "U:ADV",
+                "corrected_key": "U:ADV|"
+            }
+        ]
+    ],
+    [
+        "R:PART",
+        [
+            {
+                "index": 56,
+                "speaker": "SPEAKER_02",
+                "sentence": "Maybe she is preparing for an exam for getting more information.",
+                "corrected_sentence": "Maybe she is preparing for an exam to get more information.",
+                "o_start": 7,
+                "o_end": 8,
+                "original_text": "for",
+                "c_start": 7,
+                "c_end": 8,
+                "corrected_text": "to",
+                "error_type": "R:PART",
+                "corrected_key": "R:PART|to"
+            }
+        ]
+    ],
+    [
+        "U:NOUN",
+        [
+            {
+                "index": 62,
+                "speaker": "SPEAKER_02",
+                "sentence": "So if he had the T-shirt with him, he can always remember the team. mMM mMM But at least you have it at home and you can see it, even if you don't wear it.",
+                "corrected_sentence": "So if he had the T-shirt with him, he can always remember the team. mMM mMM But at least you have it at home and you can see it, even if you don't wear",
+                "o_start": 34,
+                "o_end": 35,
+                "original_text": "it.",
+                "c_start": 34,
+                "c_end": 34,
+                "corrected_text": "",
+                "error_type": "U:NOUN",
+                "corrected_key": "U:NOUN|"
+            }
+        ]
+    ],
+    [
+        "U:PRON",
+        [
+            {
+                "index": 96,
+                "speaker": "SPEAKER_00",
+                "sentence": "And maybe he just came from outside and he didn't take out his clothes.",
+                "corrected_sentence": "And maybe he just came from outside and didn't take out his clothes.",
+                "o_start": 8,
+                "o_end": 9,
+                "original_text": "he",
+                "c_start": 8,
+                "c_end": 8,
+                "corrected_text": "",
+                "error_type": "U:PRON",
+                "corrected_key": "U:PRON|"
+            }
+        ]
+    ],
+    [
+        "U:CONJ",
+        [
+            {
+                "index": 109,
+                "speaker": "SPEAKER_00",
+                "sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children. for work or album I think it's album for our pictures.",
+                "corrected_sentence": "And for this, there is no, because they have a lot of children and from their fans they can give it to their children. for work or album I think it's album for our pictures.",
+                "o_start": 6,
+                "o_end": 7,
+                "original_text": "or",
+                "c_start": 7,
+                "c_end": 7,
+                "corrected_text": "",
+                "error_type": "U:CONJ",
+                "corrected_key": "U:CONJ|"
+            }
+        ]
+    ],
+    [
+        "R:PUNCT",
+        [
+            {
+                "index": 134,
+                "speaker": "SPEAKER_00",
+                "sentence": "That make a lot of supporters became, they have the same admires and the same ambition about their teams.",
+                "corrected_sentence": "That makes a lot of supporters become, they have the same admirations and the same ambition about their teams.",
+                "o_start": 6,
+                "o_end": 7,
+                "original_text": "became,",
+                "c_start": 6,
+                "c_end": 7,
+                "corrected_text": "become,",
+                "error_type": "R:PUNCT",
+                "corrected_key": "R:PUNCT|become,"
+            }
+        ]
+    ],
+    [
+        "R:MORPH",
+        [
+            {
+                "index": 134,
+                "speaker": "SPEAKER_00",
+                "sentence": "That make a lot of supporters became, they have the same admires and the same ambition about their teams.",
+                "corrected_sentence": "That makes a lot of supporters become, they have the same admirations and the same ambition about their teams.",
+                "o_start": 11,
+                "o_end": 12,
+                "original_text": "admires",
+                "c_start": 11,
+                "c_end": 12,
+                "corrected_text": "admirations",
+                "error_type": "R:MORPH",
+                "corrected_key": "R:MORPH|admirations"
+            }
+        ]
+    ],
+    [
+        "U:VERB:FORM",
+        [
+            {
+                "index": 140,
+                "speaker": "SPEAKER_00",
+                "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+                "corrected_sentence": "I went to all truffles two times It was amazing Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the gomers ",
+                "o_start": 16,
+                "o_end": 17,
+                "original_text": "to",
+                "c_start": 16,
+                "c_end": 16,
+                "corrected_text": "",
+                "error_type": "U:VERB:FORM",
+                "corrected_key": "U:VERB:FORM|"
+            }
+        ]
+    ],
+    [
+        "R:NOUN:NUM",
+        [
+            {
+                "index": 140,
+                "speaker": "SPEAKER_00",
+                "sentence": "I Go to all truffles two times It was amazing Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+                "corrected_sentence": "I went to all truffles two times It was amazing Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the gomers ",
+                "o_start": 37,
+                "o_end": 38,
+                "original_text": "players",
+                "c_start": 35,
+                "c_end": 36,
+                "corrected_text": "player",
+                "error_type": "R:NOUN:NUM",
+                "corrected_key": "R:NOUN:NUM|player"
+            }
+        ]
+    ]
+]

@@ -9,3 +9,4 @@ __pycache__
 /.ragatouille
 /logs
 init_env.sh
+*.log

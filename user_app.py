@@ -207,6 +207,45 @@ def label_text(text, input, label=None):
         return result
     
 js = """"""
+js_autoscroll_function_by_value= """
+    function autoscroll_to_string(word_to_search) {
+    try {
+        console.log("Searching for:", word_to_search);
+        const anchors = document.querySelectorAll('a');
+        let found = false;
+        anchors.forEach(anchor => {
+            if (anchor.textContent.includes(word_to_search)) {
+                anchor.scrollIntoView({behavior: 'smooth', block: 'center'});
+                anchor.animate([
+                    { backgroundColor: 'yellow' },
+                    { backgroundColor: 'transparent' }
+                ], {
+                    duration: 2000,
+                    iterations: 1
+                });
+                found = true;
+            }
+        });
+        if (!found) {
+            console.log('Element not found for:', word_to_search);
+        }
+    } catch (error) {
+        console.error("Error in autoscroll_to_string:", error);
+    }
+}
+"""
+js_autoscroll_function_by_id= """
+    function(word_to_search) { 
+        const element = document.getElementById(word_to_search); 
+        if (element) { 
+            element.scrollIntoView({behavior: 'smooth', block: 'center'}); 
+            element.animate([{ backgroundColor: 'yellow' }, { backgroundColor: 'transparent' }], { duration: 2000, iterations: 1 }); 
+        } 
+        else { 
+            console.log('Element not found for:', word_to_search); 
+        }
+    }
+"""
 css = """
     .fullscreen {
        height: 90vh;
@@ -287,11 +326,20 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
                 value="Submit",
                 scale=1,
                 )
+            goto_button = gr.Button(
+                value="Go to Error",
+                scale=1,
+                )
             # Process the user query when the submit button is clicked.
             submit_button.click(fn=chat_with_ai, inputs=[query], outputs=[response])
             # Or when the user presses the Enter key.
             query.submit(fn=chat_with_ai, inputs=[query], outputs=[response])
-    
+
+            goto_button.click(
+                None, 
+                inputs=[query],
+                js=js_autoscroll_function_by_id)
+
     theme=gr.themes.Base()
 
     

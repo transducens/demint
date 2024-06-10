@@ -11,6 +11,13 @@
         "c_end": 12,
         "corrected_text": "do",
         "error_type": "M:VERB",
+        "llm_explanation": "**Errors:**\n\n- Missing verb in the sentence.\n- Incorrect word order for a complete sentence.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "Writing Correct and Complete Sentences\n121\nSentence Errors: Run-on Sentences \nand Comma Splices\nThere are two basic types of sentence errors: fragments and run-on sentences. These problems\nwith sentence construction confuse your readers and obscure your meaning. Their use will\nalso result in clumsy, unpolished writing and speech. Let’s look at each of these sentence\nerrors in detail so that you’ll be able to fix them with ease.\nAs you’ve learned, there are two types of clauses: independent and dependent.\nG Independent clauses are complete sentences because they have a subject, a verb, and\nexpress a complete thought.\nI go to the movies every Saturday night.\nRichard Nixon’s favorite drink was a dry martini.\nG Dependent clauses cannot stand alone because they do not express a complete thought,\neven though they have a subject and a verb.\nSince\nI\nenjoy the movies.\nsubject. verb\nBecause Richard Nixon’s favorite \ndrink \nwas a dry martini.\nsubject. verb\nA run-on sentence is two incorrectly joined independent clauses. A comma splice is a run-\non sentence with a comma where the two independent clauses run together. When your sen-\ntences run together, your ideas are garbled.\nRun-on: Our eyes are always the same size from birth our nose and ears never stop growing."
+            }
+        ],
         "corrected_key": "M:VERB|do"
     },
     {
@@ -25,6 +32,13 @@
         "c_end": 1,
         "corrected_text": "",
         "error_type": "U:ADV",
+        "llm_explanation": "**Errors:**\n\n- **Syntax error:** The original sentence contains a list of elements that includes both numbers and a string, which is not grammatically correct.\n- **Inappropriate use of 'together':** 'Together' is an adverb that typically refers to two or more things being done or happening at the same time. It is not appropriate in this context.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "Errors in confusing word pairs (such as weather/whether)\nSome words in English have the same spelling and pronunciation but different meanings,\nsuch as bay/bay and beam/beam. We also have words with the same pronunciation but\ndifferent spellings and meanings, such as coarse/course or bridal/bridle. Distinguishing\nbetween these confusing words is crucial because it helps you write exactly what you\nmean.\nBelow are some of the most often misspelled words. They’re mangled because they’re so\nclose in sound and/or spelling. After you study the list, however, you’ll be able to tell\nthem apart and use them correctly.\nG air: atmosphere\nThere’s no air in a vacuum—hence his empty head.\nerr: make a mistake\nTo err is human; to purr, feline.\nG a lot: many\nA lot of people are absent from work today.\nallot: divide\nAllot the prizes equally among all guests, please.\nG all together: all at one time\nThe students spoke all together.\naltogether: completely\nThe job is altogether complete."
+            }
+        ],
         "corrected_key": "U:ADV|"
     },
     {
@@ -39,6 +53,13 @@
         "c_end": 11,
         "corrected_text": "",
         "error_type": "U:DET",
+        "llm_explanation": "**Errors:**\n\n- Insertion of a determiner (\"the\") in an inappropriate position.\n- Violation of the word order, where the determiner should precede the number.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "The word (baggy, sacrifice, exhaust, vegetable) is misspelled.\n6. Because of errors in pronunciation, spellers often insert an unnecessary (modifier,\nvowel) between two letters.\n7. (Their, There, They’re) is a possessive word.\n8. The (apostrophe, comma) is used to show possession and to show plural forms.\n9. This mark of punctuation also shows (contraction, parallelism) where a letter or\nnumber has been omitted.\n10. (Quotation marks, Exclamation marks) create an overwrought tone that often\nundercuts your point.\nMultiple-Choice Questions\nChoose the best answer to each question.\n1. The following are all grammar and usage errors except\n(a)\nIncorrect idioms\n(b)\nLack of parallel structure\n(c)\nMissing commas or extra commas\n(d)\nDangling modifiers\n2. The following are all classified as errors in mechanics except\n(a)\nBiased language\n(b)\nMissing or misused apostrophes\n(c)\nMissing commas or extra commas\n(d)\nMisused exclamation marks"
+            }
+        ],
         "corrected_key": "U:DET|"
     },
     {
@@ -53,6 +74,13 @@
         "c_end": 7,
         "corrected_text": "car,",
         "error_type": "R:NOUN",
+        "llm_explanation": "**Errors:**\n\n- Incorrect word order: 'car. lady' should be 'car and lady'.\n- Missing article: 'a' should be inserted before 'car'.\n\n**Broken rule:**\n\n- Subject-verb agreement: The sentence violates the rule of subject-verb agreement, as 'car and lady' is not a singular subject.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "(... at the same time each day6.)\nEach of is used before other determiners and before object pronouns:\nWhat we did was car\nr\ny out gr\noup discussions in each of the countr\nies within \nthe tar\nget mar\nket.\nThese ar\ne bookmarks. I have one for each of you.\nThe hotel manager\n char\nged each of them £10 for thr\nee single r\nooms, totalling £30.\nEach of with a plural noun as subject is normally followed by a singular verb, \nthough this rule is sometimes ignored in informal speech:\nEach of those parallel dimensions is equally possible.\nFor greater emphasis, each one of may be used with determiners and pronouns.\nIf the phrase with each one of is the subject, the verb is singular:\nWell, there’s six doctor\ns now. Six. And each one of them has a computer\n station.\nEach +  pronouns/possessives \n34d\nEach may be used with plural pronouns and possessives, especially in order to \nexpress neutral gender:\nEach person should contr\nibute to old-age care insur\nance, which would be \ntr\nigger\ned if they becam e in need of car\ne.\n(preferred to :... if he became in need of care.)\n539 Glossary for any unfamiliar terms"
+            }
+        ],
         "corrected_key": "R:NOUN|car,"
     },
     {
@@ -67,6 +95,13 @@
         "c_end": 12,
         "corrected_text": "to",
         "error_type": "R:PREP",
+        "llm_explanation": "**Error:** Incorrect preposition used.\n\n**Broken rule:** The sentence uses 'on' instead of the correct preposition 'to'.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "24. Errors in titles\nIncorrect: The Wind In The Willows\nCorrect:\nThe Wind in the Willows\nCapitalize the major words in titles of books, plays, movies, newspapers, and magazines.\nG Do not capitalize the articles: a, an, the.\nG Do not capitalize prepositions: at, by, for, of, in, up, on, so, on, to, etc.\nG Do not capitalize conjunctions: and, as, but, if, or, nor.\nSee Chapter 11 for a complete discussion of capitalization.\nMost Common Proofreading Errors\n25. Missing words\nIncorrect: Proofread carefully to see if you have any words out.\nCorrect:\nProofread carefully to see if you have left any words out.\nThis is a simple rule, but many people run out of time before they can proofread a docu-\nment. Always make the time to proofread your writing. And try to let your writing sit and\n“cool off” for a few hours. The errors will become much more obvious and easier to iso-\nlate."
+            }
+        ],
         "corrected_key": "R:PREP|to"
     },
     {
@@ -81,6 +116,13 @@
         "c_end": 16,
         "corrected_text": "",
         "error_type": "U:PREP",
+        "llm_explanation": "**Error:** The original sentence contains an unnecessary preposition \"on\" that has been removed in the corrected version.\n\n**Broken rule:** Incorrect use of prepositions.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "24. Errors in titles\nIncorrect: The Wind In The Willows\nCorrect:\nThe Wind in the Willows\nCapitalize the major words in titles of books, plays, movies, newspapers, and magazines.\nG Do not capitalize the articles: a, an, the.\nG Do not capitalize prepositions: at, by, for, of, in, up, on, so, on, to, etc.\nG Do not capitalize conjunctions: and, as, but, if, or, nor.\nSee Chapter 11 for a complete discussion of capitalization.\nMost Common Proofreading Errors\n25. Missing words\nIncorrect: Proofread carefully to see if you have any words out.\nCorrect:\nProofread carefully to see if you have left any words out.\nThis is a simple rule, but many people run out of time before they can proofread a docu-\nment. Always make the time to proofread your writing. And try to let your writing sit and\n“cool off” for a few hours. The errors will become much more obvious and easier to iso-\nlate."
+            }
+        ],
         "corrected_key": "U:PREP|"
     },
     {
@@ -95,6 +137,13 @@
         "c_end": 8,
         "corrected_text": "to",
         "error_type": "R:PART",
+        "llm_explanation": "**Error:** Incorrect use of the preposition \"for\" in the list.\n\n**Broken rule:** The preposition \"for\" is not appropriate in this context. It should be replaced with \"to\" to indicate the destination or purpose.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "24. Errors in titles\nIncorrect: The Wind In The Willows\nCorrect:\nThe Wind in the Willows\nCapitalize the major words in titles of books, plays, movies, newspapers, and magazines.\nG Do not capitalize the articles: a, an, the.\nG Do not capitalize prepositions: at, by, for, of, in, up, on, so, on, to, etc.\nG Do not capitalize conjunctions: and, as, but, if, or, nor.\nSee Chapter 11 for a complete discussion of capitalization.\nMost Common Proofreading Errors\n25. Missing words\nIncorrect: Proofread carefully to see if you have any words out.\nCorrect:\nProofread carefully to see if you have left any words out.\nThis is a simple rule, but many people run out of time before they can proofread a docu-\nment. Always make the time to proofread your writing. And try to let your writing sit and\n“cool off” for a few hours. The errors will become much more obvious and easier to iso-\nlate."
+            }
+        ],
         "corrected_key": "R:PART|to"
     },
     {
@@ -109,6 +158,13 @@
         "c_end": 9,
         "corrected_text": "get",
         "error_type": "R:VERB:FORM",
+        "llm_explanation": "**Error:** 'getting' should be 'get'.\n\n**Broken rule:** Incorrect verb form - the continuous form 'getting' is not appropriate in this context.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "Before got, we can use the short\nforms 've, 's or 'd.\nPresent simple\nI have the key. (a little formal) I have got the key. (informal)\nI've the key. (unusual) \nI've got the key. (informal)\nPast simple\nI had the key. (most usual) \nI had got the key. (less usual)\nI'd the key. (unusual) \nI'd got the key. (less usual)\nNOTE\nIn very informal speech, got is sometimes used without have.\nI got lots of time. (= I've got lots of time.)\nYou got any money? (= Have you got any money?)\nc \nThere are some patterns where we do not normally use got. We do not use it in\nthe perfect.\nI've had these shoes \nfor years.\nWe do not normally use it in the infinitive or the ing-form.\nIt would be nice to have lots of \nmoney.\nIt's pretty depressing having no job.\nWe do not use got in a short answer.\nHave you got your bag? ~ Yes, I have.\nAnd we do not normally use got after a modal verb.\nYou can have these magazines if you like.\nPAGE 108"
+            }
+        ],
         "corrected_key": "R:VERB:FORM|get"
     },
     {
@@ -123,6 +179,13 @@
         "c_end": 34,
         "corrected_text": "",
         "error_type": "U:NOUN",
+        "llm_explanation": "**Errors:**\n\n- Insertion of a period after 'it.' (incorrect grammar)\n- Replacement of 'it.' with an empty string (incorrect word choice)\n\n**Broken rule:**\n\n- Standard English grammar dictates that a period should not be placed after an interjection (such as 'it!').\n- The correct word to follow 'it.' is usually a noun or a verb.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "If Tom was/were here he 'd know what to do. \n2 \nBut were is a little more usual than was in the advice form If I were/ was you I would/should . . .  \nIf I were you I would wait a bit,' he said. (See 287 C.)  \nwere is also more usual in the infinitive construction: \nIf Peter were/was to apply for the post he'd get it. (See 222 B.) \n3 \nwere, not was, is used when the auxiliary is placed first: \nWere I Tom I would refuse. (See B below.)  \nWhen if means 'since' (see 222 C) was cannot be replaced by were.  \nwere can replace was after if only (see 228) and wish (see 300), \nB \nif + subject + auxiliary can be replaced in formal English by inversion of auxiliary and subject \nwith if omitted: \nIf I were in his shoes . . . = Were I in his shoes . . . \nIf you should require anything . . . = \nShould you require anything . . . \nIf he had known . . . = Had he known . . ."
+            }
+        ],
         "corrected_key": "U:NOUN|"
     },
     {
@@ -137,6 +200,13 @@
         "c_end": 3,
         "corrected_text": "pictures,",
         "error_type": "R:NOUN",
+        "llm_explanation": "**Error:** Missing comma after the list of numbers and words.\n\n**Broken rule:** Commas are required to separate multiple items in a list.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "The word (baggy, sacrifice, exhaust, vegetable) is misspelled.\n6. Because of errors in pronunciation, spellers often insert an unnecessary (modifier,\nvowel) between two letters.\n7. (Their, There, They’re) is a possessive word.\n8. The (apostrophe, comma) is used to show possession and to show plural forms.\n9. This mark of punctuation also shows (contraction, parallelism) where a letter or\nnumber has been omitted.\n10. (Quotation marks, Exclamation marks) create an overwrought tone that often\nundercuts your point.\nMultiple-Choice Questions\nChoose the best answer to each question.\n1. The following are all grammar and usage errors except\n(a)\nIncorrect idioms\n(b)\nLack of parallel structure\n(c)\nMissing commas or extra commas\n(d)\nDangling modifiers\n2. The following are all classified as errors in mechanics except\n(a)\nBiased language\n(b)\nMissing or misused apostrophes\n(c)\nMissing commas or extra commas\n(d)\nMisused exclamation marks"
+            }
+        ],
         "corrected_key": "R:NOUN|pictures,"
     },
     {
@@ -151,6 +221,13 @@
         "c_end": 3,
         "corrected_text": "",
         "error_type": "U:DET",
+        "llm_explanation": "**Errors:**\n\n- **U:DET** rule violation: The element 'a' is inappropriate as a determiner in this context.\n- **Missing value**: The corrected version has an empty string '' in the second position, indicating that the expected element is missing.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "The word (baggy, sacrifice, exhaust, vegetable) is misspelled.\n6. Because of errors in pronunciation, spellers often insert an unnecessary (modifier,\nvowel) between two letters.\n7. (Their, There, They’re) is a possessive word.\n8. The (apostrophe, comma) is used to show possession and to show plural forms.\n9. This mark of punctuation also shows (contraction, parallelism) where a letter or\nnumber has been omitted.\n10. (Quotation marks, Exclamation marks) create an overwrought tone that often\nundercuts your point.\nMultiple-Choice Questions\nChoose the best answer to each question.\n1. The following are all grammar and usage errors except\n(a)\nIncorrect idioms\n(b)\nLack of parallel structure\n(c)\nMissing commas or extra commas\n(d)\nDangling modifiers\n2. The following are all classified as errors in mechanics except\n(a)\nBiased language\n(b)\nMissing or misused apostrophes\n(c)\nMissing commas or extra commas\n(d)\nMisused exclamation marks"
+            }
+        ],
         "corrected_key": "U:DET|"
     },
     {
@@ -165,6 +242,13 @@
         "c_end": 9,
         "corrected_text": "are",
         "error_type": "R:VERB:SVA",
+        "llm_explanation": "**Error:** Incorrect verb tense.\n\n**Broken rule:** The subject \"8, 9\" requires the plural verb \"are\" instead of the singular verb \"is\".",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "78\nENGLISH GRAMMAR FOR THE UTTERLY CONFUSED\nTop Trouble Spots in Writing\nWhen someone complains that a person “can’t write,” they are most often referring to errors\nthat person makes in grammar and usage. Below are the top 25 writing hot spots.\nThe 25 Top Writing Errors\nGrammar and Usage\n1. Lack of clarity\n2. Redundancy (unnecessary words)\n3. Problems with subject-verb agreement\n4. Lack of parallel structure\n5. Wrong verb tense\n6. Mixed metaphors\n7. Dangling modifiers\n8. Misplaced modifiers\n9. Incorrect idioms\n10. Biased language\n11. Incorrect voice (active versus passive voice)\nSentences\n12. Fragments (incomplete sentences)\n13. Run-ons (two sentences run together)\nSpelling\n14. Missing letters\n15. Extra letters\n16. Transposed letters\n17. Incorrect plurals\n18. Errors in confusing word pairs (such as weather/whether)\nPunctuation\n19. Missing commas or extra commas\n20. Missing or misused apostrophes\n21. Misused exclamation marks\n22. Misused semicolons"
+            }
+        ],
         "corrected_key": "R:VERB:SVA|are"
     },
     {
@@ -179,6 +263,13 @@
         "c_end": 5,
         "corrected_text": "a",
         "error_type": "M:DET",
+        "llm_explanation": "**Error:** Incorrect determiner.\n\n**Broken rule:** The sentence contains an empty string in the original list, which should be replaced with a valid determiner like \"a\" in the corrected version.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "or\nDaddy longlegs spiders are more poisonous than black widows; however, daddy \nlonglegs cannot bite humans because their jaws won’t open wide enough.\nA run-on sentence occurs when two complete sentences (“independent clauses”) are\nincorrectly joined. Sentences can only be joined with a coordinating conjunction (and,\nbut, or, nor, for, so, yet) or a semicolon—a comma doesn’t cut the mustard. See Chapter\n8 for a complete discussion of sentences.\nMost Common Spelling Errors\nWriters often misspell words because they mispronounce them. The three most common mis-\ntakes are\nG Dropping a letter or syllable when we say a word.\nG Adding an unnecessary letter when we say a word.\nG Mispronouncing a word and so misspelling it.\n14. Missing letters\nHere are 10 words that are frequently misspelled because the speaker drops a letter or\nsyllable."
+            }
+        ],
         "corrected_key": "M:DET|a"
     },
     {
@@ -193,6 +284,13 @@
         "c_end": 8,
         "corrected_text": "",
         "error_type": "U:PRON",
+        "llm_explanation": "**Error:** U:PRON (Unexpected pronoun)\n\n**Explanation:** The corrected sentence removes the inappropriate word 'he' and replaces it with an empty string, indicating that the intended subject is missing.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "Carelessly placed pronouns can create unintentionally funny sentences as well as confus-\ning ones. Consider the difference between what the writer thinks he or she said and what is\nreally being said in the following sentences:\nLast week, a wart appeared on my right thumb, and I want it removed.\n(Are you removing the wart or the thumb?)\nGuilt and unkindness can be emotionally destructive to you and your friends. You must\nget rid of them.\n(Are you getting rid of the guilt or your friends?)\nThere are three ways to prevent pronoun confusion.\n1. A pronoun must clearly refer to a single antecedent.\n2. Place pronouns close to their antecedents.\n3. Make a pronoun refer to a definite antecedent.\nLet’s look at each guideline in detail."
+            }
+        ],
         "corrected_key": "U:PRON|"
     },
     {
@@ -207,6 +305,13 @@
         "c_end": 7,
         "corrected_text": "have",
         "error_type": "R:VERB:FORM",
+        "llm_explanation": "**Error:** 'having' should be 'have'.\n\n**Broken rule:** Incorrect verb form - the sentence uses the present participle 'having' instead of the present tense 'have'.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "6681\n Modality\nNegative\nThe negative of have got to is formed by adding not after have:\nI haven’t got to go till five.\nThe negative of have to is normally formed with auxiliary do. In rare cases, \nespecially in formal contexts, it may occur as have/had. not to or haven’t/hadn’t to:\nIt doesn’t have to look so per\nfect.\nHe had not to wait many minutes, however\n, for he soon hear\nd her\n dr\ness r\nustling \nin the hall, followed by a soft closing of the door\n.\n(formal, literary style)\nDeductions\nHave (got) to is also used, though less frequently, to make deductions or draw \nlogical conclusions. In this meaning it is similar to must:\n[looking for a particular house]\nHe said a white house next to the village shop. Er\n, this has got to be it.\n(or: This must be it.)\n[telling a story about getting on the wrong train]\nSo I said, ‘Maur\neen, this one’ll be our\n tr\nain,’ and of cour\nse it had to be the \nwr\nong one. So we got off at the next stop."
+            }
+        ],
         "corrected_key": "R:VERB:FORM|have"
     },
     {
@@ -221,6 +326,13 @@
         "c_end": 13,
         "corrected_text": "relax",
         "error_type": "R:VERB:FORM",
+        "llm_explanation": "**Error:** The corrected sentence uses the infinitive form of the verb \"relax\" instead of the present participle \"relaxing\".\n\n**Broken rule:** Incorrect verb form used in relation to the sentence structure.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "The perfect participle is, \nhowever, necessary when there is an interval of time between the two actions: \nHaving failed twice, he didn't want ta try again. It is also used when the first action covered a \nperiod of time: \nHaving been his own boss for such a long time, he found it hard to \naccept orders from another. \nThe past participle (passive) and the perfect participle (passive) \nForm \nThe past participle of regular verbs is formed by adding ed or d to the \ninfinitive, e.g. worked, loved. \nFor the past participle of irregular verbs, see chapter 39. \nUse \nAs an adjective: \nstolen money    a written report    fallen frees broken glass     Hred drivers        blocked roads. \nTo form the perfect tenses/infinitives and participles and the passive voice: \nhe has seen   to have loved   it was broken \nThe past participle can replace a subject + passive verb just as the present participle can \nreplace subject + active verb: \nShe enters. She is accompanied by her mother. = \nShe enters, accompanied by her mother. \nHe was aroused by fhe crash and leapt to his feet = \nAroused by the crash, he leapt to his feet."
+            }
+        ],
         "corrected_key": "R:VERB:FORM|relax"
     },
     {
@@ -235,6 +347,13 @@
         "c_end": 2,
         "corrected_text": "are",
         "error_type": "M:VERB",
+        "llm_explanation": "**Errors:**\n\n- Incorrect verb tense: 'are' should be 'is' as the subject is '1'.\n- Missing pluralization for the first two elements: '1, 1' should be '1, 2'.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "80\nENGLISH GRAMMAR FOR THE UTTERLY CONFUSED\n3. Problems with subject-verb agreement\nIncorrect: Verbs has to agree with their subjects.\nCorrect:\nVerbs have to agree with their subjects.\nAgreement means that sentence parts match, singular to singular and plural to plural.\nSince the subject verbs is plural, it takes a plural verb, agree.\nThis is confusing because we add -s or -es to make the third-person singular form of most\nverbs but add -s or -es to make the plural form of most nouns. For example, he starts is sin-\ngular, but six papers is plural. Both end in s. Agreement is covered in detail in Chapter 5.\n4. Lack of parallel structure\nNot parallel: To avoid getting hit by lightning, never seek protection under a tree, lying\ndown on wet ground, or staying on a bike.\nParallel: To avoid getting hit by lightning, never seek protection under a tree, lie down\non wet ground, or stay on a bike.\nParallel structure means putting ideas of the same rank in the same grammatical struc-\nture. Your writing (and speech) should have parallel words, phrases, and clauses.\nG Parallel words share the same part of speech (such as nouns, adjectives, or verbs) and\ntense (if the words are verbs).\nG Parallel phrases create an underlying rhythm in your speech and writing."
+            }
+        ],
         "corrected_key": "M:VERB|are"
     },
     {
@@ -249,6 +368,13 @@
         "c_end": 38,
         "corrected_text": "",
         "error_type": "U:PREP",
+        "llm_explanation": "**Error:** U:PREP (Unsupported preposition)\n\n**Explanation:** The original sentence contains an unsupported preposition, 'by'. This type of preposition is not permitted in the corrected version.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "Most prepositions consist of a single word but some \nprepositions may be considered as consisting of more than a single word (e.g. in \nfr\nont of, outside of, out of, next to).\nSome of these words may also be used as adverbs (e.g. about, r\nound/ar\nound, \nby, off, out, over\n):\nWe wer\ne just tour\ning around, stopping off her\ne and ther\ne.\nShe’s not her\ne. She’s out\nPREPOSITIONS\nw\n••J 539 Glossary for any unfamiliar terms"
+            }
+        ],
         "corrected_key": "U:PREP|"
     },
     {
@@ -263,6 +389,13 @@
         "c_end": 49,
         "corrected_text": "club",
         "error_type": "R:NOUN",
+        "llm_explanation": "**Errors:**\n\n- A noun count was incremented by 1 from 50 to 51, violating the expected sequence of numbers.\n- The period after 'club' should be a comma to maintain the list format.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "3)\nabout 228(1)\nafter adjective 236(2)\n= approximately 191(4)\nand around 225(1) Note d\n+ gerund 132(2, 3)\nafter noun 237(2i)\nafter say/tell 266(1) Note c\nafter verb 233(3), 234(5)\nabout to 78(1a),80(3)\nabove 225(1), 225(3b), 226(2a)\nabsent from 236(4)\nabsolutely 212(1a) Note a, 212(7a)\nabsolutely no 17(6b)\nabstract noun\ncountable/uncountable 144(1b)\nlinking with previous text 48(3)\n+ of 133(2b)\nsuffixes 285(2)\nwithout the 165\nabsurd\nquite absurd 212(5c)\nthe absurd 204(2a)\naccept\n+ noun clause 262(1c)\nperformative 16(3)\nverb of reporting 265(2)\naccommodation: uncountable 144(4b)\naccompany + object 233(4)\naccording to 228(1)\naccusative: see object pronoun\naccuse."
+            }
+        ],
         "corrected_key": "R:NOUN|club"
     },
     {
@@ -277,6 +410,13 @@
         "c_end": 1,
         "corrected_text": "No,",
         "error_type": "R:NOUN",
+        "llm_explanation": "**Error:** Missing comma after 'No.'\n\n**Broken rule:** Commas are required to separate items in a list.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "The word (baggy, sacrifice, exhaust, vegetable) is misspelled.\n6. Because of errors in pronunciation, spellers often insert an unnecessary (modifier,\nvowel) between two letters.\n7. (Their, There, They’re) is a possessive word.\n8. The (apostrophe, comma) is used to show possession and to show plural forms.\n9. This mark of punctuation also shows (contraction, parallelism) where a letter or\nnumber has been omitted.\n10. (Quotation marks, Exclamation marks) create an overwrought tone that often\nundercuts your point.\nMultiple-Choice Questions\nChoose the best answer to each question.\n1. The following are all grammar and usage errors except\n(a)\nIncorrect idioms\n(b)\nLack of parallel structure\n(c)\nMissing commas or extra commas\n(d)\nDangling modifiers\n2. The following are all classified as errors in mechanics except\n(a)\nBiased language\n(b)\nMissing or misused apostrophes\n(c)\nMissing commas or extra commas\n(d)\nMisused exclamation marks"
+            }
+        ],
         "corrected_key": "R:NOUN|No,"
     },
     {
@@ -291,6 +431,13 @@
         "c_end": 3,
         "corrected_text": "are",
         "error_type": "R:VERB:SVA",
+        "llm_explanation": "**Errors:**\n\n- Incorrect verb tense: 'is' should be 'are' to match the plural subject '2, 3'.\n- Violation of Subject-Verb Agreement: The verb 'is' does not agree with the plural subject '2, 3'.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "80\nENGLISH GRAMMAR FOR THE UTTERLY CONFUSED\n3. Problems with subject-verb agreement\nIncorrect: Verbs has to agree with their subjects.\nCorrect:\nVerbs have to agree with their subjects.\nAgreement means that sentence parts match, singular to singular and plural to plural.\nSince the subject verbs is plural, it takes a plural verb, agree.\nThis is confusing because we add -s or -es to make the third-person singular form of most\nverbs but add -s or -es to make the plural form of most nouns. For example, he starts is sin-\ngular, but six papers is plural. Both end in s. Agreement is covered in detail in Chapter 5.\n4. Lack of parallel structure\nNot parallel: To avoid getting hit by lightning, never seek protection under a tree, lying\ndown on wet ground, or staying on a bike.\nParallel: To avoid getting hit by lightning, never seek protection under a tree, lie down\non wet ground, or stay on a bike.\nParallel structure means putting ideas of the same rank in the same grammatical struc-\nture. Your writing (and speech) should have parallel words, phrases, and clauses.\nG Parallel words share the same part of speech (such as nouns, adjectives, or verbs) and\ntense (if the words are verbs).\nG Parallel phrases create an underlying rhythm in your speech and writing."
+            }
+        ],
         "corrected_key": "R:VERB:SVA|are"
     },
     {
@@ -305,6 +452,13 @@
         "c_end": 5,
         "corrected_text": "is",
         "error_type": "M:VERB",
+        "llm_explanation": "**Errors:**\n\n- Incorrect word order for the verb \"is\".\n- Missing subject.\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb \"is\" should be preceded by a subject (e.g., \"he is\", \"she is\").",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "Index\n235\nsince, as subordinating conjunction, 135\nSingular indefinite pronouns, 67–69\nSingular subject and verb, 62–65\nSlang, 200\nSlash, 156\nso, as coordinating conjunction, 118, 122\nSpecific words, 201\nSpelling errors, 78, 83–91\nadding letters, 84\nconfusing word pairs, 90–91\ndropping letters, 83–84\nforming incorrect plurals, 85–90\ntransposing errors, 85\nStandard American English, 199–200\nStates, abbreviating, 173\nStrunk, William, Jr. 201\nStyle (see Writing style)\nSubject of sentence:\ncompound, 66\nhard-to-find, 69\nlinking verbs and, 12–13, 21\nrecognizing, 116\nsubject-verb agreement and, 62–69, 80\nSubject of verb, nominative case for, 20–21,\n24\nSubject of writing, 120\nSubject-verb agreement, 62–69, 80\nwith collective nouns, 66–67\nerrors in, 69\nhard-to-find subjects and, 69\nwith indefinite pronouns, 67–69\nintervening phrases and, 69\nplural subject and verb, 62–63,"
+            }
+        ],
         "corrected_key": "M:VERB|is"
     },
     {
@@ -319,6 +473,13 @@
         "c_end": 7,
         "corrected_text": "",
         "error_type": "U:CONJ",
+        "llm_explanation": "**Error:** The original sentence contains a syntax error involving the use of a comma and the word \"or\".\n\n**Broken rule:** The sentence violates the grammatical rule of coordinating conjunction placement, which dictates that coordinating conjunctions (such as \"or\") should be placed between the elements being connected.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "or\nDaddy longlegs spiders are more poisonous than black widows; however, daddy \nlonglegs cannot bite humans because their jaws won’t open wide enough.\nA run-on sentence occurs when two complete sentences (“independent clauses”) are\nincorrectly joined. Sentences can only be joined with a coordinating conjunction (and,\nbut, or, nor, for, so, yet) or a semicolon—a comma doesn’t cut the mustard. See Chapter\n8 for a complete discussion of sentences.\nMost Common Spelling Errors\nWriters often misspell words because they mispronounce them. The three most common mis-\ntakes are\nG Dropping a letter or syllable when we say a word.\nG Adding an unnecessary letter when we say a word.\nG Mispronouncing a word and so misspelling it.\n14. Missing letters\nHere are 10 words that are frequently misspelled because the speaker drops a letter or\nsyllable."
+            }
+        ],
         "corrected_key": "U:CONJ|"
     },
     {
@@ -333,6 +494,13 @@
         "c_end": 5,
         "corrected_text": "in",
         "error_type": "R:PREP",
+        "llm_explanation": "**Error:** Incorrect preposition used.\n\n**Broken rule:** The sentence uses 'about' as a preposition, when it should use 'in' in this context.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "24. Errors in titles\nIncorrect: The Wind In The Willows\nCorrect:\nThe Wind in the Willows\nCapitalize the major words in titles of books, plays, movies, newspapers, and magazines.\nG Do not capitalize the articles: a, an, the.\nG Do not capitalize prepositions: at, by, for, of, in, up, on, so, on, to, etc.\nG Do not capitalize conjunctions: and, as, but, if, or, nor.\nSee Chapter 11 for a complete discussion of capitalization.\nMost Common Proofreading Errors\n25. Missing words\nIncorrect: Proofread carefully to see if you have any words out.\nCorrect:\nProofread carefully to see if you have left any words out.\nThis is a simple rule, but many people run out of time before they can proofread a docu-\nment. Always make the time to proofread your writing. And try to let your writing sit and\n“cool off” for a few hours. The errors will become much more obvious and easier to iso-\nlate."
+            }
+        ],
         "corrected_key": "R:PREP|in"
     },
     {
@@ -347,6 +515,13 @@
         "c_end": 2,
         "corrected_text": "watched",
         "error_type": "R:VERB:TENSE",
+        "llm_explanation": "**Error:** The sentence contains a verb in the infinitive form ('watch'), when it should be in the past tense form ('watched').\n\n**Broken rule:** Incorrect verb tense.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "God save the queen! \nHeaven help us!    Curse this fog! \nCome what may, we'll standby you! Notice also the phrase if need be, which means 'if it is \nnecessary': \nIf need be we can always bring another car. \nIt is sometimes used in poetry, either to express a wish or in clauses of condition or \nconcession: \nSTEVENSON: Fair the day shine as it shone in my childhood. (May \nthe day shine/I hope it will shine.) \nSHAKESPEARE: If this be error, and upon me proved ... (if this is \nerror) \nBYRON: Though the heart be still as loving . . . (though the heart is) \nAs seen in 235 certain verbs are followed by should + infinitive constructions. When the \ninfinitive is be, the should is sometimes omitted: \nHe suggested that a petition {should) be drawn up. The infinitive thus left alone becomes a \nsubjunctive. \n \n \n292 \nas if/as though + past subjunctive \n \nThe past subjunctive can be used after as if/as though to indicate unreality or improbability or \ndoubt in the present (there is no difference between as if and as though): \nHe behaves as if he owned the place."
+            }
+        ],
         "corrected_key": "R:VERB:TENSE|watched"
     },
     {
@@ -361,6 +536,13 @@
         "c_end": 8,
         "corrected_text": "a",
         "error_type": "M:DET",
+        "llm_explanation": "**Errors:**\n\n- **Missing determiner:** The original sentence lacks a determiner (a, an, the, etc.) before the number '7'.\n- **Incorrect word:** The word 'a' in the corrected sentence is incorrect. It should be 'an' before a vowel sound (e.g., 'an apple').",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "The word (baggy, sacrifice, exhaust, vegetable) is misspelled.\n6. Because of errors in pronunciation, spellers often insert an unnecessary (modifier,\nvowel) between two letters.\n7. (Their, There, They’re) is a possessive word.\n8. The (apostrophe, comma) is used to show possession and to show plural forms.\n9. This mark of punctuation also shows (contraction, parallelism) where a letter or\nnumber has been omitted.\n10. (Quotation marks, Exclamation marks) create an overwrought tone that often\nundercuts your point.\nMultiple-Choice Questions\nChoose the best answer to each question.\n1. The following are all grammar and usage errors except\n(a)\nIncorrect idioms\n(b)\nLack of parallel structure\n(c)\nMissing commas or extra commas\n(d)\nDangling modifiers\n2. The following are all classified as errors in mechanics except\n(a)\nBiased language\n(b)\nMissing or misused apostrophes\n(c)\nMissing commas or extra commas\n(d)\nMisused exclamation marks"
+            }
+        ],
         "corrected_key": "M:DET|a"
     },
     {
@@ -375,6 +557,13 @@
         "c_end": 2,
         "corrected_text": "makes",
         "error_type": "R:VERB:SVA",
+        "llm_explanation": "**Error:** Incorrect verb tense.\n\n**Broken rule:** The verb \"make\" should be conjugated in the plural form \"makes\" when the subject is \"1\" and \"2\".",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "Using Verbs Correctly\n39\n3. Don’t switch tenses in midstream.\nNever shift tenses in the middle of a sentence or a paragraph because it confuses readers.\nThis guideline is especially important if your sentence contains more than one verb.\nIncorrect: I thought I had broken the CD player when I dropped it on the floor, but it sud-\npast\npast perfect\npast\ndenly begins to play!\npresent\nCorrect: I thought I had broken the CD player when I dropped it on the floor, but it sud-\npast\npast perfect\npast\ndenly began to play!\npast\nActive and Passive Voice\nIn addition to showing time through tense, action verbs also show whether the subject per-\nforms the action or receives the action. This is called a verb’s voice. English verbs have two\nvoices: active and passive. (Linking verbs do not show voice.)\n1. A verb is active when the subject performs the action.\nWe took the package home. (“We” are doing the action.)\nI served a delicious meal. (“I” am doing the serving.)\nNotice that in the active voice, the sentence starts with the subject. The first sentence\nstarts with We. The second sentence starts with I.\n2. A verb is passive when its action is performed upon the subject.\nTense\nUse\nExample\nSimple future\nFuture action\nThe bus will arrive."
+            }
+        ],
         "corrected_key": "R:VERB:SVA|makes"
     },
     {
@@ -389,6 +578,13 @@
         "c_end": 7,
         "corrected_text": "become,",
         "error_type": "R:PUNCT",
+        "llm_explanation": "**Error:** Incorrect punctuation of the verb \"became.\"\n\n**Broken rule:** The correct form of the verb is \"become,\" not \"became.\"",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "84\nENGLISH GRAMMAR FOR THE UTTERLY CONFUSED\nG Accidentally: The word has five syllables; drop one and accidentally becomes acci-\ndently.\nG Accompaniment: The second a and the only i are the problems with accompaniment.\nTo remember the i, you might want to use this mnemonic: there’s a lot of animal in\naccompaniment.\nG Acreage: The e presents the spelling problem because it is rarely stressed in speech.\nThat’s how people end up with acrage. It’s also common for writers to misplace the e,\nas in acerage.\nG Anecdote: Letters get dropped when writers mispronounce anecdote as anedote. Then\nthere’s antidote—a legitimate word, but the wrong one in context.\nG Asked: This word gets mangled as ast or even axed. This results in such curious\nspellings as askd, askt, and axst.\nG Asterisk: This word can end up spelled aterisk, askterisk, or even acksterisk.\nG Broccoli: It’s not hard to drop a c and add an l with this veggie. The correct pronunci-\nation isn’t going to do you much good here, so try breaking the word into two parts:\nbroc and coli."
+            }
+        ],
         "corrected_key": "R:PUNCT|become,"
     },
     {
@@ -403,6 +599,13 @@
         "c_end": 12,
         "corrected_text": "admirations",
         "error_type": "R:MORPH",
+        "llm_explanation": "**Error:** The word \"admires\" was incorrectly used as a plural.\n\n**Broken rule:** The correct plural of \"admire\" is \"admirations\".",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "The 25 Most Common Usage Problems\n85\nQuick Tip\nLong-time speakers and readers of English have learned basic connections\nbetween sounds and letter combinations that help them spell a large number of\nwords. However, for historical reasons, certain combinations of letters are not\nalways pronounced in the same way. For example, ough can be pronounced differ-\nently as in thought, bough, through, drought.\n16. Transposed letters\nMispronunciation can also result in scrambled letters. Here are some words especially\nprone to switched letters.\naesthetic\nallegiance\nanalysis\nanalyze\nanonymous\nauxiliary\nbureaucrat\ndiaphragm\nentrepreneur\ngasoline\ngauge\ngorgeous\nirrelevant\nkhaki\nlingerie\nmileage\npsychology\nresuscitate\nrhyme\nrhythm\n17. Incorrect plurals\nRemember that plural nouns name more than one person, place, or thing. There are reg-\nular plurals and irregular ones. The regular plurals rarely result in spelling errors, but\nirregular plurals often cause trouble. Keep regular and irregular plurals straight and\nyou’ll eliminate a bunch of spelling errors. Below are some spelling rules to help you\nform the correct plurals.\nG Most regular plurals are formed by adding s to the end of the word."
+            }
+        ],
         "corrected_key": "R:MORPH|admirations"
     },
     {
@@ -417,6 +620,13 @@
         "c_end": 2,
         "corrected_text": "went",
         "error_type": "R:VERB:TENSE",
+        "llm_explanation": "**Error:** The sentence contains a verb tense inconsistency.\n\n**Broken rule:** The verb \"go\" should be replaced with its past tense \"went\" to match the tense of the other action verbs (1 and 2).",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "Tense of verb in main clause  \nTense of verb in subordinate clause\nPresent \nHe thinks that it will rain. \nFuture simple  \nPast \nHe thought that it would rain.*  \nConditional  \nPresent \nHe sees that he has made a mistake. \nPres. perf.  \nPast \nHe saw that he had made a mistake.* \nPast perf.  \nPresent \nI work so hard that I am always tired. \nPresent  \nPast  \nI worked so hard that I was always tired.* Past  \nPres. perf. \nHe has done all that is necessary. \nPresent \nPast perf. \nHe had done all that was necessary.*  \nPast \nPresent  \nHe says that he is going to eat it.  \nPres. continuous \nPast \nHe said that he was going to eat it.*  \nPast continuous \n \nNote that infinitive and gerunds are not affected by the above rule: \nHe wants to go to Lyons. \nHe wanted to go to Lyons. \nHe likes riding. \nHe liked riding. \nThe rule about sequence of tenses applies also to indirect speech when the introductory verb \nis in a past tense. (See chapter 31.) \nA Practical English Grammar \n143"
+            }
+        ],
         "corrected_key": "R:VERB:TENSE|went"
     },
     {
@@ -431,6 +641,13 @@
         "c_end": 16,
         "corrected_text": "",
         "error_type": "U:VERB:FORM",
+        "llm_explanation": "**Error:** U:VERB:FORM - The sentence contains an incorrect verb form.\n\n**Broken rule:** The verb \"to\" should be replaced with the correct verb form \"is\" or \"are\".",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "Writing Correct and Complete Sentences\n121\nSentence Errors: Run-on Sentences \nand Comma Splices\nThere are two basic types of sentence errors: fragments and run-on sentences. These problems\nwith sentence construction confuse your readers and obscure your meaning. Their use will\nalso result in clumsy, unpolished writing and speech. Let’s look at each of these sentence\nerrors in detail so that you’ll be able to fix them with ease.\nAs you’ve learned, there are two types of clauses: independent and dependent.\nG Independent clauses are complete sentences because they have a subject, a verb, and\nexpress a complete thought.\nI go to the movies every Saturday night.\nRichard Nixon’s favorite drink was a dry martini.\nG Dependent clauses cannot stand alone because they do not express a complete thought,\neven though they have a subject and a verb.\nSince\nI\nenjoy the movies.\nsubject. verb\nBecause Richard Nixon’s favorite \ndrink \nwas a dry martini.\nsubject. verb\nA run-on sentence is two incorrectly joined independent clauses. A comma splice is a run-\non sentence with a comma where the two independent clauses run together. When your sen-\ntences run together, your ideas are garbled.\nRun-on: Our eyes are always the same size from birth our nose and ears never stop growing."
+            }
+        ],
         "corrected_key": "U:VERB:FORM|"
     },
     {
@@ -445,6 +662,13 @@
         "c_end": 25,
         "corrected_text": "",
         "error_type": "U:PREP",
+        "llm_explanation": "**Errors:**\n\n- Insertion of an unnecessary word (\"on\") between two numbers.\n- Violation of the rule of placing nothing between two numbers in this context.",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "The word (baggy, sacrifice, exhaust, vegetable) is misspelled.\n6. Because of errors in pronunciation, spellers often insert an unnecessary (modifier,\nvowel) between two letters.\n7. (Their, There, They’re) is a possessive word.\n8. The (apostrophe, comma) is used to show possession and to show plural forms.\n9. This mark of punctuation also shows (contraction, parallelism) where a letter or\nnumber has been omitted.\n10. (Quotation marks, Exclamation marks) create an overwrought tone that often\nundercuts your point.\nMultiple-Choice Questions\nChoose the best answer to each question.\n1. The following are all grammar and usage errors except\n(a)\nIncorrect idioms\n(b)\nLack of parallel structure\n(c)\nMissing commas or extra commas\n(d)\nDangling modifiers\n2. The following are all classified as errors in mechanics except\n(a)\nBiased language\n(b)\nMissing or misused apostrophes\n(c)\nMissing commas or extra commas\n(d)\nMisused exclamation marks"
+            }
+        ],
         "corrected_key": "U:PREP|"
     },
     {
@@ -459,6 +683,13 @@
         "c_end": 27,
         "corrected_text": "positions,",
         "error_type": "R:NOUN",
+        "llm_explanation": "**Errors:**\n\n- **Missing article:** The word \"positions\" should be preceded by an article (e.g., \"the\", \"a\", \"some\").\n- **Incorrect part of speech:** \"positions\" is a noun, but it is being used in the context of a verb phrase (e.g., \"to position\").",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "24. Errors in titles\nIncorrect: The Wind In The Willows\nCorrect:\nThe Wind in the Willows\nCapitalize the major words in titles of books, plays, movies, newspapers, and magazines.\nG Do not capitalize the articles: a, an, the.\nG Do not capitalize prepositions: at, by, for, of, in, up, on, so, on, to, etc.\nG Do not capitalize conjunctions: and, as, but, if, or, nor.\nSee Chapter 11 for a complete discussion of capitalization.\nMost Common Proofreading Errors\n25. Missing words\nIncorrect: Proofread carefully to see if you have any words out.\nCorrect:\nProofread carefully to see if you have left any words out.\nThis is a simple rule, but many people run out of time before they can proofread a docu-\nment. Always make the time to proofread your writing. And try to let your writing sit and\n“cool off” for a few hours. The errors will become much more obvious and easier to iso-\nlate."
+            }
+        ],
         "corrected_key": "R:NOUN|positions,"
     },
     {
@@ -473,6 +704,13 @@
         "c_end": 36,
         "corrected_text": "player",
         "error_type": "R:NOUN:NUM",
+        "llm_explanation": "**Errors:**\n\n- **Number of nouns:** The corrected text has one noun (\"player\"), while the original has three (\"players\").\n- **Case of noun:** The corrected text uses the singular form \"player,\" while the original used the plural form \"players.\"",
+        "rag": [
+            {
+                "rank": 1,
+                "content": "3481\n Nouns and determiners\nOver\n 100,000 suppor\nter\ns waited to see the game but the majority was outside \nwatching on a lar\nge scr\neen.\n(less typical usage: treated as a unified body; more formal)\n[from a film review]\nThe rest of the cast are okay as well but no one r\neally stands out, and the \nspecial effects ar\ne mer\nely okay, too.\n(treated as composed of separate individuals)\nThe rest of the Eur\nopean Union now seems r\neady to r\neluctantly bow to Br\nitish \npr\nessur\ne that justice and home affair\ns r\nemain pr\nimar\nily a matter\n for\n \ninter\ngover\nnmental cooper\nation.\n(treated as a unified body)\nTher\ne were a number of str\nange facts that wer\ne difficult to explain, and the \njudge decided that she was the mur\nder\ner\n.\n(almost always plural agreement even though singular in form)\nA couple of boys were standing at the cor\nner\n.\n(almost always plural agreement even though singular in form)\nAgreement with quantifying expressions \n182b\nThe quantifying expressions a good deal of, a gr\neat deal of, plenty of and \nconstructions with quantity of and amount of are restricted to use with certain \ntypes of noun."
+            }
+        ],
         "corrected_key": "R:NOUN:NUM|player"
     }
 ]

@@ -10,18 +10,20 @@ if local:
     from grammar_checker import GrammarChecker
     from llm.ChatFactory import ChatFactory
     from audio_extractor import AudioExtractor
+    from rag.RAGFactory import RAGFactory
     prefix = "../"
 else:
     from .file_manager import FileManager
     from .grammar_checker import GrammarChecker
     from .llm.ChatFactory import ChatFactory
     from .audio_extractor import AudioExtractor
+    from .rag.RAGFactory import RAGFactory
     prefix = ""
 
 import errant
 
 class StudyPlanCreator:
-    def __init__(self, llm_model, max_new_tokens=250):
+    def __init__(self, llm_model, rag_engine, max_new_tokens=250):
         self.cache_files_paths = {
             'raw_sentence_collection': prefix + 'cache/raw_sentence_collection.json',
             'explained_sentences': prefix + 'cache/explained_sentences.json',
@@ -38,6 +40,8 @@ class StudyPlanCreator:
         self.__splitter = SentenceSplitter(language='en')
         self.__grammar_checker = GrammarChecker(public_api=False)
 
+        self.__rag_engine = rag_engine
+
     def create_study_plan(self, speaker_context: dict):
         print("create_study_plan is started...")
 
@@ -47,9 +51,8 @@ class StudyPlanCreator:
             raw_sentence_collection = self.prepare_sentence_collection(speaker_context)
             self.__file_manager.save_to_json_file(self.cache_files_paths['raw_sentence_collection'], raw_sentence_collection)
 
-        errant_all_errors = self.__file_manager.read_from_json_file(self.cache_files_paths['errant_all_errors'])
         explained_sentences = self.__file_manager.read_from_json_file(self.cache_files_paths['explained_sentences'])
-        if errant_all_errors is None:
+        if explained_sentences is None:
             print("explain_sentences is processing...")
             errant_all_errors, errant_detailed_errors, errant_corrected_errors, errant_simple_errors, explained_sentences = self.explain_sentences(raw_sentence_collection)
             self.__file_manager.save_to_json_file(self.cache_files_paths['errant_all_errors'],
@@ -139,6 +142,14 @@ class StudyPlanCreator:
                 corrected_text = e.c_str
                 original_text = e.o_str
 
+                final_prompt = (
+                    f"Please explain the errors that were found as briefly as possible, focusing only on the main idea and the broken rule in the English language:\n\n"
+                    f"{e}\n"
+                )
+
+                errant_llm_explained = self.__chat_llm.get_answer(final_prompt)
+                rag = self.__rag_engine.search(errant_llm_explained, 1)
+
                 error_description = {
                     'index': index,
                     'speaker': evaluation['speaker'],
@@ -151,8 +162,11 @@ class StudyPlanCreator:
                     'c_end': e.c_end,
                     'corrected_text': corrected_text,
                     'error_type': error_type,
+                    'llm_explanation': errant_llm_explained,
+                    'rag': rag,
                     }
-                print(error_description)
+
+                print(errant_llm_explained)
                 error_description_list.append(error_description)
                 # Formato 1: { Tipo de error: Texto corregido: Texto original } - { lista de oraciones con este error }
                 detailed_key = f"{error_type}|{corrected_text}|{original_text}"
@@ -194,6 +208,7 @@ if __name__ == '__main__':
     file_manager = FileManager()
     diarization = file_manager.read_from_json_file("../cache/diarization_result_test.json")
     chat_llm = ChatFactory.get_instance(llm_modelId)
-    creator = StudyPlanCreator(chat_llm)
+    rag_engine = RAGFactory().get_instance("ragatouille")
+    creator = StudyPlanCreator(chat_llm, rag_engine)
     speakers_context = AudioExtractor().get_diarization_grouped_by_speaker(diarization)
     study_plan = creator.create_study_plan(speakers_context)

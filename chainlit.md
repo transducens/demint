@@ -1,7 +1,3 @@
 # Welcome to English Tutor Chat Bot AI! 🚀🤖
 
-Let's start by learning English.
-
-Ask a question about English grammar or vocabulary. For example:
-1. How does past perfect work?
-2. How does the past simple tense work?
+Please wait a little bit while I load the language model weights into memory, prepare the indexes for contextual search, and configure the other subsystems... ⏳

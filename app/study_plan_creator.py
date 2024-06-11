@@ -23,7 +23,7 @@ else:
 import errant
 
 class StudyPlanCreator:
-    def __init__(self, llm_model, rag_engine, max_new_tokens=250):
+    def __init__(self, llm_model, rag_engine = None, max_new_tokens=250, is_logging_enabled = False):
         self.cache_files_paths = {
             'raw_sentence_collection': prefix + 'cache/raw_sentence_collection.json',
             'explained_sentences': prefix + 'cache/explained_sentences.json',
@@ -41,6 +41,7 @@ class StudyPlanCreator:
         self.__grammar_checker = GrammarChecker(public_api=False)
 
         self.__rag_engine = rag_engine
+        self.__is_logging_enabled = is_logging_enabled
 
     def create_study_plan(self, speaker_context: dict):
         print("create_study_plan is started...")
@@ -101,8 +102,6 @@ class StudyPlanCreator:
         for evaluation in raw_sentence_collection:
             index = evaluation['index']
             original_sentence = evaluation['original_sentence']
-
-            lt_errors = self.__grammar_checker.check(original_sentence)
             t5_checked_sentence = self.__grammar_checker.t5_check_sentence(original_sentence)
 
             if original_sentence == t5_checked_sentence:
@@ -111,22 +110,15 @@ class StudyPlanCreator:
             if original_sentence not in explained_sentences:
                explained_sentences[original_sentence] = []
 
-            print(f'====================== original_sentence {index} ======================')
-            print(original_sentence)
-            print(f'---T5---')
-            print(t5_checked_sentence)
-            print(f'---LLM---')
             final_prompt = (
                 f"You are an English teacher. Please explain the errors that were corrected in the following sentence:\n\n"
                 f"Original: {original_sentence}\n"
                 f"Corrected: {t5_checked_sentence}\n\n"
                 f"List and explain the errors found in the original sentence and how they were corrected in the revised sentence."
             )
+
             llm_explained = self.__chat_llm.get_answer(final_prompt)
-            print(llm_explained)
-            print(f'---LT---')
-            print(lt_errors)
-            print('---ERRANT---')
+            lt_errors = self.__grammar_checker.check(original_sentence)
 
             annotated_original_sentence = annotator.parse(original_sentence)
             annotated_t5_checked_sentence = annotator.parse(t5_checked_sentence)
@@ -148,7 +140,10 @@ class StudyPlanCreator:
                 )
 
                 errant_llm_explained = self.__chat_llm.get_answer(final_prompt)
-                rag = self.__rag_engine.search(errant_llm_explained, 1)
+
+                rag = []
+                if self.__rag_engine is not None:
+                    rag = self.__rag_engine.search(errant_llm_explained, 1)
 
                 error_description = {
                     'index': index,
@@ -166,7 +161,7 @@ class StudyPlanCreator:
                     'rag': rag,
                     }
 
-                print(errant_llm_explained)
+                #print(errant_llm_explained)
                 error_description_list.append(error_description)
                 # Formato 1: { Tipo de error: Texto corregido: Texto original } - { lista de oraciones con este error }
                 detailed_key = f"{error_type}|{corrected_text}|{original_text}"
@@ -201,6 +196,10 @@ class StudyPlanCreator:
                 'errant': error_description_list,
             })
 
+            if self.__is_logging_enabled and len(explained_sentences[original_sentence]) > 1:
+                print(f'====================== original_sentence {index} ======================')
+                print(explained_sentences[original_sentence])
+
         return all_errors, detailed_errors, corrected_errors, simple_errors, explained_sentences
 
 if __name__ == '__main__':
@@ -208,7 +207,7 @@ if __name__ == '__main__':
     file_manager = FileManager()
     diarization = file_manager.read_from_json_file("../cache/diarization_result_test.json")
     chat_llm = ChatFactory.get_instance(llm_modelId)
-    rag_engine = RAGFactory().get_instance("ragatouille")
-    creator = StudyPlanCreator(chat_llm, rag_engine)
+    ragatouille_rag = RAGFactory().get_instance("ragatouille")
+    creator = StudyPlanCreator(chat_llm, ragatouille_rag)
     speakers_context = AudioExtractor().get_diarization_grouped_by_speaker(diarization)
     study_plan = creator.create_study_plan(speakers_context)

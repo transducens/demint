@@ -2,8 +2,8 @@ from app.rag.content_extractor import ContentExtractor
 from app.rag.rag_faiss import RagFAISS
 from app.rag.rag_ragatouille import RAGatouilleTutor
 
-part_count = 3
-overlap = 0.1
+part_count = 400
+overlap = 0.25
 
 
 class RAGFactory:

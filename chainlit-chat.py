@@ -107,11 +107,15 @@ async def on_message(message: cl.Message):
     theme = None
     if counter == 0:
         print(f'counter: {counter}')
-        study_plan: list = cl.user_session.get("study_plan")
+        study_plan: dict = cl.user_session.get("study_plan")
+
         res = None
         while res is None or res.get("value") != "continue":
-            theme = random.choice(study_plan)
-            res = await ask_action(theme['explanation'])
+            theme_key = random.choice(list(study_plan.keys()))
+            theme_value = study_plan[theme_key]
+            print("theme_value")
+            print(theme_value)
+            res = await ask_action(theme_key)
 
         msg = cl.Message(content='')
         await msg.send()

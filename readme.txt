@@ -28,24 +28,29 @@ Step 2: Clone the Project Repository
     #to update: git pull https://github.com/transducens/demint.git
 
 Step 3: Create a Conda Environment
-    Option 1:
+    Option 1 (recommended):
         conda env create -f environment.yml
         conda activate DeMINT
+        pip install -r requirements.txt
+        pip install pymupdf whisper-openai bitsandbytes
         python -m spacy download en_core_web_sm
 
-    Option 2:
-        conda create --name DeMINT python=3.11
-        conda activate DeMINT
-        conda env update --name DeMINT --file environment.yml --prune
-        python -m spacy download en_core_web_sm
-
-    Option 3 (for clean system):
+    Option 2 (for clean system):
         conda create --name DeMINT python=3.11
         conda activate DeMINT
         conda install pytorch torchvision torchaudio pytorch-cuda=11.8 cuda-toolkit faiss-gpu -c defaults -c pytorch -c nvidia -c conda-forge -y
-        pip install errant chainlit gradio pyannote.audio language-tool-python pymupdf evaluate bitsandbytes pytube sentence-splitter sentence-transformers ragatouille huggingface_hub whisper-openai accelerate happytransformer
+        pip install errant chainlit gradio pyannote.audio language-tool-python pymupdf evaluate bitsandbytes pytube sentence-splitter sentence-transformers ragatouille huggingface_hub whisper-openai accelerate happytransformer pipreqs
         python -m spacy download en_core_web_sm
-        conda env export > environment.yml
+        conda env export --from-history > environment.yml
+
+            Change environment.yml:
+                channels:
+                  - defaults
+                  - pytorch
+                  - nvidia
+                  - conda-forge
+
+        pipreqs --force .
 
 Step 4: Hugging Face CLI Login
    To use models from the Hugging Face Hub, you'll need to log in via their CLI tool. This is essential for downloading model files:
@@ -54,18 +59,6 @@ Step 4: Hugging Face CLI Login
      huggingface-cli login
 
    - Enter your Hugging Face API token when prompted. You can find or create an API token on your Hugging Face account's settings page.
-
-Step 5: Organizing PDF
-   For the project to process your documents and audio files correctly, please organize them into specific folders within the project directory:
-
-   - PDF Documents for RAG: Place your PDF documents into a folder named pdf_rag. These documents will be used for text-based queries and information retrieval.
-
-Step 6: To use LLM (docker)
-    docker run --gpus all --shm-size 64g -e HUGGING_FACE_HUB_TOKEN=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 -p 8083:80 -v D:/Development/UNIVERSIDAD/BECA/tgi:/data ghcr.io/huggingface/text-generation-inference:2.0.3 --model-id google/gemma-1.1-7b-it --num-shard 1 --max-input-tokens 1000 --max-batch-prefill-tokens 1000
-
-    Recommended models:
-    - google/gemma-1.1-7b-it
-    - google/gemma-1.1-2b-it
 
 By following these setup instructions, you'll ensure that all components of the project function correctly.
 

@@ -105,10 +105,14 @@ wsl --unregister Ubuntu-20.04 #to remove wsl
 
 DOCKER:
 docker login
-docker build -t levnikolaevich87/english-tutor:latest .
-docker push levnikolaevich87/english-tutor:latest
-docker pull levnikolaevich87/english-tutor:latest
-docker run -e HF_TOKEN='your token' --gpus all -p 8080:8000 levnikolaevich87/english-tutor:latest
+
+to build an image:
+docker build -t levnikolaevich87/demint:latest .
+docker push levnikolaevich87/demint:latest
+
+to use an image:
+docker pull levnikolaevich87/demint:latest
+docker run -e HF_TOKEN='your token' --gpus all -p 8080:8000 levnikolaevich87/demint:latest
 
 CUDA:
 nvcc --version

@@ -1,7 +1,7 @@
 import os
 from ragatouille import RAGPretrainedModel
 
-from app.rag.rag_engine_interface import IRagEngine
+from rag_engine_interface import IRagEngine
 
 index_name = 'tutor'
 max_document_length = 300

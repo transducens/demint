@@ -30,7 +30,7 @@ def initialize_global_variables():
     if english_tutor is None:
         print("initialize english_tutor started")
         english_tutor = EnglishTutor()
-        english_tutor.set_rag_engine("faiss")
+        #english_tutor.set_rag_engine("faiss")
         print("initialize english_tutor finished")
 
     if speakers_context is None:
@@ -294,5 +294,5 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
 
 
 if __name__ == '__main__':
-    is_public_link = False
+    is_public_link = True
     demo.launch(share=is_public_link)

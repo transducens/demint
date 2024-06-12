@@ -1,6 +1,6 @@
-from content_extractor import ContentExtractor
+from app.rag.content_extractor import ContentExtractor
 #from rag_faiss import RagFAISS
-from rag_ragatouille import RAGatouilleTutor
+from app.rag.rag_ragatouille import RAGatouilleTutor
 
 part_count = 400
 overlap = 0.25

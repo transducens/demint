@@ -10,3 +10,4 @@ __pycache__
 /logs
 init_env.sh
 *.log
+check_dependencies.py

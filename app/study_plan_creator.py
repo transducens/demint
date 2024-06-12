@@ -38,7 +38,8 @@ class StudyPlanCreator:
 
         self.__file_manager = FileManager()
         self.__splitter = SentenceSplitter(language='en')
-        self.__grammar_checker = GrammarChecker(public_api=False)
+        self.__grammar_checker_lt = GrammarChecker(gec_model="LT_API")
+        self.__grammar_checker_t5 = GrammarChecker(gec_model="T5")
 
         self.__rag_engine = rag_engine
 
@@ -102,8 +103,8 @@ class StudyPlanCreator:
             index = evaluation['index']
             original_sentence = evaluation['original_sentence']
 
-            lt_errors = self.__grammar_checker.check(original_sentence)
-            t5_checked_sentence = self.__grammar_checker.t5_check_sentence(original_sentence)
+            lt_errors = self.__grammar_checker_lt.check(original_sentence)
+            t5_checked_sentence = self.__grammar_checker_t5.correct_sentences([original_sentence])
 
             if original_sentence == t5_checked_sentence:
                 continue

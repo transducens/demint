@@ -2,6 +2,7 @@ import gradio as gr
 import tracemalloc
 import time
 from english_tutor import EnglishTutor
+from app.file_manager import FileManager
 import re
 
 english_tutor: EnglishTutor | None = None
@@ -20,6 +21,8 @@ default_colors = {
     "olive": "#947825"
 }
 speaker_color = default_colors['dark blue']
+raw_sentences: dict | None = None
+explained_sentences = {}
 
 tracemalloc.start()
 
@@ -38,6 +41,7 @@ def initialize_global_variables():
         # A list of speakers and their transcripts from the audio file.
         speakers_context = english_tutor.get_speakers_context()
         print("initialize speakers_context finished")
+
 
 # Chat with the AI using the given query.
 def chat_with_ai(query):
@@ -120,6 +124,7 @@ def highlight_text(text="", font_color="#FFFFFF", background_color="#000000"):
     return f'<span style="color: {font_color}; background-color: {background_color}">{text}</span>'
 
 
+
 # Receives as a parameter the name of the speaker selected in the dropdown.
 # Using speaker_context, it joins each sentence in a string.
 # Returns a string that is the text spoken by the selected speaker or speakers.
@@ -135,7 +140,6 @@ def handle_dropdown_selection(speaker_selection):
             for speaker_context in speakers_context:
                 selected_speaker_text += (
                     '<a id="' + speaker_context[0] + '">'
-                    + speaker_context[0] + " " 
                     + speaker_context[1] + " " 
                     + speaker_context[2] + "\n\n"
                     + "</a>"
@@ -146,17 +150,18 @@ def handle_dropdown_selection(speaker_selection):
             for speaker_context in speakers_context:
                 if speaker_context[1] == speaker_selection:
                     selected_speaker_text += highlight_text(text=
-                            speaker_context[0] + " " 
+                            '<a id="' + speaker_context[0] + '">'
                             + speaker_context[1] + " " 
                             + speaker_context[2],
                             background_color=speaker_color
                         ) + "\n\n"
                 else:
                     selected_speaker_text += (
-                        speaker_context[0] + " " 
-                        + speaker_context[1] + " " 
-                        + speaker_context[2] + "\n\n"
-                    )
+                    '<a id="' + speaker_context[0] + '">'
+                    + speaker_context[1] + " " 
+                    + speaker_context[2] + "\n\n"
+                    + "</a>"
+                )
 
     # Add scrollable container
     result = f"<div>{selected_speaker_text}</div>"
@@ -338,7 +343,7 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
             goto_button.click(
                 None, 
                 inputs=[query],
-                js=js_autoscroll_function_by_id)
+                js=js_autoscroll_function_by_value)
 
     theme=gr.themes.Base()
 

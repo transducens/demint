@@ -40,7 +40,7 @@ async def setup_agent(settings):
     end = time.time()
     print("time:", end - start)
 
-    print("on_settings_update", settings)
+    #print("on_settings_update", settings)
 
 
 @cl.on_chat_start
@@ -61,13 +61,7 @@ async def on_chat_start():
     study_plan = english_tutor.get_study_plan(speakerId)
     cl.user_session.set("study_plan", study_plan)
     end = time.time()
-    print("time:", end - start)
-
-    hello_msg = f"Hello, {speakerId}! Would you like to learn English?\n"
-
-    await cl.Message(
-        content=hello_msg
-    ).send()
+    print("on_chat_start time:", end - start)
 
     available_RAG = english_tutor.get_supported_rag_engines()
 
@@ -98,51 +92,95 @@ async def on_chat_start():
         ]
     ).send()
 
+    hello_msg = f"# Welcome to English Tutor Chat Bot AI! 🚀🤖\n\n"
+    hello_msg += f"{speakerId}, let's start by learning English!"
+    initial_message = cl.Message(content=hello_msg)
+    await initial_message.send()
+    await on_message(None)
+
 
 @cl.on_message
 async def on_message(message: cl.Message):
     english_tutor = cl.user_session.get("english_tutor")
     counter = cl.user_session.get("counter")
 
-    theme = None
     if counter == 0:
         print(f'counter: {counter}')
         study_plan: dict = cl.user_session.get("study_plan")
 
+        #Step 1: Select a sentence to practice
         res = None
+        errant = None
         while res is None or res.get("value") != "continue":
             theme_key = random.choice(list(study_plan.keys()))
-            theme_value = study_plan[theme_key]
-            print("theme_value")
-            print(theme_value)
-            res = await ask_action(theme_key)
+            theme_value = study_plan[theme_key][0]
+            #print(theme_value)
+            errant_errores = theme_value['errant']
 
+            if len(errant_errores) == 0:
+                continue
+
+            errant = random.choice(errant_errores)
+
+            # Highlight the error and correction in the sentence
+            original_sentence = errant["sentence"]
+            corrected_sentence = errant["corrected_sentence"]
+
+            def highlight_word_in_sentence(sentence, start_idx, end_idx, highlight_text):
+                words = sentence.split()
+                highlighted_sentence = " ".join(
+                    words[:start_idx] +
+                    [f'**[{highlight_text}]**'] +
+                    words[end_idx:]
+                )
+                return highlighted_sentence
+
+            # Highlight the error and correction in the sentence
+            highlighted_original_sentence = highlight_word_in_sentence(
+                original_sentence, errant["o_start"], errant["o_end"],
+                errant["original_text"] if errant["original_text"] else "______"
+            )
+
+            highlighted_corrected_sentence = highlight_word_in_sentence(
+                corrected_sentence, errant["c_start"], errant["c_end"],
+                errant["corrected_text"] if errant["corrected_text"] else f'~~{errant["original_text"]}~~'
+            )
+
+            text = "**You've made mistake in the following sentence:**\n\n*" + highlighted_original_sentence + "*\n\n"
+            text += "**It's corrected sentence:**\n\n*" + highlighted_corrected_sentence + "*\n\n"
+            text += errant["llm_explanation"] + "\n\n"
+            text += "Do you want to practice the error?"
+
+            await cl.Message(
+                content=text,
+            ).send()
+
+            res = await ask_action()
+
+        # Step 2: First exercise
         msg = cl.Message(content='')
         await msg.send()
 
-        context = ""
-
         # selected_speaker_text = cl.user_session.get("selected_speaker_text")
-        mistake_description = theme['explanation']
-
-        RAG_context = await cl.make_async(english_tutor.search_in_index)(mistake_description, RAG_search_k)
+        mistake_description = errant['llm_explanation']
+        RAG_context = errant['rag']
 
         content_list = [f'{item["content"]}' for item in RAG_context]
         context_str = "\n----------\n".join(content_list)
 
-        context += "\n\nThe English rule:\n"
+        context = "\n\nThe English rule:\n"
         context += "\n\n" + context_str + "\n"
 
         context += "\n\nMistake description: \n"
         context += mistake_description
 
-        final_prompt = (f"You are english teacher. \n\nCONTEXT:\n{context} QUESTION:\n Create an exercise to practice "
-                        f"my mistake.")
+        final_prompt = (
+            f"You are an English teacher talking to a student. \n\n"
+            f"CONTEXT:\n{context}\n"
+            f"QUESTION:\n Create an short exercise to help a student practice their mistake.")
 
-        print(final_prompt)
         response = await cl.make_async(english_tutor.get_answer)(final_prompt, max_new_tokens)
-
-        response = f"{mistake_description} \n\n {response}"
+        cl.user_session.set("user_excercise", response)
 
         counter += 1
         cl.user_session.set("counter", counter)
@@ -154,33 +192,34 @@ async def on_message(message: cl.Message):
         msg = cl.Message(content='')
         await msg.send()
 
+        # Step 3: Check user answer, explain result and create new exercise
         context = "The current exersice is: \n"
-        context += ''
+        context += cl.user_session.get("user_excercise")
 
         context = "\n\nThe user answer:\n"
         context += "\n\n" + message.content + "\n"
 
-        final_prompt = f"Check user answer, explain result and create new exercise:\n\nCONTEXT:\n{context}"
+        final_prompt = (f"Check user answer, explain result and create new exercise:\n\n"
+                        f"CONTEXT:\n{context}"
+                        f"QUESTION:\n Check my answer, explain result and create new exercise")
 
-        print(final_prompt)
         response = await cl.make_async(english_tutor.get_answer)(final_prompt, max_new_tokens)
+        cl.user_session.set("user_excercise", response)
 
         if counter == 4:
+            response += "\n\n**You have completed the exercise. Let\'s continue!**"
             cl.user_session.set("counter", 0)
-
 
     msg.content = f"{response}"
 
     await msg.update()
 
 
-async def ask_action(content):
+async def ask_action():
     return await cl.AskActionMessage(
-        content=content,
+        content="Make a decision",
         actions=[
             cl.Action(name="cancel", value="cancel", label="❌ No, thank you..."),
             cl.Action(name="continue", value="continue", label="✅ Yes, please!"),
         ],
     ).send()
-
-

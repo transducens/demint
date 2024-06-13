@@ -25,12 +25,12 @@ class RAGatouilleTutor(IRagEngine):
         print("Index ragatouille does not exist. Preparation index.")
         rag = RAGPretrainedModel.from_pretrained(self.__model_name)
 
-        my_documents = [get_wikipedia_page("Hayao_Miyazaki"), get_wikipedia_page("Studio_Ghibli")]
-        print(my_documents)
-        print(len(my_documents))
+        #my_documents = [get_wikipedia_page("English")]
+        #print(my_documents)
+        #print(len(my_documents))
 
         rag.index(
-            collection=my_documents,
+            collection=collection,
             index_name=index_name,
             max_document_length=max_document_length,
             split_documents=split_documents,

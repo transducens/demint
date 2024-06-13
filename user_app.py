@@ -22,18 +22,17 @@ default_colors = {
 }
 speaker_color = default_colors['dark blue']
 raw_sentences: dict | None = None
-explained_sentences = {}
+explained_sentences: dict | None = None
 
 tracemalloc.start()
 
 # Initialize the global variables.
 def initialize_global_variables():
-    global english_tutor, speakers_context
+    global english_tutor, speakers_context, explained_sentences
 
     if english_tutor is None:
         print("initialize english_tutor started")
         english_tutor = EnglishTutor()
-        english_tutor.set_rag_engine("faiss")
         print("initialize english_tutor finished")
 
     if speakers_context is None:
@@ -41,6 +40,11 @@ def initialize_global_variables():
         # A list of speakers and their transcripts from the audio file.
         speakers_context = english_tutor.get_speakers_context()
         print("initialize speakers_context finished")
+
+    if explained_sentences is None:
+        print("initialize explained_sentences started")
+        explained_sentences = FileManager.read_from_json_file('cache/explained_sentences.json')
+        print("initialize explained_sentences finished")
 
 
 # Chat with the AI using the given query.
@@ -112,9 +116,21 @@ def update_dropdown(_=None):
 
 
 # Given a text and the word to highlight, it returns the text with the word highlighted.
-def highlight_error(text, word, font_color="#e43b29", background_color="#4f5b66"):
+def highlight_errors_in_text(text, words=[], word_indexes=[], font_color="#FFFFFF", background_color="#FF0000"):
     style = f'"color: {font_color}; background-color: {background_color}; font-weight: bold"'
-    return text.replace(word, f'<span style={style} >{word}</span>')
+
+    # If words list is not empty then using words list
+    # Otherwise use word_indexes list
+    if words != []:
+        for word in words:
+            text.replace(word, f'<span style={style} >{word}</span>')
+        return text
+    else:
+        splitted_text = text.split()
+        for error_index_word in word_indexes:
+            splitted_text[error_index_word] = f'<span style={style} >{splitted_text[error_index_word]}</span>'
+        text = " ".join(splitted_text)
+        return text
 
 
 # Given a text, font color, and background color
@@ -123,6 +139,24 @@ def highlight_error(text, word, font_color="#e43b29", background_color="#4f5b66"
 def highlight_text(text="", font_color="#FFFFFF", background_color="#000000"):
     return f'<span style="color: {font_color}; background-color: {background_color}">{text}</span>'
 
+
+# Given a sentence, checks in the data if that sentence has errors and if so highlights them in red
+# Returns a string of the sentence with the words highlighted using html and css
+def highlight_errors_all(sentence: str):
+    global explained_sentences
+    
+    if sentence in explained_sentences:
+        word_indexes = []
+        for es in explained_sentences[sentence]:
+            for label_error in es['errant']:
+                word_indexes.append(label_error['o_start'])
+
+        return highlight_errors_in_text(text=sentence, word_indexes=word_indexes)
+    else:
+        print("###")
+        print(sentence)
+        print("###")
+        return sentence
 
 
 # Receives as a parameter the name of the speaker selected in the dropdown.
@@ -138,17 +172,21 @@ def handle_dropdown_selection(speaker_selection):
         if speaker_selection == 'All speakers':
             selected_speaker_text = "\n\n"
             for speaker_context in speakers_context:
+                # Label each line and print it
                 selected_speaker_text += (
                     '<a id="' + speaker_context[0] + '">'
                     + speaker_context[1] + " " 
-                    + speaker_context[2] + "\n\n"
+                    + highlight_errors_all(speaker_context[2]) + "\n\n"
                     + "</a>"
                 )
+                
+
         else:
             # specific speaker text
             selected_speaker_text = "\n\n"
             for speaker_context in speakers_context:
                 if speaker_context[1] == speaker_selection:
+                    # Highlight the lines of the selected speaker
                     selected_speaker_text += highlight_text(text=
                             '<a id="' + speaker_context[0] + '">'
                             + speaker_context[1] + " " 
@@ -156,6 +194,7 @@ def handle_dropdown_selection(speaker_selection):
                             background_color=speaker_color
                         ) + "\n\n"
                 else:
+                    # Label each line and print it
                     selected_speaker_text += (
                     '<a id="' + speaker_context[0] + '">'
                     + speaker_context[1] + " " 
@@ -165,11 +204,11 @@ def handle_dropdown_selection(speaker_selection):
 
     # Add scrollable container
     result = f"<div>{selected_speaker_text}</div>"
-    print("##################")
-    print("##################")
-    print(result)
-    print("##################")
-    print("##################")
+    #print("##################")
+    #print("##################")
+    #print(result)
+    #print("##################")
+    #print("##################")
     return result
         
 
@@ -188,28 +227,6 @@ def clean_cache():
     speakers_context = None
     selected_speaker_text = None
 
-
-# Splits the text by the separator and includes the separator in the result.
-# Returns a list of strings.
-def split_inclusive(text, separator):
-    return re.split(f'({re.escape(separator)})', text)
-
-
-# Highlights the input text with the given label in the text.
-# Returns a list of tuples with the text and the label.
-def label_text(text, input, label=None):
-    separated_text = split_inclusive(text, input)
-    
-    if len(separated_text) == 1:
-        return [(separated_text[0], None)]
-    else:
-        result = []
-        for subtext in separated_text:
-            if subtext == input:
-                result.append((subtext, label))
-            else:
-                result.append((subtext, None))
-        return result
     
 js = """"""
 js_autoscroll_function_by_value= """

@@ -25,7 +25,7 @@ import errant
 class StudyPlanCreator:
     def __init__(self, llm_model, rag_engine, max_new_tokens=250):
         self.cache_files_paths = {
-            'raw_sentence_collection': prefix + 'cache/raw_sentence_collection.json',
+            'raw__sorted_sentence_collection': prefix + 'cache/raw_sorted_sentence_collection.json',
             'explained_sentences': prefix + 'cache/explained_sentences.json',
             'errant_all_errors':  prefix+'cache/errant_all_evaluation.json',
             'errant_detailed_errors':  prefix+'cache/errant_detailed_evaluation.json',
@@ -43,14 +43,14 @@ class StudyPlanCreator:
 
         self.__rag_engine = rag_engine
 
-    def create_study_plan(self, speaker_context: dict):
+    def create_study_plan(self, speaker_context: list):
         print("create_study_plan is started...")
 
-        raw_sentence_collection = self.__file_manager.read_from_json_file(self.cache_files_paths['raw_sentence_collection'])
+        raw_sentence_collection = self.__file_manager.read_from_json_file(self.cache_files_paths['raw_sorted_sentence_collection'])
         if raw_sentence_collection is None:
-            print("raw_sentence_collection is processing...")
-            raw_sentence_collection = self.prepare_sentence_collection(speaker_context)
-            self.__file_manager.save_to_json_file(self.cache_files_paths['raw_sentence_collection'], raw_sentence_collection)
+            print("raw_sorted_sentence_collection is processing...")
+            raw_sentence_collection = self.prepare_sorted_sentence_collection(speaker_context)
+            self.__file_manager.save_to_json_file(self.cache_files_paths['raw_sorted_sentence_collection'], raw_sentence_collection)
 
         explained_sentences = self.__file_manager.read_from_json_file(self.cache_files_paths['explained_sentences'])
         if explained_sentences is None:
@@ -73,20 +73,17 @@ class StudyPlanCreator:
     # ====================
     # = Grammar Checker
     # ====================
-    def prepare_sentence_collection(self, speaker_context: dict):
+    def prepare_sorted_sentence_collection(self, speaker_context: list):
         raw_sentence_collection = []
         index = 1
-        for speaker in speaker_context.keys():
-            print("Speaker started: ", speaker)
-            sentences = self.__splitter.split(speaker_context[speaker])
-            print("Count of sentences: ", len(sentences))
-            for sentence in sentences:
-                    raw_sentence_collection.append({
-                        'index': index,
-                        'speaker': speaker,
-                        'original_sentence': sentence
-                    })
-                    index += 1
+        print("Creating sorted sentence collection ...")
+        for line in speaker_context:    # 0 time, 1 speaker, 2 sentence
+            raw_sentence_collection.append({
+                'index': index,
+                'speaker': line[1],
+                'original_sentence': line[2]
+            })
+            index += 1
 
         return raw_sentence_collection
 
@@ -109,8 +106,8 @@ class StudyPlanCreator:
             if original_sentence == t5_checked_sentence:
                 continue
 
-            if original_sentence not in explained_sentences:
-               explained_sentences[original_sentence] = []
+            #if index not in explained_sentences:
+            #   explained_sentences[index] = []
 
             print(f'====================== original_sentence {index} ======================')
             print(original_sentence)
@@ -193,14 +190,14 @@ class StudyPlanCreator:
                 error_description['error_type'] = error_type
                 all_errors.append(error_description)
 
-            explained_sentences[original_sentence].append({
+            explained_sentences[index] = {
                 'index': evaluation['index'],
                 'speaker': evaluation['speaker'],
                 't5_checked_sentence': t5_checked_sentence,
                 'llm_explanation': llm_explained,
                 'language_tool': lt_errors,
                 'errant': error_description_list,
-            })
+            }
 
         return all_errors, detailed_errors, corrected_errors, simple_errors, explained_sentences
 
@@ -211,5 +208,5 @@ if __name__ == '__main__':
     chat_llm = ChatFactory.get_instance(llm_modelId)
     rag_engine = RAGFactory().get_instance("ragatouille")
     creator = StudyPlanCreator(chat_llm, rag_engine)
-    speakers_context = AudioExtractor().get_diarization_grouped_by_speaker(diarization)
+    speakers_context = AudioExtractor().process_diarizated_text(diarization)
     study_plan = creator.create_study_plan(speakers_context)

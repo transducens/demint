@@ -9,6 +9,7 @@ from pyannote.audio import Pipeline
 from pyannote.audio.pipelines.utils.hook import ProgressHook
 from pydub import AudioSegment
 import re
+from sentence_splitter import SentenceSplitter
 
 
 class AudioExtractor:
@@ -139,17 +140,17 @@ class AudioExtractor:
     def process_diarizated_text(self, diarization_result):
         # Loads diarization results from a file, if it exists
         speakers_context = [] # List of the transcripts for each speaker
+        sentence_splitter = SentenceSplitter(language='en')
         for transcript in diarization_result:
             parts = transcript.split("||")
             if len(parts) > 1:
                 text_time, speaker_label, text = parts[0].split("]")[0].strip()[1:], parts[0].split("]")[1].strip(), parts[1].strip()
                 # Appens the time, speaker, and text to the 3D list
                 if text:
-                    # Split the string by dot, without removing the dot
-                    text_list = re.split(r'(?<=[.!?])', text)
-                    for tl in text_list:
-                        if tl.strip():
-                            speakers_context.append([text_time, speaker_label, tl])
+                    for ds in sentence_splitter.split(text):
+                        ds = ds.strip()
+                        if ds:
+                            speakers_context.append([text_time, speaker_label, ds])
 
         return speakers_context
 

@@ -152,7 +152,7 @@ class EnglishTutor:
         audio_downloader = self.__get_audio_downloader()
         return audio_downloader.get_video_info(video_url)
 
-    def get_study_plan(self, speakerId: str) -> list:
+    def get_study_plan(self) -> list:
         # study_plan = self.__file_manager.read_from_json_file(self.cache_files_paths['study_plan'])
         #
         # if study_plan:
@@ -161,7 +161,7 @@ class EnglishTutor:
 
         chat_llm = self.__get_chat_llm()
         plan_creator = StudyPlanCreator(chat_llm)
-        speakers_context = self.get_speakers_context()
+        speakers_context = self.get_speakers_context(group_by_speaker=False)
         study_plan = plan_creator.create_study_plan(speakers_context)
         print("get_study_plan: ", study_plan)
         #self.__file_manager.save_to_json_file(self.cache_files_paths['study_plan'], study_plan)

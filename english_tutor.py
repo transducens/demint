@@ -160,7 +160,8 @@ class EnglishTutor:
         #     return study_plan
 
         chat_llm = self.__get_chat_llm()
-        plan_creator = StudyPlanCreator(chat_llm)
+        rag_engine = self.__rag_factory.get_instance("ragatouille")
+        plan_creator = StudyPlanCreator(chat_llm, rag_engine)
         speakers_context = self.get_speakers_context()
         study_plan = plan_creator.create_study_plan(speakers_context)
         #print("get_study_plan: ", study_plan)

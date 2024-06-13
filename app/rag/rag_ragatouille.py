@@ -3,6 +3,8 @@ from ragatouille import RAGPretrainedModel
 
 from app.rag.rag_engine_interface import IRagEngine
 
+from ragatouille.utils import get_wikipedia_page
+
 index_name = 'tutor'
 max_document_length = 300
 split_documents = True
@@ -22,6 +24,10 @@ class RAGatouilleTutor(IRagEngine):
 
         print("Index ragatouille does not exist. Preparation index.")
         rag = RAGPretrainedModel.from_pretrained(self.__model_name)
+
+        #my_documents = [get_wikipedia_page("English")]
+        #print(my_documents)
+        #print(len(my_documents))
 
         rag.index(
             collection=collection,

@@ -1,4 +1,4 @@
-name: DeMINT
+name: demint
 channels:
   - defaults
   - pytorch

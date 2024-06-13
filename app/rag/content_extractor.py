@@ -4,7 +4,7 @@ import os
 
 class ContentExtractor:
     @staticmethod
-    def get_content(folder_path="../pdf_rag", part_count=1, overlap=0):
+    def get_content(folder_path="pdf_rag", part_count=400, overlap=0.25):
         paragraphs = []
 
         # Iterate through all files in the specified folder
@@ -12,27 +12,37 @@ class ContentExtractor:
             if filename.endswith(".pdf"):
                 pdf_path = os.path.join(folder_path, filename)
                 doc = fitz.open(pdf_path)
+                content = str()
 
-                # Iterate through all pages in the document
                 for page in doc:
                     text = page.get_text()
+                    content += text
 
-                    # Split text into 'part_count' parts with overlapping
-                    part_length = len(text) // part_count
-                    calculated_overlap = int(part_length * overlap)  # Overlap calculated as a percentage of the part length
+                # Iterate through all pages in the document
+                idx = 0
+                part_length = part_count
+                calculated_overlap = int(part_length * overlap)  # Overlap calculated as a percentage of the part length
+                start = end = idx
+                while idx < len(content):
 
-                    parts_indexes = []
-                    # Generate start and end indexes for each part considering the overlap
-                    for i in range(part_count):
-                        start = i * part_length - calculated_overlap if i > 0 else 0
-                        end = (i + 1) * part_length + calculated_overlap if i < part_count - 1 else len(text)
-                        parts_indexes.append((start, end))
+                    start = end - calculated_overlap if end > 0 else 0
+                    end = start + part_length + calculated_overlap
 
-                    # Extract parts based on calculated indexes
-                    for start_index, end_index in parts_indexes:
-                        paragraph = text[start_index:end_index].strip()
-                        if paragraph:  # Check to avoid adding empty strings
+                    if end > len(content):
+                        end = len(content)
+
+                    paragraph = content[start:end].strip()
+                    if paragraph:  # Check to avoid adding empty strings
                             paragraphs.append(paragraph)
 
+                    idx = end
+        
         return paragraphs
+    
+
+if __name__ == '__main__':
+    extractor = ContentExtractor()
+    paragraphs = extractor.get_content("pdf_rag", 400, 0.25)
+    print(paragraphs)
+
 

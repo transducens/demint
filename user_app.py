@@ -33,6 +33,7 @@ def initialize_global_variables():
     if english_tutor is None:
         print("initialize english_tutor started")
         english_tutor = EnglishTutor()
+        #english_tutor.set_rag_engine("faiss")
         print("initialize english_tutor finished")
 
     if speakers_context is None:

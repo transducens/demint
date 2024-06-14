@@ -25,7 +25,7 @@ import errant
 class StudyPlanCreator:
     def __init__(self, llm_model, rag_engine = None, max_new_tokens=250, is_logging_enabled = False):
         self.cache_files_paths = {
-            'raw__sorted_sentence_collection': prefix + 'cache/raw_sorted_sentence_collection.json',
+            'raw_sorted_sentence_collection': prefix + 'cache/raw_sorted_sentence_collection.json',
             'explained_sentences': prefix + 'cache/explained_sentences.json',
             'errant_all_errors':  prefix+'cache/errant_all_evaluation.json',
             'errant_detailed_errors':  prefix+'cache/errant_detailed_evaluation.json',
@@ -99,10 +99,11 @@ class StudyPlanCreator:
         all_errors = []
         for evaluation in raw_sentence_collection:
             index = evaluation['index']
+            
             original_sentence = evaluation['original_sentence']
 
             lt_errors = self.__grammar_checker_lt.check(original_sentence)
-            t5_checked_sentence = self.__grammar_checker_t5.correct_sentences([original_sentence])
+            t5_checked_sentence = self.__grammar_checker_t5.correct_sentences([original_sentence])[0]
 
             if original_sentence == t5_checked_sentence:
                 continue
@@ -118,18 +119,15 @@ class StudyPlanCreator:
             )
 
             llm_explained = self.__chat_llm.get_answer(final_prompt)
-            lt_errors = self.__grammar_checker.check(original_sentence)
+            lt_errors = self.__grammar_checker_lt.check(original_sentence)
 
             annotated_original_sentence = annotator.parse(original_sentence)
             annotated_t5_checked_sentence = annotator.parse(t5_checked_sentence)
-            annotations = annotator.annotate(annotated_original_sentence, annotated_t5_checked_sentence)
+            annotations = annotator.annotate(annotated_original_sentence, annotated_t5_checked_sentence)            
 
             error_description_list = []
             for e in annotations:
                 error_type = e.type
-
-                if error_type.split(':')[1] in ['OTHER']:
-                    continue
 
                 corrected_text = e.c_str
                 original_text = e.o_str
@@ -188,7 +186,6 @@ class StudyPlanCreator:
                 all_errors.append(error_description)
 
             explained_sentences[index] = {
-                'index': evaluation['index'],
                 'speaker': evaluation['speaker'],
                 't5_checked_sentence': t5_checked_sentence,
                 'llm_explanation': llm_explained,

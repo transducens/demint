@@ -117,3 +117,7 @@ docker run -e HF_TOKEN='your token' --gpus all -p 8080:8000 levnikolaevich87/dem
 CUDA:
 nvcc --version
 nvidia-smi
+
+CHAINLIT:
+CUDA_VISIBLE_DEVICES=1 chainlit run chainlit-chat.py -w --port 8001 | tee log/chainlit5.log
+

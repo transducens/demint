@@ -150,6 +150,7 @@ class AudioExtractor:
                     for ds in sentence_splitter.split(text):
                         ds = ds.strip()
                         if ds:
+                            ds[0].upper() + ds[1:]
                             speakers_context.append([text_time, speaker_label, ds])
 
         return speakers_context

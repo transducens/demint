@@ -8,4 +8,6 @@ __pycache__
 /.files
 /.ragatouille
 /logs
+init_env.sh
 *.log
+check_dependencies.py

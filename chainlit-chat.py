@@ -59,7 +59,7 @@ async def on_chat_start():
     cl.user_session.set("selected_speaker_text", selected_speaker_text)
 
     start = time.time()
-    study_plan = english_tutor.get_study_plan(speakerId)
+    study_plan = english_tutor.get_study_plan()
     cl.user_session.set("study_plan", study_plan)
     end = time.time()
     print("time:", end - start)

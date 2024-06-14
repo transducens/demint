@@ -27,6 +27,7 @@ class StudyPlanCreator:
         self.cache_files_paths = {
             'raw_sorted_sentence_collection': prefix + 'cache/raw_sorted_sentence_collection.json',
             'explained_sentences': prefix + 'cache/explained_sentences.json',
+            'sentences_by_speaker_to_check': prefix + 'cache/sentences_by_speaker_to_check.json',
             'errant_all_errors':  prefix+'cache/errant_all_evaluation.json',
             'errant_detailed_errors':  prefix+'cache/errant_detailed_evaluation.json',
             'errant_corrected_errors':  prefix+'cache/errant_corrected_evaluation.json',
@@ -56,7 +57,7 @@ class StudyPlanCreator:
         explained_sentences = self.__file_manager.read_from_json_file(self.cache_files_paths['explained_sentences'])
         if explained_sentences is None:
             print("explain_sentences is processing...")
-            errant_all_errors, errant_detailed_errors, errant_corrected_errors, errant_simple_errors, explained_sentences = self.explain_sentences(raw_sentence_collection)
+            errant_all_errors, errant_detailed_errors, errant_corrected_errors, errant_simple_errors, explained_sentences, sentences_by_speaker_to_check = self.explain_sentences(raw_sentence_collection)
             self.__file_manager.save_to_json_file(self.cache_files_paths['errant_all_errors'],
                                                   errant_all_errors)
             self.__file_manager.save_to_json_file(self.cache_files_paths['errant_detailed_errors'],
@@ -65,6 +66,8 @@ class StudyPlanCreator:
                                                   errant_corrected_errors)
             self.__file_manager.save_to_json_file(self.cache_files_paths['explained_sentences'],
                                                   explained_sentences)
+            self.__file_manager.save_to_json_file(self.cache_files_paths['sentences_by_speaker_to_check'],
+                                                  sentences_by_speaker_to_check)
 
             sorted_errant_simple_errors = sorted(errant_simple_errors.items(), key=lambda item: len(item[1]), reverse=True)
             self.__file_manager.save_to_json_file(self.cache_files_paths['errant_simple_errors'], sorted_errant_simple_errors)
@@ -92,6 +95,7 @@ class StudyPlanCreator:
         annotator = errant.load(lang)
 
         explained_sentences = {}
+        sentences_by_speaker_to_check = {}
         detailed_errors = {}
         corrected_errors = {}
         simple_errors = {}
@@ -107,9 +111,6 @@ class StudyPlanCreator:
 
             if original_sentence == t5_checked_sentence:
                 continue
-
-            #if index not in explained_sentences:
-            #   explained_sentences[index] = []
 
             final_prompt = (
                 f"You are an English teacher. Please explain the errors that were corrected in the following sentence:\n\n"
@@ -193,15 +194,19 @@ class StudyPlanCreator:
                 'errant': error_description_list,
             }
 
-            if self.__is_logging_enabled and len(explained_sentences[original_sentence]) > 1:
-                print(f'====================== original_sentence {index} ======================')
-                print(explained_sentences[original_sentence])
+            if evaluation['speaker'] not in sentences_by_speaker_to_check:
+                sentences_by_speaker_to_check[evaluation['speaker']] = []
+            sentences_by_speaker_to_check[evaluation['speaker']].append(index)
 
             if self.__is_logging_enabled and len(explained_sentences[original_sentence]) > 1:
                 print(f'====================== original_sentence {index} ======================')
                 print(explained_sentences[original_sentence])
 
-        return all_errors, detailed_errors, corrected_errors, simple_errors, explained_sentences
+            if self.__is_logging_enabled and len(explained_sentences[original_sentence]) > 1:
+                print(f'====================== original_sentence {index} ======================')
+                print(explained_sentences[original_sentence])
+
+        return all_errors, detailed_errors, corrected_errors, simple_errors, explained_sentences, sentences_by_speaker_to_check
 
 if __name__ == '__main__':
     llm_modelId = "google/gemma-1.1-7b-it"  # "google/gemma-1.1-2b-it"

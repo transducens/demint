@@ -51,6 +51,10 @@ class EnglishTutor:
 
     # Get the speakers context from the audio file
     # The context is a list of transcripts for each speaker sorted by time
+    # if group_by_speaker False
+    #   Returns a list where each item is [time, speaker, phrase]
+    # else
+    #   Returns a dictionary where each item is {speaker: all_his_phrases}
     def get_speakers_context(self, file_name="audio/extracted_audio.wav", group_by_speaker=False):
         if self.__speakers_context is None:
             if self.__audio_extractor is None:
@@ -70,6 +74,18 @@ class EnglishTutor:
                     self.__speakers_context = self.__audio_extractor.process_diarizated_text(diarization)
 
         return self.__speakers_context
+    
+
+    # Returns a list of all the speakers that have spoken in the transctipt
+    def get_speakers(self):
+        sorted_speakers = []
+        if self.__speakers_context is not None:
+            sorted_speakers.append("All speakers")
+            # Get the speakers names
+            sorted_speakers += sorted( {speaker_context[1] for speaker_context in self.__speakers_context} )
+        
+        return sorted_speakers
+
 
     def clean_cache(self):
         self.__speakers_context = None
@@ -152,6 +168,9 @@ class EnglishTutor:
         audio_downloader = self.__get_audio_downloader()
         return audio_downloader.get_video_info(video_url)
 
+
+
+    # Returns a dictionary of explained sentences (cache/explained_sentences.json)
     def get_study_plan(self) -> list:
         # study_plan = self.__file_manager.read_from_json_file(self.cache_files_paths['study_plan'])
         #
@@ -163,7 +182,8 @@ class EnglishTutor:
         rag_engine = self.__rag_factory.get_instance("ragatouille")
         plan_creator = StudyPlanCreator(chat_llm, rag_engine)
         speakers_context = self.get_speakers_context(group_by_speaker=False)
-        study_plan = plan_creator.create_study_plan(speakers_context)
+        speakers = self.get_speakers()
+        explained_sentences = plan_creator.create_study_plan(speakers_context)
         #print("get_study_plan: ", study_plan)
         #self.__file_manager.save_to_json_file(self.cache_files_paths['study_plan'], study_plan)
-        return study_plan
+        return explained_sentences, speakers_context, speakers

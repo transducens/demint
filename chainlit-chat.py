@@ -40,7 +40,7 @@ async def setup_agent(settings):
     end = time.time()
     print("time:", end - start)
 
-    #print("on_settings_update", settings)
+    print("on_settings_update", settings)
 
 
 # called when a new chat session is created.
@@ -50,15 +50,17 @@ async def on_chat_start():
     english_tutor = EnglishTutor()
 
     # TODO repetitivo?? ya que 'get_study_plan() ya lo hace
-    speakers_context = english_tutor.get_speakers_context(group_by_speaker=False)    
-    cl.user_session.set("speakers_context", speakers_context)
+    #speakers_context = english_tutor.get_speakers_context(group_by_speaker=False)    
+    #cl.user_session.set("speakers_context", speakers_context)
 
     #selected_speaker_text = speakers_context[speakerId]
     #cl.user_session.set("selected_speaker_text", selected_speaker_text)
 
     start = time.time()
-    study_plan = english_tutor.get_study_plan()
-    cl.user_session.set("study_plan", study_plan)
+    explained_sentences, speakers_context, sorted_speakers = english_tutor.get_study_plan() # explained sentences, speaker context
+    cl.user_session.set("explained_sentences", explained_sentences)
+    cl.user_session.set("speakers_context", speakers_context)
+    cl.user_session.set("speakers", sorted_speakers)
     end = time.time()
     print("on_chat_start time:", end - start)
 
@@ -70,12 +72,12 @@ async def on_chat_start():
 
     await cl.ChatSettings(
         [
-            #Select(
-            #    id="SpeakerId",
-            #    label="Current Speaker",
-            #    values=sorted_speakers,
-            #    initial_index=0,
-            #),
+            Select(
+                id="SpeakerId",
+                label="Current Speaker",
+                values=sorted_speakers,
+                initial_index=0,
+            ),
             Select(
                 id="CurrentRAG",
                 label="Current RAG Engine",

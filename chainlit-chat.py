@@ -43,22 +43,21 @@ async def setup_agent(settings):
     #print("on_settings_update", settings)
 
 
+# called when a new chat session is created.
 @cl.on_chat_start
 async def on_chat_start():
     cl.user_session.set("counter", 0)
     english_tutor = EnglishTutor()
 
-    speakers_context = english_tutor.get_speakers_context(group_by_speaker=True)
+    # TODO repetitivo?? ya que 'get_study_plan() ya lo hace
+    speakers_context = english_tutor.get_speakers_context(group_by_speaker=False)    
     cl.user_session.set("speakers_context", speakers_context)
-    sorted_speakers = sorted(speakers_context.keys())
 
-    speakerId = sorted_speakers[0]
-
-    selected_speaker_text = speakers_context[speakerId]
-    cl.user_session.set("selected_speaker_text", selected_speaker_text)
+    #selected_speaker_text = speakers_context[speakerId]
+    #cl.user_session.set("selected_speaker_text", selected_speaker_text)
 
     start = time.time()
-    study_plan = english_tutor.get_study_plan(speakerId)
+    study_plan = english_tutor.get_study_plan()
     cl.user_session.set("study_plan", study_plan)
     end = time.time()
     print("on_chat_start time:", end - start)
@@ -71,12 +70,12 @@ async def on_chat_start():
 
     await cl.ChatSettings(
         [
-            Select(
-                id="SpeakerId",
-                label="Current Speaker",
-                values=sorted_speakers,
-                initial_index=0,
-            ),
+            #Select(
+            #    id="SpeakerId",
+            #    label="Current Speaker",
+            #    values=sorted_speakers,
+            #    initial_index=0,
+            #),
             Select(
                 id="CurrentRAG",
                 label="Current RAG Engine",
@@ -93,12 +92,14 @@ async def on_chat_start():
     ).send()
 
     hello_msg = f"# Welcome to English Tutor Chat Bot AI! 🚀🤖\n\n"
-    hello_msg += f"{speakerId}, let's start by learning English!"
+    hello_msg += "Hi there! Could you please share your name with me? I'd love to get started analyzing your phrases.\n\n"
+    #hello_msg += f"{speakerId}, let's start by learning English!"
     initial_message = cl.Message(content=hello_msg)
     await initial_message.send()
     await on_message(None)
 
 
+# called when a new message is received from the user.
 @cl.on_message
 async def on_message(message: cl.Message):
     english_tutor = cl.user_session.get("english_tutor")
@@ -113,7 +114,7 @@ async def on_message(message: cl.Message):
         errant = None
         while res is None or res.get("value") != "continue":
             theme_key = random.choice(list(study_plan.keys()))
-            theme_value = study_plan[theme_key][0]
+            theme_value = study_plan[theme_key]
             #print(theme_value)
             errant_errores = theme_value['errant']
 

@@ -1,21 +1,22 @@
 from .gemma_chat import GemmaChat
 from .llama_chat import LLamaChat
+from .openai_chat import OpenAIChat
 from .phi_chat import PhiChat
 
 # Retrieve a list of all supported models
 gemma_family = GemmaChat.get_supported_models()
 phi_family = PhiChat.get_supported_models()
 llama_family = LLamaChat.get_supported_models()
+openai_family = OpenAIChat.get_supported_models()
 
 
 class ChatFactory:
     # A dictionary to store supported types of language model chats.
-    # Currently only 'gemma' is active, others are commented out.
     _supported_llm_types = {
+         'openai': OpenAIChat,
          'gemma': GemmaChat,
          'phi': PhiChat,
          'llama': LLamaChat,
-        # 'chatGPT': OpenAIChat,
     }
 
     # Static method to create an instance of a language model chat based on a given model ID.
@@ -37,7 +38,10 @@ class ChatFactory:
             llm_type = 'phi'  # Set the type to 'phi' if found.
 
         if llm_model_id in llama_family:
-            llm_type = 'llama'  # Set the type to 'phi' if found.
+            llm_type = 'llama'  # Set the type to 'llama' if found.
+
+        if llm_model_id in openai_family:
+            llm_type = 'openai'  # Set the type to 'openai' if found.
 
         # Create and return an instance of the chat model using the determined llm_type.
         return ChatFactory._supported_llm_types[llm_type](llm_model_id)

@@ -16,11 +16,11 @@ async def setup_agent(settings):
     print("Settings update start...")
     english_tutor = cl.user_session.get("english_tutor")
 
-    speakerId = settings["SpeakerId"]
-    speakers_context = cl.user_session.get("speakers_context")
+    #speakerId = settings["SpeakerId"]
+    #speakers_context = cl.user_session.get("speakers_context")
 
-    selected_speaker_text = speakers_context[speakerId]
-    cl.user_session.set("selected_speaker_text", selected_speaker_text)
+    #selected_speaker_text = speakers_context[speakerId]
+    #cl.user_session.set("selected_speaker_text", selected_speaker_text)
 
     current_LLM = settings["CurrentLLM"]
     if english_tutor.get_current_llm_model_id() != current_LLM:
@@ -35,8 +35,8 @@ async def setup_agent(settings):
     cl.user_session.set("aitana_bot", english_tutor)
 
     start = time.time()
-    study_plan = english_tutor.get_study_plan(speakerId)
-    cl.user_session.set("study_plan", study_plan)
+    #study_plan = english_tutor.get_study_plan(speakerId)
+    #cl.user_session.set("study_plan", study_plan)
     end = time.time()
     print("time:", end - start)
 
@@ -178,7 +178,7 @@ async def on_message(message: cl.Message):
         final_prompt = (
             f"You are an English teacher talking to a student. \n\n"
             f"CONTEXT:\n{context}\n"
-            f"QUESTION:\n Create an short exercise to help a student practice their mistake.")
+            f"QUESTION:\n Create an short exercise to help a student practice their mistake. Without answers.")
 
         response = await cl.make_async(english_tutor.get_answer)(final_prompt, max_new_tokens)
         cl.user_session.set("user_excercise", response)
@@ -202,7 +202,7 @@ async def on_message(message: cl.Message):
 
         final_prompt = (f"Check user answer, explain result and create new exercise:\n\n"
                         f"CONTEXT:\n{context}"
-                        f"QUESTION:\n Check my answer, explain result and create new exercise")
+                        f"QUESTION:\n Check my answer, explain result and create new exercise without answers.")
 
         response = await cl.make_async(english_tutor.get_answer)(final_prompt, max_new_tokens)
         cl.user_session.set("user_excercise", response)

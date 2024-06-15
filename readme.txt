@@ -60,6 +60,12 @@ Step 4: Hugging Face CLI Login
 
    - Enter your Hugging Face API token when prompted. You can find or create an API token on your Hugging Face account's settings page.
 
+Step 5: Set OpenAI API Key Environment Variable
+    To use the OpenAI API, you'll need to set your API key as an environment variable. You can find your API key on your OpenAI account's settings page.
+
+    - Set the OpenAI API key as an environment variable in your terminal:
+           export OPENAI_API_KEY=[...your OpenAI API key...]
+
 By following these setup instructions, you'll ensure that all components of the project function correctly.
 
 -------------

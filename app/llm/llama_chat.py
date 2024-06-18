@@ -1,7 +1,6 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import time
-from accelerate import disk_offload
 
 
 # Importing the interface IChat from the chat_interface module within the app.llm package.

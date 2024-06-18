@@ -21,18 +21,6 @@ RAG_search_k = 1
 
 
 
-async def get_explained_sentences_speaker(explained_sentences, speaker:str):
-    if speaker == "All speakers":
-        return explained_sentences
-    else:
-        result = {}
-        for key, value in explained_sentences.items():
-            if value['speaker'] == speaker:
-                result[key] = value
-        return result
-
-
-
 @cl.on_settings_update
 async def setup_agent(settings):
     print("Settings update start...")
@@ -75,11 +63,15 @@ async def on_chat_start():
     start = time.time()
     file_manager = FileManager()
     
-    if not os.path.isfile('app/new_cache/rag_sentences.json'):
+    if not os.path.isfile('cache/rag_sentences.json'):
         rag_sentences(file_manager, english_tutor.set_rag_engine(available_RAG[0]))
 
-    study_plan = file_manager.read_from_json_file("app/new_cache/rag_sentences.json")
-    cl.user_session.set("study_plan", study_plan)
+    explained_sentences = file_manager.read_from_json_file("cache/rag_sentences.json")
+    cl.user_session.set("explained_sentences", explained_sentences)
+    sentences_collection = file_manager.read_from_json_file("cache/raw_sorted_sentence_collection.json")
+    cl.user_session.set("sentences_collection", sentences_collection)
+    speakers = await get_speakers(sentences_collection)
+    cl.user_session.set("speakers", speakers)
 
     end = time.time()
     print("on_chat_start time:", end - start)
@@ -90,14 +82,12 @@ async def on_chat_start():
     english_tutor.set_rag_engine(available_RAG[0])
     cl.user_session.set("english_tutor", english_tutor)
 
-   
-
     await cl.ChatSettings(
         [
             Select(
                 id="SpeakerId",
                 label="Current Speaker",
-                values=sorted_speakers,
+                values=speakers,
                 initial_index=0,
             ),
             Select(
@@ -116,7 +106,8 @@ async def on_chat_start():
 
 
     speaker = await ask_for_speaker()
-    cl.user_session.set("explained_sentences_speaker", get_explained_sentences_speaker(explained_sentences, speaker))
+    explained_sentences_speaker = await get_explained_sentences_speaker(explained_sentences, speaker)
+    cl.user_session.set("explained_sentences_speaker", explained_sentences_speaker)
 
     await on_message(None)
 
@@ -131,7 +122,7 @@ async def on_message(message: cl.Message):
 
     if counter == 0:
         print(f'counter: {counter}')
-        explained_sentences_speaker = await cl.user_session.get("explained_sentences_speaker")
+        explained_sentences_speaker = cl.user_session.get("explained_sentences_speaker")
         # if the dictionary is empty, then the user has completed the exercise
         if not explained_sentences_speaker:
             await cl.Message(
@@ -266,3 +257,25 @@ async def ask_for_speaker():
         return res.get("value")
     else:
         return "All speakers"
+
+
+# Returns a list of all the speakers that have spoken in the transctipt
+async def get_speakers(sentences_collection):
+    sorted_speakers = []
+    if sentences_collection is not None:
+        sorted_speakers.append("All speakers")
+        # Get the speakers names
+        sorted_speakers += sorted( {value['speaker'] for value in sentences_collection} )
+    
+    return sorted_speakers
+
+
+async def get_explained_sentences_speaker(explained_sentences, speaker:str):
+    if speaker == "All speakers":
+        return explained_sentences
+    else:
+        result = {}
+        for key, value in explained_sentences.items():
+            if value['speaker'] == speaker:
+                result[key] = value
+        return result

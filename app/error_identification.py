@@ -1,5 +1,5 @@
 import errant
-from file_manager import FileManager
+from app.file_manager import FileManager
 
 def prepare_sorted_sentence_collection(__file_manager, speaker_context: list):
     raw_sentence_collection = []
@@ -13,12 +13,12 @@ def prepare_sorted_sentence_collection(__file_manager, speaker_context: list):
         })
         index += 1
 
-    __file_manager.save_to_json_file('new_cache/raw_sorted_sentence_collection.json', raw_sentence_collection)
+    __file_manager.save_to_json_file('app/new_cache/raw_sorted_sentence_collection.json', raw_sentence_collection)
 
     return raw_sentence_collection
 
 def obtain_errors(__file_manager, __grammar_checker_lt, __grammar_checker_t5, __is_logging_enabled, lang='en'):
-    raw_sentence_collection = __file_manager.read_from_json_file('new_cache/raw_sorted_sentence_collection.json')
+    raw_sentence_collection = __file_manager.read_from_json_file('app/new_cache/raw_sorted_sentence_collection.json')
     
     annotator = errant.load(lang)
 
@@ -112,12 +112,12 @@ def obtain_errors(__file_manager, __grammar_checker_lt, __grammar_checker_t5, __
             print(f'====================== original_sentence {index} ======================')
             print(explained_sentences[original_sentence])
 
-    __file_manager.save_to_json_file('new_cache/errant_sentences.json', explained_sentences)
+    __file_manager.save_to_json_file('app/new_cache/errant_sentences.json', explained_sentences)
 
     return all_errors, detailed_errors, corrected_errors, simple_errors, explained_sentences
 
 def explain_sentences(__file_manager, __chat_llm):
-    explained_sentences = __file_manager.read_from_json_file('new_cache/errant_sentences.json')
+    explained_sentences = __file_manager.read_from_json_file('app/new_cache/errant_sentences.json')
 
     print(type(explained_sentences))
     keysList = list(explained_sentences.keys())
@@ -139,10 +139,10 @@ def explain_sentences(__file_manager, __chat_llm):
 
         error_description_list = []
         for error in sentence["errant"]:
-            error_type = error.type
+            error_type = error['error_type']
 
-            original_text = error.o_str
-            corrected_text = error.c_str
+            original_text = error['original_text']
+            corrected_text = error['corrected_text']
 
             final_prompt = (
                 f"Please explain the errors that were found as briefly as possible, focusing only on the main idea and the broken rule in the English language:\n\n"
@@ -156,11 +156,11 @@ def explain_sentences(__file_manager, __chat_llm):
                 'speaker': sentence['speaker'],
                 'sentence': original_sentence,
                 'corrected_sentence': t5_checked_sentence,
-                'o_start': error.o_start,
-                'o_end': error.o_end,
+                'o_start': error['o_start'],
+                'o_end': error['o_end'],
                 'original_text': original_text,
-                'c_start': error.c_start,
-                'c_end': error.c_end,
+                'c_start': error['c_start'],
+                'c_end': error['c_start'],
                 'corrected_text': corrected_text,
                 'error_type': error_type,
                 'llm_explanation': errant_llm_explained,
@@ -178,15 +178,17 @@ def explain_sentences(__file_manager, __chat_llm):
             'errant': error_description_list,
         }
 
-    __file_manager.save_to_json_file('new_cache/explained_sentences.json', explained_sentences)
+    __file_manager.save_to_json_file('app/new_cache/explained_sentences.json', explained_sentences)
 
     return
 
 def rag_sentences(__file_manager, __rag_engine):
-    explained_sentences = __file_manager.read_from_json_file('new_cache/explained_sentences.json')
+    explained_sentences = __file_manager.read_from_json_file('app/new_cache/explained_sentences.json')
 
-    for sentence in explained_sentences:
-        index = sentence['index']
+    keysList = list(explained_sentences.keys())
+
+    for new_index in keysList:
+        sentence = explained_sentences[new_index]
         original_sentence = sentence['sentence']
         t5_checked_sentence = sentence['t5_checked_sentence']
         llm_explained = sentence['llm_explanation']
@@ -194,27 +196,27 @@ def rag_sentences(__file_manager, __rag_engine):
 
         error_description_list = []
         for error in sentence["errant"]:
-            error_type = error.type
+            error_type = error['error_type']
 
-            original_text = error.o_str
-            corrected_text = error.c_str
+            original_text = error['original_text']
+            corrected_text = error['corrected_text']
 
             errant_llm_explained = error['llm_explanation']
 
             rag = []
             if __rag_engine is not None:
-                rag = __rag_engine.search(errant_llm_explained, 1)
+                rag = __rag_engine.search(errant_llm_explained, 5)
 
             error_description = {
-                'index': index,
+                'index': new_index,
                 'speaker': sentence['speaker'],
                 'sentence': original_sentence,
                 'corrected_sentence': t5_checked_sentence,
-                'o_start': error.o_start,
-                'o_end': error.o_end,
+                'o_start': error['o_start'],
+                'o_end': error['o_end'],
                 'original_text': original_text,
-                'c_start': error.c_start,
-                'c_end': error.c_end,
+                'c_start': error['c_start'],
+                'c_end': error['c_end'],
                 'corrected_text': corrected_text,
                 'error_type': error_type,
                 'llm_explanation': errant_llm_explained,
@@ -232,10 +234,10 @@ def rag_sentences(__file_manager, __rag_engine):
             'errant': error_description_list,
         }
 
-    __file_manager.save_to_json_file('new_cache/rag_sentences.json', explained_sentences)
+    __file_manager.save_to_json_file('app/new_cache/rag_sentences.json', explained_sentences)
 
     return
 
-if __name__ == '__main__':
+"""if __name__ == '__main__':
     __file_manager = FileManager()
-    raw_sentence_collection = prepare_sorted_sentence_collection(__file_manager, speaker_context)
+    raw_sentence_collection = prepare_sorted_sentence_collection(__file_manager, speaker_context)"""

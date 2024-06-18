@@ -150,7 +150,9 @@ class AudioExtractor:
                     for ds in sentence_splitter.split(text):
                         ds = ds.strip()
                         if ds:
-                            ds[0].upper() + ds[1:]
+                            ds = ds[0].upper() + ds[1:]
+                            if ds[-1] not in ['.', '?', '!', '-', '"', "'", "(", ")"]:
+                                ds += "."
                             speakers_context.append([text_time, speaker_label, ds])
 
         return speakers_context

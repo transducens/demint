@@ -12,6 +12,8 @@ if local:
     from audio_extractor import AudioExtractor
     from rag.RAGFactory import RAGFactory
     prefix = "../"
+
+    from error_identification import prepare_sorted_sentence_collection, explain_sentences, obtain_errors
 else:
     from .file_manager import FileManager
     from .grammar_checker import GrammarChecker
@@ -19,6 +21,8 @@ else:
     from .audio_extractor import AudioExtractor
     from .rag.RAGFactory import RAGFactory
     prefix = ""
+
+    from .error_identification import prepare_sorted_sentence_collection, explain_sentences, obtain_errors
 
 import errant
 
@@ -50,13 +54,13 @@ class StudyPlanCreator:
         raw_sentence_collection = self.__file_manager.read_from_json_file(self.cache_files_paths['raw_sorted_sentence_collection'])
         if raw_sentence_collection is None:
             print("raw_sorted_sentence_collection is processing...")
-            raw_sentence_collection = self.prepare_sorted_sentence_collection(speaker_context)
+            raw_sentence_collection = prepare_sorted_sentence_collection(self.__file_manager, speaker_context)
             self.__file_manager.save_to_json_file(self.cache_files_paths['raw_sorted_sentence_collection'], raw_sentence_collection)
 
         explained_sentences = self.__file_manager.read_from_json_file(self.cache_files_paths['explained_sentences'])
         if explained_sentences is None:
             print("explain_sentences is processing...")
-            errant_all_errors, errant_detailed_errors, errant_corrected_errors, errant_simple_errors, explained_sentences = self.explain_sentences(raw_sentence_collection)
+            errant_all_errors, errant_detailed_errors, errant_corrected_errors, errant_simple_errors, explained_sentences = obtain_errors(self.__file_manager, self.__grammar_checker_lt, self.__grammar_checker_t5, self.__chat_llm, self.__rag_engine, self.__is_logging_enabled, raw_sentence_collection)
             self.__file_manager.save_to_json_file(self.cache_files_paths['errant_all_errors'],
                                                   errant_all_errors)
             self.__file_manager.save_to_json_file(self.cache_files_paths['errant_detailed_errors'],
@@ -74,6 +78,8 @@ class StudyPlanCreator:
     # ====================
     # = Grammar Checker
     # ====================
+
+    """
     def prepare_sorted_sentence_collection(self, speaker_context: list):
         raw_sentence_collection = []
         index = 1
@@ -203,12 +209,30 @@ class StudyPlanCreator:
 
         return all_errors, detailed_errors, corrected_errors, simple_errors, explained_sentences
 
+    """
+
 if __name__ == '__main__':
-    llm_modelId = "google/gemma-1.1-7b-it"  # "google/gemma-1.1-2b-it"
+    """llm_modelId = "google/gemma-1.1-7b-it"  # "google/gemma-1.1-2b-it"
     file_manager = FileManager()
     diarization = file_manager.read_from_json_file("../cache/diarization_result_test.json")
     chat_llm = ChatFactory.get_instance(llm_modelId)
     ratatouille_rag = RAGFactory().get_instance("ragatouille")
     creator = StudyPlanCreator(chat_llm, ratatouille_rag)
     speakers_context = AudioExtractor().process_diarizated_text(diarization)
-    study_plan = creator.create_study_plan(speakers_context)
+
+    study_plan = creator.create_study_plan(speakers_context)"""
+
+    file_manager = FileManager()
+    __grammar_checker_lt = GrammarChecker(gec_model="LT_API")
+    __grammar_checker_t5 = GrammarChecker(gec_model="T5")
+
+    diarization = file_manager.read_from_json_file("../cache/diarization_result_test.json")
+    speakers_context = AudioExtractor().process_diarizated_text(diarization)
+
+    llm_modelId = "google/gemma-1.1-7b-it"  # "google/gemma-1.1-2b-it"
+    __chat_llm = ChatFactory.get_instance(llm_modelId)
+
+    raw_sentence_collection = prepare_sorted_sentence_collection(file_manager, speakers_context)
+    errant_all_errors, errant_detailed_errors, errant_corrected_errors, errant_simple_errors, explained_sentences = obtain_errors(file_manager, __grammar_checker_lt, __grammar_checker_t5, False)
+
+    explain_sentences(file_manager, __chat_llm)

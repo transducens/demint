@@ -1,0 +1,912 @@
+{
+    "R:NOUN|Lady,": [
+        {
+            "index": 41,
+            "speaker": "SPEAKER_02",
+            "sentence": "Lady which is maybe connected on a laptop and reading on a book.",
+            "corrected_sentence": "Lady, which is maybe connected to a laptop and reading a book.",
+            "o_start": 0,
+            "o_end": 1,
+            "original_text": "Lady",
+            "c_start": 0,
+            "c_end": 1,
+            "corrected_text": "Lady,",
+            "error_type": "R:NOUN",
+            "llm_explanation": "**Errors:**\n\n* Incorrect capitalization: 'Lady' in the original text is misspelled as 'Lady' in the corrected text.\n* Missing comma: a comma is missing after 'Lady' in the corrected text.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "ct:\nLouisa Adams, wife of John Quincy Adams, was the first (and only) foreign-\nborn first lady.\nHere are the basic rules of capitalization:\nG Capitalize all proper nouns. These include names, geographical places, specific histori-\ncal events, eras, and documents, languages, nationalities, countries, and races.\nG Capitalize the first word at the beginning of a sentence.\nSee Chapter 11 for a complete discussion of capitalization.\n24. Errors in titles\nIncorrect: The Wind In The Willows\nCorrect:\nThe"
+                }
+            ],
+            "corrected_key": "R:NOUN|Lady,"
+        }
+    ],
+    "R:PREP|to": [
+        {
+            "index": 41,
+            "speaker": "SPEAKER_02",
+            "sentence": "Lady which is maybe connected on a laptop and reading on a book.",
+            "corrected_sentence": "Lady, which is maybe connected to a laptop and reading a book.",
+            "o_start": 5,
+            "o_end": 6,
+            "original_text": "on",
+            "c_start": 5,
+            "c_end": 6,
+            "corrected_text": "to",
+            "error_type": "R:PREP",
+            "llm_explanation": "**Errors:**\n\n- Incorrect pluralization of \"on\" and \"to\" (both should be \"to\")\n- Incorrect use of apostrophes in the third element (it should not be included)\n\n**Broken rule:**\n\n- The apostrophe is misplaced in the third element, violating the grammatical rules of punctuation.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": ")\n13. Run-ons (two sentences run together)\nSpelling\n14. Missing letters\n15. Extra letters\n16. Transposed letters\n17. Incorrect plurals\n18. Errors in confusing word pairs (such as weather/whether)\nPunctuation\n19. Missing commas or extra commas\n20. Missing or misused apostrophes\n21. Misused exclamation marks\n22. Misused semicolons\nThe 25 Most Common Usage Problems\n79\nCapitalization\n23. Proper nouns not capitalized\n24. Errors in titles\nProofreading\n25. Missing words\nNow, we will review each of thes"
+                }
+            ],
+            "corrected_key": "R:PREP|to"
+        }
+    ],
+    "U:PREP|": [
+        {
+            "index": 41,
+            "speaker": "SPEAKER_02",
+            "sentence": "Lady which is maybe connected on a laptop and reading on a book.",
+            "corrected_sentence": "Lady, which is maybe connected to a laptop and reading a book.",
+            "o_start": 10,
+            "o_end": 11,
+            "original_text": "on",
+            "c_start": 10,
+            "c_end": 10,
+            "corrected_text": "",
+            "error_type": "U:PREP",
+            "llm_explanation": "**Errors:**\n\n- Incorrect capitalization:\n    - Orig: 'on' should be 'On'\n    - Cor: '' should be 'on'\n- Missing punctuation:\n    - Type: 'U:PREP' requires a comma after 'U'",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "e discussion of capitalization.\n24. Errors in titles\nIncorrect: The Wind In The Willows\nCorrect:\nThe Wind in the Willows\nCapitalize the major words in titles of books, plays, movies, newspapers, and magazines.\nG Do not capitalize the articles: a, an, the.\nG Do not capitalize prepositions: at, by, for, of, in, up, on, so, on, to, etc.\nG Do not capitalize conjunctions: and, as, but, if, or, nor.\nSee Chapter 11 for a complete discussion of capitalization.\nMost Common Proofreading Errors\n25. Missing"
+                }
+            ],
+            "corrected_key": "U:PREP|"
+        },
+        {
+            "index": 72,
+            "speaker": "SPEAKER_00",
+            "sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying by the fifth anniversary for the four fifth established for their club.",
+            "corrected_sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying the fifth anniversary for the four fifth established for their club",
+            "o_start": 38,
+            "o_end": 39,
+            "original_text": "by",
+            "c_start": 38,
+            "c_end": 38,
+            "corrected_text": "",
+            "error_type": "U:PREP",
+            "llm_explanation": "**Errors:**\n\n* **Original text:** 'by' should be 'of'.\n* **Corrected text:** '' should be 'of'.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "e discussion of capitalization.\n24. Errors in titles\nIncorrect: The Wind In The Willows\nCorrect:\nThe Wind in the Willows\nCapitalize the major words in titles of books, plays, movies, newspapers, and magazines.\nG Do not capitalize the articles: a, an, the.\nG Do not capitalize prepositions: at, by, for, of, in, up, on, so, on, to, etc.\nG Do not capitalize conjunctions: and, as, but, if, or, nor.\nSee Chapter 11 for a complete discussion of capitalization.\nMost Common Proofreading Errors\n25. Missing"
+                }
+            ],
+            "corrected_key": "U:PREP|"
+        },
+        {
+            "index": 149,
+            "speaker": "SPEAKER_00",
+            "sentence": "Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+            "corrected_sentence": "Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the players if they have like one player that they decide to have ",
+            "o_start": 16,
+            "o_end": 17,
+            "original_text": "on",
+            "c_start": 15,
+            "c_end": 15,
+            "corrected_text": "",
+            "error_type": "U:PREP",
+            "llm_explanation": "**Errors:**\n\n* **Original text:** Incorrect capitalization and punctuation.\n* **Corrected text:** Proper capitalization and punctuation.\n\n**Broken rule:**\n\n* The use of empty strings ('' or \"\") as placeholder characters is discouraged in most writing styles.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": ")\n13. Run-ons (two sentences run together)\nSpelling\n14. Missing letters\n15. Extra letters\n16. Transposed letters\n17. Incorrect plurals\n18. Errors in confusing word pairs (such as weather/whether)\nPunctuation\n19. Missing commas or extra commas\n20. Missing or misused apostrophes\n21. Misused exclamation marks\n22. Misused semicolons\nThe 25 Most Common Usage Problems\n79\nCapitalization\n23. Proper nouns not capitalized\n24. Errors in titles\nProofreading\n25. Missing words\nNow, we will review each of thes"
+                }
+            ],
+            "corrected_key": "U:PREP|"
+        }
+    ],
+    "R:PART|to": [
+        {
+            "index": 43,
+            "speaker": "SPEAKER_02",
+            "sentence": "Maybe she is preparing for an exam for getting more information.",
+            "corrected_sentence": "Maybe she is preparing for an exam to get more information.",
+            "o_start": 7,
+            "o_end": 8,
+            "original_text": "for",
+            "c_start": 7,
+            "c_end": 8,
+            "corrected_text": "to",
+            "error_type": "R:PART",
+            "llm_explanation": "**Errors:**\n\n* The use of apostrophes in the correct tense is incorrect.\n* The use of 'for' instead of 'to' is incorrect in the context of a grammatical relationship.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "oper use and omit it where its’ not needed.\nCorrect: Save the apostrophe for its proper use and omit it where it’s not needed.\nAs discussed in Chapter 10, the apostrophe (’) is used in three ways: to show possession\n(ownership), to show plural forms, and to show contractions (where a letter or number\nhas been omitted). The following chart shows how its, it’s, and its’ are used:\nWord\nPart of Speech\nMeaning\nit’s\nContraction\nIt is\nits\nPossessive pronoun\nBelonging to it\nits’\nIs not a word\nNone\n21. M"
+                }
+            ],
+            "corrected_key": "R:PART|to"
+        }
+    ],
+    "R:VERB:FORM|get": [
+        {
+            "index": 43,
+            "speaker": "SPEAKER_02",
+            "sentence": "Maybe she is preparing for an exam for getting more information.",
+            "corrected_sentence": "Maybe she is preparing for an exam to get more information.",
+            "o_start": 8,
+            "o_end": 9,
+            "original_text": "getting",
+            "c_start": 8,
+            "c_end": 9,
+            "corrected_text": "get",
+            "error_type": "R:VERB:FORM",
+            "llm_explanation": "**Errors:**\n\n- Incorrect pluralization of \"getting\" (should be \"gotten\").\n- Incorrect use of apostrophes in the original text.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": ")\n13. Run-ons (two sentences run together)\nSpelling\n14. Missing letters\n15. Extra letters\n16. Transposed letters\n17. Incorrect plurals\n18. Errors in confusing word pairs (such as weather/whether)\nPunctuation\n19. Missing commas or extra commas\n20. Missing or misused apostrophes\n21. Misused exclamation marks\n22. Misused semicolons\nThe 25 Most Common Usage Problems\n79\nCapitalization\n23. Proper nouns not capitalized\n24. Errors in titles\nProofreading\n25. Missing words\nNow, we will review each of thes"
+                }
+            ],
+            "corrected_key": "R:VERB:FORM|get"
+        }
+    ],
+    "U:PRON|": [
+        {
+            "index": 57,
+            "speaker": "SPEAKER_00",
+            "sentence": "And maybe he just came from outside and he didn't take out his clothes.",
+            "corrected_sentence": "And maybe he just came from outside and didn't take out his clothes.",
+            "o_start": 8,
+            "o_end": 9,
+            "original_text": "he",
+            "c_start": 8,
+            "c_end": 8,
+            "corrected_text": "",
+            "error_type": "U:PRON",
+            "llm_explanation": "**Errors:**\n\n- Incorrect capitalization:\n    - Orig: 'he' should be 'He'\n    - Cor: '' should be 'He'\n- Missing punctuation:\n    - Type: 'U:PRON' requires a comma after 'U:PRON'",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "ing, as in 1 above) or 'but he \ndoesn't intend to' (future meaning, as in 2). But the correct meaning is usually clear from the \ntext. Ambiguity of this kind can be avoided by using were/was + infinitive instead of the past \ntense in type 2. \nif he/she/it were can be used instead of if he/she/it was, and is considered the more correct \nform: \nIf he were to resign . . . = If he resigned . . . \nIf I were to succeed . . . = If I succeeded . . .  \nThis construction with were is chiefly found in fair"
+                }
+            ],
+            "corrected_key": "U:PRON|"
+        }
+    ],
+    "R:VERB:FORM|have": [
+        {
+            "index": 58,
+            "speaker": "SPEAKER_00",
+            "sentence": "He just started to read and having one cup of tea and relaxing in his home.",
+            "corrected_sentence": "He just started to read and have one cup of tea and relax in his home.",
+            "o_start": 6,
+            "o_end": 7,
+            "original_text": "having",
+            "c_start": 6,
+            "c_end": 7,
+            "corrected_text": "have",
+            "error_type": "R:VERB:FORM",
+            "llm_explanation": "**Errors:**\n\n- Incorrect pluralization: the plural form of \"having\" is \"have,\" not \"having.\"\n- Incorrect use of apostrophes: the apostrophe is misplaced in \"Cor.\"\n\n**Broken rule:**\n\nThe rule \"use the correct plural form of a verb in the subject position\" is broken in this case because the subject is \"having,\" which is a plural noun, and the verb form should be \"have.\"",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "e.g. I'm going to Greece because I like it there. (both present), I realized I had\ngiven the wrong answer. (both past)\nshort answer a subject + auxiliary used to answer a question, e.g. Who's winning?\n~ You are. • 29(4) See also yes/no short answer.\nshort form Some words can be written in a full form or a short form, e.g. have or\n've. In the short form we use an apostrophe in place of part of the word. • 55(2)\nsimple tenses the present simple or past simple tense without an auxiliary, e.g. it\nop"
+                }
+            ],
+            "corrected_key": "R:VERB:FORM|have"
+        }
+    ],
+    "R:VERB:FORM|relax": [
+        {
+            "index": 58,
+            "speaker": "SPEAKER_00",
+            "sentence": "He just started to read and having one cup of tea and relaxing in his home.",
+            "corrected_sentence": "He just started to read and have one cup of tea and relax in his home.",
+            "o_start": 12,
+            "o_end": 13,
+            "original_text": "relaxing",
+            "c_start": 12,
+            "c_end": 13,
+            "corrected_text": "relax",
+            "error_type": "R:VERB:FORM",
+            "llm_explanation": "**Errors:**\n\n- Incorrect capitalization: 'relaxing' should be 'relax.\"\n- Incorrect punctuation: the comma after 'relaxing' is misplaced.\n\n**Broken rule:**\n\n- The comma after the word 'relaxing' is incorrect in this context.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "t: \nIt appears/seems that we have come on the wrong day. \nIf occurred to me that he might be lying. \nIt turned out that nobody remembered the address. \nD that + subject + should can be used after agree, arrange, be anxious, beg, command, decide, \ndemand, determine, be determined, order, resolve and urge instead of an infinitive construction, \nand after insist and suggest instead of a gerund: \nThey agreed/decided that a statue should be put up. \nHe urged that the matter should go to arbitration."
+                }
+            ],
+            "corrected_key": "R:VERB:FORM|relax"
+        }
+    ],
+    "R:OTHER|There": [
+        {
+            "index": 61,
+            "speaker": "SPEAKER_00",
+            "sentence": "There's no toys for his children or something.",
+            "corrected_sentence": "There are no toys for his children or something.",
+            "o_start": 0,
+            "o_end": 1,
+            "original_text": "There's",
+            "c_start": 0,
+            "c_end": 1,
+            "corrected_text": "There",
+            "error_type": "R:OTHER",
+            "llm_explanation": "**Errors:**\n\n- Incorrect capitalization:\n    - Orig: \"There's\" should be \"There's\"\n    - Cor: 'There' should be 'there'\n\n**Broken rule:**\n\n- The use of apostrophes instead of quotation marks in non- possessive contexts.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "xiliary + be: \nThere must be no doubt about this.   There may be a letter for me. or with seem •+• be, \nappear •+• be: \nThere seems to be something wrong here. \nF  there used as above is always unstressed. \nBe careful not to confuse there used in this way with there, stressed, \nused as an adverb: \n^There's a man I want to see. (He is standing by the door.) \nCompare with: \nThere's a man I want to see. (This man exists.) \n \n \n117 \nit is and there is compared \n \nFor uses of it is, see 67. Some exam"
+                }
+            ],
+            "corrected_key": "R:OTHER|There"
+        }
+    ],
+    "M:VERB|are": [
+        {
+            "index": 61,
+            "speaker": "SPEAKER_00",
+            "sentence": "There's no toys for his children or something.",
+            "corrected_sentence": "There are no toys for his children or something.",
+            "o_start": 1,
+            "o_end": 1,
+            "original_text": "",
+            "c_start": 1,
+            "c_end": 2,
+            "corrected_text": "are",
+            "error_type": "M:VERB",
+            "llm_explanation": "**Errors:**\n\n* Incorrect pluralization: the plural form of \"one\" is \"one\", not \"''\".\n* Incorrect use of apostrophes: the apostrophe is used to indicate possession, not to indicate missing letters.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "gauge\ngorgeous\nirrelevant\nkhaki\nlingerie\nmileage\npsychology\nresuscitate\nrhyme\nrhythm\n17. Incorrect plurals\nRemember that plural nouns name more than one person, place, or thing. There are reg-\nular plurals and irregular ones. The regular plurals rarely result in spelling errors, but\nirregular plurals often cause trouble. Keep regular and irregular plurals straight and\nyou’ll eliminate a bunch of spelling errors. Below are some spelling rules to help you\nform the correct plurals.\nG Most regular p"
+                }
+            ],
+            "corrected_key": "M:VERB|are"
+        }
+    ],
+    "U:ADV|": [
+        {
+            "index": 69,
+            "speaker": "SPEAKER_01",
+            "sentence": "Talk together about the different things it could give and decide which the fans would like best.",
+            "corrected_sentence": "Talk about the different things it could give and decide which fans would like best.",
+            "o_start": 1,
+            "o_end": 2,
+            "original_text": "together",
+            "c_start": 1,
+            "c_end": 1,
+            "corrected_text": "",
+            "error_type": "U:ADV",
+            "llm_explanation": "**Errors:**\n\n* **Original text error:** The original text contains a discrepancy between the first and second elements. The first element in the original text is 'together', while in the corrected text it is simply '1'.\n* **Corrected text error:** The corrected text omits the second element '2' from the original list.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "e discussion of capitalization.\n24. Errors in titles\nIncorrect: The Wind In The Willows\nCorrect:\nThe Wind in the Willows\nCapitalize the major words in titles of books, plays, movies, newspapers, and magazines.\nG Do not capitalize the articles: a, an, the.\nG Do not capitalize prepositions: at, by, for, of, in, up, on, so, on, to, etc.\nG Do not capitalize conjunctions: and, as, but, if, or, nor.\nSee Chapter 11 for a complete discussion of capitalization.\nMost Common Proofreading Errors\n25. Missing"
+                }
+            ],
+            "corrected_key": "U:ADV|"
+        }
+    ],
+    "U:DET|": [
+        {
+            "index": 69,
+            "speaker": "SPEAKER_01",
+            "sentence": "Talk together about the different things it could give and decide which the fans would like best.",
+            "corrected_sentence": "Talk about the different things it could give and decide which fans would like best.",
+            "o_start": 12,
+            "o_end": 13,
+            "original_text": "the",
+            "c_start": 11,
+            "c_end": 11,
+            "corrected_text": "",
+            "error_type": "U:DET",
+            "llm_explanation": "**Errors:**\n\n* **Original text error:** The original text contains a typo in the third element, where it should be \"the\".\n* **Corrected text:** The correct text is \"[11, 11, 'the']\".",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "eaker’s location to a third-party location)\nWhere both parties involved in the action are third parties, either take or br\ning \nmay be used, depending on whether the speaker sees things from the agent’s \n(take) or the recipient’s (br\ning) viewpoint:\nEver\ny mor\nning she br\nings (or takes) dad a cup of tea in bed.\n©  The most common errors with br\ning and take involve a failure to orientate to \nthe direction of the action:\nI take my cat to my neighbour\n’s house once a week, to play with my \nneighb"
+                }
+            ],
+            "corrected_key": "U:DET|"
+        },
+        {
+            "index": 116,
+            "speaker": "SPEAKER_02",
+            "sentence": "For me, it's a swimming.",
+            "corrected_sentence": "For me, it's swimming.",
+            "o_start": 3,
+            "o_end": 4,
+            "original_text": "a",
+            "c_start": 3,
+            "c_end": 3,
+            "corrected_text": "",
+            "error_type": "U:DET",
+            "llm_explanation": "**Errors:**\n\n* **Cor: [3, 3, '']:** The correct correlative should be \"the\".\n* **Type: 'U:DET'**: The correct type should be \"U:NP\".",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "e are the correlative conjunctions:\nboth . . .and\neither . . . or\nneither . . . nor\nnot only . . . but also\nwhether . . . or\n3. Subordinating conjunctions link an independent clause (complete sentence) to a depen-\ndent clause (fragment). Here are the most often used subordinating conjunctions:\nafter\nalthough\nas\nas if\nas long as\nas soon as\nas though\nbecause\nbefore\neven though\nif\nin order that\nsince\nso that\nthough\ntill\nunless\nuntil\nwhen\nwhenever\nwhere\nwherever\nInterjections\nInterjections show stro"
+                }
+            ],
+            "corrected_key": "U:DET|"
+        }
+    ],
+    "R:NOUN|club": [
+        {
+            "index": 72,
+            "speaker": "SPEAKER_00",
+            "sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying by the fifth anniversary for the four fifth established for their club.",
+            "corrected_sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying the fifth anniversary for the four fifth established for their club",
+            "o_start": 49,
+            "o_end": 50,
+            "original_text": "club.",
+            "c_start": 48,
+            "c_end": 49,
+            "corrected_text": "club",
+            "error_type": "R:NOUN",
+            "llm_explanation": "**Errors:**\n\n- Incorrect capitalization: 'club.' should be 'Club.'\n- Incorrect punctuation: the comma after 'club.' is misplaced.\n\n**Broken rule:**\n\nThe rule about capitalization and punctuation is to ensure consistency and clarity within a text.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "ok provided. \n(club rules) \nThis construction is chiefly used in regulations or legal documents. In less formal English \nmust or are to would be used instead of shall in the above sentences. (See also 282.) \nC \nshall you? is an old-fashioned form which is occasionally still found in some novels possibly \nbecause it is shorter and neater than the future \ncontinuous tense: \nShall you go? -= Will you be going? \n \n \n235 \nthat. . . should after certain verbs \n \nCertain verbs can be followed by that +"
+                }
+            ],
+            "corrected_key": "R:NOUN|club"
+        }
+    ],
+    "R:VERB:SVA|are": [
+        {
+            "index": 81,
+            "speaker": "SPEAKER_00",
+            "sentence": "If there is some students or from their fans, they can't play and keep it away from their studying or something.",
+            "corrected_sentence": "If there are some students or from their fans, they can't play and keep it away from their studying or something.",
+            "o_start": 2,
+            "o_end": 3,
+            "original_text": "is",
+            "c_start": 2,
+            "c_end": 3,
+            "corrected_text": "are",
+            "error_type": "R:VERB:SVA",
+            "llm_explanation": "**Errors:**\n\n- Incorrect pluralization: \"is\" should be \"are\" in the second sentence.\n- Incorrect use of apostrophes: the apostrophe is misplaced in the third sentence.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "t: \nIt appears/seems that we have come on the wrong day. \nIf occurred to me that he might be lying. \nIt turned out that nobody remembered the address. \nD that + subject + should can be used after agree, arrange, be anxious, beg, command, decide, \ndemand, determine, be determined, order, resolve and urge instead of an infinitive construction, \nand after insist and suggest instead of a gerund: \nThey agreed/decided that a statue should be put up. \nHe urged that the matter should go to arbitration."
+                }
+            ],
+            "corrected_key": "R:VERB:SVA|are"
+        },
+        {
+            "index": 139,
+            "speaker": "SPEAKER_02",
+            "sentence": "In every country we can see that there is a lot of teams which play in football.",
+            "corrected_sentence": "In every country we can see that there are a lot of teams which play in football.",
+            "o_start": 8,
+            "o_end": 9,
+            "original_text": "is",
+            "c_start": 8,
+            "c_end": 9,
+            "corrected_text": "are",
+            "error_type": "R:VERB:SVA",
+            "llm_explanation": "**Errors:**\n\n- Incorrect pluralization: the plural form of \"is\" is \"are,\" but the sentence uses \"is.\"\n- Incorrect verb tense: the verb \"SVA\" is typically used for singular subjects, so the conjugation should be \"is.\"",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "se unstressed n't in a short answer, e.g. Wo, it isn't.\nb In short forms we use 'm (= am), 're (= are), 's (= is/has), 've (= have), 'd (= had/would)\nand n't (= not) in combination with other words. These are the main short forms.\nPronoun + auxiliary verb\nI'm you're we're they're he's she's it's; I've you've we've they've\nI'd you'd he'd she'd we'd they'd; I'll you'll he'll she'll it'll we'll they'll\nHere/There/That \n+ auxiliary verb\nhere's \nthere's \nthere'll \nthere'd \nthat's\nQuestion word + auxi"
+                }
+            ],
+            "corrected_key": "R:VERB:SVA|are"
+        }
+    ],
+    "R:OTHER|there": [
+        {
+            "index": 84,
+            "speaker": "SPEAKER_00",
+            "sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children.",
+            "corrected_sentence": "And for this, there is no, because they have a lot of children and from their fans they can give it to their children.",
+            "o_start": 3,
+            "o_end": 4,
+            "original_text": "there,",
+            "c_start": 3,
+            "c_end": 4,
+            "corrected_text": "there",
+            "error_type": "R:OTHER",
+            "llm_explanation": "**Errors:**\n\n- Incorrect capitalization: 'there' should be capitalized as 'THERE'.\n- Incorrect punctuation: the comma after 'there' is misplaced.\n\n**Broken rule:**\n\nThe rule about capitalization and punctuation is to ensure consistency and clarity within a text.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": ")\n13. Run-ons (two sentences run together)\nSpelling\n14. Missing letters\n15. Extra letters\n16. Transposed letters\n17. Incorrect plurals\n18. Errors in confusing word pairs (such as weather/whether)\nPunctuation\n19. Missing commas or extra commas\n20. Missing or misused apostrophes\n21. Misused exclamation marks\n22. Misused semicolons\nThe 25 Most Common Usage Problems\n79\nCapitalization\n23. Proper nouns not capitalized\n24. Errors in titles\nProofreading\n25. Missing words\nNow, we will review each of thes"
+                }
+            ],
+            "corrected_key": "R:OTHER|there"
+        }
+    ],
+    "M:VERB|is": [
+        {
+            "index": 84,
+            "speaker": "SPEAKER_00",
+            "sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children.",
+            "corrected_sentence": "And for this, there is no, because they have a lot of children and from their fans they can give it to their children.",
+            "o_start": 4,
+            "o_end": 4,
+            "original_text": "",
+            "c_start": 4,
+            "c_end": 5,
+            "corrected_text": "is",
+            "error_type": "M:VERB",
+            "llm_explanation": "**Errors:**\n\n- Incorrect capitalization:\n    - Orig: '4, 4, ''' should be '4, 4, \"\"'\n    - Cor: '4, 5, 'is' should be '4, 5, 'is'\n\n**Broken rule:**\n\n- The use of improper capitalization and punctuation in formal writing is a violation of grammatical rules.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "8(4a)\nand wrongly 207(4) Note b\nquite wrong 2l2(5c)\nwith to-infinitive 123(1), 126(2, 5)\nwrong with 236(4)\nwrong with + gerund 132(4)\ny and i: spelling 294\nyear without article 169(1)\nyes\nafter negative question 30(3)\nas question tag 34(1) Note f\nyes/no question 24(1)\nleaving out auxiliary 42(2)\nas echo question 35(1) Note b\nintonation 54(2b)\nyes/no short answers 29(2)\nyesterday\nindirect speech 267(2)\nwith past 65(5a)\nyet 2l0(2a)\n= but 246(2) Note\nwith past 303 (6)\nyou 184(1)\nand one 185(2a)\npeo"
+                }
+            ],
+            "corrected_key": "M:VERB|is"
+        }
+    ],
+    "R:OTHER|because": [
+        {
+            "index": 84,
+            "speaker": "SPEAKER_00",
+            "sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children.",
+            "corrected_sentence": "And for this, there is no, because they have a lot of children and from their fans they can give it to their children.",
+            "o_start": 5,
+            "o_end": 6,
+            "original_text": "because,",
+            "c_start": 6,
+            "c_end": 7,
+            "corrected_text": "because",
+            "error_type": "R:OTHER",
+            "llm_explanation": "**Errors:**\n\n- Incorrect punctuation in the original text.\n- Incorrect use of quotation marks in the corrected text.\n\n**Broken rule:**\n\n- The use of quotation marks around the reason phrase in the original text is incorrect.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": ")\n13. Run-ons (two sentences run together)\nSpelling\n14. Missing letters\n15. Extra letters\n16. Transposed letters\n17. Incorrect plurals\n18. Errors in confusing word pairs (such as weather/whether)\nPunctuation\n19. Missing commas or extra commas\n20. Missing or misused apostrophes\n21. Misused exclamation marks\n22. Misused semicolons\nThe 25 Most Common Usage Problems\n79\nCapitalization\n23. Proper nouns not capitalized\n24. Errors in titles\nProofreading\n25. Missing words\nNow, we will review each of thes"
+                }
+            ],
+            "corrected_key": "R:OTHER|because"
+        }
+    ],
+    "U:CONJ|": [
+        {
+            "index": 84,
+            "speaker": "SPEAKER_00",
+            "sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children.",
+            "corrected_sentence": "And for this, there is no, because they have a lot of children and from their fans they can give it to their children.",
+            "o_start": 6,
+            "o_end": 7,
+            "original_text": "or",
+            "c_start": 7,
+            "c_end": 7,
+            "corrected_text": "",
+            "error_type": "U:CONJ",
+            "llm_explanation": "**Errors:**\n\n* **Original text error:** The original text contains a misspelling: 'or' should be 'and'.\n* **Corrected text:** The corrected text correctly uses 'and' instead of 'or'.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": ", so, yet) or a semicolon—a comma doesn’t cut the mustard. See Chapter\n8 for a complete discussion of sentences.\nMost Common Spelling Errors\nWriters often misspell words because they mispronounce them. The three most common mis-\ntakes are\nG Dropping a letter or syllable when we say a word.\nG Adding an unnecessary letter when we say a word.\nG Mispronouncing a word and so misspelling it.\n14. Missing letters\nHere are 10 words that are frequently misspelled because the speaker drops a letter or\nsyll"
+                }
+            ],
+            "corrected_key": "U:CONJ|"
+        }
+    ],
+    "M:DET|an": [
+        {
+            "index": 88,
+            "speaker": "SPEAKER_00",
+            "sentence": "I think it's album for our pictures.",
+            "corrected_sentence": "I think it's an album for our pictures.",
+            "o_start": 3,
+            "o_end": 3,
+            "original_text": "",
+            "c_start": 3,
+            "c_end": 4,
+            "corrected_text": "an",
+            "error_type": "M:DET",
+            "llm_explanation": "**Errors:**\n\n* **Incorrect capitalization:** The first letter of the corrected word is capitalized.\n* **Missing punctuation:** The comma after \"DET\" is misplaced.\n\n**Broken rule:**\n\n* The rule about capitalization and punctuation is broken because the first letter of the corrected word is capitalized, but the comma after \"DET\" is not correct.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": ")\n13. Run-ons (two sentences run together)\nSpelling\n14. Missing letters\n15. Extra letters\n16. Transposed letters\n17. Incorrect plurals\n18. Errors in confusing word pairs (such as weather/whether)\nPunctuation\n19. Missing commas or extra commas\n20. Missing or misused apostrophes\n21. Misused exclamation marks\n22. Misused semicolons\nThe 25 Most Common Usage Problems\n79\nCapitalization\n23. Proper nouns not capitalized\n24. Errors in titles\nProofreading\n25. Missing words\nNow, we will review each of thes"
+                }
+            ],
+            "corrected_key": "M:DET|an"
+        }
+    ],
+    "R:OTHER|that?": [
+        {
+            "index": 97,
+            "speaker": "SPEAKER_02",
+            "sentence": "Is that...",
+            "corrected_sentence": "Is that?",
+            "o_start": 1,
+            "o_end": 2,
+            "original_text": "that...",
+            "c_start": 1,
+            "c_end": 2,
+            "corrected_text": "that?",
+            "error_type": "R:OTHER",
+            "llm_explanation": "**Errors:**\n\n* Incorrect punctuation in the original text: the comma after \"that\" is misplaced.\n* Incorrect use of apostrophes in the corrected text: the apostrophe after \"that?\" is unnecessary.\n\n**Broken rule:**\n\nThe rule about using apostrophes is to indicate possession or omission. In the corrected text, the apostrophe is misplaced, disrupting the natural flow of the sentence.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "orks—but sometimes it doesn’t. It’s especially dangerous when you’ve\ngone over and over your writing. At that point, nothing looks correct. To avoid confusion\nand frustration, don’t wing it. Instead, review the comma rules covered in Chapter 10.\nUse these rules as you write to help you correctly punctuate your documents.\n20. Missing or misused apostrophes\nIncorrect: Save the apostrophe for it’s proper use and omit it where its’ not needed.\nCorrect: Save the apostrophe for its proper use and omit"
+                }
+            ],
+            "corrected_key": "R:OTHER|that?"
+        }
+    ],
+    "R:OTHER|feet up.": [
+        {
+            "index": 104,
+            "speaker": "SPEAKER_00",
+            "sentence": "You can put your toes.",
+            "corrected_sentence": "You can put your feet up.",
+            "o_start": 4,
+            "o_end": 5,
+            "original_text": "toes.",
+            "c_start": 4,
+            "c_end": 6,
+            "corrected_text": "feet up.",
+            "error_type": "R:OTHER",
+            "llm_explanation": "**Errors:**\n\n- Incorrect pluralization: \"toes\" should be \"foot\"\n- Incorrect verb tense: \"up\" should be \"feet\"",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "t: \nIt appears/seems that we have come on the wrong day. \nIf occurred to me that he might be lying. \nIt turned out that nobody remembered the address. \nD that + subject + should can be used after agree, arrange, be anxious, beg, command, decide, \ndemand, determine, be determined, order, resolve and urge instead of an infinitive construction, \nand after insist and suggest instead of a gerund: \nThey agreed/decided that a statue should be put up. \nHe urged that the matter should go to arbitration."
+                }
+            ],
+            "corrected_key": "R:OTHER|feet up."
+        }
+    ],
+    "R:PREP|in": [
+        {
+            "index": 112,
+            "speaker": "SPEAKER_00",
+            "sentence": "I am very interested about football.",
+            "corrected_sentence": "I am very interested in football.",
+            "o_start": 4,
+            "o_end": 5,
+            "original_text": "about",
+            "c_start": 4,
+            "c_end": 5,
+            "corrected_text": "in",
+            "error_type": "R:PREP",
+            "llm_explanation": "**Errors:**\n\n- Incorrect use of apostrophes in both \"about\" and \"in\" (both should have apostrophes).\n- Incorrect use of the R:PREP type (Prep should be preceded by a verb).",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "e.g. I'm going to Greece because I like it there. (both present), I realized I had\ngiven the wrong answer. (both past)\nshort answer a subject + auxiliary used to answer a question, e.g. Who's winning?\n~ You are. • 29(4) See also yes/no short answer.\nshort form Some words can be written in a full form or a short form, e.g. have or\n've. In the short form we use an apostrophe in place of part of the word. • 55(2)\nsimple tenses the present simple or past simple tense without an auxiliary, e.g. it\nop"
+                }
+            ],
+            "corrected_key": "R:PREP|in"
+        }
+    ],
+    "R:VERB:TENSE|watched": [
+        {
+            "index": 113,
+            "speaker": "SPEAKER_00",
+            "sentence": "I watch it from when I was child.",
+            "corrected_sentence": "I watched it from when I was a child.",
+            "o_start": 1,
+            "o_end": 2,
+            "original_text": "watch",
+            "c_start": 1,
+            "c_end": 2,
+            "corrected_text": "watched",
+            "error_type": "R:VERB:TENSE",
+            "llm_explanation": "**Errors:**\n\n- The original sentence contains a dangling modifier, \"watch\".\n- The correct tense should be \"watched\" instead of \"watch\".",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "entence. Dangling modifiers confuse your readers and obscure your\nmeaning because the sentence doesn’t make sense.\nCorrect a dangling modifier by adding the word or words that have been left out. Here,\nthe subject we was added and flying was changed to flew so the sentence makes sense.\nAnd while we’re dangling, let’s look at another mangled construction, dangling partici-\nples. A participle is a verb ending in -ing. It is dangling when the subject of the participle\nand the subject of the sentenc"
+                }
+            ],
+            "corrected_key": "R:VERB:TENSE|watched"
+        }
+    ],
+    "M:DET|a": [
+        {
+            "index": 113,
+            "speaker": "SPEAKER_00",
+            "sentence": "I watch it from when I was child.",
+            "corrected_sentence": "I watched it from when I was a child.",
+            "o_start": 7,
+            "o_end": 7,
+            "original_text": "",
+            "c_start": 7,
+            "c_end": 8,
+            "corrected_text": "a",
+            "error_type": "M:DET",
+            "llm_explanation": "**Errors:**\n\n* **Incorrect capitalization:** The first letter of the correct word is capitalized in the correct sentence, but the second letter is not capitalized.\n* **Missing punctuation:** The closing parenthesis is missing after the word \"a.\"\n\n**Broken rule:**\n\nThe rule states that the first letter of a word must be capitalized, unless it is the first word of the sentence.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "e discussion of capitalization.\n24. Errors in titles\nIncorrect: The Wind In The Willows\nCorrect:\nThe Wind in the Willows\nCapitalize the major words in titles of books, plays, movies, newspapers, and magazines.\nG Do not capitalize the articles: a, an, the.\nG Do not capitalize prepositions: at, by, for, of, in, up, on, so, on, to, etc.\nG Do not capitalize conjunctions: and, as, but, if, or, nor.\nSee Chapter 11 for a complete discussion of capitalization.\nMost Common Proofreading Errors\n25. Missing"
+                }
+            ],
+            "corrected_key": "M:DET|a"
+        },
+        {
+            "index": 153,
+            "speaker": "SPEAKER_02",
+            "sentence": "Because I think it's waste of time and I don't have enough time to study, so I can't go to this kind of activities.",
+            "corrected_sentence": "Because I think it's a waste of time and I don't have enough time to study, so I can't go to this kind of activities.",
+            "o_start": 4,
+            "o_end": 4,
+            "original_text": "",
+            "c_start": 4,
+            "c_end": 5,
+            "corrected_text": "a",
+            "error_type": "M:DET",
+            "llm_explanation": "**Errors:**\n\n- Incorrect capitalization:\n    - Orig: 'M:DET' should be 'M:DET'\n    - Cor: 'a' should be 'A'\n\n**Broken rule:**\n\n- The use of non-standard capitalization and punctuation in informal writing is discouraged.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "e discussion of capitalization.\n24. Errors in titles\nIncorrect: The Wind In The Willows\nCorrect:\nThe Wind in the Willows\nCapitalize the major words in titles of books, plays, movies, newspapers, and magazines.\nG Do not capitalize the articles: a, an, the.\nG Do not capitalize prepositions: at, by, for, of, in, up, on, so, on, to, etc.\nG Do not capitalize conjunctions: and, as, but, if, or, nor.\nSee Chapter 11 for a complete discussion of capitalization.\nMost Common Proofreading Errors\n25. Missing"
+                }
+            ],
+            "corrected_key": "M:DET|a"
+        }
+    ],
+    "R:VERB:SVA|makes": [
+        {
+            "index": 133,
+            "speaker": "SPEAKER_00",
+            "sentence": "That make a lot of supporters became, they have the same admires and the same ambition about their teams.",
+            "corrected_sentence": "That makes a lot of supporters become, they have the same admirations and the same ambition about their teams.",
+            "o_start": 1,
+            "o_end": 2,
+            "original_text": "make",
+            "c_start": 1,
+            "c_end": 2,
+            "corrected_text": "makes",
+            "error_type": "R:VERB:SVA",
+            "llm_explanation": "**Errors:**\n\n- Incorrect pluralization of \"make\" (should be \"makes\").\n- Incorrect use of apostrophes in \"cor\" (need to be \"correct\").",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": ")\n13. Run-ons (two sentences run together)\nSpelling\n14. Missing letters\n15. Extra letters\n16. Transposed letters\n17. Incorrect plurals\n18. Errors in confusing word pairs (such as weather/whether)\nPunctuation\n19. Missing commas or extra commas\n20. Missing or misused apostrophes\n21. Misused exclamation marks\n22. Misused semicolons\nThe 25 Most Common Usage Problems\n79\nCapitalization\n23. Proper nouns not capitalized\n24. Errors in titles\nProofreading\n25. Missing words\nNow, we will review each of thes"
+                }
+            ],
+            "corrected_key": "R:VERB:SVA|makes"
+        }
+    ],
+    "R:PUNCT|become,": [
+        {
+            "index": 133,
+            "speaker": "SPEAKER_00",
+            "sentence": "That make a lot of supporters became, they have the same admires and the same ambition about their teams.",
+            "corrected_sentence": "That makes a lot of supporters become, they have the same admirations and the same ambition about their teams.",
+            "o_start": 6,
+            "o_end": 7,
+            "original_text": "became,",
+            "c_start": 6,
+            "c_end": 7,
+            "corrected_text": "become,",
+            "error_type": "R:PUNCT",
+            "llm_explanation": "**Errors:**\n\n* Incorrect punctuation in both original and corrected text.\n* Missing comma after 'became' in the original text.\n\n**Broken rule:**\n\n* Punctuation errors can disrupt the flow of a sentence and make the text difficult to understand.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": ")\n13. Run-ons (two sentences run together)\nSpelling\n14. Missing letters\n15. Extra letters\n16. Transposed letters\n17. Incorrect plurals\n18. Errors in confusing word pairs (such as weather/whether)\nPunctuation\n19. Missing commas or extra commas\n20. Missing or misused apostrophes\n21. Misused exclamation marks\n22. Misused semicolons\nThe 25 Most Common Usage Problems\n79\nCapitalization\n23. Proper nouns not capitalized\n24. Errors in titles\nProofreading\n25. Missing words\nNow, we will review each of thes"
+                }
+            ],
+            "corrected_key": "R:PUNCT|become,"
+        }
+    ],
+    "R:MORPH|admirations": [
+        {
+            "index": 133,
+            "speaker": "SPEAKER_00",
+            "sentence": "That make a lot of supporters became, they have the same admires and the same ambition about their teams.",
+            "corrected_sentence": "That makes a lot of supporters become, they have the same admirations and the same ambition about their teams.",
+            "o_start": 11,
+            "o_end": 12,
+            "original_text": "admires",
+            "c_start": 11,
+            "c_end": 12,
+            "corrected_text": "admirations",
+            "error_type": "R:MORPH",
+            "llm_explanation": "**Errors:**\n\n* Incorrect pluralization of \"admirations\" (should be \"admiration\").\n* Typo in \"Type\" field (should be \"Rule\").",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "pelling errors. Below are some spelling rules to help you\nform the correct plurals.\nG Most regular plurals are formed by adding s to the end of the word.\nSingular\nPlural\nbird\nbirds\nhat\nhats\narrow\narrows\npencil\npencils\nduck\nducks\ndog\ndogs\n86\nENGLISH GRAMMAR FOR THE UTTERLY CONFUSED\nG Add es if the noun ends in s, sh, ch, or x.\nG If the noun ends in y preceded by a consonant, change the y to i and add es.\nG If the noun ends in y preceded by a vowel, add s.\nException: Words that end in -quy, as in"
+                }
+            ],
+            "corrected_key": "R:MORPH|admirations"
+        }
+    ],
+    "R:VERB:TENSE|went": [
+        {
+            "index": 147,
+            "speaker": "SPEAKER_00",
+            "sentence": "I Go to all truffles two times It was amazing.",
+            "corrected_sentence": "I went to all truffles two times and it was amazing.",
+            "o_start": 1,
+            "o_end": 2,
+            "original_text": "Go",
+            "c_start": 1,
+            "c_end": 2,
+            "corrected_text": "went",
+            "error_type": "R:VERB:TENSE",
+            "llm_explanation": "**Errors:**\n\n- The infinitive \"Go\" is incorrect in the correct tense.\n- The verb should be \"went\" to match the tense of the rest of the sentence.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "t: \nIt appears/seems that we have come on the wrong day. \nIf occurred to me that he might be lying. \nIt turned out that nobody remembered the address. \nD that + subject + should can be used after agree, arrange, be anxious, beg, command, decide, \ndemand, determine, be determined, order, resolve and urge instead of an infinitive construction, \nand after insist and suggest instead of a gerund: \nThey agreed/decided that a statue should be put up. \nHe urged that the matter should go to arbitration."
+                }
+            ],
+            "corrected_key": "R:VERB:TENSE|went"
+        }
+    ],
+    "M:CONJ|and": [
+        {
+            "index": 147,
+            "speaker": "SPEAKER_00",
+            "sentence": "I Go to all truffles two times It was amazing.",
+            "corrected_sentence": "I went to all truffles two times and it was amazing.",
+            "o_start": 7,
+            "o_end": 7,
+            "original_text": "",
+            "c_start": 7,
+            "c_end": 8,
+            "corrected_text": "and",
+            "error_type": "M:CONJ",
+            "llm_explanation": "**Errors:**\n\n* Incorrect use of the particle \"and\" in the correct context.\n* Incorrect use of the type indicator \"M:CONJ\" in the second sentence.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "not capitalized\n24. Errors in titles\nProofreading\n25. Missing words\nNow, we will review each of these problem places so that you can have writing that is letter\nperfect.\nMost Common Grammar and Usage Errors\n1. Lack of clarity\nIncorrect: Prehistoric people used many inorganic substances difficult to find at archae-\nological sites, which included clay and rock.\nCorrect:\nPrehistoric people used many inorganic substances, including clay and rock,\nwhich are difficult to find at archaeological sites."
+                }
+            ],
+            "corrected_key": "M:CONJ|and"
+        }
+    ],
+    "R:ORTH|it": [
+        {
+            "index": 147,
+            "speaker": "SPEAKER_00",
+            "sentence": "I Go to all truffles two times It was amazing.",
+            "corrected_sentence": "I went to all truffles two times and it was amazing.",
+            "o_start": 7,
+            "o_end": 8,
+            "original_text": "It",
+            "c_start": 8,
+            "c_end": 9,
+            "corrected_text": "it",
+            "error_type": "R:ORTH",
+            "llm_explanation": "**Errors:**\n\n* Incorrect capitalization:\n    * Orig: 'It' should be 'It'\n    * Cor: 'it' should be 'It'\n* Incorrect punctuation:\n    * Orig: Missing comma after '8'\n    * Cor: Missing comma after '9'",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "e discussion of capitalization.\n24. Errors in titles\nIncorrect: The Wind In The Willows\nCorrect:\nThe Wind in the Willows\nCapitalize the major words in titles of books, plays, movies, newspapers, and magazines.\nG Do not capitalize the articles: a, an, the.\nG Do not capitalize prepositions: at, by, for, of, in, up, on, so, on, to, etc.\nG Do not capitalize conjunctions: and, as, but, if, or, nor.\nSee Chapter 11 for a complete discussion of capitalization.\nMost Common Proofreading Errors\n25. Missing"
+                }
+            ],
+            "corrected_key": "R:ORTH|it"
+        }
+    ],
+    "U:VERB:FORM|": [
+        {
+            "index": 149,
+            "speaker": "SPEAKER_00",
+            "sentence": "Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+            "corrected_sentence": "Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the players if they have like one player that they decide to have ",
+            "o_start": 6,
+            "o_end": 7,
+            "original_text": "to",
+            "c_start": 6,
+            "c_end": 6,
+            "corrected_text": "",
+            "error_type": "U:VERB:FORM",
+            "llm_explanation": "**Errors:**\n\n* **Original sentence is ambiguous:** The original sentence uses a comma to separate the verb from the object, which is incorrect.\n* **Grammatical errors:** The sentence contains grammatical errors such as using 'to' instead of 'to be' in the verb form.\n\n**Broken rule:**\n\n* Commas separate elements that are not independent clauses.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "fragments and run-on sentences. These problems\nwith sentence construction confuse your readers and obscure your meaning. Their use will\nalso result in clumsy, unpolished writing and speech. Let’s look at each of these sentence\nerrors in detail so that you’ll be able to fix them with ease.\nAs you’ve learned, there are two types of clauses: independent and dependent.\nG Independent clauses are complete sentences because they have a subject, a verb, and\nexpress a complete thought.\nI go to the movies"
+                }
+            ],
+            "corrected_key": "U:VERB:FORM|"
+        }
+    ],
+    "R:NOUN|positions,": [
+        {
+            "index": 149,
+            "speaker": "SPEAKER_00",
+            "sentence": "Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+            "corrected_sentence": "Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the players if they have like one player that they decide to have ",
+            "o_start": 18,
+            "o_end": 19,
+            "original_text": "positions",
+            "c_start": 16,
+            "c_end": 17,
+            "corrected_text": "positions,",
+            "error_type": "R:NOUN",
+            "llm_explanation": "**Errors:**\n\n- Incorrect pluralization: the plural form of \"positions\" is \"position,\" not \"positions.\"\n- Incorrect punctuation: the closing parenthesis is misplaced in the original text.\n\n**Broken rule:**\n\n- Incorrect use of apostrophes: the apostrophe is used to indicate possession or omission, but in this case, it is misplaced.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": ")\n13. Run-ons (two sentences run together)\nSpelling\n14. Missing letters\n15. Extra letters\n16. Transposed letters\n17. Incorrect plurals\n18. Errors in confusing word pairs (such as weather/whether)\nPunctuation\n19. Missing commas or extra commas\n20. Missing or misused apostrophes\n21. Misused exclamation marks\n22. Misused semicolons\nThe 25 Most Common Usage Problems\n79\nCapitalization\n23. Proper nouns not capitalized\n24. Errors in titles\nProofreading\n25. Missing words\nNow, we will review each of thes"
+                }
+            ],
+            "corrected_key": "R:NOUN|positions,"
+        }
+    ],
+    "R:NOUN:NUM|player": [
+        {
+            "index": 149,
+            "speaker": "SPEAKER_00",
+            "sentence": "Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+            "corrected_sentence": "Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the players if they have like one player that they decide to have ",
+            "o_start": 27,
+            "o_end": 28,
+            "original_text": "players",
+            "c_start": 25,
+            "c_end": 26,
+            "corrected_text": "player",
+            "error_type": "R:NOUN:NUM",
+            "llm_explanation": "**Errors:**\n\n- Incorrect pluralization: the plural form of \"players\" is \"player,\" not \"players.\"\n- Incorrect use of apostrophes: the apostrophe is misplaced in \"players.\"\n\n**Broken rule:**\n\nThe rule \"Use the correct plural form of a noun\" is violated in the second word, \"player.\"",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "e.g. I'm going to Greece because I like it there. (both present), I realized I had\ngiven the wrong answer. (both past)\nshort answer a subject + auxiliary used to answer a question, e.g. Who's winning?\n~ You are. • 29(4) See also yes/no short answer.\nshort form Some words can be written in a full form or a short form, e.g. have or\n've. In the short form we use an apostrophe in place of part of the word. • 55(2)\nsimple tenses the present simple or past simple tense without an auxiliary, e.g. it\nop"
+                }
+            ],
+            "corrected_key": "R:NOUN:NUM|player"
+        }
+    ],
+    "R:NOUN|players": [
+        {
+            "index": 149,
+            "speaker": "SPEAKER_00",
+            "sentence": "Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+            "corrected_sentence": "Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the players if they have like one player that they decide to have ",
+            "o_start": 32,
+            "o_end": 33,
+            "original_text": "gomers",
+            "c_start": 30,
+            "c_end": 31,
+            "corrected_text": "players",
+            "error_type": "R:NOUN",
+            "llm_explanation": "**Errors:**\n\n- Incorrect pluralization: \"gomers\" should be \"gamer\"\n- Incorrect use of apostrophes: the apostrophes in \"players\" are misplaced\n\n**Broken rule:**\n\n- Apostrophes are used to indicate possession or omission, but in this case, they are used incorrectly to indicate grammatical errors.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": ")\n13. Run-ons (two sentences run together)\nSpelling\n14. Missing letters\n15. Extra letters\n16. Transposed letters\n17. Incorrect plurals\n18. Errors in confusing word pairs (such as weather/whether)\nPunctuation\n19. Missing commas or extra commas\n20. Missing or misused apostrophes\n21. Misused exclamation marks\n22. Misused semicolons\nThe 25 Most Common Usage Problems\n79\nCapitalization\n23. Proper nouns not capitalized\n24. Errors in titles\nProofreading\n25. Missing words\nNow, we will review each of thes"
+                }
+            ],
+            "corrected_key": "R:NOUN|players"
+        }
+    ],
+    "U:OTHER|": [
+        {
+            "index": 149,
+            "speaker": "SPEAKER_00",
+            "sentence": "Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+            "corrected_sentence": "Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the players if they have like one player that they decide to have ",
+            "o_start": 44,
+            "o_end": 48,
+            "original_text": "a construct with him.",
+            "c_start": 42,
+            "c_end": 42,
+            "corrected_text": "",
+            "error_type": "U:OTHER",
+            "llm_explanation": "**Errors:**\n\n- Incorrect capitalization: 'a construct with him' should be 'a construct with him.'\n- Missing punctuation: the closing parenthesis is missing after 'him.'\n\n**Broken rule:**\n\nThe rule about capitalization and punctuation is to ensure consistency and clarity within a text.",
+            "rag": [
+                {
+                    "rank": 1,
+                    "content": "d mean either 'He \nnoticed that she did this' or 'He made sure by supervision that she did this'. \nC \nappear, happen, occur, seem, turn out require it as subject: \nIt appears/seems that we have come on the wrong day. \nIf occurred to me that he might be lying. \nIt turned out that nobody remembered the address. \nD that + subject + should can be used after agree, arrange, be anxious, beg, command, decide, \ndemand, determine, be determined, order, resolve and urge instead of an infinitive constructi"
+                }
+            ],
+            "corrected_key": "U:OTHER|"
+        }
+    ]
+}

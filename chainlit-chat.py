@@ -11,6 +11,17 @@ max_new_tokens = 200
 RAG_search_k = 1
 
 
+async def get_explained_sentences_speaker(explained_sentences, speaker:str):
+    if speaker == "All speakers":
+        return explained_sentences
+    else:
+        result = {}
+        for key, value in explained_sentences.items():
+            if value['speaker'] == speaker:
+                result[key] = value
+        return result
+
+
 @cl.on_settings_update
 async def setup_agent(settings):
     print("Settings update start...")
@@ -18,29 +29,23 @@ async def setup_agent(settings):
 
     speakerId = settings["SpeakerId"]
     speakers_context = cl.user_session.get("speakers_context")
+    explained_sentences = cl.user_session.get("explained_sentences")
 
-    selected_speaker_text = speakers_context[speakerId]
-    cl.user_session.set("selected_speaker_text", selected_speaker_text)
+    explained_sentences_speaker = get_explained_sentences_speaker(explained_sentences, speakerId)
+    cl.user_session.set("explained_sentences_speaker", explained_sentences_speaker)
+
+    await cl.Message(
+        content=f"### Selected: {speakerId}",
+    ).send()
 
     current_LLM = settings["CurrentLLM"]
     if english_tutor.get_current_llm_model_id() != current_LLM:
         print(f'LLM updated: {current_LLM}')
         english_tutor.set_chat_llm(current_LLM)
 
-    current_RAG = settings["CurrentRAG"]
-    if english_tutor.get_rag_engine_id() != current_RAG:
-        print(f'RAG Engine updated: {current_RAG}')
-        english_tutor.set_rag_engine(current_RAG)
-
-    cl.user_session.set("aitana_bot", english_tutor)
-
-    start = time.time()
-    study_plan = english_tutor.get_study_plan(speakerId)
-    cl.user_session.set("study_plan", study_plan)
-    end = time.time()
-    print("time:", end - start)
-
     print("on_settings_update", settings)
+
+    await on_message(None)
 
 
 # called when a new chat session is created.
@@ -49,18 +54,12 @@ async def on_chat_start():
     cl.user_session.set("counter", 0)
     english_tutor = EnglishTutor()
 
-    # TODO repetitivo?? ya que 'get_study_plan() ya lo hace
-    #speakers_context = english_tutor.get_speakers_context(group_by_speaker=False)    
-    #cl.user_session.set("speakers_context", speakers_context)
-
-    #selected_speaker_text = speakers_context[speakerId]
-    #cl.user_session.set("selected_speaker_text", selected_speaker_text)
-
     start = time.time()
     explained_sentences, speakers_context, sorted_speakers = english_tutor.get_study_plan() # explained sentences, speaker context
     cl.user_session.set("explained_sentences", explained_sentences)
     cl.user_session.set("speakers_context", speakers_context)
     cl.user_session.set("speakers", sorted_speakers)
+    cl.user_session.set("explained_sentences_speaker", explained_sentences)
     end = time.time()
     print("on_chat_start time:", end - start)
 
@@ -70,18 +69,14 @@ async def on_chat_start():
     english_tutor.set_rag_engine(available_RAG[0])
     cl.user_session.set("english_tutor", english_tutor)
 
+   
+
     await cl.ChatSettings(
         [
             Select(
                 id="SpeakerId",
                 label="Current Speaker",
                 values=sorted_speakers,
-                initial_index=0,
-            ),
-            Select(
-                id="CurrentRAG",
-                label="Current RAG Engine",
-                values=available_RAG,
                 initial_index=0,
             ),
             Select(
@@ -94,29 +89,40 @@ async def on_chat_start():
     ).send()
 
     hello_msg = f"# Welcome to English Tutor Chat Bot AI! 🚀🤖\n\n"
-    hello_msg += "Hi there! Could you please share your name with me? I'd love to get started analyzing your phrases.\n\n"
-    #hello_msg += f"{speakerId}, let's start by learning English!"
+    hello_msg += f"Please select in configuration (left of the text entry) what speaker you want to check. Otherwise all speakers will be used\n\n"
     initial_message = cl.Message(content=hello_msg)
     await initial_message.send()
+
+
+    speaker = await ask_for_speaker()
+    cl.user_session.set("explained_sentences_speaker", get_explained_sentences_speaker(explained_sentences, speaker))
+
     await on_message(None)
+
 
 
 # called when a new message is received from the user.
 @cl.on_message
 async def on_message(message: cl.Message):
+    
+
     english_tutor = cl.user_session.get("english_tutor")
     counter = cl.user_session.get("counter")
 
     if counter == 0:
         print(f'counter: {counter}')
-        study_plan: dict = cl.user_session.get("study_plan")
+        explained_sentences_speaker = await cl.user_session.get("explained_sentences_speaker")
+        # if the dictionary is empty, then the user has completed the exercise
+        if not explained_sentences_speaker:
+            await cl.Message(
+                content="Congratulations! You don't have any mistakes to practice. Let's continue!",
+            ).send()
+            return
+        
 
         #Step 1: Select a sentence to practice
-        res = None
         errant = None
-        while res is None or res.get("value") != "continue":
-            theme_key = random.choice(list(study_plan.keys()))
-            theme_value = study_plan[theme_key]
+        for theme_key, theme_value in explained_sentences_speaker.items():
             #print(theme_value)
             errant_errores = theme_value['errant']
 
@@ -226,3 +232,18 @@ async def ask_action():
             cl.Action(name="continue", value="continue", label="✅ Yes, please!"),
         ],
     ).send()
+
+
+async def ask_for_speaker():
+    speakers = cl.user_session.get("speakers")
+    res = await cl.AskActionMessage(
+        content="Choose the speaker you want to analyse",
+        actions=[
+            *[cl.Action(name=speaker, value=speaker, label=speaker) for speaker in speakers],
+        ],
+    ).send()
+
+    if res:
+        return res.get("value")
+    else:
+        return "All speakers"

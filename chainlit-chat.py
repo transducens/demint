@@ -6,10 +6,39 @@ import random
 
 from english_tutor import EnglishTutor
 
+from app.error_identification import prepare_sorted_sentence_collection, explain_sentences, obtain_errors, rag_sentences
+from app.file_manager import FileManager
+from app.grammar_checker import GrammarChecker
+from app.audio_extractor import AudioExtractor
+from app.llm.ChatFactory import ChatFactory
+
+from app.rag.RAGFactory import RAGFactory
+
 available_llm = EnglishTutor.get_available_llm()
 max_new_tokens = 200
 RAG_search_k = 1
 
+
+file_manager = FileManager()
+__grammar_checker_lt = GrammarChecker(gec_model="LT_API")
+__grammar_checker_t5 = GrammarChecker(gec_model="T5")
+
+diarization = file_manager.read_from_json_file("cache/diarization_result_test.json")
+speakers_context = AudioExtractor().process_diarizated_text(diarization)
+
+llm_modelId = "google/gemma-1.1-7b-it"  # "google/gemma-1.1-2b-it"
+__chat_llm = ChatFactory.get_instance(llm_modelId)
+
+#raw_sentence_collection = prepare_sorted_sentence_collection(file_manager, speakers_context)
+#errant_all_errors, errant_detailed_errors, errant_corrected_errors, errant_simple_errors, explained_sentences = obtain_errors(file_manager, __grammar_checker_lt, __grammar_checker_t5, False)
+
+#explain_sentences(file_manager, __chat_llm)
+
+ratatouille_rag = RAGFactory().get_instance("ragatouille")
+
+rag_sentences(file_manager, ratatouille_rag)
+
+exit()
 
 @cl.on_settings_update
 async def setup_agent(settings):

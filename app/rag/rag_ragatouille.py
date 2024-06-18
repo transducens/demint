@@ -12,7 +12,8 @@ split_documents = True
 
 class RAGatouilleTutor(IRagEngine):
     def __init__(self, model_name="colbert-ir/colbertv2.0"):
-        self.index_path = f".ragatouille/colbert/indexes/{index_name}/"
+        #self.index_path = f".ragatouille/colbert/indexes/{index_name}/"
+        self.index_path = "app/.ragatouille/colbert/indexes/tutor/"
         self.INDEX = None
         self.__model_name = model_name
 

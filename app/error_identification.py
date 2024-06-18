@@ -225,7 +225,7 @@ def rag_sentences(__file_manager, __rag_engine):
 
             error_description_list.append(error_description)
 
-        explained_sentences[index] = {
+        explained_sentences[new_index] = {
             'speaker': sentence['speaker'],
             'sentence' : original_sentence,
             't5_checked_sentence': t5_checked_sentence,

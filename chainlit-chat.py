@@ -2,6 +2,7 @@ import time
 import chainlit as cl
 from chainlit.input_widget import Select, Switch, Slider
 import random
+import os
 
 
 from english_tutor import EnglishTutor
@@ -19,7 +20,7 @@ max_new_tokens = 200
 RAG_search_k = 1
 
 
-file_manager = FileManager()
+"""file_manager = FileManager()
 __grammar_checker_lt = GrammarChecker(gec_model="LT_API")
 __grammar_checker_t5 = GrammarChecker(gec_model="T5")
 
@@ -38,7 +39,7 @@ ratatouille_rag = RAGFactory().get_instance("ragatouille")
 
 rag_sentences(file_manager, ratatouille_rag)
 
-exit()
+exit()"""
 
 @cl.on_settings_update
 async def setup_agent(settings):
@@ -86,14 +87,20 @@ async def on_chat_start():
     #cl.user_session.set("selected_speaker_text", selected_speaker_text)
 
     start = time.time()
-    study_plan = english_tutor.get_study_plan()
+    #study_plan = english_tutor.get_study_plan()
+    file_manager = FileManager()
+    
+    if not os.path.isfile('app/new_cache/rag_sentences.json'):
+        rag_sentences(file_manager, english_tutor.set_rag_engine(available_RAG[0]))
+
+    study_plan = file_manager.read_from_json_file("app/new_cache/rag_sentences.json")
     cl.user_session.set("study_plan", study_plan)
     end = time.time()
     print("on_chat_start time:", end - start)
 
     available_RAG = english_tutor.get_supported_rag_engines()
 
-    english_tutor.set_chat_llm(available_llm[0])
+    english_tutor.set_chat_llm(available_llm[4])
     english_tutor.set_rag_engine(available_RAG[0])
     cl.user_session.set("english_tutor", english_tutor)
 

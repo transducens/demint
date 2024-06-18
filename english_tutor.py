@@ -169,7 +169,6 @@ class EnglishTutor:
         return audio_downloader.get_video_info(video_url)
 
 
-
     # Returns a dictionary of explained sentences (cache/explained_sentences.json)
     def get_study_plan(self) -> list:
         # study_plan = self.__file_manager.read_from_json_file(self.cache_files_paths['study_plan'])
@@ -184,6 +183,7 @@ class EnglishTutor:
         speakers_context = self.get_speakers_context(group_by_speaker=False)
         speakers = self.get_speakers()
         explained_sentences = plan_creator.create_study_plan(speakers_context)
+        #study_plan = plan_creator.create_study_plan(speakers_context)
         #print("get_study_plan: ", study_plan)
         #self.__file_manager.save_to_json_file(self.cache_files_paths['study_plan'], study_plan)
         return explained_sentences, speakers_context, speakers

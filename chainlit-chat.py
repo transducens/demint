@@ -2,13 +2,23 @@ import time
 import chainlit as cl
 from chainlit.input_widget import Select, Switch, Slider
 import random
+import os
 
 
 from english_tutor import EnglishTutor
 
+from app.error_identification import prepare_sorted_sentence_collection, explain_sentences, obtain_errors, rag_sentences
+from app.file_manager import FileManager
+from app.grammar_checker import GrammarChecker
+from app.audio_extractor import AudioExtractor
+from app.llm.ChatFactory import ChatFactory
+
+from app.rag.RAGFactory import RAGFactory
+
 available_llm = EnglishTutor.get_available_llm()
 max_new_tokens = 200
 RAG_search_k = 1
+
 
 
 async def get_explained_sentences_speaker(explained_sentences, speaker:str):
@@ -20,6 +30,7 @@ async def get_explained_sentences_speaker(explained_sentences, speaker:str):
             if value['speaker'] == speaker:
                 result[key] = value
         return result
+
 
 
 @cl.on_settings_update
@@ -55,17 +66,27 @@ async def on_chat_start():
     english_tutor = EnglishTutor()
 
     start = time.time()
-    explained_sentences, speakers_context, sorted_speakers = english_tutor.get_study_plan() # explained sentences, speaker context
-    cl.user_session.set("explained_sentences", explained_sentences)
-    cl.user_session.set("speakers_context", speakers_context)
-    cl.user_session.set("speakers", sorted_speakers)
-    cl.user_session.set("explained_sentences_speaker", explained_sentences)
+    #explained_sentences, speakers_context, sorted_speakers = english_tutor.get_study_plan() # explained sentences, speaker context
+    #cl.user_session.set("explained_sentences", explained_sentences)
+    #cl.user_session.set("speakers_context", speakers_context)
+    #cl.user_session.set("speakers", sorted_speakers)
+    #cl.user_session.set("explained_sentences_speaker", explained_sentences)
+
+    start = time.time()
+    file_manager = FileManager()
+    
+    if not os.path.isfile('app/new_cache/rag_sentences.json'):
+        rag_sentences(file_manager, english_tutor.set_rag_engine(available_RAG[0]))
+
+    study_plan = file_manager.read_from_json_file("app/new_cache/rag_sentences.json")
+    cl.user_session.set("study_plan", study_plan)
+
     end = time.time()
     print("on_chat_start time:", end - start)
 
     available_RAG = english_tutor.get_supported_rag_engines()
 
-    english_tutor.set_chat_llm(available_llm[0])
+    english_tutor.set_chat_llm(available_llm[4])
     english_tutor.set_rag_engine(available_RAG[0])
     cl.user_session.set("english_tutor", english_tutor)
 
@@ -98,7 +119,6 @@ async def on_chat_start():
     cl.user_session.set("explained_sentences_speaker", get_explained_sentences_speaker(explained_sentences, speaker))
 
     await on_message(None)
-
 
 
 # called when a new message is received from the user.
@@ -186,7 +206,7 @@ async def on_message(message: cl.Message):
         final_prompt = (
             f"You are an English teacher talking to a student. \n\n"
             f"CONTEXT:\n{context}\n"
-            f"QUESTION:\n Create an short exercise to help a student practice their mistake.")
+            f"QUESTION:\n Create an short exercise to help a student practice their mistake. Without answers.")
 
         response = await cl.make_async(english_tutor.get_answer)(final_prompt, max_new_tokens)
         cl.user_session.set("user_excercise", response)
@@ -210,7 +230,7 @@ async def on_message(message: cl.Message):
 
         final_prompt = (f"Check user answer, explain result and create new exercise:\n\n"
                         f"CONTEXT:\n{context}"
-                        f"QUESTION:\n Check my answer, explain result and create new exercise")
+                        f"QUESTION:\n Check my answer, explain result and create new exercise without answers.")
 
         response = await cl.make_async(english_tutor.get_answer)(final_prompt, max_new_tokens)
         cl.user_session.set("user_excercise", response)
@@ -232,7 +252,6 @@ async def ask_action():
             cl.Action(name="continue", value="continue", label="✅ Yes, please!"),
         ],
     ).send()
-
 
 async def ask_for_speaker():
     speakers = cl.user_session.get("speakers")

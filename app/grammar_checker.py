@@ -1,6 +1,6 @@
 import language_tool_python as lt
-import app.gec.language_tool.predict as lt
-import app.gec.t5.predict as t5
+import gec.language_tool.predict as lt
+import gec.t5.predict as t5
 import subprocess
 
 ###

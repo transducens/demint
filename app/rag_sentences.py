@@ -1,6 +1,6 @@
 import os
 from .grammar_checker import GrammarChecker
-from .obtain_errores import obtain_errors
+from .obtain_errors import obtain_errors
 def rag_sentences(__file_manager, __rag_engine):
     if not os.path.isfile('app/new_cache/explained_sentences.json'):
         __grammar_checker_lt = GrammarChecker(gec_model="LT_API")

@@ -1,18 +1,74 @@
+# Thirdy party imports
 import errant
-from app.file_manager import FileManager
+from sentence_splitter import SentenceSplitter
 
-def prepare_sorted_sentence_collection(__file_manager, speaker_context: list):
-    raw_sentence_collection = []
+# Local imports
+local = False
+if __name__ == '__main__':
+    local = True
+
+if local:
+    from file_manager import FileManager
+else:
+    from file_manager import FileManager
+
+
+input_file = "../cache/diarization_result.json"
+output_file = "../cache/raw_sorted_sentence_collection.json"
+
+
+def prepare_sorted_sentence_collection(file_manager, speaker_context: list):
+    raw_sentence_collection = {}
     index = 1
     print("Creating sorted sentence collection ...")
     for line in speaker_context:    # 0 time, 1 speaker, 2 sentence
-        raw_sentence_collection.append({
-            'index': index,
+        raw_sentence_collection[index] = {
+            'time': line[0],
             'speaker': line[1],
             'original_sentence': line[2]
-        })
+        }
         index += 1
 
-    __file_manager.save_to_json_file('app/new_cache/raw_sorted_sentence_collection.json', raw_sentence_collection)
+    file_manager.save_to_json_file(output_file, raw_sentence_collection)
 
     return raw_sentence_collection
+
+
+# Given a list of diarization results
+# Return a list of transcripts separating for time, speaker, and text
+def process_diarizated_text(diarization_result):
+    # Loads diarization results from a file, if it exists
+    speakers_context = [] # List of the transcripts for each speaker
+    sentence_splitter = SentenceSplitter(language='en')
+    for transcript in diarization_result:
+        parts = transcript.split("||")
+        if len(parts) > 1:
+            text_time, speaker_label, text = parts[0].split("]")[0].strip()[1:], parts[0].split("]")[1].strip(), parts[1].strip()
+            # Appens the time, speaker, and text to the 3D list
+            if text:
+                for ds in sentence_splitter.split(text):
+                    ds = ds.strip()
+                    if ds:
+                        ds = ds[0].upper() + ds[1:]
+                        if ds[-1] not in ['.', '?', '!', '-', '"', "'", "(", ")"]:
+                            ds += "."
+                        speakers_context.append([text_time, speaker_label, ds])
+
+    return speakers_context
+
+
+
+def main():
+    file_manager = FileManager()
+
+    diarization = file_manager.read_from_json_file(input_file)
+    if diarization is None:
+        print(f"Diarization file {input_file} is not found. Please run the diarization process first.")
+        return
+    speakers_context = process_diarizated_text(diarization)
+    prepare_sorted_sentence_collection(file_manager, speakers_context)
+    print("Raw Sorted Sentence Collection is created...")
+
+
+if __name__ == '__main__':
+    main()    

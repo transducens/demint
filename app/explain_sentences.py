@@ -57,7 +57,7 @@ def explain_sentences(file_manager, chat_llm, grammar_checker_lt, lang='en'):
         error_description = {
             'index': index,
             'speaker': errant_annotation['speaker'],
-            'sentence': original_sentence,
+            'original_sentence': original_sentence,
             'corrected_sentence': corrected_sentence,
             'o_start': errant_annotation['o_start'],
             'o_end': errant_annotation['o_end'],
@@ -72,7 +72,7 @@ def explain_sentences(file_manager, chat_llm, grammar_checker_lt, lang='en'):
         if last_index != index:
             explained_sentences[index] = {
                 'speaker': errant_annotation['speaker'],
-                'sentence' : original_sentence,
+                'original_sentence' : original_sentence,
                 't5_checked_sentence': corrected_sentence,
                 'llm_explanation': llm_sentence_explained,
                 'language_tool': lt_errors,

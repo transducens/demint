@@ -1,7 +1,8 @@
 import language_tool_python as lt
+import subprocess
+
 import app.gec.language_tool.predict as lt
 import app.gec.t5.predict as t5
-import subprocess
 
 ###
 # Errors detected by the grammar checker:

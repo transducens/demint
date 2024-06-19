@@ -1,63 +1,55 @@
 import os
-from .grammar_checker import GrammarChecker
-from .obtain_errores import obtain_errors
-def rag_sentences(__file_manager, __rag_engine):
-    if not os.path.isfile('app/new_cache/explained_sentences.json'):
-        __grammar_checker_lt = GrammarChecker(gec_model="LT_API")
-        __grammar_checker_t5 = GrammarChecker(gec_model="T5")
-        obtain_errors(__file_manager, __grammar_checker_lt, __grammar_checker_t5, False)
+import time
+
+from app.file_manager import FileManager
+import app.explain_sentences as explain_sentences
+from app.rag.RAGFactory import RAGFactory
+
+
+input_file = "./cache/explained_sentences.json"
+output_file = "./cache/rag_sentences.json"
+
+
+def rag_sentences(file_manager, rag_engine, rag_passages=1):
+    if not os.path.isfile(input_file):
+        print(f"{input_file} is not found.")
+        print(f"Processing {input_file}")
+        explain_sentences.main()
         
-    explained_sentences = __file_manager.read_from_json_file('app/new_cache/explained_sentences.json')
+    explained_sentences = file_manager.read_from_json_file(input_file)
 
-    keysList = list(explained_sentences.keys())
+    for id in explained_sentences.keys():
+        print("Processing sentence: ", id)
+        errant_annotation_list = explained_sentences[id]['errant']
 
-    for new_index in keysList:
-        sentence = explained_sentences[new_index]
-        original_sentence = sentence['sentence']
-        t5_checked_sentence = sentence['t5_checked_sentence']
-        llm_explained = sentence['llm_explanation']
-        lt_errors = sentence['language_tool']
+        for index_errant, errant_annotation in enumerate(errant_annotation_list):
 
-        error_description_list = []
-        for error in sentence["errant"]:
-            error_type = error['error_type']
+            errant_llm_explained = errant_annotation['llm_explanation']
+            errant_annotation['rag'] = []
+        
+            if rag_engine is not None:
+                rag = rag_engine.search(errant_llm_explained, rag_passages)
+            else:
+                print("RAG engine is not available.")
+                return None
+            
+            errant_annotation_list[index_errant]['rag'] = rag
+    
+        explained_sentences[id]['errant'] = errant_annotation_list
 
-            original_text = error['original_text']
-            corrected_text = error['corrected_text']
 
-            errant_llm_explained = error['llm_explanation']
+    file_manager.save_to_json_file(output_file, explained_sentences)
 
-            rag = []
-            if __rag_engine is not None:
-                rag = __rag_engine.search(errant_llm_explained, 5)
+    return explained_sentences
 
-            error_description = {
-                'index': new_index,
-                'speaker': sentence['speaker'],
-                'sentence': original_sentence,
-                'corrected_sentence': t5_checked_sentence,
-                'o_start': error['o_start'],
-                'o_end': error['o_end'],
-                'original_text': original_text,
-                'c_start': error['c_start'],
-                'c_end': error['c_end'],
-                'corrected_text': corrected_text,
-                'error_type': error_type,
-                'llm_explanation': errant_llm_explained,
-                'rag': rag,
-            }
 
-            error_description_list.append(error_description)
+def main():
+    file_manager = FileManager()
+    rag_engine = RAGFactory.get_instance("ragatouille")
+    rag_sentences(file_manager, rag_engine, rag_passages=5)
 
-        explained_sentences[new_index] = {
-            'speaker': sentence['speaker'],
-            'sentence' : original_sentence,
-            't5_checked_sentence': t5_checked_sentence,
-            'llm_explanation': llm_explained,
-            'language_tool': lt_errors,
-            'errant': error_description_list,
-        }
-
-    __file_manager.save_to_json_file('app/new_cache/rag_sentences.json', explained_sentences)
-
-    return
+if __name__ == '__main__':
+    start_time = time.time()
+    main()
+    end_time = time.time()
+    print(f"Execution time: {end_time - start_time} seconds")

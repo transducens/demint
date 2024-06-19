@@ -4,7 +4,7 @@ import os
 
 class ContentExtractor:
     @staticmethod
-    def get_content(folder_path="pdf_rag", part_count=400, overlap=0.25):
+    def get_content(folder_path="./pdf_rag", part_count=400, overlap=0.25):
         paragraphs = []
 
         # Iterate through all files in the specified folder

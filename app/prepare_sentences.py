@@ -2,19 +2,11 @@
 import errant
 from sentence_splitter import SentenceSplitter
 
-# Local imports
-local = False
-if __name__ == '__main__':
-    local = True
-
-if local:
-    from file_manager import FileManager
-else:
-    from file_manager import FileManager
+from app.file_manager import FileManager
 
 
-input_file = "../cache/diarization_result.json"
-output_file = "../cache/raw_sorted_sentence_collection.json"
+input_file = "./cache/diarization_result.json"
+output_file = "./cache/raw_sorted_sentence_collection.json"
 
 
 def prepare_sorted_sentence_collection(file_manager, speaker_context: list):
@@ -63,7 +55,8 @@ def main():
 
     diarization = file_manager.read_from_json_file(input_file)
     if diarization is None:
-        print(f"Diarization file {input_file} is not found. Please run the diarization process first.")
+        print(f"{input_file} is not found.")
+        print(f"Processing {input_file}")
         return
     speakers_context = process_diarizated_text(diarization)
     prepare_sorted_sentence_collection(file_manager, speakers_context)

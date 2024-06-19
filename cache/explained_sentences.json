@@ -1,113 +1,30 @@
 {
-    "4": {
-        "speaker": "SPEAKER_03",
-        "sentence": "Would have been about Per",
-        "t5_checked_sentence": "Would have been about Persephone.",
-        "llm_explanation": "**Errors in the original sentence:**\n\n* **Would have been about Per:**\n    - \"Per\" is not a proper noun and does not refer to the goddess Persephone.\n    - The sentence structure suggests that \"Per\" is a verb or adjective, which is incorrect in this context.\n\n\n**Corrections in the revised sentence:**\n\n* **Would have been about Persephone:**\n    - \"Persephone\" is the correct and proper name of the goddess.\n    - The sentence structure is correct, indicating that \"Persephone\" is the object of the verb \"would have been about.\"",
-        "language_tool": [],
-        "errant": [
-            {
-                "index": "4",
-                "speaker": "SPEAKER_03",
-                "sentence": "Would have been about Per",
-                "corrected_sentence": "Would have been about Persephone.",
-                "o_start": 4,
-                "o_end": 5,
-                "original_text": "Per",
-                "c_start": 4,
-                "c_end": 4,
-                "corrected_text": "Persephone.",
-                "error_type": "R:OTHER",
-                "llm_explanation": "**Error:** Incorrect word spelling.\n\n**Broken rule:** Standard English spelling rules dictate that the word \"Persephone\" should be spelled with an \"e\" at the end."
-            }
-        ]
-    },
-    "15": {
-        "speaker": "SPEAKER_00",
-        "sentence": "from Saudi Arabia.",
-        "t5_checked_sentence": "Saudi Arabia.",
-        "llm_explanation": "**Errors Corrected:**\n\n- **From** was unnecessary.\n\n**Explanation of Errors:**\n\n* **\"From\"** is a preposition that indicates a source or origin. It is typically used to indicate a movement or origin. In the sentence \"from Saudi Arabia,\" it is unnecessary because it does not provide any additional information about the location.\n* **\"Saudi Arabia\"** is a proper noun that refers to the country. It should be used directly without any prepositions.\n\n**Corrected Sentence:**\n\n\"Saudi Arabia\"\n\n**The corrected sentence is more concise and grammatically correct. It simply states the name of the country without any unnecessary prepositions.**",
-        "language_tool": [],
-        "errant": [
-            {
-                "index": "15",
-                "speaker": "SPEAKER_00",
-                "sentence": "from Saudi Arabia.",
-                "corrected_sentence": "Saudi Arabia.",
-                "o_start": 0,
-                "o_end": 1,
-                "original_text": "from",
-                "c_start": 0,
-                "c_end": 0,
-                "corrected_text": "",
-                "error_type": "U:PREP",
-                "llm_explanation": "**Error:** U:PREP (Unsupported preposition)\n\n**Main Idea:** The sentence contains an unnecessary preposition \"from\" before \"Saudi Arabia.\"\n\n**Broken Rule:** The correct English sentence should omit the preposition \"from\" when referring to a location."
-            }
-        ]
-    },
-    "22": {
-        "speaker": "SPEAKER_01",
-        "sentence": "what you do.",
-        "t5_checked_sentence": "What you do.",
-        "llm_explanation": "**Errors found in the original sentence:**\n\n- **Capitalization:** The sentence lacks proper capitalization, as neither the subject nor the verb are capitalized.\n- **Sentence structure:** The sentence lacks a period at the end.\n\n\n**Corrections made in the revised sentence:**\n\n- **Capitalization:** The first word of the sentence, \"What,\" is capitalized, as it is a proper noun.\n- **Sentence structure:** A period is added at the end of the sentence.",
-        "language_tool": [],
-        "errant": [
-            {
-                "index": "22",
-                "speaker": "SPEAKER_01",
-                "sentence": "what you do.",
-                "corrected_sentence": "What you do.",
-                "o_start": 0,
-                "o_end": 1,
-                "original_text": "what",
-                "c_start": 0,
-                "c_end": 0,
-                "corrected_text": "What",
-                "error_type": "R:ORTH",
-                "llm_explanation": "**Error:** Incorrect capitalization of the first word \"what\".\n\n**Broken rule:** Capitalization rule for proper sentence structure."
-            }
-        ]
-    },
     "41": {
         "speaker": "SPEAKER_02",
-        "sentence": "lady which is maybe connected on a laptop and reading on a book.",
-        "t5_checked_sentence": "The lady is maybe connected to a laptop and reading a book.",
-        "llm_explanation": "\n**Errors in the original sentence:**\n\n**1. Incorrect word order:**\n- \"lady which is maybe connected on a laptop and reading on a book\" has the incorrect word order. It should be \"The lady is maybe connected to a laptop and reading a book.\"\n\n**2. Lack of tense consistency:**\n- The sentence mixes present tense (\"is connected\") with past tense (\"reading\"). It should be consistent in tense.\n\n**3. Missing article:**\n- \"on a laptop and reading on a book\" lacks the definite article \"to.\"\n\n**Corrections in the revised sentence:**\n\n- The correct word order is used: \"The lady is maybe connected to a laptop and reading a book.\"\n- The tense",
+        "sentence": "Lady which is maybe connected on a laptop and reading on a book.",
+        "t5_checked_sentence": "Lady, which is maybe connected to a laptop and reading a book.",
+        "llm_explanation": "\n**Errors in the original sentence:**\n\n**1. Grammatical error:**\n- \"Lady which is maybe connected on a laptop and reading on a book.\" - This sentence is incorrect because it uses \"which\" as a subject and \"is connected\" as a predicate, creating a grammatical mismatch.\n\n\n**2. Incorrect word choice:**\n- \"connected on a laptop\" - The phrase \"connected on a laptop\" is ambiguous and does not make clear the nature of the connection.\n\n\n**3. Incorrect word choice:**\n- \"reading on a book\" - The phrase \"reading on a book\" lacks clarity and does not specify what the lady is doing with the book.\n\n\n**Corrections in the revised sentence:**\n\n- \"",
         "language_tool": [],
         "errant": [
             {
                 "index": "41",
                 "speaker": "SPEAKER_02",
-                "sentence": "lady which is maybe connected on a laptop and reading on a book.",
-                "corrected_sentence": "The lady is maybe connected to a laptop and reading a book.",
+                "sentence": "Lady which is maybe connected on a laptop and reading on a book.",
+                "corrected_sentence": "Lady, which is maybe connected to a laptop and reading a book.",
                 "o_start": 0,
-                "o_end": 0,
-                "original_text": "",
+                "o_end": 1,
+                "original_text": "Lady",
                 "c_start": 0,
                 "c_end": 0,
-                "corrected_text": "The",
-                "error_type": "M:DET",
-                "llm_explanation": "**Error:** Misplaced determiner (\"lady\")\n\n**Broken rule:** The sentence has an incorrect word order, with the determiner (\"lady\") appearing in the middle of the sentence instead of its correct position at the beginning."
+                "corrected_text": "Lady,",
+                "error_type": "R:NOUN",
+                "llm_explanation": "**Error:**\n\n- Incorrect word order between \"connected\" and \"reading\".\n\n**Broken rule:**\n\n- Subject-verb agreement: The main verb \"reading\" should be in the present tense to match the subject \"Lady\"."
             },
             {
                 "index": "41",
                 "speaker": "SPEAKER_02",
-                "sentence": "lady which is maybe connected on a laptop and reading on a book.",
-                "corrected_sentence": "The lady is maybe connected to a laptop and reading a book.",
-                "o_start": 1,
-                "o_end": 2,
-                "original_text": "which",
-                "c_start": 2,
-                "c_end": 2,
-                "corrected_text": "",
-                "error_type": "U:DET",
-                "llm_explanation": "**Error:** Usage of \"which\" as a subject instead of a noun.\n\n**Broken rule:** Subject-verb agreement. A sentence should have a subject (a noun or pronoun) that agrees with the verb in number (singular or plural)."
-            },
-            {
-                "index": "41",
-                "speaker": "SPEAKER_02",
-                "sentence": "lady which is maybe connected on a laptop and reading on a book.",
-                "corrected_sentence": "The lady is maybe connected to a laptop and reading a book.",
+                "sentence": "Lady which is maybe connected on a laptop and reading on a book.",
+                "corrected_sentence": "Lady, which is maybe connected to a laptop and reading a book.",
                 "o_start": 5,
                 "o_end": 6,
                 "original_text": "on",
@@ -115,13 +32,13 @@
                 "c_end": 5,
                 "corrected_text": "to",
                 "error_type": "R:PREP",
-                "llm_explanation": "**Error:** Incorrect preposition usage.\n\n**Broken rule:** The preposition \"on\" should be replaced with \"to\" in the sentence."
+                "llm_explanation": "**Error:** Incorrect word placement (R:PREP)\n\n**Broken rule:** The word \"connected\" should be connected to the noun \"laptop\", not \"Lady\".\n\n**Location of error:** Between the 5th and 6th characters in the original sentence, and between the 5th and 6th characters in the corrected sentence."
             },
             {
                 "index": "41",
                 "speaker": "SPEAKER_02",
-                "sentence": "lady which is maybe connected on a laptop and reading on a book.",
-                "corrected_sentence": "The lady is maybe connected to a laptop and reading a book.",
+                "sentence": "Lady which is maybe connected on a laptop and reading on a book.",
+                "corrected_sentence": "Lady, which is maybe connected to a laptop and reading a book.",
                 "o_start": 10,
                 "o_end": 11,
                 "original_text": "on",
@@ -129,7 +46,7 @@
                 "c_end": 10,
                 "corrected_text": "",
                 "error_type": "U:PREP",
-                "llm_explanation": "**Error:** U:PREP (Unsupported preposition)\n\n**Broken rule:** The preposition \"on\" is not grammatically correct in the sentence. It should be \"to\" instead."
+                "llm_explanation": "**Error:**\n\n- Incorrect word placement of \"connected\" and \"reading\"\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb \"reading\" should be in the singular form because \"Lady\" is a singular subject."
             }
         ]
     },
@@ -152,7 +69,7 @@
                 "c_end": 7,
                 "corrected_text": "to",
                 "error_type": "R:PART",
-                "llm_explanation": "**Error:** Incorrect use of the preposition \"for\".\n\n**Broken rule:** The preposition \"for\" should be replaced with \"to\" when it indicates a goal or purpose."
+                "llm_explanation": "**Error:**\n\n- Incorrect word order: \"for getting more information\" should be \"to get more information.\"\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb \"is\" should be followed by the subjective complement \"to get more information.\""
             },
             {
                 "index": "43",
@@ -166,7 +83,7 @@
                 "c_end": 8,
                 "corrected_text": "get",
                 "error_type": "R:VERB:FORM",
-                "llm_explanation": "**Error:** Incorrect verb form.\n\n**Broken rule:** The verb \"getting\" should be \"get\" in this sentence."
+                "llm_explanation": "**Error:**\n\n- Incorrect verb form.\n- The verb \"getting\" should be \"get\" in this context.\n\n**Corrected:**\n\n- \"for getting more information\" was changed to \"to get more information.\""
             }
         ]
     },
@@ -189,7 +106,7 @@
                 "c_end": 8,
                 "corrected_text": "",
                 "error_type": "U:PRON",
-                "llm_explanation": "**Error:** Usage of the pronoun \"he\" without an antecedent.\n\n**Broken rule:** A pronoun must be linked to a noun or other pronoun that clearly indicates its referent."
+                "llm_explanation": "**Error:**\n\n- Incorrect word order: \"didn't take out\" should be \"didn't take them out\" (missing pluralization).\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb \"take\" should be conjugated with the plural pronoun \"them\" to match the subject \"clothes\"."
             }
         ]
     },
@@ -212,7 +129,7 @@
                 "c_end": 6,
                 "corrected_text": "have",
                 "error_type": "R:VERB:FORM",
-                "llm_explanation": "**Error:** Incorrect verb form.\n\n**Broken rule:** The verb \"having\" should be \"have\" in this context."
+                "llm_explanation": "**Error:**\n\n- Incorrect verb form after \"started\".\n\n**Broken rule:**\n\n- The correct tense for \"have\" is the simple present tense, \"has\" or \"have\"."
             },
             {
                 "index": "58",
@@ -226,7 +143,7 @@
                 "c_end": 12,
                 "corrected_text": "relax",
                 "error_type": "R:VERB:FORM",
-                "llm_explanation": "**Error:** Incorrect verb form.\n\n**Broken rule:** The verb \"relaxing\" should be \"relax\" in this context."
+                "llm_explanation": "**Error:**\n\n- Incorrect verb form: \"having\" should be \"has\" (present tense).\n\n**Broken rule:**\n\n- Subject-verb agreement: the verb \"has\" agrees with the subject \"he\" (singular)."
             }
         ]
     },
@@ -264,7 +181,7 @@
                 "c_end": 0,
                 "corrected_text": "There",
                 "error_type": "R:OTHER",
-                "llm_explanation": "**Error:** Incorrect verb tense.\n\n**Broken rule:** The singular verb \"there's\" should be replaced with the plural verb \"there are\" when referring to a plural subject (toys)."
+                "llm_explanation": "**Error:**\n\n- Incorrect word order: \"no toys for his children or something.\" should be \"no toys for his children or something.\"\n\n**Broken rule:**\n\n- Subject-verb agreement: The sentence requires a plural subject (toys), so \"is\" should be \"are.\""
             },
             {
                 "index": "61",
@@ -278,7 +195,7 @@
                 "c_end": 1,
                 "corrected_text": "are",
                 "error_type": "M:VERB",
-                "llm_explanation": "**Error:** Mismatch between subject and verb (M:VERB).\n\n**Broken rule:** The subject \"there's\" should be replaced with the correct plural form \"there are\" to match the plural subject \"toys\"."
+                "llm_explanation": "**Error:**\n\n- Incorrect verb tense: \"There's no toys\" should be \"There are no toys\".\n\n**Broken rule:**\n\n- The correct verb tense for \"there is/are\" is \"is/are\"."
             }
         ]
     },
@@ -301,7 +218,7 @@
                 "c_end": 1,
                 "corrected_text": "",
                 "error_type": "U:ADV",
-                "llm_explanation": "**Error:** Unnecessary \"together\" adverb.\n\n**Broken rule:** Overuse of intensifiers can clutter sentences and weaken their clarity."
+                "llm_explanation": "**Error:**\n\n- U:ADV (verb placement)\n\n**Broken rule:**\n\n- The auxiliary verb \"together\" should not be placed immediately before the main verb \"talk\".\n\n**Corrected sentence:**\n\n- Talk about the different things it could give and decide which fans would like best."
             },
             {
                 "index": "69",
@@ -315,7 +232,7 @@
                 "c_end": 11,
                 "corrected_text": "",
                 "error_type": "U:DET",
-                "llm_explanation": "**Error:** Use of unnecessary \"the\" article.\n\n**Broken rule:** The rule of definite article usage was violated by including \"the\" in the sentence unnecessarily."
+                "llm_explanation": "**Error:**\n\n- Unnecessary \"together\" in the original sentence.\n- The correct sentence lacks \"together.\"\n\n**Broken rule:**\n\n- Extra word in the original sentence violates the principle of grammatical economy, where unnecessary words can clutter the sentence and hinder comprehension."
             }
         ]
     },
@@ -338,7 +255,7 @@
                 "c_end": 38,
                 "corrected_text": "",
                 "error_type": "U:PREP",
-                "llm_explanation": "**Error:** U:PREP (Incorrect use of preposition)\n\n**Broken rule:** The preposition \"by\" is inappropriate in the sentence. It should be replaced with \"on\" to correctly express the idea of celebrating the fifth anniversary."
+                "llm_explanation": "**Errors:**\n\n- **U:PREP:** Incorrect word order, specifically a preposition or conjunction is in the wrong position.\n- **Missing article:** The word \"the\" is missing before \"they are enjoying.\""
             },
             {
                 "index": "72",
@@ -352,83 +269,7 @@
                 "c_end": 48,
                 "corrected_text": "club",
                 "error_type": "R:NOUN",
-                "llm_explanation": "**Error:** Noun phrase is incomplete due to missing article.\n\n**Broken rule:** The sentence lacks an article (e.g., \"the\", \"a\") before the noun \"club\"."
-            }
-        ]
-    },
-    "76": {
-        "speaker": "SPEAKER_02",
-        "sentence": "mMM mMM",
-        "t5_checked_sentence": "mMM mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
-        "llm_explanation": "**Errors Corrected:**\n\n**1. Repition of characters:**\n- The original sentence repeated the character \"M\" excessively, creating a meaningless and nonsensical sequence.\n- The corrected sentence uses the appropriate number of \"M\" characters to form the word \"million.\"\n\n\n**2. Lack of spaces:**\n- The original sentence lacked spaces between the numbers, making it difficult to understand the intended meaning.\n- The corrected sentence inserts spaces between the numbers to create a clear and readable expression of \"million.\"",
-        "language_tool": [
-            {
-                "ruleId": "ENGLISH_WORD_REPEAT_RULE",
-                "message": "Possible typo: you repeated a word",
-                "replacements": [
-                    "mMM"
-                ],
-                "offsetInContext": 0,
-                "context": "mMM mMM",
-                "offset": 0,
-                "errorLength": 7,
-                "category": "MISC",
-                "ruleIssueType": "duplication",
-                "sentence": "mMM mMM"
-            }
-        ],
-        "errant": [
-            {
-                "index": "76",
-                "speaker": "SPEAKER_02",
-                "sentence": "mMM mMM",
-                "corrected_sentence": "mMM mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
-                "o_start": 1,
-                "o_end": 2,
-                "original_text": "mMM",
-                "c_start": 1,
-                "c_end": 1,
-                "corrected_text": "mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
-                "error_type": "R:OTHER",
-                "llm_explanation": "**Error:** The sentence contains a repeated sequence of the same character (m) that violates the natural rhythm and flow of the language.\n\n**Broken rule:** Repetition of the same consonant sound in close succession."
-            }
-        ]
-    },
-    "77": {
-        "speaker": "SPEAKER_00",
-        "sentence": "but sometimes you can't wear the same t-shirt everyday.",
-        "t5_checked_sentence": "But sometimes you can't wear the same t-shirt everyday.",
-        "llm_explanation": "\n**Errors in the original sentence:**\n\n* **But:** The original sentence uses \"but\" to connect two contrasting ideas. However, \"but\" is inappropriate in this context because it implies a negative comparison between wearing the same t-shirt every day and other options.\n* **everyday:** The original sentence uses \"everyday\" as an adverb, suggesting that wearing the same t-shirt is inappropriate on a daily basis. However, \"everyday\" is actually an adjective that means \"happening or done every day.\"\n\n\n**Corrections in the revised sentence:**\n\n* **But:** The revised sentence correctly uses \"but\" to introduce a contrasting idea, but it does so in a more neutral tone, without implying a negative comparison.\n*",
-        "language_tool": [
-            {
-                "ruleId": "EVERYDAY_EVERY_DAY",
-                "message": "‘Everyday’ is an adjective. Did you mean “every day”?",
-                "replacements": [
-                    "every day"
-                ],
-                "offsetInContext": 43,
-                "context": "...metimes you can't wear the same t-shirt everyday.",
-                "offset": 46,
-                "errorLength": 8,
-                "category": "CONFUSED_WORDS",
-                "ruleIssueType": "misspelling",
-                "sentence": "but sometimes you can't wear the same t-shirt everyday."
-            }
-        ],
-        "errant": [
-            {
-                "index": "77",
-                "speaker": "SPEAKER_00",
-                "sentence": "but sometimes you can't wear the same t-shirt everyday.",
-                "corrected_sentence": "But sometimes you can't wear the same t-shirt everyday.",
-                "o_start": 0,
-                "o_end": 1,
-                "original_text": "but",
-                "c_start": 0,
-                "c_end": 0,
-                "corrected_text": "But",
-                "error_type": "R:ORTH",
-                "llm_explanation": "**Error:** Incorrect capitalization of the first word \"but\".\n\n**Broken rule:** Standard English capitalization rules require that coordinating conjunctions (such as \"but\") be capitalized."
+                "llm_explanation": "**Errors:**\n\n- **R:NOUN:** Incorrect word choice or syntax in the phrase \"they are enjoying by the fifth anniversary.\" The correct phrase should be \"they are enjoying the fifth anniversary.\"\n\n- **Character position:** The corrected text has one character less than the original sentence due to the removal of the unnecessary word \"by.\""
             }
         ]
     },
@@ -466,7 +307,7 @@
                 "c_end": 2,
                 "corrected_text": "are",
                 "error_type": "R:VERB:SVA",
-                "llm_explanation": "**Error:** Incorrect verb tense.\n\n**Broken rule:** Subject-verb agreement: \"is\" should be \"are\" to match the plural subject \"students or from their fans.\""
+                "llm_explanation": "**Error:**\n\n- Incorrect verb agreement between \"some students or from their fans\" and \"they\".\n\n**Broken rule:**\n\n- Subject-verb agreement rule: The subject (some students or from their fans) should agree in number (plural) with the verb (can't play)."
             }
         ]
     },
@@ -489,7 +330,7 @@
                 "c_end": 3,
                 "corrected_text": "there",
                 "error_type": "R:OTHER",
-                "llm_explanation": "**Error:** Incorrect word usage - \"there, no\" should be \"there is no\".\n\n**Broken rule:** Subject-verb agreement. The subject \"they\" requires a singular verb \"is\"."
+                "llm_explanation": "**Error:**\n\n- Incorrect verb tense: \"have a lot of children\" should be \"has a lot of children\" (subject is \"they\").\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb must agree with the subject in number (singular or plural)."
             },
             {
                 "index": "84",
@@ -503,7 +344,7 @@
                 "c_end": 4,
                 "corrected_text": "is",
                 "error_type": "M:VERB",
-                "llm_explanation": "**Error:** Incorrect verb tense.\n\n**Broken rule:** The subject \"they\" requires the singular verb \"is\" instead of the plural verb \"have\"."
+                "llm_explanation": "**Error:**\n\n- Incorrect verb tense: \"have\" should be \"has\" (subject is \"they\").\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb must agree with the subject in number (singular or plural)."
             },
             {
                 "index": "84",
@@ -517,7 +358,7 @@
                 "c_end": 6,
                 "corrected_text": "because",
                 "error_type": "R:OTHER",
-                "llm_explanation": "**Error:** Incorrect word order.\n\n**Broken rule:** The conjunction \"because\" should be followed by a subordinate clause."
+                "llm_explanation": "**Error:** Incorrect verb tense and word order.\n\n**Broken rule:** Subject-verb agreement. The subject \"they\" requires a singular verb \"is\"."
             },
             {
                 "index": "84",
@@ -531,67 +372,7 @@
                 "c_end": 7,
                 "corrected_text": "",
                 "error_type": "U:CONJ",
-                "llm_explanation": "**Error:** Usage of \"or\" instead of \"is\" in the sentence.\n\n**Broken rule:** Subject-verb agreement, which requires the correct verb form to match the subject."
-            }
-        ]
-    },
-    "86": {
-        "speaker": "SPEAKER_00",
-        "sentence": "for work or album",
-        "t5_checked_sentence": "For work or album.",
-        "llm_explanation": "**Errors found in the original sentence:**\n\n- **For work or album** - This is incorrect because it lacks a verb. A sentence needs a verb to express action or a state of being.\n\n\n**Corrections made in the revised sentence:**\n\n- **For work or album.** - This is correct because it adds the necessary verb, \"is,\" which indicates a state of being.\n\n\n**The corrected sentence is more grammatically correct and conveys the intended meaning.**",
-        "language_tool": [],
-        "errant": [
-            {
-                "index": "86",
-                "speaker": "SPEAKER_00",
-                "sentence": "for work or album",
-                "corrected_sentence": "For work or album.",
-                "o_start": 0,
-                "o_end": 1,
-                "original_text": "for",
-                "c_start": 0,
-                "c_end": 0,
-                "corrected_text": "For",
-                "error_type": "R:ORTH",
-                "llm_explanation": "**Error:** Incorrect capitalization of the preposition \"for\".\n\n**Broken rule:** Standard English grammar dictates that prepositions should be capitalized."
-            },
-            {
-                "index": "86",
-                "speaker": "SPEAKER_00",
-                "sentence": "for work or album",
-                "corrected_sentence": "For work or album.",
-                "o_start": 3,
-                "o_end": 4,
-                "original_text": "album",
-                "c_start": 3,
-                "c_end": 3,
-                "corrected_text": "album.",
-                "error_type": "R:NOUN",
-                "llm_explanation": "**Error:** Noun expected after \"for\".\n\n**Broken rule:** The preposition \"for\" requires a noun as its complement."
-            }
-        ]
-    },
-    "87": {
-        "speaker": "SPEAKER_02",
-        "sentence": "All",
-        "t5_checked_sentence": "All are welcome.",
-        "llm_explanation": "**Errors Corrected:**\n\n**1. Lack of agreement:**\n- The original sentence \"All\" is singular and does not agree with the plural verb \"are.\"\n\n**2. Incorrect word order:**\n- The original sentence has the word order \"All all are welcome,\" which is incorrect.\n\n**Corrected Sentence:**\n\n\"All are welcome\" is the correct way to express that everyone is welcome.\n\n* The word \"are\" is the correct plural verb to agree with the subject \"all.\"\n* The word order is correct, with the subject (all) followed by the verb (are) and the complement (welcome).",
-        "language_tool": [],
-        "errant": [
-            {
-                "index": "87",
-                "speaker": "SPEAKER_02",
-                "sentence": "All",
-                "corrected_sentence": "All are welcome.",
-                "o_start": 1,
-                "o_end": 1,
-                "original_text": "",
-                "c_start": 1,
-                "c_end": 1,
-                "corrected_text": "are welcome.",
-                "error_type": "M:OTHER",
-                "llm_explanation": "**Error:** Missing plural verb \"are\" after \"All\".\n\n**Broken rule:** Subject-verb agreement, where the singular subject \"All\" requires the plural verb \"are\"."
+                "llm_explanation": "**Error:**\n\n- U:CONJ (conjunction error)\n\n**Broken rule:**\n\n- Incorrect use of \"and\" when a singular subject is followed by a plural subject.\n\n**Corrected sentence:**\n\n- \"There is no...\" instead of \"there is no, because...\""
             }
         ]
     },
@@ -629,53 +410,7 @@
                 "c_end": 3,
                 "corrected_text": "an",
                 "error_type": "M:DET",
-                "llm_explanation": "**Error:** Misuse of determiner.\n\n**Broken rule:** The correct determiner for \"album\" is \"an\"."
-            }
-        ]
-    },
-    "89": {
-        "speaker": "SPEAKER_02",
-        "sentence": "for pictures.",
-        "t5_checked_sentence": "For pictures.",
-        "llm_explanation": "**Errors found in the original sentence:**\n\n- **For pictures.** - This sentence fragment lacks a verb, making it incomplete and grammatically incorrect.\n\n\n**Corrections made in the revised sentence:**\n\n- **For pictures.** - The verb \"to look at\" or \"to admire\" was added, providing context and completing the sentence.",
-        "language_tool": [],
-        "errant": [
-            {
-                "index": "89",
-                "speaker": "SPEAKER_02",
-                "sentence": "for pictures.",
-                "corrected_sentence": "For pictures.",
-                "o_start": 0,
-                "o_end": 1,
-                "original_text": "for",
-                "c_start": 0,
-                "c_end": 0,
-                "corrected_text": "For",
-                "error_type": "R:ORTH",
-                "llm_explanation": "**Error:** Incorrect capitalization of the word \"for\".\n\n**Broken rule:** Standard English capitalization rules require that proper nouns and certain other words be capitalized."
-            }
-        ]
-    },
-    "91": {
-        "speaker": "SPEAKER_02",
-        "sentence": "so that he can put all her pictures in this album and he can watch pictures whatever he wants and you keep remembering your team, bye!",
-        "t5_checked_sentence": "So that he can put all her pictures in this album and he can watch pictures whatever he wants and you keep remembering your team, bye!",
-        "llm_explanation": "\n**Errors in the original sentence:**\n\n**1. Gender inconsistency:**\n- \"he can watch pictures whatever he wants\" should be \"he can watch whatever he wants\" as the subject is \"he\".\n\n**2. Incorrect pronoun reference:**\n- \"you keep remembering your team, bye!\" should be \"you keep remembering our team, bye!\" as \"your team\" refers to a possessive relationship, while \"our team\" refers to a shared ownership or belonging.\n\n\n**Corrections in the revised sentence:**\n\n- \"he can watch whatever he wants\" is corrected to \"he can watch whatever he wants\" to maintain gender consistency.\n- \"you keep remembering your team, bye!\" is corrected to \"you keep remembering our",
-        "language_tool": [],
-        "errant": [
-            {
-                "index": "91",
-                "speaker": "SPEAKER_02",
-                "sentence": "so that he can put all her pictures in this album and he can watch pictures whatever he wants and you keep remembering your team, bye!",
-                "corrected_sentence": "So that he can put all her pictures in this album and he can watch pictures whatever he wants and you keep remembering your team, bye!",
-                "o_start": 0,
-                "o_end": 1,
-                "original_text": "so",
-                "c_start": 0,
-                "c_end": 0,
-                "corrected_text": "So",
-                "error_type": "R:ORTH",
-                "llm_explanation": "**Error:** R:ORTH (Incorrect word choice)\n\n**Broken rule:** The word \"so\" should be replaced with \"So\" (uppercase) in formal written English."
+                "llm_explanation": "**Error:**\n\n- Incorrect determiner (M:DET)\n- The word \"an\" should be inserted before \"album\" to correct the grammatical error.\n\n**Location:**\n\n- The error occurs between the 3rd and 3rd characters in the original sentence.\n- The corrected text is between the 3rd and 4th characters."
             }
         ]
     },
@@ -698,53 +433,30 @@
                 "c_end": 1,
                 "corrected_text": "that?",
                 "error_type": "R:OTHER",
-                "llm_explanation": "**Error:** R:OTHER (Other grammatical or stylistic error)\n\n**Main Idea:** The sentence contains an unnecessary question mark at the end.\n\n**Broken Rule:** The correct sentence structure for a simple question is \"Subject + Verb + ?\"."
+                "llm_explanation": "**Error:** Incorrect word order.\n\n**Broken rule:** The auxiliary verb \"is\" should be followed by the subject \"that\"."
             }
         ]
     },
     "104": {
         "speaker": "SPEAKER_00",
-        "sentence": "You can put your toes",
-        "t5_checked_sentence": "You can put your toes on the ground.",
-        "llm_explanation": "**Errors in the original sentence:**\n\n* **Lack of verb:** The sentence lacks a verb, which is essential for conveying action or state of being.\n* **Missing preposition:** The sentence lacks a preposition indicating the direction or location of the action being performed (putting the toes where?).\n\n**Corrections in the revised sentence:**\n\n* **Addition of a verb:** \"Put\" was added as the main verb, indicating the action of placing the toes on the ground.\n* **Addition of a preposition:** \"On the ground\" was added as a prepositional phrase, specifying the location where the toes are being placed.",
+        "sentence": "You can put your toes.",
+        "t5_checked_sentence": "You can put your feet up.",
+        "llm_explanation": "**Errors in the original sentence:**\n\n* **\"You can put your toes.\"**\n    - Incorrect word choice. \"Toes\" refers to the individual toes, while \"feet\" refers to the entire foot.\n\n\n**Corrections in the revised sentence:**\n\n* **\"You can put your feet up.\"**\n    - The correct word is \"feet\" to refer to the whole foot.\n    - \"Up\" is an adverb that indicates the direction of movement, in this case, elevating the feet.",
         "language_tool": [],
         "errant": [
             {
                 "index": "104",
                 "speaker": "SPEAKER_00",
-                "sentence": "You can put your toes",
-                "corrected_sentence": "You can put your toes on the ground.",
-                "o_start": 5,
+                "sentence": "You can put your toes.",
+                "corrected_sentence": "You can put your feet up.",
+                "o_start": 4,
                 "o_end": 5,
-                "original_text": "",
-                "c_start": 5,
-                "c_end": 5,
-                "corrected_text": "on the ground.",
-                "error_type": "M:OTHER",
-                "llm_explanation": "**Error:** Missing preposition \"on\" after the verb \"put\".\n\n**Broken rule:** Standard English requires a preposition following the verb \"put\" when indicating the destination or location of the action."
-            }
-        ]
-    },
-    "107": {
-        "speaker": "SPEAKER_01",
-        "sentence": "which sports do you like?",
-        "t5_checked_sentence": "Which sports do you like?",
-        "llm_explanation": "\n**Errors in the original sentence:**\n\n**1. Missing article:**\n- \"which\" is an interrogative pronoun that refers to a singular noun or a non-countable noun.\n- \"sports\" is a countable noun.\n- An article (either \"the\" or \"a/an\") is required before a countable noun.\n\n**2. Incorrect word order:**\n- The correct word order for an interrogative sentence is: **Interrogative pronoun + verb + subject**.\n- The original sentence has the order: **subject + verb + interrogative pronoun**.\n\n\n**Corrected sentence:**\n\n\"Which sports do you like?\"\n\n**Explanation of the corrections:**\n\n- The insertion of \"a/an\" before \"",
-        "language_tool": [],
-        "errant": [
-            {
-                "index": "107",
-                "speaker": "SPEAKER_01",
-                "sentence": "which sports do you like?",
-                "corrected_sentence": "Which sports do you like?",
-                "o_start": 0,
-                "o_end": 1,
-                "original_text": "which",
-                "c_start": 0,
-                "c_end": 0,
-                "corrected_text": "Which",
-                "error_type": "R:ORTH",
-                "llm_explanation": "**Error:** Incorrect capitalization of the word \"which\".\n\n**Broken rule:** Capitalize interrogative pronouns (e.g., \"who\", \"what\", \"which\")."
+                "original_text": "toes.",
+                "c_start": 4,
+                "c_end": 4,
+                "corrected_text": "feet up.",
+                "error_type": "R:OTHER",
+                "llm_explanation": "**Error:** Incorrect word usage - \"toes\" should be \"feet\".\n\n**Broken rule:** Usage of the plural noun \"toes\" instead of the singular noun \"foot\" in the context of putting something up."
             }
         ]
     },
@@ -805,7 +517,7 @@
                 "c_end": 1,
                 "corrected_text": "watched",
                 "error_type": "R:VERB:TENSE",
-                "llm_explanation": "**Error:** Tense error in verb \"watch\".\n\n**Broken rule:** The correct tense of the verb should be \"watched\" in past tense."
+                "llm_explanation": "**Error:**\n\n- Incorrect verb tense (watch vs watched)\n- Error location: between the first and second characters of the sentence.\n\n**Corrected:**\n\n- Past tense of the verb \"watch\" used.\n- Error correction: between the first and second characters."
             },
             {
                 "index": "113",
@@ -819,7 +531,7 @@
                 "c_end": 7,
                 "corrected_text": "a",
                 "error_type": "M:DET",
-                "llm_explanation": "**Error:** Misuse of determiner.\n\n**Broken rule:** The correct determiner for \"child\" is \"a\"."
+                "llm_explanation": "**Error:**\n\n- Incorrect word order for past tense of \"watch\".\n\n**Broken rule:**\n\n- The past tense of \"watch\" is \"watched\"."
             }
         ]
     },
@@ -842,30 +554,7 @@
                 "c_end": 3,
                 "corrected_text": "",
                 "error_type": "U:DET",
-                "llm_explanation": "**Error:** Usage of an indefinite article \"a\" instead of the present participle \"swimming\".\n\n**Broken rule:** Incorrect use of a determiner in the present participle form."
-            }
-        ]
-    },
-    "131": {
-        "speaker": "SPEAKER_00",
-        "sentence": "because everyone can watch it.",
-        "t5_checked_sentence": "Because everyone can watch it.",
-        "llm_explanation": "**Errors in the original sentence:**\n\n- **Capitalization:** \"because\" should be capitalized.\n- **Punctuation:** The period should be placed after \"it.\"\n\n**Corrections in the revised sentence:**\n\n- **Capitalization:** The first word \"Because\" is capitalized, indicating the beginning of a sentence.\n- **Punctuation:** The period is placed after \"it,\" correctly ending the sentence.",
-        "language_tool": [],
-        "errant": [
-            {
-                "index": "131",
-                "speaker": "SPEAKER_00",
-                "sentence": "because everyone can watch it.",
-                "corrected_sentence": "Because everyone can watch it.",
-                "o_start": 0,
-                "o_end": 1,
-                "original_text": "because",
-                "c_start": 0,
-                "c_end": 0,
-                "corrected_text": "Because",
-                "error_type": "R:ORTH",
-                "llm_explanation": "**Error:** Incorrect capitalization of the word \"because\".\n\n**Broken rule:** Capitalize proper nouns and significant words like \"because\"."
+                "llm_explanation": "**Error:**\n\n- Incorrect word order: \"it's a swimming.\" should be \"it's swimming.\"\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb \"is\" agrees with the subject \"it,\" so the correct form is \"it's swimming.\""
             }
         ]
     },
@@ -888,7 +577,7 @@
                 "c_end": 1,
                 "corrected_text": "makes",
                 "error_type": "R:VERB:SVA",
-                "llm_explanation": "**Error:** Incorrect verb tense.\n\n**Broken rule:** The verb \"make\" should be in the present tense to match the subject \"that.\""
+                "llm_explanation": "**Error:**\n\n- Incorrect verb tense: \"make\" should be \"makes\" (present tense).\n- Incorrect word: \"became\" should be \"become\" (present tense).\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb must agree with the subject in number (singular or plural)."
             },
             {
                 "index": "133",
@@ -902,7 +591,7 @@
                 "c_end": 6,
                 "corrected_text": "become,",
                 "error_type": "R:PUNCT",
-                "llm_explanation": "**Error:** Incorrect verb tense - \"became\" should be \"become\".\n\n**Broken rule:** Subject-verb agreement - the verb \"become\" should be in the present tense to match the subject \"that makes\"."
+                "llm_explanation": "**Errors:**\n\n- **R:PUNCT:** Incorrect punctuation between \"make\" and \"a\".\n- **Broken rule:** Incorrect verb tense and word order.\n\n**Corrected sentence:**\n\n\"That makes a lot of supporters become, they have the same admirations and the same ambition about their teams.\""
             },
             {
                 "index": "133",
@@ -916,7 +605,7 @@
                 "c_end": 11,
                 "corrected_text": "admirations",
                 "error_type": "R:MORPH",
-                "llm_explanation": "**Error:** Incorrect verb form.\n\n**Broken rule:** The verb \"make\" should be conjugated in the present tense to \"makes\"."
+                "llm_explanation": "**Error:**\n\n- Incorrect verb tense: \"make\" should be \"makes\" (present tense).\n- Incorrect word: \"became\" should be \"become\" (present tense).\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb must agree with the subject in number (singular or plural)."
             }
         ]
     },
@@ -954,37 +643,22 @@
                 "c_end": 8,
                 "corrected_text": "are",
                 "error_type": "R:VERB:SVA",
-                "llm_explanation": "**Error:** Subject-verb agreement error.\n\n**Broken rule:** The singular subject \"team\" requires a singular verb \"is,\" but the sentence uses a plural verb \"are.\""
+                "llm_explanation": "**Error:**\n\n- Incorrect verb agreement: \"there is\" should be \"there are\" to match the plural subject \"teams\".\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb must agree in number (singular or plural) with the subject."
             }
         ]
     },
     "147": {
         "speaker": "SPEAKER_00",
-        "sentence": "I Go to all truffles two times It was amazing",
-        "t5_checked_sentence": "I went to all truffles two times. It was amazing.",
-        "llm_explanation": "**Errors in the original sentence:**\n\n**1. Subject-verb agreement:**\n- \"I Go\" should be \"I go\" (singular subject \"I\" requires a singular verb \"go\").\n\n\n**2. Incorrect tense:**\n- \"It was amazing\" should be \"It was amazing\" (past tense of \"to be\").\n\n\n**Corrected sentence:**\n\n\"I went to all truffles two times. It was amazing.\"\n\n**Explanation of the corrections:**\n\n* The subject-verb agreement was corrected by changing \"Go\" to \"go\".\n* The tense was corrected by changing \"was amazing\" to \"was amazing\".",
-        "language_tool": [
-            {
-                "ruleId": "AI_HYDRA_LEO_MISSING_COMMA",
-                "message": "Possible missing comma found.",
-                "replacements": [
-                    "times,"
-                ],
-                "offsetInContext": 25,
-                "context": "I Go to all truffles two times It was amazing",
-                "offset": 25,
-                "errorLength": 5,
-                "category": "MISC",
-                "ruleIssueType": "uncategorized",
-                "sentence": "I Go to all truffles two times It was amazing"
-            }
-        ],
+        "sentence": "I Go to all truffles two times It was amazing.",
+        "t5_checked_sentence": "I went to all truffles two times and it was amazing.",
+        "llm_explanation": "**Errors in the original sentence:**\n\n**1. Subject-verb agreement:**\n- \"I Go\" should be \"I go\" (singular subject \"I\" requires a singular verb \"go\").\n\n\n**2. Incorrect tense:**\n- \"It was amazing\" should be \"it was amazing\" (past tense of \"to be\").\n\n\n**Corrected sentence:**\n\n\"I went to all truffles two times and it was amazing.\"\n\n**Explanation of the corrections:**\n\n* The subject-verb agreement was corrected by changing \"Go\" to \"go\".\n* The tense was corrected by changing \"was amazing\" to \"was amazing\".",
+        "language_tool": [],
         "errant": [
             {
                 "index": "147",
                 "speaker": "SPEAKER_00",
-                "sentence": "I Go to all truffles two times It was amazing",
-                "corrected_sentence": "I went to all truffles two times. It was amazing.",
+                "sentence": "I Go to all truffles two times It was amazing.",
+                "corrected_sentence": "I went to all truffles two times and it was amazing.",
                 "o_start": 1,
                 "o_end": 2,
                 "original_text": "Go",
@@ -992,35 +666,35 @@
                 "c_end": 1,
                 "corrected_text": "went",
                 "error_type": "R:VERB:TENSE",
-                "llm_explanation": "**Error:** Tense error in verb \"Go\".\n\n**Broken rule:** The verb should be in past tense (\"went\") instead of present tense (\"Go\")."
+                "llm_explanation": "**Error:**\n\n- Incorrect verb tense (R:VERB:TENSE)\n- The verb \"go\" should be in past tense \"went\"\n\n**Broken rule:**\n\n- The main verb in a sentence must be in the correct tense."
             },
             {
                 "index": "147",
                 "speaker": "SPEAKER_00",
-                "sentence": "I Go to all truffles two times It was amazing",
-                "corrected_sentence": "I went to all truffles two times. It was amazing.",
-                "o_start": 6,
+                "sentence": "I Go to all truffles two times It was amazing.",
+                "corrected_sentence": "I went to all truffles two times and it was amazing.",
+                "o_start": 7,
                 "o_end": 7,
-                "original_text": "times",
-                "c_start": 6,
-                "c_end": 6,
-                "corrected_text": "times.",
-                "error_type": "R:NOUN",
-                "llm_explanation": "**Error:** R:NOUN (Incorrect word form)\n\n**Explanation:** The sentence contains a grammatical error where the verb \"go\" should be in the past tense \"went\"."
+                "original_text": "",
+                "c_start": 7,
+                "c_end": 7,
+                "corrected_text": "and",
+                "error_type": "M:CONJ",
+                "llm_explanation": "**Error:**\n\n- Incorrect verb tense: \"I Go\" should be \"I went\".\n\n**Broken rule:**\n\n- The main verb in a sentence must be in the correct tense."
             },
             {
                 "index": "147",
                 "speaker": "SPEAKER_00",
-                "sentence": "I Go to all truffles two times It was amazing",
-                "corrected_sentence": "I went to all truffles two times. It was amazing.",
-                "o_start": 9,
-                "o_end": 10,
-                "original_text": "amazing",
-                "c_start": 9,
-                "c_end": 9,
-                "corrected_text": "amazing.",
-                "error_type": "R:OTHER",
-                "llm_explanation": "**Error:** Incorrect verb tense.\n\n**Broken rule:** The sentence uses the present tense \"go\" instead of the past tense \"went\"."
+                "sentence": "I Go to all truffles two times It was amazing.",
+                "corrected_sentence": "I went to all truffles two times and it was amazing.",
+                "o_start": 7,
+                "o_end": 8,
+                "original_text": "It",
+                "c_start": 8,
+                "c_end": 8,
+                "corrected_text": "it",
+                "error_type": "R:ORTH",
+                "llm_explanation": "**Error:**\n\n- Incorrect verb tense: \"I Go\" should be \"I went\".\n- Violation of subject-verb agreement: \"two times It was amazing\" should be \"two times, it was amazing\".\n\n**Corrected:**\n\n- Past tense of the verb \"go\" is \"went\".\n- Comma and correct verb tense: \"two times, it was amazing\"."
             }
         ]
     },
@@ -1087,7 +761,7 @@
                 "c_end": 6,
                 "corrected_text": "",
                 "error_type": "U:VERB:FORM",
-                "llm_explanation": "**Error:** U:VERB:FORM (incorrect verb form)\n\n**Broken rule:** The verb \"to take\" should be in the infinitive form \"to take\" instead of the present tense \"take\"."
+                "llm_explanation": "**Errors:**\n\n- **U:VERB:FORM:** Incorrect verb form.\n- **Grammar error:** Incorrect word order and missing article.\n\n**Broken rules:**\n\n- Subject-verb agreement.\n- Word order and syntax."
             },
             {
                 "index": "149",
@@ -1101,7 +775,7 @@
                 "c_end": 15,
                 "corrected_text": "",
                 "error_type": "U:PREP",
-                "llm_explanation": "**Error:** U:PREP (incorrect use of the preposition \"on\")\n\n**Broken rule:** The preposition \"on\" is not appropriate in the context of the sentence. It should be replaced with an appropriate preposition or conjunction."
+                "llm_explanation": "**Errors:**\n\n- **U:PREP:** Incorrect word order, specifically a misplaced preposition.\n- **Broken rule:** Subject-verb agreement and prepositional phrase placement."
             },
             {
                 "index": "149",
@@ -1115,7 +789,7 @@
                 "c_end": 16,
                 "corrected_text": "positions,",
                 "error_type": "R:NOUN",
-                "llm_explanation": "**Error:** Noun phrase is incomplete due to a missing plural marker (\").\n\n**Broken rule:** Standard English requires a plural marker (such as \"s\" or \"es\") after most nouns to indicate more than one of that noun."
+                "llm_explanation": "**Errors:**\n\n- **R:NOUN:** Incorrect word choice or syntax in the phrase \"or if we need to have a new players\". It should be \"or if we need to have a new player\".\n- **Word order:** The sentence contains a misplaced modifier (\"if they have like one player that they decide to have a construct with him\"). It should be placed after \"player\"."
             },
             {
                 "index": "149",
@@ -1129,7 +803,7 @@
                 "c_end": 25,
                 "corrected_text": "player",
                 "error_type": "R:NOUN:NUM",
-                "llm_explanation": "**Error:** R:NOUN:NUM (replacement of a plural noun with a singular noun)\n\n**Broken rule:** The sentence incorrectly replaces the plural noun \"players\" with the singular noun \"player\"."
+                "llm_explanation": "**Errors:**\n\n- **R:NOUN:NUM:** Incorrect word order between \"players\" and \"if\".\n- **Missing spaces:** Missing spaces after \"positions\" and \"player\".\n\n**Broken rules:**\n\n- Subject-verb agreement: The sentence has an incorrect word order due to the placement of \"if\".\n- Word spacing: Proper word spacing is not maintained after \"positions\" and \"player\"."
             },
             {
                 "index": "149",
@@ -1143,7 +817,7 @@
                 "c_end": 30,
                 "corrected_text": "players",
                 "error_type": "R:NOUN",
-                "llm_explanation": "**Error:** R:NOUN (replacement of a noun with a non-noun)\n\n**Broken rule:** The sentence contains a misspelling of \"players\" with \"gomers,\" which is not a recognized noun in English."
+                "llm_explanation": "**Errors:**\n\n- **R:NOUN:** Incorrect word choice or syntax in the phrase \"or if we need to have a new players\". It should be \"or if we need to have a new player\".\n- **Word order:** The sentence contains a misplaced modifier (\"if they have like one player that they decide to have a construct with him\"). It should be placed after \"player\"."
             },
             {
                 "index": "149",
@@ -1157,7 +831,7 @@
                 "c_end": 42,
                 "corrected_text": "",
                 "error_type": "U:OTHER",
-                "llm_explanation": "**Error:** Incorrect word choice - \"gomers\" instead of \"players\"\n\n**Broken rule:** Standard English usage dictates the use of a countable noun (\"players\") instead of an uncountable noun (\"gomers\") in this context."
+                "llm_explanation": "**Errors:**\n\n- **U:OTHER:** Incorrect word choice or grammar.\n- **Broken rule:** Subject-verb agreement and word order.\n\n**Specific issue:**\n\n- The original sentence has a grammatical error in the construction of the sentence, specifically regarding the subject-verb agreement and word order.\n- The corrected sentence resolves this issue by correctly aligning the subject and verb."
             }
         ]
     },
@@ -1196,7 +870,7 @@
                 "c_end": 4,
                 "corrected_text": "a",
                 "error_type": "M:DET",
-                "llm_explanation": "**Error:** Misuse of determiner.\n\n**Broken rule:** The sentence should use \"a\" instead of \"\" before \"waste\"."
+                "llm_explanation": "**Error:**\n\n- Incorrect determiner (\"waste\") in \"it's waste of time\". It should be \"a waste\".\n\n**Broken rule:**\n\n- The rule of determiner placement in sentences."
             }
         ]
     }

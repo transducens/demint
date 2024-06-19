@@ -4,21 +4,14 @@ from chainlit.input_widget import Select, Switch, Slider
 import random
 import os
 
-
 from english_tutor import EnglishTutor
-
-from app.error_identification import prepare_sorted_sentence_collection, explain_sentences, obtain_errors, rag_sentences
+import app.prepare_sorted_sentence_collection as prepare_sorted_sentence_collection
 from app.file_manager import FileManager
-from app.grammar_checker import GrammarChecker
-from app.audio_extractor import AudioExtractor
-from app.llm.ChatFactory import ChatFactory
 
-from app.rag.RAGFactory import RAGFactory
 
 available_llm = EnglishTutor.get_available_llm()
 max_new_tokens = 200
-RAG_search_k = 1
-
+rag_file = "cache/rag_sentences.json"
 
 
 @cl.on_settings_update
@@ -50,28 +43,14 @@ async def setup_agent(settings):
 # called when a new chat session is created.
 @cl.on_chat_start
 async def on_chat_start():
+
     cl.user_session.set("counter", 0)
     english_tutor = EnglishTutor()
 
     start = time.time()
-    #explained_sentences, speakers_context, sorted_speakers = english_tutor.get_study_plan() # explained sentences, speaker context
-    #cl.user_session.set("explained_sentences", explained_sentences)
-    #cl.user_session.set("speakers_context", speakers_context)
-    #cl.user_session.set("speakers", sorted_speakers)
-    #cl.user_session.set("explained_sentences_speaker", explained_sentences)
-
-    start = time.time()
     file_manager = FileManager()
     
-    if not os.path.isfile('cache/rag_sentences.json'):
-        rag_sentences(file_manager, english_tutor.set_rag_engine(available_RAG[0]))
 
-    explained_sentences = file_manager.read_from_json_file("cache/rag_sentences.json")
-    cl.user_session.set("explained_sentences", explained_sentences)
-    sentences_collection = file_manager.read_from_json_file("cache/raw_sorted_sentence_collection.json")
-    cl.user_session.set("sentences_collection", sentences_collection)
-    speakers = await get_speakers(sentences_collection)
-    cl.user_session.set("speakers", speakers)
 
     end = time.time()
     print("on_chat_start time:", end - start)
@@ -279,3 +258,31 @@ async def get_explained_sentences_speaker(explained_sentences, speaker:str):
             if value['speaker'] == speaker:
                 result[key] = value
         return result
+    
+
+async def load_data():
+    start_load = time.time()
+    file_manager = FileManager()
+    input_files = {
+        'sentences_collection': "cache/raw_sorted_sentence_collection.json",
+        'explained_sentences': "cache/rag_sentences.json",
+    }
+    
+
+    if not os.path.isfile(input_files['sentences_collection']):
+        print(f"{input_files['sentences_collection']} is not found.")
+        print(f"Processing {input_files['sentences_collection']}")
+        prepare_sorted_sentence_collection.main()
+
+    explained_sentences = file_manager.read_from_json_file("cache/rag_sentences.json")
+    cl.user_session.set("explained_sentences", explained_sentences)
+    sentences_collection = file_manager.read_from_json_file("cache/raw_sorted_sentence_collection.json")
+    cl.user_session.set("sentences_collection", sentences_collection)
+    speakers = await get_speakers(sentences_collection)
+    cl.user_session.set("speakers", speakers)
+    cl.user_session.set("explained_sentences_speaker", explained_sentences)
+
+    end_load = time.time()
+    print("**************************************")
+    print("Load data time:", end_load - start_load)
+    print("**************************************")

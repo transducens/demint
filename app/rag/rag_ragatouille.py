@@ -1,9 +1,8 @@
 import os
 from ragatouille import RAGPretrainedModel
+from ragatouille.utils import get_wikipedia_page
 
 from app.rag.rag_engine_interface import IRagEngine
-
-from ragatouille.utils import get_wikipedia_page
 
 index_name = 'tutor'
 max_document_length = 300
@@ -13,7 +12,7 @@ split_documents = True
 class RAGatouilleTutor(IRagEngine):
     def __init__(self, model_name="colbert-ir/colbertv2.0"):
         #self.index_path = f".ragatouille/colbert/indexes/{index_name}/"
-        self.index_path = "app/.ragatouille/colbert/indexes/tutor/"
+        self.index_path = "./app/.ragatouille/colbert/indexes/tutor/"
         self.INDEX = None
         self.__model_name = model_name
 

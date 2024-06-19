@@ -8,6 +8,7 @@ files_to_remove=(
     "./cache/errant_detailed_evaluation.json"
     "./cache/errant_corrected_evaluation.json"
     "./cache/errant_simple_evaluation.json"
+    "./cache/rag_sentences.json"
 )
 
 # Removing files

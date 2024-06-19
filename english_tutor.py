@@ -6,7 +6,7 @@ from app.file_manager import FileManager
 import os
 import shutil
 
-from app.study_plan_creator import StudyPlanCreator
+#from app.study_plan_creator import StudyPlanCreator
 
 
 class EnglishTutor:

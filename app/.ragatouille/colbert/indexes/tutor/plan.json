@@ -10,7 +10,7 @@
         "load_index_with_mmap": false,
         "index_path": null,
         "index_bsize": 32,
-        "nbits": 4,
+        "nbits": 2,
         "kmeans_niters": 20,
         "resume": false,
         "similarity": "cosine",
@@ -37,11 +37,11 @@
         "checkpoint": "colbert-ir\/colbertv2.0",
         "triples": "\/future\/u\/okhattab\/root\/unit\/experiments\/2021.10\/downstream.distillation.round2.2_score\/round2.nway6.cosine.ib\/examples.64.json",
         "collection": [
-            "list with 5229 elements starting with...",
+            "list with 10279 elements starting with...",
             [
-                "CAMBRIDGE\nGRAMMAR \nOF ENGLISH\nA COMPREHENSIVE GUIDE\nSpoken and Written English \nGrammar and Usage\nRONALD CARTER \nC a m b r i d g e  \nm ichael M c C a rth y",
-                "CAMBRIDGE \nGRAMMAR \nOF ENGLISH\nA COMPREHENSIVE GUIDE\nSpoken and Written English \nGrammar and Usage\nRONALD CARTER\nm ichael McCarthy\nM  C a m b r id g e\nUNIVERSITY PRESS",
-                "CAMBRIDGE UNIVERSITY PRESS\nCambridge, New York, Melbourne, M\nadrid, Cape Town, Singapore, S\u00e2o Paulo\nCambridge University Press\nThe Edinburgh Building, Cambridge CB2 2RU, UK\nwww.cambridge.org\nInformation on this title: www.cambridge.org\/9780521588664 \n\u00a9 Cambridge University Press 2006\nThis book is in copyright. Subject to statutory exception and to the provisions of relevant \ncollective licensing agreements, no reproduction of any part may take place without the \nwritten permission of Cambridge University Press.\nFirst published 2006\nPrinted in Italy by Mtr Grafica Veneta S.p.A."
+                "CAMBRIDGE\nGRAMMAR \nOF ENGLISH\nA COMPREHENSIVE GUIDE\nSpoken and Written English \nGrammar and Usage\nRONALD CARTER \nC a m b r i d g e  \nm ichael M c C a rth y\nCAMBRIDGE \nGRAMMAR \nOF ENGLISH\nA COMPREHENSIVE GUIDE\nSpoken and Written English \nGrammar and Usage\nRONALD CARTER\nm ichael McCarthy\nM  C a m b r id g e\nUNIVERSITY PRESS\nCAMBRIDGE UNIVERSITY PRESS\nCambridge, New York, Melbourne, M\nadrid, Cape Town, Singapore, S\u00e2o Paulo\nCambridge University Press\nThe Edinburgh Building, Cambridge CB2 2RU, UK\nwww",
+                "n, Singapore, S\u00e2o Paulo\nCambridge University Press\nThe Edinburgh Building, Cambridge CB2 2RU, UK\nwww.cambridge.org\nInformation on this title: www.cambridge.org\/9780521588664 \n\u00a9 Cambridge University Press 2006\nThis book is in copyright. Subject to statutory exception and to the provisions of relevant \ncollective licensing agreements, no reproduction of any part may take place without the \nwritten permission of Cambridge University Press.\nFirst published 2006\nPrinted in Italy by Mtr Grafica Veneta",
+                "ermission of Cambridge University Press.\nFirst published 2006\nPrinted in Italy by Mtr Grafica Veneta S.p.A.\nA catalogue r\necord for this book is available fr\nom the Br\nitish Libr\nar\ny\nPaperback ISBN -13 978-0-521-58846-1 \nPaperback ISBN -10 0-521-58846-4\nHardcover ISBN -13 978-0-521-58166-0 \nHardcover ISBN -10 0-521-58166-4\nPaperback and CD ROM ISBN -13 978-0-521-67439-3 \nPaperback and CD ROM ISBN -10 0-521-67439-5\nHardcover and CD ROM ISBN -13 978-0-521-85767-3 \nHardcover and CD ROM ISBN -10 0-"
             ]
         ],
         "queries": "\/future\/u\/okhattab\/data\/MSMARCO\/queries.train.tsv",
@@ -50,7 +50,7 @@
         "root": ".ragatouille\/",
         "experiment": "colbert",
         "index_root": null,
-        "name": "2024-06\/10\/19.44.35",
+        "name": "2024-06\/19\/13.44.09",
         "rank": 0,
         "nranks": 1,
         "amp": true,
@@ -58,7 +58,7 @@
         "avoid_fork_if_possible": false
     },
     "num_chunks": 1,
-    "num_partitions": 8192,
-    "num_embeddings_est": 952630.0328979492,
-    "avg_doclen_est": 182.18206787109375
+    "num_partitions": 16384,
+    "num_embeddings_est": 1078335.0296096802,
+    "avg_doclen_est": 104.90660858154297
 }

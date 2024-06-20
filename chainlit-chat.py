@@ -180,6 +180,7 @@ async def on_message(message: cl.Message):
         f"CONTEXT:\n{context}\n"
         f"QUESTION:\n Create an short exercise to help a student practice their mistake. Without answers.")
 
+    # Generate exercise number 1
     response = await cl.make_async(english_tutor.get_answer)(final_prompt, max_new_tokens)
     cl.user_session.set("user_excercise", response)
 
@@ -195,14 +196,16 @@ async def on_message(message: cl.Message):
     context += cl.user_session.get("user_excercise")
 
     # Ask user for anser to exercise
-    #user_response = await cl.AskUserMessage(
-    #    content=(f"Write your answer to the exercise below\n\n", context),
-    #    timeout=180,
-    #).send()
-    #if user_response:
-    #    await cl.Message(
-    #        content=f"Your answer: {user_response['output']}",
-    #    ).send()
+    user_response = await cl.AskUserMessage(
+        content=("Write your answer to the exercise below\n\n"),
+        timeout=180,
+    ).send()
+    if user_response:
+        await cl.Message(
+            content=f"Your answer: {user_response['output']}",
+        ).send()
+
+    # TODO Create correction for the answer of the user to exercise 1
 
     # Follow with more exercises
     #context += "\n\n" + message.content + "\n"
@@ -215,8 +218,8 @@ async def on_message(message: cl.Message):
     #cl.user_session.set("user_excercise", response)
 
     
-    response += "\n\n**You have completed the exercise. Let\'s continue!**"
-    cl.user_session.set("counter", 0)
+    #response += "\n\n**You have completed the exercise. Let\'s continue!**"
+    #cl.user_session.set("counter", 0)
 
     msg.content = f"{response}"
 

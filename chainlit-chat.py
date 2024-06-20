@@ -43,10 +43,18 @@ async def setup_agent(settings):
 # called when a new chat session is created.
 @cl.on_chat_start
 async def on_chat_start():
+
+    # Welcome message
     hello_msg = f"# Welcome to English Tutor Chat Bot AI! 🚀🤖\n\n"
     hello_msg += f"Please select in configuration (left of the text entry) what speaker you want to check. Otherwise all speakers will be used\n\n"
     initial_message = cl.Message(content=hello_msg)
     await initial_message.send()
+
+    # Add custom components
+    await add_custom_components()
+    #######################
+
+    await cl.Text(content="This is a text widget on the right side.", position="right").send(for_id="right_text")
 
     start_chat = time.time()
     cl.user_session.set("counter", 0)
@@ -306,3 +314,38 @@ async def load_data():
     print("**************************************")
 
     return explained_sentences, sentences_collection, speakers
+
+
+
+async def add_custom_components():
+    custom_component = """
+    <style>
+    .container {
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+    }
+    .chat {
+        flex: 1;
+        border-right: 1px solid #ccc;
+        padding: 10px;
+    }
+    .widget {
+        width: 300px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-left: 1px solid #ccc;
+    }
+    </style>
+    <div class="container">
+        <div class="chat">
+            <p>Chat Content</p>
+        </div>
+        <div class="widget">
+            <p>Text Widget Content</p>
+        </div>
+    </div>
+    """
+    cl.Message(content=custom_component).send()
+
+

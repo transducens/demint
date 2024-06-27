@@ -10,7 +10,7 @@ user_env = []
 session_timeout = 3600
 
 # Enable third parties caching (e.g LangChain cache)
-cache = false
+cache = true
 
 # Authorized origins
 allow_origins = ["*"]

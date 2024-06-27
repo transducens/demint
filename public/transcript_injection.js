@@ -158,14 +158,17 @@ function js_autoscroll_function_by_id(word_to_search) {
 }
 
 
+
 // **************************************************
 // ********************** MAIN **********************
 // **************************************************
 // Set up the interval to run the function every second (1000 milliseconds)
 document.addEventListener('DOMContentLoaded', (event) => {
     loadJSONData();
-    intervalId = setInterval(runPeriodically, 1000);
+    intervalId = setInterval(runPeriodically, 1000);    // run each second until the component is found
     console.log('Interval set up.');
+
+    const socket = new WebSocket("ws://localhost:8001/ws");
 });
 
 

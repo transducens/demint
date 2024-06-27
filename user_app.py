@@ -49,7 +49,20 @@ def initialize_global_variables():
 
 
 # Chat with the AI using the given query.
-def chat_with_ai(query):
+def chat_with_ai(user_input, historial_chat=None):
+    # temp
+    for i in range(100):
+        time.sleep(0.1)
+        yield f"Loading... {i}%"
+    
+    bot_response = ""
+    for i in ["I", "am", "a", "robot", "but", "I", "am", "trying", "to", "help", "you"]:
+        time.sleep(0.5)
+        bot_response += i + " "
+        yield bot_response
+    # temp
+    return ""
+
     print("pressed")
     global selected_speaker_text, english_tutor
     context = ""
@@ -154,10 +167,11 @@ def highlight_errors_all(sentence: str):
 
         return highlight_errors_in_text(text=sentence, word_indexes=word_indexes)
     else:
-        print("###")
-        print(sentence)
-        print("###")
-        return sentence
+        #print("###")
+        #print(sentence)
+        #print("###")
+        #return sentence
+        pass
 
 
 # Receives as a parameter the name of the speaker selected in the dropdown.
@@ -165,7 +179,7 @@ def highlight_errors_all(sentence: str):
 # Returns a string that is the text spoken by the selected speaker or speakers.
 # 0 -> time, 1 -> speaker, 2 -> text
 def handle_dropdown_selection(speaker_selection):
-    global selected_speaker_text, speakers_context, english_tutor, speaker_colors
+    global selected_speaker_text, speakers_context, english_tutor
 
     selected_speaker_text = 'No text to show.'
     if speakers_context is not None:
@@ -177,7 +191,7 @@ def handle_dropdown_selection(speaker_selection):
                 selected_speaker_text += (
                     '<a id="' + speaker_context[0] + '">'
                     + speaker_context[1] + " " 
-                    + highlight_errors_all(speaker_context[2]) + "\n\n"
+                    + speaker_context[2] + "\n\n"
                     + "</a>"
                 )
                 
@@ -188,10 +202,10 @@ def handle_dropdown_selection(speaker_selection):
             for speaker_context in speakers_context:
                 if speaker_context[1] == speaker_selection:
                     # Highlight the lines of the selected speaker
-                    selected_speaker_text += highlight_text(text=
+                    selected_speaker_text += highlight_text(text=(
                             '<a id="' + speaker_context[0] + '">'
                             + speaker_context[1] + " " 
-                            + speaker_context[2],
+                            + speaker_context[2] + "</a>"),
                             background_color=speaker_color
                         ) + "\n\n"
                 else:
@@ -329,39 +343,45 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
 
         # Block for chatting with the AI.
         with gr.Column(scale=0.7):
-            response = gr.Textbox(
-                label="Chat History:", 
-                interactive=False,  
-                autoscroll=True, 
-                elem_classes="chat-container",
-                lines=33,
-                max_lines=33,
-                scale=3
-                )
-            query = gr.Textbox(
-                label="Enter your query: (ex. How does past perfect work? )",
-                lines=2,
-                autoscroll=True,
-                max_lines=2,
-                scale=1
-                )
-            submit_button = gr.Button(
-                value="Submit",
-                scale=1,
-                )
-            goto_button = gr.Button(
-                value="Go to Error",
-                scale=1,
-                )
-            # Process the user query when the submit button is clicked.
-            submit_button.click(fn=chat_with_ai, inputs=[query], outputs=[response])
-            # Or when the user presses the Enter key.
-            query.submit(fn=chat_with_ai, inputs=[query], outputs=[response])
+            #response = gr.TextBox(
+            #    label="Chat History:", 
+            #    interactive=False,  
+            #    autoscroll=True, 
+            #    elem_classes="chat-container",
+            #    lines=33,
+            #    max_lines=33,
+            #    scale=3
+            #    )
+            chatBotInterface = gr.ChatInterface(
+                fn=chat_with_ai,
+                multimodal=False,
+                autofocus=True,
+                concurrency_limit=2,
+            )
+            #query = gr.Textbox(
+            #    label="Enter your query: (ex. How does past perfect work? )",
+            #    lines=2,
+            #    autoscroll=True,
+            #    max_lines=2,
+            #    scale=1
+            #    )
+            #submit_button = gr.Button(
+            #    value="Submit",
+            #    scale=1,
+            #    )
+            #goto_button = gr.Button(
+            #    value="Go to Error",
+            #    scale=0.1,
+            #    )
+            ## Process the user query when the submit button is clicked.
+            #submit_button.click(fn=chat_with_ai, inputs=[query], outputs=[response])
+            ## Or when the user presses the Enter key.
+            #query.submit(fn=chat_with_ai, inputs=[query], outputs=[response])
 
-            goto_button.click(
-                None, 
-                inputs=[query],
-                js=js_autoscroll_function_by_value)
+            #goto_button.click(
+            #    None, 
+            #    inputs=[query],
+            #    js=js_autoscroll_function_by_value)
 
     theme=gr.themes.Base()
 
@@ -370,5 +390,9 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
 
 
 if __name__ == '__main__':
-    is_public_link = True
-    demo.launch(share=is_public_link)
+    is_public_link = False
+    demo.launch(
+        share=is_public_link,
+        server_name="localhost",
+        server_port=8001,
+        )

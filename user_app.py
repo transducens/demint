@@ -1,12 +1,18 @@
 import gradio as gr
 import tracemalloc
 import time
+import os
+import argparse
+
 from english_tutor import EnglishTutor
 from app.file_manager import FileManager
-import re
+import app.prepare_sentences as prepare_sentences
+import app.rag_sentences as rag_sentences
 
 english_tutor: EnglishTutor | None = None
-speakers_context: dict | None = None
+sentences_collection: dict | None = None
+explained_sentences: dict | None = None
+speakers: list | None = None
 selected_speaker_text = None
 default_colors = {
     "red": "#fd0000",
@@ -21,35 +27,87 @@ default_colors = {
     "olive": "#947825"
 }
 speaker_color = default_colors['dark blue']
-raw_sentences: dict | None = None
-explained_sentences: dict | None = None
+user_message, chat_answer, history_chat = "", "", []
+highlighted_sentence_id = ""
+selected_speaker = "All speakers"
 
 tracemalloc.start()
 
 # Initialize the global variables.
 def initialize_global_variables():
-    global english_tutor, speakers_context, explained_sentences
+    global english_tutor
 
     if english_tutor is None:
-        print("initialize english_tutor started")
         english_tutor = EnglishTutor()
-        #english_tutor.set_rag_engine("faiss")
-        print("initialize english_tutor finished")
+        print("*" * 50)
+        print("Loaded English Tutor")
+        print("*" * 50)
 
-    if speakers_context is None:
-        print("initialize speakers_context started")
-        # A list of speakers and their transcripts from the audio file.
-        speakers_context = english_tutor.get_speakers_context()
-        print("initialize speakers_context finished")
+    load_data() # Load the data from the cache files
 
-    if explained_sentences is None:
-        print("initialize explained_sentences started")
-        explained_sentences = FileManager.read_from_json_file('cache/explained_sentences.json')
-        print("initialize explained_sentences finished")
+
+# Load the data from the cache files. If the cache files are not found, then create them.
+def load_data():
+    global sentences_collection, explained_sentences, speakers
+    start_load = time.time()
+    file_manager = FileManager()
+    input_files = {
+        'sentences_collection': "cache/raw_sorted_sentence_collection.json",
+        'explained_sentences': "cache/rag_sentences.json",
+    }
+    
+    if not os.path.isfile(input_files['sentences_collection']):
+        print(f"{input_files['sentences_collection']} is not found.")
+        print(f"Processing {input_files['sentences_collection']}")
+        prepare_sentences.main()
+    
+    if not os.path.isfile(input_files['explained_sentences']):
+        print(f"{input_files['explained_sentences']} is not found.")
+        print(f"Processing {input_files['explained_sentences']}")
+        rag_sentences.main()
+
+    explained_sentences = file_manager.read_from_json_file(input_files['explained_sentences'])
+    sentences_collection = file_manager.read_from_json_file(input_files['sentences_collection'])
+    speakers = get_speakers()
+
+    end_load = time.time()
+    print("*" * 50)
+    print(f"Loaded data. Time: {end_load - start_load} seconds")
+    print("*" * 50)
+
+    return explained_sentences, sentences_collection, speakers
+
+
+# Returns a list of all the speakers that have spoken in the transctipt
+def get_speakers():
+    sorted_speakers = []
+    if sentences_collection is not None:
+        sorted_speakers.append("All speakers")
+        # Get the speakers names
+        sorted_speakers += sorted( {value['speaker'] for value in sentences_collection.values()} )
+    
+    return sorted_speakers
 
 
 # Chat with the AI using the given query.
-def chat_with_ai(query):
+def chat_with_ai(user_input, history=None):
+    global user_message, chat_answer, history_chat, highlighted_sentence_id
+    user_message = user_input
+    history_chat = history
+    highlighted_sentence_id = user_input
+    
+    # temp
+    print("Preparing answer...")
+    bot_response = ""
+    for i in ["I", "am", "a", "robot", "but", "I", "am", "trying", "to", "help", "you"]:
+        time.sleep(0.5)
+        bot_response += i + " "
+        yield bot_response
+    
+    chat_answer = bot_response
+    return ""
+    # temp
+
     print("pressed")
     global selected_speaker_text, english_tutor
     context = ""
@@ -86,6 +144,7 @@ def chat_with_ai(query):
     return output
 
 
+# TODO maybe not necessary. If it is, then move to another file and use here only the function.
 def get_video(video_url):
     global english_tutor, speakers_context
     clean_cache()
@@ -102,18 +161,6 @@ def get_video(video_url):
     speakers_context = english_tutor.get_speakers_context()
 
     return f"Video info: {video_title}"
-
-
-# Update the dropdown with the speakers' names.
-# Gets the speakers' names from the speakers_context dictionary.
-def update_dropdown(_=None):
-    global speakers_context
-    sorted_speakers = []
-    if speakers_context is not None:
-        sorted_speakers.append("All speakers")
-        # Get the speakers names
-        sorted_speakers += sorted( {speaker_context[1] for speaker_context in speakers_context} )
-    return sorted_speakers
 
 
 # Given a text and the word to highlight, it returns the text with the word highlighted.
@@ -141,7 +188,8 @@ def highlight_text(text="", font_color="#FFFFFF", background_color="#000000"):
     return f'<span style="color: {font_color}; background-color: {background_color}">{text}</span>'
 
 
-# Given a sentence, checks in the data if that sentence has errors and if so highlights them in red
+# Given a sentence, checks in explained_sentences if that sentence has errors and 
+# if so highlights them in red
 # Returns a string of the sentence with the words highlighted using html and css
 def highlight_errors_all(sentence: str):
     global explained_sentences
@@ -153,66 +201,56 @@ def highlight_errors_all(sentence: str):
                 word_indexes.append(label_error['o_start'])
 
         return highlight_errors_in_text(text=sentence, word_indexes=word_indexes)
-    else:
-        print("###")
-        print(sentence)
-        print("###")
-        return sentence
 
 
 # Receives as a parameter the name of the speaker selected in the dropdown.
-# Using speaker_context, it joins each sentence in a string.
-# Returns a string that is the text spoken by the selected speaker or speakers.
+# Using sentences_collection, it joins each sentence in a string.
 # 0 -> time, 1 -> speaker, 2 -> text
-def handle_dropdown_selection(speaker_selection):
-    global selected_speaker_text, speakers_context, english_tutor, speaker_colors
+def handle_dropdown_selection(speaker_name: str):
+    global sentences_collection, speakers, selected_speaker
 
-    selected_speaker_text = 'No text to show.'
-    if speakers_context is not None:
+    selected_speaker = speaker_name
+
+    text_to_show = 'No text to show.'
+    if sentences_collection is not None:
         # All speakers text
-        if speaker_selection == 'All speakers':
-            selected_speaker_text = "\n\n"
-            for speaker_context in speakers_context:
+        if selected_speaker == 'All speakers':
+            text_to_show = "\n\n"
+            for index, value in sentences_collection.items():
                 # Label each line and print it
-                selected_speaker_text += (
-                    '<a id="' + speaker_context[0] + '">'
-                    + speaker_context[1] + " " 
-                    + highlight_errors_all(speaker_context[2]) + "\n\n"
+                text_to_show += (
+                    '<a id="sentence_' + index + '">'
+                    + value['speaker'] + " " 
+                    + value['original_sentence'] + "\n\n"
                     + "</a>"
                 )
-                
-
         else:
             # specific speaker text
-            selected_speaker_text = "\n\n"
-            for speaker_context in speakers_context:
-                if speaker_context[1] == speaker_selection:
+            text_to_show = "\n\n"
+            for index, value in sentences_collection.items():
+                if value['speaker'] == selected_speaker:
                     # Highlight the lines of the selected speaker
-                    selected_speaker_text += highlight_text(text=
-                            '<a id="' + speaker_context[0] + '">'
-                            + speaker_context[1] + " " 
-                            + speaker_context[2],
+                    text_to_show += highlight_text(text=(
+                            '<a id="sentence_' + index + '">'
+                            + value['speaker'] + " " 
+                            + value['original_sentence'] + "</a>"),
                             background_color=speaker_color
                         ) + "\n\n"
                 else:
                     # Label each line and print it
-                    selected_speaker_text += (
-                    '<a id="' + speaker_context[0] + '">'
-                    + speaker_context[1] + " " 
-                    + speaker_context[2] + "\n\n"
+                    text_to_show += (
+                    '<a id="sentence_' + index + '">'
+                    + value['speaker'] + " " 
+                    + value['original_sentence'] + "\n\n"
                     + "</a>"
                 )
 
     # Add scrollable container
-    result = f"<div>{selected_speaker_text}</div>"
-    #print("##################")
-    #print("##################")
-    #print(result)
-    #print("##################")
-    #print("##################")
+    result = f"<div id='transcript_id'>{text_to_show}</div>"
     return result
         
 
+# TODO maybe not necessary. If it is, then move to another file and use here only the function.
 def get_audio_path():
     audio_path = "audio/extracted_audio.wav"
     return audio_path
@@ -228,13 +266,19 @@ def clean_cache():
     speakers_context = None
     selected_speaker_text = None
 
+
+def get_arguments_env():
+    global selected_speaker
+    arg_speaker = os.getenv("GRADIO_SPEAKER", "All speakers")
+    selected_speaker = arg_speaker or selected_speaker
+
     
 js = """"""
 js_autoscroll_function_by_value= """
     function autoscroll_to_string(word_to_search) {
     try {
         console.log("Searching for:", word_to_search);
-        const anchors = document.querySelectorAll('a');
+        const anchors = document.querySelectorAll('#transcript_id a');
         let found = false;
         anchors.forEach(anchor => {
             if (anchor.textContent.includes(word_to_search)) {
@@ -258,15 +302,31 @@ js_autoscroll_function_by_value= """
 }
 """
 js_autoscroll_function_by_id= """
-    function(word_to_search) { 
-        const element = document.getElementById(word_to_search); 
+    function(id_param) {
+        const id_holder = id_param
+        console.log("Searching for id:", id_holder);
+        const element = document.getElementById(id_holder); 
         if (element) { 
+            const anchors = document.querySelectorAll('#transcript_id a');
+            anchors.forEach(anchor => {
+                anchor.style.backgroundColor = 'transparent';
+            });
+
             element.scrollIntoView({behavior: 'smooth', block: 'center'}); 
-            element.animate([{ backgroundColor: 'yellow' }, { backgroundColor: 'transparent' }], { duration: 2000, iterations: 1 }); 
+            element.animate([{ backgroundColor: 'darkred' }, { backgroundColor: 'transparent' }], { duration: 3000, iterations: 1 }); 
+            element.style.backgroundColor = 'darkred';
         } 
         else { 
-            console.log('Element not found for:', word_to_search); 
+            console.log('Element not found for:', id_holder); 
         }
+    }
+"""
+js_trigger_button = """
+    function trigger_button() {
+        setTimeout(function() {
+            document.querySelector("#mybutton").click();
+            console.log("Button clicked");
+        }, 5000);
     }
 """
 css = """
@@ -293,7 +353,9 @@ css = """
         text-decoration: none;
         -webkit-tap-highlight-color: white;
     }
-
+    #submit_button {
+        background-color: #1d4ed8;
+    }
 """
 head_html = ""
 
@@ -301,25 +363,27 @@ head_html = ""
 print("Version of gradio: " + gr.__version__)
 # Create the Gradio interface.
 with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=head_html) as demo:
+    get_arguments_env()
     initialize_global_variables()
+    print("*" * 50)
+    print("Selected speaker: ", selected_speaker)
+    print("*" * 50)
+
     # All Components container
     with gr.Row():
         # Block for the transcript of the speakers in the audio.
         with gr.Column(scale=0.3):
-            sorted_speakers = update_dropdown()
-            default_value = sorted_speakers[0] if sorted_speakers else None
             with gr.Row(elem_classes="dropdown"):
                 dropdown = gr.Dropdown(
                     label="Select a speaker", 
-                    choices=sorted_speakers, 
-                    value=default_value, 
+                    choices=speakers, 
+                    value=selected_speaker, 
                     interactive=True,
                     scale=1,
-                    every=1
                     )
             with gr.Row(elem_classes="transcript"):
                 speaker_text = gr.Markdown(
-                    value=handle_dropdown_selection(default_value),
+                    value=handle_dropdown_selection(selected_speaker),
                         latex_delimiters=[], # Disable LaTeX rendering
                         every=10
                     )
@@ -329,39 +393,38 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
 
         # Block for chatting with the AI.
         with gr.Column(scale=0.7):
-            response = gr.Textbox(
-                label="Chat History:", 
-                interactive=False,  
-                autoscroll=True, 
-                elem_classes="chat-container",
-                lines=33,
-                max_lines=33,
-                scale=3
-                )
-            query = gr.Textbox(
-                label="Enter your query: (ex. How does past perfect work? )",
-                lines=2,
-                autoscroll=True,
-                max_lines=2,
-                scale=1
-                )
+            scroll_button = gr.Button(elem_id="mybutton", visible=False)
+            hidden_texbox = gr.Textbox(value="", visible=False)
+
+            # lg.primary.svelte-cmf5ev
             submit_button = gr.Button(
                 value="Submit",
-                scale=1,
-                )
-            goto_button = gr.Button(
-                value="Go to Error",
-                scale=1,
-                )
-            # Process the user query when the submit button is clicked.
-            submit_button.click(fn=chat_with_ai, inputs=[query], outputs=[response])
-            # Or when the user presses the Enter key.
-            query.submit(fn=chat_with_ai, inputs=[query], outputs=[response])
+                render=False,   # rendered in chatBotInterface
+                elem_id="submit_button",
+                elem_classes="svelte-cmf5ev",
+            )
+            txtbox = gr.Textbox(
+                label="Enter your query:",
+                render=False,   # rendered in chatBotInterface
+                scale=3,
+            )
+            chatBotInterface = gr.ChatInterface(
+                fn=chat_with_ai,
+                multimodal=False,
+                autofocus=True,
+                concurrency_limit=2,
+                textbox=txtbox,
+                submit_btn=submit_button,
+            )
+            
 
-            goto_button.click(
-                None, 
-                inputs=[query],
-                js=js_autoscroll_function_by_value)
+            gr.HTML().change(
+                fn= lambda: highlighted_sentence_id, 
+                trigger_mode="once", 
+                outputs=[hidden_texbox])
+            
+            txtbox.submit(fn=None, js=js_trigger_button)    # Trigger the scroll_button click after 5 seconds
+            scroll_button.click(fn=None, js=js_autoscroll_function_by_id, inputs=[hidden_texbox])
 
     theme=gr.themes.Base()
 
@@ -370,5 +433,9 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
 
 
 if __name__ == '__main__':
-    is_public_link = True
-    demo.launch(share=is_public_link)
+    is_public_link = False
+    demo.launch(
+        share=is_public_link,
+        server_name="localhost",
+        server_port=8001,
+        )

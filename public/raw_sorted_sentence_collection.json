@@ -1,0 +1,782 @@
+{
+    "1": {
+        "time": "00:00:06.460 --> 00:00:09.685",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Good afternoon."
+    },
+    "2": {
+        "time": "00:00:06.460 --> 00:00:09.685",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Good afternoon."
+    },
+    "3": {
+        "time": "00:00:06.460 --> 00:00:09.685",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Can I have your marksheets please?"
+    },
+    "4": {
+        "time": "00:00:07.529 --> 00:00:08.276",
+        "speaker": "SPEAKER_03",
+        "original_sentence": "Would have been about Per."
+    },
+    "5": {
+        "time": "00:00:09.940 --> 00:00:10.636",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Here you are."
+    },
+    "6": {
+        "time": "00:00:14.100 --> 00:00:18.191",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "I'm Susan Watson and this is Brother Roy Chowdery."
+    },
+    "7": {
+        "time": "00:00:19.601 --> 00:00:22.130",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "What's your name?"
+    },
+    "8": {
+        "time": "00:00:19.601 --> 00:00:22.130",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "My name is Kenza."
+    },
+    "9": {
+        "time": "00:00:23.302 --> 00:00:24.134",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Where do you come from?"
+    },
+    "10": {
+        "time": "00:00:24.660 --> 00:00:25.882",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "I'm from Algeria."
+    },
+    "11": {
+        "time": "00:00:25.882 --> 00:00:29.108",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Thank you."
+    },
+    "12": {
+        "time": "00:00:25.882 --> 00:00:29.108",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "And what's your name?"
+    },
+    "13": {
+        "time": "00:00:29.431 --> 00:00:30.568",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "My name is Mohammed."
+    },
+    "14": {
+        "time": "00:00:31.349 --> 00:00:32.181",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Where do you come from?"
+    },
+    "15": {
+        "time": "00:00:32.555 --> 00:00:33.438",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "From Saudi Arabia."
+    },
+    "16": {
+        "time": "00:00:33.573 --> 00:00:37.784",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Thank you."
+    },
+    "17": {
+        "time": "00:00:33.573 --> 00:00:37.784",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Mohammed, do you work or are you a student?"
+    },
+    "18": {
+        "time": "00:00:38.191 --> 00:00:40.585",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "I work in a Ministry of Foreign Affairs."
+    },
+    "19": {
+        "time": "00:00:41.672 --> 00:00:46.867",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Thank you."
+    },
+    "20": {
+        "time": "00:00:41.672 --> 00:00:46.867",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "And Kenza, do you work or are you a student?"
+    },
+    "21": {
+        "time": "00:00:48.344 --> 00:00:53.641",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "I was a student, but I had finished at the university."
+    },
+    "22": {
+        "time": "00:00:54.286 --> 00:00:54.932",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "What you do."
+    },
+    "23": {
+        "time": "00:00:56.154 --> 00:00:58.938",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Now I have my own salon beauty."
+    },
+    "24": {
+        "time": "00:00:59.787 --> 00:01:03.777",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Thank you."
+    },
+    "25": {
+        "time": "00:00:59.787 --> 00:01:03.777",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Do you think that English will be useful for you in the future?"
+    },
+    "26": {
+        "time": "00:01:05.509 --> 00:01:21.162",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Yes, I think that English is the most useful language in all the world because it permits us to achieve our objectives and to go further than we think."
+    },
+    "27": {
+        "time": "00:01:21.162 --> 00:01:23.522",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Tell us about the people you live with."
+    },
+    "28": {
+        "time": "00:01:24.286 --> 00:01:36.612",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "I live with my family in my country and we have neighbors and there are some of them are cousins of us, of me."
+    },
+    "29": {
+        "time": "00:01:39.006 --> 00:01:41.264",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Kinza, how do you get to work every day?"
+    },
+    "30": {
+        "time": "00:01:42.572 --> 00:01:45.560",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "I generally get to work by car."
+    },
+    "31": {
+        "time": "00:01:48.531 --> 00:01:50.772",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "What did you do yesterday evening, Mohammed?"
+    },
+    "32": {
+        "time": "00:01:51.383 --> 00:01:58.803",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "I've been gathering with my friends and we go into one Middle East restaurant here in Cambridge."
+    },
+    "33": {
+        "time": "00:01:59.872 --> 00:02:28.752",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Thank you."
+    },
+    "34": {
+        "time": "00:01:59.872 --> 00:02:28.752",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Now, I'd like each of you to talk on your own about something."
+    },
+    "35": {
+        "time": "00:01:59.872 --> 00:02:28.752",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "I'm going to give each of you a photograph and I'd like you to talk about it."
+    },
+    "36": {
+        "time": "00:01:59.872 --> 00:02:28.752",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Kenza, here is your photograph."
+    },
+    "37": {
+        "time": "00:01:59.872 --> 00:02:28.752",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "It shows someone getting information about something."
+    },
+    "38": {
+        "time": "00:01:59.872 --> 00:02:28.752",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Mohammed, you just listen."
+    },
+    "39": {
+        "time": "00:01:59.872 --> 00:02:28.752",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Kenza, please tell us what you can see in the photograph."
+    },
+    "40": {
+        "time": "00:02:29.397 --> 00:02:29.991",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "I can see."
+    },
+    "41": {
+        "time": "00:02:29.991 --> 00:03:02.623",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Lady which is maybe connected on a laptop and reading on a book."
+    },
+    "42": {
+        "time": "00:02:29.991 --> 00:03:02.623",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "He is normally in a library or I don't think she is at home."
+    },
+    "43": {
+        "time": "00:02:29.991 --> 00:03:02.623",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Maybe she is preparing for an exam for getting more information."
+    },
+    "44": {
+        "time": "00:02:29.991 --> 00:03:02.623",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Maybe she is revising."
+    },
+    "45": {
+        "time": "00:03:04.100 --> 00:03:05.747",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Talk about the place."
+    },
+    "46": {
+        "time": "00:03:10.976 --> 00:03:29.193",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "I can see that she is in the library."
+    },
+    "47": {
+        "time": "00:03:10.976 --> 00:03:29.193",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "There are a lot of books and she is sitting alone."
+    },
+    "48": {
+        "time": "00:03:10.976 --> 00:03:29.193",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "As I said before, she is maybe revising or preparing for an exam or presentation."
+    },
+    "49": {
+        "time": "00:03:29.974 --> 00:03:48.039",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Thank you."
+    },
+    "50": {
+        "time": "00:03:29.974 --> 00:03:48.039",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Mohammed, here is your photograph."
+    },
+    "51": {
+        "time": "00:03:29.974 --> 00:03:48.039",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "It shows someone relaxing at home."
+    },
+    "52": {
+        "time": "00:03:29.974 --> 00:03:48.039",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Ken sir, you just listen."
+    },
+    "53": {
+        "time": "00:03:29.974 --> 00:03:48.039",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Mohammed, please tell us what you can see in the photograph."
+    },
+    "54": {
+        "time": "00:03:48.701 --> 00:04:52.453",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "Yeah, I see one man, he's relaxing and he's so far."
+    },
+    "55": {
+        "time": "00:03:48.701 --> 00:04:52.453",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "And he left his mobile on the floor because he didn't want to distract by his mobile."
+    },
+    "56": {
+        "time": "00:03:48.701 --> 00:04:52.453",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "And maybe he's a musician, because there is one guitar just next to him."
+    },
+    "57": {
+        "time": "00:03:48.701 --> 00:04:52.453",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "And maybe he just came from outside and he didn't take out his clothes."
+    },
+    "58": {
+        "time": "00:03:48.701 --> 00:04:52.453",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "He just started to read and having one cup of tea and relaxing in his home."
+    },
+    "59": {
+        "time": "00:03:48.701 --> 00:04:52.453",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "And maybe he's live alone because there's no one with him."
+    },
+    "60": {
+        "time": "00:03:48.701 --> 00:04:52.453",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "And his home is very tidy."
+    },
+    "61": {
+        "time": "00:03:48.701 --> 00:04:52.453",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "There's no toys for his children or something."
+    },
+    "62": {
+        "time": "00:03:48.701 --> 00:04:52.453",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "That's really maybe live alone and nice flies."
+    },
+    "63": {
+        "time": "00:03:48.701 --> 00:04:52.453",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "And I think that the weather outside is cold because he didn't even."
+    },
+    "64": {
+        "time": "00:04:52.792 --> 00:05:36.069",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Thank you."
+    },
+    "65": {
+        "time": "00:04:52.792 --> 00:05:36.069",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Now, in this part of the test, you're going to talk about something together for about two minutes."
+    },
+    "66": {
+        "time": "00:04:52.792 --> 00:05:36.069",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "I'm going to describe a situation to you."
+    },
+    "67": {
+        "time": "00:04:52.792 --> 00:05:36.069",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "A local football club is celebrating its 50th anniversary and wants to give its fans a gift."
+    },
+    "68": {
+        "time": "00:04:52.792 --> 00:05:36.069",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Here are some gifts the club could give."
+    },
+    "69": {
+        "time": "00:04:52.792 --> 00:05:36.069",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Talk together about the different things it could give and decide which the fans would like best."
+    },
+    "70": {
+        "time": "00:04:52.792 --> 00:05:36.069",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "All right?"
+    },
+    "71": {
+        "time": "00:04:52.792 --> 00:05:36.069",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Now, talk together."
+    },
+    "72": {
+        "time": "00:05:38.022 --> 00:05:57.648",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "I think the calendar is perfect or not too short because for me the calendar you can see my club every day when I just check in the day I can see my club and they are enjoying by the fifth anniversary for the four fifth established for their club."
+    },
+    "73": {
+        "time": "00:05:58.429 --> 00:06:09.380",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "I think the T-shirt is the best idea."
+    },
+    "74": {
+        "time": "00:05:58.429 --> 00:06:09.380",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "So if he had the T-shirt with him, he can always remember the team."
+    },
+    "75": {
+        "time": "00:06:09.906 --> 00:06:10.619",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "No."
+    },
+    "76": {
+        "time": "00:06:10.619 --> 00:06:11.179",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "MMM mMM."
+    },
+    "77": {
+        "time": "00:06:10.823 --> 00:06:17.054",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "But sometimes you can't wear the same t-shirt everyday."
+    },
+    "78": {
+        "time": "00:06:16.680 --> 00:06:21.570",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "But at least you have it at home and you can see it, even if you don't wear it."
+    },
+    "79": {
+        "time": "00:06:21.825 --> 00:06:39.040",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "Yes."
+    },
+    "80": {
+        "time": "00:06:21.825 --> 00:06:39.040",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "And for this football, I think, no, because I can't play football every day."
+    },
+    "81": {
+        "time": "00:06:21.825 --> 00:06:39.040",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "If there is some students or from their fans, they can't play and keep it away from their studying or something."
+    },
+    "82": {
+        "time": "00:06:39.753 --> 00:06:43.251",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "I think it's a really good idea for the Paloan football."
+    },
+    "83": {
+        "time": "00:06:44.779 --> 00:06:55.662",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "Yeah."
+    },
+    "84": {
+        "time": "00:06:44.779 --> 00:06:55.662",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children."
+    },
+    "85": {
+        "time": "00:06:56.290 --> 00:06:56.799",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Yes."
+    },
+    "86": {
+        "time": "00:06:58.073 --> 00:07:00.297",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "For work or album."
+    },
+    "87": {
+        "time": "00:06:59.550 --> 00:06:59.923",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "All."
+    },
+    "88": {
+        "time": "00:07:01.994 --> 00:07:03.641",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "I think it's album for our pictures."
+    },
+    "89": {
+        "time": "00:07:03.726 --> 00:07:04.932",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "For pictures."
+    },
+    "90": {
+        "time": "00:07:04.728 --> 00:07:06.612",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "Yes, it would be nice."
+    },
+    "91": {
+        "time": "00:07:06.612 --> 00:07:16.782",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "So that he can put all her pictures in this album and he can watch pictures whatever he wants and you keep remembering your team, bye!"
+    },
+    "92": {
+        "time": "00:07:11.910 --> 00:07:20.653",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "And you can watch pictures whatever you want."
+    },
+    "93": {
+        "time": "00:07:11.910 --> 00:07:20.653",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "And you keep remembering your team by like cover."
+    },
+    "94": {
+        "time": "00:07:11.910 --> 00:07:20.653",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "It's amazing."
+    },
+    "95": {
+        "time": "00:07:11.910 --> 00:07:20.653",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "Yes."
+    },
+    "96": {
+        "time": "00:07:19.142 --> 00:07:20.704",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "It's amazing."
+    },
+    "97": {
+        "time": "00:07:19.142 --> 00:07:20.704",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Is that..."
+    },
+    "98": {
+        "time": "00:07:20.704 --> 00:07:23.166",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "What about this bag?"
+    },
+    "99": {
+        "time": "00:07:20.704 --> 00:07:23.166",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "What do you think about this bag?"
+    },
+    "100": {
+        "time": "00:07:23.488 --> 00:07:28.582",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Hmm..."
+    },
+    "101": {
+        "time": "00:07:23.488 --> 00:07:28.582",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "I don't think that's a good idea."
+    },
+    "102": {
+        "time": "00:07:29.804 --> 00:07:37.733",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "But it's useful nowadays."
+    },
+    "103": {
+        "time": "00:07:29.804 --> 00:07:37.733",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "You can use it for going to school or for going to the gym."
+    },
+    "104": {
+        "time": "00:07:29.804 --> 00:07:37.733",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "You can put your toes."
+    },
+    "105": {
+        "time": "00:07:38.650 --> 00:07:39.006",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Bye."
+    },
+    "106": {
+        "time": "00:07:39.006 --> 00:07:39.533",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "It's okay."
+    },
+    "107": {
+        "time": "00:07:43.658 --> 00:07:44.983",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Which sports do you like?"
+    },
+    "108": {
+        "time": "00:07:46.018 --> 00:08:06.069",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "I prefer football."
+    },
+    "109": {
+        "time": "00:07:46.018 --> 00:08:06.069",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "I love football."
+    },
+    "110": {
+        "time": "00:07:46.018 --> 00:08:06.069",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "I admire football."
+    },
+    "111": {
+        "time": "00:07:46.018 --> 00:08:06.069",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "I watch it, I play it."
+    },
+    "112": {
+        "time": "00:07:46.018 --> 00:08:06.069",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "I am very interested about football."
+    },
+    "113": {
+        "time": "00:07:46.018 --> 00:08:06.069",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "I watch it from when I was child."
+    },
+    "114": {
+        "time": "00:07:46.018 --> 00:08:06.069",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "I rise with the football."
+    },
+    "115": {
+        "time": "00:07:46.018 --> 00:08:06.069",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "Yeah."
+    },
+    "116": {
+        "time": "00:08:07.054 --> 00:08:27.546",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "For me, it's a swimming."
+    },
+    "117": {
+        "time": "00:08:07.054 --> 00:08:27.546",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "I love swimming."
+    },
+    "118": {
+        "time": "00:08:07.054 --> 00:08:27.546",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "I really enjoy swimming."
+    },
+    "119": {
+        "time": "00:08:07.054 --> 00:08:27.546",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "It doesn't matter if it will be on summer or on spring."
+    },
+    "120": {
+        "time": "00:08:07.054 --> 00:08:27.546",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "I love swimming in the swimming pool, but especially on the beach."
+    },
+    "121": {
+        "time": "00:08:07.054 --> 00:08:27.546",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "It's my favourite activity to do."
+    },
+    "122": {
+        "time": "00:08:28.921 --> 00:08:44.168",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "Yeah swimming helped me sometimes to relax."
+    },
+    "123": {
+        "time": "00:08:28.921 --> 00:08:44.168",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "If I swim that I lose my weight, I am like flying."
+    },
+    "124": {
+        "time": "00:08:28.921 --> 00:08:44.168",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "Yeah."
+    },
+    "125": {
+        "time": "00:08:28.921 --> 00:08:44.168",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "Like floating in the water."
+    },
+    "126": {
+        "time": "00:08:28.921 --> 00:08:44.168",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "Yes swimming per..."
+    },
+    "127": {
+        "time": "00:08:32.521 --> 00:08:46.409",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "If I swim that I lose my weight, I am like flying and floating in the water."
+    },
+    "128": {
+        "time": "00:08:32.521 --> 00:08:46.409",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "The swimming permits us to be relaxed."
+    },
+    "129": {
+        "time": "00:08:46.578 --> 00:08:46.986",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "Yeah."
+    },
+    "130": {
+        "time": "00:08:48.123 --> 00:08:50.551",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Why do so many people like football?"
+    },
+    "131": {
+        "time": "00:08:52.945 --> 00:09:19.159",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "Because everyone can watch it."
+    },
+    "132": {
+        "time": "00:08:52.945 --> 00:09:19.159",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "And if you have one team in your hometown or your country, he won a lot of competitions."
+    },
+    "133": {
+        "time": "00:08:52.945 --> 00:09:19.159",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "That make a lot of supporters became, they have the same admires and the same ambition about their teams."
+    },
+    "134": {
+        "time": "00:08:52.945 --> 00:09:19.159",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "And for me, it's the best sport."
+    },
+    "135": {
+        "time": "00:09:20.161 --> 00:09:20.551",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "Yeah."
+    },
+    "136": {
+        "time": "00:09:20.382 --> 00:09:45.203",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Do you agree?"
+    },
+    "137": {
+        "time": "00:09:20.382 --> 00:09:45.203",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Yes, I agree."
+    },
+    "138": {
+        "time": "00:09:20.382 --> 00:09:45.203",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "I think that football is an international sport."
+    },
+    "139": {
+        "time": "00:09:20.382 --> 00:09:45.203",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "In every country we can see that there is a lot of teams which play in football."
+    },
+    "140": {
+        "time": "00:09:20.382 --> 00:09:45.203",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Yes, I agree."
+    },
+    "141": {
+        "time": "00:09:20.382 --> 00:09:45.203",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Do you have a favourite sports team?"
+    },
+    "142": {
+        "time": "00:09:20.382 --> 00:09:45.203",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Yes, for me it's the Algerian team."
+    },
+    "143": {
+        "time": "00:09:20.382 --> 00:09:45.203",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Do you agree?"
+    },
+    "144": {
+        "time": "00:09:45.645 --> 00:09:59.074",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "Yeah, for me, I have one for our team."
+    },
+    "145": {
+        "time": "00:09:45.645 --> 00:09:59.074",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "It's from England when she's reunited."
+    },
+    "146": {
+        "time": "00:09:45.645 --> 00:09:59.074",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "I love this team."
+    },
+    "147": {
+        "time": "00:09:45.645 --> 00:09:59.074",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "I Go to all truffles two times It was amazing."
+    },
+    "148": {
+        "time": "00:10:01.825 --> 00:10:03.947",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Is it a good idea to join a fan club?"
+    },
+    "149": {
+        "time": "00:10:05.713 --> 00:10:34.066",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him."
+    },
+    "150": {
+        "time": "00:10:05.713 --> 00:10:34.066",
+        "speaker": "SPEAKER_00",
+        "original_sentence": "If you're good for this position, I don't know."
+    },
+    "151": {
+        "time": "00:10:34.405 --> 00:10:34.898",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "What do you think?"
+    },
+    "152": {
+        "time": "00:10:34.898 --> 00:10:38.293",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "I'm not for this fun."
+    },
+    "153": {
+        "time": "00:10:39.685 --> 00:10:51.672",
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Because I think it's waste of time and I don't have enough time to study, so I can't go to this kind of activities."
+    },
+    "154": {
+        "time": "00:10:53.132 --> 00:10:55.169",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Thank you."
+    },
+    "155": {
+        "time": "00:10:53.132 --> 00:10:55.169",
+        "speaker": "SPEAKER_01",
+        "original_sentence": "That is the end of the test."
+    },
+    "156": {
+        "time": "00:10:55.169 --> 00:10:56.154",
+        "speaker": "SPEAKER_03",
+        "original_sentence": "Thank you."
+    }
+}

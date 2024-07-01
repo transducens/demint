@@ -15,6 +15,7 @@ max_new_tokens = 200
 rag_file = "cache/rag_sentences.json"
 
 
+
 @cl.on_settings_update
 async def setup_agent(settings):
     print("Settings update start...")
@@ -43,10 +44,19 @@ async def setup_agent(settings):
 # called when a new chat session is created.
 @cl.on_chat_start
 async def on_chat_start():
+    # Temp line
+    # Example data to send to the frontend
+    data = {"param1": "value1", "param2": "value2"}
+    await cl.Message(content=f"Initializing... {data}").send()
+    # Temp line 
+
+    # Welcome message
     hello_msg = f"# Welcome to English Tutor Chat Bot AI! 🚀🤖\n\n"
     hello_msg += f"Please select in configuration (left of the text entry) what speaker you want to check. Otherwise all speakers will be used\n\n"
     initial_message = cl.Message(content=hello_msg)
     await initial_message.send()
+
+    await cl.Text(content="This is a text widget on the right side.", position="right").send(for_id="right_text")
 
     start_chat = time.time()
     cl.user_session.set("counter", 0)
@@ -236,6 +246,7 @@ async def ask_action():
         ],
     ).send()
 
+
 async def ask_for_speaker():
     speakers = cl.user_session.get("speakers")
     res = await cl.AskActionMessage(
@@ -306,3 +317,6 @@ async def load_data():
     print("**************************************")
 
     return explained_sentences, sentences_collection, speakers
+
+
+

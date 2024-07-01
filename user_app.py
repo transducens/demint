@@ -27,6 +27,7 @@ default_colors = {
 }
 speaker_color = default_colors['dark blue']
 user_message, chat_answer, history_chat = "", "", []
+highlighted_sentence_id = ""
 
 tracemalloc.start()
 
@@ -87,16 +88,17 @@ def get_speakers():
 
 
 # Chat with the AI using the given query.
-def chat_with_ai(user_input, history=None, textbox=""):
-    global user_message, chat_answer, history_chat
+def chat_with_ai(user_input, history=None):
+    global user_message, chat_answer, history_chat, highlighted_sentence_id
     user_message = user_input
     history_chat = history
+    highlighted_sentence_id = user_input
     
     # temp
     print("Preparing answer...")
     bot_response = ""
     for i in ["I", "am", "a", "robot", "but", "I", "am", "trying", "to", "help", "you"]:
-        #time.sleep(0.5)
+        time.sleep(0.5)
         bot_response += i + " "
         yield bot_response
     
@@ -203,7 +205,10 @@ def highlight_errors_all(sentence: str):
 # Using sentences_collection, it joins each sentence in a string.
 # 0 -> time, 1 -> speaker, 2 -> text
 def handle_dropdown_selection(selected_speaker):
-    global sentences_collection, speakers
+    global sentences_collection, speakers, temp_speaker
+
+    #Temp
+    temp_speaker = selected_speaker
 
     text_to_show = 'No text to show.'
     if sentences_collection is not None:
@@ -290,16 +295,22 @@ js_autoscroll_function_by_value= """
 }
 """
 js_autoscroll_function_by_id= """
-    function(word_to_search) {
-        const id_holder = document.querySelector('meta[name="sentence_id"]');
+    function(id_param) {
+        const id_holder = id_param
         console.log("Searching for id:", id_holder);
         const element = document.getElementById(id_holder); 
         if (element) { 
+            const anchors = document.querySelectorAll('#transcript_id a');
+            anchors.forEach(anchor => {
+                anchor.style.backgroundColor = 'transparent';
+            });
+
             element.scrollIntoView({behavior: 'smooth', block: 'center'}); 
-            element.animate([{ backgroundColor: 'yellow' }, { backgroundColor: 'transparent' }], { duration: 2000, iterations: 1 }); 
+            element.animate([{ backgroundColor: 'darkred' }, { backgroundColor: 'transparent' }], { duration: 3000, iterations: 1 }); 
+            element.style.backgroundColor = 'darkred';
         } 
         else { 
-            console.log('Element not found for:', word_to_search); 
+            console.log('Element not found for:', id_holder); 
         }
     }
 """
@@ -311,13 +322,6 @@ js_trigger_button = """
         }, 5000);
     }
 """
-js_print = """
-    function js_print() {
-        console.log("HTML WORKS");
-        sentence = "sentence_5";
-    }
-"""
-
 css = """
     .fullscreen {
        height: 90vh;
@@ -342,16 +346,12 @@ css = """
         text-decoration: none;
         -webkit-tap-highlight-color: white;
     }
-
+    #submit_button {
+        background-color: #1d4ed8;
+    }
 """
-head_html = '<meta name="sentence_id" content="sentence_1">'
+head_html = ""
 
-
-# Temp
-def get_id_holder(value=""):
-    global id_holder
-    id_holder = value
-    return id_holder
 
 print("Version of gradio: " + gr.__version__)
 # Create the Gradio interface.
@@ -383,12 +383,15 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
 
         # Block for chatting with the AI.
         with gr.Column(scale=0.7):
-            scroll_button = gr.Button(elem_id="mybutton", visible=True)
-            scroll_button.click(fn=None, js=js_autoscroll_function_by_id)
+            scroll_button = gr.Button(elem_id="mybutton", visible=False)
+            hidden_texbox = gr.Textbox(value="", visible=False)
 
-            sb_btn = gr.Button(
+            # lg.primary.svelte-cmf5ev
+            submit_button = gr.Button(
                 value="Submit",
                 render=False,   # rendered in chatBotInterface
+                elem_id="submit_button",
+                elem_classes="svelte-cmf5ev",
             )
             txtbox = gr.Textbox(
                 label="Enter your query:",
@@ -401,9 +404,16 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
                 autofocus=True,
                 concurrency_limit=2,
                 textbox=txtbox,
+                submit_btn=submit_button,
             )
-            gr.HTML().change(fn=None, js=js_print)
-            txtbox.submit(fn=None, js=js_autoscroll_function_by_id)
+
+            gr.HTML().change(
+                fn= lambda: highlighted_sentence_id, 
+                trigger_mode="once", 
+                outputs=[hidden_texbox])
+            
+            txtbox.submit(fn=None, js=js_trigger_button)    # Trigger the scroll_button click after 5 seconds
+            scroll_button.click(fn=None, js=js_autoscroll_function_by_id, inputs=[hidden_texbox])
 
     theme=gr.themes.Base()
 

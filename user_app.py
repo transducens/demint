@@ -2,6 +2,7 @@ import gradio as gr
 import tracemalloc
 import time
 import os
+import argparse
 
 from english_tutor import EnglishTutor
 from app.file_manager import FileManager
@@ -28,6 +29,7 @@ default_colors = {
 speaker_color = default_colors['dark blue']
 user_message, chat_answer, history_chat = "", "", []
 highlighted_sentence_id = ""
+selected_speaker = "All speakers"
 
 tracemalloc.start()
 
@@ -37,9 +39,9 @@ def initialize_global_variables():
 
     if english_tutor is None:
         english_tutor = EnglishTutor()
-        print("**************************************")
+        print("*" * 50)
         print("Loaded English Tutor")
-        print("**************************************")
+        print("*" * 50)
 
     load_data() # Load the data from the cache files
 
@@ -69,9 +71,9 @@ def load_data():
     speakers = get_speakers()
 
     end_load = time.time()
-    print("**************************************")
+    print("*" * 50)
     print(f"Loaded data. Time: {end_load - start_load} seconds")
-    print("**************************************")
+    print("*" * 50)
 
     return explained_sentences, sentences_collection, speakers
 
@@ -204,11 +206,10 @@ def highlight_errors_all(sentence: str):
 # Receives as a parameter the name of the speaker selected in the dropdown.
 # Using sentences_collection, it joins each sentence in a string.
 # 0 -> time, 1 -> speaker, 2 -> text
-def handle_dropdown_selection(selected_speaker):
-    global sentences_collection, speakers, temp_speaker
+def handle_dropdown_selection(speaker_name: str):
+    global sentences_collection, speakers, selected_speaker
 
-    #Temp
-    temp_speaker = selected_speaker
+    selected_speaker = speaker_name
 
     text_to_show = 'No text to show.'
     if sentences_collection is not None:
@@ -264,6 +265,12 @@ def clean_cache():
     #english_tutor.clean_cache()
     speakers_context = None
     selected_speaker_text = None
+
+
+def get_arguments_env():
+    global selected_speaker
+    arg_speaker = os.getenv("GRADIO_SPEAKER", "All speakers")
+    selected_speaker = arg_speaker or selected_speaker
 
     
 js = """"""
@@ -356,24 +363,27 @@ head_html = ""
 print("Version of gradio: " + gr.__version__)
 # Create the Gradio interface.
 with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=head_html) as demo:
+    get_arguments_env()
     initialize_global_variables()
+    print("*" * 50)
+    print("Selected speaker: ", selected_speaker)
+    print("*" * 50)
+
     # All Components container
     with gr.Row():
         # Block for the transcript of the speakers in the audio.
         with gr.Column(scale=0.3):
-            default_value = speakers[0] if speakers else None
             with gr.Row(elem_classes="dropdown"):
                 dropdown = gr.Dropdown(
                     label="Select a speaker", 
                     choices=speakers, 
-                    value=default_value, 
+                    value=selected_speaker, 
                     interactive=True,
                     scale=1,
-                    every=1
                     )
             with gr.Row(elem_classes="transcript"):
                 speaker_text = gr.Markdown(
-                    value=handle_dropdown_selection(default_value),
+                    value=handle_dropdown_selection(selected_speaker),
                         latex_delimiters=[], # Disable LaTeX rendering
                         every=10
                     )
@@ -406,6 +416,7 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
                 textbox=txtbox,
                 submit_btn=submit_button,
             )
+            
 
             gr.HTML().change(
                 fn= lambda: highlighted_sentence_id, 

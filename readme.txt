@@ -125,5 +125,6 @@ nvcc --version
 nvidia-smi
 
 CHAINLIT:
-CUDA_VISIBLE_DEVICES=1 chainlit run chainlit-chat.py -w --port 8001 | tee log/chainlit5.log
+CUDA_VISIBLE_DEVICES=1 chainlit run chainlit-chat.py -w --port 8001 | tee log/chainlit5.log | grep -v "change detected"
+
 

@@ -138,6 +138,7 @@ class AudioExtractor:
     # Given a list of diarization results
     # Return a list of transcripts separating for time, speaker, and text
     def process_diarizated_text(self, diarization_result):
+        print("Processing diarization results")
         # Loads diarization results from a file, if it exists
         speakers_context = [] # List of the transcripts for each speaker
         sentence_splitter = SentenceSplitter(language='en')

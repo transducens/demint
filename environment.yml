@@ -12,3 +12,4 @@ dependencies:
   - pytorch-cuda=11.8
   - torchaudio
   - torchvision
+  - nodejs

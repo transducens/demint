@@ -61,6 +61,7 @@ class EnglishTutor:
                 self.__audio_extractor = AudioExtractor()
 
             diarization = self.__file_manager.read_from_json_file(self.cache_files_paths['diarization_result'])
+            print("Diarization loaded")
 
             if diarization is None:
                 diarization = self.__audio_extractor.perform_diarization(file_name)

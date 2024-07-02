@@ -10,7 +10,7 @@ user_env = []
 session_timeout = 3600
 
 # Enable third parties caching (e.g LangChain cache)
-cache = false
+cache = true
 
 # Authorized origins
 allow_origins = ["*"]
@@ -46,7 +46,7 @@ auto_tag_thread = true
 
 [UI]
 # Name of the app and chatbot.
-name = "Chatbot"
+name = "Demint Chatbot"
 
 # Show the readme while the thread is empty.
 show_readme_as_default = true
@@ -68,11 +68,11 @@ hide_cot = false
 
 # Specify a CSS file that can be used to customize the user interface.
 # The CSS file can be served from the public directory or via an external link.
-# custom_css = "/public/test.css"
+custom_css = "public/custom_css.css"
 
 # Specify a Javascript file that can be used to customize the user interface.
 # The Javascript file can be served from the public directory.
-# custom_js = "/public/test.js"
+custom_js = "public/transcript_injection.js"
 
 # Specify a custom font url.
 # custom_font = "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
@@ -80,7 +80,7 @@ hide_cot = false
 # Specify a custom build directory for the frontend.
 # This can be used to customize the frontend code.
 # Be careful: If this is a relative path, it should not start with a slash.
-# custom_build = "./public/build"
+#custom_build = "public/build"
 
 # Override default MUI light theme. (Check theme.ts)
 [UI.theme]

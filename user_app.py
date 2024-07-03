@@ -206,10 +206,11 @@ def highlight_errors_all(sentence: str):
 # Receives as a parameter the name of the speaker selected in the dropdown.
 # Using sentences_collection, it joins each sentence in a string.
 # 0 -> time, 1 -> speaker, 2 -> text
-def handle_dropdown_selection(speaker_name: str):
+def handle_dropdown_selection(speaker_name: str, highlight_sentence_num=0):
     global sentences_collection, speakers, selected_speaker
 
     selected_speaker = speaker_name
+    selected_line = highlight_sentence_num if highlight_sentence_num != 0 else ""
 
     text_to_show = 'No text to show.'
     if sentences_collection is not None:
@@ -217,13 +218,14 @@ def handle_dropdown_selection(speaker_name: str):
         if selected_speaker == 'All speakers':
             text_to_show = "\n\n"
             for index, value in sentences_collection.items():
-                # Label each line and print it
-                text_to_show += (
-                    '<a id="sentence_' + index + '">'
-                    + value['speaker'] + " " 
-                    + value['original_sentence'] + "\n\n"
-                    + "</a>"
-                )
+                if highlight_sentence_num and index == highlight_sentence_num:
+                    # Label each line and print it
+                    text_to_show += (
+                        '<a id="sentence_' + index + '">'
+                        + value['speaker'] + " " 
+                        + value['original_sentence'] + "\n\n"
+                        + "</a>"
+                    )
         else:
             # specific speaker text
             text_to_show = "\n\n"
@@ -267,96 +269,15 @@ def clean_cache():
     selected_speaker_text = None
 
 
+# Gets the arguments from the environment variables.
 def get_arguments_env():
     global selected_speaker
     arg_speaker = os.getenv("GRADIO_SPEAKER", "All speakers")
     selected_speaker = arg_speaker or selected_speaker
 
     
-js = """"""
-js_autoscroll_function_by_value= """
-    function autoscroll_to_string(word_to_search) {
-    try {
-        console.log("Searching for:", word_to_search);
-        const anchors = document.querySelectorAll('#transcript_id a');
-        let found = false;
-        anchors.forEach(anchor => {
-            if (anchor.textContent.includes(word_to_search)) {
-                anchor.scrollIntoView({behavior: 'smooth', block: 'center'});
-                anchor.animate([
-                    { backgroundColor: 'yellow' },
-                    { backgroundColor: 'transparent' }
-                ], {
-                    duration: 2000,
-                    iterations: 1
-                });
-                found = true;
-            }
-        });
-        if (!found) {
-            console.log('Element not found for:', word_to_search);
-        }
-    } catch (error) {
-        console.error("Error in autoscroll_to_string:", error);
-    }
-}
-"""
-js_autoscroll_function_by_id= """
-    function(id_param) {
-        const id_holder = id_param
-        console.log("Searching for id:", id_holder);
-        const element = document.getElementById(id_holder); 
-        if (element) { 
-            const anchors = document.querySelectorAll('#transcript_id a');
-            anchors.forEach(anchor => {
-                anchor.style.backgroundColor = 'transparent';
-            });
-
-            element.scrollIntoView({behavior: 'smooth', block: 'center'}); 
-            element.animate([{ backgroundColor: 'darkred' }, { backgroundColor: 'transparent' }], { duration: 3000, iterations: 1 }); 
-            element.style.backgroundColor = 'darkred';
-        } 
-        else { 
-            console.log('Element not found for:', id_holder); 
-        }
-    }
-"""
-js_trigger_button = """
-    function trigger_button() {
-        setTimeout(function() {
-            document.querySelector("#mybutton").click();
-            console.log("Button clicked");
-        }, 5000);
-    }
-"""
-css = """
-    .fullscreen {
-       height: 90vh;
-       width: 150vh;
-    }
-    .dropdown {
-        height: 10vh;
-    }
-    .transcript {
-        height: 80vh;
-        overflow-y: scroll;
-        padding: 10px; 
-        border: 1px solid #ddd; 
-        border-radius: 5px;
-    }
-    .chat-container {
-        height: 73vh;
-    }
-    a {
-        color: inherit;
-        outline: none;
-        text-decoration: none;
-        -webkit-tap-highlight-color: white;
-    }
-    #submit_button {
-        background-color: #1d4ed8;
-    }
-"""
+js = "./app/gradio_functions.js"
+css = "./app/gradio_styles.css"
 head_html = ""
 
 
@@ -385,7 +306,6 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
                 speaker_text = gr.Markdown(
                     value=handle_dropdown_selection(selected_speaker),
                         latex_delimiters=[], # Disable LaTeX rendering
-                        every=10
                     )
                 dropdown.change(fn=handle_dropdown_selection, inputs=[dropdown], outputs=[speaker_text])
             
@@ -393,9 +313,6 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
 
         # Block for chatting with the AI.
         with gr.Column(scale=0.7):
-            scroll_button = gr.Button(elem_id="mybutton", visible=False)
-            hidden_texbox = gr.Textbox(value="", visible=False)
-
             # lg.primary.svelte-cmf5ev
             submit_button = gr.Button(
                 value="Submit",
@@ -416,15 +333,7 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
                 textbox=txtbox,
                 submit_btn=submit_button,
             )
-            
 
-            gr.HTML().change(
-                fn= lambda: highlighted_sentence_id, 
-                trigger_mode="once", 
-                outputs=[hidden_texbox])
-            
-            txtbox.submit(fn=None, js=js_trigger_button)    # Trigger the scroll_button click after 5 seconds
-            scroll_button.click(fn=None, js=js_autoscroll_function_by_id, inputs=[hidden_texbox])
 
     theme=gr.themes.Base()
 

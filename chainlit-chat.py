@@ -361,7 +361,6 @@ async def load_data():
 
     return explained_sentences, sentences_collection, speakers
 
-<<<<<<< HEAD
 async def create_context():
     errant = cl.user_session.get("error")
 
@@ -682,7 +681,5 @@ async def select_error():
         id_error = 0
 
     return
-=======
 
 
->>>>>>> origin

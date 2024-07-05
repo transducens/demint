@@ -33,9 +33,26 @@ selected_speaker = "All speakers"
 
 tracemalloc.start()
 
+prompt_question = [
+    f"QUESTION:\n Create a short explanation of the gramatical error using the mistake description provided in the context and alaways on the student phrase without saying the correct one.",
+    f"TASK:\n You have asked the student if he wants to attempt to write the sentence correctly. Determine if the students wants to try based of the following answer. Please enclose 'yes' or 'no' in your answer in <asnwer></answer> tags.\n\n",
+    f"TASK:\n You have asked the student if he wants an exercise in order to practice. Determine if the students wants to try based of the following answer. Please enclose 'yes' or 'no' in your answer in <asnwer></answer> tags.\n\n",
+    f"TASK:\n You have asked the student if he wants an extensive explanation of english grammar. Determine if the students wants it based of the following answer. Please enclose 'yes' or 'no' in your answer in <asnwer></answer> tags.\n\n",
+    f"TASK:\n You have asked the student if he wants an example of the sentence. Determine if the students wants it based of the following answer. Please enclose 'yes' or 'no' in your answer in <asnwer></answer> tags.\n\n",
+    f"TASK:\n Based on the student answer, check if his sentence is correct comparing it to corrected sentece provided in the context. If it is corrrect, tell the student he did well. In case it is not correct, tell the student which mistakes he has made including new errors not previously made.",
+    f"QUESTION:\n Create an exercise of English base on the english rules and mistake description provided in the context in order to me to practice.",
+    f"QUESTION:\n Base on the exercise propose to the student, correct his answer using if needed the english rules provided in the context",
+    f"TASK:\n Give an extended explanation of the english grammar rules present in the context.",
+    f"TASK:\n Create an example for the correct use of the english grammar rul provided in the context. Try to be original"
+]
+
 # Initialize the global variables.
 def initialize_global_variables():
-    global english_tutor
+    global english_tutor, state, max_new_tokens, response, explained_sentences_speaker, id_sentence, id_error, error, chat_response
+
+    state = 0
+    max_new_tokens = 200
+    response = chat_response = ""
 
     if english_tutor is None:
         english_tutor = EnglishTutor()
@@ -45,6 +62,19 @@ def initialize_global_variables():
 
     load_data() # Load the data from the cache files
 
+    explained_sentences_speaker = get_explained_sentences_speaker(explained_sentences, "All speakers")
+    id_sentence = id_error = 0
+    error = None
+
+def get_explained_sentences_speaker(explained_sentences, speaker:str):
+    if speaker == "All speakers":
+        return explained_sentences
+    else:
+        result = {}
+        for key, value in explained_sentences.items():
+            if value['speaker'] == speaker:
+                result[key] = value
+        return result
 
 # Load the data from the cache files. If the cache files are not found, then create them.
 def load_data():
@@ -91,12 +121,13 @@ def get_speakers():
 
 # Chat with the AI using the given query.
 def chat_with_ai(user_input, history=None):
-    global user_message, chat_answer, history_chat, highlighted_sentence_id
+    global user_message, chat_answer, history_chat, highlighted_sentence_id, state
     user_message = user_input
     history_chat = history
     highlighted_sentence_id = user_input
     
     # temp
+    """
     print("Preparing answer...")
     bot_response = ""
     for i in ["I", "am", "a", "robot", "but", "I", "am", "trying", "to", "help", "you"]:
@@ -105,9 +136,94 @@ def chat_with_ai(user_input, history=None):
         yield bot_response
     
     chat_answer = bot_response
-    return ""
-    # temp
+    """
 
+    output = ""
+    
+    # temp
+    if state == 0:
+        output = select_error()
+        state = 1
+    
+    elif state == 1:
+        # Step 2: Exercises
+        #msg = cl.Message(content='')
+        #await msg.send()
+
+        response = error_explanation()
+        chat_response = "Do you want an extensive explanation of the English grammar of this case?"
+        response += f"\n\n **{chat_response}**"
+        output = response
+
+        #counter += 1
+        #cl.user_session.set("counter", counter)
+        state = 2
+
+    elif state == 2:
+        response = ask_grammar(user_input)
+
+        response = response.lower()
+        output = ""
+        if response == 'yes':
+            output = explain_grammar()
+        
+        #response = "\n\n **Do you want an example of the correct use of the grammar rules?**"
+        chat_response = "Do you want an example of the correct use of the grammar rules?"
+        output += f"\n\n **{chat_response}**"
+        
+        state = 3
+
+    elif state == 3:
+        #response = await correct_exercise(message.content)
+        response = ask_example(user_input)
+
+        response = response.lower()
+        output = ""
+        if response == 'yes':
+            output = create_example()
+        
+        chat_response = "Do you want an exercise to practice these grammar rules?"
+        response += f"\n\n **{chat_response}**"
+        state = 4
+
+    elif state == 4:
+        #response = await correct_exercise(message.content)
+        response = ask_exercise(user_input)
+
+        response = response.lower()
+        outpu = ""
+        if response == 'yes':
+            output = create_exercise()
+            output += "\n\n **Complete the exercise**"
+
+            output = f"Here is an exercise in order to you to practise:\n{output}"
+            state = 5
+        else:
+            output += "\n\n **Do you want to attempt to write the sentence correctly?**"
+            state = 6
+    elif state == 5:
+        #response = await correct_exercise(message.content)
+        output = correct_exercise(user_input)
+        output += "\n\n **Do you want another exercise to practice these grammar rules?**"
+        state = 4
+
+    elif state == 6:
+        response = ask_sentence(user_input)
+
+        response = response.lower()
+        if response == 'yes':
+            state = 7
+        else:
+            state = 0
+    elif state == 7:
+        output = check_corrected(user_input)
+        state = 0
+
+    return output
+
+
+
+    #Delete
     print("pressed")
     global selected_speaker_text, english_tutor
     context = ""
@@ -428,14 +544,342 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
 
     theme=gr.themes.Base()
 
+def create_context():
+    global error
+    #errant = cl.user_session.get("error")
+    errant = error
+
+    mistake_description = errant['llm_explanation']
+    RAG_context = errant['rag']
+
+    content_list = [f'{item["content"]}' for item in RAG_context]
+    context_str = "\n----------\n".join(content_list)
+
+    context = "\n\nIncorrect Sentence:\n"
+    context += "\n\n" + errant["sentence"] + "\n"
+
+    context += "\n\Correct Sentence:\n"
+    context += "\n\n" + errant["corrected_sentence"] + "\n"
+
+    context += "\n\nThe English rule:\n"
+    context += "\n\n" + context_str + "\n"
+
+    context += "\n\nMistake description: \n"
+    context += mistake_description
+
+    return context
+
+def error_explanation():
+    context = create_context()
+        
+    final_prompt = (
+        f"You are an English teacher. I want you to correct the mistakes I have made based on the following context: \n\n"
+        f"CONTEXT:\n{context}\n"
+        f"QUESTION:\n Create a short explanation of the gramatical error using the mistake description provided in the context and alaways on the student phrase without saying the correct one.")
+
+    response = english_tutor.get_answer(final_prompt, max_new_tokens)
+    return response
+
+def ask_grammar(student_response):
+    #english_tutor = cl.user_session.get("english_tutor")
+
+    # Step 3: Check user answer, explain result and create new exercise
+    context = "You ask the student: \n"
+    context += chat_response
+
+    context += "\n\nThe student responce is the following:\n"
+    context += "\n\n" + student_response + "\n"
+
+    final_prompt = (f"Base on the following context:\n\n"
+                    f"CONTEXT:\n{context}"
+                    f"TASK:\n You have asked the student if he wants an extensive explanation of english grammar. Determine if the students wants it based of the following answer. Please enclose 'yes' or 'no' in your answer in <asnwer></answer> tags.\n\n"
+                    f"ANSWER:\n{student_response}")
+
+    response = english_tutor.get_answer(final_prompt, max_new_tokens)
+    print("Respuesta: ", response)
+
+    
+    final_prompt = (f"Base on the following sentence:\n\n"
+                    f"SENTENCE:\n{response}"
+                    f"TASK:\n Your output must be the sentence enclosing 'yes' or 'no' words in the sentence in <asnwer></answer> tags.\n\n")
+    
+    response = english_tutor.get_answer(final_prompt, max_new_tokens)
+    
+    response = response.split('>')[1].split('<')[0]
+
+    return response
+
+def ask_example(student_response):
+    #english_tutor = cl.user_session.get("english_tutor")
+
+    # Step 3: Check user answer, explain result and create new exercise
+    context = "You ask the student: \n"
+    context += chat_response
+
+    context += "\n\nThe student responce is the following:\n"
+    context += "\n\n" + student_response + "\n"
+
+    final_prompt = (f"Base on the following context:\n\n"
+                    f"CONTEXT:\n{context}"
+                    f"TASK:\n You have asked the student if he wants an example of the sentence. Determine if the students wants it based of the following answer. Please enclose 'yes' or 'no' in your answer in <asnwer></answer> tags.\n\n"
+                    f"ANSWER:\n{student_response}")
+
+    response =  english_tutor.get_answer(final_prompt, max_new_tokens)
+    print("Respuesta: ", response)
+
+    
+    final_prompt = (f"Base on the following sentence:\n\n"
+                    f"SENTENCE:\n{response}"
+                    f"TASK:\n Your output must be the sentence enclosing 'yes' or 'no' words in the sentence in <asnwer></answer> tags.\n\n")
+    
+    response = english_tutor.get_answer(final_prompt, max_new_tokens)
+    
+    response = response.split('>')[1].split('<')[0]
+
+    #cl.user_session.set("user_excercise", response)
+
+    return response
+
+def ask_exercise(student_response):
+    # Step 3: Check user answer, explain result and create new exercise
+    context = "You ask the student: \n"
+    context += chat_response
+
+    context += "\n\nThe student responce is the following:\n"
+    context += "\n\n" + student_response + "\n"
+
+    final_prompt = (f"Base on the following context:\n\n"
+                    f"CONTEXT:\n{context}"
+                    f"TASK:\n You have asked the student if he wants an exercise in order to practice. Determine if the students wants to try based of the following answer. Please enclose 'yes' or 'no' in your answer in <asnwer></answer> tags.\n\n"
+                    f"ANSWER:\n{student_response}")
+
+    response = english_tutor.get_answer(final_prompt, max_new_tokens)
+    print("Respuesta: ", response)
+    
+    final_prompt = (f"Base on the following sentence:\n\n"
+                    f"SENTENCE:\n{response}"
+                    f"TASK:\n Your output must be the sentence enclosing 'yes' or 'no' words in the sentence in <asnwer></answer> tags.\n\n")
+    
+    response = english_tutor.get_answer(final_prompt, max_new_tokens)
+    
+    response = response.split('>')[1].split('<')[0]
+
+    return response
+
+def ask_sentence(student_response):
+    # Step 3: Check user answer, explain result and create new exercise
+    context = "You ask the student: \n"
+    context += chat_response
+
+    context += "\n\nThe student responce is the following:\n"
+    context += "\n\n" + student_response + "\n"
+
+    final_prompt = (f"Base on the following context:\n\n"
+                    f"CONTEXT:\n{context}"
+                    f"TASK:\n You have asked the student if he wants to attempt to write the sentence correctly. Determine if the students wants to try based of the following answer. Please enclose 'yes' or 'no' in your answer in <asnwer></answer> tags.\n\n"
+                    f"ANSWER:\n{student_response}")
+
+    response = english_tutor.get_answer(final_prompt, max_new_tokens)
+    print("Respuesta: ", response)
+    
+    final_prompt = (f"Base on the following sentence:\n\n"
+                    f"SENTENCE:\n{response}"
+                    f"TASK:\n Your output must be the sentence enclosing 'yes' or 'no' words in the sentence in <asnwer></answer> tags.\n\n")
+    
+    response = english_tutor.get_answer(final_prompt, max_new_tokens)
     
 
+    response = response.split('>')[1].split('<')[0]
 
+    return response
+
+def explain_grammar():
+    #english_tutor = cl.user_session.get("english_tutor")
+
+    context = create_context()
+        
+    final_prompt = (
+        f"You are an English teacher. I want you to help me learn English: \n\n"
+        f"CONTEXT:\n{context}\n"
+        f"TASK:\n Give an extended explanation of the english grammar rules present in the context.")
+
+    response = english_tutor.get_answer(final_prompt, max_new_tokens)
+    #cl.user_session.set("user_excercise", response)
+    
+    return response
+
+def create_exercise():
+    context = create_context()
+        
+    final_prompt = (
+        f"You are an English teacher. I want you to help me learn English: \n\n"
+        f"CONTEXT:\n{context}\n"
+        f"QUESTION:\n Create an exercise of English base on the english rules and mistake description provided in the context in order to me to practice.")
+
+    response =  english_tutor.get_answer(final_prompt, max_new_tokens)
+    chat_answer = response
+    #cl.user_session.set("user_excercise", response)
+    
+    return response
+
+def correct_exercise(student_response):
+    context = "The exercise propose to the student: \n"
+    context += chat_answer
+
+    context += "\n\nThe student answer:\n"
+    context += "\n\n" + student_response + "\n"
+    
+    context += create_context()
+        
+    final_prompt = (
+        f"You are an English teacher. I want you to help me learn English: \n\n"
+        f"CONTEXT:\n{context}\n"
+        f"QUESTION:\n Base on the exercise propose to the student, correct his answer using if needed the english rules provided in the context"
+        f"ANSWER:\n{student_response}")
+
+    response = english_tutor.get_answer(final_prompt, max_new_tokens)
+    
+    return response
+
+def create_example():
+    context = create_context()
+        
+    final_prompt = (
+        f"You are an English teacher. I want you to help me learn English: \n\n"
+        f"CONTEXT:\n{context}\n"
+        f"TASK:\n Create an example for the correct use of the english grammar rul provided in the context. Try to be original")
+
+    response = english_tutor.get_answer(final_prompt, max_new_tokens)
+    
+    return response
+
+def check_corrected(student_response):
+    context = create_context()
+        
+    final_prompt = (
+        f"You are an English teacher. I want you to correct the mistakes I have made based on the following context: \n\n"
+        f"CONTEXT:\n{context}\n"
+        f"TASK:\n Based on the student answer, check if his sentence is correct comparing it to corrected sentece provided in the context. If it is corrrect, tell the student he did well. In case it is not correct, tell the student which mistakes he has made including new errors not previously made."
+        f"ANSWER:\n{student_response}\n")
+
+    response = english_tutor.get_answer(final_prompt, max_new_tokens)
+    
+    return response
+
+def select_error():
+    global error
+    print("selecting error")
+    #explained_sentences_speaker = cl.user_session.get("explained_sentences_speaker")
+    
+    #id_sentence = cl.user_session.get("id_sentence")
+    #id_error = cl.user_session.get("id_error")
+    
+    #errors_speaker = explained_sentences_speaker.items()
+    errors_speaker = list(explained_sentences_speaker.values())
+    error = errors_speaker[3]['errant'][0]
+
+    original_sentence = error["sentence"]
+    corrected_sentence = error["corrected_sentence"]
+
+    def highlight_word_in_sentence(sentence, start_idx, end_idx, highlight_text):
+            words = sentence.split()
+            highlighted_sentence = " ".join(
+                words[:start_idx] +
+                [f'**[{highlight_text}]**'] +
+                words[end_idx:]
+            )
+            return highlighted_sentence
+
+    # Highlight the error and correction in the sentence
+    highlighted_original_sentence = highlight_word_in_sentence(
+        original_sentence, error["o_start"], error["o_end"],
+        error["original_text"] if error["original_text"] else "______"
+    )
+
+    add = len(error["corrected_text"].split())
+
+    highlighted_corrected_sentence = highlight_word_in_sentence(
+        corrected_sentence, error["c_start"], error["c_end"] + add,
+        error["corrected_text"] if error["corrected_text"] else f'~~{error["original_text"]}~~'
+    )
+
+    text = "**You've made a mistake in the following sentence:**\n\n*" + highlighted_original_sentence + "*\n\n"
+    text += "**It's corrected sentence:**\n\n*" + highlighted_corrected_sentence + "*\n\n"
+    text += error["llm_explanation"] + "\n\n"
+
+    return text
+
+    selected = False
+
+    while id_sentence < len(errors_speaker) and not selected:
+        #sentence_id, explained_sentence = errors_speaker[id_sentence]
+        
+        #errant_errors = explained_sentence['errant']
+        errant_errors = errors_speaker[id_sentence]['errant']
+        while id_error < len(errant_errors):
+            print("id_sentence: ", id_sentence)
+            print("id_error: ", id_error)
+
+            error = errant_errors[id_error]
+
+            original_sentence = error["sentence"]
+            corrected_sentence = error["corrected_sentence"]
+
+            def highlight_word_in_sentence(sentence, start_idx, end_idx, highlight_text):
+                words = sentence.split()
+                highlighted_sentence = " ".join(
+                    words[:start_idx] +
+                    [f'**[{highlight_text}]**'] +
+                    words[end_idx:]
+                )
+                return highlighted_sentence
+
+            # Highlight the error and correction in the sentence
+            highlighted_original_sentence = highlight_word_in_sentence(
+                original_sentence, error["o_start"], error["o_end"],
+                error["original_text"] if error["original_text"] else "______"
+            )
+
+            add = len(error["corrected_text"].split())
+
+            highlighted_corrected_sentence = highlight_word_in_sentence(
+                corrected_sentence, error["c_start"], error["c_end"] + add,
+                error["corrected_text"] if error["corrected_text"] else f'~~{error["original_text"]}~~'
+            )
+
+            text = "**You've made a mistake in the following sentence:**\n\n*" + highlighted_original_sentence + "*\n\n"
+            text += "**It's corrected sentence:**\n\n*" + highlighted_corrected_sentence + "*\n\n"
+            text += error["llm_explanation"] + "\n\n"
+            text += "Do you want to practice the error?"
+
+            # Ask if wanna study that error with exercises
+            #await cl.Message(
+            #    content=text,
+            #).send()
+            #go_check_error = await ask_action()
+                
+            if go_check_error["value"] == "cancel":
+                id_error += 1
+            else:
+                # Step 2: Exercises
+                cl.user_session.set("error", error)
+
+                cl.user_session.set("id_sentence", id_sentence)
+                cl.user_session.set("id_error", id_error)
+                selected = True
+
+                #await on_message(None)
+                break
+
+        id_sentence += 1
+        id_error = 0
+
+    return
 
 if __name__ == '__main__':
     is_public_link = False
     demo.launch(
         share=is_public_link,
         server_name="localhost",
-        server_port=8001,
+        server_port=8002,
         )

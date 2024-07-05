@@ -202,11 +202,10 @@ def highlight_errors_all(sentence: str):
 
         return highlight_errors_in_text(text=sentence, word_indexes=word_indexes)
 
-
 # Receives as a parameter the name of the speaker selected in the dropdown.
 # Using sentences_collection, it joins each sentence in a string.
 # 0 -> time, 1 -> speaker, 2 -> text
-def handle_dropdown_selection(speaker_name: str, highlight_sentence_num=0):
+def build_transcript(speaker_name: str, highlight_sentence_num:int=0):
     global sentences_collection, speakers, selected_speaker
 
     selected_speaker = speaker_name
@@ -246,10 +245,14 @@ def handle_dropdown_selection(speaker_name: str, highlight_sentence_num=0):
                     + value['original_sentence'] + "\n\n"
                     + "</a>"
                 )
-
+            
     # Add scrollable container
     result = f"<div id='transcript_id'>{text_to_show}</div>"
     return result
+
+def handle_dropdown_selection(speaker_name: str):
+    print("Called handle_dropdown_selection")
+    return build_transcript(speaker_name, 0)
         
 
 # TODO maybe not necessary. If it is, then move to another file and use here only the function.
@@ -276,7 +279,7 @@ def get_arguments_env():
     selected_speaker = arg_speaker or selected_speaker
 
     
-js = "./app/gradio_functions.js"
+js = ""
 css = "./app/gradio_styles.css"
 head_html = ""
 

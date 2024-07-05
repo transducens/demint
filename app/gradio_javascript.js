@@ -1,4 +1,6 @@
 
+// Take into account that these functions will be run automatically when passed as parameter
+
 function js_autoscroll_by_id(id_param) {
     const id_holder = id_param
     console.log("Searching for id:", id_holder);

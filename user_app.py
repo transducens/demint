@@ -742,41 +742,47 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=None, head=
     with gr.Row():
         # Block for the transcript of the speakers in the audio.
         with gr.Column(scale=0.3):
-            with gr.Row(elem_classes="dropdown"):
-                dropdown = gr.Dropdown(
-                    label="Select a speaker", 
-                    choices=speakers, 
-                    value=selected_speaker, 
-                    interactive=True,
-                    scale=1,
-                    )
-            with gr.Row(elem_classes="transcript"):
-                speaker_text = gr.Markdown(
-                    value=handle_dropdown_selection(selected_speaker),
-                        latex_delimiters=[], # Disable LaTeX rendering
-                    )
-                dropdown.change(fn=handle_dropdown_selection, inputs=[dropdown], outputs=[speaker_text])
+            with gr.Group():
+                with gr.Row(elem_classes="dropdown"):
+                    dropdown = gr.Dropdown(
+                        label="Select a speaker", 
+                        choices=speakers, 
+                        value=selected_speaker, 
+                        interactive=True,
+                        )
+                with gr.Row(elem_classes="transcript"):
+                    speaker_text = gr.Markdown(
+                        value=handle_dropdown_selection(selected_speaker),
+                            latex_delimiters=[], # Disable LaTeX rendering
+                        )
+                    dropdown.change(fn=handle_dropdown_selection, inputs=[dropdown], outputs=[speaker_text])
             
 
 
         # Block for chatting with the AI.
-        with gr.Column(scale=0.7):
+        with gr.Column(scale=0.7, variant="default"):
+            with gr.Group():
             # lg.primary.svelte-cmf5ev
-            chatbot = gr.Chatbot(
-                render=True,   # rendered in chatBotInterface
-                scale=1,
-            )
-            txtbox = gr.Textbox(
-                label="Enter your query:",
-                render=True,   # rendered in chatBotInterface
-                scale=3,
-            )
-            submit_button = gr.Button(
-                value="Submit",
-                render=True,   # rendered in chatBotInterface
-                elem_id="submit_button",
-                elem_classes="svelte-cmf5ev",
-            )
+                chatbot = gr.Chatbot(
+                    layout="bubble",
+                    bubble_full_width=False,
+                    elem_id = "chatbot",
+                    height="80vh"
+                )
+                with gr.Row(elem_id="chat_input"):
+                    txtbox = gr.Textbox(
+                        label="",
+                        elem_id="textbox_chatbot",
+                        scale=4,
+                        placeholder="Type a message...",
+                        container=False,
+                    )
+                    submit_button = gr.Button(
+                        value="Submit",
+                        elem_id="submit_button",
+                        elem_classes="svelte-cmf5ev",
+                        scale=1,
+                    )
             hidden_textbox = gr.Textbox(value="", visible=False, render=True)
 
             submit_button.click(chat_with_ai, [txtbox, chatbot], [txtbox, chatbot, hidden_textbox], js=None)

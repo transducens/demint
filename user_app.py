@@ -100,6 +100,7 @@ def load_data():
     sentences_collection = file_manager.read_from_json_file(input_files['sentences_collection'])
     speakers = get_speakers()
 
+
     end_load = time.time()
     print("*" * 50)
     print(f"Loaded data. Time: {end_load - start_load} seconds")
@@ -124,7 +125,7 @@ def chat_with_ai(user_input, history):
     history_chat = history
     #highlighted_sentence_id = user_input
     error_sentence_id = "sentence_" + "53"  # The sentence id of the errors we are going to work with now.
-    
+
     # temp
     """
     print("Preparing answer...")
@@ -365,7 +366,7 @@ def build_transcript(speaker_name: str):
 def handle_dropdown_selection(speaker_name: str):
     print("Called handle_dropdown_selection")
     return build_transcript(speaker_name)
-        
+
 # TODO maybe not necessary. If it is, then move to another file and use here only the function.
 def get_audio_path():
     audio_path = "audio/extracted_audio.wav"

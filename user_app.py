@@ -107,7 +107,6 @@ def load_data():
 
     return explained_sentences, sentences_collection, speakers
 
-
 # Returns a list of all the speakers that have spoken in the transctipt
 def get_speakers():
     sorted_speakers = []
@@ -118,13 +117,13 @@ def get_speakers():
     
     return sorted_speakers
 
-
 # Chat with the AI using the given query.
-def chat_with_ai(user_input, history=None):
+def chat_with_ai(user_input, history):
     global user_message, chat_answer, history_chat, highlighted_sentence_id, state
     user_message = user_input
     history_chat = history
-    highlighted_sentence_id = user_input
+    #highlighted_sentence_id = user_input
+    error_sentence_id = "sentence_" + "53"  # The sentence id of the errors we are going to work with now.
     
     # temp
     """
@@ -137,10 +136,12 @@ def chat_with_ai(user_input, history=None):
     
     chat_answer = bot_response
     """
-
+    print("called bot response")
     output = ""
+    history.append((user_input, "bot response"))   # must be Tuples
     
     # temp
+    """
     if state == 0:
         output = select_error()
         state = 1
@@ -218,8 +219,9 @@ def chat_with_ai(user_input, history=None):
     elif state == 7:
         output = check_corrected(user_input)
         state = 0
-
-    return output
+    """
+    
+    return output, history, error_sentence_id
 
 
 
@@ -259,7 +261,6 @@ def chat_with_ai(user_input, history=None):
         output += sentence
     return output
 
-
 # TODO maybe not necessary. If it is, then move to another file and use here only the function.
 def get_video(video_url):
     global english_tutor, speakers_context
@@ -278,7 +279,6 @@ def get_video(video_url):
 
     return f"Video info: {video_title}"
 
-
 # Given a text and the word to highlight, it returns the text with the word highlighted.
 def highlight_errors_in_text(text, words=[], word_indexes=[], font_color="#FFFFFF", background_color="#FF0000"):
     style = f'"color: {font_color}; background-color: {background_color}; font-weight: bold"'
@@ -296,13 +296,11 @@ def highlight_errors_in_text(text, words=[], word_indexes=[], font_color="#FFFFF
         text = " ".join(splitted_text)
         return text
 
-
 # Given a text, font color, and background color
 # Returns the text with the given font and background color.
 # Markdown is used to highlight the text.
 def highlight_text(text="", font_color="#FFFFFF", background_color="#000000"):
     return f'<span style="color: {font_color}; background-color: {background_color}">{text}</span>'
-
 
 # Given a sentence, checks in explained_sentences if that sentence has errors and 
 # if so highlights them in red
@@ -321,11 +319,10 @@ def highlight_errors_all(sentence: str):
 # Receives as a parameter the name of the speaker selected in the dropdown.
 # Using sentences_collection, it joins each sentence in a string.
 # 0 -> time, 1 -> speaker, 2 -> text
-def build_transcript(speaker_name: str, highlight_sentence_num:int=0):
+def build_transcript(speaker_name: str):
     global sentences_collection, speakers, selected_speaker
 
     selected_speaker = speaker_name
-    selected_line = highlight_sentence_num if highlight_sentence_num != 0 else ""
 
     text_to_show = 'No text to show.'
     if sentences_collection is not None:
@@ -333,14 +330,13 @@ def build_transcript(speaker_name: str, highlight_sentence_num:int=0):
         if selected_speaker == 'All speakers':
             text_to_show = "\n\n"
             for index, value in sentences_collection.items():
-                if highlight_sentence_num and index == highlight_sentence_num:
-                    # Label each line and print it
-                    text_to_show += (
-                        '<a id="sentence_' + index + '">'
-                        + value['speaker'] + " " 
-                        + value['original_sentence'] + "\n\n"
-                        + "</a>"
-                    )
+                # Label each line and print it
+                text_to_show += (
+                    '<a id="sentence_' + index + '">'
+                    + value['speaker'] + " " 
+                    + value['original_sentence'] + "\n\n"
+                    + "</a>"
+                )
         else:
             # specific speaker text
             text_to_show = "\n\n"
@@ -368,18 +364,15 @@ def build_transcript(speaker_name: str, highlight_sentence_num:int=0):
 
 def handle_dropdown_selection(speaker_name: str):
     print("Called handle_dropdown_selection")
-    return build_transcript(speaker_name, 0)
+    return build_transcript(speaker_name)
         
-
 # TODO maybe not necessary. If it is, then move to another file and use here only the function.
 def get_audio_path():
     audio_path = "audio/extracted_audio.wav"
     return audio_path
 
-
 def refresh_audio(_=None):
     return get_audio_path()
-
 
 def clean_cache():
     global speakers_context, selected_speaker_text, english_tutor
@@ -387,73 +380,11 @@ def clean_cache():
     speakers_context = None
     selected_speaker_text = None
 
-
 # Gets the arguments from the environment variables.
 def get_arguments_env():
     global selected_speaker
     arg_speaker = os.getenv("GRADIO_SPEAKER", "All speakers")
     selected_speaker = arg_speaker or selected_speaker
-
-    
-js = ""
-css = "./app/gradio_styles.css"
-head_html = ""
-
-
-print("Version of gradio: " + gr.__version__)
-# Create the Gradio interface.
-with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=head_html) as demo:
-    get_arguments_env()
-    initialize_global_variables()
-    print("*" * 50)
-    print("Selected speaker: ", selected_speaker)
-    print("*" * 50)
-
-    # All Components container
-    with gr.Row():
-        # Block for the transcript of the speakers in the audio.
-        with gr.Column(scale=0.3):
-            with gr.Row(elem_classes="dropdown"):
-                dropdown = gr.Dropdown(
-                    label="Select a speaker", 
-                    choices=speakers, 
-                    value=selected_speaker, 
-                    interactive=True,
-                    scale=1,
-                    )
-            with gr.Row(elem_classes="transcript"):
-                speaker_text = gr.Markdown(
-                    value=handle_dropdown_selection(selected_speaker),
-                        latex_delimiters=[], # Disable LaTeX rendering
-                    )
-                dropdown.change(fn=handle_dropdown_selection, inputs=[dropdown], outputs=[speaker_text])
-            
-
-
-        # Block for chatting with the AI.
-        with gr.Column(scale=0.7):
-            # lg.primary.svelte-cmf5ev
-            submit_button = gr.Button(
-                value="Submit",
-                render=False,   # rendered in chatBotInterface
-                elem_id="submit_button",
-                elem_classes="svelte-cmf5ev",
-            )
-            txtbox = gr.Textbox(
-                label="Enter your query:",
-                render=False,   # rendered in chatBotInterface
-                scale=3,
-            )
-            chatBotInterface = gr.ChatInterface(
-                fn=chat_with_ai,
-                multimodal=False,
-                autofocus=True,
-                concurrency_limit=2,
-                textbox=txtbox,
-                submit_btn=submit_button,
-            )
-
-    theme=gr.themes.Base()
 
 def create_context():
     global error
@@ -786,6 +717,73 @@ def select_error():
         id_error = 0
 
     return
+
+
+js = "./app/gradio_javascript.js"
+css = "./app/gradio_css.css"
+head_html = ""
+with open("./app/gradio_head_html.html", 'r') as file:
+    head_html = file.read()
+
+js_autoscroll_by_id = "(sentence_id) => {js_autoscroll_by_id(sentence_id);}"
+
+
+print("Version of gradio: " + gr.__version__)
+# Create the Gradio interface.
+with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=None, head=head_html) as demo:
+    get_arguments_env()
+    initialize_global_variables()
+    print("*" * 50)
+    print("Selected speaker: ", selected_speaker)
+    print("*" * 50)
+
+    # All Components container
+    with gr.Row():
+        # Block for the transcript of the speakers in the audio.
+        with gr.Column(scale=0.3):
+            with gr.Row(elem_classes="dropdown"):
+                dropdown = gr.Dropdown(
+                    label="Select a speaker", 
+                    choices=speakers, 
+                    value=selected_speaker, 
+                    interactive=True,
+                    scale=1,
+                    )
+            with gr.Row(elem_classes="transcript"):
+                speaker_text = gr.Markdown(
+                    value=handle_dropdown_selection(selected_speaker),
+                        latex_delimiters=[], # Disable LaTeX rendering
+                    )
+                dropdown.change(fn=handle_dropdown_selection, inputs=[dropdown], outputs=[speaker_text])
+            
+
+
+        # Block for chatting with the AI.
+        with gr.Column(scale=0.7):
+            # lg.primary.svelte-cmf5ev
+            chatbot = gr.Chatbot(
+                render=True,   # rendered in chatBotInterface
+                scale=1,
+            )
+            txtbox = gr.Textbox(
+                label="Enter your query:",
+                render=True,   # rendered in chatBotInterface
+                scale=3,
+            )
+            submit_button = gr.Button(
+                value="Submit",
+                render=True,   # rendered in chatBotInterface
+                elem_id="submit_button",
+                elem_classes="svelte-cmf5ev",
+            )
+            hidden_textbox = gr.Textbox(value="", visible=False, render=True)
+
+            submit_button.click(chat_with_ai, [txtbox, chatbot], [txtbox, chatbot, hidden_textbox], js=None)
+            txtbox.submit(chat_with_ai, [txtbox, chatbot], [txtbox, chatbot, hidden_textbox], js=None)
+            chatbot.change(fn=None, inputs=[hidden_textbox], js=js_autoscroll_by_id) 
+
+    theme=gr.themes.Base()
+
 
 if __name__ == '__main__':
     is_public_link = False

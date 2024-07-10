@@ -741,7 +741,7 @@ js_toggle_visibility = "(msg, hist, htxt) => {js_toggle_visibility(); return [ms
 
 print("Version of gradio: " + gr.__version__)
 # Create the Gradio interface.
-with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=None, head=head_html) as demo:
+with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=head_html) as demo:
     get_arguments_env()
     initialize_global_variables()
     print("*" * 50)

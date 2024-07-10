@@ -1,5 +1,21 @@
 <script>
-    function js_autoscroll_by_id(id_param) {
+function js_toggle_visibility() {
+    var element = document.getElementById("option_buttons");
+    var currentVisibility = getComputedStyle(element).visibility;
+
+    console.log("Element:", currentVisibility);
+    if (currentVisibility === "collapse") {
+        element.style.visibility = "visible";
+    } 
+    else if (currentVisibility === "visible") {
+        element.style.visibility = "collapse";
+    }
+    else {
+        element.style.visibility = "collapse";
+    }
+}
+
+function js_autoscroll_by_id(id_param) {
     const id_holder = id_param
     console.log("Searching for id:", id_holder);
     const element = document.getElementById(id_holder); 

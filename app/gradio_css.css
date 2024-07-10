@@ -3,7 +3,10 @@
     width: 150vh;
 }
 .dropdown {
+    display: flex;
+    flex-direction: column;
     height: 10vh;
+    visibility: collapse; /* visible / collapse */
 }
 .transcript {
     height: 80vh;
@@ -33,4 +36,7 @@ a {
 #submit_button {
     background-color: #1d4ed8;
     color: white;
+}
+#option_buttons{
+    visibility: collapse; /* visible / collapse */
 }

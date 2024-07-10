@@ -31,6 +31,9 @@ user_message, chat_answer, history_chat = "", "", []
 highlighted_sentence_id = ""
 selected_speaker = "All speakers"
 
+# Testing
+visible_options = False
+
 tracemalloc.start()
 
 prompt_question = [
@@ -121,6 +124,12 @@ def get_speakers():
 # Chat with the AI using the given query.
 def chat_with_ai(user_input, history):
     global user_message, chat_answer, history_chat, highlighted_sentence_id, state
+    
+    # Testing vvvvvvvvv
+    global visible_options
+    visible_options = not visible_options
+    # Testing ^^^^^^^^^
+
     user_message = user_input
     history_chat = history
     #highlighted_sentence_id = user_input
@@ -727,6 +736,7 @@ with open("./app/gradio_head_html.html", 'r') as file:
     head_html = file.read()
 
 js_autoscroll_by_id = "(sentence_id) => {js_autoscroll_by_id(sentence_id);}"
+js_toggle_visibility = "(msg, hist, htxt) => {js_toggle_visibility(); return [msg, hist];}"
 
 
 print("Version of gradio: " + gr.__version__)
@@ -769,6 +779,28 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=None, head=
                     elem_id = "chatbot",
                     height="80vh"
                 )
+                with gr.Row(elem_id="option_buttons"):
+                    #visible_options = True
+                    option1 = gr.Button(
+                        value="Option 1",
+                        elem_id="option1",
+                        scale=1,
+                    )
+                    option2 = gr.Button(
+                        value="Option 2",
+                        elem_id="option2",
+                        scale=1,
+                    )
+                    option3 = gr.Button(
+                        value="Option 3",
+                        elem_id="option3",
+                        scale=1,
+                    )
+                    option4 = gr.Button(
+                        value="Option 4",
+                        elem_id="option4",
+                        scale=1,
+                    )
                 with gr.Row(elem_id="chat_input"):
                     txtbox = gr.Textbox(
                         label="",
@@ -785,8 +817,8 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=None, head=
                     )
             hidden_textbox = gr.Textbox(value="", visible=False, render=True)
 
-            submit_button.click(chat_with_ai, [txtbox, chatbot], [txtbox, chatbot, hidden_textbox], js=None)
-            txtbox.submit(chat_with_ai, [txtbox, chatbot], [txtbox, chatbot, hidden_textbox], js=None)
+            submit_button.click(chat_with_ai, [txtbox, chatbot], [txtbox, chatbot, hidden_textbox], js=js_toggle_visibility)
+            txtbox.submit(chat_with_ai, [txtbox, chatbot], [txtbox, chatbot, hidden_textbox], js=js_toggle_visibility)
             chatbot.change(fn=None, inputs=[hidden_textbox], js=js_autoscroll_by_id) 
 
     theme=gr.themes.Base()

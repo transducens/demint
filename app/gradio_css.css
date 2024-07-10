@@ -1,3 +1,9 @@
+a {
+    color: inherit;
+    outline: none;
+    text-decoration: none;
+    -webkit-tap-highlight-color: white;
+}
 .fullscreen {
     height: 90vh;
     width: 150vh;
@@ -7,6 +13,7 @@
     flex-direction: column;
     height: 10vh;
     visibility: collapse; /* visible / collapse */
+    display: none;
 }
 .transcript {
     height: 80vh;
@@ -18,11 +25,8 @@
     border-radius: 5px;
     background-color: #1f2937;
 }
-a {
-    color: inherit;
-    outline: none;
-    text-decoration: none;
-    -webkit-tap-highlight-color: white;
+.option_button{
+    display: flex;
 }
 #chatbot {
     display: flex;
@@ -39,4 +43,5 @@ a {
 }
 #option_buttons{
     visibility: collapse; /* visible / collapse */
+    display: none;
 }

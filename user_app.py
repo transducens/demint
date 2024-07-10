@@ -785,21 +785,25 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=None, head=
                         value="Option 1",
                         elem_id="option1",
                         scale=1,
+                        elem_classes="option_button",
                     )
                     option2 = gr.Button(
                         value="Option 2",
                         elem_id="option2",
                         scale=1,
+                        elem_classes="option_button",
                     )
                     option3 = gr.Button(
                         value="Option 3",
                         elem_id="option3",
                         scale=1,
+                        elem_classes="option_button",
                     )
                     option4 = gr.Button(
                         value="Option 4",
                         elem_id="option4",
                         scale=1,
+                        elem_classes="option_button",
                     )
                 with gr.Row(elem_id="chat_input"):
                     txtbox = gr.Textbox(

@@ -1,4 +1,5 @@
 <script>
+
 function js_toggle_visibility() {
     var element = document.getElementById("option_buttons");
     var currentVisibility = getComputedStyle(element).visibility;
@@ -6,26 +7,31 @@ function js_toggle_visibility() {
     console.log("Element:", currentVisibility);
     if (currentVisibility === "collapse") {
         element.style.visibility = "visible";
+        element.style.display = "flex";
     } 
     else if (currentVisibility === "visible") {
         element.style.visibility = "collapse";
+        element.style.display = "none";
     }
     else {
         element.style.visibility = "collapse";
+        element.style.display = "none";
     }
 }
 
 function js_autoscroll_by_id(id_param) {
     const id_holder = id_param
     console.log("Searching for id:", id_holder);
-    const element = document.getElementById(id_holder); 
-    if (element) { 
+    const element = document.getElementById(id_holder);
+    if (element) {
+        console.log("Found id:", id_holder);
         const anchors = document.querySelectorAll('#transcript_id a');
         anchors.forEach(anchor => {
             anchor.style.backgroundColor = 'transparent';
         });
-
-        element.scrollIntoView({behavior: 'smooth', block: 'center'}); 
+        
+        //element.scrollIntoView({behavior: 'smooth'}); // doesn't work in Chrome 126.0.6478.126
+        element.scrollIntoView({block: 'center'}); 
         element.animate([{ backgroundColor: 'darkred' }, { backgroundColor: 'transparent' }], { duration: 3000, iterations: 1 }); 
         element.style.backgroundColor = 'darkred';
     } 

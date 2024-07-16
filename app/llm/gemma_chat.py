@@ -2,7 +2,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import time
 from transformers import BitsAndBytesConfig # For 4-bit or 8-bit quantization
-
+import gc
 
 # Importing the interface IChat from the chat_interface module within the app.llm package.
 from .chat_interface import IChat
@@ -126,3 +126,21 @@ class GemmaChat(IChat):
         Provides a list of model identifiers that are supported by the GemmaChat class.
         """
         return supported_models
+
+    def unload_model(self):
+        """Unload the model to free up GPU VRAM."""
+        if self.__model:
+            del self.__model
+            self.__model = None
+        
+        if self.__tokenizer:
+            del self.__tokenizer
+            self.__tokenizer = None
+        
+        # Free up any remaining memory
+        gc.collect()
+        
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+        
+        print("Model unloaded and GPU memory freed.")

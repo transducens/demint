@@ -1,4 +1,4 @@
-name: clean2
+name: DeMINT
 channels:
   - defaults
 dependencies:

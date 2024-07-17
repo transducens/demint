@@ -1,5 +1,6 @@
 import os
 import time
+import torch
 
 from app.file_manager import FileManager
 import app.explain_sentences as explain_sentences
@@ -47,9 +48,12 @@ def main():
     file_manager = FileManager()
     rag_engine = RAGFactory.get_instance("ragatouille")
     rag_sentences(file_manager, rag_engine, rag_passages=5)
+    if torch.cuda.is_available():
+            torch.cuda.empty_cache()
 
 if __name__ == '__main__':
     start_time = time.time()
     main()
     end_time = time.time()
     print(f"Execution time: {end_time - start_time} seconds")
+    

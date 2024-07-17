@@ -51,9 +51,9 @@ prompt_question = [
 
 # Initialize the global variables.
 def initialize_global_variables():
-    global english_tutor, state, max_new_tokens, response, explained_sentences_speaker, id_sentence, id_error, error, chat_response
+    global english_tutor, state, max_new_tokens, response, explained_sentences_speaker, id_sentence, id_error, error, chat_response, category_list, category_errors, index_category, index_error
 
-    state = 0
+    state = -1
     max_new_tokens = 200
     response = chat_response = ""
 
@@ -68,6 +68,12 @@ def initialize_global_variables():
     explained_sentences_speaker = get_explained_sentences_speaker(explained_sentences, "All speakers")
     id_sentence = id_error = 0
     error = None
+    category_list = {}
+    category_errors = {}
+
+    index_category = index_error = 0
+
+    list_errors()
 
 def get_explained_sentences_speaker(explained_sentences, speaker:str):
     if speaker == "All speakers":
@@ -123,7 +129,7 @@ def get_speakers():
 
 # Chat with the AI using the given query.
 def chat_with_ai(user_input, history):
-    global user_message, chat_answer, history_chat, highlighted_sentence_id, state
+    global user_message, chat_answer, history_chat, highlighted_sentence_id, state, category_list, category_errors, index_category, index_error
     
     # Testing vvvvvvvvv
     global visible_options
@@ -148,15 +154,86 @@ def chat_with_ai(user_input, history):
     """
     print("called bot response")
     output = ""
-    history.append((user_input, "bot response"))   # must be Tuples
+    #history.append((user_input, "bot response"))   # must be Tuples
     
     # temp
-    """
-    if state == 0:
-        output = select_error()
-        state = 1
+    if state == -1:
+        category = list(category_list.keys())[index_category]
+        output = "Most frecuent error type: " + category + ". Want to practise it?"
+        state = 0
+    elif state == 0:
+        output = ask_error(user_input)
+
+        output = output.lower()
+        if output == 'yes':
+            category = list(category_list.keys())[index_category]
+            list_tuples = category_errors[category]
+            tuple_error = list_tuples[index_error]
+            print(list_tuples)
+            print(tuple_error)
+            output = select_error(tuple_error[0], tuple_error[1])
+            chat_response = "Do you want to practice this error?"
+            output += f"\n\n **{chat_response}**"
+            #output = category_errors[category][0]
+            state = 1
+        else:
+            index_category += 1
+            categories = list(category_list.keys())
+
+            if index_category >= len(categories):
+                state = 9
+                output = "No more error categories left to check. You have complete the class."
+            else:
+                category = categories[index_category]
+                output = "Most frecuent error type: " + category + ". Want to practise it?"
     
     elif state == 1:
+        output = ask_error(user_input)
+
+        output = output.lower()
+        if output == 'yes':
+            """
+            category = list(category_list.keys())[index_category]
+            list_tuples = category_errors[category]
+            tuple_error = list_tuples[index_error]
+            output = select_error(tuple_error[0], tuple_error[1])
+            state = 1
+            """
+            response = error_explanation()
+            chat_response = "Do you want an extensive explanation of the English grammar of this case?"
+            response += f"\n\n **{chat_response}**"
+            output = response
+            state = 3
+        else:
+            index_error += 1
+
+            categories = list(category_list.keys())
+            category = list(category_list.keys())[index_category]
+            list_tuples = category_errors[category]
+            tuple_error = list_tuples[index_error]
+            print(tuple_error)
+
+            if index_error >= len(list_tuples):
+                index_category += 1
+                index_error = 0
+
+                if index_category >= len(categories):
+                    state = 9
+                    output = "No more error categories left to check. You have complete the class."
+                else:
+                    output = select_error(tuple_error[0], tuple_error[1])
+                    chat_response = "Do you want to practice this other error?"
+                    output += f"\n\n **{chat_response}**"
+            else:
+                output = select_error(tuple_error[0], tuple_error[1])
+                chat_response = "Do you want to practice this other error?"
+                output += f"\n\n **{chat_response}**"
+
+
+        #output = select_error()
+        #state = 2
+    
+    elif state == 2:
         # Step 2: Exercises
         #msg = cl.Message(content='')
         #await msg.send()
@@ -168,9 +245,9 @@ def chat_with_ai(user_input, history):
 
         #counter += 1
         #cl.user_session.set("counter", counter)
-        state = 2
+        state = 3
 
-    elif state == 2:
+    elif state == 3:
         response = ask_grammar(user_input)
 
         response = response.lower()
@@ -182,9 +259,9 @@ def chat_with_ai(user_input, history):
         chat_response = "Do you want an example of the correct use of the grammar rules?"
         output += f"\n\n **{chat_response}**"
         
-        state = 3
+        state = 4
 
-    elif state == 3:
+    elif state == 4:
         #response = await correct_exercise(message.content)
         response = ask_example(user_input)
 
@@ -194,46 +271,46 @@ def chat_with_ai(user_input, history):
             output = create_example()
         
         chat_response = "Do you want an exercise to practice these grammar rules?"
-        response += f"\n\n **{chat_response}**"
-        state = 4
+        output += f"\n\n **{chat_response}**"
+        state = 5
 
-    elif state == 4:
+    elif state == 5:
         #response = await correct_exercise(message.content)
         response = ask_exercise(user_input)
 
         response = response.lower()
-        outpu = ""
+        output = ""
         if response == 'yes':
             output = create_exercise()
             output += "\n\n **Complete the exercise**"
 
             output = f"Here is an exercise in order to you to practise:\n{output}"
-            state = 5
+            state = 6
         else:
             output += "\n\n **Do you want to attempt to write the sentence correctly?**"
-            state = 6
-    elif state == 5:
+            state = 7
+    elif state == 6:
         #response = await correct_exercise(message.content)
         output = correct_exercise(user_input)
         output += "\n\n **Do you want another exercise to practice these grammar rules?**"
-        state = 4
+        state = 5
 
-    elif state == 6:
+    elif state == 7:
         response = ask_sentence(user_input)
 
         response = response.lower()
         if response == 'yes':
-            state = 7
+            state = 8
         else:
             state = 0
-    elif state == 7:
+    elif state == 8:
         output = check_corrected(user_input)
         state = 0
-    """
+    else:
+        output = "No more error categories left to check. You have complete the class."
     
+    history.append((user_input, output))   # must be Tuples
     return output, history, error_sentence_id
-
-
 
     #Delete
     print("pressed")
@@ -432,6 +509,35 @@ def error_explanation():
     response = english_tutor.get_answer(final_prompt, max_new_tokens)
     return response
 
+def ask_error(student_response):
+    # Step 3: Check user answer, explain result and create new exercise
+    context = "You ask the student: \n"
+    context += chat_response
+
+    context += "\n\nThe student responce is the following:\n"
+    context += "\n\n" + student_response + "\n"
+
+    final_prompt = (f"Base on the following context:\n\n"
+                    f"CONTEXT:\n{context}"
+                    f"TASK:\n You have asked the student if he wants to check his english errors of an expecific category. Determine if the students wants it based of the following answer. Please enclose 'yes' or 'no' in your answer in <asnwer></answer> tags.\n\n"
+                    f"ANSWER:\n{student_response}")
+
+    response = english_tutor.get_answer(final_prompt, max_new_tokens)
+    print("Respuesta: ", response)
+    
+    final_prompt = (f"Base on the following sentence:\n\n"
+                    f"SENTENCE:\n{response}"
+                    f"TASK:\n Your output must be the sentence enclosing 'yes' or 'no' words in the sentence in <asnwer></answer> tags.\n\n")
+    
+    response = english_tutor.get_answer(final_prompt, max_new_tokens)
+    
+
+    response = response.split('>')[1].split('<')[0]
+
+    print("Respuesta final: ", response)
+
+    return response
+
 def ask_grammar(student_response):
     #english_tutor = cl.user_session.get("english_tutor")
 
@@ -618,7 +724,42 @@ def check_corrected(student_response):
     
     return response
 
-def select_error():
+def list_errors():
+    global error, category_list, category_errors
+
+    errors_speaker = list(explained_sentences_speaker.items())
+
+    index_sentence = 0
+
+    for _, xx in errors_speaker:
+        index = index_sentence
+        y = xx['errant']
+        id_error = 0
+        
+        while id_error < len(y):
+            value = category_list.get(y[id_error]['error_type'], 0)
+            dupla = (index, id_error)
+            if value == 0:
+                category_list[y[id_error]['error_type']] = 1
+                category_errors[y[id_error]['error_type']] = [dupla]
+            else:
+                list_index = category_errors[y[id_error]['error_type']]
+                
+                category_list[y[id_error]['error_type']] =  value + 1
+                list_index.append(dupla)
+                category_errors[y[id_error]['error_type']] = list_index
+
+            id_error += 1
+        
+        index_sentence += 1
+
+    category_list = {k: v for k, v in sorted(category_list.items(), key=lambda item: item[1], reverse=True)}
+    print((category_list))
+    print(category_errors)
+
+    return
+
+def select_error(index_sentence = 0, index_error = 0):
     global error
     print("selecting error")
     #explained_sentences_speaker = cl.user_session.get("explained_sentences_speaker")
@@ -628,7 +769,7 @@ def select_error():
     
     #errors_speaker = explained_sentences_speaker.items()
     errors_speaker = list(explained_sentences_speaker.values())
-    error = errors_speaker[3]['errant'][0]
+    error = errors_speaker[index_sentence]['errant'][index_error]
 
     original_sentence = error["sentence"]
     corrected_sentence = error["corrected_sentence"]

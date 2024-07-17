@@ -85,6 +85,7 @@ def explain_sentences(file_manager, chat_llm, grammar_checker_lt, lang='en'):
 
     file_manager.save_to_json_file(output_file, explained_sentences)
 
+    chat_llm.unload_model()
     return explained_sentences
 
 

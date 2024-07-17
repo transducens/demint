@@ -381,22 +381,7 @@
         "original_sentence": "I think it's album for our pictures.",
         "t5_checked_sentence": "I think it's an album for our pictures.",
         "llm_explanation": "**Errors in the original sentence:**\n\n* **\"it's album\"**: This is incorrect as \"it's\" is a contraction of \"it is,\" and \"album\" is a singular noun. The correct form should be \"an album.\"\n* **Missing article**: The sentence lacks an article (such as \"an\" or \"a\") before \"album.\" An article is required to indicate that the album is a specific entity.\n\n\n**Corrections in the revised sentence:**\n\n* **\"an album\"**: The correct form of the noun, indicating that the album is a single item.\n* **Presence of an article**: The inclusion of \"an\" before \"album\" provides clarity and grammatical correctness.",
-        "language_tool": [
-            {
-                "ruleId": "AI_HYDRA_LEO_MISSING_AN",
-                "message": "Possible missing article found.",
-                "replacements": [
-                    "an album"
-                ],
-                "offsetInContext": 13,
-                "context": "I think it's album for our pictures.",
-                "offset": 13,
-                "errorLength": 5,
-                "category": "MISC",
-                "ruleIssueType": "uncategorized",
-                "sentence": "I think it's album for our pictures."
-            }
-        ],
+        "language_tool": [],
         "errant": [
             {
                 "index": "88",
@@ -637,22 +622,7 @@
         "original_sentence": "I Go to all truffles two times It was amazing.",
         "t5_checked_sentence": "I went to all truffles two times and it was amazing.",
         "llm_explanation": "**Errors in the original sentence:**\n\n**1. Subject-verb agreement:**\n- \"I Go\" should be \"I go\" (singular subject \"I\" requires a singular verb \"go\").\n\n\n**2. Incorrect tense:**\n- \"It was amazing\" should be \"it was amazing\" (past tense of \"to be\").\n\n\n**Corrected sentence:**\n\n\"I went to all truffles two times and it was amazing.\"\n\n**Explanation of the corrections:**\n\n* The subject-verb agreement was corrected by changing \"Go\" to \"go\".\n* The tense was corrected by changing \"was amazing\" to \"was amazing\".",
-        "language_tool": [
-            {
-                "ruleId": "AI_HYDRA_LEO_MISSING_COMMA",
-                "message": "Possible missing comma found.",
-                "replacements": [
-                    "times,"
-                ],
-                "offsetInContext": 25,
-                "context": "I Go to all truffles two times It was amazing.",
-                "offset": 25,
-                "errorLength": 5,
-                "category": "MISC",
-                "ruleIssueType": "uncategorized",
-                "sentence": "I Go to all truffles two times It was amazing."
-            }
-        ],
+        "language_tool": [],
         "errant": [
             {
                 "index": "147",

@@ -1,4 +1,4 @@
-import fitz  # PyMuPDF
+import pymupdf  # PyMuPDF
 import os
 
 
@@ -11,7 +11,7 @@ class ContentExtractor:
         for filename in os.listdir(folder_path):
             if filename.endswith(".pdf"):
                 pdf_path = os.path.join(folder_path, filename)
-                doc = fitz.open(pdf_path)
+                doc = pymupdf.open(pdf_path)
                 content = str()
 
                 for page in doc:

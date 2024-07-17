@@ -89,15 +89,10 @@ def load_data():
         'explained_sentences': "cache/rag_sentences.json",
     }
     
-    if not os.path.isfile(input_files['sentences_collection']):
-        print(f"{input_files['sentences_collection']} is not found.")
-        print(f"Processing {input_files['sentences_collection']}")
-        prepare_sentences.main()
-    
-    if not os.path.isfile(input_files['explained_sentences']):
-        print(f"{input_files['explained_sentences']} is not found.")
-        print(f"Processing {input_files['explained_sentences']}")
-        rag_sentences.main()
+    if (not os.path.isfile(input_files['sentences_collection']) 
+        or not os.path.isfile(input_files['explained_sentences'])):
+        raise FileNotFoundError("The cache files are not found. Please run the 'run_pipeline.sh' script to create the cache files.")
+        
 
     explained_sentences = file_manager.read_from_json_file(input_files['explained_sentences'])
     sentences_collection = file_manager.read_from_json_file(input_files['sentences_collection'])
@@ -741,7 +736,7 @@ js_toggle_visibility = "(msg, hist, htxt) => {js_toggle_visibility(); return [ms
 
 print("Version of gradio: " + gr.__version__)
 # Create the Gradio interface.
-with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=None, head=head_html) as demo:
+with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=head_html) as demo:
     get_arguments_env()
     initialize_global_variables()
     print("*" * 50)

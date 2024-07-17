@@ -1,15 +1,6 @@
-name: demint
+name: DeMINT
 channels:
   - defaults
-  - pytorch
-  - nvidia
-  - conda-forge
 dependencies:
   - python=3.11
-  - cuda-toolkit
-  - faiss-gpu
-  - pytorch
-  - pytorch-cuda=11.8
-  - torchaudio
-  - torchvision
-  - nodejs
+  - cuda-toolkit # not in pip. Used for RAG.

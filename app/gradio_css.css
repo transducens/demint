@@ -1,8 +1,11 @@
 a {
-    color: inherit;
+    color: white;
     outline: none;
     text-decoration: none;
     -webkit-tap-highlight-color: white;
+}
+body {
+    background-color: #0b0f19;
 }
 .fullscreen {
     height: 90vh;
@@ -36,6 +39,8 @@ a {
     background-color: #1f2937;
 }
 #textbox_chatbot{
+    background-color: #374151;
+    color: white;
 }
 #submit_button {
     background-color: #1d4ed8;

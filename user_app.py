@@ -154,7 +154,7 @@ def chat_with_ai(user_input, history):
     # temp
     if state == -1:
         category = list(category_list.keys())[index_category]
-        output = "Most frecuent error type: " + category + ". Want to practise it?"
+        output = "Most frecuent error type: " + category + ". Want to practice it?"
         state = 0
     elif state == 0:
         output = ask_error(user_input)
@@ -180,7 +180,7 @@ def chat_with_ai(user_input, history):
                 output = "No more error categories left to check. You have complete the class."
             else:
                 category = categories[index_category]
-                output = "Most frecuent error type: " + category + ". Want to practise it?"
+                output = "Most frecuent error type: " + category + ". Want to practice it?"
     
     elif state == 1:
         output = ask_error(user_input)
@@ -205,8 +205,6 @@ def chat_with_ai(user_input, history):
             categories = list(category_list.keys())
             category = list(category_list.keys())[index_category]
             list_tuples = category_errors[category]
-            tuple_error = list_tuples[index_error]
-            print(tuple_error)
 
             if index_error >= len(list_tuples):
                 index_category += 1
@@ -216,10 +214,11 @@ def chat_with_ai(user_input, history):
                     state = 9
                     output = "No more error categories left to check. You have complete the class."
                 else:
-                    output = select_error(tuple_error[0], tuple_error[1])
-                    chat_response = "Do you want to practice this other error?"
-                    output += f"\n\n **{chat_response}**"
+                    category = categories[index_category]
+                    output = "Most frecuent error type: " + category + ". Want to practice it?"
+                    state = 0
             else:
+                tuple_error = list_tuples[index_error]
                 output = select_error(tuple_error[0], tuple_error[1])
                 chat_response = "Do you want to practice this other error?"
                 output += f"\n\n **{chat_response}**"
@@ -279,7 +278,7 @@ def chat_with_ai(user_input, history):
             output = create_exercise()
             output += "\n\n **Complete the exercise**"
 
-            output = f"Here is an exercise in order to you to practise:\n{output}"
+            output = f"Here is an exercise in order to you to practice:\n{output}"
             state = 6
         else:
             output += "\n\n **Do you want to attempt to write the sentence correctly?**"
@@ -480,7 +479,7 @@ def create_context():
     context_str = "\n----------\n".join(content_list)
 
     context = "\n\nIncorrect Sentence:\n"
-    context += "\n\n" + errant["sentence"] + "\n"
+    context += "\n\n" + errant["original_sentence"] + "\n"
 
     context += "\n\Correct Sentence:\n"
     context += "\n\n" + errant["corrected_sentence"] + "\n"
@@ -765,8 +764,8 @@ def select_error(index_sentence = 0, index_error = 0):
     #errors_speaker = explained_sentences_speaker.items()
     errors_speaker = list(explained_sentences_speaker.values())
     error = errors_speaker[index_sentence]['errant'][index_error]
-
-    original_sentence = error["sentence"]
+    
+    original_sentence = error["original_sentence"]
     corrected_sentence = error["corrected_sentence"]
 
     def highlight_word_in_sentence(sentence, start_idx, end_idx, highlight_text):

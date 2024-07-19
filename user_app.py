@@ -28,11 +28,8 @@ default_colors = {
 }
 speaker_color = default_colors['dark blue']
 user_message, chat_answer, history_chat = "", "", []
-highlighted_sentence_id = ""
 selected_speaker = "All speakers"
 
-# Testing
-visible_options = False
 
 tracemalloc.start()
 
@@ -124,16 +121,10 @@ def get_speakers():
 
 # Chat with the AI using the given query.
 def chat_with_ai(user_input, history):
-    global user_message, chat_answer, history_chat, highlighted_sentence_id, state, category_list, category_errors, index_category, index_error
-    
-    # Testing vvvvvvvvv
-    global visible_options
-    visible_options = not visible_options
-    # Testing ^^^^^^^^^
+    global user_message, chat_answer, history_chat, state, category_list, category_errors, index_category, index_error
 
     user_message = user_input
     history_chat = history
-    #highlighted_sentence_id = user_input
     error_sentence_id = "sentence_" + "53"  # The sentence id of the errors we are going to work with now.
 
     # temp
@@ -916,7 +907,6 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
                     height="80vh"
                 )
                 with gr.Row(elem_id="option_buttons"):
-                    #visible_options = True
                     option1 = gr.Button(
                         value="Option 1",
                         elem_id="option1",

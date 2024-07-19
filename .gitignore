@@ -7,8 +7,6 @@ __pycache__
 /audio
 /.files
 /.ragatouille
-/logs
 init_env.sh
-*.log
 check_dependencies.py
 .env

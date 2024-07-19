@@ -56,7 +56,7 @@ class VideoDownloader:
 
 if __name__ == "__main__":
     video_downloader = VideoDownloader()
-    video_downloader.video_url = "https://www.youtube.com/watch?v=_Bx_x-gvLw0"
+    video_downloader.video_url = "https://youtu.be/_Bx_x-gvLw0?si=y2Bi5cw6CizEd5Oa"
     video_downloader.output_filename = "./assets/video/c2_exam_video.mp4"
     video_info = video_downloader.get_video_info()
     print(video_info)

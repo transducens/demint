@@ -10,3 +10,4 @@ __pycache__
 init_env.sh
 check_dependencies.py
 .env
+*.webm

@@ -11,3 +11,4 @@ init_env.sh
 check_dependencies.py
 .env
 *.webm
+*.wav

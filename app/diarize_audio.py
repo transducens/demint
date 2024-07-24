@@ -60,7 +60,7 @@ def cut_audio_segment(audio_path, init_times, end_times, output_directory):
 
 def perform_diarization(audio_file, output_directory, device):
     # Main method to perform diarization and transcription
-    print("Diarization has started: ", audio_file)
+    print("Diarization has started:", audio_file)
 
     # Check if the wav_file exists
     if not os.path.exists(audio_file):
@@ -119,6 +119,10 @@ if __name__ == '__main__':
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Audio device: {device}")
 
-    audio_file = "assets/audios/C2_English_Conversation.wav"
-    output_directory = "cache/diarized_audios/"
-    perform_diarization(audio_file, device, output_directory)
+    # audio_file = "assets/audios/C2_English_Conversation.wav"
+    # output_directory = "cache/diarized_audios/"
+    # perform_diarization(audio_file, device, output_directory)
+
+    audio_directory = "assets/audios"
+    cache_directory = "cache/diarized_audios"
+    perform_diarization_of_directory(audio_directory, cache_directory, device)

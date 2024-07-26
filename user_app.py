@@ -31,8 +31,6 @@ user_message, chat_answer, history_chat = "", "", []
 highlighted_sentence_id = 1
 selected_speaker = "All speakers"
 
-# Testing
-visible_options = False
 
 tracemalloc.start()
 
@@ -1056,7 +1054,6 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
                     height="80vh"
                 )
                 with gr.Row(elem_id="option_buttons"):
-                    #visible_options = True
                     option1 = gr.Button(
                         value="Option 1",
                         elem_id="option1",

@@ -49,6 +49,21 @@ def process_diarizated_text(diarization_result):
     return speakers_context
 
 
+def get_diarization_grouped_by_speaker(diarization_result):
+        # Loads diarization results from a file, if it exists
+        speakers_context = {} # List of the transcripts for each speaker
+        for transcript in diarization_result:
+            parts = transcript.split("||")
+            if len(parts) > 1:
+                speaker_label, text = parts[0].split("]")[1].strip(), parts[1].strip()
+
+                if speaker_label in speakers_context:
+                    speakers_context[speaker_label] += " " + text
+                else:
+                    speakers_context[speaker_label] = text
+
+        return speakers_context
+
 
 def main():
     file_manager = FileManager()

@@ -1,15 +1,21 @@
+###################################
+## SOON TO BE DEPRECATED MODULE  ##
+###################################
+
+
 import json
 import os
 import re
 
 import torch
-import app.whisper
+import whisper
 from nltk import deprecated
 from pyannote.audio import Pipeline
 from pyannote.audio.pipelines.utils.hook import ProgressHook
 from pydub import AudioSegment
 import re
 from sentence_splitter import SentenceSplitter
+
 
 
 class AudioExtractor:
@@ -21,6 +27,7 @@ class AudioExtractor:
         self.transcription_model = None
         self.diarization_model = None
         self.whisper_model_name = whisper_model_name
+        self.audio_file = None
 
         # TODO: delete after debugging
         self.cache_files_paths = {'raw_result': 'cache/diarization_raw_result.json',
@@ -117,46 +124,6 @@ class AudioExtractor:
             os.remove(temp_segment)
 
         return groups
-    
-
-    def get_diarization_grouped_by_speaker(self, diarization_result):
-        # Loads diarization results from a file, if it exists
-        speakers_context = {} # List of the transcripts for each speaker
-        for transcript in diarization_result:
-            parts = transcript.split("||")
-            if len(parts) > 1:
-                speaker_label, text = parts[0].split("]")[1].strip(), parts[1].strip()
-
-                if speaker_label in speakers_context:
-                    speakers_context[speaker_label] += " " + text
-                else:
-                    speakers_context[speaker_label] = text
-
-        return speakers_context
-
-
-    # Given a list of diarization results
-    # Return a list of transcripts separating for time, speaker, and text
-    def process_diarizated_text(self, diarization_result):
-        print("Processing diarization results")
-        # Loads diarization results from a file, if it exists
-        speakers_context = [] # List of the transcripts for each speaker
-        sentence_splitter = SentenceSplitter(language='en')
-        for transcript in diarization_result:
-            parts = transcript.split("||")
-            if len(parts) > 1:
-                text_time, speaker_label, text = parts[0].split("]")[0].strip()[1:], parts[0].split("]")[1].strip(), parts[1].strip()
-                # Appens the time, speaker, and text to the 3D list
-                if text:
-                    for ds in sentence_splitter.split(text):
-                        ds = ds.strip()
-                        if ds:
-                            ds = ds[0].upper() + ds[1:]
-                            if ds[-1] not in ['.', '?', '!', '-', '"', "'", "(", ")"]:
-                                ds += "."
-                            speakers_context.append([text_time, speaker_label, ds])
-
-        return speakers_context
 
 
     def perform_diarization(self, wav_file):
@@ -179,19 +146,19 @@ class AudioExtractor:
             diarization = self.diarization_model(wav_file, hook=hook)
 
         # Process and merge diarization segments, then transcribe audio
-        diarization = str(diarization).splitlines()
+        #diarization = str(diarization).splitlines()
 
-        # TODO: delete after debugging
-        with open(self.cache_files_paths['raw_result'], "w", encoding="utf-8") as file:
-            json.dump(diarization, file)
-            print(f"Raw diarization data saved in the file: {self.cache_files_paths['raw_result']}")
+        # # TODO: delete after debugging
+        # with open(self.cache_files_paths['raw_result'], "w", encoding="utf-8") as file:
+        #     json.dump(diarization, file)
+        #     print(f"Raw diarization data saved in the file: {self.cache_files_paths['raw_result']}")
 
-        diarization = self.__merge_segments(diarization)
+        # diarization = self.__merge_segments(diarization)
 
-        # TODO: delete after debugging
-        with open(self.cache_files_paths['merged_result'], "w", encoding="utf-8") as file:
-            json.dump(diarization, file)
-            print(f"Raw diarization data saved in the file: {self.cache_files_paths['merged_result']}")
+        # # TODO: delete after debugging
+        # with open(self.cache_files_paths['merged_result'], "w", encoding="utf-8") as file:
+        #     json.dump(diarization, file)
+        #     print(f"Raw diarization data saved in the file: {self.cache_files_paths['merged_result']}")
 
         diarization = self.__transcribe_audio(diarization, wav_file)
 
@@ -201,3 +168,6 @@ class AudioExtractor:
         # Transcribes an entire audio file without diarization
         result = self.transcription_model.transcribe(wav_file, language="en", fp16=False, verbose=False)
         return self.__prepare_result(result)
+    
+    
+

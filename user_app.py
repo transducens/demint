@@ -28,9 +28,8 @@ default_colors = {
 }
 speaker_color = default_colors['dark blue']
 user_message, chat_answer, history_chat = "", "", []
-
-highlighted_sentence_id = 1
 selected_speaker = "All speakers"
+highlighted_sentence_id = 1
 
 
 tracemalloc.start()
@@ -408,7 +407,7 @@ def chat_with_ai(user_input, history):
         error_sentence_id = "sentence_" + str(highlighted_sentence_id)
 
     history.append((user_input, output))   # must be Tuples
-    return output, history, error_sentence_id
+    return "", history, error_sentence_id
 
     #Delete
     print("pressed")
@@ -1046,11 +1045,16 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
         with gr.Column(scale=0.7, variant="default"):
             with gr.Group():
             # lg.primary.svelte-cmf5ev
+                user_initial_message = "Hello, I am " + selected_speaker
+                welcome_message = "Hello! I am your English tutor. I will help you to learn English. Are you ready?"
                 chatbot = gr.Chatbot(
                     layout="bubble",
                     bubble_full_width=False,
                     elem_id = "chatbot",
-                    height="80vh"
+                    height="80vh",
+                    value = [(user_initial_message, welcome_message)],
+                    label = "Chatbot DeMINT",
+                    avatar_images = ("./public/user.png", "./public/logo_dark.png"),
                 )
                 with gr.Row(elem_id="option_buttons"):
                     option1 = gr.Button(
@@ -1093,8 +1097,8 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
                     )
             hidden_textbox = gr.Textbox(value="", visible=False, render=True)
 
-            submit_button.click(chat_with_ai, [txtbox, chatbot], [txtbox, chatbot, hidden_textbox], js=js_toggle_visibility)
-            txtbox.submit(chat_with_ai, [txtbox, chatbot], [txtbox, chatbot, hidden_textbox], js=js_toggle_visibility)
+            submit_button.click(chat_with_ai, [txtbox, chatbot], [txtbox, chatbot, hidden_textbox]) # js=js_toggle_visibility
+            txtbox.submit(chat_with_ai, [txtbox, chatbot], [txtbox, chatbot, hidden_textbox]) # js=js_toggle_visibility
             chatbot.change(fn=None, inputs=[hidden_textbox], js=js_autoscroll_by_id) 
 
     theme=gr.themes.Base()

@@ -264,7 +264,7 @@ def main():
                     color_map={"bien": "#36f802", "mal": "#FF0000", "neutro": "white"},),
                 theme=gr.themes.Base()
 
-    demo.launch()
+    demo.launch(share=True)
 
 
 

@@ -1,3 +1,8 @@
+################################
+##        DEPRECATED          ##
+################################
+
+
 from sentence_splitter import SentenceSplitter
 
 local = False

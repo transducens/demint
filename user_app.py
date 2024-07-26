@@ -48,10 +48,11 @@ prompt_question = [
 
 # Initialize the global variables.
 def initialize_global_variables():
-    global english_tutor, state, max_new_tokens, response, explained_sentences_speaker, id_sentence, id_error, error, chat_response, category_list, category_errors, index_category, index_error
+    global english_tutor, state, max_new_tokens, response, explained_sentences_speaker, id_sentence, id_error, error, chat_response, category_list, category_errors, index_category, index_error, count
 
     state = -1
     max_new_tokens = 200
+    count = 0
     response = chat_response = ""
 
     if english_tutor is None:
@@ -121,11 +122,10 @@ def get_speakers():
 
 # Chat with the AI using the given query.
 def chat_with_ai(user_input, history):
-    global user_message, chat_answer, history_chat, state, category_list, category_errors, index_category, index_error
-
+    global user_message, chat_answer, history_chat, highlighted_sentence_id, state, category_list, category_errors, index_category, index_error, count
+  
     user_message = user_input
     history_chat = history
-    error_sentence_id = "sentence_" + "53"  # The sentence id of the errors we are going to work with now.
 
     # temp
     """
@@ -145,14 +145,43 @@ def chat_with_ai(user_input, history):
     # temp
     if state == -1:
         category = list(category_list.keys())[index_category]
-        output = "Most frecuent error type: " + category + ". Want to practise it?"
+        output = "Most frecuent error type: " + category + ". Want to practice it?"
         state = 0
     elif state == 0:
         output = ask_error(user_input)
 
         output = output.lower()
         if output == 'yes':
-            category = list(category_list.keys())[index_category]
+            categories = list(category_list.keys())
+
+            if index_category >= len(categories):
+                state = 100
+                output = "No more error categories left to check. You have complete the class."
+            else:
+                category = categories[index_category]
+                list_tuples = category_errors[category]
+                if index_error >= len(list_tuples):
+                    index_category += 1
+                    index_error = 0
+
+                    if index_category >= len(categories):
+                        state = 100
+                        output = "No more error categories left to check. You have complete the class."
+                    else:
+                        category = categories[index_category]
+                        output = "Most frecuent error type: " + category + ". Want to practice it?"
+                        state = 0
+                else:
+                    tuple_error = list_tuples[index_error]
+                    #highlighted_sentence_id = tuple_error[0]
+                    
+                    output = select_error(tuple_error[0], tuple_error[1])
+                    chat_response = "Do you want to practice this other error?"
+                    output += f"\n\n **{chat_response}**"
+                    state = 1
+
+
+            """
             list_tuples = category_errors[category]
             tuple_error = list_tuples[index_error]
             print(list_tuples)
@@ -162,6 +191,7 @@ def chat_with_ai(user_input, history):
             output += f"\n\n **{chat_response}**"
             #output = category_errors[category][0]
             state = 1
+            """
         else:
             index_category += 1
             categories = list(category_list.keys())
@@ -171,7 +201,7 @@ def chat_with_ai(user_input, history):
                 output = "No more error categories left to check. You have complete the class."
             else:
                 category = categories[index_category]
-                output = "Most frecuent error type: " + category + ". Want to practise it?"
+                output = "Most frecuent error type: " + category + ". Want to practice it?"
     
     elif state == 1:
         output = ask_error(user_input)
@@ -196,8 +226,6 @@ def chat_with_ai(user_input, history):
             categories = list(category_list.keys())
             category = list(category_list.keys())[index_category]
             list_tuples = category_errors[category]
-            tuple_error = list_tuples[index_error]
-            print(tuple_error)
 
             if index_error >= len(list_tuples):
                 index_category += 1
@@ -207,10 +235,13 @@ def chat_with_ai(user_input, history):
                     state = 9
                     output = "No more error categories left to check. You have complete the class."
                 else:
-                    output = select_error(tuple_error[0], tuple_error[1])
-                    chat_response = "Do you want to practice this other error?"
-                    output += f"\n\n **{chat_response}**"
+                    category = categories[index_category]
+                    output = "Most frecuent error type: " + category + ". Want to practice it?"
+                    state = 0
             else:
+                tuple_error = list_tuples[index_error]
+                #highlighted_sentence_id = tuple_error[0]
+
                 output = select_error(tuple_error[0], tuple_error[1])
                 chat_response = "Do you want to practice this other error?"
                 output += f"\n\n **{chat_response}**"
@@ -270,7 +301,7 @@ def chat_with_ai(user_input, history):
             output = create_exercise()
             output += "\n\n **Complete the exercise**"
 
-            output = f"Here is an exercise in order to you to practise:\n{output}"
+            output = f"Here is an exercise in order to you to practice:\n{output}"
             state = 6
         else:
             output += "\n\n **Do you want to attempt to write the sentence correctly?**"
@@ -286,15 +317,89 @@ def chat_with_ai(user_input, history):
 
         response = response.lower()
         if response == 'yes':
+            output = "Go ahead and write down the asnwer correctly"
             state = 8
         else:
-            state = 0
+            output = "In that case, ask some of your questions and I will try to answer them"
+            state = 9
+
+        """
+        else:
+            categories = list(category_list.keys())
+            if index_category >= len(categories):
+                state = 100
+                output = "No more error categories left to check. You have complete the class."
+            else:
+                category = categories[index_category]
+                list_tuples = category_errors[category]
+                if index_error >= len(list_tuples):
+                    index_category += 1
+                    index_error = 0
+
+                    if index_category >= len(categories):
+                        state = 100
+                        output = "No more error categories left to check. You have complete the class."
+                    else:
+                        category = categories[index_category]
+                        output = "Most frecuent error type: " + category + ". Want to practice it?"
+                        state = 0
+                else:
+                    tuple_error = list_tuples[index_error]
+                    output = select_error(tuple_error[0], tuple_error[1])
+                    chat_response = "Do you want to practice this other error?"
+                    output += f"\n\n **{chat_response}**"
+                    state = 1
+        """
+
     elif state == 8:
         output = check_corrected(user_input)
-        state = 0
+        chat_response = "Now is the time to answer your questions"
+        response = f"\n\n **{chat_response}**"
+        state == 9
+
+    elif state == 9:
+        response = safe_guard(user_input)
+        response = response.lower()
+
+        if response == 'no':
+            output = "Please ask me english related questions only"
+        else:
+            output = answer_question(user_input)
+
+        if count < 5:
+            output += "\n\n **Ask a question**"
+            count += 1
+        else:
+            count = 0
+            categories = list(category_list.keys())
+            category = categories[index_category]
+            list_tuples = category_errors[category]
+
+
+            if index_error >= len(list_tuples):
+                index_category += 1
+                index_error = 0
+
+                if index_category >= len(categories):
+                    state = 100
+                    output += "No more error categories left to check. You have complete the class."
+                else:
+                    category = categories[index_category]
+                    output += "Most frecuent error type: " + category + ". Want to practice it?"
+                    state = 0
+            else:
+                tuple_error = list_tuples[index_error]
+                #highlighted_sentence_id = tuple_error[0]
+
+                output += select_error(tuple_error[0], tuple_error[1])
+                chat_response = "Do you want to practice this other error?"
+                output += f"\n\n **{chat_response}**"
+                state = 1
     else:
         output = "No more error categories left to check. You have complete the class."
     
+    error_sentence_id = "sentence_" + str(highlighted_sentence_id)
+
     history.append((user_input, output))   # must be Tuples
     return output, history, error_sentence_id
 
@@ -471,7 +576,7 @@ def create_context():
     context_str = "\n----------\n".join(content_list)
 
     context = "\n\nIncorrect Sentence:\n"
-    context += "\n\n" + errant["sentence"] + "\n"
+    context += "\n\n" + errant["original_sentence"] + "\n"
 
     context += "\n\Correct Sentence:\n"
     context += "\n\n" + errant["corrected_sentence"] + "\n"
@@ -710,6 +815,36 @@ def check_corrected(student_response):
     
     return response
 
+def answer_question(student_response):
+    context = create_context()
+
+    final_prompt = (
+        f"You are an English teacher. I want you to correct the mistakes I have made based on the following context: \n\n"
+        f"CONTEXT:\n{context}\n"
+        f"TASK:\n Based on the question I gave you, answer it in a simple way and always in the context of english teaching. If the question is not english related, you cannot help the student and you must remind the student that you are an English professor that only answers english related questions."
+        f"QUESTION:\n{student_response}. Remember you are an English teacher.\n")
+
+    response = english_tutor.get_answer(final_prompt, max_new_tokens)
+
+    return response
+
+def safe_guard(student_response):
+
+    final_prompt = (f"You are an English teacher. You are helping me learn english"
+                    f"TASK:\n I, the student, have made you a question. Determine if the question is related to the english as a learning subject. Please enclose 'yes' or 'no' in your answer in <asnwer></answer> tags.\n\n"
+                    f"ANSWER:\n{student_response}")
+
+    response = english_tutor.get_answer(final_prompt, max_new_tokens)
+    print("Respuesta: ", response)
+    
+    final_prompt = (f"Base on the following sentence:\n\n"
+                    f"SENTENCE:\n{response}"
+                    f"TASK:\n Your output must be the sentence enclosing 'yes' or 'no' words in the sentence in <asnwer></answer> tags.\n\n")
+
+    response = english_tutor.get_answer(final_prompt, max_new_tokens)
+
+    return response
+
 def list_errors():
     global error, category_list, category_errors
 
@@ -746,8 +881,10 @@ def list_errors():
     return
 
 def select_error(index_sentence = 0, index_error = 0):
-    global error
+    global error, highlighted_sentence_id
     print("selecting error")
+    print("index_sentence: ", index_sentence)
+    print("explained_sentences_speaker.values()", list(explained_sentences_speaker.values()))
     #explained_sentences_speaker = cl.user_session.get("explained_sentences_speaker")
     
     #id_sentence = cl.user_session.get("id_sentence")
@@ -757,7 +894,9 @@ def select_error(index_sentence = 0, index_error = 0):
     errors_speaker = list(explained_sentences_speaker.values())
     error = errors_speaker[index_sentence]['errant'][index_error]
 
-    original_sentence = error["sentence"]
+    highlighted_sentence_id = list(explained_sentences_speaker.items())[index_sentence][0]
+    
+    original_sentence = error["original_sentence"]
     corrected_sentence = error["corrected_sentence"]
 
     def highlight_word_in_sentence(sentence, start_idx, end_idx, highlight_text):

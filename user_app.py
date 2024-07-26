@@ -28,6 +28,7 @@ default_colors = {
 }
 speaker_color = default_colors['dark blue']
 user_message, chat_answer, history_chat = "", "", []
+
 highlighted_sentence_id = 1
 selected_speaker = "All speakers"
 
@@ -124,12 +125,7 @@ def get_speakers():
 # Chat with the AI using the given query.
 def chat_with_ai(user_input, history):
     global user_message, chat_answer, history_chat, highlighted_sentence_id, state, category_list, category_errors, index_category, index_error, count
-    
-    # Testing vvvvvvvvv
-    global visible_options
-    visible_options = not visible_options
-    # Testing ^^^^^^^^^
-
+  
     user_message = user_input
     history_chat = history
     #highlighted_sentence_id = user_input

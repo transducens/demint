@@ -8,7 +8,7 @@ import os
 import re
 
 import torch
-import whisper
+import app.whisper
 from nltk import deprecated
 from pyannote.audio import Pipeline
 from pyannote.audio.pipelines.utils.hook import ProgressHook

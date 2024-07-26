@@ -28,7 +28,7 @@ default_colors = {
 }
 speaker_color = default_colors['dark blue']
 user_message, chat_answer, history_chat = "", "", []
-highlighted_sentence_id = ""
+highlighted_sentence_id = 1
 selected_speaker = "All speakers"
 
 # Testing
@@ -135,7 +135,7 @@ def chat_with_ai(user_input, history):
     user_message = user_input
     history_chat = history
     #highlighted_sentence_id = user_input
-    error_sentence_id = "sentence_" + "53"  # The sentence id of the errors we are going to work with now.
+    #error_sentence_id = "sentence_" + str(highlighted_sentence_id)  # The sentence id of the errors we are going to work with now.
 
     # temp
     """
@@ -183,6 +183,8 @@ def chat_with_ai(user_input, history):
                         state = 0
                 else:
                     tuple_error = list_tuples[index_error]
+                    #highlighted_sentence_id = tuple_error[0]
+                    
                     output = select_error(tuple_error[0], tuple_error[1])
                     chat_response = "Do you want to practice this other error?"
                     output += f"\n\n **{chat_response}**"
@@ -248,6 +250,8 @@ def chat_with_ai(user_input, history):
                     state = 0
             else:
                 tuple_error = list_tuples[index_error]
+                #highlighted_sentence_id = tuple_error[0]
+
                 output = select_error(tuple_error[0], tuple_error[1])
                 chat_response = "Do you want to practice this other error?"
                 output += f"\n\n **{chat_response}**"
@@ -360,7 +364,7 @@ def chat_with_ai(user_input, history):
     elif state == 8:
         output = check_corrected(user_input)
         chat_response = "Now is the time to answer your questions"
-        response += f"\n\n **{chat_response}**"
+        response = f"\n\n **{chat_response}**"
         state == 9
 
     elif state == 9:
@@ -395,6 +399,8 @@ def chat_with_ai(user_input, history):
                     state = 0
             else:
                 tuple_error = list_tuples[index_error]
+                #highlighted_sentence_id = tuple_error[0]
+
                 output += select_error(tuple_error[0], tuple_error[1])
                 chat_response = "Do you want to practice this other error?"
                 output += f"\n\n **{chat_response}**"
@@ -402,6 +408,8 @@ def chat_with_ai(user_input, history):
     else:
         output = "No more error categories left to check. You have complete the class."
     
+    error_sentence_id = "sentence_" + str(highlighted_sentence_id)
+
     history.append((user_input, output))   # must be Tuples
     return output, history, error_sentence_id
 
@@ -823,8 +831,8 @@ def answer_question(student_response):
     final_prompt = (
         f"You are an English teacher. I want you to correct the mistakes I have made based on the following context: \n\n"
         f"CONTEXT:\n{context}\n"
-        f"TASK:\n Based on the question I gave you, answer it in a simple way and always in the context of english teaching. If the question is not english related, remind the student taht you are an English professor that only answers english related questions."
-        f"QUESTION:\n{student_response}\n")
+        f"TASK:\n Based on the question I gave you, answer it in a simple way and always in the context of english teaching. If the question is not english related, you cannot help the student and you must remind the student that you are an English professor that only answers english related questions."
+        f"QUESTION:\n{student_response}. Remember you are an English teacher.\n")
 
     response = english_tutor.get_answer(final_prompt, max_new_tokens)
 
@@ -883,8 +891,10 @@ def list_errors():
     return
 
 def select_error(index_sentence = 0, index_error = 0):
-    global error
+    global error, highlighted_sentence_id
     print("selecting error")
+    print("index_sentence: ", index_sentence)
+    print("explained_sentences_speaker.values()", list(explained_sentences_speaker.values()))
     #explained_sentences_speaker = cl.user_session.get("explained_sentences_speaker")
     
     #id_sentence = cl.user_session.get("id_sentence")
@@ -893,6 +903,8 @@ def select_error(index_sentence = 0, index_error = 0):
     #errors_speaker = explained_sentences_speaker.items()
     errors_speaker = list(explained_sentences_speaker.values())
     error = errors_speaker[index_sentence]['errant'][index_error]
+
+    highlighted_sentence_id = list(explained_sentences_speaker.items())[index_sentence][0]
     
     original_sentence = error["original_sentence"]
     corrected_sentence = error["corrected_sentence"]

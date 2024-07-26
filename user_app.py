@@ -402,7 +402,10 @@ def chat_with_ai(user_input, history):
     else:
         output = "No more error categories left to check. You have complete the class."
     
-    error_sentence_id = "sentence_" + str(highlighted_sentence_id)
+    if highlighted_sentence_id == 1:
+        error_sentence_id = ""
+    else:
+        error_sentence_id = "sentence_" + str(highlighted_sentence_id)
 
     history.append((user_input, output))   # must be Tuples
     return output, history, error_sentence_id

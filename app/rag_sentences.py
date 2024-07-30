@@ -7,17 +7,17 @@ import app.explain_sentences as explain_sentences
 from app.rag.RAGFactory import RAGFactory
 
 
-input_file = "./cache/explained_sentences.json"
-output_file = "./cache/rag_sentences.json"
+input_directory = "./cache/explained_sentences"
+output_directory = "./cache/rag_sentences"
 
 
-def rag_sentences(file_manager, rag_engine, rag_passages=1):
-    if not os.path.isfile(input_file):
-        print(f"{input_file} is not found.")
-        print(f"Processing {input_file}")
+def rag_sentences(file_manager, rag_engine, rag_passages=1, input_path="", output_path=""):
+    if not os.path.isfile(input_path):
+        print(f"{input_path} is not found.")
+        print(f"Processing {input_path}")
         explain_sentences.main()
         
-    explained_sentences = file_manager.read_from_json_file(input_file)
+    explained_sentences = file_manager.read_from_json_file(input_path)
 
     for id in explained_sentences.keys():
         print("Processing sentence: ", id)
@@ -39,17 +39,53 @@ def rag_sentences(file_manager, rag_engine, rag_passages=1):
         explained_sentences[id]['errant'] = errant_annotation_list
 
 
-    file_manager.save_to_json_file(output_file, explained_sentences)
+    file_manager.save_to_json_file(output_path, explained_sentences)
 
     return explained_sentences
 
 
+def rag_sentences_of_directory(
+        file_manager: FileManager,
+        rag_engine: RAGFactory,
+        rag_passages=5,
+        explained_sentences_directory = "cache/explained_sentences", 
+        rag_sentences_directory = "cache/rag_sentences", 
+    ):
+    # Loop through the files in the directory
+    for explained_sentences_file in os.listdir(explained_sentences_directory):
+        if explained_sentences_file[0] == ".":
+            continue
+
+        explained_sentences_path = os.path.join(explained_sentences_directory, explained_sentences_file)
+        rag_sentences_path = os.path.join(rag_sentences_directory, explained_sentences_file)
+
+        # Check if it's a file (not a directory)
+        if os.path.isfile(explained_sentences_path):
+            print(f"Found diarized transcript file: {explained_sentences_path}")
+
+            rag_sentences(
+                file_manager,
+                rag_engine,
+                rag_passages, 
+                explained_sentences_path, 
+                rag_sentences_path)
+
 def main():
+    global input_directory, output_directory
     file_manager = FileManager()
     rag_engine = RAGFactory.get_instance("ragatouille")
-    rag_sentences(file_manager, rag_engine, rag_passages=5)
+
+    rag_sentences_of_directory(
+        file_manager, 
+        rag_engine, 
+        rag_passages=5, 
+        explained_sentences_directory=input_directory, 
+        rag_sentences_directory=output_directory)
+    
+    # Clean GPU VRAM
     if torch.cuda.is_available():
             torch.cuda.empty_cache()
+
 
 if __name__ == '__main__':
     start_time = time.time()

@@ -1,77 +1,88 @@
 import os
-import requests
-import pytube as yt
-from subprocess import call
-import platform
+import argparse
+from yt_dlp import YoutubeDL
 
-class AudioDownloader:
+class AudioDownloaderYTDLP:
     def __init__(self):
-        # Set the path to the FFmpeg binaries
-        self.ffmpeg_path = "./ffmpeg/bin"
-        self.ffmpeg_v_name = "ffmpeg-master-latest-win64-gpl"
+        self.video_url = ""
+        self.output_directory = "./assets/audios"
+        self.output_filename = ""
 
-    def __download_ffmpeg(self):
-        try:
-            call(["7z", "--help"])
-        except FileNotFoundError:
-            print("7z is not found")
+    def download_audio(self, video_url="", output_filename=""):
+        if video_url != "":
+            video_url = video_url
+        elif self.video_url != "":
+            video_url = self.video_url
+        else:
+            print("No video URL provided.")
+            return
+        output_filename = output_filename if output_filename != "" else self.output_filename
+             
+        print(f"Downloading VIDEO... {video_url}")
 
-        try:
-            # Try to call FFmpeg to check if it is installed
-            call(["ffmpeg", "-version"])
-            return False
-        except FileNotFoundError:
-            # If FFmpeg is not found, print a message indicating it needs to be downloaded
-            print("FFmpeg globally is not found, attempting to download locally...")
-
-            # Check if FFmpeg is already installed by trying to call its version
-            try:
-                call([os.path.join(self.ffmpeg_path, self.ffmpeg_v_name + "/bin/ffmpeg.exe"), "-version"])
-                print("FFmpeg is already installed.")
-                return True
-            except FileNotFoundError:
-                print("Downloading FFmpeg...")
-                # Download FFmpeg from the GitHub releases
-                url = f"https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/{self.ffmpeg_v_name}.zip"
-                response = requests.get(url, stream=True)
-                zip_path = "ffmpeg.zip"
-
-                # Save the downloaded zip file
-                with open(zip_path, "wb") as file:
-                    for chunk in response.iter_content(chunk_size=128):
-                        file.write(chunk)
-
-                # Use 7z to unpack the zip file
-                call(["7z", "x", zip_path, f"-o{self.ffmpeg_path}"])
-                # Remove the zip file after unpacking
-                os.remove(zip_path)
-                print("FFmpeg downloaded and installed.")
-                return True
-
-    def download_audio(self, video_url, output_filename="audio/extracted_audio.wav"):
-        print(f"Downloading AUDIO... {video_url}")
-
-        # Use pytube(yt) to download audio from the given URL
-        yt_handler =  yt.YouTube(video_url)
-        # Get the best audio stream
-        audio_stream = yt_handler.streams.filter(only_audio=True).first()
-        # Download the audio
-        audio_stream.download(filename=output_filename)
-        print(f"Audio saved as {output_filename}")
+        ydl_opts = {
+            'format': 'm4a/bestaudio/best', # Best quality audio
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',  # Extract audio using FFmpeg
+                'preferredcodec': 'wav', # Convert audio to mp3
+            }],
+            'outtmpl': output_filename + '.%(ext)s',  # Output file name and path
+        }
+        with YoutubeDL(ydl_opts) as ydl:
+            ydl.download([video_url])
 
     # Use pytube(yt) to get information about the video from the given URL
-    def get_video_info(self, video_url):
-            yt_handler = yt.YouTube(video_url)
-            # Extract the video information
-            # Create a dictionary to store video information
-            video_info = {
-                "title": yt_handler.title,
-                "author": yt_handler.author,
-                "duration": yt_handler.length,
-                "thumbnail_url": yt_handler.thumbnail_url,
-                "description": yt_handler.description,
-                "views": yt_handler.views,
-                "publish_date": yt_handler.publish_date
-            }
+    def get_audio_info(self, video_url=""):
+        if video_url != "":
+            video_url = video_url
+        elif self.video_url != "":
+            video_url = self.video_url
+        else:
+            print("No video URL provided.")
+            return
+        
+        ydl_opts = {
+            'format': 'best',  # Best quality video and audio
+        }
+        info = {}
+        with YoutubeDL(ydl_opts) as ydl:
+            info = ydl.extract_info(video_url, download=False)
 
-            return video_info
+        # Extract the video information
+        # Create a dictionary to store video information
+        video_info = {
+            "title": info['title'],
+            "author": info['channel'],
+            "extension": info['ext'],
+            "duration": info['duration'],
+            "description": info['description'],
+            "views": info['view_count'],
+            "publish_date": info['upload_date']
+        }
+
+        return video_info
+
+
+def main(url:str, name:str):
+    video_downloader = AudioDownloaderYTDLP()
+    #video_downloader.video_url = "https://youtu.be/_Bx_x-gvLw0?si=y2Bi5cw6CizEd5Oa"
+    video_downloader.video_url = url
+    audio_info = video_downloader.get_audio_info()
+    print(audio_info)
+    name = name if name else audio_info['title']
+    video_downloader.output_filename = os.path.join(video_downloader.output_directory, name)
+    print("The path is:", video_downloader.output_filename)
+    video_downloader.download_audio()
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Description of your script")
+
+    parser.add_argument("-u", "--url", type=str, help="URL of the video to download", required=True)
+    parser.add_argument("-n", "--name", type=str, help="Name set to the downloaded video file", required=False)
+    args = parser.parse_args()
+
+    url = args.url
+    name = args.name if args.name else ""
+    
+    main(url, name)

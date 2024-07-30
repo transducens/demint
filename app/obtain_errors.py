@@ -6,25 +6,25 @@ import app.prepare_sentences as prepare_sentences
 from app.grammar_checker import GrammarChecker
 
 
-input_file="./cache/raw_sorted_sentence_collection.json"
-output_files = {
-    'errant_all_errors':                './cache/errant_all_evaluation.json',
-    'errant_detailed_errors':           './cache/errant_detailed_evaluation.json',
-    'errant_corrected_errors':          './cache/errant_corrected_evaluation.json',
-    'errant_simple_errors':             './cache/errant_simple_evaluation.json',       
+input_directory = "./cache/raw_sorted_sentence_collection"
+output_directories = {
+    'errant_all_errors':                './cache/errant_all_evaluation',
+    'errant_detailed_errors':           './cache/errant_detailed_evaluation',
+    'errant_corrected_errors':          './cache/errant_corrected_evaluation',
+    'errant_simple_errors':             './cache/errant_simple_evaluation',       
 }
 
 
 # TODO add the other formats
-def obtain_errors(file_manager, grammar_checker_t5, lang='en'):
-    if not os.path.isfile(input_file):
-        print(f"{input_file} is not found.")
-        print(f"Processing {input_file}")
+def obtain_errors(file_manager, grammar_checker_t5, lang='en', input_path="", output_path=""):
+    if not os.path.isfile(input_path):
+        print(f"{input_path} is not found.")
+        print(f"Processing {input_path}")
         prepare_sentences.main()
 
-    raw_sentence_collection = file_manager.read_from_json_file(input_file)
+    raw_sentence_collection = file_manager.read_from_json_file(input_path)
     if raw_sentence_collection is None:
-        print(f"Error: {input_file} not found.")
+        print(f"Error: {input_path} not found.")
         return None
     
     annotator = errant.load(lang)
@@ -80,16 +80,48 @@ def obtain_errors(file_manager, grammar_checker_t5, lang='en'):
         #    'errant': error_description_list,
         #}
 
-    file_manager.save_to_json_file(output_files['errant_all_errors'], all_errors)
+    file_manager.save_to_json_file(output_path, all_errors)
 
     return all_errors, detailed_errors, corrected_errors, simple_errors
 
+def obtain_errors_of_directory(
+        file_manager: FileManager,
+        grammar_checker_t5: GrammarChecker,
+        lang='en',
+        sentence_collection_directory="cache/raw_sorted_sentence_collection", 
+        errant_directory="cache/errant_all_evaluation", 
+    ):
+    # Loop through the files in the directory
+    for sentence_collection_file in os.listdir(sentence_collection_directory):
+        if sentence_collection_file[0] == ".":
+            continue
+
+        sentence_collection_path = os.path.join(sentence_collection_directory, sentence_collection_file)
+        errant_evaluation_path = os.path.join(errant_directory, sentence_collection_file)
+
+        # Check if it's a file (not a directory)
+        if os.path.isfile(sentence_collection_path):
+            print(f"Found diarized transcript file: {sentence_collection_path}")
+
+            obtain_errors(
+                file_manager, 
+                grammar_checker_t5, 
+                'en', 
+                sentence_collection_path, 
+                errant_evaluation_path)
+
 
 def main():
+    global input_directory, output_directories
     file_manager = FileManager()
     grammar_checker_t5 = GrammarChecker(gec_model="T5")
 
-    obtain_errors(file_manager, grammar_checker_t5)
+    obtain_errors_of_directory(
+        file_manager, 
+        grammar_checker_t5, 
+        'en', 
+        input_directory, 
+        output_directories['errant_all_errors'])
 
 
 if __name__ == '__main__':

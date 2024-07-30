@@ -6,17 +6,17 @@ import app.obtain_errors as obtain_errors
 from app.llm.ChatFactory import ChatFactory
 
 
-input_file = "./cache/errant_all_evaluation.json"
-output_file = "./cache/explained_sentences.json"
+input_directory = "./cache/errant_all_evaluation"
+output_directory = "./cache/explained_sentences"
 
 
-def explain_sentences(file_manager, chat_llm, grammar_checker_lt, lang='en'):
-    if not os.path.isfile(input_file):
-        print(f"{input_file} is not found.")
-        print(f"Processing {input_file}")
+def explain_sentences(file_manager, chat_llm, grammar_checker_lt, lang='en', input_path="", output_path=""):
+    if not os.path.isfile(input_path):
+        print(f"{input_path} is not found.")
+        print(f"Processing {input_path}")
         obtain_errors.main()
 
-    errant_all_evaluation = file_manager.read_from_json_file(input_file)
+    errant_all_evaluation = file_manager.read_from_json_file(input_path)
     explained_sentences = {}
     last_index = -1
 
@@ -83,18 +83,54 @@ def explain_sentences(file_manager, chat_llm, grammar_checker_lt, lang='en'):
 
         last_index = index
 
-    file_manager.save_to_json_file(output_file, explained_sentences)
+    file_manager.save_to_json_file(output_path, explained_sentences)
 
     chat_llm.unload_model()
     return explained_sentences
 
+def explain_sentences_of_directory(
+        file_manager: FileManager,
+        llm: ChatFactory,
+        grammar_checker_lt: GrammarChecker,
+        lang='en',
+        errant_directory = "cache/errant_all_evaluation", 
+        explained_sentences_directory = "cache/explained_sentences", 
+    ):
+    # Loop through the files in the directory
+    for errant_evaluation_file in os.listdir(errant_directory):
+        if errant_evaluation_file[0] == ".":
+            continue
+
+        errant_evaluation_path = os.path.join(errant_directory, errant_evaluation_file)
+        explained_sentences_path = os.path.join(explained_sentences_directory, errant_evaluation_file)
+
+        # Check if it's a file (not a directory)
+        if os.path.isfile(errant_evaluation_path):
+            print(f"Found diarized transcript file: {errant_evaluation_path}")
+
+            explain_sentences(
+                file_manager,
+                llm,
+                grammar_checker_lt, 
+                'en', 
+                errant_evaluation_path, 
+                explained_sentences_path)
+
 
 def main():
+    global input_directory, output_directory
     file_manager = FileManager()
     grammar_checker_lt = GrammarChecker("LT_API")
     llm_modelId = "google/gemma-1.1-7b-it"  # "google/gemma-1.1-2b-it"
     llm = ChatFactory.get_instance(llm_modelId)
-    explain_sentences(file_manager, llm, grammar_checker_lt, lang='en')
+
+    explain_sentences_of_directory(
+        file_manager, 
+        llm, 
+        grammar_checker_lt, 
+        'en', 
+        input_directory, 
+        output_directory)
 
 
 if __name__ == '__main__':

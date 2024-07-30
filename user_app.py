@@ -551,6 +551,8 @@ def clean_cache():
 def get_arguments_env():
     global selected_speaker
     arg_speaker = os.getenv("GRADIO_SPEAKER", "All speakers")
+    arg_speaker = os.getenv("GRADIO_PORT", "8000")
+    arg_speaker = os.getenv("GRADIO_CONVER", "diarization_result")
     selected_speaker = arg_speaker or selected_speaker
 
 # Gets the arguments from the command line.
@@ -563,9 +565,14 @@ def get_arguments():
     parser.add_argument("--port", type=str, default="All speakers", help="The port in which the server will run")
     
     args = parser.parse_args()
-    selected_speaker = args.speaker
-    selected_transcription = args.conver
-    selected_port = args.port
+
+    arguments = {
+        "speaker": args.speaker,
+        "conver": args.conver,
+        "port": args.port
+    }
+
+    return arguments
 
 def create_context():
     global error

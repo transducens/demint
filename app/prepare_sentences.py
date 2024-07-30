@@ -1,19 +1,28 @@
 # Thirdy party imports
 import errant
 from sentence_splitter import SentenceSplitter
+import os
 
 from app.file_manager import FileManager
 
 
-input_file = "./cache/diarization_result.json"
-output_file = "./cache/raw_sorted_sentence_collection.json"
+input_directory = "./cache/diarized_transcripts"
+output_directory = "./cache/raw_sorted_sentence_collection"
 
 
-def prepare_sorted_sentence_collection(file_manager, speaker_context: list):
+def prepare_sorted_sentence_collection(file_manager, input_path, output_path):
     raw_sentence_collection = {}
     index = 1
     print("Creating sorted sentence collection ...")
-    for line in speaker_context:    # 0 time, 1 speaker, 2 sentence
+    
+    diarization = file_manager.read_from_json_file(input_path)
+    if diarization is None:
+        print(f"{input_path} is not found.")
+        print(f"Processing {input_path}")
+        return
+    speakers_context = process_diarizated_text(diarization)
+    
+    for line in speakers_context:    # 0 time, 1 speaker, 2 sentence
         raw_sentence_collection[index] = {
             'time': line[0],
             'speaker': line[1],
@@ -21,7 +30,7 @@ def prepare_sorted_sentence_collection(file_manager, speaker_context: list):
         }
         index += 1
 
-    file_manager.save_to_json_file(output_file, raw_sentence_collection)
+    file_manager.save_to_json_file(output_path, raw_sentence_collection)
 
     return raw_sentence_collection
 
@@ -65,16 +74,31 @@ def get_diarization_grouped_by_speaker(diarization_result):
         return speakers_context
 
 
+def prepare_sentences_collection_of_directory(
+        file_manager: FileManager,
+        diarized_directory="cache/diarized_transcripts", 
+        sentence_collection_directory="cache/raw_sorted_sentence_collection", 
+    ):
+    # Loop through the files in the directory
+    for diarized_transcript_file in os.listdir(diarized_directory):
+        if diarized_transcript_file[0] == ".":
+            continue
+
+        diarized_transcript_path = os.path.join(diarized_directory, diarized_transcript_file)
+        sentence_collection_path = os.path.join(sentence_collection_directory, diarized_transcript_file)
+
+        # Check if it's a file (not a directory)
+        if os.path.isfile(diarized_transcript_path):
+            print(f"Found diarized transcript file: {diarized_transcript_path}")
+
+            prepare_sorted_sentence_collection(file_manager, diarized_transcript_path, sentence_collection_path)
+
+
 def main():
+    global input_directory, output_directory
     file_manager = FileManager()
 
-    diarization = file_manager.read_from_json_file(input_file)
-    if diarization is None:
-        print(f"{input_file} is not found.")
-        print(f"Processing {input_file}")
-        return
-    speakers_context = process_diarizated_text(diarization)
-    prepare_sorted_sentence_collection(file_manager, speakers_context)
+    prepare_sentences_collection_of_directory(file_manager, input_directory, output_directory)
     print("Raw Sorted Sentence Collection is created...")
 
 

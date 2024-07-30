@@ -863,6 +863,11 @@ def list_errors():
         index = index_sentence
         y = xx['errant']
         id_error = 0
+
+        print(selected_speaker)
+
+        if xx['speaker'] != selected_speaker and selected_speaker != "All speakers":
+            continue
         
         while id_error < len(y):
             value = category_list.get(y[id_error]['error_type'], 0)

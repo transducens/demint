@@ -1,4 +1,5 @@
 accelerate==0.31.0
+bitsandbytes==0.43.1
 chainlit==1.1.202
 datasets==2.19.2
 errant==3.0.0
@@ -31,6 +32,6 @@ transformers==4.41.2
 fitz==0.0.1.dev2
 frontend==0.0.3
 pymupdf==1.24.5
-bitsandbytes==0.43.1
+yt_dlp
 whisper-openai
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1.tar.gz

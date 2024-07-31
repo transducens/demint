@@ -31,6 +31,12 @@ body {
 .option_button{
     display: flex;
 }
+.speaker_name{
+    background-color: #31363e;
+}
+.selected_speaker_name{
+    background-color: #00008B;
+}
 #chatbot {
     display: flex;
     background-color: #1f2937;
@@ -50,3 +56,4 @@ body {
     visibility: collapse; /* visible / collapse */
     display: none;
 }
+

@@ -28,9 +28,8 @@ default_colors = {
 }
 speaker_color = default_colors['dark blue']
 user_message, chat_answer, history_chat = "", "", []
-
-highlighted_sentence_id = 1
 selected_speaker = "All speakers"
+highlighted_sentence_id = 1
 
 
 tracemalloc.start()
@@ -408,7 +407,7 @@ def chat_with_ai(user_input, history):
         error_sentence_id = "sentence_" + str(highlighted_sentence_id)
 
     history.append((user_input, output))   # must be Tuples
-    return output, history, error_sentence_id
+    return "", history, error_sentence_id
 
     #Delete
     print("pressed")
@@ -446,23 +445,6 @@ def chat_with_ai(user_input, history):
         output += sentence
     return output
 
-# TODO maybe not necessary. If it is, then move to another file and use here only the function.
-def get_video(video_url):
-    global english_tutor, speakers_context
-    clean_cache()
-
-    info_dict = english_tutor.get_video_info(video_url)
-    video_title = info_dict.get('title', None)
-    print("Title: " + video_title)
-
-    english_tutor.download_audio(video_url)
-
-    # Get the speakers' context from the video.
-    # A list of speakers and their transcripts from the audio file.
-    # At the moment the value is a default text.
-    speakers_context = english_tutor.get_speakers_context()
-
-    return f"Video info: {video_title}"
 
 # Given a text and the word to highlight, it returns the text with the word highlighted.
 def highlight_errors_in_text(text, words=[], word_indexes=[], font_color="#FFFFFF", background_color="#FF0000"):
@@ -518,7 +500,7 @@ def build_transcript(speaker_name: str):
                 # Label each line and print it
                 text_to_show += (
                     '<a id="sentence_' + index + '">'
-                    + value['speaker'] + " " 
+                    + '<span class="speaker_name"> ' + value['speaker'] + " </span> " 
                     + value['original_sentence'] + "\n\n"
                     + "</a>"
                 )
@@ -530,7 +512,7 @@ def build_transcript(speaker_name: str):
                     # Highlight the lines of the selected speaker
                     text_to_show += highlight_text(text=(
                             '<a id="sentence_' + index + '">'
-                            + value['speaker'] + " " 
+                            + '<span class="selected_speaker_name"> ' + value['speaker'] + " </span> " 
                             + value['original_sentence'] + "</a>"),
                             background_color=speaker_color
                         ) + "\n\n"
@@ -538,7 +520,7 @@ def build_transcript(speaker_name: str):
                     # Label each line and print it
                     text_to_show += (
                     '<a id="sentence_' + index + '">'
-                    + value['speaker'] + " " 
+                    + '<span class="speaker_name"> ' + value['speaker'] + " </span> " 
                     + value['original_sentence'] + "\n\n"
                     + "</a>"
                 )
@@ -570,6 +552,20 @@ def get_arguments_env():
     global selected_speaker
     arg_speaker = os.getenv("GRADIO_SPEAKER", "All speakers")
     selected_speaker = arg_speaker or selected_speaker
+
+# Gets the arguments from the command line.
+def get_arguments():
+    global selected_speaker
+    parser = argparse.ArgumentParser(description="English Tutor")
+
+    parser.add_argument("--speaker", type=str, default="All speakers", help="The speaker to show in the transcript")
+    parser.add_argument("--conver", type=str, default="All speakers", help="The transcripted conversation to show")
+    parser.add_argument("--port", type=str, default="All speakers", help="The port in which the server will run")
+    
+    args = parser.parse_args()
+    selected_speaker = args.speaker
+    selected_transcription = args.conver
+    selected_port = args.port
 
 def create_context():
     global error
@@ -1051,11 +1047,16 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
         with gr.Column(scale=0.7, variant="default"):
             with gr.Group():
             # lg.primary.svelte-cmf5ev
+                user_initial_message = "Hello, I am " + selected_speaker
+                welcome_message = "Hello! I am your English tutor. I will help you to learn English. Are you ready?"
                 chatbot = gr.Chatbot(
                     layout="bubble",
                     bubble_full_width=False,
                     elem_id = "chatbot",
-                    height="80vh"
+                    height="80vh",
+                    value = [(user_initial_message, welcome_message)],
+                    label = "Chatbot DeMINT",
+                    avatar_images = ("./public/user.png", "./public/logo_dark.png"),
                 )
                 with gr.Row(elem_id="option_buttons"):
                     option1 = gr.Button(
@@ -1098,17 +1099,16 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
                     )
             hidden_textbox = gr.Textbox(value="", visible=False, render=True)
 
-            submit_button.click(chat_with_ai, [txtbox, chatbot], [txtbox, chatbot, hidden_textbox], js=js_toggle_visibility)
-            txtbox.submit(chat_with_ai, [txtbox, chatbot], [txtbox, chatbot, hidden_textbox], js=js_toggle_visibility)
+            submit_button.click(chat_with_ai, [txtbox, chatbot], [txtbox, chatbot, hidden_textbox]) # js=js_toggle_visibility
+            txtbox.submit(chat_with_ai, [txtbox, chatbot], [txtbox, chatbot, hidden_textbox]) # js=js_toggle_visibility
             chatbot.change(fn=None, inputs=[hidden_textbox], js=js_autoscroll_by_id) 
 
     theme=gr.themes.Base()
 
 
 if __name__ == '__main__':
-    is_public_link = False
+    is_public_link = True
     demo.launch(
         share=is_public_link,
         server_name="localhost",
-        server_port=8001,
         )

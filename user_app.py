@@ -29,12 +29,12 @@ default_colors = {
 speaker_color = default_colors['dark blue']
 user_message, chat_answer, history_chat = "", "", []
 highlighted_sentence_id = 1
+new_conversation = True
 
 # Arguments
 log_conversation = True
-new_conversation = True
 conversation_name = ""
-port = "8000"
+port = 7860
 selected_speaker = "All speakers"
 
 
@@ -55,7 +55,9 @@ prompt_question = [
 
 # Initialize the global variables.
 def initialize_global_variables():
-    global english_tutor, state, max_new_tokens, response, explained_sentences_speaker, id_sentence, id_error, error, chat_response, category_list, category_errors, index_category, index_error, count
+    global english_tutor, state, max_new_tokens, response, explained_sentences_speaker 
+    global id_sentence, id_error, error, chat_response, category_list, category_errors
+    global index_category, index_error, count, selected_speaker
 
     state = -1
     max_new_tokens = 200
@@ -69,6 +71,9 @@ def initialize_global_variables():
         print("*" * 50)
 
     load_data() # Load the data from the cache files
+
+    if selected_speaker != "All speakers" and selected_speaker not in speakers:
+        raise ValueError(f"The speaker '{selected_speaker}' is not in the list of speakers.")
 
     explained_sentences_speaker = get_explained_sentences_speaker(explained_sentences, "All speakers")
     id_sentence = id_error = 0
@@ -92,12 +97,12 @@ def get_explained_sentences_speaker(explained_sentences, speaker:str):
 
 # Load the data from the cache files. If the cache files are not found, then create them.
 def load_data():
-    global sentences_collection, explained_sentences, speakers
+    global sentences_collection, explained_sentences, speakers, conversation_name
     start_load = time.time()
     file_manager = FileManager()
     input_files = {
-        'sentences_collection': "cache/raw_sorted_sentence_collection.json",
-        'explained_sentences': "cache/rag_sentences.json",
+        'sentences_collection': f"cache/raw_sorted_sentence_collection/{conversation_name}.json",
+        'explained_sentences': f"cache/rag_sentences/{conversation_name}.json",
     }
     
     if (not os.path.isfile(input_files['sentences_collection']) 
@@ -416,7 +421,7 @@ def chat_with_ai(user_input, history):
     history.append((user_input, output))   # must be Tuples
     
     if log_conversation:
-        log_conversation(user_input, output)
+        log_conversation_item(user_input, output)
 
 
     return "", history, error_sentence_id
@@ -458,7 +463,7 @@ def chat_with_ai(user_input, history):
     return output
 
 
-def log_conversation(user_input, bot_response):
+def log_conversation_item(user_input, bot_response):
     global new_conversation
     file_manager = FileManager()
     filename = f"log/conversation_{conversation_name}_{selected_speaker}.json"
@@ -594,23 +599,29 @@ def get_arguments_env():
 
 # Gets the arguments from the command line.
 def get_arguments():
-    global selected_speaker
+    global log_conversation, selected_speaker, conversation_name, port
     parser = argparse.ArgumentParser(description="English Tutor")
 
+    parser.add_argument("--conver", required=True, type=str, help="The transcripted conversation to show. Default is diarization_result")
     parser.add_argument("--speaker", type=str, default="All speakers", help="The speaker to show in the transcript. Default is All speakers.")
-    parser.add_argument("--conver", type=str, default="diarization_result", help="The transcripted conversation to show. Default is diarization_result")
-    parser.add_argument("--port", type=str, default="8000", help="The port in which the server will run. Default is 8000")
-    parser.add_argument("--log", type=str, default="1", help="If 1, then log the conversation. If 0, then do not log the conversation. Default is 1.")
+    parser.add_argument("--port", type=int, default=7860, help="The port in which the server will run. Default is 8000")
+    parser.add_argument("--no_log", action="store_true", help="If the flag is called, the chatbot conversation will not be logged. Default is False.")
 
     args = parser.parse_args()
 
-    arguments = {
-        "speaker": args.speaker,
-        "conver": args.conver,
-        "port": args.port
-    }
+    port = args.port
+    conversation_name = args.conver
+    log_conversation = not args.no_log
+    selected_speaker = args.speaker
 
-    return arguments
+    # arguments = {
+    #     "speaker": args.speaker,
+    #     "conver": args.conver,
+    #     "port": args.port,
+    #     "log": args.log
+    # }
+
+    # return arguments
 
 def create_context():
     global error
@@ -1056,7 +1067,8 @@ js_toggle_visibility = "(msg, hist, htxt) => {js_toggle_visibility(); return [ms
 print("Version of gradio: " + gr.__version__)
 # Create the Gradio interface.
 with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=head_html) as demo:
-    get_arguments_env()
+    print("Creating the interface")
+    get_arguments()
     initialize_global_variables()
     print("*" * 50)
     print("Selected speaker: ", selected_speaker)
@@ -1147,8 +1159,10 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
 
 
 if __name__ == '__main__':
+    print("Launching the interface")
     is_public_link = True
     demo.launch(
         share=is_public_link,
         server_name="localhost",
+        server_port=port,
         )

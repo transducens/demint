@@ -28,8 +28,14 @@ default_colors = {
 }
 speaker_color = default_colors['dark blue']
 user_message, chat_answer, history_chat = "", "", []
-selected_speaker = "All speakers"
 highlighted_sentence_id = 1
+
+# Arguments
+log_conversation = True
+new_conversation = True
+conversation_name = ""
+port = "8000"
+selected_speaker = "All speakers"
 
 
 tracemalloc.start()
@@ -123,7 +129,8 @@ def get_speakers():
 
 # Chat with the AI using the given query.
 def chat_with_ai(user_input, history):
-    global user_message, chat_answer, history_chat, highlighted_sentence_id, state, category_list, category_errors, index_category, index_error, count
+    global user_message, chat_answer, history_chat, highlighted_sentence_id, state
+    global category_list, category_errors, index_category, index_error, count, log_conversation
   
     user_message = user_input
     history_chat = history
@@ -407,6 +414,11 @@ def chat_with_ai(user_input, history):
         error_sentence_id = "sentence_" + str(highlighted_sentence_id)
 
     history.append((user_input, output))   # must be Tuples
+    
+    if log_conversation:
+        log_conversation(user_input, output)
+
+
     return "", history, error_sentence_id
 
     #Delete
@@ -444,6 +456,31 @@ def chat_with_ai(user_input, history):
     for sentence in english_tutor.get_chat_history():
         output += sentence
     return output
+
+
+def log_conversation(user_input, bot_response):
+    global new_conversation
+    file_manager = FileManager()
+    filename = f"log/conversation_{conversation_name}_{selected_speaker}.json"
+    item = {"user": user_input, "assistant": bot_response}
+
+    if not os.path.exists(filename):
+        new_conversation = False
+        file_manager.save_to_json_file(filename, [ {"conversation": [item]} ])
+        
+    else:
+        if new_conversation:
+            # Create a new conversation
+            new_conversation = False
+            saved_data = file_manager.read_from_json_file(filename)
+            saved_data.append( {"conversation": [item]} )
+            file_manager.save_to_json_file(filename, saved_data)
+            
+        else:
+            # Append to the existing conversation
+            saved_data = file_manager.read_from_json_file(filename)
+            saved_data[-1]["conversation"].append(item)
+            file_manager.save_to_json_file(filename, saved_data)
 
 
 # Given a text and the word to highlight, it returns the text with the word highlighted.
@@ -560,10 +597,11 @@ def get_arguments():
     global selected_speaker
     parser = argparse.ArgumentParser(description="English Tutor")
 
-    parser.add_argument("--speaker", type=str, default="All speakers", help="The speaker to show in the transcript")
-    parser.add_argument("--conver", type=str, default="All speakers", help="The transcripted conversation to show")
-    parser.add_argument("--port", type=str, default="All speakers", help="The port in which the server will run")
-    
+    parser.add_argument("--speaker", type=str, default="All speakers", help="The speaker to show in the transcript. Default is All speakers.")
+    parser.add_argument("--conver", type=str, default="diarization_result", help="The transcripted conversation to show. Default is diarization_result")
+    parser.add_argument("--port", type=str, default="8000", help="The port in which the server will run. Default is 8000")
+    parser.add_argument("--log", type=str, default="1", help="If 1, then log the conversation. If 0, then do not log the conversation. Default is 1.")
+
     args = parser.parse_args()
 
     arguments = {

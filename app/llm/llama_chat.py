@@ -1,6 +1,7 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import time
+import asyncio
 
 
 # Importing the interface IChat from the chat_interface module within the app.llm package.
@@ -77,6 +78,8 @@ class LLamaChat(IChat):
         elapsed_time = end_time - start_time
         print(f"get_answer from LLM finished. Time taken to get answer from LLM: {elapsed_time} seconds")
         return response_text
+
+
 
     def get_answer_json(self, message, json_format, max_new_tokens=150):
         """

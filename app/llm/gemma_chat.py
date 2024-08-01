@@ -3,6 +3,7 @@ import torch
 import time
 from transformers import BitsAndBytesConfig # For 4-bit or 8-bit quantization
 import gc
+import asyncio
 
 # Importing the interface IChat from the chat_interface module within the app.llm package.
 from .chat_interface import IChat
@@ -86,6 +87,35 @@ class GemmaChat(IChat):
         return response_text
 
     def get_answer(self, content, max_new_tokens=150):
+        """
+        Generates a response from the model for the provided input content.
+        Utilizes the loaded model and tokenizer to process and generate the response.
+        """
+        print(f"get_answer from LLM GEMMA {self.__model_id} started")
+        start_time = time.time()
+
+        # Create the prompt from user content.
+        chat = [{"role": "user", "content": content}]
+        prompt = self.__tokenizer.apply_chat_template(chat, tokenize=False, add_generation_prompt=True)
+
+        # Encode the prompt to tensor, send to appropriate device.
+        input_ids = self.__tokenizer.encode(prompt, add_special_tokens=False, return_tensors="pt").to(self.__device)
+
+        try:
+            outputs = self.__model.generate(input_ids=input_ids, max_new_tokens=max_new_tokens)
+        except Exception as e:
+            print(f"Failed to generate response: {e}")
+            return "I'm sorry, I'm having trouble generating a response right now."
+
+
+        # Decode the output tensors to text.
+        response_text = self.__tokenizer.decode(outputs[0])
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+        print(f"get_answer from LLM finished. Time taken to get answer from LLM: {elapsed_time} seconds")
+        return self.__clean_model_response(response_text)
+    
+    async def get_answer_async(self, content, max_new_tokens=150):
         """
         Generates a response from the model for the provided input content.
         Utilizes the loaded model and tokenizer to process and generate the response.

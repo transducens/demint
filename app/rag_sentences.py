@@ -1,6 +1,6 @@
 import os
 import time
-import torch
+import argparse
 
 from app.file_manager import FileManager
 import app.explain_sentences as explain_sentences
@@ -70,26 +70,55 @@ def rag_sentences_of_directory(
                 explained_sentences_path, 
                 rag_sentences_path)
 
+
+def get_args():
+    parser = argparse.ArgumentParser(description="")
+    parser.add_argument("-xf", "--explained_file", type=str, help="Path to where the input explained sentences file is located.")
+    parser.add_argument("-rf", "--rag_file", type=str, help="Path to where the output rag sentences file will be saved.")
+    parser.add_argument("-xd", "--explained_directory", type=str, help="Path to the directory containing the input explained sentences files.")
+    parser.add_argument("-rd", "--rag_directory", type=str, help="Path to the directory where the output rag sentences files will be saved.")
+
+    return parser.parse_args()
+
+
 def main():
     global input_directory, output_directory
+    explained_directory = input_directory
+    rag_directory = output_directory
     file_manager = FileManager()
     rag_engine = RAGFactory.get_instance("ragatouille")
+    rag_passages = 5
+    args = get_args()
 
-    rag_sentences_of_directory(
-        file_manager, 
-        rag_engine, 
-        rag_passages=5, 
-        explained_sentences_directory=input_directory, 
-        rag_sentences_directory=output_directory)
-    
-    # Clean GPU VRAM
-    if torch.cuda.is_available():
-            torch.cuda.empty_cache()
+    if args.explained_file:
+        if args.explained_directory:
+            raise ValueError("Error: Please provide either an explained sentences file or an explained sentences directory.")
+        elif args.rag_file:
+            rag_sentences(file_manager, rag_engine, rag_passages, args.explained_file, args.rag_file)
+        elif args.rag_directory:
+            explained_file = os.path.basename(args.explained_file)
+            transcript_name, transcript_extension = os.path.splitext(explained_file)
+            rag_sentences(file_manager, rag_engine, rag_passages, args.explained_file, os.path.join(args.rag_directory, transcript_name + ".json"))
+        else:
+            explained_file = os.path.basename(args.explained_file)
+            transcript_name, transcript_extension = os.path.splitext(explained_file)
+            rag_sentences(file_manager, rag_engine, rag_passages, args.explained_file, os.path.join(rag_directory, transcript_name + ".json"))
+
+    elif args.explained_directory:
+        if args.rag_directory:
+            rag_sentences_of_directory(file_manager, rag_engine, rag_passages, args.explained_directory, args.rag_directory)
+        elif args.rag_file:
+            raise ValueError("Error: Please provide a directory to save the explained sentences files.")
+        else:
+            rag_sentences_of_directory(file_manager, rag_engine, rag_passages, args.explained_directory, rag_directory)
+        
+    elif args.rag_file or args.rag_directory:
+        raise ValueError("Error: Please provide a transcript file or a transcript directory.")
+
+    else:
+        rag_sentences_of_directory(file_manager, rag_engine, rag_passages, explained_directory, rag_directory)
 
 
-if __name__ == '__main__':
-    start_time = time.time()
+
+if "__main__" == __name__:
     main()
-    end_time = time.time()
-    print(f"Execution time: {end_time - start_time} seconds")
-    

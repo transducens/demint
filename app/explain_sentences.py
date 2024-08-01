@@ -1,4 +1,6 @@
 import os
+import argparse
+import torch
 
 from app.file_manager import FileManager
 from app.grammar_checker import GrammarChecker
@@ -117,21 +119,58 @@ def explain_sentences_of_directory(
                 explained_sentences_path)
 
 
+def get_args():
+    parser = argparse.ArgumentParser(description="Explain the errors in a sentences collection file.")
+    parser.add_argument("-ef", "--errant_file", type=str, help="Path to where the input errant evaluation file is located.")
+    parser.add_argument("-xf", "--explained_file", type=str, help="Path to where the output explained sentences file will be saved.")
+    parser.add_argument("-ed", "--errant_directory", type=str, help="Path to the directory containing the input errant evaluation files.")
+    parser.add_argument("-xd", "--explained_directory", type=str, help="Path to the directory where the output explained sentences files will be saved.")
+
+    return parser.parse_args()
+
+
 def main():
     global input_directory, output_directory
+    errant_directory = input_directory
+    explained_directory = output_directory
     file_manager = FileManager()
     grammar_checker_lt = GrammarChecker("LT_API")
     llm_modelId = "google/gemma-1.1-7b-it"  # "google/gemma-1.1-2b-it"
     llm = ChatFactory.get_instance(llm_modelId)
+    args = get_args()
 
-    explain_sentences_of_directory(
-        file_manager, 
-        llm, 
-        grammar_checker_lt, 
-        'en', 
-        input_directory, 
-        output_directory)
+    if args.errant_file:
+        if args.errant_directory:
+            raise ValueError("Error: Please provide either an errant evaluation file or an errant evaluation directory.")
+        elif args.explained_file:
+            explain_sentences(file_manager, llm, grammar_checker_lt, 'en', args.errant_file, args.explained_file)
+        elif args.explained_directory:
+            errant_file = os.path.basename(args.errant_file)
+            transcript_name, transcript_extension = os.path.splitext(errant_file)
+            explain_sentences(file_manager, llm, grammar_checker_lt, 'en', args.errant_file, os.path.join(args.explained_directory, transcript_name + ".json"))
+        else:
+            errant_file = os.path.basename(args.errant_file)
+            transcript_name, transcript_extension = os.path.splitext(errant_file)
+            explain_sentences(file_manager, llm, grammar_checker_lt, 'en', args.errant_file, os.path.join(explained_directory, transcript_name + ".json"))
+
+    elif args.errant_directory:
+        if args.explained_directory:
+            explain_sentences_of_directory(file_manager, llm, grammar_checker_lt, 'en', args.errant_directory, args.explained_directory)
+        elif args.explained_file:
+            raise ValueError("Error: Please provide a directory to save the explained sentences files.")
+        else:
+            explain_sentences_of_directory(file_manager, llm, grammar_checker_lt, 'en', args.errant_directory, explained_directory)
+        
+    elif args.explained_file or args.explained_directory:
+        raise ValueError("Error: Please provide a transcript file or a transcript directory.")
+
+    else:
+        explain_sentences_of_directory(file_manager, llm, grammar_checker_lt, 'en', errant_directory, explained_directory)
 
 
-if __name__ == '__main__':
+    # Clean GPU VRAM
+    if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+
+if "__main__" == __name__:
     main()

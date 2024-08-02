@@ -14,6 +14,10 @@ input_directory = "assets/audios"
 output_directory = "cache/diarized_audios"
 
 
+input_directory = "assets/audios"
+output_directory = "cache/diarized_audios"
+
+
 def time_to_milliseconds(time_str):
     """Convert HH:MM:SS.sss format to milliseconds."""
     h, m, s = time_str.split(':')

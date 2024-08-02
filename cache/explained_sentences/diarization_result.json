@@ -1,41 +1,4 @@
 {
-    "43": {
-        "speaker": "SPEAKER_02",
-        "original_sentence": "Maybe she is preparing for an exam for getting more information.",
-        "t5_checked_sentence": "Maybe she is preparing for an exam to get more information.",
-        "llm_explanation": "**Errors in the original sentence:**\n\n**1. \"for getting more information\"**\n- This phrase is incorrect because it implies that the action of preparing for the exam is done to obtain more information.\n- The correct way to express this idea is \"to get more information.\"\n\n\n**Corrected sentence:**\n\n\"Maybe she is preparing for an exam to get more information.\"\n\n**Explanation of the correction:**\n\n- The corrected sentence uses the correct preposition \"to\" to indicate that the purpose of preparing for the exam is to obtain more information.\n- This is a more logical and grammatically correct way to express the intended meaning.",
-        "language_tool": [],
-        "errant": [
-            {
-                "index": "43",
-                "speaker": "SPEAKER_02",
-                "original_sentence": "Maybe she is preparing for an exam for getting more information.",
-                "corrected_sentence": "Maybe she is preparing for an exam to get more information.",
-                "o_start": 8,
-                "o_end": 9,
-                "original_text": "getting",
-                "c_start": 8,
-                "c_end": 9,
-                "corrected_text": "get",
-                "error_type": "R:VERB:FORM",
-                "llm_explanation": "**Error:**\n\n- Incorrect verb form.\n- The verb \"getting\" should be \"get\" in this context.\n\n**Corrected:**\n\n- \"for getting more information\" was changed to \"to get more information.\""
-            },
-            {
-                "index": "43",
-                "speaker": "SPEAKER_02",
-                "original_sentence": "Maybe she is preparing for an exam for getting more information.",
-                "corrected_sentence": "Maybe she is preparing for an exam to get more information.",
-                "o_start": 7,
-                "o_end": 8,
-                "original_text": "for",
-                "c_start": 7,
-                "c_end": 8,
-                "corrected_text": "to",
-                "error_type": "R:PART",
-                "llm_explanation": "**Error:**\n\n- Incorrect word order: \"for getting more information\" should be \"to get more information.\"\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb \"is\" should be followed by the subjective complement \"to get more information.\""
-            }
-        ]
-    },
     "41": {
         "speaker": "SPEAKER_02",
         "original_sentence": "Lady which is maybe connected on a laptop and reading on a book.",
@@ -48,25 +11,11 @@
                 "speaker": "SPEAKER_02",
                 "original_sentence": "Lady which is maybe connected on a laptop and reading on a book.",
                 "corrected_sentence": "Lady, which is maybe connected to a laptop and reading a book.",
-                "o_start": 10,
-                "o_end": 11,
-                "original_text": "on",
-                "c_start": 10,
-                "c_end": 10,
-                "corrected_text": "",
-                "error_type": "U:PREP",
-                "llm_explanation": "**Error:**\n\n- Incorrect word placement of \"connected\" and \"reading\"\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb \"reading\" should be in the singular form because \"Lady\" is a singular subject."
-            },
-            {
-                "index": "41",
-                "speaker": "SPEAKER_02",
-                "original_sentence": "Lady which is maybe connected on a laptop and reading on a book.",
-                "corrected_sentence": "Lady, which is maybe connected to a laptop and reading a book.",
                 "o_start": 0,
                 "o_end": 1,
                 "original_text": "Lady",
                 "c_start": 0,
-                "c_end": 1,
+                "c_end": 0,
                 "corrected_text": "Lady,",
                 "error_type": "R:NOUN",
                 "llm_explanation": "**Error:**\n\n- Incorrect word order between \"connected\" and \"reading\".\n\n**Broken rule:**\n\n- Subject-verb agreement: The main verb \"reading\" should be in the present tense to match the subject \"Lady\"."
@@ -80,10 +29,84 @@
                 "o_end": 6,
                 "original_text": "on",
                 "c_start": 5,
-                "c_end": 6,
+                "c_end": 5,
                 "corrected_text": "to",
                 "error_type": "R:PREP",
                 "llm_explanation": "**Error:** Incorrect word placement (R:PREP)\n\n**Broken rule:** The word \"connected\" should be connected to the noun \"laptop\", not \"Lady\".\n\n**Location of error:** Between the 5th and 6th characters in the original sentence, and between the 5th and 6th characters in the corrected sentence."
+            },
+            {
+                "index": "41",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Lady which is maybe connected on a laptop and reading on a book.",
+                "corrected_sentence": "Lady, which is maybe connected to a laptop and reading a book.",
+                "o_start": 10,
+                "o_end": 11,
+                "original_text": "on",
+                "c_start": 10,
+                "c_end": 10,
+                "corrected_text": "",
+                "error_type": "U:PREP",
+                "llm_explanation": "**Error:**\n\n- Incorrect word placement of \"connected\" and \"reading\"\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb \"reading\" should be in the singular form because \"Lady\" is a singular subject."
+            }
+        ]
+    },
+    "43": {
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Maybe she is preparing for an exam for getting more information.",
+        "t5_checked_sentence": "Maybe she is preparing for an exam to get more information.",
+        "llm_explanation": "**Errors in the original sentence:**\n\n**1. \"for getting more information\"**\n- This phrase is incorrect because it implies that the action of preparing for the exam is done to obtain more information.\n- The correct way to express this idea is \"to get more information.\"\n\n\n**Corrected sentence:**\n\n\"Maybe she is preparing for an exam to get more information.\"\n\n**Explanation of the correction:**\n\n- The corrected sentence uses the correct preposition \"to\" to indicate that the purpose of preparing for the exam is to obtain more information.\n- This is a more logical and grammatically correct way to express the intended meaning.",
+        "language_tool": [],
+        "errant": [
+            {
+                "index": "43",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Maybe she is preparing for an exam for getting more information.",
+                "corrected_sentence": "Maybe she is preparing for an exam to get more information.",
+                "o_start": 7,
+                "o_end": 8,
+                "original_text": "for",
+                "c_start": 7,
+                "c_end": 7,
+                "corrected_text": "to",
+                "error_type": "R:PART",
+                "llm_explanation": "**Error:**\n\n- Incorrect word order: \"for getting more information\" should be \"to get more information.\"\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb \"is\" should be followed by the subjective complement \"to get more information.\""
+            },
+            {
+                "index": "43",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Maybe she is preparing for an exam for getting more information.",
+                "corrected_sentence": "Maybe she is preparing for an exam to get more information.",
+                "o_start": 8,
+                "o_end": 9,
+                "original_text": "getting",
+                "c_start": 8,
+                "c_end": 8,
+                "corrected_text": "get",
+                "error_type": "R:VERB:FORM",
+                "llm_explanation": "**Error:**\n\n- Incorrect verb form.\n- The verb \"getting\" should be \"get\" in this context.\n\n**Corrected:**\n\n- \"for getting more information\" was changed to \"to get more information.\""
+            }
+        ]
+    },
+    "57": {
+        "speaker": "SPEAKER_00",
+        "original_sentence": "And maybe he just came from outside and he didn't take out his clothes.",
+        "t5_checked_sentence": "And maybe he just came from outside and didn't take out his clothes.",
+        "llm_explanation": "\n**Errors in the original sentence:**\n\n**1. Dangling modifier:**\n- \"he just came from outside\" is a dangling modifier because it modifies \"he\" but is not clearly connected to the action of not taking out the clothes.\n\n\n**2. Incorrect tense:**\n- \"he didn't take out his clothes\" is incorrect because it implies that the action of taking out clothes happened in the past, but the reference point \"just came from outside\" suggests that the action happened recently.\n\n\n**Corrected sentence:**\n\n\"And maybe he just came from outside and didn't take out his clothes.\"\n\n**Corrections:**\n\n- The dangling modifier is resolved by adding the action of not taking out the clothes to the main",
+        "language_tool": [],
+        "errant": [
+            {
+                "index": "57",
+                "speaker": "SPEAKER_00",
+                "original_sentence": "And maybe he just came from outside and he didn't take out his clothes.",
+                "corrected_sentence": "And maybe he just came from outside and didn't take out his clothes.",
+                "o_start": 8,
+                "o_end": 9,
+                "original_text": "he",
+                "c_start": 8,
+                "c_end": 8,
+                "corrected_text": "",
+                "error_type": "U:PRON",
+                "llm_explanation": "**Error:**\n\n- Incorrect word order: \"didn't take out\" should be \"didn't take them out\" (missing pluralization).\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb \"take\" should be conjugated with the plural pronoun \"them\" to match the subject \"clothes\"."
             }
         ]
     },
@@ -99,11 +122,25 @@
                 "speaker": "SPEAKER_00",
                 "original_sentence": "He just started to read and having one cup of tea and relaxing in his home.",
                 "corrected_sentence": "He just started to read and have one cup of tea and relax in his home.",
+                "o_start": 6,
+                "o_end": 7,
+                "original_text": "having",
+                "c_start": 6,
+                "c_end": 6,
+                "corrected_text": "have",
+                "error_type": "R:VERB:FORM",
+                "llm_explanation": "**Error:**\n\n- Incorrect verb form after \"started\".\n\n**Broken rule:**\n\n- The correct tense for \"have\" is the simple present tense, \"has\" or \"have\"."
+            },
+            {
+                "index": "58",
+                "speaker": "SPEAKER_00",
+                "original_sentence": "He just started to read and having one cup of tea and relaxing in his home.",
+                "corrected_sentence": "He just started to read and have one cup of tea and relax in his home.",
                 "o_start": 12,
                 "o_end": 13,
                 "original_text": "relaxing",
                 "c_start": 12,
-                "c_end": 13,
+                "c_end": 12,
                 "corrected_text": "relax",
                 "error_type": "R:VERB:FORM",
                 "llm_explanation": "**Error:**\n\n- Incorrect verb form: \"having\" should be \"has\" (present tense).\n\n**Broken rule:**\n\n- Subject-verb agreement: the verb \"has\" agrees with the subject \"he\" (singular)."
@@ -137,37 +174,28 @@
                 "speaker": "SPEAKER_00",
                 "original_sentence": "There's no toys for his children or something.",
                 "corrected_sentence": "There are no toys for his children or something.",
+                "o_start": 0,
+                "o_end": 1,
+                "original_text": "There's",
+                "c_start": 0,
+                "c_end": 0,
+                "corrected_text": "There",
+                "error_type": "R:OTHER",
+                "llm_explanation": "**Error:**\n\n- Incorrect word order: \"no toys for his children or something.\" should be \"no toys for his children or something.\"\n\n**Broken rule:**\n\n- Subject-verb agreement: The sentence requires a plural subject (toys), so \"is\" should be \"are.\""
+            },
+            {
+                "index": "61",
+                "speaker": "SPEAKER_00",
+                "original_sentence": "There's no toys for his children or something.",
+                "corrected_sentence": "There are no toys for his children or something.",
                 "o_start": 1,
                 "o_end": 1,
                 "original_text": "",
                 "c_start": 1,
-                "c_end": 2,
+                "c_end": 1,
                 "corrected_text": "are",
                 "error_type": "M:VERB",
                 "llm_explanation": "**Error:**\n\n- Incorrect verb tense: \"There's no toys\" should be \"There are no toys\".\n\n**Broken rule:**\n\n- The correct verb tense for \"there is/are\" is \"is/are\"."
-            }
-        ]
-    },
-    "57": {
-        "speaker": "SPEAKER_00",
-        "original_sentence": "And maybe he just came from outside and he didn't take out his clothes.",
-        "t5_checked_sentence": "And maybe he just came from outside and didn't take out his clothes.",
-        "llm_explanation": "\n**Errors in the original sentence:**\n\n**1. Dangling modifier:**\n- \"he just came from outside\" is a dangling modifier because it modifies \"he\" but is not clearly connected to the action of not taking out the clothes.\n\n\n**2. Incorrect tense:**\n- \"he didn't take out his clothes\" is incorrect because it implies that the action of taking out clothes happened in the past, but the reference point \"just came from outside\" suggests that the action happened recently.\n\n\n**Corrected sentence:**\n\n\"And maybe he just came from outside and didn't take out his clothes.\"\n\n**Corrections:**\n\n- The dangling modifier is resolved by adding the action of not taking out the clothes to the main",
-        "language_tool": [],
-        "errant": [
-            {
-                "index": "57",
-                "speaker": "SPEAKER_00",
-                "original_sentence": "And maybe he just came from outside and he didn't take out his clothes.",
-                "corrected_sentence": "And maybe he just came from outside and didn't take out his clothes.",
-                "o_start": 8,
-                "o_end": 9,
-                "original_text": "he",
-                "c_start": 8,
-                "c_end": 8,
-                "corrected_text": "",
-                "error_type": "U:PRON",
-                "llm_explanation": "**Error:**\n\n- Incorrect word order: \"didn't take out\" should be \"didn't take them out\" (missing pluralization).\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb \"take\" should be conjugated with the plural pronoun \"them\" to match the subject \"clothes\"."
             }
         ]
     },
@@ -238,7 +266,7 @@
                 "o_end": 50,
                 "original_text": "club.",
                 "c_start": 48,
-                "c_end": 49,
+                "c_end": 48,
                 "corrected_text": "club",
                 "error_type": "R:NOUN",
                 "llm_explanation": "**Errors:**\n\n- **R:NOUN:** Incorrect word choice or syntax in the phrase \"they are enjoying by the fifth anniversary.\" The correct phrase should be \"they are enjoying the fifth anniversary.\"\n\n- **Character position:** The corrected text has one character less than the original sentence due to the removal of the unnecessary word \"by.\""
@@ -276,7 +304,7 @@
                 "o_end": 3,
                 "original_text": "is",
                 "c_start": 2,
-                "c_end": 3,
+                "c_end": 2,
                 "corrected_text": "are",
                 "error_type": "R:VERB:SVA",
                 "llm_explanation": "**Error:**\n\n- Incorrect verb agreement between \"some students or from their fans\" and \"they\".\n\n**Broken rule:**\n\n- Subject-verb agreement rule: The subject (some students or from their fans) should agree in number (plural) with the verb (can't play)."
@@ -295,28 +323,28 @@
                 "speaker": "SPEAKER_00",
                 "original_sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children.",
                 "corrected_sentence": "And for this, there is no, because they have a lot of children and from their fans they can give it to their children.",
-                "o_start": 4,
+                "o_start": 3,
                 "o_end": 4,
-                "original_text": "",
-                "c_start": 4,
-                "c_end": 5,
-                "corrected_text": "is",
-                "error_type": "M:VERB",
-                "llm_explanation": "**Error:**\n\n- Incorrect verb tense: \"have\" should be \"has\" (subject is \"they\").\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb must agree with the subject in number (singular or plural)."
+                "original_text": "there,",
+                "c_start": 3,
+                "c_end": 3,
+                "corrected_text": "there",
+                "error_type": "R:OTHER",
+                "llm_explanation": "**Error:**\n\n- Incorrect verb tense: \"have a lot of children\" should be \"has a lot of children\" (subject is \"they\").\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb must agree with the subject in number (singular or plural)."
             },
             {
                 "index": "84",
                 "speaker": "SPEAKER_00",
                 "original_sentence": "And for this, there, no, because, or they have a lot of children and from their fans they can give it to their children.",
                 "corrected_sentence": "And for this, there is no, because they have a lot of children and from their fans they can give it to their children.",
-                "o_start": 3,
+                "o_start": 4,
                 "o_end": 4,
-                "original_text": "there,",
-                "c_start": 3,
+                "original_text": "",
+                "c_start": 4,
                 "c_end": 4,
-                "corrected_text": "there",
-                "error_type": "R:OTHER",
-                "llm_explanation": "**Error:**\n\n- Incorrect verb tense: \"have a lot of children\" should be \"has a lot of children\" (subject is \"they\").\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb must agree with the subject in number (singular or plural)."
+                "corrected_text": "is",
+                "error_type": "M:VERB",
+                "llm_explanation": "**Error:**\n\n- Incorrect verb tense: \"have\" should be \"has\" (subject is \"they\").\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb must agree with the subject in number (singular or plural)."
             },
             {
                 "index": "84",
@@ -327,7 +355,7 @@
                 "o_end": 6,
                 "original_text": "because,",
                 "c_start": 6,
-                "c_end": 7,
+                "c_end": 6,
                 "corrected_text": "because",
                 "error_type": "R:OTHER",
                 "llm_explanation": "**Error:** Incorrect verb tense and word order.\n\n**Broken rule:** Subject-verb agreement. The subject \"they\" requires a singular verb \"is\"."
@@ -364,33 +392,10 @@
                 "o_end": 3,
                 "original_text": "",
                 "c_start": 3,
-                "c_end": 4,
+                "c_end": 3,
                 "corrected_text": "an",
                 "error_type": "M:DET",
                 "llm_explanation": "**Error:**\n\n- Incorrect determiner (M:DET)\n- The word \"an\" should be inserted before \"album\" to correct the grammatical error.\n\n**Location:**\n\n- The error occurs between the 3rd and 3rd characters in the original sentence.\n- The corrected text is between the 3rd and 4th characters."
-            }
-        ]
-    },
-    "112": {
-        "speaker": "SPEAKER_00",
-        "original_sentence": "I am very interested about football.",
-        "t5_checked_sentence": "I am very interested in football.",
-        "llm_explanation": "**Errors in the original sentence:**\n\n* **About** should be **in** to indicate an interest in something. \"About\" is used to refer to a general idea or topic, while \"in\" is used to indicate a specific interest or participation in something.\n\n\n**Corrected sentence:**\n\n\"I am very interested **in** football.\"\n\n**The correction:**\n\n* The word \"in\" was correctly inserted to express the specific interest in football.",
-        "language_tool": [],
-        "errant": [
-            {
-                "index": "112",
-                "speaker": "SPEAKER_00",
-                "original_sentence": "I am very interested about football.",
-                "corrected_sentence": "I am very interested in football.",
-                "o_start": 4,
-                "o_end": 5,
-                "original_text": "about",
-                "c_start": 4,
-                "c_end": 5,
-                "corrected_text": "in",
-                "error_type": "R:PREP",
-                "llm_explanation": "**Error:** Incorrect preposition usage.\n\n**Broken rule:** The preposition \"about\" should be replaced with \"in\" when referring to a specific subject like \"football.\""
             }
         ]
     },
@@ -410,7 +415,7 @@
                 "o_end": 2,
                 "original_text": "that...",
                 "c_start": 1,
-                "c_end": 2,
+                "c_end": 1,
                 "corrected_text": "that?",
                 "error_type": "R:OTHER",
                 "llm_explanation": "**Error:** Incorrect word order.\n\n**Broken rule:** The auxiliary verb \"is\" should be followed by the subject \"that\"."
@@ -433,10 +438,33 @@
                 "o_end": 5,
                 "original_text": "toes.",
                 "c_start": 4,
-                "c_end": 6,
+                "c_end": 4,
                 "corrected_text": "feet up.",
                 "error_type": "R:OTHER",
                 "llm_explanation": "**Error:** Incorrect word usage - \"toes\" should be \"feet\".\n\n**Broken rule:** Usage of the plural noun \"toes\" instead of the singular noun \"foot\" in the context of putting something up."
+            }
+        ]
+    },
+    "112": {
+        "speaker": "SPEAKER_00",
+        "original_sentence": "I am very interested about football.",
+        "t5_checked_sentence": "I am very interested in football.",
+        "llm_explanation": "**Errors in the original sentence:**\n\n* **About** should be **in** to indicate an interest in something. \"About\" is used to refer to a general idea or topic, while \"in\" is used to indicate a specific interest or participation in something.\n\n\n**Corrected sentence:**\n\n\"I am very interested **in** football.\"\n\n**The correction:**\n\n* The word \"in\" was correctly inserted to express the specific interest in football.",
+        "language_tool": [],
+        "errant": [
+            {
+                "index": "112",
+                "speaker": "SPEAKER_00",
+                "original_sentence": "I am very interested about football.",
+                "corrected_sentence": "I am very interested in football.",
+                "o_start": 4,
+                "o_end": 5,
+                "original_text": "about",
+                "c_start": 4,
+                "c_end": 4,
+                "corrected_text": "in",
+                "error_type": "R:PREP",
+                "llm_explanation": "**Error:** Incorrect preposition usage.\n\n**Broken rule:** The preposition \"about\" should be replaced with \"in\" when referring to a specific subject like \"football.\""
             }
         ]
     },
@@ -452,28 +480,28 @@
                 "speaker": "SPEAKER_00",
                 "original_sentence": "I watch it from when I was child.",
                 "corrected_sentence": "I watched it from when I was a child.",
-                "o_start": 7,
-                "o_end": 7,
-                "original_text": "",
-                "c_start": 7,
-                "c_end": 8,
-                "corrected_text": "a",
-                "error_type": "M:DET",
-                "llm_explanation": "**Error:**\n\n- Incorrect word order for past tense of \"watch\".\n\n**Broken rule:**\n\n- The past tense of \"watch\" is \"watched\"."
+                "o_start": 1,
+                "o_end": 2,
+                "original_text": "watch",
+                "c_start": 1,
+                "c_end": 1,
+                "corrected_text": "watched",
+                "error_type": "R:VERB:TENSE",
+                "llm_explanation": "**Error:**\n\n- Incorrect verb tense (watch vs watched)\n- Error location: between the first and second characters of the sentence.\n\n**Corrected:**\n\n- Past tense of the verb \"watch\" used.\n- Error correction: between the first and second characters."
             },
             {
                 "index": "113",
                 "speaker": "SPEAKER_00",
                 "original_sentence": "I watch it from when I was child.",
                 "corrected_sentence": "I watched it from when I was a child.",
-                "o_start": 1,
-                "o_end": 2,
-                "original_text": "watch",
-                "c_start": 1,
-                "c_end": 2,
-                "corrected_text": "watched",
-                "error_type": "R:VERB:TENSE",
-                "llm_explanation": "**Error:**\n\n- Incorrect verb tense (watch vs watched)\n- Error location: between the first and second characters of the sentence.\n\n**Corrected:**\n\n- Past tense of the verb \"watch\" used.\n- Error correction: between the first and second characters."
+                "o_start": 7,
+                "o_end": 7,
+                "original_text": "",
+                "c_start": 7,
+                "c_end": 7,
+                "corrected_text": "a",
+                "error_type": "M:DET",
+                "llm_explanation": "**Error:**\n\n- Incorrect word order for past tense of \"watch\".\n\n**Broken rule:**\n\n- The past tense of \"watch\" is \"watched\"."
             }
         ]
     },
@@ -512,11 +540,39 @@
                 "speaker": "SPEAKER_00",
                 "original_sentence": "That make a lot of supporters became, they have the same admires and the same ambition about their teams.",
                 "corrected_sentence": "That makes a lot of supporters become, they have the same admirations and the same ambition about their teams.",
+                "o_start": 1,
+                "o_end": 2,
+                "original_text": "make",
+                "c_start": 1,
+                "c_end": 1,
+                "corrected_text": "makes",
+                "error_type": "R:VERB:SVA",
+                "llm_explanation": "**Error:**\n\n- Incorrect verb tense: \"make\" should be \"makes\" (present tense).\n- Incorrect word: \"became\" should be \"become\" (present tense).\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb must agree with the subject in number (singular or plural)."
+            },
+            {
+                "index": "133",
+                "speaker": "SPEAKER_00",
+                "original_sentence": "That make a lot of supporters became, they have the same admires and the same ambition about their teams.",
+                "corrected_sentence": "That makes a lot of supporters become, they have the same admirations and the same ambition about their teams.",
+                "o_start": 6,
+                "o_end": 7,
+                "original_text": "became,",
+                "c_start": 6,
+                "c_end": 6,
+                "corrected_text": "become,",
+                "error_type": "R:PUNCT",
+                "llm_explanation": "**Errors:**\n\n- **R:PUNCT:** Incorrect punctuation between \"make\" and \"a\".\n- **Broken rule:** Incorrect verb tense and word order.\n\n**Corrected sentence:**\n\n\"That makes a lot of supporters become, they have the same admirations and the same ambition about their teams.\""
+            },
+            {
+                "index": "133",
+                "speaker": "SPEAKER_00",
+                "original_sentence": "That make a lot of supporters became, they have the same admires and the same ambition about their teams.",
+                "corrected_sentence": "That makes a lot of supporters become, they have the same admirations and the same ambition about their teams.",
                 "o_start": 11,
                 "o_end": 12,
                 "original_text": "admires",
                 "c_start": 11,
-                "c_end": 12,
+                "c_end": 11,
                 "corrected_text": "admirations",
                 "error_type": "R:MORPH",
                 "llm_explanation": "**Error:**\n\n- Incorrect verb tense: \"make\" should be \"makes\" (present tense).\n- Incorrect word: \"became\" should be \"become\" (present tense).\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb must agree with the subject in number (singular or plural)."
@@ -554,7 +610,7 @@
                 "o_end": 9,
                 "original_text": "is",
                 "c_start": 8,
-                "c_end": 9,
+                "c_end": 8,
                 "corrected_text": "are",
                 "error_type": "R:VERB:SVA",
                 "llm_explanation": "**Error:**\n\n- Incorrect verb agreement: \"there is\" should be \"there are\" to match the plural subject \"teams\".\n\n**Broken rule:**\n\n- Subject-verb agreement: The verb must agree in number (singular or plural) with the subject."
@@ -577,7 +633,7 @@
                 "o_end": 2,
                 "original_text": "Go",
                 "c_start": 1,
-                "c_end": 2,
+                "c_end": 1,
                 "corrected_text": "went",
                 "error_type": "R:VERB:TENSE",
                 "llm_explanation": "**Error:**\n\n- Incorrect verb tense (R:VERB:TENSE)\n- The verb \"go\" should be in past tense \"went\"\n\n**Broken rule:**\n\n- The main verb in a sentence must be in the correct tense."
@@ -591,7 +647,7 @@
                 "o_end": 7,
                 "original_text": "",
                 "c_start": 7,
-                "c_end": 8,
+                "c_end": 7,
                 "corrected_text": "and",
                 "error_type": "M:CONJ",
                 "llm_explanation": "**Error:**\n\n- Incorrect verb tense: \"I Go\" should be \"I went\".\n\n**Broken rule:**\n\n- The main verb in a sentence must be in the correct tense."
@@ -605,7 +661,7 @@
                 "o_end": 8,
                 "original_text": "It",
                 "c_start": 8,
-                "c_end": 9,
+                "c_end": 8,
                 "corrected_text": "it",
                 "error_type": "R:ORTH",
                 "llm_explanation": "**Error:**\n\n- Incorrect verb tense: \"I Go\" should be \"I went\".\n- Violation of subject-verb agreement: \"two times It was amazing\" should be \"two times, it was amazing\".\n\n**Corrected:**\n\n- Past tense of the verb \"go\" is \"went\".\n- Comma and correct verb tense: \"two times, it was amazing\"."
@@ -668,6 +724,76 @@
                 "speaker": "SPEAKER_00",
                 "original_sentence": "Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
                 "corrected_sentence": "Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the players if they have like one player that they decide to have ",
+                "o_start": 6,
+                "o_end": 7,
+                "original_text": "to",
+                "c_start": 6,
+                "c_end": 6,
+                "corrected_text": "",
+                "error_type": "U:VERB:FORM",
+                "llm_explanation": "**Errors:**\n\n- **U:VERB:FORM:** Incorrect verb form.\n- **Grammar error:** Incorrect word order and missing article.\n\n**Broken rules:**\n\n- Subject-verb agreement.\n- Word order and syntax."
+            },
+            {
+                "index": "149",
+                "speaker": "SPEAKER_00",
+                "original_sentence": "Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+                "corrected_sentence": "Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the players if they have like one player that they decide to have ",
+                "o_start": 16,
+                "o_end": 17,
+                "original_text": "on",
+                "c_start": 15,
+                "c_end": 15,
+                "corrected_text": "",
+                "error_type": "U:PREP",
+                "llm_explanation": "**Errors:**\n\n- **U:PREP:** Incorrect word order, specifically a misplaced preposition.\n- **Broken rule:** Subject-verb agreement and prepositional phrase placement."
+            },
+            {
+                "index": "149",
+                "speaker": "SPEAKER_00",
+                "original_sentence": "Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+                "corrected_sentence": "Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the players if they have like one player that they decide to have ",
+                "o_start": 18,
+                "o_end": 19,
+                "original_text": "positions",
+                "c_start": 16,
+                "c_end": 16,
+                "corrected_text": "positions,",
+                "error_type": "R:NOUN",
+                "llm_explanation": "**Errors:**\n\n- **R:NOUN:** Incorrect word choice or syntax in the phrase \"or if we need to have a new players\". It should be \"or if we need to have a new player\".\n- **Word order:** The sentence contains a misplaced modifier (\"if they have like one player that they decide to have a construct with him\"). It should be placed after \"player\"."
+            },
+            {
+                "index": "149",
+                "speaker": "SPEAKER_00",
+                "original_sentence": "Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+                "corrected_sentence": "Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the players if they have like one player that they decide to have ",
+                "o_start": 27,
+                "o_end": 28,
+                "original_text": "players",
+                "c_start": 25,
+                "c_end": 25,
+                "corrected_text": "player",
+                "error_type": "R:NOUN:NUM",
+                "llm_explanation": "**Errors:**\n\n- **R:NOUN:NUM:** Incorrect word order between \"players\" and \"if\".\n- **Missing spaces:** Missing spaces after \"positions\" and \"player\".\n\n**Broken rules:**\n\n- Subject-verb agreement: The sentence has an incorrect word order due to the placement of \"if\".\n- Word spacing: Proper word spacing is not maintained after \"positions\" and \"player\"."
+            },
+            {
+                "index": "149",
+                "speaker": "SPEAKER_00",
+                "original_sentence": "Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+                "corrected_sentence": "Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the players if they have like one player that they decide to have ",
+                "o_start": 32,
+                "o_end": 33,
+                "original_text": "gomers",
+                "c_start": 30,
+                "c_end": 30,
+                "corrected_text": "players",
+                "error_type": "R:NOUN",
+                "llm_explanation": "**Errors:**\n\n- **R:NOUN:** Incorrect word choice or syntax in the phrase \"or if we need to have a new players\". It should be \"or if we need to have a new player\".\n- **Word order:** The sentence contains a misplaced modifier (\"if they have like one player that they decide to have a construct with him\"). It should be placed after \"player\"."
+            },
+            {
+                "index": "149",
+                "speaker": "SPEAKER_00",
+                "original_sentence": "Yeah, to take an idea and to keep discussing about our team, what we miss in on some positions or if we need to have a new players or discuss about the gomers if they have like one player that they decide to have a construct with him.",
+                "corrected_sentence": "Yeah, to take an idea and keep discussing about our team, what we miss in some positions, or if we need to have a new player or discuss about the players if they have like one player that they decide to have ",
                 "o_start": 44,
                 "o_end": 48,
                 "original_text": "a construct with him.",
@@ -711,7 +837,7 @@
                 "o_end": 4,
                 "original_text": "",
                 "c_start": 4,
-                "c_end": 5,
+                "c_end": 4,
                 "corrected_text": "a",
                 "error_type": "M:DET",
                 "llm_explanation": "**Error:**\n\n- Incorrect determiner (\"waste\") in \"it's waste of time\". It should be \"a waste\".\n\n**Broken rule:**\n\n- The rule of determiner placement in sentences."

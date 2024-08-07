@@ -148,7 +148,7 @@ def explain_sentences(file_manager, chat_llm, grammar_checker_lt, lang='en', inp
                     'speaker': ea['speaker'],
                     'original_sentence' : ea['original_sentence'],
                     't5_checked_sentence': ea['corrected_sentence'],
-                    'llm_explanation': llm_sentence_explained,
+                    'llm_explanation': llm_sentence_explained[i],
                     'language_tool': lt_errors,
                     'errant': [error_description],
                 }

@@ -3,7 +3,7 @@ import torch
 import time
 from transformers import BitsAndBytesConfig # For 4-bit or 8-bit quantization
 import gc
-import asyncio
+import concurrent.futures
 
 # Importing the interface IChat from the chat_interface module within the app.llm package.
 from .chat_interface import IChat
@@ -115,34 +115,75 @@ class GemmaChat(IChat):
         print(f"get_answer from LLM finished. Time taken to get answer from LLM: {elapsed_time} seconds")
         return self.__clean_model_response(response_text)
     
-    async def get_answer_async(self, content, max_new_tokens=150):
+    def get_answer_threads(self, contents, max_new_tokens=150):
         """
-        Generates a response from the model for the provided input content.
-        Utilizes the loaded model and tokenizer to process and generate the response.
+        Generates responses from the model for the provided input contents.
+        Utilizes the loaded model and tokenizer to process and generate the responses.
         """
-        print(f"get_answer from LLM GEMMA {self.__model_id} started")
+        print(f"get_answer for {len(contents)} petitions from LLM GEMMA {self.__model_id} started")
         start_time = time.time()
+        def generate_response(content):
+            """
+            Helper function to generate a single response.
+            """
 
-        # Create the prompt from user content.
-        chat = [{"role": "user", "content": content}]
-        prompt = self.__tokenizer.apply_chat_template(chat, tokenize=False, add_generation_prompt=True)
+            # Create the prompt from user content.
+            chat = [{"role": "user", "content": content}]
+            prompt = self.__tokenizer.apply_chat_template(chat, tokenize=False, add_generation_prompt=True)
 
-        # Encode the prompt to tensor, send to appropriate device.
-        input_ids = self.__tokenizer.encode(prompt, add_special_tokens=False, return_tensors="pt").to(self.__device)
+            # Encode the prompt to tensor, send to appropriate device.
+            input_ids = self.__tokenizer.encode(prompt, add_special_tokens=False, return_tensors="pt").to(self.__device)
 
-        try:
-            outputs = self.__model.generate(input_ids=input_ids, max_new_tokens=max_new_tokens)
-        except Exception as e:
-            print(f"Failed to generate response: {e}")
-            return "I'm sorry, I'm having trouble generating a response right now."
+            try:
+                outputs = self.__model.generate(input_ids=input_ids, max_new_tokens=max_new_tokens)
+            except Exception as e:
+                print(f"Failed to generate response: {e}")
+                return "I'm sorry, I'm having trouble generating a response right now."
 
+            # Decode the output tensors to text.
+            response_text = self.__tokenizer.decode(outputs[0])
+            return self.__clean_model_response(response_text)
 
-        # Decode the output tensors to text.
-        response_text = self.__tokenizer.decode(outputs[0])
+        # Use ThreadPoolExecutor to process contents in parallel
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            # Map the generate_response function to each content
+            results = list(executor.map(generate_response, contents))
+
         end_time = time.time()
         elapsed_time = end_time - start_time
-        print(f"get_answer from LLM finished. Time taken to get answer from LLM: {elapsed_time} seconds")
-        return self.__clean_model_response(response_text)
+        print(f"get_answer for {len(contents)} petitions from LLM finished. Time taken to get answer from LLM: {elapsed_time} seconds")
+
+        return results
+
+    def get_answer_batch(self, contents, max_new_tokens=150):
+        """
+        Generates responses from the model for the provided input contents in a batch.
+        Utilizes the loaded model and tokenizer to process and generate the responses.
+        """
+        print(f"get_answers from LLM GEMMA {self.__model_id} started")
+        start_time = time.time()
+
+        # Create prompts from user contents.
+        chats = [{"role": "user", "content": content} for content in contents]
+        prompts = [self.__tokenizer.apply_chat_template([chat], tokenize=False, add_generation_prompt=True) for chat in chats]
+
+        # Encode all prompts in a single batch, send to appropriate device.
+        input_ids_batch = self.__tokenizer(prompts, add_special_tokens=False, return_tensors="pt", padding=True).input_ids.to(self.__device)
+
+        try:
+            outputs = self.__model.generate(input_ids=input_ids_batch, max_new_tokens=max_new_tokens)
+        except Exception as e:
+            print(f"Failed to generate responses: {e}")
+            return ["I'm sorry, I'm having trouble generating a response right now."] * len(contents)
+
+        # Decode the output tensors to text for each input.
+        responses = [self.__tokenizer.decode(output, skip_special_tokens=True) for output in outputs]
+        
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+        print(f"get_answers from LLM finished. Time taken to get answers from LLM: {elapsed_time} seconds")
+        
+        return [self.__clean_model_response(response) for response in responses]
 
     def get_my_name(self):
         """

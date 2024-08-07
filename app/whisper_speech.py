@@ -41,7 +41,9 @@ def main():
 
     f = os.listdir("cache/diarized_audios")
     for y in f:
-        if not os.path.isdir(os.path.join("cache", "diarized_transcripts", y)):
+        if y[0] == ".":
+            continue
+        if not os.path.isdir(os.path.join("cache", "diarized_transcripts")):
             os.mkdir(os.path.join("cache", "diarized_transcripts", y))
 
         dir = os.path.join("cache/diarized_audios", y)
@@ -84,8 +86,27 @@ def main():
 
             content.append(result)   
 
-        with open(os.path.join("cache", "diarized_transcripts", y, y + '.json'), 'w') as f:
+        with open(os.path.join("cache", "diarized_transcripts", y + '.json'), 'w') as f:
             json.dump(content, f) 
+
+
+def transcript_audio_of_directory(
+        diarized_directory="cache/diarized_transcripts", 
+        sentence_collection_directory="cache/raw_sorted_sentence_collection", 
+    ):
+    # Loop through the files in the directory
+    for diarized_transcript_file in os.listdir(diarized_directory):
+        if diarized_transcript_file[0] == ".":
+            continue
+
+        diarized_transcript_path = os.path.join(diarized_directory, diarized_transcript_file)
+        sentence_collection_path = os.path.join(sentence_collection_directory, diarized_transcript_file)
+
+        # Check if it's a file (not a directory)
+        if os.path.isfile(diarized_transcript_path):
+            print(f"Found diarized transcript file: {diarized_transcript_path}")
+
+            #prepare_sorted_sentence_collection(file_manager, diarized_transcript_path, sentence_collection_path)
 
 
 

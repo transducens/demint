@@ -41,7 +41,9 @@ def main():
 
     f = os.listdir("cache/diarized_audios")
     for y in f:
-        if not os.path.isdir(os.path.join("cache", "diarized_transcripts", y)):
+        if y[0] == ".":
+            continue
+        if not os.path.isdir(os.path.join("cache", "diarized_transcripts")):
             os.mkdir(os.path.join("cache", "diarized_transcripts", y))
 
         dir = os.path.join("cache/diarized_audios", y)
@@ -84,7 +86,7 @@ def main():
 
             content.append(result)   
 
-        with open(os.path.join("cache", "diarized_transcripts", y, y + '.json'), 'w') as f:
+        with open(os.path.join("cache", "diarized_transcripts", y + '.json'), 'w') as f:
             json.dump(content, f) 
 
 

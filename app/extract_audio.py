@@ -55,8 +55,8 @@ def main():
     global input_directory, output_directory
 
     # Audio extraction from all the videos
-    audio_directory = input_directory
-    video_directory = output_directory
+    video_directory = input_directory
+    audio_directory = output_directory
     args = get_args()
 
     if args.video_file:

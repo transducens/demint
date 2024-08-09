@@ -1,5 +1,6 @@
 import errant
 import os
+import argparse
 
 from app.file_manager import FileManager
 import app.prepare_sentences as prepare_sentences
@@ -111,18 +112,52 @@ def obtain_errors_of_directory(
                 errant_evaluation_path)
 
 
+def get_args():
+    parser = argparse.ArgumentParser(description="Obtain errors from a sentences collection file.")
+    parser.add_argument("-sf", "--sentences_file", type=str, help="Path to where the input sentences collection file is located.")
+    parser.add_argument("-ef", "--errant_file", type=str, help="Path to where the output errant evaluation file will be saved.")
+    parser.add_argument("-sd", "--sentences_directory", type=str, help="Path to the directory containing the input sentences collection files.")
+    parser.add_argument("-ed", "--errant_directory", type=str, help="Path to the directory where the output errant evaluation files will be saved.")
+
+    return parser.parse_args()
+
+
 def main():
     global input_directory, output_directories
     file_manager = FileManager()
     grammar_checker_t5 = GrammarChecker(gec_model="T5")
+    sentences_directory = input_directory
+    errant_directory = output_directories['errant_all_errors']
+    args = get_args()
 
-    obtain_errors_of_directory(
-        file_manager, 
-        grammar_checker_t5, 
-        'en', 
-        input_directory, 
-        output_directories['errant_all_errors'])
+    if args.sentences_file:
+        if args.sentences_directory:
+            raise ValueError("Error: Please provide either a sentences file or a sentences directory.")
+        elif args.errant_file:
+            obtain_errors(file_manager, grammar_checker_t5, 'en', args.sentences_file, args.errant_file)
+        elif args.errant_directory:
+            sentences_file = os.path.basename(args.sentences_file)
+            transcript_name, transcript_extension = os.path.splitext(sentences_file)
+            obtain_errors(file_manager, grammar_checker_t5, 'en', args.sentences_file, os.path.join(args.errant_directory, transcript_name + ".json"))
+        else:
+            sentences_file = os.path.basename(args.sentences_file)
+            transcript_name, transcript_extension = os.path.splitext(sentences_file)
+            obtain_errors(file_manager, grammar_checker_t5, 'en', args.sentences_file, os.path.join(errant_directory, transcript_name + ".json"))
+
+    elif args.sentences_directory:
+        if args.errant_directory:
+            obtain_errors_of_directory(file_manager, grammar_checker_t5, 'en', args.sentences_directory, args.errant_directory)
+        elif args.errant_file:
+            raise ValueError("Error: Please provide a directory to save the sentences collection files.")
+        else:
+            obtain_errors_of_directory(file_manager, grammar_checker_t5, 'en', args.sentences_directory, errant_directory)
+        
+    elif args.errant_file or args.errant_directory:
+        raise ValueError("Error: Please provide a transcript file or a transcript directory.")
+
+    else:
+        obtain_errors_of_directory(file_manager, grammar_checker_t5, 'en', sentences_directory, errant_directory)
 
 
-if __name__ == '__main__':
+if "__main__" == __name__:
     main()

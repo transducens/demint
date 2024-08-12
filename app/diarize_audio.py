@@ -7,6 +7,7 @@ from pydub import AudioSegment
 from pydub.silence import split_on_silence
 import librosa
 import numpy as np
+import argparse
 
 
 input_directory = "assets/audios"
@@ -193,17 +194,48 @@ def perform_diarization_of_directory(audio_directory="assets/audios", cache_dire
             print(f"Found audio file: {audio_path}")
 
             perform_diarization(audio_path, cache_directory, device)
+
+
+def get_args():
+    parser = argparse.ArgumentParser(description="Diarize an audio file or a directory of audio files.")
+    parser.add_argument("-af", "--audio_file", type=str, help="Path to where the input audio file is located.")
+    parser.add_argument("-ad", "--audio_directory", type=str, help="Path to the directory containing the input audio files.")
+    parser.add_argument("-sd", "--segments_directory", type=str, help="Path to the directory where the output audio segments will be saved.")
+
+    return parser.parse_args()
     
     
 def main():
     global input_directory, output_directory
-    # Initialize the device to use for processing (GPU if available, otherwise CPU)
+
+    # Diarizaton of the audio file
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Audio device: {device}")
-
     audio_directory = input_directory
     cache_directory = output_directory
-    perform_diarization_of_directory(audio_directory, cache_directory, device)
+    args = get_args()
+
+    if args.audio_file:
+        if args.audio_directory:
+            raise ValueError("Error: Please provide either an audio file or an audio directory.")
+        elif args.segments_directory:
+            audio_file = os.path.basename(args.audio_file)
+            audio_name, audio_extension = os.path.splitext(audio_file)
+            perform_diarization(args.audio_file, args.segments_directory, device)
+        else:
+            perform_diarization(args.audio_file, cache_directory, device)
+
+    elif args.audio_directory:
+        if args.segments_directory:
+            perform_diarization_of_directory(args.audio_directory, args.segments_directory, device)
+        else:
+            perform_diarization_of_directory(args.audio_directory, cache_directory, device)
+        
+    elif args.segments_directory:
+        raise ValueError("Error: Please provide an audio file or an audio directory.")
+
+    else:
+        perform_diarization_of_directory(audio_directory, cache_directory, device)
 
 
 if __name__ == '__main__':

@@ -1,4 +1,8 @@
 import os
+import argparse
+import torch
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from app.file_manager import FileManager
 from app.grammar_checker import GrammarChecker
@@ -20,73 +24,145 @@ def explain_sentences(file_manager, chat_llm, grammar_checker_lt, lang='en', inp
     explained_sentences = {}
     last_index = -1
 
-    for errant_annotation in errant_all_evaluation:
-        index = errant_annotation['index']
-        original_sentence = errant_annotation['original_sentence']
-        corrected_sentence = errant_annotation['corrected_sentence']
+    # for errant_annotation in errant_all_evaluation:
+    #     index = errant_annotation['index']
+    #     original_sentence = errant_annotation['original_sentence']
+    #     corrected_sentence = errant_annotation['corrected_sentence']
 
-        final_sentence_prompt = (
-            f"You are an English teacher. Please explain the errors that were corrected in the following sentence:\n\n"
-            f"Original: {original_sentence}\n"
-            f"Corrected: {corrected_sentence}\n\n"
-            f"List and explain the errors found in the original sentence and how they were corrected in the revised sentence."
-        )
+    #     final_sentence_prompt = (
+    #         f"You are an English teacher. Please explain the errors that were corrected in the following sentence:\n\n"
+    #         f"Original: {original_sentence}\n"
+    #         f"Corrected: {corrected_sentence}\n\n"
+    #         f"List and explain the errors found in the original sentence and how they were corrected in the revised sentence."
+    #     )
 
-        lt_errors = grammar_checker_lt.check(original_sentence)
+    #     lt_errors = grammar_checker_lt.check(original_sentence)
 
-        llm_sentence_explained = chat_llm.get_answer(final_sentence_prompt)   # for the whole sentence
-        #lt_errors = original_sentence['language_tool']
+    #     llm_sentence_explained = chat_llm.get_answer(final_sentence_prompt)   # for the whole sentence
+    #     #lt_errors = original_sentence['language_tool']
 
         
-        error_type = errant_annotation['error_type']
-        original_text = errant_annotation['original_text']  # Only the text of the sentence that was corrected
-        corrected_text = errant_annotation['corrected_text']
+    #     error_type = errant_annotation['error_type']
+    #     original_text = errant_annotation['original_text']  # Only the text of the sentence that was corrected
+    #     corrected_text = errant_annotation['corrected_text']
 
-        final_errant_prompt = (
-            f"Please explain the errors that were found as briefly as possible, focusing only on the main idea and the broken rule in the English language:\n\n"
-            f"Where the error type is {error_type}, " 
-            f"the original sentence is {original_sentence}, " 
-            f"the corrected sentence is {corrected_sentence}, "
-            "and supposing that the first character is in position 0, "
-            f"the error text is between the characters {errant_annotation['o_start']} and {errant_annotation['o_end']} in the original sentence, "
-            f"and the corrected text is between the characters {errant_annotation['c_start']} and {errant_annotation['c_end']} in the corrected sentence."
-        )
+    #     final_errant_prompt = (
+    #         f"Please explain the errors that were found as briefly as possible, focusing only on the main idea and the broken rule in the English language:\n\n"
+    #         f"Where the error type is {error_type}, " 
+    #         f"the original sentence is {original_sentence}, " 
+    #         f"the corrected sentence is {corrected_sentence}, "
+    #         "and supposing that the first character is in position 0, "
+    #         f"the error text is between the characters {errant_annotation['o_start']} and {errant_annotation['o_end']} in the original sentence, "
+    #         f"and the corrected text is between the characters {errant_annotation['c_start']} and {errant_annotation['c_end']} in the corrected sentence."
+    #     )
 
-        errant_llm_explained = chat_llm.get_answer(final_errant_prompt)
+    #     errant_llm_explained = chat_llm.get_answer(final_errant_prompt)
 
-        error_description = {
-            'index': index,
-            'speaker': errant_annotation['speaker'],
-            'original_sentence': original_sentence,
-            'corrected_sentence': corrected_sentence,
-            'o_start': errant_annotation['o_start'],
-            'o_end': errant_annotation['o_end'],
-            'original_text': original_text,
-            'c_start': errant_annotation['c_start'],
-            'c_end': errant_annotation['c_start'],
-            'corrected_text': corrected_text,
-            'error_type': error_type,
-            'llm_explanation': errant_llm_explained,
-        }
+    #     error_description = {
+    #         'index': index,
+    #         'speaker': errant_annotation['speaker'],
+    #         'original_sentence': original_sentence,
+    #         'corrected_sentence': corrected_sentence,
+    #         'o_start': errant_annotation['o_start'],
+    #         'o_end': errant_annotation['o_end'],
+    #         'original_text': original_text,
+    #         'c_start': errant_annotation['c_start'],
+    #         'c_end': errant_annotation['c_start'],
+    #         'corrected_text': corrected_text,
+    #         'error_type': error_type,
+    #         'llm_explanation': errant_llm_explained,
+    #     }
 
-        if last_index != index:
-            explained_sentences[index] = {
-                'speaker': errant_annotation['speaker'],
-                'original_sentence' : original_sentence,
-                't5_checked_sentence': corrected_sentence,
-                'llm_explanation': llm_sentence_explained,
-                'language_tool': lt_errors,
-                'errant': [error_description],
+    #     if last_index != index:
+    #         explained_sentences[index] = {
+    #             'speaker': errant_annotation['speaker'],
+    #             'original_sentence' : original_sentence,
+    #             't5_checked_sentence': corrected_sentence,
+    #             'llm_explanation': llm_sentence_explained,
+    #             'language_tool': lt_errors,
+    #             'errant': [error_description],
+    #         }
+    #     else:
+    #         explained_sentences[index]['errant'].append(error_description)
+
+    #     last_index = index
+
+########################
+
+    batch_size = 5
+    for errant_annotation in range(0, len(errant_all_evaluation), batch_size):
+        errant_annotations = errant_all_evaluation[errant_annotation:errant_annotation+batch_size]
+        prompts = []
+        errant_prompts = []
+
+        for ea in errant_annotations:
+            prompts.append(
+                f"You are an English teacher. Please explain the errors that were corrected in the following sentence:\n\n"
+                f"Original: {ea['original_sentence']}\n"
+                f"Corrected: {ea['corrected_sentence']}\n\n"
+                f"List and explain the errors found in the original sentence and how they were corrected in the revised sentence."
+            )
+
+            error_type = ea['error_type']
+            original_text = ea['original_text']  # Only the text of the sentence that was corrected
+            corrected_text = ea['corrected_text']
+        
+            errant_prompts.append(
+                f"Please explain the errors that were found as briefly as possible, focusing only on the main idea and the broken rule in the English language:\n\n"
+                f"Where the error type is {error_type}, " 
+                f"the original sentence is {ea['original_sentence']}, " 
+                f"the corrected sentence is {ea['corrected_sentence']}, "
+                "and supposing that the first character is in position 0, "
+                f"the error text is between the characters {ea['o_start']} and {ea['o_end']} in the original sentence, "
+                f"and the corrected text is between the characters {ea['c_start']} and {ea['c_end']} in the corrected sentence."
+            )
+
+        llm_sentence_explained = chat_llm.get_answer_batch(prompts)   # for the whole sentence
+        #lt_errors = original_sentence['language_tool']
+        errant_llm_explained = chat_llm.get_answer_batch(errant_prompts)
+
+
+        for i, ea in enumerate(errant_annotations):
+            error_type = ea['error_type']
+            original_text = ea['original_text']  # Only the text of the sentence that was corrected
+            corrected_text = ea['corrected_text']
+            lt_errors = grammar_checker_lt.check(ea['original_sentence'])
+
+            error_description = {
+                'index': ea['index'],
+                'speaker': ea['speaker'],
+                'original_sentence': ea['original_sentence'],
+                'corrected_sentence': ea['corrected_sentence'],
+                'o_start': ea['o_start'],
+                'o_end': ea['o_end'],
+                'original_text': original_text,
+                'c_start': ea['c_start'],
+                'c_end': ea['c_start'],
+                'corrected_text': corrected_text,
+                'error_type': error_type,
+                'llm_explanation': errant_llm_explained[i],
             }
-        else:
-            explained_sentences[index]['errant'].append(error_description)
 
-        last_index = index
+            if last_index != ea['index']:
+                explained_sentences[ea['index']] = {
+                    'speaker': ea['speaker'],
+                    'original_sentence' : ea['original_sentence'],
+                    't5_checked_sentence': ea['corrected_sentence'],
+                    'llm_explanation': llm_sentence_explained[i],
+                    'language_tool': lt_errors,
+                    'errant': [error_description],
+                }
+            else:
+                explained_sentences[ea['index']]['errant'].append(error_description)
 
+            last_index = ea['index']
+
+########################
     file_manager.save_to_json_file(output_path, explained_sentences)
 
     chat_llm.unload_model()
     return explained_sentences
+
 
 def explain_sentences_of_directory(
         file_manager: FileManager,
@@ -117,21 +193,65 @@ def explain_sentences_of_directory(
                 explained_sentences_path)
 
 
+def get_args():
+    parser = argparse.ArgumentParser(description="Explain the errors in a sentences collection file.")
+    parser.add_argument("-ef", "--errant_file", type=str, help="Path to where the input errant evaluation file is located.")
+    parser.add_argument("-xf", "--explained_file", type=str, help="Path to where the output explained sentences file will be saved.")
+    parser.add_argument("-ed", "--errant_directory", type=str, help="Path to the directory containing the input errant evaluation files.")
+    parser.add_argument("-xd", "--explained_directory", type=str, help="Path to the directory where the output explained sentences files will be saved.")
+
+    return parser.parse_args()
+
+
 def main():
     global input_directory, output_directory
+    errant_directory = input_directory
+    explained_directory = output_directory
     file_manager = FileManager()
     grammar_checker_lt = GrammarChecker("LT_API")
     llm_modelId = "google/gemma-1.1-7b-it"  # "google/gemma-1.1-2b-it"
     llm = ChatFactory.get_instance(llm_modelId)
+    args = get_args()
 
-    explain_sentences_of_directory(
-        file_manager, 
-        llm, 
-        grammar_checker_lt, 
-        'en', 
-        input_directory, 
-        output_directory)
+    print("Starting to explain sentences...")
+
+    if args.errant_file:
+        if args.errant_directory:
+            raise ValueError("Error: Please provide either an errant evaluation file or an errant evaluation directory.")
+        elif args.explained_file:
+            explain_sentences(file_manager, llm, grammar_checker_lt, 'en', args.errant_file, args.explained_file)
+        elif args.explained_directory:
+            errant_file = os.path.basename(args.errant_file)
+            transcript_name, transcript_extension = os.path.splitext(errant_file)
+            explain_sentences(file_manager, llm, grammar_checker_lt, 'en', args.errant_file, os.path.join(args.explained_directory, transcript_name + ".json"))
+        else:
+            errant_file = os.path.basename(args.errant_file)
+            transcript_name, transcript_extension = os.path.splitext(errant_file)
+            explain_sentences(file_manager, llm, grammar_checker_lt, 'en', args.errant_file, os.path.join(explained_directory, transcript_name + ".json"))
+
+    elif args.errant_directory:
+        if args.explained_directory:
+            explain_sentences_of_directory(file_manager, llm, grammar_checker_lt, 'en', args.errant_directory, args.explained_directory)
+        elif args.explained_file:
+            raise ValueError("Error: Please provide a directory to save the explained sentences files.")
+        else:
+            explain_sentences_of_directory(file_manager, llm, grammar_checker_lt, 'en', args.errant_directory, explained_directory)
+        
+    elif args.explained_file or args.explained_directory:
+        raise ValueError("Error: Please provide a transcript file or a transcript directory.")
+
+    else:
+        explain_sentences_of_directory(file_manager, llm, grammar_checker_lt, 'en', errant_directory, explained_directory)
 
 
-if __name__ == '__main__':
+    # Clean GPU VRAM
+    if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+
+if "__main__" == __name__:
+    start = time.time()
     main()
+    end = time.time()
+    elapsed_time = end - start
+    # Print the time it took to explain the sentences in the format {hh:mm:ss}
+    print(f"Time taken to explain sentences: {time.strftime('%H:%M:%S', time.gmtime(elapsed_time))}")

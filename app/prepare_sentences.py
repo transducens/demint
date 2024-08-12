@@ -2,6 +2,7 @@
 import errant
 from sentence_splitter import SentenceSplitter
 import os
+import argparse
 
 from app.file_manager import FileManager
 
@@ -94,13 +95,51 @@ def prepare_sentences_collection_of_directory(
             prepare_sorted_sentence_collection(file_manager, diarized_transcript_path, sentence_collection_path)
 
 
+def get_args():
+    parser = argparse.ArgumentParser(description="Prepare a sorted sentence collection from a transcript file or a directory of transcript files.")
+    parser.add_argument("-tf", "--transcript_file", type=str, help="Path to where the input transcript file is located.")
+    parser.add_argument("-sf", "--sentences_file", type=str, help="Path to where the output sentences collection file will be saved.")
+    parser.add_argument("-td", "--transcript_directory", type=str, help="Path to the directory containing the input transcript files.")
+    parser.add_argument("-sd", "--sentences_directory", type=str, help="Path to the directory where the output sentences collection files will be saved.")
+
+    return parser.parse_args()
+
+
 def main():
     global input_directory, output_directory
     file_manager = FileManager()
+    transcript_directory = input_directory
+    sentences_directory = output_directory
+    args = get_args()
 
-    prepare_sentences_collection_of_directory(file_manager, input_directory, output_directory)
-    print("Raw Sorted Sentence Collection is created...")
+    if args.transcript_file:
+        if args.transcript_directory:
+            raise ValueError("Error: Please provide either a transcript file or a transcript directory.")
+        elif args.sentences_file:
+            prepare_sorted_sentence_collection(file_manager, args.transcript_file, args.sentences_file)
+        elif args.sentences_directory:
+            transcript_file = os.path.basename(args.transcript_file)
+            transcript_name, transcript_extension = os.path.splitext(transcript_file)
+            prepare_sorted_sentence_collection(file_manager, args.transcript_file, os.path.join(args.sentences_directory, transcript_name + ".json"))
+        else:
+            transcript_file = os.path.basename(args.transcript_file)
+            transcript_name, transcript_extension = os.path.splitext(transcript_file)
+            prepare_sorted_sentence_collection(file_manager, args.transcript_file, os.path.join(sentences_directory, transcript_name + ".json"))
+
+    elif args.transcript_directory:
+        if args.sentences_directory:
+            prepare_sentences_collection_of_directory(file_manager, args.transcript_directory, args.sentences_directory)
+        elif args.sentences_file:
+            raise ValueError("Error: Please provide a directory to save the sentences collection files.")
+        else:
+            prepare_sentences_collection_of_directory(file_manager, args.transcript_directory, sentences_directory)
+        
+    elif args.sentences_file or args.sentences_directory:
+        raise ValueError("Error: Please provide a transcript file or a transcript directory.")
+
+    else:
+        prepare_sentences_collection_of_directory(file_manager, transcript_directory, sentences_directory)
 
 
-if __name__ == '__main__':
-    main()    
+if "__main__" == __name__:
+    main()

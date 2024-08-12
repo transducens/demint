@@ -1,18 +1,11 @@
 from transformers import WhisperForConditionalGeneration, pipeline
-import csv
 from transformers import WhisperTokenizer, WhisperFeatureExtractor
 from transformers import WhisperForConditionalGeneration
 from peft import PeftModel, PeftConfig
 
 import torch
 import os
-import re
-from pyannote.audio import Pipeline
-from pyannote.audio.pipelines.utils.hook import ProgressHook
-from pydub import AudioSegment
-from pydub.silence import split_on_silence
 import librosa
-import numpy as np
 import datetime
 import json
 from scipy.io import wavfile
@@ -33,10 +26,10 @@ def main():
     model = WhisperForConditionalGeneration.from_pretrained(
       peft_config.base_model_name_or_path, load_in_8bit=False)
 
-    model = PeftModel.from_pretrained(model, peft_model_id)
+    model = PeftModel.from_pretrained(model, peft_model_id, language=language)
 
     tokenizer = WhisperTokenizer.from_pretrained("openai/whisper-large-v3", language="english", task="transcribe")
-    aaa = WhisperFeatureExtractor.from_pretrained("openai/whisper-large-v3")
+    aaa = WhisperFeatureExtractor.from_pretrained("openai/whisper-large-v3", language=language)
     pipe = pipeline(model=model, tokenizer=tokenizer, feature_extractor=aaa, task="automatic-speech-recognition", device=device)
 
     f = os.listdir("cache/diarized_audios")
@@ -61,33 +54,28 @@ def main():
 
             samplerate, audio = wavfile.read(os.path.join('cache', 'diarized_audios', y, x))
             data = []
-            """for numpyx in audio:
-                for numpyy in numpyx:
-                    data.append(numpyy)"""
 
-            #audio = np.array(data)
             print(x)
-            print(audio)
-            print(audio.shape)
-            print(samplerate)
-            print(type(audio))
-            transcript = transcribe(audio, pipe)
-            end_time = start_time + librosa.get_duration(filename=(os.path.join('cache', 'diarized_audios', y, x)))
-            print(transcript)
-            
-            start = str(datetime.timedelta(seconds=start_time))
-            end = str(datetime.timedelta(seconds=end_time))
+            if audio.shape[0] > 7000:
+                print(audio)
+                print(audio.shape)
+                print(samplerate)
+                print(type(audio))
+                transcript = transcribe(audio, pipe)
+                end_time = start_time + librosa.get_duration(filename=(os.path.join('cache', 'diarized_audios', y, x)))
+                print(transcript)
+                
+                start = str(datetime.timedelta(seconds=start_time))
+                end = str(datetime.timedelta(seconds=end_time))
 
-            result = "[" + start + "-->" + end + "] SPEAKER_" + speaker +"|| " + transcript
+                result = "[" + start + "-->" + end + "] SPEAKER_" + speaker +"|| " + transcript
 
-            start_time = end_time
+                start_time = end_time
 
-            content.append(result)   
+                content.append(result)   
 
         with open(os.path.join("cache", "diarized_transcripts", y, y + '.json'), 'w') as f:
             json.dump(content, f) 
-
-
 
 if __name__ == '__main__':
     main()

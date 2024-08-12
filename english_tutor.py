@@ -1,6 +1,6 @@
 from app.llm.ChatFactory import ChatFactory
 from app.rag.RAGFactory import RAGFactory
-from app.audio_downloader import AudioDownloader
+from app.audio_downloader import AudioDownloaderYTDLP
 from app.audio_extractor import AudioExtractor
 from app.file_manager import FileManager
 import os
@@ -38,10 +38,13 @@ class EnglishTutor:
             self.__chat_llm = self.__chat_factory.get_instance(self.__llm_model_name)
 
         return self.__chat_llm
+    
+    def get_chat_llm(self):
+        return self.__llm_model_name
 
     def __get_audio_downloader(self):
         if self.__audio_downloader is None:
-            self.__audio_downloader = AudioDownloader()
+            self.__audio_downloader = AudioDownloaderYTDLP()
 
         return self.__audio_downloader
 

@@ -1,15 +1,15 @@
 
 # DeMINT: Automated Language Debriefing for English Learners via AI Chatbot Analysis of Meeting Transcripts
 
-## Project Overview
+## Project overview
 
 This is the repository for DeMINT's chatbot code and auxiliary scripts.
 
-DeMINT ("Automated Language Debriefing for English Learners via AI Chatbot Analysis of Meeting Transcripts") is a project funded by the EU's [UTTER](https://he-utter.eu/) project (grant agreement number 101070631) via a cascaded funding [call](https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/competitive-calls-cs/3722). DeMINT runs from January 15, 2024, to October 15, 2024.
+DeMINT ("Automated Language Debriefing for English Learners via AI Chatbot Analysis of Meeting Transcripts") is a project funded by the EU's [UTTER](https://he-utter.eu/) project (grant agreement number 101070631) via a cascaded funding [call](https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/competitive-calls-cs/3722). DeMINT was one of 8 projects selected out of 54 submissions. The project runs from January 15, 2024, to October 15, 2024.
 
-The project is being executed by the Transducens research group at Universitat d'Alacant, Spain.
+DeMINT's architecture was presented at UTTER 2nd User Day, an online event held on July 5, 2024. The [video](https://www.youtube.com/watch?v=TzEK9JlxVH4) of the presentation is now available online. The project is being executed by the Transducens research group at Universitat d'Alacant, Spain. 
 
-### Project Goals
+## Project goals
 
 DeMINT aims to develop a conversational system that helps non-native English speakers improve their language skills by analyzing transcripts of video conferences in which they have participated. The system integrates cutting-edge techniques in conversational AI, including:
 
@@ -24,7 +24,7 @@ The project will culminate in a pilot study to assess the system’s effectivene
 
 <img src="demint-diagram.png" width="700">
 
-## Installation and Setup
+## Installation and setup
 
 Clone the project repository:
 
@@ -91,5 +91,12 @@ If you use DeMINT in your research, please cite it as follows:
   howpublished = {\url{https://github.com/transducens/demint}},
 }
 ```
+
+## Documents
+
+- The data management plan addresses issues such as data collection, data generation, data sharing, property rights and privacy, and long-term preservation and re-use, in compliance with national and EU legislation.
+- The consent form in Catalan will be signed by the participants in the human evaluation and has been already approved by the university's ethics committee.
+
+Links to these documents will be made available here.
 
 <img src="public/logo_dark.png" width="200" height="200">

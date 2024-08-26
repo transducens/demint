@@ -7,6 +7,8 @@ This is the repository for DeMINT's chatbot code and auxiliary scripts.
 
 DeMINT ("Automated Language Debriefing for English Learners via AI Chatbot Analysis of Meeting Transcripts") is a project funded by the EU's [UTTER](https://he-utter.eu/) project (grant agreement number 101070631) via a cascaded funding [call](https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/competitive-calls-cs/3722). DeMINT runs from January 15, 2024, to October 15, 2024.
 
+The project is being executed by the Transducens research group at Universitat d'Alacant, Spain.
+
 ### Project Goals
 
 DeMINT aims to develop a conversational system that helps non-native English speakers improve their language skills by analyzing transcripts of video conferences in which they have participated. The system integrates cutting-edge techniques in conversational AI, including:

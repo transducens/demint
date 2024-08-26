@@ -20,7 +20,7 @@ DeMINT aims to develop a conversational system that helps non-native English spe
 
 The project will culminate in a pilot study to assess the system’s effectiveness among L2-English learners.
 
-<img src="demint-diagram.png" width="200">
+<img src="demint-diagram.png" width="700">
 
 ## Installation and Setup
 

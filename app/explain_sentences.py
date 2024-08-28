@@ -14,7 +14,7 @@ input_directory = "./cache/errant_all_evaluation"
 output_directory = "./cache/explained_sentences"
 
 
-def explain_sentences(file_manager, chat_llm, grammar_checker_lt, lang='en', input_path="", output_path=""):
+def explain_sentences(file_manager, chat_llm, input_path="", output_path=""):
     if not os.path.isfile(input_path):
         print(f"{input_path} is not found.")
         print(f"Processing {input_path}")
@@ -36,10 +36,7 @@ def explain_sentences(file_manager, chat_llm, grammar_checker_lt, lang='en', inp
     #         f"List and explain the errors found in the original sentence and how they were corrected in the revised sentence."
     #     )
 
-    #     lt_errors = grammar_checker_lt.check(original_sentence)
-
     #     llm_sentence_explained = chat_llm.get_answer(final_sentence_prompt)   # for the whole sentence
-    #     #lt_errors = original_sentence['language_tool']
 
         
     #     error_type = errant_annotation['error_type']
@@ -79,7 +76,6 @@ def explain_sentences(file_manager, chat_llm, grammar_checker_lt, lang='en', inp
     #             'original_sentence' : original_sentence,
     #             't5_checked_sentence': corrected_sentence,
     #             'llm_explanation': llm_sentence_explained,
-    #             'language_tool': lt_errors,
     #             'errant': [error_description],
     #         }
     #     else:
@@ -118,7 +114,6 @@ def explain_sentences(file_manager, chat_llm, grammar_checker_lt, lang='en', inp
             )
 
         llm_sentence_explained = chat_llm.get_answer_batch(prompts)   # for the whole sentence
-        #lt_errors = original_sentence['language_tool']
         errant_llm_explained = chat_llm.get_answer_batch(errant_prompts)
 
 
@@ -126,7 +121,6 @@ def explain_sentences(file_manager, chat_llm, grammar_checker_lt, lang='en', inp
             error_type = ea['error_type']
             original_text = ea['original_text']  # Only the text of the sentence that was corrected
             corrected_text = ea['corrected_text']
-            lt_errors = grammar_checker_lt.check(ea['original_sentence'])
 
             error_description = {
                 'index': ea['index'],
@@ -149,7 +143,6 @@ def explain_sentences(file_manager, chat_llm, grammar_checker_lt, lang='en', inp
                     'original_sentence' : ea['original_sentence'],
                     't5_checked_sentence': ea['corrected_sentence'],
                     'llm_explanation': llm_sentence_explained[i],
-                    'language_tool': lt_errors,
                     'errant': [error_description],
                 }
             else:
@@ -167,8 +160,6 @@ def explain_sentences(file_manager, chat_llm, grammar_checker_lt, lang='en', inp
 def explain_sentences_of_directory(
         file_manager: FileManager,
         llm: ChatFactory,
-        grammar_checker_lt: GrammarChecker,
-        lang='en',
         errant_directory = "cache/errant_all_evaluation", 
         explained_sentences_directory = "cache/explained_sentences", 
     ):
@@ -187,8 +178,6 @@ def explain_sentences_of_directory(
             explain_sentences(
                 file_manager,
                 llm,
-                grammar_checker_lt, 
-                'en', 
                 errant_evaluation_path, 
                 explained_sentences_path)
 
@@ -208,8 +197,7 @@ def main():
     errant_directory = input_directory
     explained_directory = output_directory
     file_manager = FileManager()
-    grammar_checker_lt = GrammarChecker("LT_API")
-    llm_modelId = "google/gemma-1.1-7b-it"  # "google/gemma-1.1-2b-it"
+    llm_modelId = "meta-llama/Meta-Llama-3.1-8B-Instruct"
     llm = ChatFactory.get_instance(llm_modelId)
     args = get_args()
 
@@ -219,29 +207,29 @@ def main():
         if args.errant_directory:
             raise ValueError("Error: Please provide either an errant evaluation file or an errant evaluation directory.")
         elif args.explained_file:
-            explain_sentences(file_manager, llm, grammar_checker_lt, 'en', args.errant_file, args.explained_file)
+            explain_sentences(file_manager, llm, args.errant_file, args.explained_file)
         elif args.explained_directory:
             errant_file = os.path.basename(args.errant_file)
             transcript_name, transcript_extension = os.path.splitext(errant_file)
-            explain_sentences(file_manager, llm, grammar_checker_lt, 'en', args.errant_file, os.path.join(args.explained_directory, transcript_name + ".json"))
+            explain_sentences(file_manager, llm, args.errant_file, os.path.join(args.explained_directory, transcript_name + ".json"))
         else:
             errant_file = os.path.basename(args.errant_file)
             transcript_name, transcript_extension = os.path.splitext(errant_file)
-            explain_sentences(file_manager, llm, grammar_checker_lt, 'en', args.errant_file, os.path.join(explained_directory, transcript_name + ".json"))
+            explain_sentences(file_manager, llm, args.errant_file, os.path.join(explained_directory, transcript_name + ".json"))
 
     elif args.errant_directory:
         if args.explained_directory:
-            explain_sentences_of_directory(file_manager, llm, grammar_checker_lt, 'en', args.errant_directory, args.explained_directory)
+            explain_sentences_of_directory(file_manager, llm, args.errant_directory, args.explained_directory)
         elif args.explained_file:
             raise ValueError("Error: Please provide a directory to save the explained sentences files.")
         else:
-            explain_sentences_of_directory(file_manager, llm, grammar_checker_lt, 'en', args.errant_directory, explained_directory)
+            explain_sentences_of_directory(file_manager, llm, args.errant_directory, explained_directory)
         
     elif args.explained_file or args.explained_directory:
         raise ValueError("Error: Please provide a transcript file or a transcript directory.")
 
     else:
-        explain_sentences_of_directory(file_manager, llm, grammar_checker_lt, 'en', errant_directory, explained_directory)
+        explain_sentences_of_directory(file_manager, llm, errant_directory, explained_directory)
 
 
     # Clean GPU VRAM

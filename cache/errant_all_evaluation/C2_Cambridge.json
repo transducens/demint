@@ -39,45 +39,6 @@
         "error_type": "M:VERB"
     },
     {
-        "index": "10",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "I'm from holland i'm from hairelem it's near to the west coast of holland.",
-        "corrected_sentence": "I'm from holland, I'm from hairelem, it's near to the west coast of holland.",
-        "o_start": 2,
-        "o_end": 3,
-        "original_text": "holland",
-        "c_start": 2,
-        "c_end": 3,
-        "corrected_text": "holland,",
-        "error_type": "R:SPELL"
-    },
-    {
-        "index": "10",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "I'm from holland i'm from hairelem it's near to the west coast of holland.",
-        "corrected_sentence": "I'm from holland, I'm from hairelem, it's near to the west coast of holland.",
-        "o_start": 3,
-        "o_end": 4,
-        "original_text": "i'm",
-        "c_start": 3,
-        "c_end": 4,
-        "corrected_text": "I'm",
-        "error_type": "R:ORTH"
-    },
-    {
-        "index": "10",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "I'm from holland i'm from hairelem it's near to the west coast of holland.",
-        "corrected_sentence": "I'm from holland, I'm from hairelem, it's near to the west coast of holland.",
-        "o_start": 5,
-        "o_end": 6,
-        "original_text": "hairelem",
-        "c_start": 5,
-        "c_end": 6,
-        "corrected_text": "hairelem,",
-        "error_type": "R:SPELL"
-    },
-    {
         "index": "13",
         "speaker": "SPEAKER_02",
         "original_sentence": "I'm just studying at the moment but now i'm finally taking a gap year so obviously i'm not studying i'm studying english but.",
@@ -89,32 +50,6 @@
         "c_end": 6,
         "corrected_text": "moment,",
         "error_type": "R:NOUN"
-    },
-    {
-        "index": "13",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "I'm just studying at the moment but now i'm finally taking a gap year so obviously i'm not studying i'm studying english but.",
-        "corrected_sentence": "I'm just studying at the moment, but now I'm finally taking a gap year so obviously I'm not studying but I'm studying english.",
-        "o_start": 8,
-        "o_end": 9,
-        "original_text": "i'm",
-        "c_start": 8,
-        "c_end": 9,
-        "corrected_text": "I'm",
-        "error_type": "R:ORTH"
-    },
-    {
-        "index": "13",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "I'm just studying at the moment but now i'm finally taking a gap year so obviously i'm not studying i'm studying english but.",
-        "corrected_sentence": "I'm just studying at the moment, but now I'm finally taking a gap year so obviously I'm not studying but I'm studying english.",
-        "o_start": 16,
-        "o_end": 17,
-        "original_text": "i'm",
-        "c_start": 16,
-        "c_end": 17,
-        "corrected_text": "I'm",
-        "error_type": "R:ORTH"
     },
     {
         "index": "13",
@@ -208,32 +143,6 @@
         "error_type": "R:NOUN"
     },
     {
-        "index": "19",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "I'm african gap year i finished my high school this summer and i'm going to university next summer.",
-        "corrected_sentence": "I'm an african gap year. I finished my high school this summer and I'm going to university next summer.",
-        "o_start": 4,
-        "o_end": 5,
-        "original_text": "i",
-        "c_start": 5,
-        "c_end": 6,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
-        "index": "19",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "I'm african gap year i finished my high school this summer and i'm going to university next summer.",
-        "corrected_sentence": "I'm an african gap year. I finished my high school this summer and I'm going to university next summer.",
-        "o_start": 12,
-        "o_end": 13,
-        "original_text": "i'm",
-        "c_start": 13,
-        "c_end": 14,
-        "corrected_text": "I'm",
-        "error_type": "R:ORTH"
-    },
-    {
         "index": "22",
         "speaker": "SPEAKER_01",
         "original_sentence": "I want to become a doctor i want to improve the health of human beings.",
@@ -245,19 +154,6 @@
         "c_end": 7,
         "corrected_text": "and",
         "error_type": "M:CONJ"
-    },
-    {
-        "index": "22",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "I want to become a doctor i want to improve the health of human beings.",
-        "corrected_sentence": "I want to become a doctor and I want to improve the health of human beings.",
-        "o_start": 6,
-        "o_end": 7,
-        "original_text": "i",
-        "c_start": 7,
-        "c_end": 8,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
     },
     {
         "index": "23",
@@ -273,19 +169,6 @@
         "error_type": "R:NOUN"
     },
     {
-        "index": "24",
-        "speaker": "SPEAKER_00",
-        "original_sentence": "And anita what do you think you'll be doing this time next year?",
-        "corrected_sentence": "And anita, what do you think you'll be doing this time next year?",
-        "o_start": 1,
-        "o_end": 2,
-        "original_text": "anita",
-        "c_start": 1,
-        "c_end": 2,
-        "corrected_text": "anita,",
-        "error_type": "R:SPELL"
-    },
-    {
         "index": "25",
         "speaker": "SPEAKER_02",
         "original_sentence": "Well i'll be doing my bank internship which takes 18 months so next year obviously i'm going to be there and taking my exams for at least pretty much.",
@@ -297,19 +180,6 @@
         "c_end": 1,
         "corrected_text": "Well,",
         "error_type": "R:OTHER"
-    },
-    {
-        "index": "25",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "Well i'll be doing my bank internship which takes 18 months so next year obviously i'm going to be there and taking my exams for at least pretty much.",
-        "corrected_sentence": "Well, I'll be doing my bank internship which takes 18 months so next year I'm going to be there and taking my exams for at least pretty much.",
-        "o_start": 1,
-        "o_end": 2,
-        "original_text": "i'll",
-        "c_start": 1,
-        "c_end": 2,
-        "corrected_text": "I'll",
-        "error_type": "R:ORTH"
     },
     {
         "index": "25",
@@ -338,19 +208,6 @@
         "error_type": "R:OTHER"
     },
     {
-        "index": "30",
-        "speaker": "SPEAKER_00",
-        "original_sentence": "First i'd like you to look at pictures a.",
-        "corrected_sentence": "First, I'd like you to look at pictures a.",
-        "o_start": 1,
-        "o_end": 2,
-        "original_text": "i'd",
-        "c_start": 1,
-        "c_end": 2,
-        "corrected_text": "I'd",
-        "error_type": "R:ORTH"
-    },
-    {
         "index": "31",
         "speaker": "SPEAKER_00",
         "original_sentence": "And talk together about the sounds you might hear in these situations you have about a minute for this so don't worry if i interrupt you.",
@@ -362,32 +219,6 @@
         "c_end": 12,
         "corrected_text": "situations.",
         "error_type": "R:NOUN"
-    },
-    {
-        "index": "31",
-        "speaker": "SPEAKER_00",
-        "original_sentence": "And talk together about the sounds you might hear in these situations you have about a minute for this so don't worry if i interrupt you.",
-        "corrected_sentence": "And talk together about the sounds you might hear in these situations. You have about a minute for this so don't worry if I interrupt you.",
-        "o_start": 12,
-        "o_end": 13,
-        "original_text": "you",
-        "c_start": 12,
-        "c_end": 13,
-        "corrected_text": "You",
-        "error_type": "R:ORTH"
-    },
-    {
-        "index": "31",
-        "speaker": "SPEAKER_00",
-        "original_sentence": "And talk together about the sounds you might hear in these situations you have about a minute for this so don't worry if i interrupt you.",
-        "corrected_sentence": "And talk together about the sounds you might hear in these situations. You have about a minute for this so don't worry if I interrupt you.",
-        "o_start": 23,
-        "o_end": 24,
-        "original_text": "i",
-        "c_start": 23,
-        "c_end": 24,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
     },
     {
         "index": "32",
@@ -407,19 +238,6 @@
         "speaker": "SPEAKER_02",
         "original_sentence": "Okay on picture a you can see i think some kind of jungle with chimpanzees so i guess there are a lot of natural sounds like leaves moving and maybe some water maybe there's a river nearby.",
         "corrected_sentence": "Okay, on picture a you can see I think there is some kind of jungle with chimpanzees so I guess there are a lot of natural sounds like leaves moving and maybe some water maybe there's a river",
-        "o_start": 7,
-        "o_end": 8,
-        "original_text": "i",
-        "c_start": 7,
-        "c_end": 8,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
-        "index": "32",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "Okay on picture a you can see i think some kind of jungle with chimpanzees so i guess there are a lot of natural sounds like leaves moving and maybe some water maybe there's a river nearby.",
-        "corrected_sentence": "Okay, on picture a you can see I think there is some kind of jungle with chimpanzees so I guess there are a lot of natural sounds like leaves moving and maybe some water maybe there's a river",
         "o_start": 9,
         "o_end": 9,
         "original_text": "",
@@ -427,19 +245,6 @@
         "c_end": 11,
         "corrected_text": "there is",
         "error_type": "M:OTHER"
-    },
-    {
-        "index": "32",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "Okay on picture a you can see i think some kind of jungle with chimpanzees so i guess there are a lot of natural sounds like leaves moving and maybe some water maybe there's a river nearby.",
-        "corrected_sentence": "Okay, on picture a you can see I think there is some kind of jungle with chimpanzees so I guess there are a lot of natural sounds like leaves moving and maybe some water maybe there's a river",
-        "o_start": 16,
-        "o_end": 17,
-        "original_text": "i",
-        "c_start": 18,
-        "c_end": 19,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
     },
     {
         "index": "32",
@@ -492,19 +297,6 @@
         "c_end": 3,
         "corrected_text": "gorillas,",
         "error_type": "R:NOUN"
-    },
-    {
-        "index": "37",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "Yeah or gorillas i don't know some kind of apes.",
-        "corrected_sentence": "Yeah or gorillas, I don't know some kind of apes.",
-        "o_start": 3,
-        "o_end": 4,
-        "original_text": "i",
-        "c_start": 3,
-        "c_end": 4,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
     },
     {
         "index": "38",
@@ -624,32 +416,6 @@
         "error_type": "R:OTHER"
     },
     {
-        "index": "49",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "Yeah but i don't think you hear any people because it doesn't look so nice there so i think it's going to be pretty much silent there.",
-        "corrected_sentence": "Yeah, but I don't think you hear any people because it doesn't look so nice there so I think it's going to be pretty much silent there.",
-        "o_start": 2,
-        "o_end": 3,
-        "original_text": "i",
-        "c_start": 2,
-        "c_end": 3,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
-        "index": "49",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "Yeah but i don't think you hear any people because it doesn't look so nice there so i think it's going to be pretty much silent there.",
-        "corrected_sentence": "Yeah, but I don't think you hear any people because it doesn't look so nice there so I think it's going to be pretty much silent there.",
-        "o_start": 17,
-        "o_end": 18,
-        "original_text": "i",
-        "c_start": 17,
-        "c_end": 18,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
         "index": "50",
         "speaker": "SPEAKER_01",
         "original_sentence": "Nå.",
@@ -741,32 +507,6 @@
         "error_type": "R:OTHER"
     },
     {
-        "index": "65",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "Yeah but you cannot really see that they are not doing well it looks like a typical calendar picture or it doesn't look too bad so i don't think this is a suitable picture.",
-        "corrected_sentence": "Yeah, but you cannot really see that they are not doing well. It looks like a typical calendar picture or it doesn't look too bad so I don't think this is a suitable picture.",
-        "o_start": 12,
-        "o_end": 13,
-        "original_text": "it",
-        "c_start": 12,
-        "c_end": 13,
-        "corrected_text": "It",
-        "error_type": "R:ORTH"
-    },
-    {
-        "index": "65",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "Yeah but you cannot really see that they are not doing well it looks like a typical calendar picture or it doesn't look too bad so i don't think this is a suitable picture.",
-        "corrected_sentence": "Yeah, but you cannot really see that they are not doing well. It looks like a typical calendar picture or it doesn't look too bad so I don't think this is a suitable picture.",
-        "o_start": 26,
-        "o_end": 27,
-        "original_text": "i",
-        "c_start": 26,
-        "c_end": 27,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
         "index": "66",
         "speaker": "SPEAKER_01",
         "original_sentence": "1 minuta.",
@@ -845,32 +585,6 @@
         "error_type": "U:OTHER"
     },
     {
-        "index": "79",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "Maybe it's the pollution of water because this is obviously like i think.",
-        "corrected_sentence": "Maybe it's the pollution of water because this is obviously like I think.",
-        "o_start": 11,
-        "o_end": 12,
-        "original_text": "i",
-        "c_start": 11,
-        "c_end": 12,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
-        "index": "81",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "Freezy water like filter water in the spring so i also don't think this is good.",
-        "corrected_sentence": "Freezy water like filter water in the spring so I also don't think this is good.",
-        "o_start": 9,
-        "o_end": 10,
-        "original_text": "i",
-        "c_start": 9,
-        "c_end": 10,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
         "index": "83",
         "speaker": "SPEAKER_01",
         "original_sentence": "Isn't that a good idea? i think you see, you know, is a rather good one you see the e-cldr, it's a third world country, a developing country, certainly,.",
@@ -908,19 +622,6 @@
         "c_end": 1,
         "corrected_text": "Yes,",
         "error_type": "R:OTHER"
-    },
-    {
-        "index": "90",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "Yes i think these are the only.",
-        "corrected_sentence": "Yes, I think these are the only.",
-        "o_start": 1,
-        "o_end": 2,
-        "original_text": "i",
-        "c_start": 1,
-        "c_end": 2,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
     },
     {
         "index": "91",
@@ -962,32 +663,6 @@
         "error_type": "R:NOUN"
     },
     {
-        "index": "94",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "Yeah, they cut down onto trees i think these are good one as well.",
-        "corrected_sentence": "Yeah, they cut down on trees, I think these are good ones as well.",
-        "o_start": 6,
-        "o_end": 7,
-        "original_text": "i",
-        "c_start": 6,
-        "c_end": 7,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
-        "index": "94",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "Yeah, they cut down onto trees i think these are good one as well.",
-        "corrected_sentence": "Yeah, they cut down on trees, I think these are good ones as well.",
-        "o_start": 11,
-        "o_end": 12,
-        "original_text": "one",
-        "c_start": 11,
-        "c_end": 12,
-        "corrected_text": "ones",
-        "error_type": "R:SPELL"
-    },
-    {
         "index": "95",
         "speaker": "SPEAKER_02",
         "original_sentence": "Yeah i agree.",
@@ -999,19 +674,6 @@
         "c_end": 1,
         "corrected_text": "Yeah,",
         "error_type": "R:OTHER"
-    },
-    {
-        "index": "95",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "Yeah i agree.",
-        "corrected_sentence": "Yeah, I agree.",
-        "o_start": 1,
-        "o_end": 2,
-        "original_text": "i",
-        "c_start": 1,
-        "c_end": 2,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
     },
     {
         "index": "97",
@@ -1103,32 +765,6 @@
         "c_end": 5,
         "corrected_text": "honest,",
         "error_type": "R:OTHER"
-    },
-    {
-        "index": "102",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "Субтитры создавал DimaTorzok.",
-        "corrected_sentence": "утитр содавал DimaTorzok.",
-        "o_start": 0,
-        "o_end": 1,
-        "original_text": "Субтитры",
-        "c_start": 0,
-        "c_end": 1,
-        "corrected_text": "утитр",
-        "error_type": "R:SPELL"
-    },
-    {
-        "index": "102",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "Субтитры создавал DimaTorzok.",
-        "corrected_sentence": "утитр содавал DimaTorzok.",
-        "o_start": 1,
-        "o_end": 2,
-        "original_text": "создавал",
-        "c_start": 1,
-        "c_end": 2,
-        "corrected_text": "содавал",
-        "error_type": "R:SPELL"
     },
     {
         "index": "103",
@@ -1261,19 +897,6 @@
         "error_type": "R:OTHER"
     },
     {
-        "index": "107",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "Yeah but also i wouldn't use it for the campaign.",
-        "corrected_sentence": "Yeah, but also I wouldn't use it for the campaign.",
-        "o_start": 3,
-        "o_end": 4,
-        "original_text": "i",
-        "c_start": 3,
-        "c_end": 4,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
         "index": "108",
         "speaker": "SPEAKER_01",
         "original_sentence": "I think we choose D yeah it's the best one i think D and i think E it's really bad because you can use metal again you can recycle it so.",
@@ -1285,32 +908,6 @@
         "c_end": 10,
         "corrected_text": "one,",
         "error_type": "R:OTHER"
-    },
-    {
-        "index": "108",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "I think we choose D yeah it's the best one i think D and i think E it's really bad because you can use metal again you can recycle it so.",
-        "corrected_sentence": "I think we choose D yeah it's the best one, I think D and I think E it's really bad because you can use metal again you can recycle it so.",
-        "o_start": 10,
-        "o_end": 11,
-        "original_text": "i",
-        "c_start": 10,
-        "c_end": 11,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
-        "index": "108",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "I think we choose D yeah it's the best one i think D and i think E it's really bad because you can use metal again you can recycle it so.",
-        "corrected_sentence": "I think we choose D yeah it's the best one, I think D and I think E it's really bad because you can use metal again you can recycle it so.",
-        "o_start": 14,
-        "o_end": 15,
-        "original_text": "i",
-        "c_start": 14,
-        "c_end": 15,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
     },
     {
         "index": "116",
@@ -1378,32 +975,6 @@
         "error_type": "U:DET"
     },
     {
-        "index": "123",
-        "speaker": "SPEAKER_00",
-        "original_sentence": "So i'm going to give you a card with a question written on it and i'd like you to tell us what you think.",
-        "corrected_sentence": "So I'm going to give you a card with a question written on it and I'd like you to tell us what you think.",
-        "o_start": 1,
-        "o_end": 2,
-        "original_text": "i'm",
-        "c_start": 1,
-        "c_end": 2,
-        "corrected_text": "I'm",
-        "error_type": "R:ORTH"
-    },
-    {
-        "index": "123",
-        "speaker": "SPEAKER_00",
-        "original_sentence": "So i'm going to give you a card with a question written on it and i'd like you to tell us what you think.",
-        "corrected_sentence": "So I'm going to give you a card with a question written on it and I'd like you to tell us what you think.",
-        "o_start": 15,
-        "o_end": 16,
-        "original_text": "i'd",
-        "c_start": 15,
-        "c_end": 16,
-        "corrected_text": "I'd",
-        "error_type": "R:ORTH"
-    },
-    {
         "index": "127",
         "speaker": "SPEAKER_00",
         "original_sentence": "Here's your card please let a nique see your card remember that don't you have about 2 minutes to talk before we join in.",
@@ -1441,19 +1012,6 @@
         "c_end": 9,
         "corrected_text": "plans?",
         "error_type": "R:NOUN"
-    },
-    {
-        "index": "129",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "How important is it to make long term plans i think in personal life it's quite important to make long term plans because you are able to know what you want to become the way you are old and what you want to earn for money and what you want to do for the community for your country.",
-        "corrected_sentence": "How important is it to make long term plans? I think in personal life it's quite important to make long term plans because you are able to know what you want to become the way you are old and what you want to earn for",
-        "o_start": 9,
-        "o_end": 10,
-        "original_text": "i",
-        "c_start": 9,
-        "c_end": 10,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
     },
     {
         "index": "129",
@@ -1532,19 +1090,6 @@
         "c_end": 8,
         "corrected_text": "school.",
         "error_type": "R:NOUN"
-    },
-    {
-        "index": "131",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "This is a short story about work school it's really for yourself important to know what you want to do after school so you can have a good grades in certain subjects so that you will be able to show other people after school that you.",
-        "corrected_sentence": "This is a short story about work school. It's really important for yourself to know what you want to do after school so you can have good grades in certain subjects so that you will be able to show other people after school that",
-        "o_start": 8,
-        "o_end": 9,
-        "original_text": "it's",
-        "c_start": 8,
-        "c_end": 9,
-        "corrected_text": "It's",
-        "error_type": "R:ORTH"
     },
     {
         "index": "131",
@@ -1759,19 +1304,6 @@
         "speaker": "SPEAKER_02",
         "original_sentence": "While some people want to be spontaneous and i also think that's actually quite good idea to someone to say let's pack a suitcase with let's say a bikini and some trousers and then let's go to the airport and just pick one flight wherever it takes us so i think this also quite good but i think when it comes to important things like planning a family it's very important that you plan ahead to have a good job so you are financially stable.",
         "corrected_sentence": "While some people want to be spontaneous, I also think that's actually quite a good idea to someone to say let's pack a suitcase with a bikini and some trousers and then let's go to the airport",
-        "o_start": 8,
-        "o_end": 9,
-        "original_text": "i",
-        "c_start": 7,
-        "c_end": 8,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
-        "index": "136",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "While some people want to be spontaneous and i also think that's actually quite good idea to someone to say let's pack a suitcase with let's say a bikini and some trousers and then let's go to the airport and just pick one flight wherever it takes us so i think this also quite good but i think when it comes to important things like planning a family it's very important that you plan ahead to have a good job so you are financially stable.",
-        "corrected_sentence": "While some people want to be spontaneous, I also think that's actually quite a good idea to someone to say let's pack a suitcase with a bikini and some trousers and then let's go to the airport",
         "o_start": 14,
         "o_end": 14,
         "original_text": "",
@@ -1824,19 +1356,6 @@
         "speaker": "SPEAKER_02",
         "original_sentence": "So it depends you cannot always be a spesentaniously spesentaneous.",
         "corrected_sentence": "So it depends that you cannot always be a spesentaneous person.",
-        "o_start": 8,
-        "o_end": 9,
-        "original_text": "spesentaniously",
-        "c_start": 9,
-        "c_end": 10,
-        "corrected_text": "spesentaneous",
-        "error_type": "R:SPELL"
-    },
-    {
-        "index": "137",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "So it depends you cannot always be a spesentaniously spesentaneous.",
-        "corrected_sentence": "So it depends that you cannot always be a spesentaneous person.",
         "o_start": 9,
         "o_end": 10,
         "original_text": "spesentaneous.",
@@ -1876,19 +1395,6 @@
         "speaker": "SPEAKER_00",
         "original_sentence": "1 minuttet til de 2 minuttet til de 3 minuttet til de 4 minuttet til de 5 minuttet til de 6 minuttet til de 7 minuttet til de 8 minuttet til de 9 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til 10 minuttet til 10 minuttet til 10 minuttet til 10 minuttet til 10 minuttet til 10 minuttet til 10 minnett til 10 min 1 min 1,1 1 min 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3 and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and.",
         "corrected_sentence": "1 minuttet til de 2 minuttet til de 3 minuttet til de 4 minuttet til de 5 minuttet til de 6 minutte",
-        "o_start": 183,
-        "o_end": 184,
-        "original_text": "minuttet",
-        "c_start": 21,
-        "c_end": 22,
-        "corrected_text": "minutte",
-        "error_type": "R:SPELL"
-    },
-    {
-        "index": "140",
-        "speaker": "SPEAKER_00",
-        "original_sentence": "1 minuttet til de 2 minuttet til de 3 minuttet til de 4 minuttet til de 5 minuttet til de 6 minuttet til de 7 minuttet til de 8 minuttet til de 9 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til de 10 minuttet til 10 minuttet til 10 minuttet til 10 minuttet til 10 minuttet til 10 minuttet til 10 minuttet til 10 minnett til 10 min 1 min 1,1 1 min 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3 and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and.",
-        "corrected_sentence": "1 minuttet til de 2 minuttet til de 3 minuttet til de 4 minuttet til de 5 minuttet til de 6 minutte",
         "o_start": 184,
         "o_end": 229,
         "original_text": "til 10 minnett til 10 min 1 min 1,1 1 min 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3 and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and.",
@@ -1909,32 +1415,6 @@
         "c_end": 4,
         "corrected_text": "the",
         "error_type": "M:DET"
-    },
-    {
-        "index": "147",
-        "speaker": "SPEAKER_00",
-        "original_sentence": "Remember anique you have about 2 minutes to tell us what you think and there are some ideas on the card for you to use if you like.",
-        "corrected_sentence": "Remember anique, you have about 2 minutes to tell us what you think and there are some ideas on the card for you to use if you like.",
-        "o_start": 1,
-        "o_end": 2,
-        "original_text": "anique",
-        "c_start": 1,
-        "c_end": 2,
-        "corrected_text": "anique,",
-        "error_type": "R:SPELL"
-    },
-    {
-        "index": "149",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "What factors will influence how cities develop in the future that's a very good question because i think because the rising population nowadays that's very important right now to think about the future so um when it comes to population we can definitely.",
-        "corrected_sentence": "What factors will influence how cities develop in the future that's a very good question because I think because of the rising population nowadays that's very important right now to think about the future so when it comes to population we can definitely.",
-        "o_start": 16,
-        "o_end": 17,
-        "original_text": "i",
-        "c_start": 16,
-        "c_end": 17,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
     },
     {
         "index": "149",
@@ -1967,19 +1447,6 @@
         "speaker": "SPEAKER_02",
         "original_sentence": "And also i think the living standard is going to get a bit down because you probably won't be able to have a garden and your own house will just share a small flat probably in the big cities also you have to deforest forests in order to make space for buildings.",
         "corrected_sentence": "And also I think the living standard is going to get a bit down because you probably won't be able to have a garden and your own house will just share a small flat probably in the big cities also you have to",
-        "o_start": 2,
-        "o_end": 3,
-        "original_text": "i",
-        "c_start": 2,
-        "c_end": 3,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
-        "index": "151",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "And also i think the living standard is going to get a bit down because you probably won't be able to have a garden and your own house will just share a small flat probably in the big cities also you have to deforest forests in order to make space for buildings.",
-        "corrected_sentence": "And also I think the living standard is going to get a bit down because you probably won't be able to have a garden and your own house will just share a small flat probably in the big cities also you have to",
         "o_start": 42,
         "o_end": 47,
         "original_text": "to deforest forests in order",
@@ -2000,19 +1467,6 @@
         "c_end": 43,
         "corrected_text": "",
         "error_type": "U:OTHER"
-    },
-    {
-        "index": "152",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "So i think the cities are just going to get more packed with buildings and the nature or the sceneries are going to suffer from that and financially well.",
-        "corrected_sentence": "So I think the cities are just going to get more packed with buildings and the nature or the sceneries are going to suffer from that and financially well.",
-        "o_start": 1,
-        "o_end": 2,
-        "original_text": "i",
-        "c_start": 1,
-        "c_end": 2,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
     },
     {
         "index": "153",
@@ -2045,19 +1499,6 @@
         "speaker": "SPEAKER_02",
         "original_sentence": "They could develop in different ways i think everything is getting more expensive everyday because the resources are getting rarer rarer and yeah i think also the price of water is going to raise and energy and the fuel obviously and yeah just like things like petrol and climate well we are experiencing global climate changes global warming.",
         "corrected_sentence": "They could develop in different ways i think everything is getting more expensive everyday because the resources are getting rarer and rarer and yeah, I think also the price of water is going to raise and energy and the fuel obviously and yeah just like",
-        "o_start": 23,
-        "o_end": 24,
-        "original_text": "i",
-        "c_start": 24,
-        "c_end": 25,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
-        "index": "153",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "They could develop in different ways i think everything is getting more expensive everyday because the resources are getting rarer rarer and yeah i think also the price of water is going to raise and energy and the fuel obviously and yeah just like things like petrol and climate well we are experiencing global climate changes global warming.",
-        "corrected_sentence": "They could develop in different ways i think everything is getting more expensive everyday because the resources are getting rarer and rarer and yeah, I think also the price of water is going to raise and energy and the fuel obviously and yeah just like",
         "o_start": 43,
         "o_end": 45,
         "original_text": "like things",
@@ -2078,19 +1519,6 @@
         "c_end": 45,
         "corrected_text": "",
         "error_type": "U:OTHER"
-    },
-    {
-        "index": "154",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "But i think not every city is affected so far so probably in the jungles or like rainforest the season are not really going to change because they are always at the equator but other cities like not every cities but the city antarctica i think all the ice jobs are going to melt at some point and then just the animals are going to suffer and also people there.",
-        "corrected_sentence": "But I think not every city is affected so far so probably in the jungles or like rainforest the season are not really going to change because they are always at the equator but other cities like not every city but the city ant",
-        "o_start": 1,
-        "o_end": 2,
-        "original_text": "i",
-        "c_start": 1,
-        "c_end": 2,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
     },
     {
         "index": "154",
@@ -2240,19 +1668,6 @@
         "speaker": "SPEAKER_01",
         "original_sentence": "I think so because if you want to to have the old scenery that that we had in the early days many many people used to are are usually looking looking back to to the good life many old people and i think it's it's really good to to preserve those buildings to to have the the old scenery in the cities.",
         "corrected_sentence": "I think so because if you want to have the old scenery that we had in the early days, many people used to be looking back to the good life of many old people and I think it's really good to preserve those buildings to",
-        "o_start": 41,
-        "o_end": 42,
-        "original_text": "i",
-        "c_start": 35,
-        "c_end": 36,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
-        "index": "157",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "I think so because if you want to to have the old scenery that that we had in the early days many many people used to are are usually looking looking back to to the good life many old people and i think it's it's really good to to preserve those buildings to to have the the old scenery in the cities.",
-        "corrected_sentence": "I think so because if you want to have the old scenery that we had in the early days, many people used to be looking back to the good life of many old people and I think it's really good to preserve those buildings to",
         "o_start": 43,
         "o_end": 44,
         "original_text": "it's",
@@ -2305,45 +1720,6 @@
         "speaker": "SPEAKER_02",
         "original_sentence": "I agree but i also think that they're a very important part of the culture of the city so let's look at england i think it's if i think of england i always think automatically of red brick buildings and very charming small houses so if we wouldn't have them in a few years anymore i don't think england would have any charm left so it's all about the flair and i think eurasia preserve them.",
         "corrected_sentence": "I agree but I also think that they're a very important part of the culture of the city so let's look at England. I think if I think of England I always think of red brick buildings and very charming small houses",
-        "o_start": 3,
-        "o_end": 4,
-        "original_text": "i",
-        "c_start": 3,
-        "c_end": 4,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
-        "index": "159",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "I agree but i also think that they're a very important part of the culture of the city so let's look at england i think it's if i think of england i always think automatically of red brick buildings and very charming small houses so if we wouldn't have them in a few years anymore i don't think england would have any charm left so it's all about the flair and i think eurasia preserve them.",
-        "corrected_sentence": "I agree but I also think that they're a very important part of the culture of the city so let's look at England. I think if I think of England I always think of red brick buildings and very charming small houses",
-        "o_start": 22,
-        "o_end": 23,
-        "original_text": "england",
-        "c_start": 22,
-        "c_end": 23,
-        "corrected_text": "England.",
-        "error_type": "R:SPELL"
-    },
-    {
-        "index": "159",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "I agree but i also think that they're a very important part of the culture of the city so let's look at england i think it's if i think of england i always think automatically of red brick buildings and very charming small houses so if we wouldn't have them in a few years anymore i don't think england would have any charm left so it's all about the flair and i think eurasia preserve them.",
-        "corrected_sentence": "I agree but I also think that they're a very important part of the culture of the city so let's look at England. I think if I think of England I always think of red brick buildings and very charming small houses",
-        "o_start": 23,
-        "o_end": 24,
-        "original_text": "i",
-        "c_start": 23,
-        "c_end": 24,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
-        "index": "159",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "I agree but i also think that they're a very important part of the culture of the city so let's look at england i think it's if i think of england i always think automatically of red brick buildings and very charming small houses so if we wouldn't have them in a few years anymore i don't think england would have any charm left so it's all about the flair and i think eurasia preserve them.",
-        "corrected_sentence": "I agree but I also think that they're a very important part of the culture of the city so let's look at England. I think if I think of England I always think of red brick buildings and very charming small houses",
         "o_start": 25,
         "o_end": 26,
         "original_text": "it's",
@@ -2351,32 +1727,6 @@
         "c_end": 25,
         "corrected_text": "",
         "error_type": "U:PRON"
-    },
-    {
-        "index": "159",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "I agree but i also think that they're a very important part of the culture of the city so let's look at england i think it's if i think of england i always think automatically of red brick buildings and very charming small houses so if we wouldn't have them in a few years anymore i don't think england would have any charm left so it's all about the flair and i think eurasia preserve them.",
-        "corrected_sentence": "I agree but I also think that they're a very important part of the culture of the city so let's look at England. I think if I think of England I always think of red brick buildings and very charming small houses",
-        "o_start": 27,
-        "o_end": 28,
-        "original_text": "i",
-        "c_start": 26,
-        "c_end": 27,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
-        "index": "159",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "I agree but i also think that they're a very important part of the culture of the city so let's look at england i think it's if i think of england i always think automatically of red brick buildings and very charming small houses so if we wouldn't have them in a few years anymore i don't think england would have any charm left so it's all about the flair and i think eurasia preserve them.",
-        "corrected_sentence": "I agree but I also think that they're a very important part of the culture of the city so let's look at England. I think if I think of England I always think of red brick buildings and very charming small houses",
-        "o_start": 30,
-        "o_end": 32,
-        "original_text": "england i",
-        "c_start": 29,
-        "c_end": 31,
-        "corrected_text": "England I",
-        "error_type": "R:ORTH"
     },
     {
         "index": "159",
@@ -2405,32 +1755,6 @@
         "error_type": "U:OTHER"
     },
     {
-        "index": "160",
-        "speaker": "SPEAKER_00",
-        "original_sentence": "Субтитры создавал DimaTorzok.",
-        "corrected_sentence": "утитр содавал DimaTorzok.",
-        "o_start": 0,
-        "o_end": 1,
-        "original_text": "Субтитры",
-        "c_start": 0,
-        "c_end": 1,
-        "corrected_text": "утитр",
-        "error_type": "R:SPELL"
-    },
-    {
-        "index": "160",
-        "speaker": "SPEAKER_00",
-        "original_sentence": "Субтитры создавал DimaTorzok.",
-        "corrected_sentence": "утитр содавал DimaTorzok.",
-        "o_start": 1,
-        "o_end": 2,
-        "original_text": "создавал",
-        "c_start": 1,
-        "c_end": 2,
-        "corrected_text": "содавал",
-        "error_type": "R:SPELL"
-    },
-    {
         "index": "161",
         "speaker": "SPEAKER_00",
         "original_sentence": "Now to finish the test we're going to talk about the future in general.",
@@ -2457,32 +1781,6 @@
         "error_type": "R:OTHER"
     },
     {
-        "index": "163",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "Yes i think so.",
-        "corrected_sentence": "Yes, I think so.",
-        "o_start": 1,
-        "o_end": 2,
-        "original_text": "i",
-        "c_start": 1,
-        "c_end": 2,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
-        "index": "164",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "Some people say that the internet is going to take over everything and that you're going to read all the articles now on the ipads on ebooklets what are they called? kindle exactly but i think it's still nice to have an actual newspaper in your hands a physical one that you can touch and just also the smell of the paper so.",
-        "corrected_sentence": "Some people say that the internet is going to take over everything and that you're going to read all the articles now on the ipads on ebooklets what are they called? kindle exactly but I think it's still nice",
-        "o_start": 34,
-        "o_end": 35,
-        "original_text": "i",
-        "c_start": 34,
-        "c_end": 35,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
         "index": "164",
         "speaker": "SPEAKER_02",
         "original_sentence": "Some people say that the internet is going to take over everything and that you're going to read all the articles now on the ipads on ebooklets what are they called? kindle exactly but i think it's still nice to have an actual newspaper in your hands a physical one that you can touch and just also the smell of the paper so.",
@@ -2494,19 +1792,6 @@
         "c_end": 39,
         "corrected_text": "",
         "error_type": "U:OTHER"
-    },
-    {
-        "index": "167",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "And i think the sound of flipping a page is so good and most people don't like it to to to read from from a screen because their eyes get tired but i think it's much better to to read from a paper it's it's more quiet more just relaxing for your eyes.",
-        "corrected_sentence": "And I think the sound of flipping a page is so good and most people don't like it to read from a screen because their eyes get tired, but I think it's much better to read from a paper because",
-        "o_start": 1,
-        "o_end": 2,
-        "original_text": "i",
-        "c_start": 1,
-        "c_end": 2,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
     },
     {
         "index": "167",
@@ -2546,19 +1831,6 @@
         "c_end": 28,
         "corrected_text": "tired,",
         "error_type": "R:OTHER"
-    },
-    {
-        "index": "167",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "And i think the sound of flipping a page is so good and most people don't like it to to to read from from a screen because their eyes get tired but i think it's much better to to read from a paper it's it's more quiet more just relaxing for your eyes.",
-        "corrected_sentence": "And I think the sound of flipping a page is so good and most people don't like it to read from a screen because their eyes get tired, but I think it's much better to read from a paper because",
-        "o_start": 32,
-        "o_end": 33,
-        "original_text": "i",
-        "c_start": 29,
-        "c_end": 30,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
     },
     {
         "index": "167",
@@ -2624,32 +1896,6 @@
         "c_end": 1,
         "corrected_text": "Um,",
         "error_type": "R:OTHER"
-    },
-    {
-        "index": "172",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "Um i think i would rather live in the past because because it's it's it's much more.",
-        "corrected_sentence": "Um, I think I would rather live in the past because because it's it's it's much more.",
-        "o_start": 1,
-        "o_end": 2,
-        "original_text": "i",
-        "c_start": 1,
-        "c_end": 2,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
-        "index": "172",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "Um i think i would rather live in the past because because it's it's it's much more.",
-        "corrected_sentence": "Um, I think I would rather live in the past because because it's it's it's much more.",
-        "o_start": 3,
-        "o_end": 4,
-        "original_text": "i",
-        "c_start": 3,
-        "c_end": 4,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
     },
     {
         "index": "173",
@@ -2782,19 +2028,6 @@
         "error_type": "R:OTHER"
     },
     {
-        "index": "177",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "Okay because now we have the medical advantages so we don't have to worry about the pest or i don't know.",
-        "corrected_sentence": "Okay, because now we have the medical advantages so we don't have to worry about the pest or I don't know.",
-        "o_start": 18,
-        "o_end": 19,
-        "original_text": "i",
-        "c_start": 18,
-        "c_end": 19,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
         "index": "179",
         "speaker": "SPEAKER_01",
         "original_sentence": "Неверно.",
@@ -2886,19 +2119,6 @@
         "error_type": "R:NOUN"
     },
     {
-        "index": "186",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "Maybe you have like cyberchips and you can fly and i think this would be fun.",
-        "corrected_sentence": "Maybe you have like cyberchips and you can fly and I think this would be fun.",
-        "o_start": 10,
-        "o_end": 11,
-        "original_text": "i",
-        "c_start": 10,
-        "c_end": 11,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
         "index": "189",
         "speaker": "SPEAKER_00",
         "original_sentence": "1 minuttet.",
@@ -2938,19 +2158,6 @@
         "error_type": "R:NOUN"
     },
     {
-        "index": "193",
-        "speaker": "SPEAKER_00",
-        "original_sentence": "Some people worry that wild animals will only exist in zoos in the future what do you think about this ?",
-        "corrected_sentence": "Some people worry that wild animals will only exist in zoos in the future, what do you think about this?",
-        "o_start": 19,
-        "o_end": 21,
-        "original_text": "this ?",
-        "c_start": 19,
-        "c_end": 20,
-        "corrected_text": "this?",
-        "error_type": "R:ORTH"
-    },
-    {
         "index": "194",
         "speaker": "SPEAKER_02",
         "original_sentence": "Well i hope not but right now it seems like many species are going to be extinct in hundreds of years but i think humankind should try to do their best in preserving them and maybe keeping them in the zoo as well is helping to preserve them because.",
@@ -2962,19 +2169,6 @@
         "c_end": 1,
         "corrected_text": "Well,",
         "error_type": "R:OTHER"
-    },
-    {
-        "index": "194",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "Well i hope not but right now it seems like many species are going to be extinct in hundreds of years but i think humankind should try to do their best in preserving them and maybe keeping them in the zoo as well is helping to preserve them because.",
-        "corrected_sentence": "Well, I hope not, but right now it seems like many species are going to be extinct in hundreds of years, but I think humankind should try to do their best in preserving them and maybe keeping them in the zo",
-        "o_start": 1,
-        "o_end": 2,
-        "original_text": "i",
-        "c_start": 1,
-        "c_end": 2,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
     },
     {
         "index": "194",
@@ -3001,19 +2195,6 @@
         "c_end": 21,
         "corrected_text": "years,",
         "error_type": "R:OTHER"
-    },
-    {
-        "index": "194",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "Well i hope not but right now it seems like many species are going to be extinct in hundreds of years but i think humankind should try to do their best in preserving them and maybe keeping them in the zoo as well is helping to preserve them because.",
-        "corrected_sentence": "Well, I hope not, but right now it seems like many species are going to be extinct in hundreds of years, but I think humankind should try to do their best in preserving them and maybe keeping them in the zo",
-        "o_start": 22,
-        "o_end": 23,
-        "original_text": "i",
-        "c_start": 22,
-        "c_end": 23,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
     },
     {
         "index": "194",
@@ -3066,19 +2247,6 @@
         "c_end": 1,
         "corrected_text": "Yeah,",
         "error_type": "R:OTHER"
-    },
-    {
-        "index": "197",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "Yeah but i think it's it's better to have a certain reservoirs to to to keep the animals and to have the wildlife as well in there it's much much better for the for the animals i think than than in a zoo i think the all the animals are are so are so bored by by by always the same thing in the zoo yeah it's all okay yes.",
-        "corrected_sentence": "Yeah, but I think it's better to have a certain reservoir to keep the animals and to have the wildlife as well in there it's much much better for the animals i think than than in a zoo",
-        "o_start": 2,
-        "o_end": 3,
-        "original_text": "i",
-        "c_start": 2,
-        "c_end": 3,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
     },
     {
         "index": "197",
@@ -3172,19 +2340,6 @@
         "error_type": "R:OTHER"
     },
     {
-        "index": "199",
-        "speaker": "SPEAKER_00",
-        "original_sentence": "Me i just want to kiss you.",
-        "corrected_sentence": "Me, I just want to kiss you.",
-        "o_start": 1,
-        "o_end": 2,
-        "original_text": "i",
-        "c_start": 1,
-        "c_end": 2,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
         "index": "200",
         "speaker": "SPEAKER_00",
         "original_sentence": "What changes might there be in food and food productions in the future.",
@@ -3261,32 +2416,6 @@
         "c_end": 7,
         "corrected_text": "vegetables,",
         "error_type": "R:OTHER"
-    },
-    {
-        "index": "205",
-        "speaker": "SPEAKER_01",
-        "original_sentence": "I think we will always eat vegetables but i think there will be a change in maybe the food coming from snack bars and fast food brands.",
-        "corrected_sentence": "I think we will always eat vegetables, but I think there will be a change in maybe the food coming from snack bars and fast food brands.",
-        "o_start": 8,
-        "o_end": 9,
-        "original_text": "i",
-        "c_start": 8,
-        "c_end": 9,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
-    },
-    {
-        "index": "206",
-        "speaker": "SPEAKER_02",
-        "original_sentence": "But i also think that more food is going to be organic in the future.",
-        "corrected_sentence": "But I also think that more food is going to be organic in the future.",
-        "o_start": 1,
-        "o_end": 2,
-        "original_text": "i",
-        "c_start": 1,
-        "c_end": 2,
-        "corrected_text": "I",
-        "error_type": "R:ORTH"
     },
     {
         "index": "207",

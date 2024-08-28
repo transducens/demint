@@ -30,7 +30,7 @@ def transcribe(audio, pipe):
     return text
 
 def transcribe_audio(input_path, output_path, pipe):
-    print(f"Starting to transcribe audio files in {input_path} and saving the transcript to {output_path}.")
+    print(f"Starting to transcribe audio files in {input_path} and saving the transcript to {output_path} ")
 
     if not os.path.isdir(input_path):
         print(f"Failed to open {input_path}. It is not a directory.")
@@ -58,10 +58,10 @@ def transcribe_audio(input_path, output_path, pipe):
 
         #audio = np.array(data)
         print(x)
-        print(audio)
-        print(audio.shape)
-        print(samplerate)
-        print(type(audio))
+        #print(audio)
+        #print(audio.shape)
+        #print(samplerate)
+        #print(type(audio))
         transcript = transcribe(audio, pipe)
         end_time = start_time + librosa.get_duration(filename=(os.path.join(input_path, x)))
         print(transcript)

@@ -3,6 +3,7 @@ import torch
 import time
 from transformers import BitsAndBytesConfig # For 4-bit or 8-bit quantization
 import gc
+import sys
 
 
 # Importing the interface IChat from the chat_interface module within the app.llm package.
@@ -169,10 +170,17 @@ class LLamaChat(IChat):
         # Create prompts from user contents.
         chats = []
         if system_message:
-            chats.append( {"role": "system", "content": system_message} )
+            for content in contents:
+                chats.append( 
+                    [
+                        {"role": "system", "content": system_message}, 
+                        {"role": "user", "content": content} 
+                    ] )
         else:
-            chats.append( {"role": "user", "content": content} for content in contents )
-        prompts = [self.__tokenizer.apply_chat_template([chat], tokenize=False, add_generation_prompt=True) for chat in chats]
+            for content in contents:
+                chats.append( [{"role": "user", "content": content}] )
+        
+        prompts = [ self.__tokenizer.apply_chat_template(chat, tokenize=False, add_generation_prompt=True) for chat in chats ]
 
         # Encode all prompts in a single batch, send to appropriate device.
         self.__tokenizer.pad_token = self.__tokenizer.eos_token

@@ -24,68 +24,7 @@ def explain_sentences(file_manager, chat_llm, input_path="", output_path=""):
     explained_sentences = {}
     last_index = -1
 
-    # for errant_annotation in errant_all_evaluation:
-    #     index = errant_annotation['index']
-    #     original_sentence = errant_annotation['original_sentence']
-    #     corrected_sentence = errant_annotation['corrected_sentence']
-
-    #     final_sentence_prompt = (
-    #         f"You are an English teacher. Please explain the errors that were corrected in the following sentence:\n\n"
-    #         f"Original: {original_sentence}\n"
-    #         f"Corrected: {corrected_sentence}\n\n"
-    #         f"List and explain the errors found in the original sentence and how they were corrected in the revised sentence."
-    #     )
-
-    #     llm_sentence_explained = chat_llm.get_answer(final_sentence_prompt)   # for the whole sentence
-
-        
-    #     error_type = errant_annotation['error_type']
-    #     original_text = errant_annotation['original_text']  # Only the text of the sentence that was corrected
-    #     corrected_text = errant_annotation['corrected_text']
-
-    #     final_errant_prompt = (
-    #         f"Please explain the errors that were found as briefly as possible, focusing only on the main idea and the broken rule in the English language:\n\n"
-    #         f"Where the error type is {error_type}, " 
-    #         f"the original sentence is {original_sentence}, " 
-    #         f"the corrected sentence is {corrected_sentence}, "
-    #         "and supposing that the first character is in position 0, "
-    #         f"the error text is between the characters {errant_annotation['o_start']} and {errant_annotation['o_end']} in the original sentence, "
-    #         f"and the corrected text is between the characters {errant_annotation['c_start']} and {errant_annotation['c_end']} in the corrected sentence."
-    #     )
-
-    #     errant_llm_explained = chat_llm.get_answer(final_errant_prompt)
-
-    #     error_description = {
-    #         'index': index,
-    #         'speaker': errant_annotation['speaker'],
-    #         'original_sentence': original_sentence,
-    #         'corrected_sentence': corrected_sentence,
-    #         'o_start': errant_annotation['o_start'],
-    #         'o_end': errant_annotation['o_end'],
-    #         'original_text': original_text,
-    #         'c_start': errant_annotation['c_start'],
-    #         'c_end': errant_annotation['c_start'],
-    #         'corrected_text': corrected_text,
-    #         'error_type': error_type,
-    #         'llm_explanation': errant_llm_explained,
-    #     }
-
-    #     if last_index != index:
-    #         explained_sentences[index] = {
-    #             'speaker': errant_annotation['speaker'],
-    #             'original_sentence' : original_sentence,
-    #             't5_checked_sentence': corrected_sentence,
-    #             'llm_explanation': llm_sentence_explained,
-    #             'errant': [error_description],
-    #         }
-    #     else:
-    #         explained_sentences[index]['errant'].append(error_description)
-
-    #     last_index = index
-
-########################
-
-    batch_size = 6 # 10 is too much and 5 is too little for 11 GB VRAM
+    batch_size = 6 # 10 is too much and 5 is too little for 11 GB VRAM. 6 is the sweet spot.
     for errant_annotation in range(0, len(errant_all_evaluation), batch_size):
         errant_annotations = errant_all_evaluation[errant_annotation:errant_annotation+batch_size]
         prompts = []
@@ -93,10 +32,13 @@ def explain_sentences(file_manager, chat_llm, input_path="", output_path=""):
 
         for ea in errant_annotations:
             prompts.append(
-                f"You are an English teacher. Please explain the errors that were corrected in the following sentence:\n\n"
+                f"You are an English teacher. Please explain briefly the errors that were corrected in the following sentence:\n\n"
                 f"Original: {ea['original_sentence']}\n"
                 f"Corrected: {ea['corrected_sentence']}\n\n"
-                f"List and explain the errors found in the original sentence and how they were corrected in the revised sentence."
+                f"Just return a list with the errors as in these examples:\n\n"
+                f"[ 'explained error 1', 'explained error 2', ... ]\n\n"
+                f"[ 'Error 1 is this', 'Error 2 is that', ... ]\n\n"
+                f"[ 'This is wrong because...', 'That is wrong because...', ... ]\n\n"
             )
 
             error_type = ea['error_type']
@@ -104,20 +46,19 @@ def explain_sentences(file_manager, chat_llm, input_path="", output_path=""):
             corrected_text = ea['corrected_text']
         
             errant_prompts.append(
-                f"Please explain the errors that were found as briefly as possible, focusing only on the main idea and the broken rule in the English language:\n\n"
+                f"Please explain the error that was found as briefly as possible, focusing only on the main idea and the broken rule in the English language:\n\n"
                 f"Where the error type is {error_type}, " 
                 f"the original sentence is {ea['original_sentence']}, " 
                 f"the corrected sentence is {ea['corrected_sentence']}. "
-                #"and supposing that the first character is in position 0, "
-                #f"the error text is between the characters {ea['o_start']} and {ea['o_end']} in the original sentence, "
-                #f"and the corrected text is between the characters {ea['c_start']} and {ea['c_end']} in the corrected sentence."
+                "and supposing that the first character is in position 0, "
+                f"the error text is between the characters {ea['o_start']} and {ea['o_end']} in the original sentence, "
+                f"and the corrected text is between the characters {ea['c_start']} and {ea['c_end']} in the corrected sentence."
             )
 
         system_message = "You are an English teacher that will explain briefly the errors in the following sentence."
 
-        llm_sentence_explained = chat_llm.get_answer_batch(prompts, system_message=system_message)   # for the whole sentence
-        errant_llm_explained = chat_llm.get_answer_batch(errant_prompts, system_message=system_message)
-
+        llm_sentence_explained = chat_llm.get_answer_batch(contents=prompts, system_message=system_message)   # for the whole sentence
+        errant_llm_explained = chat_llm.get_answer_batch(errant_prompts, system_message="")
 
         for i, ea in enumerate(errant_annotations):
             error_type = ea['error_type']
@@ -152,7 +93,6 @@ def explain_sentences(file_manager, chat_llm, input_path="", output_path=""):
 
             last_index = ea['index']
 
-########################
     file_manager.save_to_json_file(output_path, explained_sentences)
 
     chat_llm.unload_model()

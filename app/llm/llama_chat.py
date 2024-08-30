@@ -1,7 +1,6 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import time
-import torch
 from transformers import BitsAndBytesConfig # For 4-bit or 8-bit quantization
 import gc
 
@@ -49,7 +48,7 @@ class LLamaChat(IChat):
             self.__model = AutoModelForCausalLM.from_pretrained(
                 model_id,
                 quantization_config=quantization_config,
-                device_map=self.__device, # "auto",  # Maps the model across the available GPUs automatically
+                device_map= self.__device, # For one GPU    # "auto",  # Maps the model across the available GPUs automatically
             )
             self.__model_id = model_id
 
@@ -57,6 +56,11 @@ class LLamaChat(IChat):
             print()
             print(f"Model loaded: {self.__model_id}")
             print(self.__model)
+            print()
+            print(f"Type of model: {type(self.__model)}")
+            print()
+            print(f"Type of tokenizer: {type(self.__tokenizer)}")
+            print()
 
             # Test the model that the inference works (optional)
             #self.test_model()
@@ -106,7 +110,7 @@ class LLamaChat(IChat):
             print("Model testing completed successfully.")
 
 
-    def get_answer(self, message, max_new_tokens=150):
+    def get_answer(self, message, max_new_tokens=150, system_message=""):
         """
         Generates a response from the model for the provided input content.
         Utilizes the loaded model and tokenizer to process and generate the response.
@@ -115,12 +119,13 @@ class LLamaChat(IChat):
         start_time = time.time()
 
         # Encode the prompt to tensor, send to appropriate device.
-        prompt = [
-                #{"role": "system", "content": "You are a kind assistant."},
-                {"role": "user", "content": message}
-            ] # system/user/assistant
+        chat = []
+        if system_message:
+            chat.append( {"role": "system", "content": system_message} )
+        else:
+            chat.append( {"role": "user", "content": message} ) # system/user/assistant
         input_ids = self.__tokenizer.apply_chat_template(
-            prompt,
+            chat,
             #add_special_tokens=False,
             add_generation_prompt=True,
             return_tensors="pt"
@@ -151,18 +156,22 @@ class LLamaChat(IChat):
         end_time = time.time()
         elapsed_time = end_time - start_time
         print(f"get_answer from LLM finished. Time taken to get answer from LLM: {elapsed_time} seconds")
-        return response_text
+        return self.__clean_model_response(response_text)
 
-    def get_answer_batch(self, contents, max_new_tokens=150):
+    def get_answer_batch(self, contents, max_new_tokens=150, system_message=""):
         """
         Generates a response from the model for the provided input content.
         Utilizes the loaded model and tokenizer to process and generate the response.
         """
-        print(f"get_answers_batch from LLM LLAMA {self.__model_id} started")
+        print(f"get_answers_batch, {len(contents)} batch, from LLM LLAMA {self.__model_id} started")
         start_time = time.time()
 
         # Create prompts from user contents.
-        chats = [{"role": "user", "content": content} for content in contents]
+        chats = []
+        if system_message:
+            chats.append( {"role": "system", "content": system_message} )
+        else:
+            chats.append( {"role": "user", "content": content} for content in contents )
         prompts = [self.__tokenizer.apply_chat_template([chat], tokenize=False, add_generation_prompt=True) for chat in chats]
 
         # Encode all prompts in a single batch, send to appropriate device.
@@ -195,8 +204,7 @@ class LLamaChat(IChat):
         elapsed_time = end_time - start_time
         print(f"get_answers_batch from LLM finished. Time taken to get answers from LLM: {elapsed_time} seconds")
         
-        #return [self.__clean_model_response(response) for response in responses]
-        return responses
+        return [self.__clean_model_response(response) for response in responses]
 
     def get_answer_json(self, message, json_format, max_new_tokens=150):
         """
@@ -236,6 +244,18 @@ class LLamaChat(IChat):
         end_time = time.time()
         elapsed_time = end_time - start_time
         print(f"get_answer from LLM finished. Time taken to get answer from LLM: {elapsed_time} seconds")
+        return response_text
+
+    def __clean_model_response(self, response_text):
+        """
+        Processes the raw response text from the model, removing unnecessary tokens that signify turns or sequence ends,
+        making the response more suitable for human reading.
+        """
+        # Remove all the precedent text until "assistant\n\n"
+        start_index = response_text.find("assistant\n\n")
+        if start_index != -1:
+            response_text = response_text[start_index + len("assistant\n\n"):]
+
         return response_text
 
     def get_my_name(self):

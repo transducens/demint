@@ -85,7 +85,7 @@ def explain_sentences(file_manager, chat_llm, input_path="", output_path=""):
 
 ########################
 
-    batch_size = 5
+    batch_size = 6 # 10 is too much and 5 is too little for 11 GB VRAM
     for errant_annotation in range(0, len(errant_all_evaluation), batch_size):
         errant_annotations = errant_all_evaluation[errant_annotation:errant_annotation+batch_size]
         prompts = []
@@ -107,14 +107,16 @@ def explain_sentences(file_manager, chat_llm, input_path="", output_path=""):
                 f"Please explain the errors that were found as briefly as possible, focusing only on the main idea and the broken rule in the English language:\n\n"
                 f"Where the error type is {error_type}, " 
                 f"the original sentence is {ea['original_sentence']}, " 
-                f"the corrected sentence is {ea['corrected_sentence']}, "
-                "and supposing that the first character is in position 0, "
-                f"the error text is between the characters {ea['o_start']} and {ea['o_end']} in the original sentence, "
-                f"and the corrected text is between the characters {ea['c_start']} and {ea['c_end']} in the corrected sentence."
+                f"the corrected sentence is {ea['corrected_sentence']}. "
+                #"and supposing that the first character is in position 0, "
+                #f"the error text is between the characters {ea['o_start']} and {ea['o_end']} in the original sentence, "
+                #f"and the corrected text is between the characters {ea['c_start']} and {ea['c_end']} in the corrected sentence."
             )
 
-        llm_sentence_explained = chat_llm.get_answer_batch(prompts)   # for the whole sentence
-        errant_llm_explained = chat_llm.get_answer_batch(errant_prompts)
+        system_message = "You are an English teacher that will explain briefly the errors in the following sentence."
+
+        llm_sentence_explained = chat_llm.get_answer_batch(prompts, system_message=system_message)   # for the whole sentence
+        errant_llm_explained = chat_llm.get_answer_batch(errant_prompts, system_message=system_message)
 
 
         for i, ea in enumerate(errant_annotations):

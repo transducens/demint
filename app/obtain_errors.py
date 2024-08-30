@@ -15,8 +15,9 @@ output_directories = {
     'errant_simple_errors':             './cache/errant_simple_evaluation',       
 }
 ignore_errors_list = [
-    "R:SPELL",
-    "R:ORTH",
+    "R:SPELL", "M:SPELL", "U:SPELL",
+    "R:ORTH", "U:ORTH", "M:ORTH",
+    "R:PUNCT", "U:PUNCT", "M:PUNCT",
 ]
 
 

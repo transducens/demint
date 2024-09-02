@@ -76,7 +76,7 @@ def divide_long_segment(audio_segment:AudioSegment):
 
         # Split the original audio into chunks
         audio_chunks = split_on_silence(sound_file, 
-            # must be silent for at least half a second
+            # must be silent for _ miliseconds
             min_silence_len=1000,
 
             # consider it silent if quieter than ... dBFS
@@ -128,9 +128,9 @@ def cut_audio_segment(audio_path, init_times, end_times, speaker_ids, output_pat
             print("Segment duration longer than 29 seconds:", end_time - start_time)
             audio_chunk_lengths = divide_long_segment(segment)
             sub_start_time = 0
-            for sub_i, length in enumerate(audio_chunk_lengths):
-                if length < 1000:
-                    print("Ignored subsegment duration less than 1 second:", length)
+            for length in audio_chunk_lengths:
+                if length < 300:
+                    print(f"Ignored segment, duration less than {time_treshold} miliseconds:")
                     continue
                 sub_end_time = sub_start_time + length
                 subsegment = segment[sub_start_time:sub_end_time]

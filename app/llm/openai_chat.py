@@ -1,7 +1,8 @@
 from .chat_interface import IChat
 from openai import OpenAI
+import os
 
-supported_models = ["gpt-3.5-turbo-0125", "gpt-4o-2024-05-13", "gpt-4-turbo"]
+supported_models = ["gpt-3.5-turbo-0125", "gpt-4o-2024-05-13", "gpt-4-turbo", "gpt-4", "gpt-4o", "chatgpt-4o-latest"]
 
 class OpenAIChat(IChat):
     def __init__(self, model_id="gpt-3.5-turbo"):
@@ -11,10 +12,12 @@ class OpenAIChat(IChat):
         """
         # Validates if the provided model ID is supported, raises ValueError if not.
         super().__init__(model_id)
-        self.__openai = OpenAI()
+        self.__openai = OpenAI(
+            api_key=os.environ.get("OPENAI_API_KEY")    # The API key is stored in the environment variable OPENAI_API_KEY
+        )
 
     def get_answer(self, content, max_new_tokens=50):
-        response = self.__openai .chat.completions.create(
+        response = self.__openai.chat.completions.create(
             model=self.get_model_id(),
             messages=[
                 {"role": "user", "content": content}

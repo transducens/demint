@@ -8,7 +8,7 @@ class IChat(ABC):
                 f"model_id '{model_id}' is not supported. Please use one of the following: {', '.join(self.get_supported_models())}")
 
         self.__model_id = model_id
-        print(f"Model loaded: {model_id}")
+        print(f"Model supported: {model_id}")
 
     @abstractmethod
     def get_answer(self, content, max_new_tokens=150):

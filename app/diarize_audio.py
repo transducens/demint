@@ -76,7 +76,7 @@ def divide_long_segment(audio_segment:AudioSegment):
 
         # Split the original audio into chunks
         audio_chunks = split_on_silence(sound_file, 
-            # must be silent for at least half a second
+            # must be silent for _ miliseconds
             min_silence_len=1000,
 
             # consider it silent if quieter than ... dBFS
@@ -104,42 +104,50 @@ def divide_long_segment(audio_segment:AudioSegment):
 
     return audio_chunk_lengths
 
-def cut_audio_segment(audio_path, init_times, end_times, speaker_ids, output_directory):
+def cut_audio_segment(audio_path, init_times, end_times, speaker_ids, output_path):
     # Load the audio file
     audio = AudioSegment.from_file(audio_path)
 
     audio_name_with_extension = os.path.basename(audio_path)
     audio_name, audio_extension = os.path.splitext(audio_name_with_extension)
-    output_directory = f"{output_directory}/{audio_name}/"
-    os.makedirs(output_directory, exist_ok=True)
-    increaser = 0
+    os.makedirs(output_path, exist_ok=True)
+    audio_index = 0
 
     for i, (start_time, end_time) in enumerate(zip(init_times, end_times)):
         # Extract the segment
         segment = audio[start_time:end_time]
         
+        time_treshold = 300
+        if end_time - start_time < time_treshold:
+            print(f"Ignored segment, duration less than {time_treshold} miliseconds:")
+            continue
+
         # If the segment is longer than 29 seconds, divide it into smaller segments
         # and save them separately
-        if end_time - start_time > 29000:
+        elif end_time - start_time > 29000:
             print("Segment duration longer than 29 seconds:", end_time - start_time)
             audio_chunk_lengths = divide_long_segment(segment)
             sub_start_time = 0
-            for sub_i, length in enumerate(audio_chunk_lengths):
+            for length in audio_chunk_lengths:
+                if length < 300:
+                    print(f"Ignored segment, duration less than {time_treshold} miliseconds:")
+                    continue
                 sub_end_time = sub_start_time + length
                 subsegment = segment[sub_start_time:sub_end_time]
-                subsegment_path = os.path.join(output_directory, f"{sub_i+i+increaser}_{speaker_ids[i]}{audio_extension}")
+                subsegment_path = os.path.join(output_path, f"{audio_index}_{speaker_ids[i]}{audio_extension}")
                 subsegment.export(subsegment_path, format="wav")
-                print(f"Subsegment {sub_i+i+increaser} saved from {sub_start_time} to {sub_end_time} milliseconds.")
+                print(f"Subsegment {audio_index} saved from {sub_start_time} to {sub_end_time} milliseconds.")
+                audio_index += 1
                 sub_start_time = sub_end_time
-            increaser += len(audio_chunk_lengths) - 1
         else:
             # Save the segment
-            segment_path = os.path.join(output_directory, f"{i+increaser}_{speaker_ids[i]}{audio_extension}")
+            segment_path = os.path.join(output_path, f"{audio_index}_{speaker_ids[i]}{audio_extension}")
             segment.export(segment_path, format="wav")
-            print(f"Segment {i+increaser} saved from {start_time} to {end_time} milliseconds.")
+            print(f"Segment {audio_index} saved from {start_time} to {end_time} milliseconds.")
+            audio_index += 1
 
 
-def perform_diarization(audio_file, output_directory, device):
+def perform_diarization(audio_file, output_path, device):
     # Main method to perform diarization and transcription
     print("Diarization has started:", audio_file)
 
@@ -147,6 +155,11 @@ def perform_diarization(audio_file, output_directory, device):
     if not os.path.exists(audio_file):
         print(f"Error: File {audio_file} not found.")
         return None
+
+    # If the output directory already exists, remove it first
+    if os.path.exists(output_path):
+        print(f"Removing existing directory: {output_path} before creating a new one.")
+        os.system(f"rm -rf {output_path}")
 
     # Load model
     diarization_model = Pipeline.from_pretrained("pyannote/speaker-diarization-3.1")
@@ -156,6 +169,7 @@ def perform_diarization(audio_file, output_directory, device):
     
     diarization_model = diarization_model.to(device=device)
 
+    # Example of diarization with a fixed number of speakers
     # diarization = pipeline("audio.wav", num_speakers=2)
     # diarization = pipeline("audio.wav", min_speakers=2, max_speakers=5)
 
@@ -171,7 +185,7 @@ def perform_diarization(audio_file, output_directory, device):
     speaker_ids = extract_speaker_id(diarization)
 
     # Cut the audio segments
-    cut_audio_segment(audio_file, init_times, end_times, speaker_ids, output_directory)
+    cut_audio_segment(audio_file, init_times, end_times, speaker_ids, output_path)
 
     # for duration in durations:
     #     if duration > 29500:
@@ -193,7 +207,9 @@ def perform_diarization_of_directory(audio_directory="assets/audios", cache_dire
         if os.path.isfile(audio_path):
             print(f"Found audio file: {audio_path}")
 
-            perform_diarization(audio_path, cache_directory, device)
+            audio_name, _ = os.path.splitext(audio_file)
+            output_path = os.path.join(cache_directory, audio_name)
+            perform_diarization(audio_path, output_path, device)
 
 
 def get_args():

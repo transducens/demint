@@ -29,7 +29,7 @@ sentence_transformers==2.7.0
 spacy==3.7.5
 soundfile==0.12.1
 torch==2.3.1
-transformers==4.41.2
+transformers==4.44.2
 fitz==0.0.1.dev2
 frontend==0.0.3
 pymupdf==1.24.5

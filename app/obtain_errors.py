@@ -14,6 +14,11 @@ output_directories = {
     'errant_corrected_errors':          './cache/errant_corrected_evaluation',
     'errant_simple_errors':             './cache/errant_simple_evaluation',       
 }
+ignore_errors_list = [
+    "R:SPELL", "M:SPELL", "U:SPELL",
+    "R:ORTH", "U:ORTH", "M:ORTH",
+    "R:PUNCT", "U:PUNCT", "M:PUNCT",
+]
 
 
 # TODO add the other formats
@@ -38,13 +43,10 @@ def obtain_errors(file_manager, grammar_checker_t5, lang='en', input_path="", ou
     for index, value in raw_sentence_collection.items(): 
         original_sentence = value['original_sentence']
 
-        #lt_errors = grammar_checker_lt.check(original_sentence)
         t5_checked_sentence = grammar_checker_t5.correct_sentences([original_sentence])[0]
 
         if original_sentence == t5_checked_sentence:
             continue
-
-        #lt_errors = grammar_checker_lt.check(original_sentence)
 
         annotated_original_sentence = annotator.parse(original_sentence)
         annotated_t5_checked_sentence = annotator.parse(t5_checked_sentence)
@@ -53,6 +55,10 @@ def obtain_errors(file_manager, grammar_checker_t5, lang='en', input_path="", ou
         for e in annotations:
             print(e)
             error_type = e.type
+
+            if error_type in ignore_errors_list:
+                print(f"Ignoring error type: {error_type}")
+                continue
 
             original_text = e.o_str
             corrected_text = e.c_str
@@ -72,14 +78,6 @@ def obtain_errors(file_manager, grammar_checker_t5, lang='en', input_path="", ou
             }
             
             all_errors.append(error_description)
-
-        #explained_sentences[index] = {
-        #    'speaker': evaluation['speaker'],
-        #    'sentence' : original_sentence,
-        #    't5_checked_sentence': t5_checked_sentence,
-        #    'language_tool': lt_errors,
-        #    'errant': error_description_list,
-        #}
 
     file_manager.save_to_json_file(output_path, all_errors)
 

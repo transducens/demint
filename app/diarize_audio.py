@@ -82,7 +82,9 @@ def divide_long_segment(audio_segment:AudioSegment):
             # consider it silent if quieter than ... dBFS
             silence_thresh = silence_threshold,
 
-            # Add some silence at the beginning and end of the chunk
+            # if True, keeps the detected silence at the beginning and end of the chunk
+            # default only 100 ms 
+            # When the length of the silence is less than the keep_silence duration it is split evenly between the preceding and following non-silent segments.
             keep_silence=True
         )
 
@@ -90,21 +92,24 @@ def divide_long_segment(audio_segment:AudioSegment):
 
 
     # If there are too small chunks, merge them
-    result = []
-    current_sum = 0
-    for chunk in audio_chunks:
-        if current_sum + len(chunk) <= max_duration_milliseconds:
-            current_sum += len(chunk)
-        else:
-            result.append(current_sum)
-            current_sum = len(chunk)
-    if current_sum > 0:
-        result.append(current_sum)
-    audio_chunk_lengths = result
+    #result = []
+    #current_sum = 0
+    #for chunk in audio_chunks:
+    #    if current_sum + len(chunk) <= max_duration_milliseconds:
+    #        current_sum += len(chunk)
+    #    else:
+    #        result.append(current_sum)
+    #        current_sum = len(chunk)
+    #if current_sum > 0:
+    #    result.append(current_sum)
+    #audio_chunk_lengths = result
+
+    # If there are too small chunks, merge them (version 2)
+    audio_chunk_lengths = group_durations([len(chunk) for chunk in audio_chunks])
 
     return audio_chunk_lengths
 
-def cut_audio_segment(audio_path, init_times, end_times, speaker_ids, output_path):
+def cut_audio_segment(audio_path, diarized_segments, output_path):
     # Load the audio file
     audio = AudioSegment.from_file(audio_path)
 
@@ -113,11 +118,11 @@ def cut_audio_segment(audio_path, init_times, end_times, speaker_ids, output_pat
     os.makedirs(output_path, exist_ok=True)
     audio_index = 0
 
-    for i, (start_time, end_time) in enumerate(zip(init_times, end_times)):
+    for i, (start_time, end_time, speaker_id) in enumerate(diarized_segments):
         # Extract the segment
         segment = audio[start_time:end_time]
         
-        time_treshold = 300
+        time_treshold = 0   # 300
         if end_time - start_time < time_treshold:
             print(f"Ignored segment, duration less than {time_treshold} miliseconds:")
             continue
@@ -129,22 +134,84 @@ def cut_audio_segment(audio_path, init_times, end_times, speaker_ids, output_pat
             audio_chunk_lengths = divide_long_segment(segment)
             sub_start_time = 0
             for length in audio_chunk_lengths:
-                if length < 300:
+                if length < time_treshold:
                     print(f"Ignored segment, duration less than {time_treshold} miliseconds:")
                     continue
                 sub_end_time = sub_start_time + length
                 subsegment = segment[sub_start_time:sub_end_time]
-                subsegment_path = os.path.join(output_path, f"{audio_index}_{speaker_ids[i]}{audio_extension}")
+                subsegment_path = os.path.join(output_path, f"{audio_index}_{speaker_id}{audio_extension}")
                 subsegment.export(subsegment_path, format="wav")
                 print(f"Subsegment {audio_index} saved from {sub_start_time} to {sub_end_time} milliseconds.")
                 audio_index += 1
                 sub_start_time = sub_end_time
         else:
             # Save the segment
-            segment_path = os.path.join(output_path, f"{audio_index}_{speaker_ids[i]}{audio_extension}")
+            segment_path = os.path.join(output_path, f"{audio_index}_{speaker_id}{audio_extension}")
             segment.export(segment_path, format="wav")
             print(f"Segment {audio_index} saved from {start_time} to {end_time} milliseconds.")
             audio_index += 1
+
+# Joins the times of the segments that belong to the same speaker and are consecutive
+def join_audios_same_speaker(audio_segments:list):
+    result_audio_segments = []
+    temp_speaker_id = None
+    for i, (init_time, end_time, speaker_id) in enumerate(audio_segments):
+        if i > 0 and init_time > result_audio_segments[-1][0] and end_time < result_audio_segments[-1][1]:
+            continue
+        elif i > 0 and (end_time - init_time) < 300:
+            temp_speaker_id = result_audio_segments[-1][2]
+            result_audio_segments[-1] = (result_audio_segments[-1][0], end_time, result_audio_segments[-1][2])  # Check this
+        elif speaker_id == temp_speaker_id:
+            result_audio_segments[-1] = (result_audio_segments[-1][0], end_time, speaker_id)
+        else:
+            result_audio_segments.append((init_time, end_time, speaker_id))
+            temp_speaker_id = speaker_id
+
+    return result_audio_segments
+
+# Optimizes the duration of the segments so they are not very long nor very short
+# TODO: Check the audios 55-60.
+def group_durations(durations):
+    max_duration = 29000
+    target_duration = 20000
+    min_duration = 10000
+    
+    result = []
+    current_segment = []
+    current_duration = 0
+    
+    for duration in durations:
+        # Check if adding the current duration exceeds the max duration
+        if current_duration + duration > max_duration:
+            # If the current segment is closer to target or more than min_duration, finalize it
+            if current_duration >= min_duration or len(current_segment) > 0:
+                result.append(current_segment)
+                current_segment = []
+                current_duration = 0
+        
+        # Add the current duration to the segment
+        current_segment.append(duration)
+        current_duration += duration
+        
+        # If the current duration is close to the target and not exceeding max duration, finalize it
+        if current_duration >= target_duration and current_duration <= max_duration:
+            result.append(current_segment)
+            current_segment = []
+            current_duration = 0
+
+    # Add the last segment if it's not empty
+    if current_segment:
+        # If the last segment is too short, merge it with the previous segment
+        if current_duration < min_duration and sum(result[-1]) + current_duration <= max_duration:
+            result[-1].extend(current_segment)
+        else:
+            result.append(current_segment)
+
+    # sum the durations of each segment
+    result = [sum(segment) for segment in result]
+    
+    return result
+
 
 
 def perform_diarization(audio_file, output_path, device):
@@ -175,7 +242,7 @@ def perform_diarization(audio_file, output_path, device):
 
     # Perform diarization while monitoring progress
     with ProgressHook() as hook:
-        diarization = diarization_model(audio_file, hook=hook)
+        diarization = diarization_model(audio_file, hook=hook, num_speakers=3)
 
     # Split the original audio into segments
     diarization = str(diarization).splitlines()
@@ -184,8 +251,10 @@ def perform_diarization(audio_file, output_path, device):
     init_times, end_times, durations = extract_duration_in_milliseconds(diarization)
     speaker_ids = extract_speaker_id(diarization)
 
+    diarized_segments = join_audios_same_speaker( list(zip(init_times, end_times, speaker_ids)) )
+
     # Cut the audio segments
-    cut_audio_segment(audio_file, init_times, end_times, speaker_ids, output_path)
+    cut_audio_segment(audio_file, diarized_segments, output_path)
 
     # for duration in durations:
     #     if duration > 29500:

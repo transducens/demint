@@ -114,7 +114,7 @@ def load_data():
     
     if (not os.path.isfile(input_files['sentences_collection']) 
         or not os.path.isfile(input_files['explained_sentences'])):
-        raise FileNotFoundError("The cache files are not found. Please run the 'run_pipeline.sh' script to create the cache files.")
+        raise FileNotFoundError("The cache files of the conversation are not found. Please run the 'run_pipeline.sh' script to create the cache files.")
         
 
     explained_sentences = file_manager.read_from_json_file(input_files['explained_sentences'])

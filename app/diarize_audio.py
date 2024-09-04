@@ -141,14 +141,14 @@ def cut_audio_segment(audio_path, diarized_segments, output_path):
                 subsegment = segment[sub_start_time:sub_end_time]
                 subsegment_path = os.path.join(output_path, f"{audio_index}_{speaker_id}{audio_extension}")
                 subsegment.export(subsegment_path, format="wav")
-                print(f"Subsegment {audio_index} saved from {sub_start_time} to {sub_end_time} milliseconds.")
+                print(f"Subsegment {audio_index} saved from {sub_start_time} to {sub_end_time} milliseconds. With a duration of {length} milliseconds.")
                 audio_index += 1
                 sub_start_time = sub_end_time
         else:
             # Save the segment
             segment_path = os.path.join(output_path, f"{audio_index}_{speaker_id}{audio_extension}")
             segment.export(segment_path, format="wav")
-            print(f"Segment {audio_index} saved from {start_time} to {end_time} milliseconds.")
+            print(f"Segment {audio_index} saved from {start_time} to {end_time} milliseconds. With a duration of {end_time - start_time} milliseconds.")
             audio_index += 1
 
 # Joins the times of the segments that belong to the same speaker and are consecutive
@@ -169,48 +169,62 @@ def join_audios_same_speaker(audio_segments:list):
 
     return result_audio_segments
 
+# Algorithm that finds the shortest duration and appends it to the consecutive shortest duration segment, 
+
 # Optimizes the duration of the segments so they are not very long nor very short
-# TODO: Check the audios 55-60.
 def group_durations(durations):
     max_duration = 29000
-    target_duration = 20000
-    min_duration = 10000
-    
-    result = []
-    current_segment = []
-    current_duration = 0
-    
-    for duration in durations:
-        # Check if adding the current duration exceeds the max duration
-        if current_duration + duration > max_duration:
-            # If the current segment is closer to target or more than min_duration, finalize it
-            if current_duration >= min_duration or len(current_segment) > 0:
-                result.append(current_segment)
-                current_segment = []
-                current_duration = 0
-        
-        # Add the current duration to the segment
-        current_segment.append(duration)
-        current_duration += duration
-        
-        # If the current duration is close to the target and not exceeding max duration, finalize it
-        if current_duration >= target_duration and current_duration <= max_duration:
-            result.append(current_segment)
-            current_segment = []
-            current_duration = 0
 
-    # Add the last segment if it's not empty
-    if current_segment:
-        # If the last segment is too short, merge it with the previous segment
-        if current_duration < min_duration and sum(result[-1]) + current_duration <= max_duration:
-            result[-1].extend(current_segment)
+    # Initialize segments as just duration values
+    segments = durations.copy()
+    ignore_list = []
+
+    # Main loop to merge segments
+    while True:
+        # Find the shortest segment not in the ignore list
+        sorted_segments = sorted(
+            [(i, segment) for i, segment in enumerate(segments) if i not in ignore_list],
+            key=lambda x: x[1]
+        )
+
+        # If there are fewer than 2 segments, we can't merge anymore
+        if len(sorted_segments) < 2:
+            break
+
+        # Get the two shortest segments
+        shortest_index, shortest_duration = sorted_segments[0]
+
+        # Try to merge the shortest with the next shortest
+        if shortest_index == 0:
+            next_shortest_index = shortest_index + 1
+            next_shortest_duration = segments[next_shortest_index]
+        elif shortest_index == len(segments) - 1:
+            next_shortest_index = shortest_index - 1
+            next_shortest_duration = segments[next_shortest_index]
+        elif segments[shortest_index - 1] < segments[shortest_index + 1]:
+            next_shortest_index = shortest_index - 1
+            next_shortest_duration = segments[next_shortest_index]
         else:
-            result.append(current_segment)
+            next_shortest_index = shortest_index + 1
+            next_shortest_duration = segments[next_shortest_index]
+            
+        if shortest_duration + next_shortest_duration <= max_duration:
+            # Merge the segments by summing the durations
+            merged_duration = shortest_duration + next_shortest_duration
+            segments[shortest_index] = merged_duration
+            del segments[next_shortest_index]
 
-    # sum the durations of each segment
-    result = [sum(segment) for segment in result]
-    
-    return result
+            # Clear the ignore list after a successful merge
+            ignore_list.clear()
+        else:
+            # If merging is not possible, add the index to the ignore list
+            ignore_list.append(shortest_index)
+
+        # Stop if half of the total durations have been processed
+        if len(ignore_list) >= len(durations) // 2:
+            break
+
+    return segments
 
 
 
@@ -229,7 +243,7 @@ def perform_diarization(audio_file, output_path, device):
         os.system(f"rm -rf {output_path}")
 
     # Load model
-    diarization_model = Pipeline.from_pretrained("pyannote/speaker-diarization-3.1")
+    diarization_model = Pipeline.from_pretrained("pyannote/speaker-diarization-3.0")
     if not diarization_model:
         print("Error: Diarization model could not be loaded.")
         return None
@@ -242,7 +256,7 @@ def perform_diarization(audio_file, output_path, device):
 
     # Perform diarization while monitoring progress
     with ProgressHook() as hook:
-        diarization = diarization_model(audio_file, hook=hook, num_speakers=3)
+        diarization = diarization_model(audio_file, hook=hook)
 
     # Split the original audio into segments
     diarization = str(diarization).splitlines()
@@ -251,7 +265,9 @@ def perform_diarization(audio_file, output_path, device):
     init_times, end_times, durations = extract_duration_in_milliseconds(diarization)
     speaker_ids = extract_speaker_id(diarization)
 
+    #diarized_segments = join_audios_same_speaker( list(zip(init_times, end_times, speaker_ids)) )
     diarized_segments = join_audios_same_speaker( list(zip(init_times, end_times, speaker_ids)) )
+
 
     # Cut the audio segments
     cut_audio_segment(audio_file, diarized_segments, output_path)
@@ -284,8 +300,8 @@ def perform_diarization_of_directory(audio_directory="assets/audios", cache_dire
 def get_args():
     parser = argparse.ArgumentParser(description="Diarize an audio file or a directory of audio files.")
     parser.add_argument("-af", "--audio_file", type=str, help="Path to where the input audio file is located.")
-    parser.add_argument("-ad", "--audio_directory", type=str, help="Path to the directory containing the input audio files.")
-    parser.add_argument("-sd", "--segments_directory", type=str, help="Path to the directory where the output audio segments will be saved.")
+    parser.add_argument("-ad", "--audio_directory", type=str, help="Path to the input directory containing the audio files.")
+    parser.add_argument("-sd", "--segments_directory", type=str, help="Path to the output directory where all the diarized audios will be saved.")
 
     return parser.parse_args()
     
@@ -306,9 +322,13 @@ def main():
         elif args.segments_directory:
             audio_file = os.path.basename(args.audio_file)
             audio_name, audio_extension = os.path.splitext(audio_file)
-            perform_diarization(args.audio_file, args.segments_directory, device)
+            output_path = os.path.join(args.segments_directory, audio_name)
+            perform_diarization(args.audio_file, output_path, device)
         else:
-            perform_diarization(args.audio_file, cache_directory, device)
+            audio_file = os.path.basename(args.audio_file)
+            audio_name, audio_extension = os.path.splitext(audio_file)
+            output_path = os.path.join(cache_directory, audio_name)
+            perform_diarization(args.audio_file, output_path, device)
 
     elif args.audio_directory:
         if args.segments_directory:

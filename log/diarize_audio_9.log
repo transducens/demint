@@ -4,7 +4,7 @@ Diarization has started: assets/audios/C2_Cambridge.wav
 Removing existing directory: cache/diarized_audios/C2_Cambridge before creating a new one.
 segmentation         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:01
 speaker_counting     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
-embeddings           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:01:34
+embeddings           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:01:35
 discrete_diarization ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
 Segment 0 saved from 10189 to 17040 milliseconds.
 Segment 1 saved from 17462 to 18002 milliseconds.
@@ -75,67 +75,66 @@ Subsegment 55 saved from 0 to 24467 milliseconds.
 Subsegment 56 saved from 24467 to 38464 milliseconds.
 Subsegment 57 saved from 38464 to 66369 milliseconds.
 Subsegment 58 saved from 66369 to 89313 milliseconds.
-Subsegment 59 saved from 89313 to 114168 milliseconds.
-Subsegment 60 saved from 114168 to 116842 milliseconds.
-Segment 61 saved from 536487 to 540992 milliseconds.
+Subsegment 59 saved from 89313 to 116842 milliseconds.
+Segment 60 saved from 536487 to 540992 milliseconds.
 Segment duration longer than 29 seconds: 31016
 Treshold: -50
 Treshold: -45
 Treshold: -40
 Treshold: -35
 Treshold: -30
-Subsegment 62 saved from 0 to 23316 milliseconds.
-Subsegment 63 saved from 23316 to 31016 milliseconds.
-Segment 64 saved from 572970 to 573375 milliseconds.
-Segment 65 saved from 574455 to 585660 milliseconds.
-Segment 66 saved from 586437 to 602367 milliseconds.
+Subsegment 61 saved from 0 to 23316 milliseconds.
+Subsegment 62 saved from 23316 to 31016 milliseconds.
+Segment 63 saved from 572970 to 573375 milliseconds.
+Segment 64 saved from 574455 to 585660 milliseconds.
+Segment 65 saved from 586437 to 602367 milliseconds.
 Segment duration longer than 29 seconds: 126394
 Treshold: -50
 Treshold: -45
 Treshold: -40
 Treshold: -35
-Subsegment 67 saved from 0 to 19313 milliseconds.
-Subsegment 68 saved from 19313 to 32616 milliseconds.
-Subsegment 69 saved from 32616 to 51552 milliseconds.
-Subsegment 70 saved from 51552 to 77796 milliseconds.
-Subsegment 71 saved from 77796 to 103848 milliseconds.
-Subsegment 72 saved from 103848 to 126394 milliseconds.
-Segment 73 saved from 729402 to 735173 milliseconds.
-Segment 74 saved from 736270 to 763827 milliseconds.
-Segment 75 saved from 764856 to 765430 milliseconds.
-Segment 76 saved from 766071 to 792599 milliseconds.
-Segment 77 saved from 795518 to 803264 milliseconds.
-Segment 78 saved from 804799 to 824999 milliseconds.
-Segment 79 saved from 824762 to 847290 milliseconds.
-Segment 80 saved from 849383 to 853180 milliseconds.
+Subsegment 66 saved from 0 to 19313 milliseconds.
+Subsegment 67 saved from 19313 to 32616 milliseconds.
+Subsegment 68 saved from 32616 to 51552 milliseconds.
+Subsegment 69 saved from 51552 to 77796 milliseconds.
+Subsegment 70 saved from 77796 to 103848 milliseconds.
+Subsegment 71 saved from 103848 to 126394 milliseconds.
+Segment 72 saved from 729402 to 735173 milliseconds.
+Segment 73 saved from 736270 to 763827 milliseconds.
+Segment 74 saved from 764856 to 765430 milliseconds.
+Segment 75 saved from 766071 to 792599 milliseconds.
+Segment 76 saved from 795518 to 803264 milliseconds.
+Segment 77 saved from 804799 to 824999 milliseconds.
+Segment 78 saved from 824762 to 847290 milliseconds.
+Segment 79 saved from 849383 to 853180 milliseconds.
 Segment duration longer than 29 seconds: 32569
 Treshold: -50
 Treshold: -45
 Treshold: -40
 Treshold: -35
-Subsegment 81 saved from 0 to 7049 milliseconds.
-Subsegment 82 saved from 7049 to 32569 milliseconds.
+Subsegment 80 saved from 0 to 7049 milliseconds.
+Subsegment 81 saved from 7049 to 32569 milliseconds.
 Segment duration longer than 29 seconds: 38829
 Treshold: -50
 Treshold: -45
 Treshold: -40
 Treshold: -35
 Treshold: -30
-Subsegment 83 saved from 0 to 20131 milliseconds.
-Subsegment 84 saved from 20131 to 38829 milliseconds.
-Segment 85 saved from 926839 to 931345 milliseconds.
-Segment 86 saved from 929286 to 938550 milliseconds.
-Segment 87 saved from 937909 to 942617 milliseconds.
-Segment 88 saved from 942432 to 951004 milliseconds.
-Segment 89 saved from 951004 to 951426 milliseconds.
-Segment 90 saved from 951899 to 952388 milliseconds.
-Segment 91 saved from 953890 to 960269 milliseconds.
-Segment 92 saved from 960690 to 983505 milliseconds.
-Segment 93 saved from 983708 to 1005882 milliseconds.
-Segment 94 saved from 1004599 to 1010792 milliseconds.
-Segment 95 saved from 1012497 to 1036679 milliseconds.
-Segment 96 saved from 1036881 to 1047749 milliseconds.
-Segment 97 saved from 1048947 to 1053621 milliseconds.
-Segment 98 saved from 1052879 to 1054667 milliseconds.
-Segment 99 saved from 1054870 to 1056827 milliseconds.
+Subsegment 82 saved from 0 to 20131 milliseconds.
+Subsegment 83 saved from 20131 to 38829 milliseconds.
+Segment 84 saved from 926839 to 931345 milliseconds.
+Segment 85 saved from 929286 to 938550 milliseconds.
+Segment 86 saved from 937909 to 942617 milliseconds.
+Segment 87 saved from 942432 to 951004 milliseconds.
+Segment 88 saved from 951004 to 951426 milliseconds.
+Segment 89 saved from 951899 to 952388 milliseconds.
+Segment 90 saved from 953890 to 960269 milliseconds.
+Segment 91 saved from 960690 to 983505 milliseconds.
+Segment 92 saved from 983708 to 1005882 milliseconds.
+Segment 93 saved from 1004599 to 1010792 milliseconds.
+Segment 94 saved from 1012497 to 1036679 milliseconds.
+Segment 95 saved from 1036881 to 1047749 milliseconds.
+Segment 96 saved from 1048947 to 1053621 milliseconds.
+Segment 97 saved from 1052879 to 1054667 milliseconds.
+Segment 98 saved from 1054870 to 1056827 milliseconds.
 Diarization has completed.

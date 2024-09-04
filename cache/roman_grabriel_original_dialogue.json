@@ -1,0 +1,330 @@
+[
+    {
+        "person": "A",
+        "dialogue": "Hey, you seen my phone anywhere? I can't find it no how."
+    },
+    {
+        "person": "B",
+        "dialogue": "No, I didn't see it. Did you leave it at your work?"
+    },
+    {
+        "person": "A",
+        "dialogue": "Nah, I don't think so. I was using it at home last night, but now it's just gone. Poof!"
+    },
+    {
+        "person": "B",
+        "dialogue": "Maybe you forget it in the kitchen or somewhere. You checked everywhere good?"
+    },
+    {
+        "person": "A",
+        "dialogue": "Yeah, I checked all the rooms, even under the couch. I think it got legs and walked away!"
+    },
+    {
+        "person": "B",
+        "dialogue": "Ha! That would be some crazy stuff. Did you tried calling it?"
+    },
+    {
+        "person": "A",
+        "dialogue": "Yeah, but it’s on silent mode, so that ain’t helping none. And now I feel like I'm losing my mind."
+    },
+    {
+        "person": "B",
+        "dialogue": "Don't worries, we gonna find it. Let’s retrace your steps. You remember what was you doing last?"
+    },
+    {
+        "person": "A",
+        "dialogue": "Umm, I was watching TV, then I went to the bathroom, and after that I was in the kitchen for a snack. That’s when I thinked I last had it."
+    },
+    {
+        "person": "B",
+        "dialogue": "Okay, so let’s start from the kitchen. Maybe it’s in the fridge with your snack! You do that before, remember?"
+    },
+    {
+        "person": "A",
+        "dialogue": "Oh, yeah! I’m always putting stuff in weird places. Let’s go check."
+    },
+    {
+        "person": "B",
+        "dialogue": "Alright, let’s go find that sneaky phone!"
+    },
+    {
+        "person": "A",
+        "dialogue": "So, we checked the kitchen, and still no phone. What we do now?"
+    },
+    {
+        "person": "B",
+        "dialogue": "Hmm, maybe it’s in the bathroom? You sayed you went there, right?"
+    },
+    {
+        "person": "A",
+        "dialogue": "Yeah, but I already looked there twice. Ain't nothin' in there."
+    },
+    {
+        "person": "B",
+        "dialogue": "Okay, then think again. Did you went outside for a moment? Maybe it’s on the porch or something."
+    },
+    {
+        "person": "A",
+        "dialogue": "Oh! I did go to take out the trash last night. But why would my phone be in the trash?"
+    },
+    {
+        "person": "B",
+        "dialogue": "You never know! I seen you do some pretty strange things when you tired."
+    },
+    {
+        "person": "A",
+        "dialogue": "Haha, true that. Let’s go check outside just in case."
+    },
+    {
+        "person": "B",
+        "dialogue": "Alright, but hurry up. I don’t wanna be searching out here all day!"
+    },
+    {
+        "person": "A",
+        "dialogue": "Okay, okay… I’m looking now… Nope, no phone in the trash."
+    },
+    {
+        "person": "B",
+        "dialogue": "Well, that’s good news, I guess. So, what we do next?"
+    },
+    {
+        "person": "A",
+        "dialogue": "I don’t know… Maybe I call the phone company and tell them to block it or something?"
+    },
+    {
+        "person": "B",
+        "dialogue": "Wait! Did you check your car? Sometimes you leave it in there by mistake."
+    },
+    {
+        "person": "A",
+        "dialogue": "Oh, man! You right! I totally forgot about the car. Let’s go check there!"
+    },
+    {
+        "person": "A",
+        "dialogue": "Alright, so we checked the car and guess what? No phone there either!"
+    },
+    {
+        "person": "B",
+        "dialogue": "Seriously? How you losing stuff like that all the time? It’s like your superpower or something."
+    },
+    {
+        "person": "A",
+        "dialogue": "I know, right? If there was an award for losing things, I’d be the champ!"
+    },
+    {
+        "person": "B",
+        "dialogue": "For real. Okay, let’s think… maybe it fell between the couch cushions. You know how things disappear in there."
+    },
+    {
+        "person": "A",
+        "dialogue": "Yeah, but I swear I checked there already. But fine, let’s go check again."
+    },
+    {
+        "person": "B",
+        "dialogue": "Alright, I’ll help. Start pullin' the cushions out. You never know what you find!"
+    },
+    {
+        "person": "A",
+        "dialogue": "Whoa, look at this! I found my old earring I lost months ago! And some crumbs… a lot of crumbs."
+    },
+    {
+        "person": "B",
+        "dialogue": "Ugh, gross. But no phone, huh?"
+    },
+    {
+        "person": "A",
+        "dialogue": "Nope, no phone. Just a whole mess of stuff I don't even wanna know about."
+    },
+    {
+        "person": "B",
+        "dialogue": "Man, this is getting frustrating. Did you checked the backyard? Maybe you left it outside when you was out with the dog?"
+    },
+    {
+        "person": "A",
+        "dialogue": "Oh! I totally forgot I took the dog out! Let’s go check the backyard real quick."
+    },
+    {
+        "person": "B",
+        "dialogue": "Yeah, hurry up. I hope it didn’t rain on your phone if it’s out there!"
+    },
+    {
+        "person": "A",
+        "dialogue": "I know, right? I’ll cry if that happen. Okay, I’m lookin'… Oh no… I see something shiny over there by the flowers."
+    },
+    {
+        "person": "B",
+        "dialogue": "What is it? Your phone?"
+    },
+    {
+        "person": "A",
+        "dialogue": "No… it’s just a piece of foil. Ugh, why is this so hard?!"
+    },
+    {
+        "person": "B",
+        "dialogue": "Because you always losin’ stuff, that’s why. Wait… did you check your jacket pockets?"
+    },
+    {
+        "person": "A",
+        "dialogue": "No, I didn’t think of that! I was wearing my jacket last night… Hold on… let me check…"
+    },
+    {
+        "person": "B",
+        "dialogue": "Please let it be there… Please, please, please…"
+    },
+    {
+        "person": "A",
+        "dialogue": "Oh my gosh, I found it! It was in my pocket the whole time!"
+    },
+    {
+        "person": "B",
+        "dialogue": "Seriously?! After all that, it was in your pocket? I’m gonna lose my mind."
+    },
+    {
+        "person": "A",
+        "dialogue": "I know, I’m sorry! I swear I’m not usually this forgetful…"
+    },
+    {
+        "person": "B",
+        "dialogue": "Not usually? You sure about that?"
+    },
+    {
+        "person": "A",
+        "dialogue": "Okay, okay, maybe a little. But thanks for helpin' me look. You’re a good friend."
+    },
+    {
+        "person": "B",
+        "dialogue": "Yeah, yeah, just buy me some lunch, and we call it even."
+    },
+    {
+        "person": "A",
+        "dialogue": "Deal! Let’s go get some food. I’m starvin’ after all that searching!"
+    },
+    {
+        "person": "B",
+        "dialogue": "Me too. And maybe next time, try not to lose your brain along with your phone, okay?"
+    },
+    {
+        "person": "A",
+        "dialogue": "Haha, I’ll try my best. No promises though!"
+    },
+    {
+        "person": "A",
+        "dialogue": "So, now that we found my phone, where we gonna eat?"
+    },
+    {
+        "person": "B",
+        "dialogue": "I’m thinkin’ about that new burger place down the street. Heard they got some good stuff."
+    },
+    {
+        "person": "A",
+        "dialogue": "Oh, yeah! I heard about that place too. They got those huge milkshakes with all the crazy toppings, right?"
+    },
+    {
+        "person": "B",
+        "dialogue": "Yep! I seen pictures online, and they look insane. Like, they put whole donuts on top of them!"
+    },
+    {
+        "person": "A",
+        "dialogue": "Whoa, that sounds awesome! But also… kinda unhealthy. Maybe we should eat something lighter?"
+    },
+    {
+        "person": "B",
+        "dialogue": "Come on, after all that stress lookin' for your phone, we deserve a treat! Plus, you owe me lunch, remember?"
+    },
+    {
+        "person": "A",
+        "dialogue": "Alright, alright, you got a point. Let’s do it. I’m cravin’ a big, messy burger now!"
+    },
+    {
+        "person": "B",
+        "dialogue": "That’s the spirit! Let’s head over there before the lunchtime crowd shows up."
+    },
+    {
+        "person": "A",
+        "dialogue": "Good idea. But first, let me grab my wallet… Oh no, don’t tell me I lost that too!"
+    },
+    {
+        "person": "B",
+        "dialogue": "No way… You serious right now?"
+    },
+    {
+        "person": "A",
+        "dialogue": "Haha, just kidding! Got it right here in my back pocket. I ain’t that forgetful!"
+    },
+    {
+        "person": "B",
+        "dialogue": "Phew, you almost gave me a heart attack! I swear, you like to live on the edge."
+    },
+    {
+        "person": "A",
+        "dialogue": "Life’s too short to be boring, right?"
+    },
+    {
+        "person": "B",
+        "dialogue": "Yeah, but not so short you gotta lose everything every day! Come on, let’s go before you lose your keys or something."
+    },
+    {
+        "person": "A",
+        "dialogue": "Good call! Let’s get outta here… wait, do you hear that?"
+    },
+    {
+        "person": "B",
+        "dialogue": "Hear what? I don’t hear nothin’. You trippin’ again?"
+    },
+    {
+        "person": "A",
+        "dialogue": "No, seriously, listen… It’s like a buzzing sound. Oh no, my phone is ringing now!"
+    },
+    {
+        "person": "B",
+        "dialogue": "Haha, oh great! After all that, now someone wanna call you."
+    },
+    {
+        "person": "A",
+        "dialogue": "Yeah, I bet it’s some spam call. Wait, lemme check… Yep, knew it. ‘Congratulations, you won a free cruise.’"
+    },
+    {
+        "person": "B",
+        "dialogue": "Spam calls are the worst. But at least your phone works fine, right?"
+    },
+    {
+        "person": "A",
+        "dialogue": "Yeah, true. All this panic for nothin’. But hey, at least I got a good workout from running around the house."
+    },
+    {
+        "person": "B",
+        "dialogue": "Yeah, and I got a good laugh watchin' you freak out. Totally worth it."
+    },
+    {
+        "person": "A",
+        "dialogue": "Glad I could entertain you. Alright, for real this time, let’s go get those burgers!"
+    },
+    {
+        "person": "B",
+        "dialogue": "Finally! Let’s get outta here before anything else goes missing."
+    },
+    {
+        "person": "A",
+        "dialogue": "Don’t jinx it! But yeah, let’s roll. And thanks again for helping me find my phone. You’re the best."
+    },
+    {
+        "person": "B",
+        "dialogue": "No problem. That’s what friends are for, right? Helping each other out and laughing when things go crazy."
+    },
+    {
+        "person": "A",
+        "dialogue": "Exactly! Alright, let’s go get those giant milkshakes and make this day even crazier."
+    },
+    {
+        "person": "B",
+        "dialogue": "Deal! And no more losing things today, okay?"
+    },
+    {
+        "person": "A",
+        "dialogue": "I promise! At least until tomorrow!"
+    },
+    {
+        "person": "B",
+        "dialogue": "Haha, fair enough. Let’s go!"
+    }
+]

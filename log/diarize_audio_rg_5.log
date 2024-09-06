@@ -1,0 +1,33 @@
+Audio device: cuda
+Diarization has started: assets/audios/dialogo_filtrado_rg_5.wav
+segmentation         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+speaker_counting     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+embeddings           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:03:34
+discrete_diarization ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Segment duration longer than 29 seconds: 406552
+Treshold: -50
+Treshold: -45
+Treshold: -40
+Treshold: -35
+Subsegment 0 saved from 0 to 26712 milliseconds. With a duration of 26712 milliseconds.
+Subsegment 1 saved from 26712 to 50443 milliseconds. With a duration of 23731 milliseconds.
+Subsegment 2 saved from 50443 to 65461 milliseconds. With a duration of 15018 milliseconds.
+Subsegment 3 saved from 65461 to 83443 milliseconds. With a duration of 17982 milliseconds.
+Subsegment 4 saved from 83443 to 95590 milliseconds. With a duration of 12147 milliseconds.
+Subsegment 5 saved from 95590 to 113068 milliseconds. With a duration of 17478 milliseconds.
+Subsegment 6 saved from 113068 to 137941 milliseconds. With a duration of 24873 milliseconds.
+Subsegment 7 saved from 137941 to 157840 milliseconds. With a duration of 19899 milliseconds.
+Subsegment 8 saved from 157840 to 171212 milliseconds. With a duration of 13372 milliseconds.
+Subsegment 9 saved from 171212 to 187785 milliseconds. With a duration of 16573 milliseconds.
+Subsegment 10 saved from 187785 to 206314 milliseconds. With a duration of 18529 milliseconds.
+Subsegment 11 saved from 206314 to 217321 milliseconds. With a duration of 11007 milliseconds.
+Subsegment 12 saved from 217321 to 239985 milliseconds. With a duration of 22664 milliseconds.
+Subsegment 13 saved from 239985 to 260068 milliseconds. With a duration of 20083 milliseconds.
+Subsegment 14 saved from 260068 to 288680 milliseconds. With a duration of 28612 milliseconds.
+Subsegment 15 saved from 288680 to 316429 milliseconds. With a duration of 27749 milliseconds.
+Subsegment 16 saved from 316429 to 336407 milliseconds. With a duration of 19978 milliseconds.
+Subsegment 17 saved from 336407 to 355399 milliseconds. With a duration of 18992 milliseconds.
+Subsegment 18 saved from 355399 to 366818 milliseconds. With a duration of 11419 milliseconds.
+Subsegment 19 saved from 366818 to 392093 milliseconds. With a duration of 25275 milliseconds.
+Subsegment 20 saved from 392093 to 406552 milliseconds. With a duration of 14459 milliseconds.
+Diarization has completed.

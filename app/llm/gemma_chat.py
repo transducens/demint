@@ -42,8 +42,7 @@ class GemmaChat(IChat):
 
         # Loading the LLM
         try: 
-            self.__tokenizer = AutoTokenizer.from_pretrained(
-                model_id)
+            self.__tokenizer = AutoTokenizer.from_pretrained(model_id)
             if torch.cuda.is_available():
                 self.__model = AutoModelForCausalLM.from_pretrained(
                     model_id,
@@ -115,6 +114,7 @@ class GemmaChat(IChat):
         print(f"get_answer from LLM finished. Time taken to get answer from LLM: {elapsed_time} seconds")
         return self.__clean_model_response(response_text)
     
+    # Deprecated method
     def get_answer_threads(self, contents, max_new_tokens=150):
         """
         Generates responses from the model for the provided input contents.

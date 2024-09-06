@@ -65,6 +65,7 @@ def initialize_global_variables():
     global english_tutor, state, max_new_tokens, response, explained_sentences_speaker 
     global id_sentence, id_error, error, chat_response, category_list, category_errors
     global index_category, index_error, count, selected_speaker
+    global state_change
 
     state = -1
     max_new_tokens = 200
@@ -87,6 +88,7 @@ def initialize_global_variables():
     error = None
     category_list = {}
     category_errors = {}
+    state_change = False
 
     index_category = index_error = 0
 
@@ -142,10 +144,250 @@ def get_speakers():
 # Chat with the AI using the given query.
 def chat_with_ai(user_input, history):
     global user_message, chat_answer, history_chat, highlighted_sentence_id, state
-    global category_list, category_errors, index_category, index_error, count, log_conversation, chat_response
+    global category_list, category_errors, index_category, index_error, count, log_conversation, chat_response, state_change
   
     user_message = user_input
     history_chat = history
+    final_prompt = None
+
+    output = ""
+    
+    match state:
+        case -1:
+            category = list(category_list.keys())[index_category]
+            output = "Most frecuent error type: " + category + ". Want to practice it?"
+            state = 0
+        case 0:
+            #print(chat_response)
+            #output = ask_error(user_input)
+            context = "You ask the student: \n"
+            context += chat_response
+
+            context += "\n\nThe student responce is the following:\n"
+            context += "\n\n" + user_input + "\n"
+
+            prompt = (f"Base on the following context:\n\n"
+                        f"CONTEXT:\n{context}"
+                        f"TASK:\n You have asked the student if he wants to check his english errors of an expecific category. Determine if the students wants it based of the following answer. Your answer must be 'yes' or 'no'.\n\n"
+                        f"ANSWER:\n{user_input}")
+
+            output = create_prompt([prompt])
+
+            if english_tutor.get_chat_llm()[:3] != 'gpt':
+                output = sentiment_analisys(output)
+
+            output = output.lower()
+            if output == 'yes':
+                categories = list(category_list.keys())
+
+                if index_category >= len(categories):
+                    state = 100
+                    output = "No more error categories left to check. You have complete the class."
+                else:
+                    category = categories[index_category]
+                    print(category)
+                    list_tuples = category_errors[category]
+                    if index_error >= len(list_tuples):
+                        index_category += 1
+                        index_error = 0
+
+                        if index_category >= len(categories):
+                            state = 100
+                            output = "No more error categories left to check. You have complete the class."
+                        else:
+                            category = categories[index_category]
+                            output = "Most frecuent error type: " + category + ". Want to practice it?"
+                            state = 0
+                    else:
+                        tuple_error = list_tuples[index_error]
+                        print("tuple_error: ", tuple_error)
+                        #highlighted_sentence_id = tuple_error[0]
+                        
+                        output = select_error(tuple_error[0], tuple_error[1])
+                        chat_response = "Do you want to practice this other error?"
+                        output += f"\n\n **{chat_response}**"
+                        state = 1
+            else:
+                index_category += 1
+                categories = list(category_list.keys())
+
+                if index_category >= len(categories):
+                    state = 100
+                    output = "No more error categories left to check. You have complete the class."
+                else:
+                    category = categories[index_category]
+                    output = "Most frecuent error type: " + category + ". Want to practice it?"
+        case 1:
+            #output = ask_error(user_input)
+            context = "You ask the student: \n"
+            context += chat_response
+
+            context += "\n\nThe student responce is the following:\n"
+            context += "\n\n" + user_input + "\n"
+
+            prompt = (f"Base on the following context:\n\n"
+                        f"CONTEXT:\n{context}"
+                        f"TASK:\n You have asked the student if he wants to check his english errors of an expecific category. Determine if the students wants it based of the following answer. Your answer must be 'yes' or 'no'.\n\n"
+                        f"ANSWER:\n{user_input}")
+
+            output = create_prompt([prompt])
+
+            if english_tutor.get_chat_llm()[:3] != 'gpt':
+                output = sentiment_analisys(output)
+
+            output = output.lower()
+            if output == 'yes':
+                #response = error_explanation()
+                context = create_context(history)
+            
+                final_prompt = (
+                    f"You are an English teacher. I want you to correct the mistakes I have made based on the following context: \n\n"
+                    f"CONTEXT:\n{context}\n"
+                    f"QUESTION:\n Create a short explanation of the gramatical error using the mistake description provided in the context and alaways on the student phrase without saying the correct one.")
+
+                response = create_prompt([final_prompt])
+                chat_response = "Do you want an extensive explanation of the English grammar of this case?"
+                response += f"\n\n **{chat_response}**"
+                output = response
+                state = 3
+            else:
+                index_error += 1
+
+                categories = list(category_list.keys())
+                category = list(category_list.keys())[index_category]
+                list_tuples = category_errors[category]
+
+                if index_error >= len(list_tuples):
+                    index_category += 1
+                    index_error = 0
+
+                    if index_category >= len(categories):
+                        state = 100
+                        output = "No more error categories left to check. You have complete the class."
+                    else:
+                        category = categories[index_category]
+                        output = "Most frecuent error type: " + category + ". Want to practice it?"
+                        state = 0
+                else:
+                    tuple_error = list_tuples[index_error]
+
+                    output = select_error(tuple_error[0], tuple_error[1])
+                    chat_response = "Do you want to practice this other error?"
+                    output += f"\n\n **{chat_response}**"
+        case 3:
+            output = new_change_state(user_input, history)
+
+            if output == '2':
+                output = '1'
+
+            match int(output):
+                case 1:
+                    categories = list(category_list.keys())
+                    category = categories[index_category]
+                    list_tuples = category_errors[category]
+
+                    if index_error >= len(list_tuples):
+                        index_category += 1
+                        index_error = 0
+
+                        if index_category >= len(categories):
+                            state = 100
+                            output += "No more error categories left to check. You have complete the class."
+                        else:
+                            category = categories[index_category]
+                            output += "Most frecuent error type: " + category + ". Want to practice it?"
+                            state = 0
+                    else:
+                        tuple_error = list_tuples[index_error]
+
+                        output += select_error(tuple_error[0], tuple_error[1])
+                        chat_response = "Do you want to practice this other error?"
+                        output += f"\n\n **{chat_response}**"
+                        state = 1
+                case 3:
+                    context = create_context(history)
+            
+                    final_prompt = (
+                        f"You are an English teacher. I want you to help me learn English: \n\n"
+                        f"CONTEXT:\n{context}\n"
+                        f"TASK:\n Give an extended explanation of the english grammar rules present in the context.")
+                    
+                    output = create_prompt([final_prompt])
+                case 4:
+                    context = create_context(history)
+            
+                    final_prompt = (
+                        f"You are an English teacher. I want you to help me learn English: \n\n"
+                        f"CONTEXT:\n{context}\n"
+                        f"TASK:\n Create an example for the correct use of the english grammar rul provided in the context. Try to be original")
+                    
+                    output = create_prompt([final_prompt])
+                case 5:
+                    context = create_context(history)
+            
+                    final_prompt = (
+                        f"You are an English teacher. I want you to help me learn English: \n\n"
+                        f"CONTEXT:\n{context}\n"
+                        f"QUESTION:\n Create an exercise of English base on the english rules and mistake description provided in the context in order to me to practice.")
+
+                    output = create_prompt([final_prompt])
+
+                    output += "\n\n **Complete the exercise**"
+                    output = f"Here is an exercise in order to you to practice:\n{output}"
+                    state = 4
+                case 6:
+                    context = create_context(history)
+
+                    final_prompt = (
+                        f"You are an English teacher. I want you to correct the mistakes I have made based on the following context: \n\n"
+                        f"CONTEXT:\n{context}\n"
+                        f"TASK:\n Based on the question I gave you, answer it in a simple way and always in the context of english teaching. If the question is not english related, you cannot help the student and you must remind the student that you are an English professor that only answers english related questions."
+                        f"QUESTION:\n{user_input}. Remember you are an English teacher.\n")
+                    
+                    output = create_prompt([final_prompt])
+        case 4:
+            context = "The exercise propose to the student: \n"
+            context += chat_answer
+
+            context += "\n\nThe student answer:\n"
+            context += "\n\n" + user_input + "\n"
+            
+            context += create_context(history)
+                
+            final_prompt = (
+                f"You are an English teacher. I want you to help me learn English: \n\n"
+                f"CONTEXT:\n{context}\n"
+                f"QUESTION:\n Base on the exercise propose to the student, correct his answer using if needed the english rules provided in the context"
+                f"ANSWER:\n{user_input}")
+            
+            output = create_prompt([final_prompt])
+            state = 3
+        case _:
+            output = "No more error categories left to check. You have complete the class."
+
+    if highlighted_sentence_id == 1:
+        error_sentence_id = ""
+    else:
+        error_sentence_id = "sentence_" + str(highlighted_sentence_id)
+
+    history.append((user_input, output))   # must be Tuples
+    
+    if log_conversation:
+        log_conversation_item(user_input, output)
+
+        if final_prompt != None:
+            log_prompts(final_prompt, output)
+
+    return "", history, error_sentence_id
+
+# Chat with the AI using the given query.
+def chat_with_ai_obsoloeirafo(user_input, history):
+    global user_message, chat_answer, history_chat, highlighted_sentence_id, state
+    global category_list, category_errors, index_category, index_error, count, log_conversation, chat_response, state_change
+  
+    user_message = user_input
+    history_chat = history
+    final_prompt = None
     #highlighted_sentence_id = user_input
     #error_sentence_id = "sentence_" + str(highlighted_sentence_id)  # The sentence id of the errors we are going to work with now.
 
@@ -171,7 +413,7 @@ def chat_with_ai(user_input, history):
             output = "Most frecuent error type: " + category + ". Want to practice it?"
             state = 0
         case 0:
-            print(chat_response)
+            #print(chat_response)
             #output = ask_error(user_input)
             context = "You ask the student: \n"
             context += chat_response
@@ -181,7 +423,7 @@ def chat_with_ai(user_input, history):
 
             prompt = (f"Base on the following context:\n\n"
                         f"CONTEXT:\n{context}"
-                        f"TASK:\n You have asked the student if he wants to check his english errors of an expecific category. Determine if the students wants it based of the following answer. Please enclose 'yes' or 'no' in your answer in <asnwer></answer> tags.\n\n"
+                        f"TASK:\n You have asked the student if he wants to check his english errors of an expecific category. Determine if the students wants it based of the following answer. Your answer must be 'yes' or 'no'.\n\n"
                         f"ANSWER:\n{user_input}")
 
             output = create_prompt([prompt])
@@ -198,6 +440,7 @@ def chat_with_ai(user_input, history):
                     output = "No more error categories left to check. You have complete the class."
                 else:
                     category = categories[index_category]
+                    print(category)
                     list_tuples = category_errors[category]
                     if index_error >= len(list_tuples):
                         index_category += 1
@@ -212,6 +455,7 @@ def chat_with_ai(user_input, history):
                             state = 0
                     else:
                         tuple_error = list_tuples[index_error]
+                        print("tuple_error: ", tuple_error)
                         #highlighted_sentence_id = tuple_error[0]
                         
                         output = select_error(tuple_error[0], tuple_error[1])
@@ -239,7 +483,7 @@ def chat_with_ai(user_input, history):
 
             prompt = (f"Base on the following context:\n\n"
                         f"CONTEXT:\n{context}"
-                        f"TASK:\n You have asked the student if he wants to check his english errors of an expecific category. Determine if the students wants it based of the following answer. Please enclose 'yes' or 'no' in your answer in <asnwer></answer> tags.\n\n"
+                        f"TASK:\n You have asked the student if he wants to check his english errors of an expecific category. Determine if the students wants it based of the following answer. Your answer must be 'yes' or 'no'.\n\n"
                         f"ANSWER:\n{user_input}")
 
             output = create_prompt([prompt])
@@ -303,24 +547,30 @@ def chat_with_ai(user_input, history):
             state = 3
         case 3:
             #response = ask_grammar(user_input)
-            context = "You ask the student: \n"
-            context += chat_response
 
-            context += "\n\nThe student responce is the following:\n"
-            context += "\n\n" + user_input + "\n"
+            if not state_change:
+                context = "You ask the student: \n"
+                context += chat_response
 
-            final_prompt = (f"Base on the following context:\n\n"
-                            f"CONTEXT:\n{context}"
-                            f"TASK:\n You have asked the student if he wants an extensive explanation of english grammar. Determine if the students wants it based of the following answer. Please enclose 'yes' or 'no' in your answer in <asnwer></answer> tags.\n\n"
-                            f"ANSWER:\n{user_input}")
-            
-            response = create_prompt([final_prompt])
+                context += "\n\nThe student responce is the following:\n"
+                context += "\n\n" + user_input + "\n"
 
-            if english_tutor.get_chat_llm()[:3] != 'gpt':
-                response = sentiment_analisys(response)
+                final_prompt = (f"Base on the following context:\n\n"
+                                f"CONTEXT:\n{context}"
+                                f"TASK:\n You have asked the student if he wants an extensive explanation of english grammar. Determine if the students wants it based of the following answer. Your answer must be 'yes' or 'no'.\n\n"
+                                f"ANSWER:\n{user_input}")
+                
+                response = create_prompt([final_prompt])
 
-            response = response.lower()
-            output = ""
+                if english_tutor.get_chat_llm()[:3] != 'gpt':
+                    response = sentiment_analisys(response)
+
+                response = response.lower()
+                output = ""
+            else:
+                state_change = False
+                response = 'yes'
+
             if response == 'yes':
                 #output = explain_grammar()
                 context = create_context(history)
@@ -332,29 +582,37 @@ def chat_with_ai(user_input, history):
                 
                 output = create_prompt([final_prompt])
                     
-            chat_response = "Do you want an example of the correct use of the grammar rules?"
-            output += f"\n\n **{chat_response}**"
-                
-            state = 4
-        case 4:
-            #response = ask_example(user_input)
-            context = "You ask the student: \n"
-            context += chat_response
-
-            context += "\n\nThe student responce is the following:\n"
-            context += "\n\n" + user_input + "\n"
-
-            final_prompt = (f"Base on the following context:\n\n"
-                            f"CONTEXT:\n{context}"
-                            f"TASK:\n You have asked the student if he wants an example of the sentence. Determine if the students wants it based of the following answer. Please enclose 'yes' or 'no' in your answer in <asnwer></answer> tags.\n\n"
-                            f"ANSWER:\n{user_input}")
+            state = change_state(user_input)
+            if state == -1:
+                chat_response = "Do you want an example of the correct use of the grammar rules?"
+                output += f"\n\n **{chat_response}**"
+                state = 4
+            else:
+                state_change = True
             
-            output = create_prompt([final_prompt])
-            if english_tutor.get_chat_llm()[:3] != 'gpt':
-                response = sentiment_analisys(output)
+        case 4:
+            if not state_change:
+                context = "You ask the student: \n"
+                context += chat_response
 
-            response = response.lower()
-            output = ""
+                context += "\n\nThe student responce is the following:\n"
+                context += "\n\n" + user_input + "\n"
+
+                final_prompt = (f"Base on the following context:\n\n"
+                                f"CONTEXT:\n{context}"
+                                f"TASK:\n You have asked the student if he wants an example of the sentence. Determine if the students wants it based of the following answer. Your answer must be 'yes' or 'no'.\n\n"
+                                f"ANSWER:\n{user_input}")
+                
+                output = create_prompt([final_prompt])
+                if english_tutor.get_chat_llm()[:3] != 'gpt':
+                    output = sentiment_analisys(output)
+
+                response = output.lower()
+                output = ""
+            else:
+                state_change = False
+                response = 'yes'
+
             if response == 'yes':
                 #output = create_example()
                 context = create_context(history)
@@ -366,31 +624,39 @@ def chat_with_ai(user_input, history):
                 
                 output = create_prompt([final_prompt])
 
-            chat_response = "Do you want an exercise to practice these grammar rules?"
-            output += f"\n\n **{chat_response}**"
-            state = 5
+            state = change_state(user_input)
+            if state == -1:
+                chat_response = "Do you want an exercise to practice these grammar rules?"
+                output += f"\n\n **{chat_response}**"
+                state = 5
+            else:
+                state_change = True
         case 5:
-            #response = ask_exercise(user_input)
-            context = "You ask the student: \n"
-            context += chat_response
-            print("chat_response: ", chat_response)
+            if not state_change:
+                context = "You ask the student: \n"
+                context += chat_response
+                #print("chat_response: ", chat_response)
 
-            context += "\n\nThe student responce is the following:\n"
-            context += "\n\n" + user_input + "\n"
-            print("chat_response: ", chat_response)
+                context += "\n\nThe student responce is the following:\n"
+                context += "\n\n" + user_input + "\n"
+                #print("chat_response: ", chat_response)
 
-            final_prompt = (f"Base on the following context:\n\n"
-                            f"CONTEXT:\n{context}"
-                            f"TASK:\n You have asked the student if he wants an exercise in order to practice. Determine if the students wants to try based of the following answer. Please enclose 'yes' or 'no' in your answer in <asnwer></answer> tags.\n\n"
-                            f"ANSWER:\n{user_input}")
-            
-            response = create_prompt([final_prompt])
-            if english_tutor.get_chat_llm()[:3] != 'gpt':
-                response = sentiment_analisys(response)
+                final_prompt = (f"Base on the following context:\n\n"
+                                f"CONTEXT:\n{context}"
+                                f"TASK:\n You have asked the student if he wants an exercise in order to practice. Determine if the students wants to try based of the following answer. Your answer must be 'yes' or 'no'.\n\n"
+                                f"ANSWER:\n{user_input}")
+                
+                response = create_prompt([final_prompt])
+                if english_tutor.get_chat_llm()[:3] != 'gpt':
+                    response = sentiment_analisys(response)
 
-            response = response.lower()
-            output = ""
-            print("Response: ", response)
+                response = response.lower()
+                output = ""
+                #print("Response: ", response)
+            else:
+                state_change = False
+                response = 'yes'
+
             if response == 'yes':
                 #output = create_exercise()
                 context = create_context(history)
@@ -406,8 +672,12 @@ def chat_with_ai(user_input, history):
                 output = f"Here is an exercise in order to you to practice:\n{output}"
                 state = 6
             else:
-                output += "\n\n **Do you want to attempt to write the sentence correctly?**"
-                state = 7
+                state = change_state(user_input)
+                if state == -1:
+                    output += "\n\n **Do you want to attempt to write the sentence correctly?**"
+                    state = 7
+                else:
+                    state_change = True
         case 6:
             #output = correct_exercise(user_input)
             context = "The exercise propose to the student: \n"
@@ -437,7 +707,7 @@ def chat_with_ai(user_input, history):
 
             final_prompt = (f"Base on the following context:\n\n"
                             f"CONTEXT:\n{context}"
-                            f"TASK:\n You have asked the student if he wants to attempt to write the sentence correctly. Determine if the students wants to try based of the following answer. Please enclose 'yes' or 'no' in your answer in <asnwer></answer> tags.\n\n"
+                            f"TASK:\n You have asked the student if he wants to attempt to write the sentence correctly. Determine if the students wants to try based of the following answer. Your answer must be 'yes' or 'no'.\n\n"
                             f"ANSWER:\n{user_input}")
             
             response = create_prompt([final_prompt])
@@ -459,7 +729,7 @@ def chat_with_ai(user_input, history):
                 f"You are an English teacher. I want you to correct the mistakes I have made based on the following context: \n\n"
                 f"CONTEXT:\n{context}\n"
                 f"TASK:\n Based on the student answer, check if his sentence is correct comparing it to corrected sentece provided in the context. If it is corrrect, tell the student he did well. In case it is not correct, tell the student which mistakes he has made including new errors not previously made."
-                f"ANSWER:\n{student_response}\n")
+                f"ANSWER:\n{user_input}\n")
             
             output = create_prompt([final_prompt])
 
@@ -718,45 +988,10 @@ def chat_with_ai(user_input, history):
     if log_conversation:
         log_conversation_item(user_input, output)
 
+        if final_prompt != None:
+            log_prompts(final_prompt, output)
 
     return "", history, error_sentence_id
-
-    #Delete
-    """print("pressed")
-    global selected_speaker_text, english_tutor
-    context = ""
-
-    if selected_speaker_text is not None:
-        context += "\nYou are given direct speech from a user. When responding, address the user by name: \n"
-        context += selected_speaker_text
-
-    D, I, RAG_context = english_tutor.search_in_index(query, k=3)
-    context_str = "\n".join(RAG_context)
-
-    context += "\n\nThe English rule:\n"
-    context += "\n\n" + context_str + "\n"
-
-    final_prompt = (f"Based on your extensive knowledge and the following detailed context, please provide a "
-                    f"comprehensive answer to explain the English rule:\n\nCONTEXT:\n{context}\n\nQUESTION:\n{query}")
-    print("final_prompt:")
-    print(final_prompt)
-    start_time = time.time()
-    response = english_tutor.get_answer(final_prompt, 200)
-    end_time = time.time()
-    elapsed_time = end_time - start_time
-    print(f"Time taken to get the response: {elapsed_time} seconds")
-
-    new_chat_history_item = ("\n Q: " + query +
-                             "\n A: " + response +
-                             "\n ------------------------")
-
-    english_tutor.update_chat_history(new_chat_history_item)
-
-    output = ''
-    for sentence in english_tutor.get_chat_history():
-        output += sentence
-    return output
-
 
 def log_conversation_item(user_input, bot_response):
     global new_conversation
@@ -780,6 +1015,30 @@ def log_conversation_item(user_input, bot_response):
             # Append to the existing conversation
             saved_data = file_manager.read_from_json_file(filename)
             saved_data[-1]["conversation"].append(item)
+            file_manager.save_to_json_file(filename, saved_data)
+
+def log_prompts(prompt, response):
+    global new_conversation
+    file_manager = FileManager()
+    filename = f"log/prompts_{conversation_name}_{selected_speaker}.json"
+    item = {"prompt": prompt, "response": response}
+
+    if not os.path.exists(filename):
+        new_conversation = False
+        file_manager.save_to_json_file(filename, [ {"prompt": [item]} ])
+        
+    else:
+        if new_conversation:
+            # Create a new conversation
+            new_conversation = False
+            saved_data = file_manager.read_from_json_file(filename)
+            saved_data.append( {"prompt": [item]} )
+            file_manager.save_to_json_file(filename, saved_data)
+            
+        else:
+            # Append to the existing conversation
+            saved_data = file_manager.read_from_json_file(filename)
+            saved_data[-1]["prompt"].append(item)
             file_manager.save_to_json_file(filename, saved_data)
 
 
@@ -891,7 +1150,6 @@ def get_arguments_env():
     arg_speaker = os.getenv("GRADIO_PORT", "8000")
     arg_speaker = os.getenv("GRADIO_CONVER", "diarization_result")
     selected_speaker = arg_speaker or selected_speaker
-    print("JEJEJE: ", selected_speaker)
 
 # Gets the arguments from the command line.
 def get_arguments():
@@ -954,7 +1212,53 @@ def create_prompt(prompts):
 
     response = english_tutor.get_answer(prompt, max_new_tokens)
 
+    print("Response: ", response)
+
     return response
+
+def new_change_state(user_response, history):
+    prompt = "The context of the conversation is the following\n" + str(history) + "\n"
+    prompt += "The student lattest response is:\n" + user_response + "\n"
+    prompt += "Base on the context provided and the student response, determine the intencion of the student from this list:\n"
+    prompt += "1- Understands the error: This is when the student does not have more doubts and whants to continue with the next error\n"
+    prompt += "2- Request the next error: This is when the student wants to pass directly to the next error\n"
+    prompt += "3- Does not understant the error: This is when the student still has some doubts about the current error\n"
+    prompt += "4- Request an example: This s when the student wants an example of the current error\n"
+    prompt += "5- Request an exercise: This s when the student wants an exercise of the current error\n"
+    prompt += "6- None of the above: This is when the student response does not correspond with any of the intencions that where mention before\n"
+    prompt += "If there are multiple options in the list that fit the description, only pick the first one\n"
+    prompt += "Your answer must be only the number of the list"
+
+    response = english_tutor.get_answer(prompt, max_new_tokens).lower()
+    return response
+
+def change_state(user_response):
+
+    state_changed = -1
+    init = "The student gave you the following answer: " + user_response
+
+    prompt = init + "\n\nAt the end, is the student asking for a grammar explanation? Answer only with a 'yes' or a 'no'"
+    response = english_tutor.get_answer(prompt, max_new_tokens).lower()
+    print("Response change_state: ", response)
+    
+    if response != 'yes':
+        prompt = init + "\n\nAt the end, is the student asking for an example? Answer only with a 'yes' or a 'no'"
+        response = english_tutor.get_answer(prompt, max_new_tokens).lower()
+    else:
+         return 3
+
+    print("Response change_state: ", response)
+    if response != 'yes':
+        prompt = init + "\n\nAt the end, is the student asking for an exercise? Answer only with a 'yes' or a 'no'"
+        response = english_tutor.get_answer(prompt, max_new_tokens).lower()
+    else:
+        return 4
+
+    print("Response change_state: ", response)
+    if response == 'yes':
+        return 5
+
+    return state_changed
 
 def sentiment_analisys(response):
     final_prompt = (f"Base on the following sentence:\n\n"
@@ -1224,6 +1528,7 @@ def list_errors():
     global error, category_list, category_errors
 
     errors_speaker = list(explained_sentences_speaker.items())
+    index_list = list(explained_sentences_speaker.keys())
 
     index_sentence = 0
 
@@ -1234,9 +1539,8 @@ def list_errors():
         y = xx['errant']
         id_error = 0
 
-        print(selected_speaker)
-
         if xx['speaker'] != selected_speaker and selected_speaker != "All speakers":
+            index_sentence += 1
             continue
         
         while id_error < len(y):
@@ -1255,7 +1559,7 @@ def list_errors():
             id_error += 1
         
         index_sentence += 1
-
+        
     category_list = {k: v for k, v in sorted(category_list.items(), key=lambda item: item[1], reverse=True)}
     print((category_list))
     print(category_errors)

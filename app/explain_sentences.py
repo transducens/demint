@@ -209,7 +209,7 @@ def main():
     explained_directory = output_directory
     file_manager = FileManager()
     grammar_checker_lt = GrammarChecker("LT_API")
-    llm_modelId = "google/gemma-1.1-7b-it"  # "google/gemma-1.1-2b-it"
+    llm_modelId = "google/gemma-1.1-2b-it"  # "google/gemma-1.1-2b-it"
     llm = ChatFactory.get_instance(llm_modelId)
     args = get_args()
 

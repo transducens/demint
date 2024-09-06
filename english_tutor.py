@@ -10,7 +10,7 @@ import shutil
 
 
 class EnglishTutor:
-    def __init__(self, rag_engine="ragatouille", llm_model_name="google/gemma-1.1-2b-it"):
+    def __init__(self, rag_engine="ragatouille", llm_model_name="gpt-4-turbo"):
         # LLM
         self.__llm_model_name = llm_model_name
         self.__chat_llm = None

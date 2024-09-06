@@ -1,0 +1,140 @@
+Audio device: cuda
+Found audio file: assets/audios/C2_Cambridge.wav
+Diarization has started: assets/audios/C2_Cambridge.wav
+Removing existing directory: cache/diarized_audios/C2_Cambridge before creating a new one.
+segmentation         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:01
+speaker_counting     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+embeddings           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:01:36
+discrete_diarization ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Segment 0 saved from 10189 to 17040 milliseconds. With a duration of 6851 milliseconds.
+Segment 1 saved from 17462 to 18002 milliseconds. With a duration of 540 milliseconds.
+Segment 2 saved from 18795 to 28465 milliseconds. With a duration of 9670 milliseconds.
+Segment 3 saved from 29089 to 33409 milliseconds. With a duration of 4320 milliseconds.
+Segment 4 saved from 33983 to 35856 milliseconds. With a duration of 1873 milliseconds.
+Segment 5 saved from 36430 to 38067 milliseconds. With a duration of 1637 milliseconds.
+Segment 6 saved from 38033 to 44294 milliseconds. With a duration of 6261 milliseconds.
+Segment 7 saved from 45222 to 54824 milliseconds. With a duration of 9602 milliseconds.
+Segment 8 saved from 55549 to 59025 milliseconds. With a duration of 3476 milliseconds.
+Segment 9 saved from 60139 to 67260 milliseconds. With a duration of 7121 milliseconds.
+Segment 10 saved from 67851 to 71952 milliseconds. With a duration of 4101 milliseconds.
+Segment 11 saved from 72812 to 83190 milliseconds. With a duration of 10378 milliseconds.
+Segment 12 saved from 83865 to 108756 milliseconds. With a duration of 24891 milliseconds.
+Segment 13 saved from 109802 to 122864 milliseconds. With a duration of 13062 milliseconds.
+Segment 14 saved from 122914 to 126374 milliseconds. With a duration of 3460 milliseconds.
+Segment 15 saved from 126475 to 136735 milliseconds. With a duration of 10260 milliseconds.
+Segment 16 saved from 135891 to 137207 milliseconds. With a duration of 1316 milliseconds.
+Segment 17 saved from 138270 to 143603 milliseconds. With a duration of 5333 milliseconds.
+Segment 18 saved from 143603 to 145139 milliseconds. With a duration of 1536 milliseconds.
+Segment 19 saved from 143620 to 145527 milliseconds. With a duration of 1907 milliseconds.
+Segment 20 saved from 145965 to 159246 milliseconds. With a duration of 13281 milliseconds.
+Segment 21 saved from 159246 to 168983 milliseconds. With a duration of 9737 milliseconds.
+Segment 22 saved from 169844 to 196084 milliseconds. With a duration of 26240 milliseconds.
+Segment 23 saved from 196641 to 204674 milliseconds. With a duration of 8033 milliseconds.
+Segment 24 saved from 204674 to 207120 milliseconds. With a duration of 2446 milliseconds.
+Segment 25 saved from 207120 to 207559 milliseconds. With a duration of 439 milliseconds.
+Segment 26 saved from 207188 to 218444 milliseconds. With a duration of 11256 milliseconds.
+Segment 27 saved from 219692 to 224063 milliseconds. With a duration of 4371 milliseconds.
+Segment 28 saved from 222240 to 225531 milliseconds. With a duration of 3291 milliseconds.
+Segment 29 saved from 225970 to 227927 milliseconds. With a duration of 1957 milliseconds.
+Segment 30 saved from 228332 to 248920 milliseconds. With a duration of 20588 milliseconds.
+Segment 31 saved from 249105 to 251282 milliseconds. With a duration of 2177 milliseconds.
+Segment 32 saved from 249190 to 255164 milliseconds. With a duration of 5974 milliseconds.
+Segment 33 saved from 255704 to 256092 milliseconds. With a duration of 388 milliseconds.
+Segment 34 saved from 256463 to 262335 milliseconds. With a duration of 5872 milliseconds.
+Segment 35 saved from 261846 to 274654 milliseconds. With a duration of 12808 milliseconds.
+Segment 36 saved from 275211 to 300557 milliseconds. With a duration of 25346 milliseconds.
+Segment 37 saved from 299747 to 302262 milliseconds. With a duration of 2515 milliseconds.
+Segment 38 saved from 302262 to 302599 milliseconds. With a duration of 337 milliseconds.
+Segment 39 saved from 302599 to 305620 milliseconds. With a duration of 3021 milliseconds.
+Segment 40 saved from 305924 to 306902 milliseconds. With a duration of 978 milliseconds.
+Segment 41 saved from 307088 to 308337 milliseconds. With a duration of 1249 milliseconds.
+Segment 42 saved from 308894 to 322630 milliseconds. With a duration of 13736 milliseconds.
+Segment 43 saved from 322613 to 331590 milliseconds. With a duration of 8977 milliseconds.
+Segment 44 saved from 328958 to 339589 milliseconds. With a duration of 10631 milliseconds.
+Segment 45 saved from 340500 to 346373 milliseconds. With a duration of 5873 milliseconds.
+Segment 46 saved from 347385 to 362354 milliseconds. With a duration of 14969 milliseconds.
+Segment 47 saved from 362539 to 373204 milliseconds. With a duration of 10665 milliseconds.
+Segment 48 saved from 373086 to 376444 milliseconds. With a duration of 3358 milliseconds.
+Segment 49 saved from 376444 to 376967 milliseconds. With a duration of 523 milliseconds.
+Segment 50 saved from 376967 to 377406 milliseconds. With a duration of 439 milliseconds.
+Segment 51 saved from 377406 to 378199 milliseconds. With a duration of 793 milliseconds.
+Segment 52 saved from 378655 to 379110 milliseconds. With a duration of 455 milliseconds.
+Segment duration longer than 29 seconds: 29548
+Treshold: -50
+Treshold: -45
+Treshold: -40
+Subsegment 53 saved from 0 to 10263 milliseconds. With a duration of 10263 milliseconds.
+Subsegment 54 saved from 10263 to 29548 milliseconds. With a duration of 19285 milliseconds.
+Segment duration longer than 29 seconds: 116842
+Treshold: -50
+Treshold: -45
+Treshold: -40
+Treshold: -35
+Treshold: -30
+Subsegment 55 saved from 0 to 26511 milliseconds. With a duration of 26511 milliseconds.
+Subsegment 56 saved from 26511 to 38464 milliseconds. With a duration of 11953 milliseconds.
+Subsegment 57 saved from 38464 to 66369 milliseconds. With a duration of 27905 milliseconds.
+Subsegment 58 saved from 66369 to 89313 milliseconds. With a duration of 22944 milliseconds.
+Subsegment 59 saved from 89313 to 116842 milliseconds. With a duration of 27529 milliseconds.
+Segment 60 saved from 536487 to 540992 milliseconds. With a duration of 4505 milliseconds.
+Segment duration longer than 29 seconds: 31016
+Treshold: -50
+Treshold: -45
+Treshold: -40
+Treshold: -35
+Treshold: -30
+Subsegment 61 saved from 0 to 23316 milliseconds. With a duration of 23316 milliseconds.
+Subsegment 62 saved from 23316 to 31016 milliseconds. With a duration of 7700 milliseconds.
+Segment 63 saved from 572970 to 573375 milliseconds. With a duration of 405 milliseconds.
+Segment 64 saved from 574455 to 585660 milliseconds. With a duration of 11205 milliseconds.
+Segment 65 saved from 586437 to 602367 milliseconds. With a duration of 15930 milliseconds.
+Segment duration longer than 29 seconds: 126394
+Treshold: -50
+Treshold: -45
+Treshold: -40
+Treshold: -35
+Subsegment 66 saved from 0 to 19313 milliseconds. With a duration of 19313 milliseconds.
+Subsegment 67 saved from 19313 to 32616 milliseconds. With a duration of 13303 milliseconds.
+Subsegment 68 saved from 32616 to 51552 milliseconds. With a duration of 18936 milliseconds.
+Subsegment 69 saved from 51552 to 77796 milliseconds. With a duration of 26244 milliseconds.
+Subsegment 70 saved from 77796 to 97455 milliseconds. With a duration of 19659 milliseconds.
+Subsegment 71 saved from 97455 to 126394 milliseconds. With a duration of 28939 milliseconds.
+Segment 72 saved from 729402 to 735173 milliseconds. With a duration of 5771 milliseconds.
+Segment 73 saved from 736270 to 763827 milliseconds. With a duration of 27557 milliseconds.
+Segment 74 saved from 764856 to 765430 milliseconds. With a duration of 574 milliseconds.
+Segment 75 saved from 766071 to 792599 milliseconds. With a duration of 26528 milliseconds.
+Segment 76 saved from 795518 to 803264 milliseconds. With a duration of 7746 milliseconds.
+Segment 77 saved from 804799 to 824999 milliseconds. With a duration of 20200 milliseconds.
+Segment 78 saved from 824762 to 847290 milliseconds. With a duration of 22528 milliseconds.
+Segment 79 saved from 849383 to 853180 milliseconds. With a duration of 3797 milliseconds.
+Segment duration longer than 29 seconds: 32569
+Treshold: -50
+Treshold: -45
+Treshold: -40
+Treshold: -35
+Subsegment 80 saved from 0 to 7049 milliseconds. With a duration of 7049 milliseconds.
+Subsegment 81 saved from 7049 to 32569 milliseconds. With a duration of 25520 milliseconds.
+Segment duration longer than 29 seconds: 38829
+Treshold: -50
+Treshold: -45
+Treshold: -40
+Treshold: -35
+Treshold: -30
+Subsegment 82 saved from 0 to 20131 milliseconds. With a duration of 20131 milliseconds.
+Subsegment 83 saved from 20131 to 38829 milliseconds. With a duration of 18698 milliseconds.
+Segment 84 saved from 926839 to 931345 milliseconds. With a duration of 4506 milliseconds.
+Segment 85 saved from 929286 to 938550 milliseconds. With a duration of 9264 milliseconds.
+Segment 86 saved from 937909 to 942617 milliseconds. With a duration of 4708 milliseconds.
+Segment 87 saved from 942432 to 951004 milliseconds. With a duration of 8572 milliseconds.
+Segment 88 saved from 951004 to 951426 milliseconds. With a duration of 422 milliseconds.
+Segment 89 saved from 951899 to 952388 milliseconds. With a duration of 489 milliseconds.
+Segment 90 saved from 953890 to 960269 milliseconds. With a duration of 6379 milliseconds.
+Segment 91 saved from 960690 to 983505 milliseconds. With a duration of 22815 milliseconds.
+Segment 92 saved from 983708 to 1005882 milliseconds. With a duration of 22174 milliseconds.
+Segment 93 saved from 1004599 to 1010792 milliseconds. With a duration of 6193 milliseconds.
+Segment 94 saved from 1012497 to 1036679 milliseconds. With a duration of 24182 milliseconds.
+Segment 95 saved from 1036881 to 1047749 milliseconds. With a duration of 10868 milliseconds.
+Segment 96 saved from 1048947 to 1053621 milliseconds. With a duration of 4674 milliseconds.
+Segment 97 saved from 1052879 to 1054667 milliseconds. With a duration of 1788 milliseconds.
+Segment 98 saved from 1054870 to 1056827 milliseconds. With a duration of 1957 milliseconds.
+Diarization has completed.

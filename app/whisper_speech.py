@@ -30,7 +30,7 @@ def transcribe(audio, pipe):
     return text
 
 def transcribe_audio(input_path, output_path, pipe):
-    print(f"Starting to transcribe audio files in {input_path} and saving the transcript to {output_path} ")
+    print(f"Starting to transcribe audio files of {input_path} and saving the transcript to {output_path} ")
 
     if not os.path.isdir(input_path):
         print(f"Failed to open {input_path}. It is not a directory.")
@@ -90,14 +90,14 @@ def transcribe_audio_of_all_directory(
         if diarized_audio_file[0] == ".":
             continue
 
-        diarized_audio_dir = os.path.join(all_diarized_audios_dir, diarized_audio_file)
+        diarized_audio_path = os.path.join(all_diarized_audios_dir, diarized_audio_file)
         diarized_transcript_path = os.path.join(diarized_transcript_dir, diarized_audio_file)
 
-        # Check if it's a file (not a directory)
-        if os.path.isdir(diarized_audio_dir):
-            print(f"Found diarized transcript directory: {diarized_audio_dir}")
+        # Check if it's a directory and not a file
+        if os.path.isdir(diarized_audio_path):
+            print(f"Found diarized audio directory: {diarized_audio_path}")
 
-            transcribe_audio(diarized_audio_dir, diarized_transcript_path + '.json', pipe)
+            transcribe_audio(diarized_audio_path, diarized_transcript_path + '.json', pipe)
 
 
 def get_args():
@@ -120,10 +120,12 @@ def main():
       peft_config.base_model_name_or_path, load_in_8bit=False)
 
     model = PeftModel.from_pretrained(model, peft_model_id)
+    model.generation_config.language = "<|en|>"
+    model.generation_config.task = "transcribe"
 
-    tokenizer = WhisperTokenizer.from_pretrained("openai/whisper-large-v3", language="english", task="transcribe")
-    aaa = WhisperFeatureExtractor.from_pretrained("openai/whisper-large-v3")
-    pipe = pipeline(model=model, tokenizer=tokenizer, feature_extractor=aaa, task="automatic-speech-recognition", device=device)
+    tokenizer = WhisperTokenizer.from_pretrained("openai/whisper-large-v3", task="transcribe")
+    feature_extractor = WhisperFeatureExtractor.from_pretrained("openai/whisper-large-v3")
+    pipe = pipeline(model=model, tokenizer=tokenizer, feature_extractor=feature_extractor, task="automatic-speech-recognition", device=device)
 
     all_diarized_audios_dir = input_directory
     diarized_transcript_dir = output_directory

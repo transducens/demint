@@ -1,0 +1,205 @@
+/home/roman/miniconda3/envs/DeMINT/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/roman/miniconda3/envs/DeMINT/lib/python3.11/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+You have passed task=transcribe, but also have set `forced_decoder_ids` to [[1, None], [2, 50360]] which creates a conflict. `forced_decoder_ids` will be ignored in favor of task=transcribe.
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+Found diarized audio directory: ./cache/diarized_audios/C2_Cambridge
+Starting to transcribe audio files of ./cache/diarized_audios/C2_Cambridge and saving the transcript to ./cache/diarized_transcripts/C2_Cambridge.json 
+0_00.wav
+good morning my name is sally matson and this is my colleague jill budgey and your name is uh dirt
+1_02.wav
+ and i make
+2_00.wav
+ can i have your mark sheets please thank you first of all we'd like to know something about you where you from dad
+3_01.wav
+i'm from holland i'm from hairelem it's near to the west coast of holland
+4_02.wav
+and you need an iPhone 6 Switzerland.
+5_00.wav
+are you working or studying at the moment?
+6_02.wav
+i'm just studying at the moment but now i'm finally taking a gap year so obviously i'm not studying i'm studying english but
+7_01.wav
+i'm african gap year i finished my high school this summer and i'm going to university next summer
+8_00.wav
+can you tell us something about your plans for the future in terms of work?
+9_01.wav
+i want to become a doctor i want to improve the health of human beings
+10_00.wav
+and anita what do you think you'll be doing this time next year 
+11_02.wav
+well i'll be doing my bank internship which takes 18 months so next year obviously i'm going to be there and taking my exams for at least pretty much 
+12_00.wav
+ thank you now in this part of the test you're going to do something together here are some pictures of different situations first i'd like you to look at pictures a and d and talk together about the sounds you might hear in these situations you have about a minute for this so don't worry if i interrupt you
+13_02.wav
+okay on picture a you can see i think some kind of jungle with chimpanzees so i guess there are a lot of natural sounds like leaves moving and maybe some water maybe there's a river nearby
+14_01.wav
+ maybe the roaring of the of the chimps seas as well
+15_02.wav
+ yeah or gorillas i don't know some kind of apes and yeah maybe also some birds because there are going to be a lot of birds
+16_01.wav
+ you love birds
+17_02.wav
+ and what other animals could there be well just
+18_01.wav
+ different kind of insects made
+19_02.wav
+different kind of insects maybe as well
+20_01.wav
+i don't think you hear them a lot i don't think the splashing of the water definitely of the sea i mean the the the sound of the rolling plastic objects 
+21_02.wav
+yeah but i don't think you hear any people because it doesn't look so nice there so i think it's going to be pretty much silent there
+22_00.wav
+thank you for now look at all the pictures i want you to imagine that an environmental organisation is planning a poster campaign to raise public awareness of environmental issues talk together about the environmental issues suggested by these images then decide on an image for the poster which would be most effective in raising public awareness you have about 3 minutes to talk about this 
+23_01.wav
+i think the environmental issue in the first photograph is about the extinction of a
+24_02.wav
+ of animals and species
+25_01.wav
+ yes
+26_02.wav
+yeah but you cannot really see that they are not doing well it looks like a typical calendar picture or it doesn't look too bad so i don't think this is a suitable picture
+27_01.wav
+they're having a good life in there it seems like they look happy
+28_02.wav
+ it seems like they look happy with the baby on the back of the car
+29_01.wav
+ yes what do you think about the
+30_02.wav
+be i also don't think it's that suitable for the campaign because it also it's i don't think it's makes a big change for the awareness of the people if they see the picture because they probably won't connect it to pollution or deforestation or anything the only thing here is like the plastic copper i don't know maybe it's it's a glass
+31_01.wav
+ maybe it's the pollution of water
+32_02.wav
+ maybe it's the pollution of water because this is obviously like i think
+33_01.wav
+ yes
+34_02.wav
+freezy water like filter water in the spring so i also don't think this is good
+35_01.wav
+isn't that a good idea? i think you see,  you know,  is a rather good one you see the e-cldr,  it's a third world country,  a developing country,  certainly, 
+36_02.wav
+and you can also see in between all the forest parts so maybe there was a lot of deforestation going on before so they could build houses so this would be i think one of the better pictures for the museum because you can see that there has been some deforestation and also then loss of species because the animals don't have their normal habitat anymore 
+37_01.wav
+ yeah because all the trees
+38_02.wav
+ you
+39_01.wav
+ yeah, they cut down onto trees i think these are good one as well
+40_02.wav
+ yeah i agree
+41_01.wav
+ it's a common picture
+42_02.wav
+'cause normally beaches are supposed to be nice and families want to spend their time there or go for a stroll and if it looks like this I'm pretty much certain that no one wants to go there so this would raise awareness 
+43_01.wav
+ looks like such a well known white beach with the light blue water but it's all blue too  the blue is pretty much the same as everything
+44_02.wav
+you know to be honest pretty much every beach looks kind of similar nowadays because everyone's just throwing away their coca cola cans and so it's quite common
+45_01.wav
+but it's very hard to to to to make all little beans on the whole beaches what do you think about it
+46_02.wav
+well it looks like i dont really connecting with environment because they just all the used cars that are being compressed yeah maybe they use the new ones yeah but also i wouldn't use it for the campaign
+47_01.wav
+i think we choose D yeah it's the best one i think D and i think E it's really bad because you can use metal again you can recycle it so
+48_02.wav
+n-d actually affects the people
+49_01.wav
+ yes
+50_02.wav
+ so
+51_01.wav
+ that's not good
+52_02.wav
+ thank you
+53_00.wav
+now in this part of the test you're each going to talk on your own for about 2 minutes you need to listen while your partner is speaking because you'll be asked to comment afterwards
+54_00.wav
+so dirk i'm going to give you a card with a question written on it and i'd like you to tell us what you think there are also some ideas on the card for you to use if you like alright here's your card please let anik see your card remember dirk you have about 2 minutes to talk before we join in
+55_01.wav
+how important is it to make long term plans i think in personal life it's quite important to make long term plans because you are able to know what you want to become when you are old and what you want to earn for money and what you want to do for the community for your country 
+56_01.wav
+i think in talking in shorter terms it's good to know what you want to do this year it's long term as well but it's 
+57_01.wav
+this is a short story about work school it's really for yourself important to know what you want to do after school so you can have a good grades in certain subjects so that you will be able to show other people after school that you 
+58_01.wav
+like the things that you're good in government it is of course very important to make long term plans if we look at the whole euro crisis now it's a day day all didn't make such a change
+59_01.wav
+she due to plans to to save the the credibility of the countries was was right before they before they entered the euro so it's really important to to to look to to certain aspects in in in parts of of the community in government 
+60_00.wav
+thank you what do some people prefer not to plan ahead?
+61_02.wav
+while some people want to be spontaneous and i also think that's actually quite good idea to someone to say let's pack a suitcase with let's say a bikini and some trousers and then just go to the airport and just pick one flight wherever it takes us so i think this also quite good but i think when it comes to important things like planning a family it's very important that you plan ahead to have a good job so 
+62_02.wav
+you are financially stable so it depends you cannot always be a spontaneous spontaneous
+63_00.wav
+ you think
+64_01.wav
+i think it's for most people just laziness not to make long term plans i think they don't want to think about it and that's the reason they don't think about it
+65_00.wav
+ thank you now anique it's your turn to be given a question here's your card please let duc see your card remember anique you have about two minutes to tell us what you think and there are some ideas on the card for you to use if you like
+66_02.wav
+alright yeah what factors will influence how cities develop in the future that's a very good question because i think because the rising population nowadays that's very important right now to think about the future so um when it comes to population we can definitely
+67_02.wav
+see that there is going to be more people in one city so probably they have to build more houses higher houses build more skyscrapers people are going to live in much smaller spaces 
+68_02.wav
+and also i think the living standard is going to get a bit down because you probably won't be able to have a garden and your own house will just share a small flat probably in the big cities also you have to deforest forests in order to make space for buildings 
+69_02.wav
+so i think the cities are just going to get more packed with buildings and the nature or the sceneries are going to suffer from that and financially well they could develop in different ways i think everything is getting more expensive everyday because the resources are getting rarer rarer 
+70_02.wav
+and yeah i think also the price of water is going to raise and energy and the fuel obviously and yeah just like things like petrol and climate well we are experiencing global climate changes global warming but i think not every city is affected so far so 
+71_02.wav
+probably in the jungles or like rainforest the seasons are not really going to change because they are always at the equator but other cities like not many cities but let's say the antarctica i think all the ice jobs are going to melt at some point and then just the animals are going to suffer and also the people there 
+72_00.wav
+thank you is it important to preserve old buildings in cities 
+73_01.wav
+i think so because if you want to to have the old scenery that that we had in the early days many many people used to are are usually looking looking back to to the good life many old people and i think it's it's really good to to preserve those buildings to to have the the old scenery in the cities 
+74_00.wav
+ what do you think?
+75_02.wav
+i agree but i also think that they're a very important part of the culture of the city so let's look at england i think it's if i think of england i always think automatically of red brick buildings and very charming small houses so if we wouldn't have them in a few years anymore i don't think england would have any charm left so it's all about the flair and i think eurasia preserve them thank you
+76_00.wav
+now to finish the test we're going to talk about the future in general do you think newspapers and books have a future
+77_02.wav
+yes i think so some people say that the internet is going to take over everything and that you're going to read all the articles now on ipads on ebooklets what are they called? kindle kindle exactly but i think it's so nice to have an actual newspaper in your hands a physical one that you can touch and just also the smell of the paper so
+78_01.wav
+and i think the sound of flipping a page is so good and most people don't like it to to to read from from a screen because their eyes get tired but i think it's much better to to read from a paper it's it's more quiet more just relaxing for your eyes yeah
+79_00.wav
+given the choice would you rather live in the past or in the future 
+80_01.wav
+um i think i would rather live in the past because because it's it's it's much more
+81_01.wav
+better life i think less worried and and there were we there are so many issues there they're complaining about and and all people all everybody is is just thinking about problems that are not real real problems in my view and i think in the early days they they didn't have the time to worry about those problems i think i would rather live in the past 
+82_02.wav
+i also think it's very tempting to live let's say in the roman times because they are like a lot of feasts and yeah it's just also the foods enjoying the foods going to not parties but all the celebrations there i really think that it's going to be not easy to live there because you don't have all the technology of course
+83_02.wav
+but as he pointed out i think that nowadays we worry about too many small things and back then it was just war or not war and starve or not starve and the diseases they had back then ok because now we have the medical advantages so we don't have to worry about the past or i don't know 
+84_01.wav
+ but we're worrying about things that are not so important to us.
+85_02.wav
+ because it also would be nice to be one day in the future where you have like everything automatically and just not to actually live there but just to experience and see how you
+86_01.wav
+how will you enjoy yourself if everybody everything is done by by something else?
+87_02.wav
+ but we don't know how the future is going to be like so maybe you have like cyber jets and you can fly and i think this would be fun
+88_00.wav
+ could be
+89_02.wav
+ could be
+90_00.wav
+some people worry that wild animals will only exist in zoos in the future what do you think about this ?
+91_02.wav
+well i hope not but right now it seems like many species are going to be extinct in hundreds of years but i think humankind should try to do their best in preserving them and maybe keeping them in zoo as well is helping to preserve them because they don't lose their habitat there but still it's not real wildlife 
+92_01.wav
+yeah but i think it's it's better to have a certain reservoirs to to to keep the animals and to have the wildlife as well in there it's much much better for the for the animals i think than than in a zoo i think the all the animals are are so are so bored by by by always the same thing in the zoo  yeah it's all okay yes
+93_00.wav
+a small chaos what changes might there be in food and food productions in the future
+94_02.wav
+i'm still waiting for the invention of like a small pill where you can have like a sardine and a main course and a dessert that would change players it would be very nice no then you don't have to take all the time and eating it and you have the same enjoyment but still it also wouldn't be the same like actually cutting a nice piece of steak it's better than just taking a towel of it 
+95_01.wav
+i think we will always eat vegetables but i think there will be a change in maybe the food coming from snack bars and fast food brands 
+96_02.wav
+but i also think that more food is going to be organic in the future
+97_01.wav
+ you can try and that's not good
+98_00.wav
+thank you much is the end of the test

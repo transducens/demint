@@ -8,8 +8,10 @@ from english_tutor import EnglishTutor
 from app.file_manager import FileManager
 import app.prepare_sentences as prepare_sentences
 import app.rag_sentences as rag_sentences
+from app.teacher_model import TeacherModel
 
 english_tutor: EnglishTutor | None = None
+teacher_model: TeacherModel | None = None
 sentences_collection: dict | None = None
 explained_sentences: dict | None = None
 speakers: list | None = None
@@ -77,6 +79,15 @@ def initialize_global_variables():
         print("*" * 50)
         print("Loaded English Tutor")
         print("*" * 50)
+    
+    if teacher_model is None:
+        teacher_model = TeacherModel()
+        if teacher_model.test_connection()
+            print("*" * 50)
+            print("Confirmed connection with Teacher Model")
+            print("*" * 50)
+        else:
+            raise ValueError("Error connecting to Teacher Model")
 
     load_data() # Load the data from the cache files
 

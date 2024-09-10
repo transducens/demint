@@ -10,7 +10,7 @@ import shutil
 
 
 class EnglishTutor:
-    def __init__(self, rag_engine="ragatouille", llm_model_name="google/gemma-1.1-2b-it"):
+    def __init__(self, rag_engine="ragatouille", llm_model_name="gpt-4-turbo"):
         # LLM
         self.__llm_model_name = llm_model_name
         self.__chat_llm = None
@@ -38,6 +38,9 @@ class EnglishTutor:
             self.__chat_llm = self.__chat_factory.get_instance(self.__llm_model_name)
 
         return self.__chat_llm
+    
+    def get_chat_llm(self):
+        return self.__llm_model_name
 
     def __get_audio_downloader(self):
         if self.__audio_downloader is None:

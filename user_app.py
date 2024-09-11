@@ -66,7 +66,7 @@ prompt_question = [
 def initialize_global_variables():
     global english_tutor, state, max_new_tokens, response, explained_sentences_speaker 
     global id_sentence, id_error, error, chat_response, category_list, category_errors
-    global index_category, index_error, count, selected_speaker
+    global index_category, index_error, count, selected_speaker, teacher_model
     global state_change
 
     state = -1
@@ -82,7 +82,7 @@ def initialize_global_variables():
     
     if teacher_model is None:
         teacher_model = TeacherModel()
-        if teacher_model.test_connection()
+        if teacher_model.test_connection():
             print("*" * 50)
             print("Confirmed connection with Teacher Model")
             print("*" * 50)
@@ -163,6 +163,8 @@ def chat_with_ai(user_input, history):
     history_chat = history
     final_prompt = None
 
+    print(history_chat)
+
     output = ""
     
     match state:
@@ -178,6 +180,13 @@ def chat_with_ai(user_input, history):
 
             context += "\n\nThe student responce is the following:\n"
             context += "\n\n" + user_input + "\n"
+
+            # TODO
+            # kind_teacher_prompt = teacher_model.format_messages(history_chat)
+            # kind_teacher_response = teacher_model.get_response(kind_teacher_prompt)
+            # kind_teacher_response = teacher_model.format_response(kind_teacher_response)
+            # context += "\n\nA teacher would respond in the following way:\n"
+            # context += "\n\n" + kind_teacher_response + "\n"
 
             prompt = (f"Base on the following context:\n\n"
                         f"CONTEXT:\n{context}"

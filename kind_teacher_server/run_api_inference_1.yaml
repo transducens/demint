@@ -1,4 +1,4 @@
-model_name_or_path: models/llama3_q4_lora_chp1600_TheBigSix
+model_name_or_path: Rastapar/kind_teacher
 template: llama3
 quantization_bit: 4 
 finetuning_type: lora 
@@ -10,3 +10,4 @@ top_p: 0.7
 
 
 
+# models/llama3_q4_lora_chp1600_TheBigSix

@@ -205,8 +205,19 @@ def chat_with_ai(user_input, history):
                         print("tuple_error: ", tuple_error)
                         #highlighted_sentence_id = tuple_error[0]
                         
-                        output = select_error(tuple_error[0], tuple_error[1])
-                        chat_response = "Do you want to practice this other error?"
+                        incorrect_sentence, correct_sentence, explanation = select_error(tuple_error[0], tuple_error[1])
+
+                        prompt = (f"Base on the following context:\n\n"
+                                    f"INCORRECT SENTENCE:\n{incorrect_sentence}\n\n"
+                                    f"CORRECT SENTENCE:\n{correct_sentence}\n\n"
+                                    f"EXPLANATION:\n{explanation}\n\n"
+                                    f"TASK:\n Base on the incorrect and correct sentences, explain briefly the error using the explanation provided. The word or words that form part of the error are located between brackets Bear in mind that the explanation might be inaccurate. In those cases do nnot use it. Do not make any reference to the correct sentence\n\n")
+            
+                        response = create_prompt([prompt])
+                        output = "**You've made a mistake in the following sentence:**\n\n*" + incorrect_sentence + "*\n\n"
+                        output += response + "\n\n"
+
+                        chat_response = "Do you want to practice this error?"
                         output += f"\n\n **{chat_response}**"
                         state = 1
             else:
@@ -231,7 +242,7 @@ def chat_with_ai(user_input, history):
                         f"CONTEXT:\n{context}"
                         f"TASK:\n You have asked the student if he wants to check his english errors of an expecific category. Determine if the students wants it based of the following answer. Your answer must be 'yes' or 'no'.\n\n"
                         f"ANSWER:\n{user_input}")
-
+                        
             output = create_prompt([prompt])
 
             if english_tutor.get_chat_llm()[:3] != 'gpt':
@@ -273,7 +284,18 @@ def chat_with_ai(user_input, history):
                 else:
                     tuple_error = list_tuples[index_error]
 
-                    output = select_error(tuple_error[0], tuple_error[1])
+                    incorrect_sentence, correct_sentence, explanation = select_error(tuple_error[0], tuple_error[1])
+
+                    prompt = (f"Base on the following context:\n\n"
+                              f"INCORRECT SENTENCE:\n{incorrect_sentence}\n\n"
+                              f"CORRECT SENTENCE:\n{correct_sentence}\n\n"
+                              f"EXPLANATION:\n{explanation}\n\n"
+                              f"TASK:\n Base on the incorrect and correct sentences, explain briefly the error using the explanation provided. The word or words that form part of the error are located between brackets Bear in mind that the explanation might be inaccurate. In those cases do nnot use it. Do not make any reference to the correct sentence\n\n")
+            
+                    response = create_prompt([prompt])
+                    output = "**You've made a mistake in the following sentence:**\n\n*" + incorrect_sentence + "*\n\n"
+                    output += response + "\n\n"
+
                     chat_response = "Do you want to practice this other error?"
                     output += f"\n\n **{chat_response}**"
         case 3:
@@ -302,7 +324,17 @@ def chat_with_ai(user_input, history):
                     else:
                         tuple_error = list_tuples[index_error]
 
-                        output += select_error(tuple_error[0], tuple_error[1])
+                        incorrect_sentence, correct_sentence, explanation = select_error(tuple_error[0], tuple_error[1])
+                        
+                        prompt = (f"Base on the following context:\n\n"
+                                  f"INCORRECT SENTENCE:\n{incorrect_sentence}\n\n"
+                                  f"CORRECT SENTENCE:\n{correct_sentence}\n\n"
+                                  f"EXPLANATION:\n{explanation}\n\n"
+                                  f"TASK:\n Base on the incorrect and correct sentences, explain briefly the error using the explanation provided. The word or words that form part of the error are located between brackets Bear in mind that the explanation might be inaccurate. In those cases do nnot use it. Do not make any reference to the correct sentence\n\n")
+                        response = create_prompt([prompt])
+                        output = "**You've made a mistake in the following sentence:**\n\n*" + incorrect_sentence + "*\n\n"
+                        output += response + "\n\n"
+
                         chat_response = "Do you want to practice this other error?"
                         output += f"\n\n **{chat_response}**"
                         state = 1
@@ -312,7 +344,7 @@ def chat_with_ai(user_input, history):
                     final_prompt = (
                         f"You are an English teacher. I want you to help me learn English: \n\n"
                         f"CONTEXT:\n{context}\n"
-                        f"TASK:\n Give an extended explanation of the english grammar rules present in the context.")
+                        f"TASK:\n Give an extended explanation of the english grammar rules present in the context. Do not make any reference to the corrected sentence.")
                     
                     output = create_prompt([final_prompt])
                 case 4:
@@ -321,7 +353,7 @@ def chat_with_ai(user_input, history):
                     final_prompt = (
                         f"You are an English teacher. I want you to help me learn English: \n\n"
                         f"CONTEXT:\n{context}\n"
-                        f"TASK:\n Create an example for the correct use of the english grammar rul provided in the context. Try to be original")
+                        f"TASK:\n Create an example for the correct use of the english grammar rules provided in the context. Try to be original and do not make any reference to the corrected sentence.")
                     
                     output = create_prompt([final_prompt])
                 case 5:
@@ -338,13 +370,16 @@ def chat_with_ai(user_input, history):
                     output = f"Here is an exercise in order to you to practice:\n{output}"
                     state = 4
                 case 6:
+                    output += "\n\n **Write down the correct sentence**"
+                    state = 5
+                case 7:
                     context = create_context(history)
 
                     final_prompt = (
                         f"You are an English teacher. I want you to correct the mistakes I have made based on the following context: \n\n"
                         f"CONTEXT:\n{context}\n"
                         f"TASK:\n Based on the question I gave you, answer it in a simple way and always in the context of english teaching. If the question is not english related, you cannot help the student and you must remind the student that you are an English professor that only answers english related questions."
-                        f"QUESTION:\n{user_input}. Remember you are an English teacher.\n")
+                        f"QUESTION:\n{user_input}. Remember that you are an English teacher.\n")
                     
                     output = create_prompt([final_prompt])
         case 4:
@@ -361,6 +396,17 @@ def chat_with_ai(user_input, history):
                 f"CONTEXT:\n{context}\n"
                 f"QUESTION:\n Base on the exercise propose to the student, correct his answer using if needed the english rules provided in the context"
                 f"ANSWER:\n{user_input}")
+            
+            output = create_prompt([final_prompt])
+            state = 3
+        case 5:
+            context = create_context(history)
+            
+            final_prompt = (
+                f"You are an English teacher. I want you to correct the mistakes I have made based on the following context: \n\n"
+                f"CONTEXT:\n{context}\n"
+                f"TASK:\n Based on the student answer, check if his sentence is correct comparing it to corrected sentece provided in the context. If it is corrrect, tell the student he did well. In case it is not correct, tell the student which mistakes he has made including new errors not previously made."
+                f"ANSWER:\n{user_input}\n")
             
             output = create_prompt([final_prompt])
             state = 3
@@ -1225,9 +1271,10 @@ def new_change_state(user_response, history):
     prompt += "1- Understands the error: This is when the student does not have more doubts and whants to continue with the next error\n"
     prompt += "2- Request the next error: This is when the student wants to pass directly to the next error\n"
     prompt += "3- Does not understant the error: This is when the student still has some doubts about the current error\n"
-    prompt += "4- Request an example: This s when the student wants an example of the current error\n"
-    prompt += "5- Request an exercise: This s when the student wants an exercise of the current error\n"
-    prompt += "6- None of the above: This is when the student response does not correspond with any of the intencions that where mention before\n"
+    prompt += "4- Request an example: This is when the student wants an example of the current error\n"
+    prompt += "5- Request an exercise: This is when the student wants an exercise of the current error\n"
+    prompt += "6- Attemps to correct sentence: This is when the student wants to make an attempt at writting the sentence without the error"
+    prompt += "7- None of the above: This is when the student response does not correspond with any of the intencions that where mention before\n"
     prompt += "If there are multiple options in the list that fit the description, only pick the first one\n"
     prompt += "Your answer must be only the number of the list"
 
@@ -1600,11 +1647,14 @@ def select_error(index_sentence = 0, index_error = 0):
         error["corrected_text"] if error["corrected_text"] else f'~~{error["original_text"]}~~'
     )
 
-    text = "**You've made a mistake in the following sentence:**\n\n*" + highlighted_original_sentence + "*\n\n"
-    text += "**It's corrected sentence:**\n\n*" + highlighted_corrected_sentence + "*\n\n"
-    text += error["llm_explanation"] + "\n\n"
+    #text = "**You've made a mistake in the following sentence:**\n\n*" + highlighted_original_sentence + "*\n\n"
+    #text += "**It's corrected sentence:**\n\n*" + highlighted_corrected_sentence + "*\n\n"
+    #text += error["llm_explanation"] + "\n\n"
+    incorrect_sentence = highlighted_original_sentence
+    correct_sentence = highlighted_corrected_sentence
+    explanation = error["llm_explanation"]
 
-    return text
+    return incorrect_sentence, correct_sentence, explanation
 
     selected = False
 

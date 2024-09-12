@@ -13,7 +13,7 @@ class TeacherModel:
             'accept': 'application/json',
             'Content-Type': 'application/json'
         }
-        self.model = "Rastapar/kind_teacher" # "../kind_teacher_server/models/llama3_q4_lora_chp1600_TheBigSix"
+        self.model = "Transducens/kind_teacher" # "../kind_teacher_server/models/llama3_q4_lora_chp1600_TheBigSix"
         self.temperature = 1.0
         self.top_p = 0.7
         self.max_tokens = 150

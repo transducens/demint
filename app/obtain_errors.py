@@ -18,6 +18,7 @@ ignore_errors_list = [
     "R:SPELL", "M:SPELL", "U:SPELL",
     "R:ORTH", "U:ORTH", "M:ORTH",
     "R:PUNCT", "U:PUNCT", "M:PUNCT",
+    "R:OTHER", "U:OTHER", "M:OTHER",
 ]
 
 

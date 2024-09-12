@@ -13,11 +13,7 @@ class TeacherModel:
             'accept': 'application/json',
             'Content-Type': 'application/json'
         }
-<<<<<<< HEAD
         self.model = "Transducens/kind_teacher" # "../kind_teacher_server/models/llama3_q4_lora_chp1600_TheBigSix"
-=======
-        self.model = "models/llama3_q4_lora_chp1600_TheBigSix"
->>>>>>> f0872d013a78f3b79bf243049a5f46852870df2c
         self.temperature = 1.0
         self.top_p = 0.7
         self.max_tokens = 150
@@ -41,7 +37,6 @@ class TeacherModel:
         self.type_message = type_message if type_message else self.type_message
         self.url = f'http://{self.address}:{self.port}/v1{self.type_message}'
 
-<<<<<<< HEAD
     # Input type: [['Hello teacher', 'Hello student'], ['I need help with english', 'What problems do you have?'], ...]
     # Output type: [{'role': 'user', 'content': 'Hello teacher', 'tool_calls': []}, {'role': 'assistant', 'content': 'Hello student'}, ...]
     def format_messages(self, system_message="", messages=[]):
@@ -66,17 +61,6 @@ class TeacherModel:
             formatted_messages.append(formatted_message_user)
             formatted_messages.append(formatted_message_assistant)
 
-=======
-    def format_messages(self, messages):
-        formatted_messages = []
-        for message in messages:
-            formatted_message = {
-                "role": message["role"],    # "user", "assistant" or "system"
-                "content": message["content"],
-                "tool_calls": []
-            }
-            formatted_messages.append(formatted_message)
->>>>>>> f0872d013a78f3b79bf243049a5f46852870df2c
         return formatted_messages    
     
     def get_response(self, messages):
@@ -111,7 +95,6 @@ def test():
     messages = [
         {
             "role": "system",
-<<<<<<< HEAD
             "content": "A friendly and supportive teacher guiding students patiently and encouraging their efforts."
         },
         {
@@ -121,17 +104,6 @@ def test():
         {
             "role": "assistant",
             "content": "Hello! I am your English tutor. I will help you to learn English. Are you ready?"
-=======
-            "content": "You are a kind and helpful teacher who is always ready to help students with their questions."
-        },
-        {
-            "role": "user",
-            "content": "Hello teacher"
-        },
-        {
-            "role": "assistant",
-            "content": "Hello! How can I help you today?"
->>>>>>> f0872d013a78f3b79bf243049a5f46852870df2c
         },
         {
             "role": "user",

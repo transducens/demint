@@ -82,7 +82,11 @@ def initialize_global_variables():
     
     if teacher_model is None:
         teacher_model = TeacherModel()
+<<<<<<< HEAD
         if teacher_model.test_connection():
+=======
+        if teacher_model.test_connection()
+>>>>>>> f0872d013a78f3b79bf243049a5f46852870df2c
             print("*" * 50)
             print("Confirmed connection with Teacher Model")
             print("*" * 50)

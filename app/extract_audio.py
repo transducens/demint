@@ -1,4 +1,5 @@
 from moviepy.editor import VideoFileClip
+from pydub import AudioSegment
 import os
 import argparse
 
@@ -16,10 +17,26 @@ def extract_audio(video_file="", audio_file=""):
     # Extract the audio
     audio = video.audio
     
-    # Write the audio to a file
-    audio.write_audiofile(audio_file)
+    # Create a temporary audio file
+    temp_audio_file = "temp_audio.wav"
+    audio.write_audiofile(temp_audio_file, codec='pcm_s16le')  # Save as wav with raw PCM format
+    
+    # Use pydub to ensure the correct format
+    audio_segment = AudioSegment.from_file(temp_audio_file)
+    
+    # Convert to 16 kHz, mono if necessary
+    if audio_segment.frame_rate != 16000 or audio_segment.channels != 1:
+        audio_segment = audio_segment.set_frame_rate(16000).set_channels(1)
+    
+    # Export the audio file with the correct settings
+    audio_segment.export(audio_file, format="wav")
 
+    # Remove the temporary file
+    os.remove(temp_audio_file)
+    
     print(f"Audio extraction completed: {audio_file}")
+
+    return 1
 
     return 1
 

@@ -123,8 +123,18 @@ def main():
     model.generation_config.language = "<|en|>"
     model.generation_config.task = "transcribe"
 
+    # Temp block (testing original whisper model)
+    # Load the original Whisper model directly
+    # model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-large-v3")
+
+    # # Set the generation configuration for the model
+    # model.generation_config.language = "<|en|>"
+    # model.generation_config.task = "transcribe"
+    # End of temp block
+
     tokenizer = WhisperTokenizer.from_pretrained("openai/whisper-large-v3", task="transcribe")
     feature_extractor = WhisperFeatureExtractor.from_pretrained("openai/whisper-large-v3")
+
     pipe = pipeline(model=model, tokenizer=tokenizer, feature_extractor=feature_extractor, task="automatic-speech-recognition", device=device)
 
     all_diarized_audios_dir = input_directory

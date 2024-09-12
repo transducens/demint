@@ -137,10 +137,11 @@ def main():
         elif args.transcript_file:
             transcribe_audio(args.audio_directory, args.transcript_file, pipe)
         elif args.transcript_directory:
-            audio_name = os.path.basename(args.audio_directory)
+            audio_name = os.path.basename(os.path.normpath(args.audio_directory))
             transcribe_audio(args.audio_directory, os.path.join(args.transcript_directory, audio_name + '.json'), pipe)
         else:
-            audio_name = os.path.basename(args.audio_directory)
+            audio_name = os.path.basename(os.path.normpath(args.audio_directory))
+            print("############" + audio_name)
             transcribe_audio(args.audio_directory, os.path.join(diarized_transcript_dir, audio_name + '.json'), pipe)
 
     elif args.all_audios_directory:

@@ -8,8 +8,10 @@ from english_tutor import EnglishTutor
 from app.file_manager import FileManager
 import app.prepare_sentences as prepare_sentences
 import app.rag_sentences as rag_sentences
+from app.teacher_model import TeacherModel
 
 english_tutor: EnglishTutor | None = None
+teacher_model: TeacherModel | None = None
 sentences_collection: dict | None = None
 explained_sentences: dict | None = None
 speakers: list | None = None
@@ -63,7 +65,7 @@ prompt_question = [
 def initialize_global_variables():
     global english_tutor, state, max_new_tokens, response, explained_sentences_speaker 
     global id_sentence, id_error, error, chat_response, category_list, category_errors
-    global index_category, index_error, count, selected_speaker
+    global index_category, index_error, count, selected_speaker, teacher_model
     global state_change
 
     state = -1
@@ -76,6 +78,16 @@ def initialize_global_variables():
         print("*" * 50)
         print("Loaded English Tutor")
         print("*" * 50)
+
+    if teacher_model is None:
+        teacher_model = TeacherModel()
+
+        if teacher_model.test_connection():
+            print("*" * 50)
+            print("Confirmed connection with Teacher Model")
+            print("*" * 50)
+        else:
+            raise ValueError("Error connecting to Teacher Model")
 
     load_data() # Load the data from the cache files
 
@@ -634,6 +646,13 @@ def create_context(history):
 
     context += "\n\nMistake description: \n"
     context += mistake_description
+
+    kind_teacher_prompt = teacher_model.format_messages(history_chat)
+    kind_teacher_response = teacher_model.get_response(kind_teacher_prompt)
+    kind_teacher_response = teacher_model.format_response(kind_teacher_response)
+    
+    context += "\n\nA teacher would respond in the following way. Only use this if the teacher response is related to the current topic:\n"
+    context += "\n\n" + kind_teacher_response + "\n" 
 
     return context
 

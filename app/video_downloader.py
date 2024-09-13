@@ -45,6 +45,7 @@ class VideoDownloaderPytube:
         video_info = {
             "title": yt_handler.title,
             "author": yt_handler.author,
+            "extension": "avi",
             "duration": yt_handler.length,
             "description": yt_handler.description,
             "views": yt_handler.views,
@@ -112,7 +113,7 @@ class VideoDownloaderYTDLP:
 
 
 def main(url:str, name:str):
-    video_downloader = VideoDownloaderYTDLP()
+    video_downloader = VideoDownloaderPytube()
     #video_downloader.video_url = "https://youtu.be/_Bx_x-gvLw0?si=y2Bi5cw6CizEd5Oa"
     video_downloader.video_url = url
     video_info = video_downloader.get_video_info()

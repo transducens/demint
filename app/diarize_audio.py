@@ -243,7 +243,7 @@ def perform_diarization(audio_file, output_path, device):
         os.system(f"rm -rf {output_path}")
 
     # Load model
-    diarization_model = Pipeline.from_pretrained("pyannote/speaker-diarization-3.0")
+    diarization_model = Pipeline.from_pretrained("pyannote/speaker-diarization-3.1")
     if not diarization_model:
         print("Error: Diarization model could not be loaded.")
         return None

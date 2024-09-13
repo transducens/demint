@@ -1,0 +1,392 @@
+{
+    "5": {
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Yes i agree but one of the main disadvantage of it is that you don't really know to whom you're talking to exactly so it's not that reliable.",
+        "t5_checked_sentence": "Yes, I agree, but one of the main disadvantages of it is that you don't really know exactly who you're talking to, so it's not that reliable.",
+        "llm_explanation": "[ 'explained error 1', 'explained error 2', 'explained error 3' ]\n \n[ 'Error 1 is that you don't really know to whom you're talking to', 'Error 2 is that you're talking to a machine', 'Error 3 is that you're talking to a machine' ]\n\n[ 'This is wrong because you're talking to a machine', 'That is wrong because you don't know to whom you're talking to', 'That is wrong because you don't know to whom you're talking to' ]",
+        "errant": [
+            {
+                "index": "5",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yes i agree but one of the main disadvantage of it is that you don't really know to whom you're talking to exactly so it's not that reliable.",
+                "corrected_sentence": "Yes, I agree, but one of the main disadvantages of it is that you don't really know exactly who you're talking to, so it's not that reliable.",
+                "o_start": 8,
+                "o_end": 9,
+                "original_text": "disadvantage",
+                "c_start": 8,
+                "c_end": 8,
+                "corrected_text": "disadvantages",
+                "error_type": "R:NOUN:NUM",
+                "llm_explanation": "I'm happy to help you understand the error.\n\nThe error is an instance of the R:NOUN:NUM error type, which means there's a noun that's supposed to be a number, but is actually a number. The original sentence is \"Yes i agree but one of the main disadvantage of it is that you don't really know to whom you're talking to so it's not that reliable.\".\n\nIn this sentence, \"one\" is a number, but it's being used as a noun, which is incorrect. The corrected sentence is \"Yes, I agree, but one of the main disadvantages of it is that you don't really know exactly who you're talking to, so it's not that reliable.\".\n\nThe correction is that"
+            },
+            {
+                "index": "5",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yes i agree but one of the main disadvantage of it is that you don't really know to whom you're talking to exactly so it's not that reliable.",
+                "corrected_sentence": "Yes, I agree, but one of the main disadvantages of it is that you don't really know exactly who you're talking to, so it's not that reliable.",
+                "o_start": 18,
+                "o_end": 19,
+                "original_text": "whom",
+                "c_start": 18,
+                "c_end": 18,
+                "corrected_text": "who",
+                "error_type": "R:PRON",
+                "llm_explanation": "The error is a missing pronoun."
+            },
+            {
+                "index": "5",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yes i agree but one of the main disadvantage of it is that you don't really know to whom you're talking to exactly so it's not that reliable.",
+                "corrected_sentence": "Yes, I agree, but one of the main disadvantages of it is that you don't really know exactly who you're talking to, so it's not that reliable.",
+                "o_start": 22,
+                "o_end": 23,
+                "original_text": "exactly",
+                "c_start": 22,
+                "c_end": 22,
+                "corrected_text": "",
+                "error_type": "U:ADV",
+                "llm_explanation": "The error is a matter of unclear referent in a sentence. The rule that was broken is the rule of referent in a sentence, which states that the first character of a sentence should be the referent of the sentence, and that the referent should be a noun or pronoun."
+            }
+        ]
+    },
+    "6": {
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Yeah i agree so maybe a good alternative would be talking face to face you can it's like the most reliable way but one disadvantages it would have would be maybe you have to require the other person to be with you in the same place it cannot be in the other parts of the world like only chatting can do that.",
+        "t5_checked_sentence": "Yeah, I agree so maybe a good alternative would be talking face to face. It's like the most reliable way but one disadvantage it would have would be maybe you have to require the other person to be with you in the same place",
+        "llm_explanation": "[ 'i should be capitalized as the first person singular pronoun', \n 'I agree should be capitalized as the first word in a sentence', \n'so is a transition word, but it should be followed by a comma', \n'maybe is a transition word, but it should be followed by a comma', \n 'a good alternative would be talking face to face should be a separate sentence', \n 'it's is a contraction, it should be written as 'it is','\n 'one disadvantage it would have would be maybe you have to require the other person to be with you in the same place is a run-on sentence', \n'maybe is a transition word, but it should be followed by a comma', \n 'it cannot",
+        "errant": [
+            {
+                "index": "6",
+                "speaker": "SPEAKER_01",
+                "original_sentence": "Yeah i agree so maybe a good alternative would be talking face to face you can it's like the most reliable way but one disadvantages it would have would be maybe you have to require the other person to be with you in the same place it cannot be in the other parts of the world like only chatting can do that.",
+                "corrected_sentence": "Yeah, I agree so maybe a good alternative would be talking face to face. It's like the most reliable way but one disadvantage it would have would be maybe you have to require the other person to be with you in the same place",
+                "o_start": 24,
+                "o_end": 25,
+                "original_text": "disadvantages",
+                "c_start": 22,
+                "c_end": 22,
+                "corrected_text": "disadvantage",
+                "error_type": "R:NOUN:NUM",
+                "llm_explanation": "The error is a missing article (\"a\" or \"an\") before the noun \"alternative\"."
+            }
+        ]
+    },
+    "7": {
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Yeah and and also you you can notice when someone's lying or when something's wrong between you two.",
+        "t5_checked_sentence": "Yeah, and also you can notice when someone's lying or when something's wrong between you two.",
+        "llm_explanation": "1. 'and' is missing a conjunction and should be replaced with 'and'.\n2. 'also' is not a conjunction and should be replaced with 'also'.\n3. 'you can notice' is a dangling modifier and should be rephrased to 'you can notice'.\n4. 'between you two' is not parallel and should be rephrased to 'between you two'.\n5.'someone's' is missing an apostrophe and should be replaced with'someone's'.\n6.'something's' is missing an apostrophe and should be replaced with'something's'.\n7. 'between you two' is not parallel and should be rephrased to 'between you and'.\n8. 'when' is",
+        "errant": [
+            {
+                "index": "7",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yeah and and also you you can notice when someone's lying or when something's wrong between you two.",
+                "corrected_sentence": "Yeah, and also you can notice when someone's lying or when something's wrong between you two.",
+                "o_start": 1,
+                "o_end": 2,
+                "original_text": "and",
+                "c_start": 1,
+                "c_end": 1,
+                "corrected_text": "",
+                "error_type": "U:CONJ",
+                "llm_explanation": "The error is a U:CONJ error, where a conjunction has been used as a word."
+            },
+            {
+                "index": "7",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yeah and and also you you can notice when someone's lying or when something's wrong between you two.",
+                "corrected_sentence": "Yeah, and also you can notice when someone's lying or when something's wrong between you two.",
+                "o_start": 4,
+                "o_end": 5,
+                "original_text": "you",
+                "c_start": 3,
+                "c_end": 3,
+                "corrected_text": "",
+                "error_type": "U:PRON",
+                "llm_explanation": "The error is a U:PRON error, which occurs when the pronoun \"you\" is replaced with the letter \"U\". The error is found in the sentence \"Yeah and and also you you can notice when someone's lying or when something's wrong between you two.\" \n\nThe original sentence is \"Yeah and and also you you can notice when someone's lying or when something's wrong between you two.\" \n\nThe corrected sentence is \"Yeah, and also you can notice when someone's lying or when something's wrong between you two.\" \n\nThe error occurs because the first character in the original sentence is in position 0, indicating that the pronoun \"you\" is missing, resulting in a U:PRON error. The corrected sentence"
+            }
+        ]
+    },
+    "8": {
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Yeah so then maybe an alternative to that would be talking on the phone.",
+        "t5_checked_sentence": "Yeah, then maybe an alternative to that would be talking on the phone.",
+        "llm_explanation": "Here is the list of errors with explanations:\n\n1. 'You are an English teacher' is not needed. The sentence starts with 'You are an English teacher'.\n\n2. 'You will explain' is not needed. The sentence starts with 'You will explain'.\n\n3. 'That will explain' is not needed. The sentence should be 'You will explain'.\n\n4. 'That will explain' is not needed. The sentence should be 'You will explain'.\n\n5. 'You are an English teacher' is not needed. The sentence starts with 'You are an English teacher'.\n\n6. 'That will explain' is not needed. The sentence should be 'You will explain'.\n\n7. 'You are an English teacher' is not needed.",
+        "errant": [
+            {
+                "index": "8",
+                "speaker": "SPEAKER_01",
+                "original_sentence": "Yeah so then maybe an alternative to that would be talking on the phone.",
+                "corrected_sentence": "Yeah, then maybe an alternative to that would be talking on the phone.",
+                "o_start": 1,
+                "o_end": 2,
+                "original_text": "so",
+                "c_start": 1,
+                "c_end": 1,
+                "corrected_text": "",
+                "error_type": "U:ADV",
+                "llm_explanation": "The error is a U:ADV error where the original sentence is Yeah so then maybe an alternative to that would be talking on the phone, and the corrected sentence is Yeah, then maybe an alternative to that would be talking on the phone."
+            }
+        ]
+    },
+    "9": {
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Yes but sometimes it's not quite good it's not that effective because for example my grandmother doesn't hear too well so when when we talk on the phone she it's really difficult for her to to have a conversation with us.",
+        "t5_checked_sentence": "Yes, sometimes it's not quite good, it's not that effective because for example my grandmother doesn't hear too well, so when we talk on the phone it's really difficult for her to have a conversation with us",
+        "llm_explanation": "Here's the list of errors:\n\n[ 'Error 1 is the missing comma after \"Yes\"', \n'Error 2 is the unnecessary comma after \"it's\"', \n'Error 3 is the unnecessary comma after \"it's\"', \n'Error 4 is the unnecessary comma after \"to\"', \n'Error 5 is the missing comma after \"example\"', \n'Error 6 is the missing comma after \"phone\"', \n'Error 7 is the unnecessary comma after \"us\"', \n'Error 8 is the unnecessary repetition of \"when\"', \n'Error 9 is the unnecessary repetition of \"to\"', \n'Error 10 is the unnecessary repetition of \"it's\"', \n'Error 11 is the unnecessary repetition of",
+        "errant": [
+            {
+                "index": "9",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yes but sometimes it's not quite good it's not that effective because for example my grandmother doesn't hear too well so when when we talk on the phone she it's really difficult for her to to have a conversation with us.",
+                "corrected_sentence": "Yes, sometimes it's not quite good, it's not that effective because for example my grandmother doesn't hear too well, so when we talk on the phone it's really difficult for her to have a conversation with us",
+                "o_start": 1,
+                "o_end": 2,
+                "original_text": "but",
+                "c_start": 1,
+                "c_end": 1,
+                "corrected_text": "",
+                "error_type": "U:CONJ",
+                "llm_explanation": "The error is a U:CONJ, which involves a missing or extra conjunction. The broken rule is the use of a comma splice, where two independent clauses are joined with a comma without a conjunction."
+            },
+            {
+                "index": "9",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yes but sometimes it's not quite good it's not that effective because for example my grandmother doesn't hear too well so when when we talk on the phone she it's really difficult for her to to have a conversation with us.",
+                "corrected_sentence": "Yes, sometimes it's not quite good, it's not that effective because for example my grandmother doesn't hear too well, so when we talk on the phone it's really difficult for her to have a conversation with us",
+                "o_start": 21,
+                "o_end": 22,
+                "original_text": "when",
+                "c_start": 20,
+                "c_end": 20,
+                "corrected_text": "",
+                "error_type": "U:ADV",
+                "llm_explanation": "The error is a comma splice (U:ADV) because of a missing conjunction or a semicolon to connect the two independent clauses \"it's not that effective\" and \"for example my grandmother doesn't hear too well\"."
+            },
+            {
+                "index": "9",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yes but sometimes it's not quite good it's not that effective because for example my grandmother doesn't hear too well so when when we talk on the phone she it's really difficult for her to to have a conversation with us.",
+                "corrected_sentence": "Yes, sometimes it's not quite good, it's not that effective because for example my grandmother doesn't hear too well, so when we talk on the phone it's really difficult for her to have a conversation with us",
+                "o_start": 28,
+                "o_end": 29,
+                "original_text": "she",
+                "c_start": 26,
+                "c_end": 26,
+                "corrected_text": "",
+                "error_type": "U:PRON",
+                "llm_explanation": "The error is a repeated pronoun \"it's\" (U:PRON), where the broken rule is \"A pronoun cannot be repeated within a sentence.\""
+            },
+            {
+                "index": "9",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yes but sometimes it's not quite good it's not that effective because for example my grandmother doesn't hear too well so when when we talk on the phone she it's really difficult for her to to have a conversation with us.",
+                "corrected_sentence": "Yes, sometimes it's not quite good, it's not that effective because for example my grandmother doesn't hear too well, so when we talk on the phone it's really difficult for her to have a conversation with us",
+                "o_start": 34,
+                "o_end": 35,
+                "original_text": "to",
+                "c_start": 31,
+                "c_end": 31,
+                "corrected_text": "",
+                "error_type": "U:VERB:FORM",
+                "llm_explanation": "The main idea of the error is that it's missing a subject-verb agreement, specifically a verb conjugation to match the subject \"she\" (third person singular)."
+            }
+        ]
+    },
+    "10": {
+        "speaker": "SPEAKER_01",
+        "original_sentence": "So maybe using body language is something everyone understands so it may not be as easy as to communicate using body language if you lack the social skills maybe.",
+        "t5_checked_sentence": "So maybe using body language is something everyone understands so it may not be as easy to communicate using body language if you lack the social skills maybe.",
+        "llm_explanation": "Here is the list of errors in the sentence:\n\n- 'So' is an unnecessary word and is considered a filler word. It's not a grammatically correct way to start a sentence.\n- 'So' should be removed.\n- 'So maybe' is unnecessary and redundant. The sentence already starts with 'So'.\n- 'So it may' is unnecessary and redundant. The sentence already starts with 'So'.\n- 'So' is an unnecessary word and is considered a filler word. It's not a grammatically correct way to start a sentence.\n- 'So maybe' is unnecessary and redundant. The sentence already starts with 'So'.\n- 'It' is a pronoun that does not refer to any specific noun in the sentence.\n-",
+        "errant": [
+            {
+                "index": "10",
+                "speaker": "SPEAKER_01",
+                "original_sentence": "So maybe using body language is something everyone understands so it may not be as easy as to communicate using body language if you lack the social skills maybe.",
+                "corrected_sentence": "So maybe using body language is something everyone understands so it may not be as easy to communicate using body language if you lack the social skills maybe.",
+                "o_start": 16,
+                "o_end": 17,
+                "original_text": "as",
+                "c_start": 16,
+                "c_end": 16,
+                "corrected_text": "",
+                "error_type": "U:PREP",
+                "llm_explanation": "The error is a U:PREP error, which occurs when a word or phrase is not in the correct position in the sentence.\n\nThe original sentence is: \"So maybe using body language is something everyone understands so it may not be as easy as to communicate using body language if you lack the social skills maybe.\"\n\nThe corrected sentence is: \"So maybe using body language is something everyone understands so it may not be as easy to communicate using body language if you lack the social skills.\"\n\nThe error is caused by an extra \"maybe\" in the original sentence, which is not in the correct position."
+            }
+        ]
+    },
+    "11": {
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Um i agree i mean using body language is really difficult to to see when when someone's sad or when something's happening to them.",
+        "t5_checked_sentence": "Um, I agree that using body language is really difficult to see when someone's sad or when something's happening to them.",
+        "llm_explanation": "'explained error 1': Missing article (a or the)\n'Error 1 is this' = I (missing article)\nThis is wrong because a subject-verb agreement requires a definite article (the or a) before the noun.\n\n'explained error 2': Double negative\n'Error 2 is that' = I'm not, there is a double negative.\nThat is wrong because double negatives are usually avoided in English.",
+        "errant": [
+            {
+                "index": "11",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Um i agree i mean using body language is really difficult to to see when when someone's sad or when something's happening to them.",
+                "corrected_sentence": "Um, I agree that using body language is really difficult to see when someone's sad or when something's happening to them.",
+                "o_start": 11,
+                "o_end": 12,
+                "original_text": "to",
+                "c_start": 10,
+                "c_end": 10,
+                "corrected_text": "",
+                "error_type": "U:VERB:FORM",
+                "llm_explanation": "The error is due to a mismatch between the original sentence and the corrected sentence."
+            },
+            {
+                "index": "11",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Um i agree i mean using body language is really difficult to to see when when someone's sad or when something's happening to them.",
+                "corrected_sentence": "Um, I agree that using body language is really difficult to see when someone's sad or when something's happening to them.",
+                "o_start": 14,
+                "o_end": 15,
+                "original_text": "when",
+                "c_start": 12,
+                "c_end": 12,
+                "corrected_text": "",
+                "error_type": "U:ADV",
+                "llm_explanation": "The error was found in the original sentence:\n\"Where the error type is U:ADV, the original sentence is Um i agree i mean using body language is really difficult to see when when someone's sad or when something's happening to them., the corrected sentence is Um, I agree that using body language is really difficult to see when someone's sad or when something's happening to them.. and supposing that the first character is in position 0, the error text is between the characters 14 and 15 in the original sentence, and the corrected text is between the characters 12 and 12 in the corrected sentence.\"\n\nThe main idea of the error is that the corrected sentence is not correctly aligned with the original sentence, resulting in a mismatch"
+            }
+        ]
+    },
+    "12": {
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Maybe written letters and postcards is the different one from all of all of them as it can also express emotions between countries and that excitement you have when you receive a postcard which is not really normal nowadays we all use email or chatting is really nice to have.",
+        "t5_checked_sentence": "Maybe written letters and postcards are the different one from all of them as it can also express emotions between countries and that excitement you have when you receive a postcard which is not really normal nowadays we all use email or chatting is really nice",
+        "llm_explanation": "Here are the errors in the original sentence:\n\n[ 'Subject-verb agreement error', 'Missing article error', 'Incorrect use of \"is\" for \"are\"', 'Run-on sentence error', 'Misused \"is\" for \"are\" again', 'Missing conjunction error' ]\n\n1. Error 1 is this: 'Subject-verb agreement error'. The subject 'written letters and postcards' is a plural noun, so the verb should be 'are' instead of 'is'.\n\n2. Error 2 is that: 'Missing article error'. The phrase 'the different one' should be 'the different ones' to agree with the plural subject.\n\n3. Error 3 is that: 'Incorrect use of \"is\" for \"",
+        "errant": [
+            {
+                "index": "12",
+                "speaker": "SPEAKER_01",
+                "original_sentence": "Maybe written letters and postcards is the different one from all of all of them as it can also express emotions between countries and that excitement you have when you receive a postcard which is not really normal nowadays we all use email or chatting is really nice to have.",
+                "corrected_sentence": "Maybe written letters and postcards are the different one from all of them as it can also express emotions between countries and that excitement you have when you receive a postcard which is not really normal nowadays we all use email or chatting is really nice",
+                "o_start": 5,
+                "o_end": 6,
+                "original_text": "is",
+                "c_start": 5,
+                "c_end": 5,
+                "corrected_text": "are",
+                "error_type": "R:VERB:SVA",
+                "llm_explanation": "The main error is a subject-verb agreement issue (SVA). \n\nThe broken rule is that \"written letters and postcards\" should be a singular subject (one unit) taking a singular verb \"is\", not a plural verb \"are\"."
+            }
+        ]
+    },
+    "17": {
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Um i will start off with using body language as we all as we've already said i mean it's really difficult to to notice and what do you think.",
+        "t5_checked_sentence": "Um, I will start off with using body language as we all, as we've already said, mean it's really difficult to notice and what do you think?",
+        "llm_explanation": "Here are the errors in the original sentence:\n\n* 'Um' is an informal filler word and should not be used in a formal or professional context.\n* 'will' is a modal verb that doesn't quite fit the sentence structure.\n* 'as we all' is an informal expression that is not suitable for a formal or professional context.\n* 'we've already said' is a phrase that doesn't add meaning to the sentence.\n*'mean' is a verb that doesn't fit the context of the sentence.\n* 'it's really difficult to notice' is a phrase that is not grammatically correct.\n* 'and what do you think' is a phrase that doesn't add meaning to the sentence.\n\nCorrecting these errors, the corrected",
+        "errant": [
+            {
+                "index": "17",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Um i will start off with using body language as we all as we've already said i mean it's really difficult to to notice and what do you think.",
+                "corrected_sentence": "Um, I will start off with using body language as we all, as we've already said, mean it's really difficult to notice and what do you think?",
+                "o_start": 16,
+                "o_end": 17,
+                "original_text": "i",
+                "c_start": 16,
+                "c_end": 16,
+                "corrected_text": "",
+                "error_type": "U:PRON",
+                "llm_explanation": "The error is a U:PRON error, where a word is replaced with a pronoun. The original sentence is:\n\n\"Um I will start off with using body language as we all as we've already said I mean it's really difficult to notice and what do you think.\"\n\nThe corrected sentence is:\n\n\"Um I will start off with using body language as we all, as we've already said, mean it's really difficult to notice and what do you think?\"\n\nThe error occurs when the word \"all\" is replaced with the pronoun \"I\"."
+            },
+            {
+                "index": "17",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Um i will start off with using body language as we all as we've already said i mean it's really difficult to to notice and what do you think.",
+                "corrected_sentence": "Um, I will start off with using body language as we all, as we've already said, mean it's really difficult to notice and what do you think?",
+                "o_start": 21,
+                "o_end": 22,
+                "original_text": "to",
+                "c_start": 20,
+                "c_end": 20,
+                "corrected_text": "",
+                "error_type": "U:VERB:FORM",
+                "llm_explanation": "The error is an example of a U:VERB:FORM error, where the U indicates that the error is a verb form error, and the :VERB:FORM indicates that the error is related to a verb form.\n\nThe original sentence is \"Um, I will start off with using body language as we all, as we've already said, mean it's really difficult to notice and what do you think?\".\n\nThe error is in the first character, which is in position 0, which is an incorrect use of a verb form. The corrected sentence should be \"I will start off with using body language as we all, as we've already said, mean it's really difficult to notice and what do you think?\".\n\nThe corrected"
+            }
+        ]
+    },
+    "20": {
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Then maybe talking face to face is really effective with communicating.",
+        "t5_checked_sentence": "Then maybe talking face to face is really effective in communicating.",
+        "llm_explanation": "1. 'face' should be 'face-to-face' in the first instance.\n2. 'is' should be 'is in' in the second instance.\n3.'really' is not necessary in the second instance.\n4. 'in' is not necessary in the second instance.\n5. 'effective' is not necessary in the second instance.\n6. 'in' is not necessary in the second instance.\n7. 'is' should be 'is in' in the second instance.\n8.'really' is not necessary in the second instance.\n9. 'in' is not necessary in the second instance.\n10. 'effective' is not necessary in the second instance.\n11. 'in' is not necessary in the",
+        "errant": [
+            {
+                "index": "20",
+                "speaker": "SPEAKER_01",
+                "original_sentence": "Then maybe talking face to face is really effective with communicating.",
+                "corrected_sentence": "Then maybe talking face to face is really effective in communicating.",
+                "o_start": 9,
+                "o_end": 10,
+                "original_text": "with",
+                "c_start": 9,
+                "c_end": 9,
+                "corrected_text": "in",
+                "error_type": "R:PREP",
+                "llm_explanation": "The error is that the sentence \"Then maybe talking face to face is really effective with communicating.\" was changed to \"Then maybe talking face to face is really effective in communicating.\""
+            }
+        ]
+    },
+    "21": {
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Yeah that's really effective but one that wouldn't be that effective for example is written letters and postcards because as you said they can get lost and never get to where they had to.",
+        "t5_checked_sentence": "Yeah, that's really effective, but one that wouldn't be that effective for example is written letters and postcards because as you said, they can get lost and never get to where they had to.",
+        "llm_explanation": "[ 'Error 1: Lack of comma after \"effective\" ', \n  'Error 2: Lack of comma after \"example\" ', \n  'Error 3: Missing period after the last sentence', \n  'Error 4: Incomplete sentence without a period' ]\n\n[ 'This is wrong because the sentence is a run-on and lacks proper punctuation.', \n  'This is wrong because the sentence is a run-on and lacks proper punctuation.', \n  'This is wrong because the sentence is a fragment and lacks a period.', \n  'This is wrong because the sentence is a fragment and lacks a period.' ]",
+        "errant": [
+            {
+                "index": "21",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yeah that's really effective but one that wouldn't be that effective for example is written letters and postcards because as you said they can get lost and never get to where they had to.",
+                "corrected_sentence": "Yeah, that's really effective, but one that wouldn't be that effective for example is written letters and postcards because as you said, they can get lost and never get to where they had to.",
+                "o_start": 3,
+                "o_end": 4,
+                "original_text": "effective",
+                "c_start": 3,
+                "c_end": 3,
+                "corrected_text": "effective,",
+                "error_type": "R:ADJ",
+                "llm_explanation": "The error is a missing comma after \"as you said\" (broken rule: Comma splice or missing comma after introductory phrase)."
+            },
+            {
+                "index": "21",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yeah that's really effective but one that wouldn't be that effective for example is written letters and postcards because as you said they can get lost and never get to where they had to.",
+                "corrected_sentence": "Yeah, that's really effective, but one that wouldn't be that effective for example is written letters and postcards because as you said, they can get lost and never get to where they had to.",
+                "o_start": 21,
+                "o_end": 22,
+                "original_text": "said",
+                "c_start": 21,
+                "c_end": 21,
+                "corrected_text": "said,",
+                "error_type": "R:VERB",
+                "llm_explanation": "The main idea: A missing comma after \"but\" to separate clauses.\n\nThe broken rule: Lack of a comma after a coordinating conjunction (\"but\") to indicate a break in thought."
+            }
+        ]
+    },
+    "24": {
+        "speaker": "SPEAKER_00",
+        "original_sentence": "Thank you can i have the booklet please.",
+        "t5_checked_sentence": "Thank you, can I have the booklet please?",
+        "llm_explanation": "1. 'can' should be 'can I' (subject-verb agreement)\n2. 'booklet' should be 'booklets' (noun agreement)\n3. 'please' is unnecessary (politeness is not needed)",
+        "errant": [
+            {
+                "index": "24",
+                "speaker": "SPEAKER_00",
+                "original_sentence": "Thank you can i have the booklet please.",
+                "corrected_sentence": "Thank you, can I have the booklet please?",
+                "o_start": 7,
+                "o_end": 8,
+                "original_text": "please.",
+                "c_start": 7,
+                "c_end": 7,
+                "corrected_text": "please?",
+                "error_type": "R:NOUN",
+                "llm_explanation": "The error is a deletion of a word, and the broken rule is the rule that a word should not be deleted."
+            }
+        ]
+    }
+}

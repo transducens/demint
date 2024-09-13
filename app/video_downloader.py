@@ -10,19 +10,17 @@ class VideoDownloaderPytube:
         self.output_filename = ""
 
     def download_video(self, video_url="", output_filename=""):
-        if video_url != "":
-            video_url = video_url
-        elif self.video_url != "":
-            video_url = self.video_url
-        else:
+        if video_url:
+            self.video_url = video_url
+        elif not self.video_url:
             print("No video URL provided.")
             return
         output_filename = output_filename if output_filename != "" else self.output_filename
              
-        print(f"Downloading VIDEO... {video_url}")
+        print(f"Downloading VIDEO... {self.video_url}")
 
         # Use pytube(yt) to download video from the given URL
-        yt_handler =  yt.YouTube(video_url)
+        yt_handler =  yt.YouTube(self.video_url)
         # Get the best video stream
         video_stream = yt_handler.streams.first()
         # Download the video
@@ -31,15 +29,13 @@ class VideoDownloaderPytube:
 
     # Use pytube(yt) to get information about the video from the given URL
     def get_video_info(self, video_url=""):
-        if video_url != "":
-            video_url = video_url
-        elif self.video_url != "":
-            video_url = self.video_url
-        else:
+        if video_url:
+            self.video_url = video_url
+        elif not self.video_url:
             print("No video URL provided.")
             return
 
-        yt_handler = yt.YouTube(video_url)
+        yt_handler = yt.YouTube(self.video_url)
         # Extract the video information
         # Create a dictionary to store video information
         video_info = {
@@ -62,31 +58,27 @@ class VideoDownloaderYTDLP:
         self.output_filename = ""
 
     def download_video(self, video_url="", output_filename=""):
-        if video_url != "":
-            video_url = video_url
-        elif self.video_url != "":
-            video_url = self.video_url
-        else:
+        if video_url:
+            self.video_url = video_url
+        elif not self.video_url:
             print("No video URL provided.")
             return
         output_filename = output_filename if output_filename != "" else self.output_filename
              
-        print(f"Downloading VIDEO... {video_url}")
+        print(f"Downloading VIDEO... {self.video_url}")
 
         ydl_opts = {
-            'format': 'best',  # Best quality video and audio
+            'format': 'bestvideo+bestaudio/best',  # Best quality video and audio
             'outtmpl': output_filename,  # Output file name and path
         }
         with YoutubeDL(ydl_opts) as ydl:
-            ydl.download([video_url])
+            ydl.download([self.video_url])
 
     # Use pytube(yt) to get information about the video from the given URL
     def get_video_info(self, video_url=""):
-        if video_url != "":
-            video_url = video_url
-        elif self.video_url != "":
-            video_url = self.video_url
-        else:
+        if video_url:
+            self.video_url = video_url
+        elif not self.video_url:
             print("No video URL provided.")
             return
         
@@ -94,8 +86,8 @@ class VideoDownloaderYTDLP:
             'format': 'best',  # Best quality video and audio
         }
         info = {}
-        with YoutubeDL(ydl_opts) as ydl:
-            info = ydl.extract_info(video_url, download=False)
+        with YoutubeDL() as ydl:
+            info = ydl.extract_info(self.video_url, download=False)
 
         # Extract the video information
         # Create a dictionary to store video information
@@ -113,14 +105,17 @@ class VideoDownloaderYTDLP:
 
 
 def main(url:str, name:str):
-    video_downloader = VideoDownloaderPytube()
+    video_downloader = VideoDownloaderYTDLP()
     #video_downloader.video_url = "https://youtu.be/_Bx_x-gvLw0?si=y2Bi5cw6CizEd5Oa"
     video_downloader.video_url = url
+
     video_info = video_downloader.get_video_info()
     print(video_info)
+    
     name = name if name else video_info['title']
     video_downloader.output_filename = os.path.join(video_downloader.output_directory, name + '.' + video_info['extension'])
     print("The path is:", video_downloader.output_filename)
+    
     video_downloader.download_video()
 
 

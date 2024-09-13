@@ -1,0 +1,360 @@
+MoviePy - Writing audio in temp_audio.wav
+chunk:   0%|          | 0/5995 [00:00<?, ?it/s, now=None]chunk:   4%|▍         | 255/5995 [00:00<00:02, 2453.26it/s, now=None]chunk:   9%|▊         | 517/5995 [00:00<00:02, 2547.39it/s, now=None]chunk:  14%|█▎        | 816/5995 [00:00<00:01, 2722.31it/s, now=None]chunk:  19%|█▊        | 1122/5995 [00:00<00:01, 2829.18it/s, now=None]chunk:  24%|██▍       | 1428/5995 [00:00<00:01, 2909.30it/s, now=None]chunk:  29%|██▉       | 1734/5995 [00:00<00:01, 2909.23it/s, now=None]chunk:  34%|███▍      | 2025/5995 [00:00<00:01, 2887.78it/s, now=None]chunk:  39%|███▊      | 2314/5995 [00:00<00:01, 2798.66it/s, now=None]chunk:  43%|████▎     | 2595/5995 [00:00<00:01, 2787.80it/s, now=None]chunk:  48%|████▊     | 2875/5995 [00:01<00:01, 2733.20it/s, now=None]chunk:  53%|█████▎    | 3149/5995 [00:01<00:01, 2730.53it/s, now=None]chunk:  57%|█████▋    | 3423/5995 [00:01<00:00, 2698.69it/s, now=None]chunk:  62%|██████▏   | 3713/5995 [00:01<00:00, 2757.95it/s, now=None]chunk:  67%|██████▋   | 3990/5995 [00:01<00:00, 2711.65it/s, now=None]chunk:  71%|███████   | 4264/5995 [00:01<00:00, 2719.61it/s, now=None]chunk:  76%|███████▌  | 4539/5995 [00:01<00:00, 2681.28it/s, now=None]chunk:  81%|████████  | 4827/5995 [00:01<00:00, 2737.65it/s, now=None]chunk:  85%|████████▌ | 5102/5995 [00:01<00:00, 2683.87it/s, now=None]chunk:  90%|████████▉ | 5371/5995 [00:01<00:00, 2670.42it/s, now=None]chunk:  94%|█████████▍| 5639/5995 [00:02<00:00, 2662.83it/s, now=None]chunk:  99%|█████████▊| 5911/5995 [00:02<00:00, 2678.05it/s, now=None]                                                                      MoviePy - Done.
+Audio extraction completed: assets/audios/C1_Cambridge_vidmp4.wav
+
+real	0m8,590s
+user	0m5,336s
+sys	0m0,687s
+Audio device: cuda
+Diarization has started: assets/audios/C1_Cambridge_vidmp4.wav
+segmentation         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+speaker_counting     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+embeddings           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:06
+discrete_diarization ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Segment duration longer than 29 seconds: 37631
+Treshold: -50
+Subsegment 0 saved from 0 to 22424 milliseconds. With a duration of 22424 milliseconds.
+Subsegment 1 saved from 22424 to 37631 milliseconds. With a duration of 15207 milliseconds.
+Segment 2 saved from 64020 to 65775 milliseconds. With a duration of 1755 milliseconds.
+Segment 3 saved from 66062 to 82094 milliseconds. With a duration of 16032 milliseconds.
+Segment 4 saved from 82617 to 91054 milliseconds. With a duration of 8437 milliseconds.
+Segment 5 saved from 91341 to 114359 milliseconds. With a duration of 23018 milliseconds.
+Segment 6 saved from 114578 to 120974 milliseconds. With a duration of 6396 milliseconds.
+Segment 7 saved from 121497 to 126070 milliseconds. With a duration of 4573 milliseconds.
+Segment 8 saved from 127150 to 143822 milliseconds. With a duration of 16672 milliseconds.
+Segment 9 saved from 144143 to 154065 milliseconds. With a duration of 9922 milliseconds.
+Segment 10 saved from 155112 to 165355 milliseconds. With a duration of 10243 milliseconds.
+Segment 11 saved from 166300 to 189773 milliseconds. With a duration of 23473 milliseconds.
+Segment 12 saved from 190245 to 194852 milliseconds. With a duration of 4607 milliseconds.
+Segment 13 saved from 194987 to 196540 milliseconds. With a duration of 1553 milliseconds.
+Segment 14 saved from 196793 to 206378 milliseconds. With a duration of 9585 milliseconds.
+Segment 15 saved from 207154 to 208420 milliseconds. With a duration of 1266 milliseconds.
+Segment 16 saved from 209196 to 219861 milliseconds. With a duration of 10665 milliseconds.
+Segment 17 saved from 220536 to 235099 milliseconds. With a duration of 14563 milliseconds.
+Segment 18 saved from 235690 to 236027 milliseconds. With a duration of 337 milliseconds.
+Segment 19 saved from 236297 to 239858 milliseconds. With a duration of 3561 milliseconds.
+Segment 20 saved from 240297 to 251451 milliseconds. With a duration of 11154 milliseconds.
+Segment 21 saved from 251890 to 261323 milliseconds. With a duration of 9433 milliseconds.
+Segment 22 saved from 261964 to 262420 milliseconds. With a duration of 456 milliseconds.
+Segment 23 saved from 263213 to 264799 milliseconds. With a duration of 1586 milliseconds.
+Diarization has completed.
+
+real	0m31,521s
+user	0m17,861s
+sys	0m1,739s
+/home/roman/miniconda3/envs/DeMINT/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/roman/miniconda3/envs/DeMINT/lib/python3.11/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+You have passed task=transcribe, but also have set `forced_decoder_ids` to [[1, None], [2, 50360]] which creates a conflict. `forced_decoder_ids` will be ignored in favor of task=transcribe.
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+############C1_Cambridge_vidmp4
+Starting to transcribe audio files of cache/diarized_audios/C1_Cambridge_vidmp4 and saving the transcript to ./cache/diarized_transcripts/C1_Cambridge_vidmp4.json 
+0_00.wav
+now i'd like you to talk about something together for about two minutes here are some different methods of communication and a question for you to discuss first you have some time to look at the task
+1_00.wav
+now talk to each other about the advantages and disadvantages of these different methods of communication 
+2_02.wav
+ do you wanna stop or shall i?
+3_01.wav
+okay i'll start if you like so i think the most common way right now of communicating would be online chatting as everyone has mobile phones nowadays and we always have them on ourselves so it's really easy to just send a text message to someone and wait for them to answer it
+4_02.wav
+yes i agree but one of the main disadvantage of it is that you don't really know to whom you're talking to exactly so it's not that reliable
+5_01.wav
+yeah i agree so maybe a good alternative would be talking face to face you can it's like the most reliable way but one disadvantages it would have would be maybe you have to require the other person to be with you in the same place it cannot be in the other parts of the world like only chatting can do that
+6_02.wav
+yeah and and also you you can notice when someone's lying or when something's wrong between you two
+7_01.wav
+yeah so then maybe an alternative to that would be talking on the phone
+8_02.wav
+yes but sometimes it's not quite good it's not that effective because for example my grandmother doesn't hear too well so when when we talk on the phone she it's really difficult for her to to have a conversation with us
+9_01.wav
+so maybe using body language is something everyone understands so it may not be as easy as to communicate using body language if you lack the social skills maybe 
+10_02.wav
+um i agree i mean using body language is really difficult to to see when when someone's sad or when something's happening to them
+11_01.wav
+maybe written letters and postcards is the different one from all of all of them as it can also express emotions between countries and that excitement you have when you receive a postcard which is not really normal nowadays we all use email or chatting is really nice to have 
+12_02.wav
+yeah i mean the bad thing is that they sometimes can get lost
+13_01.wav
+ yeah i agree
+14_00.wav
+thank you now you have about a minute to decide which two methods of communication are the most difficult to carry out effectively 
+15_01.wav
+so which ones do you think
+16_02.wav
+um i will start off with using body language as we all as we've already said i mean it's really difficult to to notice and what do you think
+17_01.wav
+yeah also body languages it expresses a lot without us noticing or maybe if we talk using body language only like mimics do it's really difficult but it can express more than we think it can express
+18_02.wav
+ yeah
+19_01.wav
+then maybe talking face to face is really effective with communicating
+20_02.wav
+yeah that's really effective but one that wouldn't be that effective for example is written letters and postcards because as you said they can get lost and never get to where they had to
+21_01.wav
+yeah and they are really slow you have to wait for them to arrive and maybe even the message is outdated because it's something that happened before and doesn't have a point now
+22_02.wav
+ i will be
+23_00.wav
+thank you can i have the booklet please
+
+real	0m53,560s
+user	1m15,869s
+sys	0m5,776s
+Creating sorted sentence collection ...
+
+real	0m2,419s
+user	0m1,930s
+sys	0m0,229s
+/home/roman/miniconda3/envs/DeMINT/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/roman/miniconda3/envs/DeMINT/lib/python3.11/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/home/roman/miniconda3/envs/DeMINT/lib/python3.11/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+Using T5
+Orig: [1, 2, "i'd"], Cor: [1, 2, "I'd"], Type: 'R:ORTH'
+Ignoring error type: R:ORTH
+Orig: [6, 7, 'i?'], Cor: [6, 7, 'I?'], Type: 'R:ORTH'
+Ignoring error type: R:ORTH
+Orig: [0, 1, 'Okay'], Cor: [0, 1, 'Okay,'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [1, 2, "i'll"], Cor: [1, 2, "I'll"], Type: 'R:ORTH'
+Ignoring error type: R:ORTH
+Orig: [7, 8, 'i'], Cor: [7, 8, 'I'], Type: 'R:ORTH'
+Ignoring error type: R:ORTH
+Orig: [41, 53, 'a text message to someone and wait for them to answer it.'], Cor: [41, 41, ''], Type: 'U:OTHER'
+Ignoring error type: U:OTHER
+Orig: [0, 1, 'Yes'], Cor: [0, 1, 'Yes,'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [1, 2, 'i'], Cor: [1, 2, 'I'], Type: 'R:ORTH'
+Ignoring error type: R:ORTH
+Orig: [2, 3, 'agree'], Cor: [2, 3, 'agree,'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [8, 9, 'disadvantage'], Cor: [8, 9, 'disadvantages'], Type: 'R:NOUN:NUM'
+Orig: [17, 18, 'to'], Cor: [17, 18, 'exactly'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [18, 19, 'whom'], Cor: [18, 19, 'who'], Type: 'R:PRON'
+Orig: [21, 22, 'to'], Cor: [21, 22, 'to,'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [22, 23, 'exactly'], Cor: [22, 22, ''], Type: 'U:ADV'
+Orig: [0, 1, 'Yeah'], Cor: [0, 1, 'Yeah,'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [1, 2, 'i'], Cor: [1, 2, 'I'], Type: 'R:ORTH'
+Ignoring error type: R:ORTH
+Orig: [13, 14, 'face'], Cor: [13, 14, 'face.'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [14, 17, "you can it's"], Cor: [14, 15, "It's"], Type: 'U:OTHER'
+Ignoring error type: U:OTHER
+Orig: [24, 25, 'disadvantages'], Cor: [22, 23, 'disadvantage'], Type: 'R:NOUN:NUM'
+Orig: [46, 62, 'it cannot be in the other parts of the world like only chatting can do that.'], Cor: [44, 44, ''], Type: 'U:OTHER'
+Ignoring error type: U:OTHER
+Orig: [0, 1, 'Yeah'], Cor: [0, 1, 'Yeah,'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [1, 2, 'and'], Cor: [1, 1, ''], Type: 'U:CONJ'
+Orig: [4, 5, 'you'], Cor: [3, 3, ''], Type: 'U:PRON'
+Orig: [0, 1, 'Yeah'], Cor: [0, 1, 'Yeah,'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [1, 2, 'so'], Cor: [1, 1, ''], Type: 'U:ADV'
+Orig: [0, 1, 'Yes'], Cor: [0, 1, 'Yes,'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [1, 2, 'but'], Cor: [1, 1, ''], Type: 'U:CONJ'
+Orig: [6, 7, 'good'], Cor: [5, 6, 'good,'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [19, 20, 'well'], Cor: [18, 19, 'well,'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [21, 22, 'when'], Cor: [20, 20, ''], Type: 'U:ADV'
+Orig: [28, 29, 'she'], Cor: [26, 26, ''], Type: 'U:PRON'
+Orig: [34, 35, 'to'], Cor: [31, 31, ''], Type: 'U:VERB:FORM'
+Orig: [40, 41, 'us.'], Cor: [36, 37, 'us'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [16, 17, 'as'], Cor: [16, 16, ''], Type: 'U:PREP'
+Orig: [0, 1, 'Um'], Cor: [0, 1, 'Um,'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [1, 2, 'i'], Cor: [1, 2, 'I'], Type: 'R:ORTH'
+Ignoring error type: R:ORTH
+Orig: [3, 5, 'i mean'], Cor: [3, 4, 'that'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [11, 12, 'to'], Cor: [10, 10, ''], Type: 'U:VERB:FORM'
+Orig: [14, 15, 'when'], Cor: [12, 12, ''], Type: 'U:ADV'
+Orig: [5, 6, 'is'], Cor: [5, 6, 'are'], Type: 'R:VERB:SVA'
+Orig: [10, 12, 'all of'], Cor: [10, 10, ''], Type: 'U:OTHER'
+Ignoring error type: U:OTHER
+Orig: [48, 50, 'to have.'], Cor: [46, 46, ''], Type: 'U:OTHER'
+Ignoring error type: U:OTHER
+Orig: [0, 1, 'Yeah'], Cor: [0, 1, 'Yeah,'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [1, 2, 'i'], Cor: [1, 2, 'I'], Type: 'R:ORTH'
+Ignoring error type: R:ORTH
+Orig: [0, 1, 'Yeah'], Cor: [0, 1, 'Yeah,'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [1, 2, 'i'], Cor: [1, 2, 'I'], Type: 'R:ORTH'
+Ignoring error type: R:ORTH
+Orig: [5, 6, 'think.'], Cor: [5, 6, 'think?'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [0, 1, 'Um'], Cor: [0, 1, 'Um,'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [1, 2, 'i'], Cor: [1, 2, 'I'], Type: 'R:ORTH'
+Ignoring error type: R:ORTH
+Orig: [11, 12, 'all'], Cor: [11, 12, 'all,'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [15, 16, 'said'], Cor: [15, 16, 'said,'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [16, 17, 'i'], Cor: [16, 16, ''], Type: 'U:PRON'
+Orig: [21, 22, 'to'], Cor: [20, 20, ''], Type: 'U:VERB:FORM'
+Orig: [28, 29, 'think.'], Cor: [26, 27, 'think?'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [9, 10, 'with'], Cor: [9, 10, 'in'], Type: 'R:PREP'
+Orig: [0, 1, 'Yeah'], Cor: [0, 1, 'Yeah,'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [3, 4, 'effective'], Cor: [3, 4, 'effective,'], Type: 'R:ADJ'
+Orig: [21, 22, 'said'], Cor: [21, 22, 'said,'], Type: 'R:VERB'
+Orig: [1, 2, 'you'], Cor: [1, 2, 'you,'], Type: 'R:OTHER'
+Ignoring error type: R:OTHER
+Orig: [3, 4, 'i'], Cor: [3, 4, 'I'], Type: 'R:ORTH'
+Ignoring error type: R:ORTH
+Orig: [7, 8, 'please.'], Cor: [7, 8, 'please?'], Type: 'R:NOUN'
+
+real	0m22,980s
+user	0m20,087s
+sys	0m1,157s
+/home/roman/miniconda3/envs/DeMINT/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/roman/miniconda3/envs/DeMINT/lib/python3.11/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+['gpt-3.5-turbo-0125', 'gpt-4o-2024-05-13', 'gpt-4-turbo', 'gpt-4', 'gpt-4o', 'chatgpt-4o-latest', 'google/gemma-1.1-2b-it', 'google/gemma-1.1-7b-it', 'microsoft/Phi-3-mini-4k-instruct', 'meta-llama/Meta-Llama-3-8B-Instruct', 'meta-llama/Meta-Llama-3.1-8B-Instruct']
+Model supported: meta-llama/Meta-Llama-3.1-8B-Instruct
+Device detected:  cuda
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:08,  2.69s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:23<00:27, 13.64s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:57<00:22, 22.72s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:04<00:00, 16.65s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:04<00:00, 16.21s/it]
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+
+Model loaded: meta-llama/Meta-Llama-3.1-8B-Instruct
+LlamaForCausalLM(
+  (model): LlamaModel(
+    (embed_tokens): Embedding(128256, 4096)
+    (layers): ModuleList(
+      (0-31): 32 x LlamaDecoderLayer(
+        (self_attn): LlamaSdpaAttention(
+          (q_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+          (k_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+          (v_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+          (o_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+          (rotary_emb): LlamaRotaryEmbedding()
+        )
+        (mlp): LlamaMLP(
+          (gate_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+          (up_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+          (down_proj): Linear4bit(in_features=14336, out_features=4096, bias=False)
+          (act_fn): SiLU()
+        )
+        (input_layernorm): LlamaRMSNorm((4096,), eps=1e-05)
+        (post_attention_layernorm): LlamaRMSNorm((4096,), eps=1e-05)
+      )
+    )
+    (norm): LlamaRMSNorm((4096,), eps=1e-05)
+    (rotary_emb): LlamaRotaryEmbedding()
+  )
+  (lm_head): Linear(in_features=4096, out_features=128256, bias=False)
+)
+
+Type of model: <class 'transformers.models.llama.modeling_llama.LlamaForCausalLM'>
+
+Type of tokenizer: <class 'transformers.tokenization_utils_fast.PreTrainedTokenizerFast'>
+
+Starting to explain sentences...
+get_answers_batch, 6 batch, from LLM LLAMA meta-llama/Meta-Llama-3.1-8B-Instruct started
+get_answers_batch from LLM finished. Time taken to get answers from LLM: 38.6509325504303 seconds
+get_answers_batch, 6 batch, from LLM LLAMA meta-llama/Meta-Llama-3.1-8B-Instruct started
+get_answers_batch from LLM finished. Time taken to get answers from LLM: 23.712941646575928 seconds
+get_answers_batch, 6 batch, from LLM LLAMA meta-llama/Meta-Llama-3.1-8B-Instruct started
+get_answers_batch from LLM finished. Time taken to get answers from LLM: 38.11284279823303 seconds
+get_answers_batch, 6 batch, from LLM LLAMA meta-llama/Meta-Llama-3.1-8B-Instruct started
+get_answers_batch from LLM finished. Time taken to get answers from LLM: 27.65163540840149 seconds
+get_answers_batch, 6 batch, from LLM LLAMA meta-llama/Meta-Llama-3.1-8B-Instruct started
+get_answers_batch from LLM finished. Time taken to get answers from LLM: 38.414788246154785 seconds
+get_answers_batch, 6 batch, from LLM LLAMA meta-llama/Meta-Llama-3.1-8B-Instruct started
+get_answers_batch from LLM finished. Time taken to get answers from LLM: 39.48612928390503 seconds
+get_answers_batch, 3 batch, from LLM LLAMA meta-llama/Meta-Llama-3.1-8B-Instruct started
+get_answers_batch from LLM finished. Time taken to get answers from LLM: 36.545650005340576 seconds
+get_answers_batch, 3 batch, from LLM LLAMA meta-llama/Meta-Llama-3.1-8B-Instruct started
+get_answers_batch from LLM finished. Time taken to get answers from LLM: 9.268455266952515 seconds
+Model unloaded and GPU memory freed.
+Time taken to explain sentences: 00:05:19
+
+real	5m25,345s
+user	4m32,915s
+sys	0m38,284s
+/home/roman/miniconda3/envs/DeMINT/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/roman/miniconda3/envs/DeMINT/lib/python3.11/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+MuPDF error: format error: No default Layer config
+
+/home/roman/miniconda3/envs/DeMINT/lib/python3.11/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Preparing index...
+Index ragatouille does exist. Skipping preparation index. If you want to reindex, delete the folder .ragatoille/colbert/indexes/tutor
+Index prepared...
+Processing sentence:  5
+'RAGatouille INDEX' is None. Loading from index ./app/.ragatouille/colbert/indexes/tutor/.
+'RAGatouille' exists. Searching..
+Loading searcher for index tutor for the first time... This may take a few seconds
+[Sep 13, 14:36:52] #> Loading codec...
+[Sep 13, 14:36:52] Loading decompress_residuals_cpp extension (set COLBERT_LOAD_TORCH_EXTENSION_VERBOSE=True for more info)...
+/home/roman/miniconda3/envs/DeMINT/lib/python3.11/site-packages/torch/utils/cpp_extension.py:1967: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+[Sep 13, 14:36:53] Loading packbits_cpp extension (set COLBERT_LOAD_TORCH_EXTENSION_VERBOSE=True for more info)...
+/home/roman/miniconda3/envs/DeMINT/lib/python3.11/site-packages/torch/utils/cpp_extension.py:1967: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+[Sep 13, 14:36:53] #> Loading IVF...
+[Sep 13, 14:36:53] #> Loading doclens...
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 1162.50it/s]
+[Sep 13, 14:36:53] #> Loading codes and residuals...
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 21.92it/s]
+Searcher loaded!
+
+#> QueryTokenizer.tensorize(batch_text[0], batch_background[0], bsize) ==
+#> Input: . The error is a number in the text that is not a number.
+
+The broken rule is that a number should not be used as a number., 		 True, 		 None
+#> Output IDs: torch.Size([35]), tensor([ 101,    1, 1996, 7561, 2003, 1037, 2193, 1999, 1996, 3793, 2008, 2003,
+        2025, 1037, 2193, 1012, 1996, 3714, 3627, 2003, 2008, 1037, 2193, 2323,
+        2025, 2022, 2109, 2004, 1037, 2193, 1012,  102,  103,  103,  103],
+       device='cuda:0')
+#> Output Mask: torch.Size([35]), tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0], device='cuda:0')
+
+'RAGatouille' exists. Searching..
+'RAGatouille' exists. Searching..
+Processing sentence:  6
+'RAGatouille' exists. Searching..
+Processing sentence:  7
+'RAGatouille' exists. Searching..
+'RAGatouille' exists. Searching..
+Processing sentence:  8
+'RAGatouille' exists. Searching..
+Processing sentence:  9
+'RAGatouille' exists. Searching..
+'RAGatouille' exists. Searching..
+'RAGatouille' exists. Searching..
+'RAGatouille' exists. Searching..
+Processing sentence:  10
+'RAGatouille' exists. Searching..
+Processing sentence:  11
+'RAGatouille' exists. Searching..
+'RAGatouille' exists. Searching..
+Processing sentence:  12
+'RAGatouille' exists. Searching..
+Processing sentence:  17
+'RAGatouille' exists. Searching..
+'RAGatouille' exists. Searching..
+Processing sentence:  20
+'RAGatouille' exists. Searching..
+Processing sentence:  21
+'RAGatouille' exists. Searching..
+'RAGatouille' exists. Searching..
+Processing sentence:  24
+'RAGatouille' exists. Searching..
+
+real	0m16,252s
+user	0m14,130s
+sys	0m1,304s
+408.12user 49.17system 7:40.66elapsed 99%CPU (0avgtext+0avgdata 9777944maxresident)k
+17898760inputs+139864outputs (1797major+7086550minor)pagefaults 0swaps

@@ -1,0 +1,854 @@
+{
+    "5": {
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Yes i agree but one of the main disadvantage of it is that you don't really know to whom you're talking to exactly so it's not that reliable.",
+        "t5_checked_sentence": "Yes, I agree, but one of the main disadvantages of it is that you don't really know exactly who you're talking to, so it's not that reliable.",
+        "llm_explanation": "[ 'explained error 1', 'explained error 2', 'explained error 3' ]\n \n[ 'Error 1 is that you don't really know to whom you're talking to', 'Error 2 is that you're talking to a machine', 'Error 3 is that you're talking to a machine' ]\n\n[ 'This is wrong because you're talking to a machine', 'That is wrong because you don't know to whom you're talking to', 'That is wrong because you don't know to whom you're talking to' ]",
+        "errant": [
+            {
+                "index": "5",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yes i agree but one of the main disadvantage of it is that you don't really know to whom you're talking to exactly so it's not that reliable.",
+                "corrected_sentence": "Yes, I agree, but one of the main disadvantages of it is that you don't really know exactly who you're talking to, so it's not that reliable.",
+                "o_start": 8,
+                "o_end": 9,
+                "original_text": "disadvantage",
+                "c_start": 8,
+                "c_end": 8,
+                "corrected_text": "disadvantages",
+                "error_type": "R:NOUN:NUM",
+                "llm_explanation": "I'm happy to help you understand the error.\n\nThe error is an instance of the R:NOUN:NUM error type, which means there's a noun that's supposed to be a number, but is actually a number. The original sentence is \"Yes i agree but one of the main disadvantage of it is that you don't really know to whom you're talking to so it's not that reliable.\".\n\nIn this sentence, \"one\" is a number, but it's being used as a noun, which is incorrect. The corrected sentence is \"Yes, I agree, but one of the main disadvantages of it is that you don't really know exactly who you're talking to, so it's not that reliable.\".\n\nThe correction is that",
+                "rag": [
+                    {
+                        "rank": 1,
+                        "content": "mistaken didn't seem possible.\nWith the empty subject it\nIt didn't seem possible that he could be mistaken.\nAfter a preposition\nWe had a discussion about who should be invited.\nAfter an adjective\nI was ashamed that I'd let my friends down.\nAfter a noun\nYou can't deny the \nfact that you received the message.\n261 Introduction to noun clauses\n1 \nA noun clause begins with that, a question word or if/whether.\nI expected that we would be late.\nWe didn't know what time it was.\nWe'll have to decide if/w"
+                    },
+                    {
+                        "rank": 2,
+                        "content": "ogs.\nf \nCan't and couldn't express impossibility.\nShe can't be very nice if \nno one likes her.\nYou can't/couldn't have seen Bob this morning. He's in Uganda.\nCompare can't with may not/might not.\nThis answer can't be right. It must be wrong.\n(= It is impossible for this answer to be right.)\nThis answer may not/might not be right. It may/might be wrong.\n(= It is possible that this answer isn't right.)\nPAGE 123\n12 MODAL VERBS\n3 Possibility in the past\nMay/might/could + perfect refers to something"
+                    },
+                    {
+                        "rank": 3,
+                        "content": "stealing. (for not \npossible) \n3 A for-clause cannot be used in answer to a question: \nWhy did you do it? ~ I did it because I was angry. (for not possible) \nA Practical English Grammar \n206\n4 A for-clause cannot be a mere repetition of what has been already stated, but always \nincludes some new piece of information: \nHe spoke in French. She was angry because he had spoken in \nFrench, (for is not possible.) But She was angry, for she didn 't know French. (Here for is \ncorrect; \nbecause is also p"
+                    },
+                    {
+                        "rank": 4,
+                        "content": "539 Glossary for any unfamiliar terms\n1621\n From word to grammarian A-Z\nWith negatives, still indicates that the speaker considers the continued absence or \nnon-occurrence of something to be undesirable:\nI still haven’t found Mar\nie’s phone number\n. I know I wr\note it down.\n(‘I haven’t found it yet’ would simply mean that it is missing up to the moment \nof speaking; ‘I still haven’t found ... ’ emphasises the continued inability to find \nthe phone number)\nNote also the difference in position bet"
+                    },
+                    {
+                        "rank": 5,
+                        "content": "popular, why is it still no. 2?\n15. The following italic word group is a (dependent, independent) clause:\nIf most car accidents occur within 5 miles of home, why doesn’t everyone just move\n10 miles away?\nMultiple-Choice Questions\nChoose the best answer to each question.\n1. Which of the following is not a prepositional phrase?\n(a) By the desk\n(b) In the rearview mirror\n(c) Over their heads\n(d) That he didn’t invite his relatives to the party\n2. What is the adjectival phrase in this sentence?\nPut"
+                    }
+                ]
+            },
+            {
+                "index": "5",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yes i agree but one of the main disadvantage of it is that you don't really know to whom you're talking to exactly so it's not that reliable.",
+                "corrected_sentence": "Yes, I agree, but one of the main disadvantages of it is that you don't really know exactly who you're talking to, so it's not that reliable.",
+                "o_start": 18,
+                "o_end": 19,
+                "original_text": "whom",
+                "c_start": 18,
+                "c_end": 18,
+                "corrected_text": "who",
+                "error_type": "R:PRON",
+                "llm_explanation": "The error is a missing pronoun.",
+                "rag": [
+                    {
+                        "rank": 1,
+                        "content": ", so, yet) or a semicolon—a comma doesn’t cut the mustard. See Chapter\n8 for a complete discussion of sentences.\nMost Common Spelling Errors\nWriters often misspell words because they mispronounce them. The three most common mis-\ntakes are\nG Dropping a letter or syllable when we say a word.\nG Adding an unnecessary letter when we say a word.\nG Mispronouncing a word and so misspelling it.\n14. Missing letters\nHere are 10 words that are frequently misspelled because the speaker drops a letter or\nsyll"
+                    },
+                    {
+                        "rank": 2,
+                        "content": ")\n13. Run-ons (two sentences run together)\nSpelling\n14. Missing letters\n15. Extra letters\n16. Transposed letters\n17. Incorrect plurals\n18. Errors in confusing word pairs (such as weather/whether)\nPunctuation\n19. Missing commas or extra commas\n20. Missing or misused apostrophes\n21. Misused exclamation marks\n22. Misused semicolons\nThe 25 Most Common Usage Problems\n79\nCapitalization\n23. Proper nouns not capitalized\n24. Errors in titles\nProofreading\n25. Missing words\nNow, we will review each of thes"
+                    },
+                    {
+                        "rank": 3,
+                        "content": "not capitalized\n24. Errors in titles\nProofreading\n25. Missing words\nNow, we will review each of these problem places so that you can have writing that is letter\nperfect.\nMost Common Grammar and Usage Errors\n1. Lack of clarity\nIncorrect: Prehistoric people used many inorganic substances difficult to find at archae-\nological sites, which included clay and rock.\nCorrect:\nPrehistoric people used many inorganic substances, including clay and rock,\nwhich are difficult to find at archaeological sites."
+                    },
+                    {
+                        "rank": 4,
+                        "content": "ng hot spots.\nThe 25 Top Writing Errors\nGrammar and Usage\n1. Lack of clarity\n2. Redundancy (unnecessary words)\n3. Problems with subject-verb agreement\n4. Lack of parallel structure\n5. Wrong verb tense\n6. Mixed metaphors\n7. Dangling modifiers\n8. Misplaced modifiers\n9. Incorrect idioms\n10. Biased language\n11. Incorrect voice (active versus passive voice)\nSentences\n12. Fragments (incomplete sentences)\n13. Run-ons (two sentences run together)\nSpelling\n14. Missing letters\n15. Extra letters\n16. Transp"
+                    },
+                    {
+                        "rank": 5,
+                        "content": "Chapter 11 for a complete discussion of capitalization.\nMost Common Proofreading Errors\n25. Missing words\nIncorrect: Proofread carefully to see if you have any words out.\nCorrect:\nProofread carefully to see if you have left any words out.\nThis is a simple rule, but many people run out of time before they can proofread a docu-\nment. Always make the time to proofread your writing. And try to let your writing sit and\n“cool off” for a few hours. The errors will become much more obvious and easier t"
+                    }
+                ]
+            },
+            {
+                "index": "5",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yes i agree but one of the main disadvantage of it is that you don't really know to whom you're talking to exactly so it's not that reliable.",
+                "corrected_sentence": "Yes, I agree, but one of the main disadvantages of it is that you don't really know exactly who you're talking to, so it's not that reliable.",
+                "o_start": 22,
+                "o_end": 23,
+                "original_text": "exactly",
+                "c_start": 22,
+                "c_end": 22,
+                "corrected_text": "",
+                "error_type": "U:ADV",
+                "llm_explanation": "The error is a matter of unclear referent in a sentence. The rule that was broken is the rule of referent in a sentence, which states that the first character of a sentence should be the referent of the sentence, and that the referent should be a noun or pronoun.",
+                "rag": [
+                    {
+                        "rank": 1,
+                        "content": "ht, if they needed him. \n(defining; referring to the object of the relative clause)\nAnd I r\nemember\n sailing out of Dublin Bav. which is a beautiful, beautiful bay \nwith the I lill of Howth on one side.\n(non-defining)\n•••/317c Who Гог error warning\nWhich can refer to the complement of a preposition, and the preposition may be \nplaced at the end of the relative clause (more informal) or immediately before the \nrelative pronoun (more formal):\nShe taught at the school which my nieces went to.\nWhy d"
+                    },
+                    {
+                        "rank": 2,
+                        "content": "ould be.\nG Check that all parts of the sentence are logically related. Are they in the same tense,\nfor example?\nG Reread your sentences to make sure all pronouns refer to their antecedents and are\nplaced as close as possible to them.\nG Check that you have punctuated your sentences correctly.\n2. Redundancy (unnecessary words)\nIncorrect: If you reread your work, you will find upon serious reconsideration that a\ngreat deal of repetition can be avoided by careful editing and revising and attentive\nr"
+                    },
+                    {
+                        "rank": 3,
+                        "content": "ich it refers.\nYour speech and writing will be confusing if your pronoun reference is unclear.\nCarelessly placed pronouns can create unintentionally funny sentences as well as confus-\ning ones. Consider the difference between what the writer thinks he or she said and what is\nreally being said in the following sentences:\nLast week, a wart appeared on my right thumb, and I want it removed.\n(Are you removing the wart or the thumb?)\nGuilt and unkindness can be emotionally destructive to you and your"
+                    },
+                    {
+                        "rank": 4,
+                        "content": "(see 252). \nAn infinitive phrase such as to tell the truth, to cut a long story short can be placed at the \nbeginning or end of a sentence (see 253). \nThe infinitive as subject \nAn infinitive or an infinitive phrase can be the subject of the verbs appear, be, seem. The \ninfinitive can be placed first: \nTo compromise appears advisable. \nTo lean out of the window is dangerous. \nTo save money now seems impossible. \nBut it is more usual to place the pronoun it first, and move the infinitive or infi"
+                    },
+                    {
+                        "rank": 5,
+                        "content": "erb ending in -ing. It is dangling when the subject of the participle\nand the subject of the sentence don’t agree. For example:\nIncorrect: Rushing to finish the paper, Bob’s printer broke.\nThe subject is Bob’s printer, but the printer isn’t doing the rushing.\nCorrect:\nWhile Bob was rushing to finish the paper, his printer broke.\nOne way to tell whether the participle is dangling is to put the clause with the participle\nright after the subject of the sentence: “Bob’s printer, rushing to finish th"
+                    }
+                ]
+            }
+        ]
+    },
+    "6": {
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Yeah i agree so maybe a good alternative would be talking face to face you can it's like the most reliable way but one disadvantages it would have would be maybe you have to require the other person to be with you in the same place it cannot be in the other parts of the world like only chatting can do that.",
+        "t5_checked_sentence": "Yeah, I agree so maybe a good alternative would be talking face to face. It's like the most reliable way but one disadvantage it would have would be maybe you have to require the other person to be with you in the same place",
+        "llm_explanation": "[ 'i should be capitalized as the first person singular pronoun', \n 'I agree should be capitalized as the first word in a sentence', \n'so is a transition word, but it should be followed by a comma', \n'maybe is a transition word, but it should be followed by a comma', \n 'a good alternative would be talking face to face should be a separate sentence', \n 'it's is a contraction, it should be written as 'it is','\n 'one disadvantage it would have would be maybe you have to require the other person to be with you in the same place is a run-on sentence', \n'maybe is a transition word, but it should be followed by a comma', \n 'it cannot",
+        "errant": [
+            {
+                "index": "6",
+                "speaker": "SPEAKER_01",
+                "original_sentence": "Yeah i agree so maybe a good alternative would be talking face to face you can it's like the most reliable way but one disadvantages it would have would be maybe you have to require the other person to be with you in the same place it cannot be in the other parts of the world like only chatting can do that.",
+                "corrected_sentence": "Yeah, I agree so maybe a good alternative would be talking face to face. It's like the most reliable way but one disadvantage it would have would be maybe you have to require the other person to be with you in the same place",
+                "o_start": 24,
+                "o_end": 25,
+                "original_text": "disadvantages",
+                "c_start": 22,
+                "c_end": 22,
+                "corrected_text": "disadvantage",
+                "error_type": "R:NOUN:NUM",
+                "llm_explanation": "The error is a missing article (\"a\" or \"an\") before the noun \"alternative\".",
+                "rag": [
+                    {
+                        "rank": 1,
+                        "content": "noun, but we can use the with any noun. We also\nuse some as a plural equivalent of a/an.\nSome shelves were put up.\nWe can also sometimes use a noun on its own without an article.\nAccidents can happen.\nThe form of the articles • 159\nWe use a before a consonant sound and an before a vowel sound.\na visitor \nan exhibition\nThe basic use of the articles • 160\nA/an is the indefinite article, and the is the definite article. We use the when it is\nclear which one we mean. This can happen in three differ"
+                    },
+                    {
+                        "rank": 2,
+                        "content": "Chapter 11 for a complete discussion of capitalization.\nMost Common Proofreading Errors\n25. Missing words\nIncorrect: Proofread carefully to see if you have any words out.\nCorrect:\nProofread carefully to see if you have left any words out.\nThis is a simple rule, but many people run out of time before they can proofread a docu-\nment. Always make the time to proofread your writing. And try to let your writing sit and\n“cool off” for a few hours. The errors will become much more obvious and easier t"
+                    },
+                    {
+                        "rank": 3,
+                        "content": "The captain ordered . . . \nLetters written to two or more unmarried sisters jointly may be addressed The Misses + \nsurname: The Misses Smith. \n \n \n7 \nOmission of the \n \nA \nThe definite article is not used: \n1  Before names of places except as shown above, or before names of people. \n2  Before abstract nouns except when they are used in a particular sense; \nMen fear death but The death a/the Prime Minister left his party without a leader. \n3  After a noun in the possessive case, or a possessive"
+                    },
+                    {
+                        "rank": 4,
+                        "content": "e discussion of capitalization.\n24. Errors in titles\nIncorrect: The Wind In The Willows\nCorrect:\nThe Wind in the Willows\nCapitalize the major words in titles of books, plays, movies, newspapers, and magazines.\nG Do not capitalize the articles: a, an, the.\nG Do not capitalize prepositions: at, by, for, of, in, up, on, so, on, to, etc.\nG Do not capitalize conjunctions: and, as, but, if, or, nor.\nSee Chapter 11 for a complete discussion of capitalization.\nMost Common Proofreading Errors\n25. Missing"
+                    },
+                    {
+                        "rank": 5,
+                        "content": ",\noccur, remain, result, sit, stand, take place.\nNOTE\nWe can use seem, appear, happen, chance, turn out, prove and tend with to be.\nThere doesn't seem to be enough memory in the computer.\nThere proved to be no truth in the rumour.\nThere appears to have been an accident.\nWe can sometimes use a noun phrase after seem, especially one with little or no.\nThere seemed (to be) little difference between the two alternatives.\nThere seems (to be) no reason for alarm.\n5 The empty subject it\na \nA clause lik"
+                    }
+                ]
+            }
+        ]
+    },
+    "7": {
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Yeah and and also you you can notice when someone's lying or when something's wrong between you two.",
+        "t5_checked_sentence": "Yeah, and also you can notice when someone's lying or when something's wrong between you two.",
+        "llm_explanation": "1. 'and' is missing a conjunction and should be replaced with 'and'.\n2. 'also' is not a conjunction and should be replaced with 'also'.\n3. 'you can notice' is a dangling modifier and should be rephrased to 'you can notice'.\n4. 'between you two' is not parallel and should be rephrased to 'between you two'.\n5.'someone's' is missing an apostrophe and should be replaced with'someone's'.\n6.'something's' is missing an apostrophe and should be replaced with'something's'.\n7. 'between you two' is not parallel and should be rephrased to 'between you and'.\n8. 'when' is",
+        "errant": [
+            {
+                "index": "7",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yeah and and also you you can notice when someone's lying or when something's wrong between you two.",
+                "corrected_sentence": "Yeah, and also you can notice when someone's lying or when something's wrong between you two.",
+                "o_start": 1,
+                "o_end": 2,
+                "original_text": "and",
+                "c_start": 1,
+                "c_end": 1,
+                "corrected_text": "",
+                "error_type": "U:CONJ",
+                "llm_explanation": "The error is a U:CONJ error, where a conjunction has been used as a word.",
+                "rag": [
+                    {
+                        "rank": 1,
+                        "content": "ters, 85\nTwain, Mark (Samuel Clemens), 200\nunless, as subordinating conjunction, 119,\n135\nus/we, 22\nUsage errors, 77–97\ncapitalization, 79, 93\ngrammar and usage, 78, 79–83\nproofreading, 79, 93\npunctuation, 78, 92–93\nsentence construction, 78, 83, 121–124\nspelling, 78, 83–91\nVerb phrases, 13\nVerbal phrases, 102, 103–104\nVerbals, 103\nVerbs, 31–44, 189\naction, 12, 13\nadverb clauses to describe, 107\nadverbs to describe, 6\nconjugating, 33\ndefined, 12\nhelping, 13, 63\nintransitive, 12\nirregular, 33–37"
+                    },
+                    {
+                        "rank": 2,
+                        "content": "des its clause: \nOur cases were heavy, so we look a taxi. \ntherefore (conjunction) can be used instead of so in formal English. It can come at the \nbeginning of the clause or after the first word or phrase; or before the main verb: \nThere is fog at Heathrow; the plane, therefore, has been diverted/the plane has therefore \nbeen diverted/therefore the plane has been diverted. \n••• still and yet can be adverbs of time (see 37): \nThe children are still up. They haven't had supper yet. '•' still and"
+                    },
+                    {
+                        "rank": 3,
+                        "content": "(else) see won't get a seat. \nso (adverb of degree) precedes its adjective/adverb: \nI was so hot that. . .    They ran so fast that. . . so (conjunction) precedes its clause: \nOur cases were heavy, so we look a taxi. \ntherefore (conjunction) can be used instead of so in formal English. It can come at the \nbeginning of the clause or after the first word or phrase; or before the main verb: \nThere is fog at Heathrow; the plane, therefore, has been diverted/the plane has therefore \nbeen diverted/th"
+                    },
+                    {
+                        "rank": 4,
+                        "content": "e discussion of capitalization.\n24. Errors in titles\nIncorrect: The Wind In The Willows\nCorrect:\nThe Wind in the Willows\nCapitalize the major words in titles of books, plays, movies, newspapers, and magazines.\nG Do not capitalize the articles: a, an, the.\nG Do not capitalize prepositions: at, by, for, of, in, up, on, so, on, to, etc.\nG Do not capitalize conjunctions: and, as, but, if, or, nor.\nSee Chapter 11 for a complete discussion of capitalization.\nMost Common Proofreading Errors\n25. Missing"
+                    },
+                    {
+                        "rank": 5,
+                        "content": "come down once to Devon to see the family?)\n539 Glossary for any unfamiliar terms\n1181\n From word to grammar: an A-Z\nN\noun once \n59b\nOnce can be used as a noun in the expressions the once and this once, usually with \njust. This structure is more common in informal spoken contexts:\nA: How many times did you go ther\ne?\nB: Just the once.\nJust this once I’ll let you have the CD player\n.\nConjunction once \n59c\nOnce is used as a conjunction meaning ‘as soon as’ or ‘when’.\n9  Future or conditional forms"
+                    }
+                ]
+            },
+            {
+                "index": "7",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yeah and and also you you can notice when someone's lying or when something's wrong between you two.",
+                "corrected_sentence": "Yeah, and also you can notice when someone's lying or when something's wrong between you two.",
+                "o_start": 4,
+                "o_end": 5,
+                "original_text": "you",
+                "c_start": 3,
+                "c_end": 3,
+                "corrected_text": "",
+                "error_type": "U:PRON",
+                "llm_explanation": "The error is a U:PRON error, which occurs when the pronoun \"you\" is replaced with the letter \"U\". The error is found in the sentence \"Yeah and and also you you can notice when someone's lying or when something's wrong between you two.\" \n\nThe original sentence is \"Yeah and and also you you can notice when someone's lying or when something's wrong between you two.\" \n\nThe corrected sentence is \"Yeah, and also you can notice when someone's lying or when something's wrong between you two.\" \n\nThe error occurs because the first character in the original sentence is in position 0, indicating that the pronoun \"you\" is missing, resulting in a U:PRON error. The corrected sentence",
+                "rag": [
+                    {
+                        "rank": 1,
+                        "content": "ich it refers.\nYour speech and writing will be confusing if your pronoun reference is unclear.\nCarelessly placed pronouns can create unintentionally funny sentences as well as confus-\ning ones. Consider the difference between what the writer thinks he or she said and what is\nreally being said in the following sentences:\nLast week, a wart appeared on my right thumb, and I want it removed.\n(Are you removing the wart or the thumb?)\nGuilt and unkindness can be emotionally destructive to you and your"
+                    },
+                    {
+                        "rank": 2,
+                        "content": "n is sometimes used in subject position.\nMatthew and me are good friends. \nYou or him can have a turn now.\nThis happens only in informal English and is seen by many people as wrong. Some people\nincorrectly use I even when the phrase is not the subject.\nIt's a present from Matthew and I.\nd \nWe cannot normally leave out a pronoun.\nWell, he's quite tall, NOT Well, is quite tall.\nYou describe him to me. NOT You describe to me.\nBut we can leave out some subject pronouns in informal speech. • 42\ne \nWe"
+                    },
+                    {
+                        "rank": 3,
+                        "content": "erb ending in -ing. It is dangling when the subject of the participle\nand the subject of the sentence don’t agree. For example:\nIncorrect: Rushing to finish the paper, Bob’s printer broke.\nThe subject is Bob’s printer, but the printer isn’t doing the rushing.\nCorrect:\nWhile Bob was rushing to finish the paper, his printer broke.\nOne way to tell whether the participle is dangling is to put the clause with the participle\nright after the subject of the sentence: “Bob’s printer, rushing to finish th"
+                    },
+                    {
+                        "rank": 4,
+                        "content": "ly, of \ncourse, probably, perhaps, maybe\nand possibly.\nDid you open my letter? ~ Certainly not.\n4 So in short answers\nA short answer with so can express agreement. The pattern is so + pronoun +\nauxiliary or be.\nYou've made a mistake here. ~ Oh, so I have. Thank you.\nThis pattern has a different meaning to a yes/no short answer.\nThis glass is cracked. ~ So it is. I hadn't noticed.\n~ Yes, it is. I meant to throw it away.\nSo it is means here that the speaker notices the crack for the first time.\n5"
+                    },
+                    {
+                        "rank": 5,
+                        "content": "that a verb + that-ctause does not necessarily have the same meaning as the same \nverb + infinitive/gerund/present participle: He saw her answering the letters means 'He \nwatched her doing this' but He saw that she answered the letters could mean either 'He \nnoticed that she did this' or 'He made sure by supervision that she did this'. \nC \nappear, happen, occur, seem, turn out require it as subject: \nIt appears/seems that we have come on the wrong day. \nIf occurred to me that he might be lying."
+                    }
+                ]
+            }
+        ]
+    },
+    "8": {
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Yeah so then maybe an alternative to that would be talking on the phone.",
+        "t5_checked_sentence": "Yeah, then maybe an alternative to that would be talking on the phone.",
+        "llm_explanation": "Here is the list of errors with explanations:\n\n1. 'You are an English teacher' is not needed. The sentence starts with 'You are an English teacher'.\n\n2. 'You will explain' is not needed. The sentence starts with 'You will explain'.\n\n3. 'That will explain' is not needed. The sentence should be 'You will explain'.\n\n4. 'That will explain' is not needed. The sentence should be 'You will explain'.\n\n5. 'You are an English teacher' is not needed. The sentence starts with 'You are an English teacher'.\n\n6. 'That will explain' is not needed. The sentence should be 'You will explain'.\n\n7. 'You are an English teacher' is not needed.",
+        "errant": [
+            {
+                "index": "8",
+                "speaker": "SPEAKER_01",
+                "original_sentence": "Yeah so then maybe an alternative to that would be talking on the phone.",
+                "corrected_sentence": "Yeah, then maybe an alternative to that would be talking on the phone.",
+                "o_start": 1,
+                "o_end": 2,
+                "original_text": "so",
+                "c_start": 1,
+                "c_end": 1,
+                "corrected_text": "",
+                "error_type": "U:ADV",
+                "llm_explanation": "The error is a U:ADV error where the original sentence is Yeah so then maybe an alternative to that would be talking on the phone, and the corrected sentence is Yeah, then maybe an alternative to that would be talking on the phone.",
+                "rag": [
+                    {
+                        "rank": 1,
+                        "content": "e is normally assumed.\nThis can be shown by changing the word order in the sentence:\nev\nen\nt 1 \nev\nen\nt 2\nThen she went out and she phoned my br\nother\n.\neven\nt 1 \nev\nen\nt 2\nThen she phoned my br\nother\n and she went out\nIf the real sequence of events is different from the word order of the sentence, then \nthis must be indicated explicitly (e.g. by a temporal conjunction) :\nev\nen\nt 2 \nev\nen\nt 1\nShe identified herself when she answered the phone.\n(she answered the phone first, then identified herse"
+                    },
+                    {
+                        "rank": 2,
+                        "content": "eems a pity to give up now instead of \nTo give up now seems a pity. \nIf it + be is preceded by find/think (that), the be and the that can often by omitted: \nHe thought (that) it (would be) better to say nothing. \nWe found it impossible to get visas. \n3 \nit can be used similarly when the subject of a sentence is a clause. It would be possible to \nsay: \nThat he hasn't phoned is odd. \nThat prices will go up is certain.  \nBut it would be much more usual to say: \nIt's odd that he hasn't phoned. \nIt's"
+                    },
+                    {
+                        "rank": 3,
+                        "content": "actions in particular situations. It is \nparticularly common in spoken language and is normally contracted to ’d better\n in \ninformal contexts. The verb form is always had, not have:\n[the phone rings]\nA: I’d better answer\n that.\nB: Okay.\n[looking at the clock]\nIf that’s the r\night time, w e’d better hur\nr\ny.\n(We have better hurry.)\nО  Had better\n is not used to refer to general obligations or requirements. In such \ncases, have to is used instead:\nYou have to get good exam gr\nades to get into uni"
+                    },
+                    {
+                        "rank": 4,
+                        "content": "er speakers also use so as an intensifier with noun phrases, though such \nusage is considered incorrect by many speakers:\n[teenager commenting on a mobile phone]\nThat phone is so last week.\n(it is out of date, not the latest model)\nThat’s so Sandr\na. I knew she wouldn’t help us.\n(That’s typical of Sandra.)\n••ÿ 539 Glossary for any unfamiliar terms\n1421\n From word to grammar: an A-Z\nQ S o is not used before an adjective that is used attributively. Such must be used \ninstead:\nI took such nice phot"
+                    },
+                    {
+                        "rank": 5,
+                        "content": "uction is \nreplaceable by noun/pronoun + verb: \nThere have been several break-ins this year. \nThere will be plenty of room for everyone. \nThere were hundreds of people on the beach. (R) \nB  there can be used similarly with someone/anyone/no one/iSmnething etc.: \nThere's someone on the phone for you. (R) \nC  there + be + something/nothing/anything + adjective is also \npossible: \n/s there anything wrong (with your car)? (R) ~ \nNo, there's nothing wrong with it. (R) There's something odd/strange ab"
+                    }
+                ]
+            }
+        ]
+    },
+    "9": {
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Yes but sometimes it's not quite good it's not that effective because for example my grandmother doesn't hear too well so when when we talk on the phone she it's really difficult for her to to have a conversation with us.",
+        "t5_checked_sentence": "Yes, sometimes it's not quite good, it's not that effective because for example my grandmother doesn't hear too well, so when we talk on the phone it's really difficult for her to have a conversation with us",
+        "llm_explanation": "Here's the list of errors:\n\n[ 'Error 1 is the missing comma after \"Yes\"', \n'Error 2 is the unnecessary comma after \"it's\"', \n'Error 3 is the unnecessary comma after \"it's\"', \n'Error 4 is the unnecessary comma after \"to\"', \n'Error 5 is the missing comma after \"example\"', \n'Error 6 is the missing comma after \"phone\"', \n'Error 7 is the unnecessary comma after \"us\"', \n'Error 8 is the unnecessary repetition of \"when\"', \n'Error 9 is the unnecessary repetition of \"to\"', \n'Error 10 is the unnecessary repetition of \"it's\"', \n'Error 11 is the unnecessary repetition of",
+        "errant": [
+            {
+                "index": "9",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yes but sometimes it's not quite good it's not that effective because for example my grandmother doesn't hear too well so when when we talk on the phone she it's really difficult for her to to have a conversation with us.",
+                "corrected_sentence": "Yes, sometimes it's not quite good, it's not that effective because for example my grandmother doesn't hear too well, so when we talk on the phone it's really difficult for her to have a conversation with us",
+                "o_start": 1,
+                "o_end": 2,
+                "original_text": "but",
+                "c_start": 1,
+                "c_end": 1,
+                "corrected_text": "",
+                "error_type": "U:CONJ",
+                "llm_explanation": "The error is a U:CONJ, which involves a missing or extra conjunction. The broken rule is the use of a comma splice, where two independent clauses are joined with a comma without a conjunction.",
+                "rag": [
+                    {
+                        "rank": 1,
+                        "content": "s cannot bite humans because their jaws won’t open wide enough.\nor\nDaddy longlegs spiders are more poisonous than black widows; however, daddy \nlonglegs cannot bite humans because their jaws won’t open wide enough.\nA run-on sentence occurs when two complete sentences (“independent clauses”) are\nincorrectly joined. Sentences can only be joined with a coordinating conjunction (and,\nbut, or, nor, for, so, yet) or a semicolon—a comma doesn’t cut the mustard. See Chapter\n8 for a complete discussion o"
+                    },
+                    {
+                        "rank": 2,
+                        "content": "ni.\nsubject. verb\nA run-on sentence is two incorrectly joined independent clauses. A comma splice is a run-\non sentence with a comma where the two independent clauses run together. When your sen-\ntences run together, your ideas are garbled.\nRun-on: Our eyes are always the same size from birth our nose and ears never stop growing.\nCorrected: Our eyes are always the same size from birth, but our nose and ears never stop\ngrowing.\nRun-on: A duck’s quack doesn’t echo, no one knows why.\nCorrected: A d"
+                    },
+                    {
+                        "rank": 3,
+                        "content": "tes each sentence.\n1. Effective sentences stress the (minor, main) point or the most important detail.\n2. A run-on sentence is the same as a (fragment, comma splice).\n126\nENGLISH GRAMMAR FOR THE UTTERLY CONFUSED\n3. There are two basic types of sentence errors: fragments and (run-on sentences, inde-\npendent clauses).\n4. (Dependent, Independent) clauses are complete sentences because they have a sub-\nject and a verb and express a complete thought.\n5. (Dependent, Independent) clauses cannot stand a"
+                    },
+                    {
+                        "rank": 4,
+                        "content": "sentence with a comma because you will\nend up with a type of run-on sentence called a comma splice. More on this later in\nthis chapter.\n3. Complex sentences\nA complex sentence contains one independent clause and at least one dependent clause.\nThe independent clause is called the main clause. These sentences use subordinating con-\njunctions to link ideas. The subordinating conjunctions include such words as: because, as,\nas if, unless, provided that, if, even if. A complete list of subordinating"
+                    },
+                    {
+                        "rank": 5,
+                        "content": "reely expressing opinions about her work \nsituation to her employers]\nIf you complain or if you dar\ne to put comments that ar\ne not suitable for\n what \nthey want to hear\n, then you get a bad r\neputation.\nCoordination may occur without the explicit link created by a conjunction. This is \nparticularly true in literary style or for special effect in narrative texts. In the \nfollowing example, clauses are coordinated by the use of commas alone. \nCoordinated clauses simply placed next to each other w"
+                    }
+                ]
+            },
+            {
+                "index": "9",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yes but sometimes it's not quite good it's not that effective because for example my grandmother doesn't hear too well so when when we talk on the phone she it's really difficult for her to to have a conversation with us.",
+                "corrected_sentence": "Yes, sometimes it's not quite good, it's not that effective because for example my grandmother doesn't hear too well, so when we talk on the phone it's really difficult for her to have a conversation with us",
+                "o_start": 21,
+                "o_end": 22,
+                "original_text": "when",
+                "c_start": 20,
+                "c_end": 20,
+                "corrected_text": "",
+                "error_type": "U:ADV",
+                "llm_explanation": "The error is a comma splice (U:ADV) because of a missing conjunction or a semicolon to connect the two independent clauses \"it's not that effective\" and \"for example my grandmother doesn't hear too well\".",
+                "rag": [
+                    {
+                        "rank": 1,
+                        "content": "s cannot bite humans because their jaws won’t open wide enough.\nor\nDaddy longlegs spiders are more poisonous than black widows; however, daddy \nlonglegs cannot bite humans because their jaws won’t open wide enough.\nA run-on sentence occurs when two complete sentences (“independent clauses”) are\nincorrectly joined. Sentences can only be joined with a coordinating conjunction (and,\nbut, or, nor, for, so, yet) or a semicolon—a comma doesn’t cut the mustard. See Chapter\n8 for a complete discussion o"
+                    },
+                    {
+                        "rank": 2,
+                        "content": "ni.\nsubject. verb\nA run-on sentence is two incorrectly joined independent clauses. A comma splice is a run-\non sentence with a comma where the two independent clauses run together. When your sen-\ntences run together, your ideas are garbled.\nRun-on: Our eyes are always the same size from birth our nose and ears never stop growing.\nCorrected: Our eyes are always the same size from birth, but our nose and ears never stop\ngrowing.\nRun-on: A duck’s quack doesn’t echo, no one knows why.\nCorrected: A d"
+                    },
+                    {
+                        "rank": 3,
+                        "content": "emicolon between closely related independent clauses when the coordinating con-\njunction has been left out.\nThe chef cooked far too much chicken; we eagerly devoured the excess.\n2. Use a semicolon between main clauses connected by conjunctive adverbs such as however,\nnevertheless, moreover, for example, and consequently.\nSarah wanted to be a doctor; however, she faints at the sight of blood.\n3. Use a semicolon to join independent clauses when one or both clauses contain a comma.\nGlenn, who is an"
+                    },
+                    {
+                        "rank": 4,
+                        "content": "tes each sentence.\n1. Effective sentences stress the (minor, main) point or the most important detail.\n2. A run-on sentence is the same as a (fragment, comma splice).\n126\nENGLISH GRAMMAR FOR THE UTTERLY CONFUSED\n3. There are two basic types of sentence errors: fragments and (run-on sentences, inde-\npendent clauses).\n4. (Dependent, Independent) clauses are complete sentences because they have a sub-\nject and a verb and express a complete thought.\n5. (Dependent, Independent) clauses cannot stand a"
+                    },
+                    {
+                        "rank": 5,
+                        "content": ", so, yet) or a semicolon—a comma doesn’t cut the mustard. See Chapter\n8 for a complete discussion of sentences.\nMost Common Spelling Errors\nWriters often misspell words because they mispronounce them. The three most common mis-\ntakes are\nG Dropping a letter or syllable when we say a word.\nG Adding an unnecessary letter when we say a word.\nG Mispronouncing a word and so misspelling it.\n14. Missing letters\nHere are 10 words that are frequently misspelled because the speaker drops a letter or\nsyll"
+                    }
+                ]
+            },
+            {
+                "index": "9",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yes but sometimes it's not quite good it's not that effective because for example my grandmother doesn't hear too well so when when we talk on the phone she it's really difficult for her to to have a conversation with us.",
+                "corrected_sentence": "Yes, sometimes it's not quite good, it's not that effective because for example my grandmother doesn't hear too well, so when we talk on the phone it's really difficult for her to have a conversation with us",
+                "o_start": 28,
+                "o_end": 29,
+                "original_text": "she",
+                "c_start": 26,
+                "c_end": 26,
+                "corrected_text": "",
+                "error_type": "U:PRON",
+                "llm_explanation": "The error is a repeated pronoun \"it's\" (U:PRON), where the broken rule is \"A pronoun cannot be repeated within a sentence.\"",
+                "rag": [
+                    {
+                        "rank": 1,
+                        "content": "ly, of \ncourse, probably, perhaps, maybe\nand possibly.\nDid you open my letter? ~ Certainly not.\n4 So in short answers\nA short answer with so can express agreement. The pattern is so + pronoun +\nauxiliary or be.\nYou've made a mistake here. ~ Oh, so I have. Thank you.\nThis pattern has a different meaning to a yes/no short answer.\nThis glass is cracked. ~ So it is. I hadn't noticed.\n~ Yes, it is. I meant to throw it away.\nSo it is means here that the speaker notices the crack for the first time.\n5"
+                    },
+                    {
+                        "rank": 2,
+                        "content": "uction is \nreplaceable by noun/pronoun + verb: \nThere have been several break-ins this year. \nThere will be plenty of room for everyone. \nThere were hundreds of people on the beach. (R) \nB  there can be used similarly with someone/anyone/no one/iSmnething etc.: \nThere's someone on the phone for you. (R) \nC  there + be + something/nothing/anything + adjective is also \npossible: \n/s there anything wrong (with your car)? (R) ~ \nNo, there's nothing wrong with it. (R) There's something odd/strange ab"
+                    },
+                    {
+                        "rank": 3,
+                        "content": ", so, yet) or a semicolon—a comma doesn’t cut the mustard. See Chapter\n8 for a complete discussion of sentences.\nMost Common Spelling Errors\nWriters often misspell words because they mispronounce them. The three most common mis-\ntakes are\nG Dropping a letter or syllable when we say a word.\nG Adding an unnecessary letter when we say a word.\nG Mispronouncing a word and so misspelling it.\n14. Missing letters\nHere are 10 words that are frequently misspelled because the speaker drops a letter or\nsyll"
+                    },
+                    {
+                        "rank": 4,
+                        "content": "pronoun: This is the problem. We are having the problem.) \n(This i3 the problem which we’re having it at-the moment.)\nThe woman who I g a v e  t h e  f o rm  to was quite fr\niendly.\n(object of a preposition: I gave the form to the woman.)\n(The woman who I gave the form to her was quite friendly.)\nHowever, occasionally, in very informal speech, an element may be repeated \nunnecessarily:\n[DJ inviting listeners to call in and talk about songs which are very special to \nthem]\nIf you have one that y"
+                    },
+                    {
+                        "rank": 5,
+                        "content": "repeats the subject of the main clause to which it \nrefers, and agrees in number, person and gender with the subject of the main \nclause.\nWhere the main clause contains an auxiliary or modal verb or lexical verb be, it \nis repeated in the tag.\nExamples of question tags with repeated auxiliary\ndedarative clause \nauxiliary/m\nodal verb \nsubject pronoun\n1 \nYou've wor\nked har\nd, \nhaven’t \nyou?\n2 \nHe didn’t get it, \ndid \nhe?\n3 \nWe had talked about it, \nhadn’t \nwe?\n4 \nI can do it now, \ncan \nI?\n5 \nKate"
+                    }
+                ]
+            },
+            {
+                "index": "9",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yes but sometimes it's not quite good it's not that effective because for example my grandmother doesn't hear too well so when when we talk on the phone she it's really difficult for her to to have a conversation with us.",
+                "corrected_sentence": "Yes, sometimes it's not quite good, it's not that effective because for example my grandmother doesn't hear too well, so when we talk on the phone it's really difficult for her to have a conversation with us",
+                "o_start": 34,
+                "o_end": 35,
+                "original_text": "to",
+                "c_start": 31,
+                "c_end": 31,
+                "corrected_text": "",
+                "error_type": "U:VERB:FORM",
+                "llm_explanation": "The main idea of the error is that it's missing a subject-verb agreement, specifically a verb conjugation to match the subject \"she\" (third person singular).",
+                "rag": [
+                    {
+                        "rank": 1,
+                        "content": "wastes their time. Say what you need to say concisely. Since your\nwriting will be more intelligible, it will communicate its message directly.\n80\nENGLISH GRAMMAR FOR THE UTTERLY CONFUSED\n3. Problems with subject-verb agreement\nIncorrect: Verbs has to agree with their subjects.\nCorrect:\nVerbs have to agree with their subjects.\nAgreement means that sentence parts match, singular to singular and plural to plural.\nSince the subject verbs is plural, it takes a plural verb, agree.\nThis is confusing b"
+                    },
+                    {
+                        "rank": 2,
+                        "content": "ng hot spots.\nThe 25 Top Writing Errors\nGrammar and Usage\n1. Lack of clarity\n2. Redundancy (unnecessary words)\n3. Problems with subject-verb agreement\n4. Lack of parallel structure\n5. Wrong verb tense\n6. Mixed metaphors\n7. Dangling modifiers\n8. Misplaced modifiers\n9. Incorrect idioms\n10. Biased language\n11. Incorrect voice (active versus passive voice)\nSentences\n12. Fragments (incomplete sentences)\n13. Run-ons (two sentences run together)\nSpelling\n14. Missing letters\n15. Extra letters\n16. Transp"
+                    },
+                    {
+                        "rank": 3,
+                        "content": "ost clearly and concisely communicate my message?\nG Which version fits best with the rest of the passage?\nSentence Errors: Fragments\nAs its name suggests, a sentence fragment is a group of words that do not express a complete\nthought. Most times, a fragment is missing a subject, a verb, or both. Other times, a fragment\nWriting Correct and Complete Sentences\n123\nmay have a subject and a verb but still not express a complete thought. Fragments can be\nphrases as well as clauses.\nQuick Tip\nSentence"
+                    },
+                    {
+                        "rank": 4,
+                        "content": "iss Louise.\nSubject-verb inversion of the types exemplified above do not occur when the \nsubject is a pronoun:\nA: Where’s the tin-opener\n?\nВ : Oh I saw it ear\nlier\n ... here it is.\nA: Thanks.\n(Oh I saw it earlier ... here is it.)\nCambridge Grammar \nof \nEnglish\nFrom word to grammarian A-Z 195\nThere goes our train! We’ve missed it.\nThere it goes! We’ve missed it.\n(There goes it! We’ve missed it.)\nHere’s, said when handing or giving something to someone, is often used instead \nof here ar\ne with plu"
+                    },
+                    {
+                        "rank": 5,
+                        "content": "GRAMMAR FOR THE UTTERLY CONFUSED\nAgreement of Pronouns and Antecedents\nLike subjects and verbs, pronouns and antecedents (the words to which they refer) must\nagree. Follow these rules to make sure that your pronouns and antecedents match.\n1. A pronoun agrees (or matches) with its antecedent in number, person, and gender.\nHortense gave half her cupcake to Shirley.\nBoth the antecedent Hortense and the pronoun her are singular in number, in the third\nperson, and feminine in gender.\nErrors often oc"
+                    }
+                ]
+            }
+        ]
+    },
+    "10": {
+        "speaker": "SPEAKER_01",
+        "original_sentence": "So maybe using body language is something everyone understands so it may not be as easy as to communicate using body language if you lack the social skills maybe.",
+        "t5_checked_sentence": "So maybe using body language is something everyone understands so it may not be as easy to communicate using body language if you lack the social skills maybe.",
+        "llm_explanation": "Here is the list of errors in the sentence:\n\n- 'So' is an unnecessary word and is considered a filler word. It's not a grammatically correct way to start a sentence.\n- 'So' should be removed.\n- 'So maybe' is unnecessary and redundant. The sentence already starts with 'So'.\n- 'So it may' is unnecessary and redundant. The sentence already starts with 'So'.\n- 'So' is an unnecessary word and is considered a filler word. It's not a grammatically correct way to start a sentence.\n- 'So maybe' is unnecessary and redundant. The sentence already starts with 'So'.\n- 'It' is a pronoun that does not refer to any specific noun in the sentence.\n-",
+        "errant": [
+            {
+                "index": "10",
+                "speaker": "SPEAKER_01",
+                "original_sentence": "So maybe using body language is something everyone understands so it may not be as easy as to communicate using body language if you lack the social skills maybe.",
+                "corrected_sentence": "So maybe using body language is something everyone understands so it may not be as easy to communicate using body language if you lack the social skills maybe.",
+                "o_start": 16,
+                "o_end": 17,
+                "original_text": "as",
+                "c_start": 16,
+                "c_end": 16,
+                "corrected_text": "",
+                "error_type": "U:PREP",
+                "llm_explanation": "The error is a U:PREP error, which occurs when a word or phrase is not in the correct position in the sentence.\n\nThe original sentence is: \"So maybe using body language is something everyone understands so it may not be as easy as to communicate using body language if you lack the social skills maybe.\"\n\nThe corrected sentence is: \"So maybe using body language is something everyone understands so it may not be as easy to communicate using body language if you lack the social skills.\"\n\nThe error is caused by an extra \"maybe\" in the original sentence, which is not in the correct position.",
+                "rag": [
+                    {
+                        "rank": 1,
+                        "content": "as mischievious,\nadding an extra i.\nG Perseverance: People often add an extra r, resulting in perserverance. Saying the word\ncorrectly will prevent this error.\nThe 25 Most Common Usage Problems\n85\nQuick Tip\nLong-time speakers and readers of English have learned basic connections\nbetween sounds and letter combinations that help them spell a large number of\nwords. However, for historical reasons, certain combinations of letters are not\nalways pronounced in the same way. For example, ough can be pr"
+                    },
+                    {
+                        "rank": 2,
+                        "content": "gle” when the word it modifies has been left out of the\nsentence.\n5. An idiom is a verb ending in -ing. Idioms always have literal meanings.\n6. Never use language that denigrates people because of their age, gender, race, or\nphysical condition.\n\u0002\n\u0002\nTest\nYourself\nI\nt\n’\ns\na\nW\nr\na\np\nThe 25 Most Common Usage Problems\n95\n7. Avoid the passive voice because the active voice is stronger and clearer.\n8. A sentence fragment occurs when two complete sentences (“independent clauses”)\nare incorrectly joined."
+                    },
+                    {
+                        "rank": 3,
+                        "content": "n is sometimes used in subject position.\nMatthew and me are good friends. \nYou or him can have a turn now.\nThis happens only in informal English and is seen by many people as wrong. Some people\nincorrectly use I even when the phrase is not the subject.\nIt's a present from Matthew and I.\nd \nWe cannot normally leave out a pronoun.\nWell, he's quite tall, NOT Well, is quite tall.\nYou describe him to me. NOT You describe to me.\nBut we can leave out some subject pronouns in informal speech. • 42\ne \nWe"
+                    },
+                    {
+                        "rank": 4,
+                        "content": "tion: \nWhy did you do it? ~ I did it because I was angry. (for not possible) \nA Practical English Grammar \n268\n4 A for-clause cannot be a mere repetition of what has been already stated, but always \nincludes some new piece of information: \nHe spoke in French. She was angry because he had spoken in \nFrench, (for is not possible.) But She was angry, for she didn 't know French. (Here for is \ncorrect; \nbecause is also possible.) \nThe reason for these restrictions is that a for-clause does not tell"
+                    },
+                    {
+                        "rank": 5,
+                        "content": "n ing-form can be a gerund or an active participle, depending on how we use it in a\nsentence.\nGerund: Jogging is good for you.\nParticiple: We watched the students jogging round the campus.\nBut in some contexts it may be difficult to say whether an ing-form is a gerund or\nparticiple, and it is not always important to know the difference. Remember that using the\nform correctly is more important than naming it.\n3 \nWe use a perfect gerund for something before the time of the main clause.\nSarah remem"
+                    }
+                ]
+            }
+        ]
+    },
+    "11": {
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Um i agree i mean using body language is really difficult to to see when when someone's sad or when something's happening to them.",
+        "t5_checked_sentence": "Um, I agree that using body language is really difficult to see when someone's sad or when something's happening to them.",
+        "llm_explanation": "'explained error 1': Missing article (a or the)\n'Error 1 is this' = I (missing article)\nThis is wrong because a subject-verb agreement requires a definite article (the or a) before the noun.\n\n'explained error 2': Double negative\n'Error 2 is that' = I'm not, there is a double negative.\nThat is wrong because double negatives are usually avoided in English.",
+        "errant": [
+            {
+                "index": "11",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Um i agree i mean using body language is really difficult to to see when when someone's sad or when something's happening to them.",
+                "corrected_sentence": "Um, I agree that using body language is really difficult to see when someone's sad or when something's happening to them.",
+                "o_start": 11,
+                "o_end": 12,
+                "original_text": "to",
+                "c_start": 10,
+                "c_end": 10,
+                "corrected_text": "",
+                "error_type": "U:VERB:FORM",
+                "llm_explanation": "The error is due to a mismatch between the original sentence and the corrected sentence.",
+                "rag": [
+                    {
+                        "rank": 1,
+                        "content": "at the sentence looks like with a conjunctive adverb added:\nWater and wind are the two main causes of erosion; as a result, they constantly change the\nappearance of the Earth.\nWhich corrected version do you choose? Select the one that best suits your audience, pur-\npose, and writing style. Ask yourself these questions as you decide:\nG Which version will my readers like best?\nG Which version will most clearly and concisely communicate my message?\nG Which version fits best with the rest of the pas"
+                    },
+                    {
+                        "rank": 2,
+                        "content": "at’s because\nthe modifier they call Paws is in the wrong place in the sentence. To correct a misplaced\nmodifier, move the modifier as close as possible to the word or phrase it describes.\n9. Incorrect idioms\nIncorrect: It’s raining cats and puppies.\nCorrect:\nIt’s raining cats and dogs.\nThe phrase “It’s raining cats and dogs” is an idiom, an expression that has a figurative\nrather than literal meaning. Expressions such as “make a big deal out of it,” “on the dou-\nble,” and “down and out” are idio"
+                    },
+                    {
+                        "rank": 3,
+                        "content": "ction\nand form. Then you will practice correcting incomplete and incorrect\nsentences.\nT\nh\ni\ns\nC\nh\na\np\nt\ne\nr\n?\nt\no\nR\ne\na\nd\nD\no\nI\nN\ne\ne\nd\nCHAPTER 8\nWriting Correct and\nComplete Sentences\n115\nCopyright 2003 by The McGraw-Hill Companies, Inc. Click Here for Terms of Use.\n116\nENGLISH GRAMMAR FOR THE UTTERLY CONFUSED\nWhat is a Sentence?\nSentence: Halt!\nSentence: You halt!\nSentence: Please halt right now, before you go any further.\nEach of these three word groups is a sentence because they each meet th"
+                    },
+                    {
+                        "rank": 4,
+                        "content": ", so, yet) or a semicolon—a comma doesn’t cut the mustard. See Chapter\n8 for a complete discussion of sentences.\nMost Common Spelling Errors\nWriters often misspell words because they mispronounce them. The three most common mis-\ntakes are\nG Dropping a letter or syllable when we say a word.\nG Adding an unnecessary letter when we say a word.\nG Mispronouncing a word and so misspelling it.\n14. Missing letters\nHere are 10 words that are frequently misspelled because the speaker drops a letter or\nsyll"
+                    },
+                    {
+                        "rank": 5,
+                        "content": "n being a very costly and pungent spice.\nQuick Tip\nDon’t be misled by a capital letter at the beginning of a word group. Starting a\ngroup of words with a capital letter doesn’t make the word group a sentence. It\njust makes it a fragment that starts with a capital letter.\nYou can correct a fragment three ways:\n1. Add the missing part to the sentence.\nFragment: Because more and more teenagers are staying up far too late.\nComplete: Because more and more teenagers are staying up far too late, they a"
+                    }
+                ]
+            },
+            {
+                "index": "11",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Um i agree i mean using body language is really difficult to to see when when someone's sad or when something's happening to them.",
+                "corrected_sentence": "Um, I agree that using body language is really difficult to see when someone's sad or when something's happening to them.",
+                "o_start": 14,
+                "o_end": 15,
+                "original_text": "when",
+                "c_start": 12,
+                "c_end": 12,
+                "corrected_text": "",
+                "error_type": "U:ADV",
+                "llm_explanation": "The error was found in the original sentence:\n\"Where the error type is U:ADV, the original sentence is Um i agree i mean using body language is really difficult to see when when someone's sad or when something's happening to them., the corrected sentence is Um, I agree that using body language is really difficult to see when someone's sad or when something's happening to them.. and supposing that the first character is in position 0, the error text is between the characters 14 and 15 in the original sentence, and the corrected text is between the characters 12 and 12 in the corrected sentence.\"\n\nThe main idea of the error is that the corrected sentence is not correctly aligned with the original sentence, resulting in a mismatch",
+                "rag": [
+                    {
+                        "rank": 1,
+                        "content": ", so, yet) or a semicolon—a comma doesn’t cut the mustard. See Chapter\n8 for a complete discussion of sentences.\nMost Common Spelling Errors\nWriters often misspell words because they mispronounce them. The three most common mis-\ntakes are\nG Dropping a letter or syllable when we say a word.\nG Adding an unnecessary letter when we say a word.\nG Mispronouncing a word and so misspelling it.\n14. Missing letters\nHere are 10 words that are frequently misspelled because the speaker drops a letter or\nsyll"
+                    },
+                    {
+                        "rank": 2,
+                        "content": ", by\njealous for others\njealous of others\noutlook of life\noutlook on life\npuzzled on\npuzzled at, by\nsimilar with\nsimilar to\nThe 25 Most Common Usage Problems\n83\nG To avoid placing blame (“A mistake was made” rather than “You made a mistake.”)\nG To avoid identifying the doer of the action (“The letter was sent” rather than “Nicole\nsent the letter.”)\nMost Common Sentence Errors\n12. Fragments (incomplete sentences)\nFragment: If you want to be clearly understood.\nCorrect:\nDon’t write sentence fragme"
+                    },
+                    {
+                        "rank": 3,
+                        "content": "so much dust that we couldn't see what was happening. So many people \ncomplained that they took the programme off. \nC Note that such + a + adjective + noun is replaceable by so + adjective + a + noun, so that \n'such a good man\" is replaceable by 'so good a man'. This is only possible when a noun is \npreceded by a/an. It is not a very usual form but may be met in literature. Sometimes for \nemphasis so is placed at the beginning of the sentence. It is then followed by the inverted form \nof the ve"
+                    },
+                    {
+                        "rank": 4,
+                        "content": "Chapter 11 for a complete discussion of capitalization.\nMost Common Proofreading Errors\n25. Missing words\nIncorrect: Proofread carefully to see if you have any words out.\nCorrect:\nProofread carefully to see if you have left any words out.\nThis is a simple rule, but many people run out of time before they can proofread a docu-\nment. Always make the time to proofread your writing. And try to let your writing sit and\n“cool off” for a few hours. The errors will become much more obvious and easier t"
+                    },
+                    {
+                        "rank": 5,
+                        "content": "erb ending in -ing. It is dangling when the subject of the participle\nand the subject of the sentence don’t agree. For example:\nIncorrect: Rushing to finish the paper, Bob’s printer broke.\nThe subject is Bob’s printer, but the printer isn’t doing the rushing.\nCorrect:\nWhile Bob was rushing to finish the paper, his printer broke.\nOne way to tell whether the participle is dangling is to put the clause with the participle\nright after the subject of the sentence: “Bob’s printer, rushing to finish th"
+                    }
+                ]
+            }
+        ]
+    },
+    "12": {
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Maybe written letters and postcards is the different one from all of all of them as it can also express emotions between countries and that excitement you have when you receive a postcard which is not really normal nowadays we all use email or chatting is really nice to have.",
+        "t5_checked_sentence": "Maybe written letters and postcards are the different one from all of them as it can also express emotions between countries and that excitement you have when you receive a postcard which is not really normal nowadays we all use email or chatting is really nice",
+        "llm_explanation": "Here are the errors in the original sentence:\n\n[ 'Subject-verb agreement error', 'Missing article error', 'Incorrect use of \"is\" for \"are\"', 'Run-on sentence error', 'Misused \"is\" for \"are\" again', 'Missing conjunction error' ]\n\n1. Error 1 is this: 'Subject-verb agreement error'. The subject 'written letters and postcards' is a plural noun, so the verb should be 'are' instead of 'is'.\n\n2. Error 2 is that: 'Missing article error'. The phrase 'the different one' should be 'the different ones' to agree with the plural subject.\n\n3. Error 3 is that: 'Incorrect use of \"is\" for \"",
+        "errant": [
+            {
+                "index": "12",
+                "speaker": "SPEAKER_01",
+                "original_sentence": "Maybe written letters and postcards is the different one from all of all of them as it can also express emotions between countries and that excitement you have when you receive a postcard which is not really normal nowadays we all use email or chatting is really nice to have.",
+                "corrected_sentence": "Maybe written letters and postcards are the different one from all of them as it can also express emotions between countries and that excitement you have when you receive a postcard which is not really normal nowadays we all use email or chatting is really nice",
+                "o_start": 5,
+                "o_end": 6,
+                "original_text": "is",
+                "c_start": 5,
+                "c_end": 5,
+                "corrected_text": "are",
+                "error_type": "R:VERB:SVA",
+                "llm_explanation": "The main error is a subject-verb agreement issue (SVA). \n\nThe broken rule is that \"written letters and postcards\" should be a singular subject (one unit) taking a singular verb \"is\", not a plural verb \"are\".",
+                "rag": [
+                    {
+                        "rank": 1,
+                        "content": "wastes their time. Say what you need to say concisely. Since your\nwriting will be more intelligible, it will communicate its message directly.\n80\nENGLISH GRAMMAR FOR THE UTTERLY CONFUSED\n3. Problems with subject-verb agreement\nIncorrect: Verbs has to agree with their subjects.\nCorrect:\nVerbs have to agree with their subjects.\nAgreement means that sentence parts match, singular to singular and plural to plural.\nSince the subject verbs is plural, it takes a plural verb, agree.\nThis is confusing b"
+                    },
+                    {
+                        "rank": 2,
+                        "content": ". Remember the rule introduced in the beginning\nof this chapter: A subject must agree with its verb in number.\n64\nENGLISH GRAMMAR FOR THE UTTERLY CONFUSED\nAll the other rules follow from this one. The easiest rules are these two:\nG A singular subject must have a singular verb.\nG A plural subject must have a plural verb.\nLet’s examine the first rule.\n5. A singular subject must have a singular verb.\nShe \nhesitates at all intersections, making the other drivers angry.\nsing. subject\nsing. verb\nThe s"
+                    },
+                    {
+                        "rank": 3,
+                        "content": "third person there is sometimes agreement between the subject and the first\n(or only) word of a finite verb phrase.\nThe house is empty. \nThe houses are empty.\nHere we use is with a singular subject and are with a plural.\nAn uncountable noun takes a singular verb.\nThe grass is getting long.\n18 AGREEMENT \nPAGE 1\n9\n2\nWith a present-tense verb there is agreement.\nThe window is broken. \nThe windows are broken.\nThe office has a phone. \nThe offices have phones.\nThe garden looks nice. \nThe gardens look"
+                    },
+                    {
+                        "rank": 4,
+                        "content": "nd, 62–69, 80\nSubject of verb, nominative case for, 20–21,\n24\nSubject of writing, 120\nSubject-verb agreement, 62–69, 80\nwith collective nouns, 66–67\nerrors in, 69\nhard-to-find subjects and, 69\nwith indefinite pronouns, 67–69\nintervening phrases and, 69\nplural subject and verb, 62–63, 65–66\nsingular subject and verb, 62, 63–65\nSubordinate (dependent) clauses, 11,\n105–108, 119–120, 121, 123\nSubordinating conjunctions, 7, 105–106, 119,\n122, 124, 135\nSubordination, 134–136\ncoordination versus, 136\ne"
+                    },
+                    {
+                        "rank": 5,
+                        "content": "called agreement. It helps\nyou create smooth and logical sentences.\nThe basic rule of sentence agreement is simple: A subject must agree with its verb in num-\nber. Number means singular or plural.\nG A singular subject names one person, place, thing, or idea.\nG A plural subject names more than one person, place, thing, or idea.\nHere are some examples:\nSingular\nPlural \nSubjects\nSubjects\nPerson:\nI\nthey\nPlace:\nbeach\nbeaches\nThing:\ndesk\ndesks\nIdea:\nfreedom\nfreedoms\nSingular\nPlural\nSingular or\nPlural"
+                    }
+                ]
+            }
+        ]
+    },
+    "17": {
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Um i will start off with using body language as we all as we've already said i mean it's really difficult to to notice and what do you think.",
+        "t5_checked_sentence": "Um, I will start off with using body language as we all, as we've already said, mean it's really difficult to notice and what do you think?",
+        "llm_explanation": "Here are the errors in the original sentence:\n\n* 'Um' is an informal filler word and should not be used in a formal or professional context.\n* 'will' is a modal verb that doesn't quite fit the sentence structure.\n* 'as we all' is an informal expression that is not suitable for a formal or professional context.\n* 'we've already said' is a phrase that doesn't add meaning to the sentence.\n*'mean' is a verb that doesn't fit the context of the sentence.\n* 'it's really difficult to notice' is a phrase that is not grammatically correct.\n* 'and what do you think' is a phrase that doesn't add meaning to the sentence.\n\nCorrecting these errors, the corrected",
+        "errant": [
+            {
+                "index": "17",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Um i will start off with using body language as we all as we've already said i mean it's really difficult to to notice and what do you think.",
+                "corrected_sentence": "Um, I will start off with using body language as we all, as we've already said, mean it's really difficult to notice and what do you think?",
+                "o_start": 16,
+                "o_end": 17,
+                "original_text": "i",
+                "c_start": 16,
+                "c_end": 16,
+                "corrected_text": "",
+                "error_type": "U:PRON",
+                "llm_explanation": "The error is a U:PRON error, where a word is replaced with a pronoun. The original sentence is:\n\n\"Um I will start off with using body language as we all as we've already said I mean it's really difficult to notice and what do you think.\"\n\nThe corrected sentence is:\n\n\"Um I will start off with using body language as we all, as we've already said, mean it's really difficult to notice and what do you think?\"\n\nThe error occurs when the word \"all\" is replaced with the pronoun \"I\".",
+                "rag": [
+                    {
+                        "rank": 1,
+                        "content": "ound, \n(do so = look\nyou may do so. \nround)\n• 43(3) \nreplacing a clause \nHave we got time?~ \n(think so = think\nI think so. \nwe've got time)\n• 43(4) \nexpressing agreement \nThe coach has arrived. ~ So 'I see/remember\nit has. \nthat...'\n• 43(5a) \nreplacing an adjective \nThings have been difficult, (less so = less\nbut they should become \ndifficult)\nless \nso.\n• 212 \nexpressing degree \nThe view was so nice. \n'very'\nHe does talk so. \n'a lot'\n• 247 \nexpressing reason \nI \nwas tired, so I went to bed. 'the"
+                    },
+                    {
+                        "rank": 2,
+                        "content": ", so, yet) or a semicolon—a comma doesn’t cut the mustard. See Chapter\n8 for a complete discussion of sentences.\nMost Common Spelling Errors\nWriters often misspell words because they mispronounce them. The three most common mis-\ntakes are\nG Dropping a letter or syllable when we say a word.\nG Adding an unnecessary letter when we say a word.\nG Mispronouncing a word and so misspelling it.\n14. Missing letters\nHere are 10 words that are frequently misspelled because the speaker drops a letter or\nsyll"
+                    },
+                    {
+                        "rank": 3,
+                        "content": "so much dust that we couldn't see what was happening. So many people \ncomplained that they took the programme off. \nC Note that such + a + adjective + noun is replaceable by so + adjective + a + noun, so that \n'such a good man\" is replaceable by 'so good a man'. This is only possible when a noun is \npreceded by a/an. It is not a very usual form but may be met in literature. Sometimes for \nemphasis so is placed at the beginning of the sentence. It is then followed by the inverted form \nof the ve"
+                    },
+                    {
+                        "rank": 4,
+                        "content": "eant to throw it away.\nSo it is means here that the speaker notices the crack for the first time.\n5 So, that way and the same\na \nSo can replace an adjective after become and remain.\nThe situation is not yet serious, but it may become so. (= become serious)\nSo is rather formal here. In informal English we use get/stay that way.\nThe situation isn't serious yet, but it might get that way.\nWe can use so with more or less.\nIt's generally pretty busy here - more so in summer, of \ncourse.\nPAGE 49 \n44 S"
+                    },
+                    {
+                        "rank": 5,
+                        "content": "refore has to be used: \nHe's an astrologer, looking for work. ~ I shouldn't/wouldn't think that he'd find it easy to get \nwork. \nIf we are commenting on a past action we use should/would have thought: \nHe actually got a job as an astrologer. ~ I shouldn 't/wouldn 't have thought that it was possible \nto do that. \nshould/would have expected + an infinitive construction or a that-clause is also possible. \nThe impersonal pronoun you can sometimes replace I: \nShe has emigrated. ~ Has she? You'd/I'd"
+                    }
+                ]
+            },
+            {
+                "index": "17",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Um i will start off with using body language as we all as we've already said i mean it's really difficult to to notice and what do you think.",
+                "corrected_sentence": "Um, I will start off with using body language as we all, as we've already said, mean it's really difficult to notice and what do you think?",
+                "o_start": 21,
+                "o_end": 22,
+                "original_text": "to",
+                "c_start": 20,
+                "c_end": 20,
+                "corrected_text": "",
+                "error_type": "U:VERB:FORM",
+                "llm_explanation": "The error is an example of a U:VERB:FORM error, where the U indicates that the error is a verb form error, and the :VERB:FORM indicates that the error is related to a verb form.\n\nThe original sentence is \"Um, I will start off with using body language as we all, as we've already said, mean it's really difficult to notice and what do you think?\".\n\nThe error is in the first character, which is in position 0, which is an incorrect use of a verb form. The corrected sentence should be \"I will start off with using body language as we all, as we've already said, mean it's really difficult to notice and what do you think?\".\n\nThe corrected",
+                "rag": [
+                    {
+                        "rank": 1,
+                        "content": ".)\nI didn't like complaining. (= I complained, but I didn't enjoy it.)\nc When the main verb has a continuous form, we normally avoid using another ing-form\nafter it.\nThe spectators were already beginning to arrive. NOT beginning arriving\nd After start, begin and continue, a state verb usually has the to-infinitive form.\nI soon began to understand what the problems were.\ne Commence and cease are formal. For stop, • (3e).\nf Bother is normally in a negative sentence or question.\nDon't bother to was"
+                    },
+                    {
+                        "rank": 2,
+                        "content": "se with the participle\nright after the subject of the sentence: “Bob’s printer, rushing to finish the paper, broke.”\nYou can easily hear that it doesn’t sound right.\nNote: Not all words that end in -ing are participles. For example: “Completing the task by\nTuesday is your next assignment.” The word completing functions as a noun, not a verb.\n(Nouns ending in -ing are called gerunds.)\n8. Misplaced modifiers\nIncorrect: My parents bought a kitten for my sister they call Paws.\nCorrect:\nMy parents bo"
+                    },
+                    {
+                        "rank": 3,
+                        "content": "and so should you, I think. We haven’t got that \nmuch time.\nThe negative is formed with initial neither\n or nor\n, or with n o t... either\n. In the case \nof negatives beginning with neither\n or nor\n, subject-verb inversion follows:\nFr\nank didn’t go and neither\n did we in the end.\nA: Oh, I haven’t got any small change at all.\nB: Nor\n have I.\nA: I haven’t got a for\nk.\nB: Oh, Anne hasn’t either\n. I’ll get some.\nr f r i f  71 So for further examples\nCOHESION AND COMPARATIVE FORMS \n135\nComparative for"
+                    },
+                    {
+                        "rank": 4,
+                        "content": "d used in this way we can omit that + the \nverb be, i.e. we can say: \nHe found (that) it was easy to earn extra money or \nHe found it easy to earn extra money. \nHe will find (that) it is hard to make friends or \nHe will find it hard to make friends. This is sometimes also possible with think: \nHe thought it safer to go. \nAfter other verbs, however, the student is advised not to omit the be. (For similar gerund constructions, \nsee 258.) \nG  The perfect infinitive can also be used as the subject o"
+                    },
+                    {
+                        "rank": 5,
+                        "content": "ll\nInitial so often occurs, with a meaning similar to as well or additive too. This is \nparticularly common in short responses and with pronoun subjects. Subject-verb \ninversion follows:\nA: I love those r\ned tulips.\nB: So do I.\n(or: I do too.)\n539 Glossary for any unfamiliar terms\n2561\n Grammar across turns and sentences\nA: Well, w e’r\ne r\neady.\nB: So ar\ne we- Let’s go.\nWell, I’ve packed my case, and so should you, I think. We haven’t got that \nmuch time.\nThe negative is formed with initial neit"
+                    }
+                ]
+            }
+        ]
+    },
+    "20": {
+        "speaker": "SPEAKER_01",
+        "original_sentence": "Then maybe talking face to face is really effective with communicating.",
+        "t5_checked_sentence": "Then maybe talking face to face is really effective in communicating.",
+        "llm_explanation": "1. 'face' should be 'face-to-face' in the first instance.\n2. 'is' should be 'is in' in the second instance.\n3.'really' is not necessary in the second instance.\n4. 'in' is not necessary in the second instance.\n5. 'effective' is not necessary in the second instance.\n6. 'in' is not necessary in the second instance.\n7. 'is' should be 'is in' in the second instance.\n8.'really' is not necessary in the second instance.\n9. 'in' is not necessary in the second instance.\n10. 'effective' is not necessary in the second instance.\n11. 'in' is not necessary in the",
+        "errant": [
+            {
+                "index": "20",
+                "speaker": "SPEAKER_01",
+                "original_sentence": "Then maybe talking face to face is really effective with communicating.",
+                "corrected_sentence": "Then maybe talking face to face is really effective in communicating.",
+                "o_start": 9,
+                "o_end": 10,
+                "original_text": "with",
+                "c_start": 9,
+                "c_end": 9,
+                "corrected_text": "in",
+                "error_type": "R:PREP",
+                "llm_explanation": "The error is that the sentence \"Then maybe talking face to face is really effective with communicating.\" was changed to \"Then maybe talking face to face is really effective in communicating.\"",
+                "rag": [
+                    {
+                        "rank": 1,
+                        "content": "d face-to-face nature of spoken communication also \nmeans that speakers have to choose the best ways to organise and sequence their \nmessages for the benefit of their listeners and in collaboration with them. This \ninvolves ‘marking’ the discourse, signalling for the listener what is happening \nusing the discourse-marking resources of the language.\nSpeakers also express stances, attitudes and feelings towards their messages \nand reactions to what others say, all in real-time face-to-face interac"
+                    },
+                    {
+                        "rank": 2,
+                        "content": "se markers \n(\n•\n•\n>\n•\n 108) also play a vital part in maintaining a listener’s involvement.\nIn informal, face-to-face conversations speakers are often careful not to sound \ntoo assertive or direct; normally they do not wish to seem impolite to their \nlisteners. They are also careful not to sound over-precise, which might be taken to \nbe threatening or pedantic. Consequently, polite forms and indirect language, \npurposefully vague language and approximations (\n••£ 103) are much in evidence \nand i"
+                    },
+                    {
+                        "rank": 3,
+                        "content": "reflect the face-to-face nature of the communication, \nwhere references are often to persons and things in the immediate situation. \nPronouns referring to things in the shared context are in bold in this extract:\n[four people are assembling a child’s portable bed, for which they have \ninstructions]\nA: It should fit ther\ne cos ifs  not that big I don’t think.\nB: It’s war\nm in her\ne, shall I tur\nn that down?\nA: We’ve got the instr\nuctions anyway.\nС : /\n thought you’d or\nganised i t ... just put it"
+                    },
+                    {
+                        "rank": 4,
+                        "content": "ded clauses) are often simplified in real-time informal speech. \nSome examples are discussed here and in 94 Situational ellipsis.\nPronouns\nThe ‘online’ nature of spoken communication means that pronouns are often \npreferred to nouns. Pronouns are only rarely modified and are therefore easier to \nconstruct and allow speed of communication. They also indicate the shared \ncontext of the speakers and reflect the face-to-face nature of the communication, \nwhere references are often to persons and thi"
+                    },
+                    {
+                        "rank": 5,
+                        "content": "suffix: -less\nIn this chapter (434-447) clause negation is described first, followed by sections \non negative words, then we consider negation as a discourse feature. Several \nindividual negative words are treated in greater detail in A-Z entries.\nNegation is more common in spoken than in written language. One of the main \nreasons for this is that in spoken, face-to-face interaction there are \ncommunicative risks in being too assertive; for example, asserting too much and \ntoo definitely can be"
+                    }
+                ]
+            }
+        ]
+    },
+    "21": {
+        "speaker": "SPEAKER_02",
+        "original_sentence": "Yeah that's really effective but one that wouldn't be that effective for example is written letters and postcards because as you said they can get lost and never get to where they had to.",
+        "t5_checked_sentence": "Yeah, that's really effective, but one that wouldn't be that effective for example is written letters and postcards because as you said, they can get lost and never get to where they had to.",
+        "llm_explanation": "[ 'Error 1: Lack of comma after \"effective\" ', \n  'Error 2: Lack of comma after \"example\" ', \n  'Error 3: Missing period after the last sentence', \n  'Error 4: Incomplete sentence without a period' ]\n\n[ 'This is wrong because the sentence is a run-on and lacks proper punctuation.', \n  'This is wrong because the sentence is a run-on and lacks proper punctuation.', \n  'This is wrong because the sentence is a fragment and lacks a period.', \n  'This is wrong because the sentence is a fragment and lacks a period.' ]",
+        "errant": [
+            {
+                "index": "21",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yeah that's really effective but one that wouldn't be that effective for example is written letters and postcards because as you said they can get lost and never get to where they had to.",
+                "corrected_sentence": "Yeah, that's really effective, but one that wouldn't be that effective for example is written letters and postcards because as you said, they can get lost and never get to where they had to.",
+                "o_start": 3,
+                "o_end": 4,
+                "original_text": "effective",
+                "c_start": 3,
+                "c_end": 3,
+                "corrected_text": "effective,",
+                "error_type": "R:ADJ",
+                "llm_explanation": "The error is a missing comma after \"as you said\" (broken rule: Comma splice or missing comma after introductory phrase).",
+                "rag": [
+                    {
+                        "rank": 1,
+                        "content": "(that) his feet hurt.\nYou told me (that) you enjoyed the visit.\nWe can sometimes use a non-finite clause.\nGould admitted having lost to a better side. • 270(2d)\nThey declared the result to be invalid. • 122(2c)\nNOTE\na We use a comma after said, admitted etc and before direct speech, but not before\nindirect speech.\nFiona said, 'It's getting late.'\nFiona said it was getting late.\nb Sometimes the main clause is at the end, as a kind of afterthought. There is a comma\nafter the indirect speech.\nHis"
+                    },
+                    {
+                        "rank": 2,
+                        "content": ", so, yet) or a semicolon—a comma doesn’t cut the mustard. See Chapter\n8 for a complete discussion of sentences.\nMost Common Spelling Errors\nWriters often misspell words because they mispronounce them. The three most common mis-\ntakes are\nG Dropping a letter or syllable when we say a word.\nG Adding an unnecessary letter when we say a word.\nG Mispronouncing a word and so misspelling it.\n14. Missing letters\nHere are 10 words that are frequently misspelled because the speaker drops a letter or\nsyll"
+                    },
+                    {
+                        "rank": 3,
+                        "content": "between inverted commas, and a ' comma or colon is \nplaced immediately before the remark. Direct speech \nis found in conversations in books, in plays, and in quotations. \nIn indirect speech we give the exact meaning of a remark or a speech, without necessarily \nusing the speaker's exact words: \nHe said (that) he had lost his umbrella. \nThere is no comma after say in indirect speech. that can usually be omitted after say and tell \n+ object. But it should be kept after other verbs: complain, expl"
+                    },
+                    {
+                        "rank": 4,
+                        "content": "onger phrases.\na \nAdverbials\nWe can use a comma after an adverbial clause or phrase at the beginning of a\nsentence.\nAfter the guests had all left, we had to tidy up.\nAfter their departure, we had to tidy up.\nAfterwards, we had to tidy up.\nThe comma is more necessary if the adverbial is long. After a short phrase there is\noften no comma.\nAfterwards we had to tidy up.\nA comma is much less usual when the adverbial comes at the end of the sentence.\nWe had to tidy up after the guests had left.\nWe had"
+                    },
+                    {
+                        "rank": 5,
+                        "content": "did about it?\nOh, so, you ’II be off in about an hour\n, then?\nCambridge Grammar of \nEnglish\nAppendix: Punctuation 1845\nIn reporting speech\nCommas are used to indicate that direct speech is following or has just occurred. \nWhen the direct speech is first, the comma comes before the closing of the \nquotation marks:\nHe said, “Now it’s time for big changes. ”\n“I ’m too old for\n that kind of thing,\" she said with a broad gr\nin.\n•••Jalso 5 0 6 f below\nCommas are not used in reporting structures after"
+                    }
+                ]
+            },
+            {
+                "index": "21",
+                "speaker": "SPEAKER_02",
+                "original_sentence": "Yeah that's really effective but one that wouldn't be that effective for example is written letters and postcards because as you said they can get lost and never get to where they had to.",
+                "corrected_sentence": "Yeah, that's really effective, but one that wouldn't be that effective for example is written letters and postcards because as you said, they can get lost and never get to where they had to.",
+                "o_start": 21,
+                "o_end": 22,
+                "original_text": "said",
+                "c_start": 21,
+                "c_end": 21,
+                "corrected_text": "said,",
+                "error_type": "R:VERB",
+                "llm_explanation": "The main idea: A missing comma after \"but\" to separate clauses.\n\nThe broken rule: Lack of a comma after a coordinating conjunction (\"but\") to indicate a break in thought.",
+                "rag": [
+                    {
+                        "rank": 1,
+                        "content": "ll \n10g\nAfter\n all as a conjunction has a concessive meaning, similar to ‘besides’, or the \nmeaning of ‘one should not forget/ignore the fact that...\nAfter\n all may occur in front, mid or end position in the clause. It is normally \nseparated from the rest of the clause by a comma or commas:\nThe gar\nage on the main road has been boarded up for som e time. It’s been \nboarded up now for near\nly seventeen months. It just seems silly. I mean, \nafter all, it’s unusual to have a petr\nol station in a fa"
+                    },
+                    {
+                        "rank": 2,
+                        "content": "s cannot bite humans because their jaws won’t open wide enough.\nor\nDaddy longlegs spiders are more poisonous than black widows; however, daddy \nlonglegs cannot bite humans because their jaws won’t open wide enough.\nA run-on sentence occurs when two complete sentences (“independent clauses”) are\nincorrectly joined. Sentences can only be joined with a coordinating conjunction (and,\nbut, or, nor, for, so, yet) or a semicolon—a comma doesn’t cut the mustard. See Chapter\n8 for a complete discussion o"
+                    },
+                    {
+                        "rank": 3,
+                        "content": "(that) his feet hurt.\nYou told me (that) you enjoyed the visit.\nWe can sometimes use a non-finite clause.\nGould admitted having lost to a better side. • 270(2d)\nThey declared the result to be invalid. • 122(2c)\nNOTE\na We use a comma after said, admitted etc and before direct speech, but not before\nindirect speech.\nFiona said, 'It's getting late.'\nFiona said it was getting late.\nb Sometimes the main clause is at the end, as a kind of afterthought. There is a comma\nafter the indirect speech.\nHis"
+                    },
+                    {
+                        "rank": 4,
+                        "content": "close of any letter.\nYours truly,\nSincerely,\nQuick Tip\nRemember: The coordi-\nnating conjunctions are\nand, but, for, or, nor, \nso, yet.\n152\nENGLISH GRAMMAR FOR THE UTTERLY CONFUSED\n3. Use a comma after interrupting words and expressions.\nG Use a comma to set off interrupting words and expressions.\nThe State University of New York, did you know, has 64 campuses scattered across\nNew York State.\nG Use a comma to set off words of direct address (words that tell to whom a remark is\naddressed).\nNanci,"
+                    },
+                    {
+                        "rank": 5,
+                        "content": "e clause (one which is dependent on a main \nclause). Common subordinating conjunctions are: after\n, although, as, befor\ne, if, \nsince, that, until, when, wher\neas, while. Some subordinating conjunctions consist \nof more than one word: as long as, as soon as, except that, in or\nder\n to, in or\nder\n \nthat, provided that:\nThey had to cancel their\n holiday in Br\nazil because Anne’s mother\n was \nser\niously ill.\nAs you have not explained your\n action, the school will be making a for\nmal \nr\nepor\nt on yo"
+                    }
+                ]
+            }
+        ]
+    },
+    "24": {
+        "speaker": "SPEAKER_00",
+        "original_sentence": "Thank you can i have the booklet please.",
+        "t5_checked_sentence": "Thank you, can I have the booklet please?",
+        "llm_explanation": "1. 'can' should be 'can I' (subject-verb agreement)\n2. 'booklet' should be 'booklets' (noun agreement)\n3. 'please' is unnecessary (politeness is not needed)",
+        "errant": [
+            {
+                "index": "24",
+                "speaker": "SPEAKER_00",
+                "original_sentence": "Thank you can i have the booklet please.",
+                "corrected_sentence": "Thank you, can I have the booklet please?",
+                "o_start": 7,
+                "o_end": 8,
+                "original_text": "please.",
+                "c_start": 7,
+                "c_end": 7,
+                "corrected_text": "please?",
+                "error_type": "R:NOUN",
+                "llm_explanation": "The error is a deletion of a word, and the broken rule is the rule that a word should not be deleted.",
+                "rag": [
+                    {
+                        "rank": 1,
+                        "content": "Chapter 11 for a complete discussion of capitalization.\nMost Common Proofreading Errors\n25. Missing words\nIncorrect: Proofread carefully to see if you have any words out.\nCorrect:\nProofread carefully to see if you have left any words out.\nThis is a simple rule, but many people run out of time before they can proofread a docu-\nment. Always make the time to proofread your writing. And try to let your writing sit and\n“cool off” for a few hours. The errors will become much more obvious and easier t"
+                    },
+                    {
+                        "rank": 2,
+                        "content": ", so, yet) or a semicolon—a comma doesn’t cut the mustard. See Chapter\n8 for a complete discussion of sentences.\nMost Common Spelling Errors\nWriters often misspell words because they mispronounce them. The three most common mis-\ntakes are\nG Dropping a letter or syllable when we say a word.\nG Adding an unnecessary letter when we say a word.\nG Mispronouncing a word and so misspelling it.\n14. Missing letters\nHere are 10 words that are frequently misspelled because the speaker drops a letter or\nsyll"
+                    },
+                    {
+                        "rank": 3,
+                        "content": "misunderstanding: \nlow-flying aircraft  \nquick-dissolving sugar \nC  \nHyphens are used in a temporary way to divide a word at the end of a line. The \ndivision must be made at a natural break in the word, i.e. between syllables; \ndis-cauraged \nlook-ing  \ninter-val \nA monosyllable should not be divided. \n \n \n \n31 \nIndirect speech \n \n307 \nDirect and indirect (or reported) speech \n \nThere are two ways of relating what a person has said: direct and indirect. \nIn direct speech we repeat the original"
+                    },
+                    {
+                        "rank": 4,
+                        "content": "ost clearly and concisely communicate my message?\nG Which version fits best with the rest of the passage?\nSentence Errors: Fragments\nAs its name suggests, a sentence fragment is a group of words that do not express a complete\nthought. Most times, a fragment is missing a subject, a verb, or both. Other times, a fragment\nWriting Correct and Complete Sentences\n123\nmay have a subject and a verb but still not express a complete thought. Fragments can be\nphrases as well as clauses.\nQuick Tip\nSentence"
+                    },
+                    {
+                        "rank": 5,
+                        "content": "dramatically \nidiotic \nidiotically\nNOTE An exception is publicly.\n293 The doubling of consonants\n1 \nDoubling happens in a one-syllable word that ends with one written vowel and\none written consonant, such as win, put, sad, plan. We double the consonant\nbefore a vowel.\nwin \nwinner \nput \nputting \nsad \nsaddest \nplan \nplanned\nNOTE\n3 \nThe rule about doubling is also true for words of more than one syllable, but only if\nthe last syllable is stressed.\nfor'get \nforgetting \nprefer \npreferred\nWe do not us"
+                    }
+                ]
+            }
+        ]
+    }
+}

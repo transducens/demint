@@ -38,7 +38,6 @@ def extract_audio(video_file="", audio_file=""):
 
     return 1
 
-    return 1
 
 
 def extract_all_audios_of_directory(video_directory="assets/videos", audio_directory="assets/audios"):

@@ -591,7 +591,7 @@ def get_arguments():
     parser.add_argument("--conver", required=True, type=str, help="The transcripted conversation to show. Default is diarization_result")
     parser.add_argument("--speaker", type=str, default="All speakers", help="The speaker to show in the transcript. Default is All speakers.")
     parser.add_argument("--port", type=int, default=7860, help="The port in which the server will run. Default is 8000")
-    parser.add_argument("--no_log", action="store_true", help="If the flag is called, the chatbot conversation will not be logged. Default is False.")
+    parser.add_argument("--no_log", action="store_true", help="If the flag is called, the chatbot conversation will not save logs of the execution. Default is False.")
 
     args = parser.parse_args()
 

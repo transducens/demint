@@ -92,6 +92,9 @@ class TeacherModel:
 
 def test():
     teacher = TeacherModel()
+    
+    teacher.test_connection()
+    
     messages = [
         {
             "role": "system",
@@ -110,13 +113,13 @@ def test():
             "content": "I need help to understand the concept of gravity."
         }
     ]
-    # formatted_messages = teacher.format_messages(messages)
-    # response = teacher.get_response(formatted_messages)
-    # response = teacher.format_response(response)
-    # print(response)
+    formatted_messages = teacher.format_messages(messages)
+    response = teacher.get_response(formatted_messages)
+    response = teacher.format_response(response)
+    print(response)
     
-    #teacher.test_connection()
+    
 
 
-if __name__ == "__main__":
-    test()
+# if __name__ == "__main__":
+#     test()

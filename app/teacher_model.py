@@ -13,7 +13,7 @@ class TeacherModel:
             'accept': 'application/json',
             'Content-Type': 'application/json'
         }
-        self.model = "models/llama3_q4_lora_chp1600_TheBigSix"
+        self.model = "Transducens/kind_teacher" # "../kind_teacher_server/models/llama3_q4_lora_chp1600_TheBigSix"
         self.temperature = 1.0
         self.top_p = 0.7
         self.max_tokens = 150
@@ -37,15 +37,30 @@ class TeacherModel:
         self.type_message = type_message if type_message else self.type_message
         self.url = f'http://{self.address}:{self.port}/v1{self.type_message}'
 
-    def format_messages(self, messages):
+    # Input type: [['Hello teacher', 'Hello student'], ['I need help with english', 'What problems do you have?'], ...]
+    # Output type: [{'role': 'user', 'content': 'Hello teacher', 'tool_calls': []}, {'role': 'assistant', 'content': 'Hello student'}, ...]
+    def format_messages(self, system_message="", messages=[]):
         formatted_messages = []
+        if system_message:
+            formatted_message_system = {
+                "role": "system",
+                "content": system_message
+            }
+            formatted_messages.append(formatted_message_system)
+
         for message in messages:
-            formatted_message = {
-                "role": message["role"],    # "user", "assistant" or "system"
-                "content": message["content"],
+            formatted_message_user = {
+                "role": "user",    # "user", "assistant" or "system"
+                "content": message[0],
                 "tool_calls": []
             }
-            formatted_messages.append(formatted_message)
+            formatted_message_assistant = {
+                "role": "assistant",
+                "content": message[1],
+            }
+            formatted_messages.append(formatted_message_user)
+            formatted_messages.append(formatted_message_assistant)
+
         return formatted_messages    
     
     def get_response(self, messages):
@@ -80,15 +95,15 @@ def test():
     messages = [
         {
             "role": "system",
-            "content": "You are a kind and helpful teacher who is always ready to help students with their questions."
+            "content": "A friendly and supportive teacher guiding students patiently and encouraging their efforts."
         },
         {
             "role": "user",
-            "content": "Hello teacher"
+            "content": "Hello, I am SPEAKER"
         },
         {
             "role": "assistant",
-            "content": "Hello! How can I help you today?"
+            "content": "Hello! I am your English tutor. I will help you to learn English. Are you ready?"
         },
         {
             "role": "user",

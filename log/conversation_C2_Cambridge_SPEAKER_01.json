@@ -30,5 +30,13 @@
                 "assistant": "**Explanation:**\n\nThe subject \"I'm\" in the sentence \"I'm just studying at the moment but now I'm finally taking a gap year so obviously I'm not studying but I'm studying english.\" violates subject-verb agreement. The verb \"study\" should be singular to match the subject \"I.\"\n\n **Do you want an extensive explanation of the English grammar of this case?**"
             }
         ]
+    },
+    {
+        "conversation": [
+            {
+                "user": "Can you help me to understand the english language?",
+                "assistant": "Most frecuent error type: U:OTHER. Want to practice it?"
+            }
+        ]
     }
 ]

@@ -32,13 +32,9 @@ def explain_sentences(file_manager, chat_llm, input_path="", output_path=""):
 
         for ea in errant_annotations:
             prompts.append(
-                f"You are an English teacher. Please explain briefly the errors that were corrected in the following sentence:\n\n"
+                f"You are an English teacher. Please explain briefly and list the errors that were corrected in the following sentence:\n\n"
                 f"Original: {ea['original_sentence']}\n"
                 f"Corrected: {ea['corrected_sentence']}\n\n"
-                f"Just return a list with the errors as in these examples:\n\n"
-                f"[ 'explained error 1', 'explained error 2', ... ]\n\n"
-                f"[ 'Error 1 is this', 'Error 2 is that', ... ]\n\n"
-                f"[ 'This is wrong because...', 'That is wrong because...', ... ]\n\n"
             )
 
             error_type = ea['error_type']
@@ -125,7 +121,7 @@ def explain_sentences_of_directory(
 
 
 def get_args():
-    parser = argparse.ArgumentParser(description="Explain the errors in a sentences collection file.")
+    parser = argparse.ArgumentParser(description="Explain the obtained errors from the errant evaluation files.")
     parser.add_argument("-ef", "--errant_file", type=str, help="Path to where the input errant evaluation file is located.")
     parser.add_argument("-xf", "--explained_file", type=str, help="Path to where the output explained sentences file will be saved.")
     parser.add_argument("-ed", "--errant_directory", type=str, help="Path to the directory containing the input errant evaluation files.")
@@ -140,8 +136,6 @@ def main():
     explained_directory = output_directory
     file_manager = FileManager()
     llm_modelId = "meta-llama/Meta-Llama-3.1-8B-Instruct"
-    grammar_checker_lt = GrammarChecker("LT_API")
-    llm_modelId = "google/gemma-1.1-2b-it"  # "google/gemma-1.1-2b-it"
     llm = ChatFactory.get_instance(llm_modelId)
     args = get_args()
 

@@ -22,9 +22,6 @@ class EnglishTutor:
         self.__rag_factory = RAGFactory()
 
         self.__speakers_context = None
-        self.__audio_extractor = None
-        self.__audio_downloader = None
-        self.__file_manager = FileManager()
 
         self.cache_files_paths = {'diarization_result': 'cache/diarization_result.json',
                                   'study_plan': 'cache/study_plan.json',
@@ -41,43 +38,6 @@ class EnglishTutor:
     
     def get_chat_llm(self):
         return self.__llm_model_name
-
-    def __get_audio_downloader(self):
-        if self.__audio_downloader is None:
-            self.__audio_downloader = AudioDownloaderYTDLP()
-
-        return self.__audio_downloader
-
-    # ====================
-    # = Audio Extractor Region
-    # ====================
-
-    # Get the speakers context from the audio file
-    # The context is a list of transcripts for each speaker sorted by time
-    # if group_by_speaker False
-    #   Returns a list where each item is [time, speaker, phrase]
-    # else
-    #   Returns a dictionary where each item is {speaker: all_his_phrases}
-    def get_speakers_context(self, file_name="audio/extracted_audio.wav", group_by_speaker=False):
-        if self.__speakers_context is None:
-            if self.__audio_extractor is None:
-                self.__audio_extractor = AudioExtractor()
-
-            diarization = self.__file_manager.read_from_json_file(self.cache_files_paths['diarization_result'])
-            print("Diarization loaded")
-
-            if diarization is None:
-                diarization = self.__audio_extractor.perform_diarization(file_name)
-                self.__file_manager.save_to_json_file(self.cache_files_paths['diarization_result'], diarization)
-
-            if diarization is not None:
-                # Load the diarization results in a list of transcripts for each speaker
-                if group_by_speaker:
-                    self.__speakers_context = self.__audio_extractor.get_diarization_grouped_by_speaker(diarization)
-                else:
-                    self.__speakers_context = self.__audio_extractor.process_diarizated_text(diarization)
-
-        return self.__speakers_context
     
 
     # Returns a list of all the speakers that have spoken in the transctipt
@@ -157,20 +117,6 @@ class EnglishTutor:
     def set_rag_engine(self, rag_engine):
         self.__rag_engine = rag_engine
 
-    # ====================
-    # = AudioDownloader Region
-    # ====================
-    def download_audio(
-            self, 
-            video_url="https://www.youtube.com/watch?v=wv_nEUnhFFE", 
-            output_filename="audio/extracted_audio", 
-            audio_format="wav"):
-        audio_downloader = self.__get_audio_downloader()
-        audio_downloader.download_audio(video_url, output_filename + "." + audio_format)
-
-    def get_video_info(self, video_url):
-        audio_downloader = self.__get_audio_downloader()
-        return audio_downloader.get_video_info(video_url)
 
 
     # Returns a dictionary of explained sentences (cache/explained_sentences.json)

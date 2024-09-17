@@ -159,4 +159,12 @@ def main():
 
 
 if "__main__" == __name__:
+    print("*" * 50)
+    print("OBTAINING ERRORS STARTED")
+    print("*" * 50)
+
     main()
+
+    print("*" * 50)
+    print("OBTAINING ERRORS COMPLETED")
+    print("*" * 50)

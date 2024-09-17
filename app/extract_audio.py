@@ -38,11 +38,6 @@ def extract_audio(video_file="", audio_file=""):
 
     return 1
 
-    return 1
-
-
-
-
 
 def extract_all_audios_of_directory(video_directory="assets/videos", audio_directory="assets/audios"):
     # Loop through the files in the directory
@@ -109,6 +104,12 @@ def main():
 
 
 if "__main__" == __name__:
+    print("*" * 50)
+    print("EXTRACTING AUDIO STARTED")
+    print("*" * 50)
+    
     main()
 
-
+    print("*" * 50)
+    print("EXTRACTING AUDIO COMPLETED")
+    print("*" * 50)

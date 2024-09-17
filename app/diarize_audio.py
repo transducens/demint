@@ -344,4 +344,12 @@ def main():
 
 
 if __name__ == '__main__':
+    print("*" * 50)
+    print("DIARIZATION OF AUDIOS STARTED")
+    print("*" * 50)
+
     main()
+
+    print("*" * 50)
+    print("DIARIZATION OF AUDIOS COMPLETED")
+    print("*" * 50)

@@ -89,6 +89,9 @@ def initialize_global_variables():
                 raise ValueError("Error connecting to Teacher Model")
     except:
         teacher_model = None
+        print("~" * 50)
+        print("ERROR: Could not connect to Teacher Model")
+        print("~" * 50)
 
     load_data() # Load the data from the cache files
 
@@ -592,6 +595,7 @@ def get_arguments_env():
 # Gets the arguments from the command line.
 def get_arguments():
     global log_conversation, selected_speaker, conversation_name, port
+    global kind_teacher_port, kind_teacher_address
     parser = argparse.ArgumentParser(description="English Tutor")
 
     parser.add_argument("--conver", required=True, type=str, help="The transcripted conversation to show. Default is diarization_result")

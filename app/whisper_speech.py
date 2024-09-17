@@ -170,4 +170,12 @@ def main():
 
 
 if __name__ == '__main__':
+    print("*" * 50)
+    print("TRANSCRIPTION STARTED")
+    print("*" * 50)
+
     main()
+
+    print("*" * 50)
+    print("TRANSCRIPTION COMPLETED")
+    print("*" * 50)

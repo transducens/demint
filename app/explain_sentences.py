@@ -176,9 +176,17 @@ def main():
             torch.cuda.empty_cache()
 
 if "__main__" == __name__:
+    print("*" * 50)
+    print("EXPLANATION OF ERRORS STARTED")
+    print("*" * 50)
+
     start = time.time()
     main()
     end = time.time()
     elapsed_time = end - start
     # Print the time it took to explain the sentences in the format {hh:mm:ss}
     print(f"Time taken to explain sentences: {time.strftime('%H:%M:%S', time.gmtime(elapsed_time))}")
+
+    print("*" * 50)
+    print("EXPLANATION OF ERRORS COMPLETED")
+    print("*" * 50)

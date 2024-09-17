@@ -142,4 +142,12 @@ def main():
 
 
 if "__main__" == __name__:
+    print("*" * 50)
+    print("PREPARING SENTENCES STARTED")
+    print("*" * 50)
+
     main()
+
+    print("*" * 50)
+    print("PREPARING SENTENCES COMPLETED")
+    print("*" * 50)

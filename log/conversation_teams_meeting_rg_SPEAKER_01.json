@@ -1,0 +1,22 @@
+[
+    {
+        "conversation": [
+            {
+                "user": "I am",
+                "assistant": "Most frecuent error type: U:ADV. Want to practice it?"
+            },
+            {
+                "user": "nah",
+                "assistant": "Most frecuent error type: M:DET. Want to practice it?"
+            },
+            {
+                "user": "come on",
+                "assistant": "Most frecuent error type: M:CONJ. Want to practice it?"
+            },
+            {
+                "user": "yeah",
+                "assistant": "**You've made a mistake in the following sentence:**\n\n*Oh yeah i hear about it **[______]** they say it's pretty good but kinda spency though.*\n\nIn the incorrect sentence, there is an error due to a missing conjunction between two clauses. This omission impacts the grammatical structure and flow by not properly connecting the ideas within the sentence. The conjunction is needed to properly link the speaker's acknowledgment of hearing about the subject with the relayed opinion that it is \"pretty good.\" Without a proper conjunction, the sentence reads disjointedly.\n\n\n\n **Do you want to practice this error?**"
+            }
+        ]
+    }
+]

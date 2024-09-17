@@ -574,14 +574,6 @@ def handle_dropdown_selection(speaker_name: str):
     print("Called handle_dropdown_selection")
     return build_transcript(speaker_name)
 
-# TODO maybe not necessary. If it is, then move to another file and use here only the function.
-def get_audio_path():
-    audio_path = "audio/extracted_audio.wav"
-    return audio_path
-
-def refresh_audio(_=None):
-    return get_audio_path()
-
 def clean_cache():
     global speakers_context, selected_speaker_text, english_tutor
     #english_tutor.clean_cache()

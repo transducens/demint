@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 CUDA="CUDA_VISIBLE_DEVICES=1"
 
 eval "${CUDA} python -m app.extract_audio"  # from assets/videos to assets/audios 

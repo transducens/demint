@@ -5,6 +5,15 @@
 - [DeMINT](#demint-automated-language-debriefing-for-english-learners-via-ai-chatbot-analysis-of-meeting-transcripts)
   - [Project Overview](#project-overview)
   - [Project Goals](#project-goals)
+  - [Preparing Data](#preparing-data)
+    - [Download Audio from Youtube (optional)](#download-audio-from-youtube-optional)
+    - [Create Cache Files](#create-cache-files)
+  - [Run application](#run-application)
+    - [Run Kind Teacher Server](#run-kind-teacher-model)
+    - [Run the Chatbot Application](#run-the-chatbot-application)
+  - [Clean the Cache Files](#clean-the-cache-files)
+  - [How to Cite this Work](#how-to-cite-this-work)
+  - [Documents](#documents)
 
 
 ## Project overview

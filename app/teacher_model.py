@@ -57,12 +57,15 @@ class TeacherModel:
                 "content": message[0],
                 "tool_calls": []
             }
-            formatted_message_assistant = {
-                "role": "assistant",
-                "content": message[1],
-            }
+            
             formatted_messages.append(formatted_message_user)
-            formatted_messages.append(formatted_message_assistant)
+            if len(message) == 2:
+                formatted_message_assistant = {
+                    "role": "assistant",
+                    "content": message[1],
+                }
+            
+                formatted_messages.append(formatted_message_assistant)
 
         return formatted_messages    
     

@@ -3,8 +3,8 @@
 
 ## Table of Contents
 - [DeMINT](#demint-automated-language-debriefing-for-english-learners-via-ai-chatbot-analysis-of-meeting-transcripts)
-  - [Project Overview](##project-overview)
-  - [Project Goals](##project-goals)
+  - [Project Overview](#project-overview)
+  - [Project Goals](#project-goals)
 
 
 ## Project overview

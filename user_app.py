@@ -8,12 +8,16 @@ from english_tutor import EnglishTutor
 from app.file_manager import FileManager
 import app.prepare_sentences as prepare_sentences
 import app.rag_sentences as rag_sentences
+from app.teacher_model import TeacherModel
 
 english_tutor: EnglishTutor | None = None
+kind_teacher: TeacherModel | None = None
 sentences_collection: dict | None = None
 explained_sentences: dict | None = None
 speakers: list | None = None
 selected_speaker_text = None
+kind_teacher_port = 8000
+kind_teacher_address = "localhost"
 default_colors = {
     "red": "#fd0000",
     "blue": "#4a95ce",
@@ -64,7 +68,7 @@ def initialize_global_variables():
     global english_tutor, state, max_new_tokens, response, explained_sentences_speaker 
     global id_sentence, id_error, error, chat_response, category_list, category_errors
     global index_category, index_error, count, selected_speaker
-    global state_change
+    global state_change, kind_teacher_address, kind_teacher_port
 
     state = -1
     max_new_tokens = 200
@@ -75,6 +79,12 @@ def initialize_global_variables():
         english_tutor = EnglishTutor()
         print("*" * 50)
         print("Loaded English Tutor")
+        print("*" * 50)
+
+    if kind_teacher is None:
+        kind_teacher = TeacherModel(address=kind_teacher_address, port=kind_teacher_port)
+        print("*" * 50)
+        print("Loaded Kind Teacher Client in {kind_teacher_address}:{kind_teacher_port}")
         print("*" * 50)
 
     load_data() # Load the data from the cache files
@@ -592,6 +602,8 @@ def get_arguments():
     parser.add_argument("--speaker", type=str, default="All speakers", help="The speaker to show in the transcript. Default is All speakers.")
     parser.add_argument("--port", type=int, default=7860, help="The port in which the server will run. Default is 8000")
     parser.add_argument("--no_log", action="store_true", help="If the flag is called, the chatbot conversation will not save logs of the execution. Default is False.")
+    parser.add_argument("--port_kind_teacher", type=int, default=8000, help="The port in which the kind teacher will run. Default is 8000")
+    parser.add_argument("--address_kind_teacher", type=str, default="localhost", help="The address in which the kind teacher will run. Default is localhost")
 
     args = parser.parse_args()
 
@@ -599,6 +611,8 @@ def get_arguments():
     conversation_name = args.conver
     log_conversation = not args.no_log
     selected_speaker = args.speaker
+    kind_teacher_port = args.port_kind_teacher
+    kind_teacher_address = args.address_kind_teacher
 
     # arguments = {
     #     "speaker": args.speaker,

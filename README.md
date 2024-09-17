@@ -97,8 +97,12 @@ options:
 
 ## Create cache files
 
+Fot the correct execution of the application, the files from `cache/rag_sentences/` and `cache/raw_sorted_sentence_collection/` are required.
+And it is also necessary that the conversation used in the application has the same name in both directories.
+
 ### Option 1 (recommended)
 **Run all the videos through the pipeline**
+
 The videos are read from the directory: `assets/videos/` by default. 
 ```bash
 bash run_pipeline.sh
@@ -106,6 +110,7 @@ bash run_pipeline.sh
 
 ### Option 2
 **Download audio from YouTube (optional)**
+
 The videos are saved in `assets/videos/`
 ```bash
 usage: python -m app.video_downloader [-h] -u URL [-n NAME]
@@ -119,7 +124,8 @@ options:
 ```
 
 **Extract audio**
-Extracts the audio from a video file (by default from `assets/videos/`) and stores the audio (by default in `assets/audios/`) with the same name, 16hz sample rate and mono audio.
+
+Extracts the audio from a video file (by default from `assets/videos/`) and stores the audio (by default in `assets/audios/`) with the same name, 16hz of sample rate and mono audio.
 ```bash
 # Extract audio from a video file.
 # From assets/videos/ to assets/audios/
@@ -139,6 +145,9 @@ options:
 ```
 
 **Diarize audio**
+
+Diarizes the audio (by default from `assets/audios/`) and stores the resulting segments in a directory (by default in `cache/diarized_audios/`) with the same name, 16hz of sample rate and mono audio.
+The first number of each segment is the index and the second number is the speaker ID.
 ```bash
 # Diarize an audio file or a directory of audio files.
 # From assets/audios/ to cache/diarized_audios/
@@ -157,6 +166,8 @@ options:
 ```
 
 **Transcribe audio**
+
+Transcribes the diarized audio (by default from `cache/diarized_audios/`) and stores the resulting transcription (by default in `cache/diarized_transcripts`) with the same name in JSON format.
 ```bash
 # Transcribe the audio files of a directory.
 # From cache/diarized_audios/ to cache/diarized_transcripts/
@@ -177,6 +188,8 @@ options:
 ```
 
 **Prepare sentences collection**
+
+Extracts the sententences and sorts them (by default from `cache/diarized_transcripts/`) and stores the result (by default in `cache/raw_sorted_sentence_collecion/`) with the same name in JSON format.
 ```bash
 # Prepare a sorted sentence collection from a transcript file or a directory of transcript files.
 # From cache/diarized_transcripts/ to cache/raw_sorted_sentence_collection/
@@ -197,6 +210,8 @@ options:
 ```
 
 **Obtain errant errors**
+
+Extracts grammatical errors (by default from `cache/raw_sorted_sentence_collection/`) and stores the sentences with errors (by default in `cache/errant_all_evaluation/`) with the same name in JSON format.
 ```bash
 # Obtain errors from a sentences collection file.
 # From cache/raw_sorted_sentence_collection/ to cache/errant_all_evaluation/
@@ -218,6 +233,8 @@ options:
 ```
 
 **Explain obtained errors**
+
+Using an LLM (by default Llama 3.1 8B), explains all errors with more detail (by default from `cache/errant_all_evaluation/` ) and stores them (by default in `cache/explained_sentences/`) with the same name in JSON format.
 ```bash
 # Explain the obtained errors from the errant evaluation files.
 # From cache/errant_all_evaluation/ to cache/explained_sentences/
@@ -239,6 +256,8 @@ options:
 ```
 
 **Get RAG data about the sentences**
+
+Indexes RAG data related to the extracted errors (by default from `cache/explained_sentences/`) and stores all the information (by default in `cache/rag_sentences/`) with the same name in JSON format.
 ```bash
 # Get RAG (Retrieval-Augmented Generation) data for each sentence
 # From cache/explained_sentences/ to cache/rag_sentences/

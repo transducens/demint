@@ -1,7 +1,0 @@
-Collecting bitsandbytes
-  Using cached bitsandbytes-0.42.0-py3-none-any.whl.metadata (9.9 kB)
-Requirement already satisfied: scipy in /Users/rafael/miniforge3/envs/llamafactory_env/lib/python3.11/site-packages (from bitsandbytes) (1.14.1)
-Requirement already satisfied: numpy<2.3,>=1.23.5 in /Users/rafael/miniforge3/envs/llamafactory_env/lib/python3.11/site-packages (from scipy->bitsandbytes) (1.26.4)
-Using cached bitsandbytes-0.42.0-py3-none-any.whl (105.0 MB)
-Installing collected packages: bitsandbytes
-Successfully installed bitsandbytes-0.42.0

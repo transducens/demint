@@ -3,7 +3,7 @@
         "speaker": "SPEAKER_02",
         "original_sentence": "Yes i agree but one of the main disadvantage of it is that you don't really know to whom you're talking to exactly so it's not that reliable.",
         "t5_checked_sentence": "Yes, I agree, but one of the main disadvantages of it is that you don't really know exactly who you're talking to, so it's not that reliable.",
-        "llm_explanation": "The errors in the original sentence are:\n\n1. \"i\" is an informal word and should be capitalized as \"I\".\n2. \"don't really\" is an idiomatic expression that should be replaced with \"don't really know\".\n3. \"whom\" should be replaced with \"who\".\n4. \"exactly\" is an adverb that should be replaced with \"exactly\".\n5. \"it's\" is a contraction that should be replaced with \"it is\".\n6. \"not that\" is an idiomatic expression that should be replaced with \"not\".\n\nCorrected sentence: Yes, I agree, but one of the main disadvantages of it is that you don't really know who you're talking to, so it's",
+        "llm_explanation": "The errors in the original sentence are:\n\n1. \"don't really know to\" should be \"don't really know exactly\"\n2. \"it\" is a pronoun that is not clear in the context of the sentence, so it's better to specify the antecedent, which is \"you're talking to\".",
         "errant": [
             {
                 "index": "5",
@@ -17,7 +17,7 @@
                 "c_end": 8,
                 "corrected_text": "disadvantages",
                 "error_type": "R:NOUN:NUM",
-                "llm_explanation": "The error is a number in the text that is not a number.\n\nThe broken rule is that a number should not be used as a number."
+                "llm_explanation": "The error is an example of a run-on sentence, which is a type of punctuation error where a sentence or phrase runs on without proper punctuation to separate it from the rest of the text. The corrected sentence should have been broken up into two separate sentences.\n\nThe error can be summarized as:\n\n* The original sentence is a run-on sentence.\n* The corrected sentence is a broken sentence, with the error removed.\n\nThe broken rule is that in the English language, a run-on sentence is not a grammatically correct sentence, and it should be broken up into two or more separate sentences."
             },
             {
                 "index": "5",
@@ -31,7 +31,7 @@
                 "c_end": 18,
                 "corrected_text": "who",
                 "error_type": "R:PRON",
-                "llm_explanation": "The error is an example of a pronoun reference (R:PRON) error, where the pronoun \"you\" is used, but its antecedent is unclear, making it unclear who the pronoun refers to."
+                "llm_explanation": "The error is in the use of the word \"it\" in the corrected sentence. The word \"it\" is a pronoun that refers to a specific noun, but in this case, it is unclear what the noun is. This is a violation of the rule that requires the first character to be in position 0 and the error text to be between the characters 18 and 19 in the original sentence, and the corrected text to be between the characters 18 and 19 in the corrected sentence."
             },
             {
                 "index": "5",
@@ -45,7 +45,7 @@
                 "c_end": 22,
                 "corrected_text": "",
                 "error_type": "U:ADV",
-                "llm_explanation": "The error is a U:ADV error, which is a type of shift in the English language."
+                "llm_explanation": "I can help you with that."
             }
         ]
     },
@@ -53,7 +53,7 @@
         "speaker": "SPEAKER_01",
         "original_sentence": "Yeah i agree so maybe a good alternative would be talking face to face you can it's like the most reliable way but one disadvantages it would have would be maybe you have to require the other person to be with you in the same place it cannot be in the other parts of the world like only chatting can do that.",
         "t5_checked_sentence": "Yeah, I agree so maybe a good alternative would be talking face to face. It's like the most reliable way but one disadvantage it would have would be maybe you have to require the other person to be with you in the same place",
-        "llm_explanation": "As an English teacher, I've identified the errors in the original sentence and corrected them. Here's the list:\n\n1. **\"i\"** should be capitalized to **\"I\"** (subject-verb agreement).\n2. **\"so\"** is an adverb, but it's not necessary in this context. Removing it makes the sentence more concise.\n3. **\"would be talking face to face\"** is a bit redundant. We can simply say \"talking face to face\" as it's already an alternative.\n4. **\"you can it's like\"** should be **\"It's like\"** (subject-verb agreement).\n5. **\"it would have would be maybe\"** is a double",
+        "llm_explanation": "As an English teacher, I've identified the errors in the original sentence and corrected them. Here's the list of errors and corrections:\n\n1. **\"Yeah i\"** -> **\"Yeah, I\"**: Added a comma after \"Yeah\" to separate the interjection from the subject pronoun \"I\".\n\n2. **\"so maybe\"** -> Removed: This is a redundant phrase, as it's already implied by the word \"maybe\".\n\n3. **\"talking face to face\"** -> **\"talking face to face\"** (no change, but it could be rephrased as \"talking face-to-face\" for clarity).\n\n4. **\"you can it's\"** -> **\"It's",
         "errant": [
             {
                 "index": "6",
@@ -67,7 +67,7 @@
                 "c_end": 22,
                 "corrected_text": "disadvantage",
                 "error_type": "R:NOUN:NUM",
-                "llm_explanation": "The error is a missing article \"a\" before the noun \"alternative\"."
+                "llm_explanation": "The error is a missing article (\"a\" or \"an\") before the noun \"alternative\"."
             }
         ]
     },
@@ -75,7 +75,7 @@
         "speaker": "SPEAKER_02",
         "original_sentence": "Yeah and and also you you can notice when someone's lying or when something's wrong between you two.",
         "t5_checked_sentence": "Yeah, and also you can notice when someone's lying or when something's wrong between you two.",
-        "llm_explanation": "The errors in the sentence are:\n\n1. 'and' is unnecessary.\n2. 'also' is unnecessary.\n3. 'between' is incorrect, the correct word should be 'between you and'.\n4. 'you' is repeated.\n5. The sentence is a run-on sentence, it should be split into two sentences.\n\nThe corrected sentence would be:\n\nYeah, and also you can notice when someone's lying or when something's wrong between you and.",
+        "llm_explanation": "The errors in the sentence are:\n\n1. \"Yeah\" is a filler word that doesn't add any meaning to the sentence.\n2. The sentence is not clear about what the speaker is referring to, as it is too vague.\n3. \"Between you two\" is a redundant phrase that repeats the word \"you\" unnecessarily.\n4. \"Between\" is not used correctly, as it is used to describe a relationship between two things, but in this case, it is used to describe a relationship between two people.\n5. \"Lying\" is not a verb, it's a noun, so the sentence should be rephrased to use a verb, such as \"lie\" or \"mislead\".\n\nThe corrected sentence should be",
         "errant": [
             {
                 "index": "7",
@@ -89,7 +89,7 @@
                 "c_end": 1,
                 "corrected_text": "",
                 "error_type": "U:CONJ",
-                "llm_explanation": "The error is a U:CONJ error, which is a punctuation mark that is used to indicate a pause or hesitation in speech or writing. The error occurs when the U:CONJ is placed between the first character in the original sentence and the first character in the corrected sentence.\n\nThe corrected sentence should not have a U:CONJ between the first character and the first character. The corrected sentence should be Yeah."
+                "llm_explanation": "The error is a U:CONJ error where the original sentence is Yeah and the corrected sentence is Yeah."
             },
             {
                 "index": "7",
@@ -103,7 +103,7 @@
                 "c_end": 3,
                 "corrected_text": "",
                 "error_type": "U:PRON",
-                "llm_explanation": "The error is a U:PRON error, which occurs when the first character of a word is in the wrong position."
+                "llm_explanation": "The error is a U:PRON error, which is a type of mispronunciation error where a letter or letters are replaced with a similar-sounding word or phrase. In this case, the error occurs in the word \"and\" which is replaced with the similar-sounding word \"and also you\". The error is found in the word \"and\" which is in the original sentence \"Yeah and and also you can notice when someone's lying or when something's wrong between you two.\" The corrected sentence is \"Yeah, and also you can notice when someone's lying or when something's wrong between you two.\""
             }
         ]
     },
@@ -111,7 +111,7 @@
         "speaker": "SPEAKER_01",
         "original_sentence": "Yeah so then maybe an alternative to that would be talking on the phone.",
         "t5_checked_sentence": "Yeah, then maybe an alternative to that would be talking on the phone.",
-        "llm_explanation": "The error was the word \"that\" which is not needed. The corrected sentence is more concise and idiomatic.",
+        "llm_explanation": "The error in the sentence is the use of the word \"an\" instead of \"a\". \n\nIn the corrected sentence, the word \"a\" is used to introduce the alternative, which is \"talking on the phone\".",
         "errant": [
             {
                 "index": "8",
@@ -125,7 +125,7 @@
                 "c_end": 1,
                 "corrected_text": "",
                 "error_type": "U:ADV",
-                "llm_explanation": "The error is an instance of a \"U:ADV\" error, which is a U-shaped insertion error that occurs when a word is inserted between the last letter of the previous word and the first letter of the next word.\n\nThe original sentence is: \"Yeah so then maybe an alternative to that would be talking on the phone.\"\n\nThe error is caused by the insertion of the word \"an\" between the last letter of the previous word \"Yeah\" and the first letter of the next word \"an\"."
+                "llm_explanation": "The error is due to a misunderstanding of the original sentence structure and the position of the first character, which is in position 0. The corrected sentence should have the first character in position 1, not position 0."
             }
         ]
     },
@@ -133,7 +133,7 @@
         "speaker": "SPEAKER_02",
         "original_sentence": "Yes but sometimes it's not quite good it's not that effective because for example my grandmother doesn't hear too well so when when we talk on the phone she it's really difficult for her to to have a conversation with us.",
         "t5_checked_sentence": "Yes, sometimes it's not quite good, it's not that effective because for example my grandmother doesn't hear too well, so when we talk on the phone it's really difficult for her to have a conversation with us",
-        "llm_explanation": "The original sentence contains several errors. Here's a breakdown of the corrections:\n\n1. **Missing comma**: \"Yes but\" should be \"Yes, sometimes\" to correct the comma splice.\n   - Original: \"Yes but\"\n   - Corrected: \"Yes, sometimes\"\n\n2. **Extra words**: \"it's not quite good\" is an unnecessary phrase, and the sentence can be simplified.\n   - Original: \"it's not quite good\"\n   - Corrected: Removed (redundant phrase)\n\n3. **Extra words**: \"it's not that effective\" is an unnecessary phrase, and the sentence can be simplified.\n   - Original: \"it's not that effective\"\n   - Corrected: Removed (redu",
+        "llm_explanation": "Let's go through the corrections made to the original sentence.\n\n1. **Comma placement**: The corrected sentence has a comma after \"good\" to separate the two independent clauses. This improves the sentence's clarity and flow.\n\n2. **Conjunction usage**: The corrected sentence uses a comma after \"effective\" to separate the two clauses, and the word \"so\" is used to introduce the reason. In the original sentence, \"because\" was used, which is more suitable for a cause-and-effect relationship. In this case, \"so\" is used to indicate the result of the previous clause.\n\n3. **Redundant words**: The corrected sentence removes unnecessary words such as \"it's\" (before \"good\" and \"effective\"),",
         "errant": [
             {
                 "index": "9",
@@ -147,7 +147,7 @@
                 "c_end": 1,
                 "corrected_text": "",
                 "error_type": "U:CONJ",
-                "llm_explanation": "The error is a U:CONJ error, indicating a missing conjunction. The broken rule is \"a conjunction is missing between two independent clauses.\""
+                "llm_explanation": "The error is a Conjunction Error (U:CONJ) where a repeated conjunction \"it's\" is used."
             },
             {
                 "index": "9",
@@ -161,7 +161,7 @@
                 "c_end": 20,
                 "corrected_text": "",
                 "error_type": "U:ADV",
-                "llm_explanation": "The error is a \"run-on sentence\" or lack of a proper conjunction to separate two independent clauses."
+                "llm_explanation": "The error is a run-on sentence (U:ADV), where a coordinating conjunction \"and\" is missing between two independent clauses."
             },
             {
                 "index": "9",
@@ -175,7 +175,7 @@
                 "c_end": 26,
                 "corrected_text": "",
                 "error_type": "U:PRON",
-                "llm_explanation": "The error is a U:PRON error, which is a \"missing article\" error."
+                "llm_explanation": "The error is a Run-on Sentence (U:PRON) because the original sentence contains two independent clauses (i.e., \"it's really difficult for her to have a conversation with us\" and \"when we talk on the phone she\") that are not properly connected with punctuation."
             },
             {
                 "index": "9",
@@ -189,7 +189,7 @@
                 "c_end": 31,
                 "corrected_text": "",
                 "error_type": "U:VERB:FORM",
-                "llm_explanation": "The error is: Missing article \"it\" before a verb in a clause, breaking the rule of \"it\" + verb form in a dependent clause."
+                "llm_explanation": "The main issue is a missing article \"it\" before the pronoun \"it's\" in the original sentence, violating the rule of subject-verb agreement."
             }
         ]
     },
@@ -197,7 +197,7 @@
         "speaker": "SPEAKER_01",
         "original_sentence": "So maybe using body language is something everyone understands so it may not be as easy as to communicate using body language if you lack the social skills maybe.",
         "t5_checked_sentence": "So maybe using body language is something everyone understands so it may not be as easy to communicate using body language if you lack the social skills maybe.",
-        "llm_explanation": "Here are the errors in the original sentence:\n\n1. \"So maybe\" is an adverb that is used incorrectly. The correct adverb to use in this context is \"so\" should be \"so\" or \"so\" is used correctly but the adverb is \"maybe\", which should be used as an adverb after the verb, not at the beginning of the sentence.\n2. \"So it may not be as easy\" is a phrase that is not grammatically correct. The correct phrase should be \"so it may not be as easy as\" or \"it may not be as easy as\".\n3. \"As to\" is an incorrect preposition. The correct preposition to use in this context is \"as\" or \"",
+        "llm_explanation": "The errors in the original sentence are:\n\n1. \"So\" is used twice: The word \"So\" is used twice in the sentence, which is unnecessary and redundant. It's better to use it only once to start the sentence.\n\n2. \"So\" is used to start the sentence, but it's not a complete sentence: The word \"So\" is used to start the sentence, but it doesn't complete the thought. The sentence should start with a more substantial phrase or a complete sentence.\n\n3. \"So\" should be removed: The word \"So\" is a filler word that doesn't add any meaning to the sentence. It's better to remove it to make the sentence more concise.\n\n4. \"So\" is used",
         "errant": [
             {
                 "index": "10",
@@ -211,7 +211,7 @@
                 "c_end": 16,
                 "corrected_text": "",
                 "error_type": "U:PREP",
-                "llm_explanation": "The error is that the word \"maybe\" is used twice in the sentence, which is not necessary and makes the sentence awkward to read. The corrected sentence should have only one instance of the word \"maybe\"."
+                "llm_explanation": "The error is a PREP rule violation."
             }
         ]
     },
@@ -219,7 +219,7 @@
         "speaker": "SPEAKER_02",
         "original_sentence": "Um i agree i mean using body language is really difficult to to see when when someone's sad or when something's happening to them.",
         "t5_checked_sentence": "Um, I agree that using body language is really difficult to see when someone's sad or when something's happening to them.",
-        "llm_explanation": "The errors in the original sentence are:\n\n1. \"Um\" is an informal filler word that shouldn't be used in formal writing.\n2. \"I agree\" should be \"I agree\" (no comma after the \"I\").\n3. \"i mean\" should be \"I mean\" (lowercase \"i\" in \"I\" is incorrect).\n4. \"is really\" is an informal phrase that shouldn't be used in formal writing.\n5. \"using body language\" should be \"body language\".\n6. \"is\" is a linking verb that shouldn't be used in this context.\n7. \"when\" is a subordinating conjunction that should be used to introduce a subordinate clause, but it's not used correctly in",
+        "llm_explanation": "The errors in the original sentence are:\n\n1. \"Um\" is an informal filler word that is often used in casual conversation, but it is not suitable for formal writing.\n2. \"I\" is used twice, which makes the sentence sound repetitive.\n3. \"I mean\" is an informal phrase that should be replaced with a more formal transition word, such as \"that is\" or \"which is\".\n4. \"Is really difficult\" is a colloquial expression that should be replaced with a more formal phrase, such as \"is quite challenging\" or \"is quite difficult\".\n5. \"To see\" is a verb that is not the most formal verb to use in this context.\n6. \"When\" is used twice,",
         "errant": [
             {
                 "index": "11",
@@ -233,7 +233,7 @@
                 "c_end": 10,
                 "corrected_text": "",
                 "error_type": "U:VERB:FORM",
-                "llm_explanation": "The error is a U:VERB:FORM error, where the original sentence is \"Um i agree i mean using body language is really difficult to see when someone's sad or when something's happening to them.\" and the corrected sentence is \"Um, I agree that using body language is really difficult to see when someone's sad or when something's happening to them.\"\n\nThe broken rule is the rule that the first character of a word is in position 0, which is not the case in this sentence."
+                "llm_explanation": "The error in the original sentence is a U:VERB:FORM error, where the original sentence is \"Um i agree i mean using body language is really difficult to see when someone's sad or when something's happening to them.\" \n\nThe error occurs when the first character is in position 0, which is not a valid position in the sentence, and the error text is between the characters 11 and 12 in the original sentence. \n\nThe corrected sentence is \"Um, I agree that using body language is really difficult to see when someone's sad or when something's happening to them.\"\n\nThe corrected sentence has the correct structure of a U:VERB:FORM error, where the first character is in position 0, and the error"
             },
             {
                 "index": "11",
@@ -247,7 +247,7 @@
                 "c_end": 12,
                 "corrected_text": "",
                 "error_type": "U:ADV",
-                "llm_explanation": "The error is in the original sentence \"Um, I agree that using body language is really difficult to see when someone's sad or when something's happening to them.\" \n\nThe error is that the first character 'U' is in position 0, which is incorrect because the first character in a sentence is usually the first word or the first character of the first word. The corrected sentence should start with the first word, which is 'I'.\n\nThe error is also due to the fact that the word 'agree' is in the wrong position, being in the middle of the sentence instead of being the first word. The corrected sentence should be 'I agree'.\n\nThe error is also due to the fact that the word 'that' is in the wrong"
+                "llm_explanation": "The error is a U:ADV error, where the original sentence is \"Um i agree i mean using body language is really difficult to see when someone's sad or when something's happening to them,\" and the corrected sentence is \"Um, I agree that using body language is really difficult to see when someone's sad or when something's happening to them.\" \n\nThe error occurs when the first character of the original sentence is not in position 0, and the error text is between the characters 14 and 15, while the corrected sentence has the first character in position 0 and the error text between the characters 12 and 12."
             }
         ]
     },
@@ -255,7 +255,7 @@
         "speaker": "SPEAKER_01",
         "original_sentence": "Maybe written letters and postcards is the different one from all of all of them as it can also express emotions between countries and that excitement you have when you receive a postcard which is not really normal nowadays we all use email or chatting is really nice to have.",
         "t5_checked_sentence": "Maybe written letters and postcards are the different one from all of them as it can also express emotions between countries and that excitement you have when you receive a postcard which is not really normal nowadays we all use email or chatting is really nice",
-        "llm_explanation": "As an English teacher, I've identified the errors in the original sentence and listed the corrections below:\n\n1. **Subject-verb agreement**: \"written letters and postcards\" is a plural subject, so the verb \"is\" should be \"are\".\n   Original: \"is\"\n   Corrected: \"are\"\n\n2. **Missing article**: The phrase \"the different one\" is missing an article (\"the\" or \"a\"). In this context, \"the\" is more suitable.\n   Original: \"the different one\"\n   Corrected: \"the different one\" -> \"the\" remains the same, but the corrected sentence still has this issue.\n\n3. **Redundant phrase**: \"all of all of them\" is unnecessary",
+        "llm_explanation": "As an English teacher, I've identified the errors in the original sentence and corrected them:\n\n1. **Subject-Verb Agreement**: \"written letters and postcards\" is a plural noun, so the verb \"is\" should be replaced with the plural form \"are\".\n   Original: \"Maybe written letters and postcards is\"\n   Corrected: \"Maybe written letters and postcards are\"\n\n2. **Redundant Phrases**: The sentence contains redundant phrases like \"all of all of them\" which can be simplified to \"all of them\".\n   Original: \"from all of all of them\"\n   Corrected: \"from all of them\"\n\n3. **Missing Article**: The word \"a\" is missing before the word \"post",
         "errant": [
             {
                 "index": "12",
@@ -269,7 +269,7 @@
                 "c_end": 5,
                 "corrected_text": "are",
                 "error_type": "R:VERB:SVA",
-                "llm_explanation": "The main idea is that the error is a subject-verb agreement issue. \n\nThe broken rule is: A singular subject requires a singular verb, whereas a plural subject requires a plural verb."
+                "llm_explanation": "The error is a subject-verb agreement issue, specifically the rule of SVA (Subject-Verb Agreement), where the subject \"written letters and postcards\" is a plural noun, but the verb \"is\" is singular."
             }
         ]
     },
@@ -277,7 +277,7 @@
         "speaker": "SPEAKER_02",
         "original_sentence": "Um i will start off with using body language as we all as we've already said i mean it's really difficult to to notice and what do you think.",
         "t5_checked_sentence": "Um, I will start off with using body language as we all, as we've already said, mean it's really difficult to notice and what do you think?",
-        "llm_explanation": "The errors in the original sentence are:\n\n1. \"Um\" is an unnecessary filler word and should be removed.\n2. \"I will start off\" is a redundant phrase. \"Start off\" is an idiom that means to begin, but it's already implied that the speaker is starting to talk, so it's unnecessary.\n3. \"As we all\" is an awkward phrase that disrupts the flow of the sentence. It's better to rephrase it to \"as we've already said\" to maintain a more natural flow.\n4. \"We've already said\" is an awkward phrase. The speaker is referring to previous conversations or discussions that aren't explicitly stated, so it's better to rephrase it to \"we've discussed",
+        "llm_explanation": "The errors in the original sentence are:\n\n1. \"Um\" is an informal expression that is not suitable for formal language.\n2. \"will start off with\" should be \"start off with\" (no contraction)\n3. \"as we all\" is an informal expression that is not suitable for formal language.\n4. \"as we've already said\" is an informal expression that is not suitable for formal language.\n5. \"i\" is not capitalized, it should be \"I\" (capital \"I\" is a first-person singular pronoun)\n6. \"it's\" is a contraction that should not be used in formal language.\n7. \"what\" is not capitalized, it should be \"What\" (capital \"W\"",
         "errant": [
             {
                 "index": "17",
@@ -291,7 +291,7 @@
                 "c_end": 16,
                 "corrected_text": "",
                 "error_type": "U:PRON",
-                "llm_explanation": "The error is a U:PRON error, which is a pronunciation error.\n\nThe original sentence is: \"Um I will start off with using body language as we all as we've already said I mean it's really difficult to notice and what do you think.\"\n\nThe broken rule is: \"The first character in the sentence should not be in position 0.\"\n\nThe corrected sentence is: \"Um I will start off with using body language as we all, as we've already said, mean it's really difficult to notice and what do you think?\"\n\nThe corrected text is between the characters 16 and 16, and the original error is between the characters 16 and 17."
+                "llm_explanation": "The error is in the use of the contraction \"as we've already said\" which is not a correct contraction. The word \"we've\" is a contraction of \"we have\" and should not be used in this context. The correct contraction to use is \"as we have\" or simply \"as we\"."
             },
             {
                 "index": "17",
@@ -305,7 +305,7 @@
                 "c_end": 20,
                 "corrected_text": "",
                 "error_type": "U:VERB:FORM",
-                "llm_explanation": "The error is a U:VERB:FORM error, which involves a missing space between the verb and the form. \n\nThe original sentence is: \"Um I will start off with using body language as we all as we've already said i mean it's really difficult to notice and what do you think.\"\n\nThe corrected sentence should be: \"Um I will start off with using body language as we all, as we've already said, mean it's really difficult to notice and what do you think?\"\n\nThe error is due to the missing space between \"start\" and \"off\", which is a grammatically correct word, and the extra \"i\" in \"i mean\" which is an informal expression and not a grammatically correct word."
+                "llm_explanation": "The error is a case of a verb-form mismatch, where the verb \"start\" is in the wrong form. The original sentence starts with \"start\" in the infinitive form, but the corrected sentence should start with the finite form \"started\".\n\nThe broken rule is that the verb should be in the finite form to match the context of the sentence. The finite form of the verb \"start\" is \"started\", which is the correct form to use in this context."
             }
         ]
     },
@@ -313,7 +313,7 @@
         "speaker": "SPEAKER_01",
         "original_sentence": "Then maybe talking face to face is really effective with communicating.",
         "t5_checked_sentence": "Then maybe talking face to face is really effective in communicating.",
-        "llm_explanation": "The error in the sentence is \"talking face to face\". The corrected sentence should be \"talking face to face\".",
+        "llm_explanation": "The error was in the word \"talking\". The correct word is \"talking\".",
         "errant": [
             {
                 "index": "20",
@@ -327,7 +327,7 @@
                 "c_end": 9,
                 "corrected_text": "in",
                 "error_type": "R:PREP",
-                "llm_explanation": "The error is a result of a typo or a change in the original sentence that has been made in the English language."
+                "llm_explanation": "The error is in the first sentence, where the word \"maybe\" is placed in the wrong position."
             }
         ]
     },
@@ -335,7 +335,7 @@
         "speaker": "SPEAKER_02",
         "original_sentence": "Yeah that's really effective but one that wouldn't be that effective for example is written letters and postcards because as you said they can get lost and never get to where they had to.",
         "t5_checked_sentence": "Yeah, that's really effective, but one that wouldn't be that effective for example is written letters and postcards because as you said, they can get lost and never get to where they had to.",
-        "llm_explanation": "As an English teacher, I've identified the errors in the original sentence and listed the corrections below:\n\n1. **Comma before the coordinating conjunction (but)**: Added a comma after \"effective\" to separate the two independent clauses.\n\n2. **Comma after the introductory adverb (but)**: Added a comma after \"but\" to separate the introductory adverb from the main clause.\n\n3. **Comma after the introductory clause**: Added a comma after \"effective\" to separate the introductory clause from the main clause.\n\n4. **Comma after the coordinating conjunction (because)**: Added a comma after \"said\" to separate the introductory dependent clause from the main clause.\n\n5. **Comma after the introductory adverb (because)**",
+        "llm_explanation": "As an English teacher, I've identified the following errors in the original sentence:\n\n1. **Comma error**: The original sentence lacks a comma after \"effective\" to separate the two independent clauses. The corrected sentence adds a comma to improve clarity.\n\n2. **Comma error**: The original sentence also lacks a comma after \"example\" to separate the introductory clause from the main clause. The corrected sentence adds a comma to improve clarity.\n\n3. **Comma error**: The original sentence lacks a comma after \"said\" to separate the introductory clause from the main clause. The corrected sentence adds a comma to improve clarity.\n\n4. **Punctuation error**: The original sentence lacks a period at the end, making it a run-on sentence. The",
         "errant": [
             {
                 "index": "21",
@@ -349,7 +349,7 @@
                 "c_end": 3,
                 "corrected_text": "effective,",
                 "error_type": "R:ADJ",
-                "llm_explanation": "The main issue is a missing comma after \"really\" and before \"but\", which is a comma splice error, breaking the rule of proper punctuation."
+                "llm_explanation": "The error is a missing comma after \"said\" due to the rule of punctuating independent clauses."
             },
             {
                 "index": "21",
@@ -363,7 +363,7 @@
                 "c_end": 21,
                 "corrected_text": "said,",
                 "error_type": "R:VERB",
-                "llm_explanation": "The error is a Missing Comma after a Clause (Broken Rule: Commas to separate independent clauses)."
+                "llm_explanation": "The error is a missing comma after \"said\", violating the rule of using commas to separate main clauses in a sentence."
             }
         ]
     },
@@ -371,7 +371,7 @@
         "speaker": "SPEAKER_00",
         "original_sentence": "Thank you can i have the booklet please.",
         "t5_checked_sentence": "Thank you, can I have the booklet please?",
-        "llm_explanation": "There are two errors in the original sentence:\n\n1. The first error is the comma after \"Thank you\". It should be a period at the end of the sentence, not a comma.\n2. The second error is the lack of capitalization of the word \"can\". It should be \"Can\" instead of \"can\".\n3. The third error is the missing word \"I\". It should be included in the sentence for it to make sense.\n\nThe corrected sentence is: \"Thank you, can I have the booklet please?\"",
+        "llm_explanation": "The errors in the original sentence are:\n\n1. \"can\" should be \"can I\" (subject-verb agreement error)\n2. The period at the end of the sentence should be a question mark (punctuation error)",
         "errant": [
             {
                 "index": "24",
@@ -385,7 +385,7 @@
                 "c_end": 7,
                 "corrected_text": "please?",
                 "error_type": "R:NOUN",
-                "llm_explanation": "The error is a Run-On Sentence.\n\nIn a Run-On Sentence, there should be a period (.) at the end of the first sentence, but there is not."
+                "llm_explanation": "The error is a missing space between the first character and the second character in the original sentence."
             }
         ]
     }

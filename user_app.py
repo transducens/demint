@@ -16,6 +16,8 @@ sentences_collection: dict | None = None
 explained_sentences: dict | None = None
 speakers: list | None = None
 selected_speaker_text = None
+kind_teacher_port = 8000
+kind_teacher_address = "localhost"
 default_colors = {
     "red": "#fd0000",
     "blue": "#4a95ce",
@@ -35,16 +37,11 @@ new_conversation = True
 
 # Arguments
 log_conversation = True
+new_conversation = True
 conversation_name = ""
 port = 7860
 selected_speaker = "All speakers"
 
-# Arguments
-log_conversation = True
-new_conversation = True
-conversation_name = ""
-port = "8000"
-selected_speaker = "All speakers"
 
 tracemalloc.start()
 
@@ -65,8 +62,9 @@ prompt_question = [
 def initialize_global_variables():
     global english_tutor, state, max_new_tokens, response, explained_sentences_speaker 
     global id_sentence, id_error, error, chat_response, category_list, category_errors
-    global index_category, index_error, count, selected_speaker, teacher_model
-    global state_change
+    global index_category, index_error, count, selected_speaker
+    global state_change 
+    global teacher_model, kind_teacher_address, kind_teacher_port
 
     state = -1
     max_new_tokens = 200
@@ -81,7 +79,7 @@ def initialize_global_variables():
 
     try:
         if teacher_model is None:
-            teacher_model = TeacherModel()
+            teacher_model = TeacherModel(address=kind_teacher_address, port=kind_teacher_port)
 
             if teacher_model.test_connection():
                 print("*" * 50)
@@ -605,8 +603,10 @@ def get_arguments():
 
     parser.add_argument("--conver", required=True, type=str, help="The transcripted conversation to show. Default is diarization_result")
     parser.add_argument("--speaker", type=str, default="All speakers", help="The speaker to show in the transcript. Default is All speakers.")
-    parser.add_argument("--port", type=int, default=7860, help="The port in which the server will run. Default is 8000")
+    parser.add_argument("--port", type=int, default=7860, help="The port in which the server will run. Default is 7860")
     parser.add_argument("--no_log", action="store_true", help="If the flag is called, the chatbot conversation will not save logs of the execution. Default is False.")
+    parser.add_argument("--port_kind_teacher", type=int, default=8000, help="The port in which the kind teacher will run. Default is 8000")
+    parser.add_argument("--address_kind_teacher", type=str, default="localhost", help="The address in which the kind teacher will run. Default is localhost")
 
     args = parser.parse_args()
 
@@ -614,6 +614,8 @@ def get_arguments():
     conversation_name = args.conver
     log_conversation = not args.no_log
     selected_speaker = args.speaker
+    kind_teacher_port = args.port_kind_teacher
+    kind_teacher_address = args.address_kind_teacher
 
     # arguments = {
     #     "speaker": args.speaker,
@@ -1061,6 +1063,13 @@ def select_error(index_sentence = 0, index_error = 0):
 
     return incorrect_sentence, correct_sentence, explanation
 
+def reset_states():
+    global state, index_category, index_error
+
+    state = -1
+    index_category = 0
+    index_error = 0
+
 js = "./app/gradio_javascript.js"
 css = "./app/gradio_css.css"
 head_html = ""
@@ -1080,6 +1089,8 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
     print("*" * 50)
     print("Selected speaker: ", selected_speaker)
     print("*" * 50)
+
+    page_state = gr.State("loaded", render=False)
 
     # All Components container
     with gr.Row():
@@ -1162,8 +1173,8 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
             txtbox.submit(chat_with_ai, [txtbox, chatbot], [txtbox, chatbot, hidden_textbox], show_progress="hidden") # js=js_toggle_visibility
             chatbot.change(fn=None, inputs=[hidden_textbox], js=js_autoscroll_by_id) 
 
-    theme=gr.themes.Base()
-
+    # TODO
+    demo.unload(reset_states)
 
 if __name__ == '__main__':
     print("Launching the interface")
@@ -1173,3 +1184,4 @@ if __name__ == '__main__':
         server_name="localhost",
         server_port=port,
         )
+    

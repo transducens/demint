@@ -5,18 +5,21 @@ TYPE_MESSAGE = {"GET": "/models", "POST": "/chat/completions"}
 
 class TeacherModel:
     def __init__(self):
-        self.port = 8000
-        self.address = 'localhost'
-        self.type_message = TYPE_MESSAGE["POST"]
-        self.url = f'http://{self.address}:{self.port}/v1{self.type_message}'
-        self.headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-        self.model = "Transducens/kind_teacher" # "../kind_teacher_server/models/llama3_q4_lora_chp1600_TheBigSix"
-        self.temperature = 1.0
-        self.top_p = 0.7
-        self.max_tokens = 150
+        try:
+            self.port = 8000
+            self.address = 'localhost'
+            self.type_message = TYPE_MESSAGE["POST"]
+            self.url = f'http://{self.address}:{self.port}/v1{self.type_message}'
+            self.headers = {
+                'accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+            self.model = "Transducens/kind_teacher" # "../kind_teacher_server/models/llama3_q4_lora_chp1600_TheBigSix"
+            self.temperature = 1.0
+            self.top_p = 0.7
+            self.max_tokens = 150
+        except:
+            raise Exception("Cannot connect teacher")
 
     def test_connection(self):
         headers = {

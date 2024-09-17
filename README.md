@@ -9,7 +9,7 @@
     - [Download Audio from Youtube (optional)](#download-audio-from-youtube-optional)
     - [Create Cache Files](#create-cache-files)
   - [Run application](#run-application)
-    - [Run Kind Teacher Server](#run-kind-teacher-model)
+    - [Run Kind Teacher Server](#run-kind-teacher-server)
     - [Run the Chatbot Application](#run-the-chatbot-application)
   - [Clean the Cache Files](#clean-the-cache-files)
   - [How to Cite this Work](#how-to-cite-this-work)

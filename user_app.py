@@ -11,7 +11,7 @@ import app.rag_sentences as rag_sentences
 from app.teacher_model import TeacherModel
 
 english_tutor: EnglishTutor | None = None
-kind_teacher: TeacherModel | None = None
+teacher_model: TeacherModel | None = None
 sentences_collection: dict | None = None
 explained_sentences: dict | None = None
 speakers: list | None = None
@@ -64,7 +64,7 @@ def initialize_global_variables():
     global id_sentence, id_error, error, chat_response, category_list, category_errors
     global index_category, index_error, count, selected_speaker
     global state_change 
-    global kind_teacher, kind_teacher_address, kind_teacher_port
+    global teacher_model, kind_teacher_address, kind_teacher_port
 
     state = -1
     max_new_tokens = 200
@@ -77,11 +77,18 @@ def initialize_global_variables():
         print("Loaded English Tutor")
         print("*" * 50)
 
-    if kind_teacher is None:
-        kind_teacher = TeacherModel(address=kind_teacher_address, port=kind_teacher_port)
-        print("*" * 50)
-        print(f"Loaded Kind Teacher Client in {kind_teacher_address}:{kind_teacher_port}")
-        print("*" * 50)
+    try:
+        if teacher_model is None:
+            teacher_model = TeacherModel(address=kind_teacher_address, port=kind_teacher_port)
+
+            if teacher_model.test_connection():
+                print("*" * 50)
+                print("Confirmed connection with Teacher Model")
+                print("*" * 50)
+            else:
+                raise ValueError("Error connecting to Teacher Model")
+    except:
+        teacher_model = None
 
     load_data() # Load the data from the cache files
 
@@ -262,7 +269,7 @@ def chat_with_ai(user_input, history):
                     f"QUESTION:\n Create a short explanation of the gramatical error using the mistake description provided in the context and alaways on the student phrase without saying the correct one.")
 
                 response = create_prompt([final_prompt])
-                chat_response = "Do you want an extensive explanation of the English grammar of this case?"
+                chat_response = "What do you want to do next?"
                 response += f"\n\n **{chat_response}**"
                 output = response
                 state = 3
@@ -365,7 +372,7 @@ def chat_with_ai(user_input, history):
                     final_prompt = (
                         f"You are an English teacher. I want you to help me learn English: \n\n"
                         f"CONTEXT:\n{context}\n"
-                        f"QUESTION:\n Create an exercise of English base on the english rules and mistake description provided in the context in order to me to practice.")
+                        f"QUESTION:\n Create an simple exercise of English base on the english rules and mistake description provided in the context in order to me to practice. The exercise must be just a simple sentence for the student to complete.")
 
                     output = create_prompt([final_prompt])
 
@@ -644,6 +651,14 @@ def create_context(history):
 
     context += "\n\nMistake description: \n"
     context += mistake_description
+
+    if teacher_model != None:
+        kind_teacher_prompt = teacher_model.format_messages(history_chat)
+        kind_teacher_response = teacher_model.get_response(kind_teacher_prompt)
+        kind_teacher_response = teacher_model.format_response(kind_teacher_response)
+        
+        context += "\n\nA teacher would respond in the following way. Only use this if the teacher response is related to the current topic:\n"
+        context += "\n\n" + kind_teacher_response + "\n" 
 
     return context
 
@@ -966,14 +981,14 @@ def safe_guard(student_response):
     return response
 
 def list_errors():
-    global error, category_list, category_errors
+    global error, category_list, category_errors, selected_speaker
 
     errors_speaker = list(explained_sentences_speaker.items())
     index_list = list(explained_sentences_speaker.keys())
 
     index_sentence = 0
 
-    selected_speaker = "SPEAKER_01"
+    #selected_speaker = "SPEAKER_01"
 
     for _, xx in errors_speaker:
         index = index_sentence

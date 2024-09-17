@@ -105,7 +105,7 @@ class VideoDownloaderYTDLP:
 
 
 def main(url:str, name:str):
-    video_downloader = VideoDownloaderYTDLP()
+    video_downloader = VideoDownloaderPytube()
     #video_downloader.video_url = "https://youtu.be/_Bx_x-gvLw0?si=y2Bi5cw6CizEd5Oa"
     video_downloader.video_url = url
 

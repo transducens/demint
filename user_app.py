@@ -592,6 +592,7 @@ def get_arguments_env():
 # Gets the arguments from the command line.
 def get_arguments():
     global log_conversation, selected_speaker, conversation_name, port
+    global kind_teacher_port, kind_teacher_address
     parser = argparse.ArgumentParser(description="English Tutor")
 
     parser.add_argument("--conver", required=True, type=str, help="The transcripted conversation to show. Default is diarization_result")

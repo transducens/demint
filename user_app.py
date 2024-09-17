@@ -1063,6 +1063,13 @@ def select_error(index_sentence = 0, index_error = 0):
 
     return incorrect_sentence, correct_sentence, explanation
 
+def reset_states():
+    global state, index_category, index_error
+
+    state = -1
+    index_category = 0
+    index_error = 0
+
 js = "./app/gradio_javascript.js"
 css = "./app/gradio_css.css"
 head_html = ""
@@ -1167,7 +1174,7 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
             chatbot.change(fn=None, inputs=[hidden_textbox], js=js_autoscroll_by_id) 
 
     # TODO
-    # demo.unload(fun_actualizar_estado)
+    demo.unload(reset_states)
 
 if __name__ == '__main__':
     print("Launching the interface")

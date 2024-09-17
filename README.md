@@ -1,6 +1,17 @@
 
 # DeMINT: Automated Language Debriefing for English Learners via AI Chatbot Analysis of Meeting Transcripts
 
+## Table of Contents
+- [DeMINT](#DeMINT:-automated-language-debriefing-for-english-learners-via-ai-chatbot-analysis-of-meeting-transcripts)
+  - [Project Overview](##project-overview)
+  - [Project Goals](##project-goals)
+- [Installation](#installation)
+    - [Configuration](#configuration)
+  - [Usage](#usage)
+    - [Basic Usage](#basic-usage)
+    - [Advanced Usage](#advanced-usage)
+  - [Conclusion](#conclusion)
+
 ## Project overview
 
 This is the repository for DeMINT's chatbot code and auxiliary scripts.
@@ -24,57 +35,294 @@ The project will culminate in a pilot study to assess the system’s effectivene
 
 <img src="demint-diagram.png" width="700">
 
-## Installation and setup
+# Preparing data
+Go to the root directory `demint`.
 
-Clone the project repository:
+## Download audio from YouTube (optional)
+
+### Option 1
+Download directly the audio from YouTube (internally gets converted using ffmpeg) and it gets stored in 'assets/audios/', if possible with 'wav' extension.
+
+**Download audio file**
 
 ```bash
-git clone https://github.com/transducens/demint.git
-cd demint
+usage: python -m app.audio_downloader [-h] -u URL [-n NAME]
+
+Description of your script
+
+options:
+  -h, --help            show this help message and exit
+  -u URL, --url URL     URL of the video to download
+  -n NAME, --name NAME  Name set to the downloaded video file
+
 ```
 
-Create a Conda environment and install dependencies:
+### Option 2
+Download the video from YouTube and store it in 'assets/videos/'. Then extract the audio of all the videos from the directory 'assets/videos/' and store them in 'assets/audios/' with 'wav' extension.
 
+**Download video file**
 ```bash
-conda env create -f environment.yml
-conda activate DeMINT
-pip install -r requirements.txt
-pip install pymupdf whisper-openai bitsandbytes
-python -m spacy download en_core_web_sm
+usage: python -m app.video_downloader [-h] -u URL [-n NAME]
+
+Description of your script
+
+options:
+  -h, --help            show this help message and exit
+  -u URL, --url URL     URL of the video to download
+  -n NAME, --name NAME  Name set to the downloaded video file
 ```
 
-Finally, set up HuggingFace and OpenAI API access. To use models from the HuggingFace hub, log in using the CLI:
-
+**Extract audio**
 ```bash
-huggingface-cli login
+# Extract audio from a video file.
+# From assets/videos/ to assets/audios/
+usage: python -m app.extract_audio [-h] [-vf VIDEO_FILE] [-af AUDIO_FILE] [-vd VIDEO_DIRECTORY]
+                        [-ad AUDIO_DIRECTORY]
+
+options:
+  -h, --help            show this help message and exit
+  -vf VIDEO_FILE, --video_file VIDEO_FILE
+                        Path to where the input video file is located.
+  -af AUDIO_FILE, --audio_file AUDIO_FILE
+                        Path to where the output audio file will be saved.
+  -vd VIDEO_DIRECTORY, --video_directory VIDEO_DIRECTORY
+                        Path to the directory containing the input video files.
+  -ad AUDIO_DIRECTORY, --audio_directory AUDIO_DIRECTORY
+                        Path to the directory where the output audio files will be saved.
 ```
 
-Enter your HuggingFace API token when prompted. You can find or create an API token in your HuggingFace account's settings.
+## Create cache files
 
-For OpenAI API access, set your API key as an environment variable:
-
+### Option 1 (recommended)
 ```bash
-export OPENAI_API_KEY=[your OpenAI API key]
-```
-
-## Running the preprocessing pipeline
-
-Place videos of the online meetings in the `assets/videos` directory. Run the preprocessing pipeline:
-
-```bash
-conda activate DeMINT
 bash run_pipeline.sh
 ```
 
-All necessary files will be generated in the `cache` directory.
-
-## Running the chatbot
-
-Simply run:
-
+### Option 2
+**Download audio from YouTube (optional)**
 ```bash
-conda activate DeMINT
-bash run_app.sh
+usage: python -m app.video_downloader [-h] -u URL [-n NAME]
+
+Description of your script
+
+options:
+  -h, --help            show this help message and exit
+  -u URL, --url URL     URL of the video to download
+  -n NAME, --name NAME  Name set to the downloaded video file
+```
+
+**Extract audio**
+```bash
+# Extract audio from a video file.
+# From assets/videos/ to assets/audios/
+usage: python -m app.extract_audio [-h] [-vf VIDEO_FILE] [-af AUDIO_FILE] [-vd VIDEO_DIRECTORY]
+                        [-ad AUDIO_DIRECTORY]
+
+options:
+  -h, --help            show this help message and exit
+  -vf VIDEO_FILE, --video_file VIDEO_FILE
+                        Path to where the input video file is located.
+  -af AUDIO_FILE, --audio_file AUDIO_FILE
+                        Path to where the output audio file will be saved.
+  -vd VIDEO_DIRECTORY, --video_directory VIDEO_DIRECTORY
+                        Path to the directory containing the input video files.
+  -ad AUDIO_DIRECTORY, --audio_directory AUDIO_DIRECTORY
+                        Path to the directory where the output audio files will be saved.
+```
+
+**Diarize audio**
+```bash
+# Diarize an audio file or a directory of audio files.
+# From assets/audios/ to cache/diarized_audios/
+usage: python -m app.diarize_audio [-h] [-af AUDIO_FILE] [-ad AUDIO_DIRECTORY]
+                        [-sd SEGMENTS_DIRECTORY]
+
+options:
+  -h, --help            show this help message and exit
+  -af AUDIO_FILE, --audio_file AUDIO_FILE
+                        Path to where the input audio file is located.
+  -ad AUDIO_DIRECTORY, --audio_directory AUDIO_DIRECTORY
+                        Path to the input directory containing the audio files.
+  -sd SEGMENTS_DIRECTORY, --segments_directory SEGMENTS_DIRECTORY
+                        Path to the output directory where all the diarized audios will
+                        be saved.
+```
+
+**Transcribe audio**
+```bash
+# Transcribe the audio files of a directory.
+# From cache/diarized_audios/ to cache/diarized_transcripts/
+usage: python -m app.whisper_speech [-h] [-ad AUDIO_DIRECTORY] [-tf TRANSCRIPT_FILE]
+                         [-aad ALL_AUDIOS_DIRECTORY] [-td TRANSCRIPT_DIRECTORY]
+
+options:
+  -h, --help            show this help message and exit
+  -ad AUDIO_DIRECTORY, --audio_directory AUDIO_DIRECTORY
+                        Path to where the audio input directory of is located.
+  -tf TRANSCRIPT_FILE, --transcript_file TRANSCRIPT_FILE
+                        Path to where the output transcript file will be saved.
+  -aad ALL_AUDIOS_DIRECTORY, --all_audios_directory ALL_AUDIOS_DIRECTORY
+                        Path to the directory containing the input audio directories.
+  -td TRANSCRIPT_DIRECTORY, --transcript_directory TRANSCRIPT_DIRECTORY
+                        Path to the directory where the output transcript files will be
+                        saved.
+```
+
+**Prepare sentences collection**
+```bash
+# Prepare a sorted sentence collection from a transcript file or a directory of transcript files.
+# From cache/diarized_transcripts/ to cache/raw_sorted_sentence_collection/
+usage: python -m app.prepare_sentences [-h] [-tf TRANSCRIPT_FILE] [-sf SENTENCES_FILE]
+                            [-td TRANSCRIPT_DIRECTORY] [-sd SENTENCES_DIRECTORY]
+
+options:
+  -h, --help            show this help message and exit
+  -tf TRANSCRIPT_FILE, --transcript_file TRANSCRIPT_FILE
+                        Path to where the input transcript file is located.
+  -sf SENTENCES_FILE, --sentences_file SENTENCES_FILE
+                        Path to where the output sentences collection file will be saved.
+  -td TRANSCRIPT_DIRECTORY, --transcript_directory TRANSCRIPT_DIRECTORY
+                        Path to the directory containing the input transcript files.
+  -sd SENTENCES_DIRECTORY, --sentences_directory SENTENCES_DIRECTORY
+                        Path to the directory where the output sentences collection files
+                        will be saved.
+```
+
+**Obtain errant errors**
+```bash
+# Obtain errors from a sentences collection file.
+# From cache/raw_sorted_sentence_collection/ to cache/errant_all_evaluation/
+usage: python -m app.obtain_errors [-h] [-sf SENTENCES_FILE] [-ef ERRANT_FILE]
+                        [-sd SENTENCES_DIRECTORY] [-ed ERRANT_DIRECTORY]
+
+options:
+  -h, --help            show this help message and exit
+  -sf SENTENCES_FILE, --sentences_file SENTENCES_FILE
+                        Path to where the input sentences collection file is located.
+  -ef ERRANT_FILE, --errant_file ERRANT_FILE
+                        Path to where the output errant evaluation file will be saved.
+  -sd SENTENCES_DIRECTORY, --sentences_directory SENTENCES_DIRECTORY
+                        Path to the directory containing the input sentences collection
+                        files.
+  -ed ERRANT_DIRECTORY, --errant_directory ERRANT_DIRECTORY
+                        Path to the directory where the output errant evaluation files
+                        will be saved.
+```
+
+**Explain obtained errors**
+```bash
+# Explain the obtained errors from the errant evaluation files.
+# From cache/errant_all_evaluation/ to cache/explained_sentences/
+usage: python -m app.explain_sentences [-h] [-ef ERRANT_FILE] [-xf EXPLAINED_FILE]
+                            [-ed ERRANT_DIRECTORY] [-xd EXPLAINED_DIRECTORY]
+
+options:
+  -h, --help            show this help message and exit
+  -ef ERRANT_FILE, --errant_file ERRANT_FILE
+                        Path to where the input errant evaluation file is located.
+  -xf EXPLAINED_FILE, --explained_file EXPLAINED_FILE
+                        Path to where the output explained sentences file will be saved.
+  -ed ERRANT_DIRECTORY, --errant_directory ERRANT_DIRECTORY
+                        Path to the directory containing the input errant evaluation
+                        files.
+  -xd EXPLAINED_DIRECTORY, --explained_directory EXPLAINED_DIRECTORY
+                        Path to the directory where the output explained sentences files
+                        will be saved.
+```
+
+**Get RAG data about the sentences**
+```bash
+# Get RAG (Retrieval-Augmented Generation) data for each sentence
+# From cache/explained_sentences/ to cache/rag_sentences/
+usage: python -m app.rag_sentences [-h] [-xf EXPLAINED_FILE] [-rf RAG_FILE]
+                        [-xd EXPLAINED_DIRECTORY] [-rd RAG_DIRECTORY]
+
+options:
+  -h, --help            show this help message and exit
+  -xf EXPLAINED_FILE, --explained_file EXPLAINED_FILE
+                        Path to where the input explained sentences file is located.
+  -rf RAG_FILE, --rag_file RAG_FILE
+                        Path to where the output rag sentences file will be saved.
+  -xd EXPLAINED_DIRECTORY, --explained_directory EXPLAINED_DIRECTORY
+                        Path to the directory containing the input explained sentences
+                        files.
+  -rd RAG_DIRECTORY, --rag_directory RAG_DIRECTORY
+                        Path to the directory where the output rag sentences files will
+                        be saved.
+```
+
+# Run application
+
+## Run kind teacher server
+**Create kind teacher environment**
+```bash
+cd kind_teacher_server
+
+conda env create -f environment.yml
+
+conda activate llamafactory_env
+
+bash init.sh
+```
+
+
+**Set parameters of kind teacher API server (optional)**
+```bash
+# Default 8000
+export KIND_TEACHER_PORT=8000
+
+# Default localhost
+export KIND_TEACHER_HOST="localhost"
+```
+(Port and address of the server can be modified manually in "kind_teacher_server/src/llamafactory/api/app.py")
+
+
+**Run kind teacher API server**
+```bash
+# If you are not inside of the directory
+cd kind_teacher_server
+
+[CUDA_VISIBLE_DEVICES=0] llamafactory-cli api run_api_inference_1.yaml
+```
+
+
+## Run the chatbot application
+
+
+**Set the OPENAI key for GPT**
+```bash
+export OPENAI_API_KEY="my_chatgpt_key_goes_here"
+```
+
+
+**Run chatbot**
+```bash
+usage: python user_app.py [-h] \
+                           --conver CONVER \
+                          [--speaker SPEAKER] \ 
+                          [--port PORT] \ 
+                          [--no_log] \ 
+                          [--port_kind_teacher PORT_KIND_TEACHER] \ 
+                          [--address_kind_teacher ADDRESS_KIND_TEACHER]
+
+options:
+  -h, --help         show this help message and exit
+  --conver CONVER    The transcripted conversation to show. Default is diarization_result
+  --speaker SPEAKER  The speaker to show in the transcript. Default is All speakers.
+  --port PORT        The port in which the server will run. Default is 8000
+  --no_log           If the flag is called, the chatbot conversation will not save logs of the execution. Default is False.
+  --port_kind_teacher PORT_KIND_TEACHER
+                        The port in which the kind teacher will run. Default is 8000
+  --address_kind_teacher ADDRESS_KIND_TEACHER
+                        The address in which the kind teacher will run. Default is
+                        localhost
+
+```
+
+# Clean the cache files
+
+```bash 
+bash clean_cache.sh
 ```
 
 Gradio will automatically open the application in your default web browser. If it doesn't, a local URL will be provided in the terminal output.

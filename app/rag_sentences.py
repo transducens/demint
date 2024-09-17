@@ -121,4 +121,12 @@ def main():
 
 
 if "__main__" == __name__:
+    print("*" * 50)
+    print("GETTING RAG DATA STARTED")
+    print("*" * 50)
+
     main()
+
+    print("*" * 50)
+    print("GETTING RAG DATA COMPLETED")
+    print("*" * 50)

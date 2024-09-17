@@ -89,6 +89,9 @@ def initialize_global_variables():
                 raise ValueError("Error connecting to Teacher Model")
     except:
         teacher_model = None
+        print("~" * 50)
+        print("ERROR: Could not connect to Teacher Model")
+        print("~" * 50)
 
     load_data() # Load the data from the cache files
 

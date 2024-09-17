@@ -38,5 +38,97 @@
                 "assistant": "Most frecuent error type: U:OTHER. Want to practice it?"
             }
         ]
+    },
+    {
+        "conversation": [
+            {
+                "user": "Hey, all good?",
+                "assistant": "Most frecuent error type: U:OTHER. Want to practice it?"
+            },
+            {
+                "user": "no",
+                "assistant": "Most frecuent error type: R:OTHER. Want to practice it?"
+            },
+            {
+                "user": "fine",
+                "assistant": "Most frecuent error type: R:NOUN. Want to practice it?"
+            },
+            {
+                "user": "yes",
+                "assistant": "**You've made a mistake in the following sentence:**\n\n*I'm african gap **[year]** i finished my high school this summer and i'm going to university next summer.*\n\nThe error in the sentence stems from the incorrect usage and positioning of the term \"gap [year].\" The term \"gap year\" is commonly used to describe a year taken off, typically between high school and university; hence, it must be clearly defined and properly integrated into the sentence. The original sentence vaguely connects it to \"I'm African,\" which is incorrect structurally and contextually. The placement leads to confusion regarding its relevance to \"I'm African\" or the educational timeline, i.e., the high school completion and university commencement. The appropriate correction would address clarifying the role or timing of the gap year in the given educational context.\n\n\n\n **Do you want to practice this error?**"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "user": "hey",
+                "assistant": "Most frecuent error type: U:OTHER. Want to practice it?"
+            },
+            {
+                "user": "why not",
+                "assistant": "**You've made a mistake in the following sentence:**\n\n*Maybe the roaring **[of the]** of the chimps seas as well.*\n\nThe error in the sentence \"Maybe the roaring **[of the]** of the chimps seas as well.\" arises from the redundant use of the phrase \"of the\". This repetition is unnecessary and disrupts the grammatical structure of the sentence. The explanation suggesting a missing space and a repetition issue does not accurately describe the actual error.\n\n\n\n **Do you want to practice this error?**"
+            },
+            {
+                "user": "nah, thanks",
+                "assistant": "**You've made a mistake in the following sentence:**\n\n*Isn't that a good idea? i think you see, you know, is a rather good one you see the e-cldr, it's a third world country, a developing **[country, certainly,.]***\n\nThe error in the sentence occurs due to redundant phrasing and punctuation. Specifically, the phrase \"country, certainly,.\" includes unnecessary repetition of \"country\" and incorrect punctuation that disrupts the flow of the sentence. The correction involves removing these redundancies to enhance clarity and coherence.\n\n\n\n **Do you want to practice this other error?**"
+            },
+            {
+                "user": "I am",
+                "assistant": "**You've made a mistake in the following sentence:**\n\n*How important is it to make long term plans i think in personal life it's quite important to make long term plans because you are able to know what you want to become the way you are old and what you want to earn **[for money and what you want to do for the community]** for your country.*\n\nThe error in the sentence arises due to a confusing and incorrectly placed phrase \"[for money and what you want to do for the community]\" which makes the sentence confusing and difficult to understand. This phrase disrupts the flow and coherence of the sentence by adding unnecessary details that are not well integrated into the main idea being expressed. Consequently, it detracts from the clarity of what the speaker is trying to convey about the importance and benefits of making long-term plans. The sentence would be clearer and more effectively communicate its message without this phrase.\n\n\n\n **Do you want to practice this other error?**"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "user": "nice",
+                "assistant": "Most frecuent error type: U:OTHER. Want to practice it?"
+            },
+            {
+                "user": "nah",
+                "assistant": "Most frecuent error type: R:OTHER. Want to practice it?"
+            },
+            {
+                "user": "come on",
+                "assistant": "Most frecuent error type: R:NOUN. Want to practice it?"
+            },
+            {
+                "user": "come on!!!",
+                "assistant": "Most frecuent error type: U:PART. Want to practice it?"
+            },
+            {
+                "user": "yes!!!!",
+                "assistant": "**You've made a mistake in the following sentence:**\n\n*But it's very hard **[to to to]** to make all little beans on the whole beaches what do you think about it.*\n\nThe error in the sentence involved the repetition of the word \"to\" three additional times, which resulted in a grammatical mistake by disrupting the sentence structure and clarity. Such unintentional repetition of a word or words is typically a typographical or editing oversight that can lead to confusion in understanding the intent of the sentence. This type of error does not constitute a \"dangling modifier\" error, as the explanation incorrectly identifies. Instead, it is more accurately described as a redundancy or repetition error that affects the fluency and coherence of the sentence.\n\n\n\n **Do you want to practice this error?**"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "user": "ok",
+                "assistant": "Most frecuent error type: U:OTHER. Want to practice it?"
+            },
+            {
+                "user": "yes",
+                "assistant": "**You've made a mistake in the following sentence:**\n\n*Maybe the roaring **[of the]** of the chimps seas as well.*\n\nIn the incorrect sentence, there is an unnecessary repetition of the preposition \"of.\" This error causes redundancy and disrupts the coherence of the sentence. Initially, the second \"of\" should not be included, as it makes the phrase grammatically incorrect. The phrase would be correctly structured without the repeated preposition.\n\n\n\n **Do you want to practice this error?**"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "user": "hey",
+                "assistant": "Most frecuent error type: U:OTHER. Want to practice it?"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "user": "ok",
+                "assistant": "Most frecuent error type: U:OTHER. Want to practice it?"
+            }
+        ]
     }
 ]

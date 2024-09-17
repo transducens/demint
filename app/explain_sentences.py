@@ -91,7 +91,6 @@ def explain_sentences(file_manager, chat_llm, input_path="", output_path=""):
 
     file_manager.save_to_json_file(output_path, explained_sentences)
 
-    chat_llm.unload_model()
     return explained_sentences
 
 
@@ -118,6 +117,8 @@ def explain_sentences_of_directory(
                 llm,
                 errant_evaluation_path, 
                 explained_sentences_path)
+            
+    llm.unload_model()
 
 
 def get_args():

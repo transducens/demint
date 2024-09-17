@@ -2,7 +2,6 @@
 
 # List of directories to clean
 DIRS_TO_CLEAN=(
-  "./cache"
   "./cache/diarized_transcripts"
   "./cache/raw_sorted_sentence_collection"
   "./cache/errant_all_evaluation"

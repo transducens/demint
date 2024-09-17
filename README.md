@@ -98,12 +98,15 @@ options:
 ## Create cache files
 
 ### Option 1 (recommended)
+**Run all the videos through the pipeline**
+The videos are read from the directory: `assets/videos/` by default. 
 ```bash
 bash run_pipeline.sh
 ```
 
 ### Option 2
 **Download audio from YouTube (optional)**
+The videos are saved in `assets/videos/`
 ```bash
 usage: python -m app.video_downloader [-h] -u URL [-n NAME]
 
@@ -116,6 +119,7 @@ options:
 ```
 
 **Extract audio**
+Extracts the audio from a video file (by default from `assets/videos/`) and stores the audio (by default in `assets/audios/`) with the same name, 16hz sample rate and mono audio.
 ```bash
 # Extract audio from a video file.
 # From assets/videos/ to assets/audios/

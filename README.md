@@ -2,15 +2,10 @@
 # DeMINT: Automated Language Debriefing for English Learners via AI Chatbot Analysis of Meeting Transcripts
 
 ## Table of Contents
-- [DeMINT](#DeMINT:-automated-language-debriefing-for-english-learners-via-ai-chatbot-analysis-of-meeting-transcripts)
+- [DeMINT](#demint-automated-language-debriefing-for-english-learners-via-ai-chatbot-analysis-of-meeting-transcripts)
   - [Project Overview](##project-overview)
   - [Project Goals](##project-goals)
-- [Installation](#installation)
-    - [Configuration](#configuration)
-  - [Usage](#usage)
-    - [Basic Usage](#basic-usage)
-    - [Advanced Usage](#advanced-usage)
-  - [Conclusion](#conclusion)
+
 
 ## Project overview
 

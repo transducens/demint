@@ -261,7 +261,7 @@ def chat_with_ai(user_input, history):
             output = output.lower()
             if output == 'yes':
                 #response = error_explanation()
-                context = create_context(history)
+                context = create_context(history, "I want a short explanation of the gramatical error")
             
                 final_prompt = (
                     f"You are an English teacher. I want you to correct the mistakes I have made based on the following context: \n\n"
@@ -429,6 +429,7 @@ def chat_with_ai(user_input, history):
         error_sentence_id = "sentence_" + str(highlighted_sentence_id)
 
     history.append((user_input, output))   # must be Tuples
+    print("history: ", history)
     
     if log_conversation:
         log_conversation_item(user_input, output)
@@ -618,7 +619,7 @@ def get_arguments():
 
     # return arguments
 
-def create_context(history):
+def create_context(history, user_input):
     global error
     #errant = cl.user_session.get("error")
     errant = error
@@ -645,7 +646,9 @@ def create_context(history):
     context += mistake_description
 
     if teacher_model != None:
-        kind_teacher_prompt = teacher_model.format_messages(history_chat)
+        list_history = history.copy
+        list_history.append((user_input))
+        kind_teacher_prompt = teacher_model.format_messages(list_history)
         kind_teacher_response = teacher_model.get_response(kind_teacher_prompt)
         kind_teacher_response = teacher_model.format_response(kind_teacher_response)
         

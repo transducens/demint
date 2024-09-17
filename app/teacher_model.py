@@ -43,6 +43,10 @@ class TeacherModel:
     # Input type: [['Hello teacher', 'Hello student'], ['I need help with english', 'What problems do you have?'], ...]
     # Output type: [{'role': 'user', 'content': 'Hello teacher', 'tool_calls': []}, {'role': 'assistant', 'content': 'Hello student'}, ...]
     def format_messages(self, system_message="", messages=[]):
+        print("====================================")
+        print(messages)
+        print("====================================")
+        
         formatted_messages = []
         if system_message:
             formatted_message_system = {
@@ -67,6 +71,9 @@ class TeacherModel:
             
                 formatted_messages.append(formatted_message_assistant)
 
+        print("====================================")
+        print(formatted_messages)
+        print("====================================")
         return formatted_messages    
     
     def get_response(self, messages):
@@ -92,6 +99,9 @@ class TeacherModel:
             return f"Error: {response.status_code}"
         
     def format_response(self, response):
+        print("====================================")
+        print(response)
+        print("====================================")
         return response["choices"][0]["message"]["content"]
 
 

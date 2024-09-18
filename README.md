@@ -326,7 +326,7 @@ export OPENAI_API_KEY="my_chatgpt_key_goes_here"
 ```bash
 usage: python user_app.py [-h] \
                           [-l] \
-                          [ --conver CONVER] \
+                          [--conver CONVER] \
                           [--speaker SPEAKER] \ 
                           [--port PORT] \ 
                           [--no_log] \ 

@@ -664,11 +664,13 @@ def create_context(history, user_input):
         list_history = history.copy()
         list_history.append((user_input))
         kind_teacher_prompt = teacher_model.format_messages(messages=list_history)
-        kind_teacher_response = teacher_model.get_response(kind_teacher_prompt)
-        kind_teacher_response = teacher_model.format_response(kind_teacher_response)
-        
-        context += "\n\nA teacher would respond in the following way. Only use this if the teacher response is related to the current topic:\n"
-        context += "\n\n" + kind_teacher_response + "\n" 
+        try:
+            kind_teacher_response = teacher_model.get_response(kind_teacher_prompt)
+            kind_teacher_response = teacher_model.format_response(kind_teacher_response)
+            context += "\n\nA teacher would respond in the following way. Only use this if the teacher response is related to the current topic:\n"
+            context += "\n\n" + kind_teacher_response + "\n" 
+        except:
+            print("ERROR: Could not reach Kind Teacher Server. Ignoring its response.")
 
     return context
 

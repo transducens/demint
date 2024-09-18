@@ -234,7 +234,7 @@ options:
 
 **Explain obtained errors**
 
-Using an LLM (by default Llama 3.1 8B), explains all errors with more detail (by default from `cache/errant_all_evaluation/` ) and stores them (by default in `cache/explained_sentences/`) with the same name in JSON format.
+Using an LLM (by default Llama 3.1 8B Instruct), explains all errors with more detail (by default from `cache/errant_all_evaluation/` ) and stores them (by default in `cache/explained_sentences/`) with the same name in JSON format.
 ```bash
 # Explain the obtained errors from the errant evaluation files.
 # From cache/errant_all_evaluation/ to cache/explained_sentences/
@@ -325,7 +325,8 @@ export OPENAI_API_KEY="my_chatgpt_key_goes_here"
 **Run chatbot**
 ```bash
 usage: python user_app.py [-h] \
-                           --conver CONVER \
+                          [-l] \
+                          [--conver CONVER] \
                           [--speaker SPEAKER] \ 
                           [--port PORT] \ 
                           [--no_log] \ 
@@ -333,7 +334,8 @@ usage: python user_app.py [-h] \
                           [--address_kind_teacher ADDRESS_KIND_TEACHER]
 
 options:
-  -h, --help         show this help message and exit
+  -h, --help         Show this help message and exit
+  -l, --list         List all the conversations available.
   --conver CONVER    The transcripted conversation to show. Default is diarization_result
   --speaker SPEAKER  The speaker to show in the transcript. Default is All speakers.
   --port PORT        The port in which the server will run. Default is 8000

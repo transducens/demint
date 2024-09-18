@@ -1,31 +1,16 @@
 from app.llm.ChatFactory import ChatFactory
-from app.rag.RAGFactory import RAGFactory
-import os
-import shutil
 
 #from app.study_plan_creator import StudyPlanCreator
 
 
 class EnglishTutor:
-    def __init__(self, rag_engine="ragatouille", llm_model_name="gpt-4-turbo"):
+    def __init__(self, llm_model_name="gpt-4-turbo"):
         # LLM
         self.__llm_model_name = llm_model_name
         self.__chat_llm = None
         self.__chat_factory = ChatFactory()
         self.__chat_history = []
 
-        # RAG
-        self.__rag_engine = rag_engine
-        self.__rag_factory = RAGFactory()
-
-        self.__speakers_context = None
-
-        self.cache_files_paths = {'diarization_result': 'cache/diarization_result.json',
-                                  'study_plan': 'cache/study_plan.json',
-                                  'manual_dialog': 'cache/manual_dialog.json'}
-
-    def __get_rag_engine(self):
-        return self.__rag_factory.get_instance(self.__rag_engine)
 
     def __get_chat_llm(self):
         if self.__chat_llm is None:
@@ -35,40 +20,7 @@ class EnglishTutor:
     
     def get_chat_llm(self):
         return self.__llm_model_name
-    
 
-    # Returns a list of all the speakers that have spoken in the transctipt
-    def get_speakers(self):
-        sorted_speakers = []
-        if self.__speakers_context is not None:
-            sorted_speakers.append("All speakers")
-            # Get the speakers names
-            sorted_speakers += sorted( {speaker_context[1] for speaker_context in self.__speakers_context} )
-        
-        return sorted_speakers
-
-
-    def clean_cache(self):
-        self.__speakers_context = None
-        self.__chat_history = []
-
-        cache_folder = 'cache'
-        if os.path.isdir(cache_folder):
-            for filename in os.listdir(cache_folder):
-                file_path = os.path.join(cache_folder, filename)
-                try:
-                    if os.path.isfile(file_path) or os.path.islink(file_path):
-                        os.unlink(file_path)
-                except Exception as e:
-                    print(f'Can\'t delete {file_path}. The reason: {e}')
-
-        ragatouille_folder = '.ragatouille/colbert/indexes/tutor/'
-        if os.path.isdir(ragatouille_folder):
-            try:
-                shutil.rmtree(ragatouille_folder)
-                print(f"Successfully deleted the folder: {ragatouille_folder}")
-            except Exception as e:
-                print(f'Failed to delete the folder {ragatouille_folder}. Reason: {e}')
 
     def get_current_llm_model_id(self):
         if self.__chat_llm is None:
@@ -76,8 +28,6 @@ class EnglishTutor:
 
         return self.__chat_llm.get_my_name()
 
-    def get_rag_engine_id(self):
-        return self.__rag_engine
 
     # ====================
     # = Chat LLM Region
@@ -100,37 +50,4 @@ class EnglishTutor:
     def get_chat_history(self):
         return self.__chat_history
 
-    # ====================
-    # = Rag FAISS Region
-    # ====================
 
-    def search_in_index(self, query, k=5):
-        rag_engine = self.__get_rag_engine()
-        return rag_engine.search(query, k)
-
-    def get_supported_rag_engines(self):
-        return self.__rag_factory.get_supported_types()
-
-    def set_rag_engine(self, rag_engine):
-        self.__rag_engine = rag_engine
-
-
-
-    # Returns a dictionary of explained sentences (cache/explained_sentences.json)
-    def get_study_plan(self) -> list:
-        # study_plan = self.__file_manager.read_from_json_file(self.cache_files_paths['study_plan'])
-        #
-        # if study_plan:
-        #     print("study plan loaded from file.")
-        #     return study_plan
-
-        chat_llm = self.__get_chat_llm()
-        rag_engine = self.__rag_factory.get_instance("ragatouille")
-        plan_creator = StudyPlanCreator(chat_llm, rag_engine)
-        speakers_context = self.get_speakers_context(group_by_speaker=False)
-        speakers = self.get_speakers()
-        explained_sentences = plan_creator.create_study_plan(speakers_context)
-        #study_plan = plan_creator.create_study_plan(speakers_context)
-        #print("get_study_plan: ", study_plan)
-        #self.__file_manager.save_to_json_file(self.cache_files_paths['study_plan'], study_plan)
-        return explained_sentences, speakers_context, speakers

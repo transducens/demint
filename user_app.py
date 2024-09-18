@@ -1,13 +1,10 @@
-import gradio as gr
-import tracemalloc
 import time
+import gradio as gr
 import os
 import argparse
 
 from english_tutor import EnglishTutor
 from app.file_manager import FileManager
-import app.prepare_sentences as prepare_sentences
-import app.rag_sentences as rag_sentences
 from app.teacher_model import TeacherModel
 
 english_tutor: EnglishTutor | None = None
@@ -43,7 +40,6 @@ port = 7860
 selected_speaker = "All speakers"
 
 
-tracemalloc.start()
 
 prompt_question = [
     f"QUESTION:\n Create a short explanation of the gramatical error using the mistake description provided in the context and alaways on the student phrase without saying the correct one.",
@@ -1072,6 +1068,7 @@ def reset_states():
 js = "./app/gradio_javascript.js"
 css = "./app/gradio_css.css"
 head_html = ""
+
 with open("./app/gradio_head_html.html", 'r') as file:
     head_html = file.read()
 

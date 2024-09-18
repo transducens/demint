@@ -12,6 +12,9 @@ output_directory = "./cache/rag_sentences"
 
 
 def rag_sentences(file_manager, rag_engine, rag_passages=1, input_path="", output_path=""):
+    print("-" * 50)
+    print("Getting RAG data from:", input_path)
+
     if not os.path.isfile(input_path):
         print(f"{input_path} is not found.")
         print(f"Processing {input_path}")
@@ -41,6 +44,9 @@ def rag_sentences(file_manager, rag_engine, rag_passages=1, input_path="", outpu
 
     file_manager.save_to_json_file(output_path, explained_sentences)
 
+    print(f"RAG sentences saved to: {output_path}")
+    print("-" * 50)
+
     return explained_sentences
 
 
@@ -61,7 +67,7 @@ def rag_sentences_of_directory(
 
         # Check if it's a file (not a directory)
         if os.path.isfile(explained_sentences_path):
-            print(f"Found diarized transcript file: {explained_sentences_path}")
+            #print(f"Found diarized transcript file: {explained_sentences_path}")
 
             rag_sentences(
                 file_manager,

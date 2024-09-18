@@ -7,6 +7,9 @@ input_directory = "assets/videos"
 output_directory = "assets/audios"
 
 def extract_audio(video_file="", audio_file=""):
+    print('-' * 50)
+    print(f"Extracting audio from video file: {video_file}")
+
     if not os.path.exists(video_file):
         print(f"Error: File {video_file} not found.")
         return 0
@@ -34,7 +37,8 @@ def extract_audio(video_file="", audio_file=""):
     # Remove the temporary file
     os.remove(temp_audio_file)
     
-    print(f"Audio extraction completed: {audio_file}")
+    print(f"Audio extraction completed and stored in: {audio_file}")
+    print('-' * 50)
 
     return 1
 
@@ -49,8 +53,6 @@ def extract_all_audios_of_directory(video_directory="assets/videos", audio_direc
 
         # Check if it's a file (not a directory)
         if os.path.isfile(video_path):
-            print(f"Found video file: {video_path}")
-
             video_name, video_extension = os.path.splitext(video_file)
             audio_path = os.path.join(audio_directory, video_name + ".wav")
             extract_audio(video_path, audio_path)

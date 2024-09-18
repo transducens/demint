@@ -1,6 +1,7 @@
 #!/bin/bash
 
-set -e
+exec 2>/dev/null  # Avoids printing warnings
+set -e  # If any error occurs, it stops the executiong of the pipeline
 
 CUDA="CUDA_VISIBLE_DEVICES=1"
 

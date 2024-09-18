@@ -3,7 +3,7 @@
         "speaker": "SPEAKER_00",
         "original_sentence": "Hey gabriel how is it going man.",
         "t5_checked_sentence": "Hey gabriel, how is it going?",
-        "llm_explanation": "The errors in the original sentence are:\n\n* A comma after \"Hey\" is missing.\n* The second word \"gabriel\" should be capitalized.\n* A question mark at the end is missing.\n* The sentence should be capitalized properly, capitalizing the first word \"Hey\".\n\nCorrected sentence: \"Hey Gabriel, how is it going?\"",
+        "llm_explanation": "The errors in the original sentence are:\n\n1. Lack of capitalization of the first word: \"Hey\" should be capitalized as \"Hey\" is a proper noun.\n2. Lack of comma after \"gabriel\": A comma is needed after \"gabriel\" to separate it from the rest of the sentence.\n3. Missing question mark at the end: A question mark is needed at the end to indicate that it is a question.\n\nThe corrected sentence is: \"Hey Gabriel, how is it going?\"",
         "errant": [
             {
                 "index": "1",
@@ -17,7 +17,7 @@
                 "c_end": 6,
                 "corrected_text": "",
                 "error_type": "U:NOUN",
-                "llm_explanation": "The error is that a word is missing in the original sentence. The rule that was broken is that in a sentence, each word should be separated by a space."
+                "llm_explanation": "The error is a NOUN error, which means that a NOUN (a person's name) is missing in the original sentence. The original sentence is \"Hey gabriel how is it going man.\", which is missing the word \"Gabriel\".\n\nThe corrected sentence is \"Hey Gabriel, how is it going?\" which includes the missing NOUN, \"Gabriel\"."
             }
         ]
     },
@@ -25,7 +25,7 @@
         "speaker": "SPEAKER_00",
         "original_sentence": "Yeah yeah i get it i was been a pain for me too you have no idea what happened at work.",
         "t5_checked_sentence": "Yeah yeah, I get it, it was a pain for me too. You have no idea what happened at work.",
-        "llm_explanation": "Here are the errors in the original sentence and their corrections:\n\n1. **\"Yeah yeah\" is an informal and unnecessary repetition**: \n   - Original: \"Yeah yeah\"\n   - Correction: Remove the repetition for a more formal and concise expression.\n\n2. **\"i\" should be \"I\"** \n   - Original: \"i\"\n   - Correction: \"I\" is the correct first-person singular pronoun.\n\n3. **\"was been\" is a grammatical error** \n   - Original: \"was been\"\n   - Correction: \"was\" is the correct past tense of the verb \"be\", while \"been\" is the past participle of \"be\", so it should be one or the other. In this",
+        "llm_explanation": "The errors in the original sentence are:\n\n1. \"Yeah yeah\" is an informal expression, but in a written text, it's better to use a more formal or standard expression, such as \"Yes, I understand\" or \"I get it.\"\n\n2. \"i was been\" should be \"I was\" or \"I've been\" (the verb tense is incorrect, and \"been\" should not be a separate word).\n\n3. \"a pain for me too\" should be \"a pain for me too\" (no article \"a\" is needed).\n\n4. \"You have no idea what happened\" should be \"You have no idea what happened\" (the first \"what\" is unnecessary, and the sentence is grammatically",
         "errant": [
             {
                 "index": "3",
@@ -39,7 +39,7 @@
                 "c_end": 4,
                 "corrected_text": "it,",
                 "error_type": "M:NOUN",
-                "llm_explanation": "The error is an extra word \"been\" which is an adverb and should be replaced with a verb \"was\" to maintain grammatical correctness."
+                "llm_explanation": "The error is a \"Missing article\" (NOUN) error. \nThe broken rule is: A definite article (\"the\") is missing before the word \"pain\"."
             },
             {
                 "index": "3",
@@ -53,7 +53,7 @@
                 "c_end": 6,
                 "corrected_text": "",
                 "error_type": "U:PRON",
-                "llm_explanation": "The error is an instance of a U:PRON error, which involves a missing article (\"a\" or \"an\") before a noun."
+                "llm_explanation": "The error is a U:PRON error, where a punctuation mark (the comma) is missing after a word, specifically \"it\" was intended to be a pronoun but is used as a non-pronoun (a \"it\" is a pronoun but here it is used as an interjection to emphasize the meaning)."
             },
             {
                 "index": "3",
@@ -67,7 +67,7 @@
                 "c_end": 7,
                 "corrected_text": "",
                 "error_type": "U:VERB",
-                "llm_explanation": "The error is an extra \"i\" that shouldn't be there."
+                "llm_explanation": "The error is an instance of a \"Subject-Verb Inversion\" or more specifically, a \"Verb-Subject Inversion\" (VSI), which is a type of U:VERB error.\n\nThe broken rule is: \"The verb comes after the subject in a simple sentence.\"\n\nIn the original sentence, the subject \"I\" is followed by the verb \"was\", which should come after the subject."
             }
         ]
     },
@@ -75,7 +75,7 @@
         "speaker": "SPEAKER_01",
         "original_sentence": "You know same story like always but today boss was on my back all day for no reason and then they printed jam like 3 times.",
         "t5_checked_sentence": "You know the same story like always, but today my boss was on my back all day for no reason and then they printed jam like 3 times.",
-        "llm_explanation": "As an English teacher, I've identified the following errors in the original sentence:\n\n1.  \"same\" should be \"the same\" for correct idiomatic expression.\n2.  \"like\" should be \"like always\" is incorrect, \"like\" is used to compare, whereas \"like\" should be \"always\" should be used without \"like\".\n3.  \"boss\" should be \"my boss\" to correctly possess the noun.\n4.  \"they\" should be \"my team\" or \"the team\" to correctly refer to a group of people.\n5.  \"jam\" is a correct word, but \"jam\" is a noun and used correctly in the context of a printer error.",
+        "llm_explanation": "Let's break down the errors and corrections in the given sentence:\n\n1.  **Error:** \"You know same story\" should be \"You know the same story\"\n   **Correction:** Added the definite article \"the\" to specify the story being referred to.\n\n2.  **Error:** \"like always\" should be \"like always\" is acceptable, however the more common phrase is \"as always\"\n   **Correction:** No change needed, but \"as always\" is a more common idiomatic expression.\n\n3.  **Error:** \"boss was on my back\" should be \"my boss was on my back\"\n   **Correction:** Added the possessive adjective \"my\" to correctly specify that the boss belongs to the speaker.\n\n4",
         "errant": [
             {
                 "index": "4",
@@ -89,7 +89,7 @@
                 "c_end": 2,
                 "corrected_text": "the",
                 "error_type": "M:DET",
-                "llm_explanation": "The error is a Missing Determiner (M:DET), where the word \"the\" is required before \"same story\"."
+                "llm_explanation": "The error is a Missing Determiner (M:DET), specifically the article \"the\" is missing before \"same story\"."
             },
             {
                 "index": "4",
@@ -103,7 +103,7 @@
                 "c_end": 9,
                 "corrected_text": "my",
                 "error_type": "M:DET",
-                "llm_explanation": "The error is a missing determiner \"the\" before the noun \"story\", breaking the rule that a determiner is required before a noun in this context."
+                "llm_explanation": "The error is a Missing Determiner (M:DET), specifically the article \"the\" before \"same story\"."
             }
         ]
     },
@@ -111,7 +111,7 @@
         "speaker": "SPEAKER_00",
         "original_sentence": "Oh man that sucks printers are always a problem every time i use it i think it hates me.",
         "t5_checked_sentence": "Oh man that sucks printers are always a problem every time I use it and I think it hates me.",
-        "llm_explanation": "Let's break down the errors in the original sentence:\n\n1. **Subject-Verb Agreement**: The subject \"printers\" is a plural noun, but the verb \"sucks\" is in the singular form. To fix this, we need to change \"sucks\" to its plural form \"suck\".\n\nCorrected: \"Oh man, those printers suck...\"\n\n2. **Contrastive Stress**: The sentence is a bit informal and conversational, but the word \"every\" is used incorrectly. \"Every\" typically means \"each and every\" and is used with a singular noun. In this case, \"time\" is a singular noun, so we use \"every\" correctly, but the word \"time\" should be followed by",
+        "llm_explanation": "Here's a breakdown of the errors in the original sentence and the corrections:\n\n1. **Missing article**: The word \"a\" is missing before \"printers\". The corrected sentence should read: \"Oh man, that sucks, a printers are always a problem every time I use it...\"\n\n   Corrected: \"Oh man, that sucks, a printers are always a problem every time I use it...\"\n\n2. **Inconsistent verb tense**: The sentence starts with \"sucks\" in the present tense, but then switches to \"are\" in the present tense, and then uses \"use\" in the present tense again. It would be more consistent to use the same verb tense throughout.\n\n   Corrected: \"Oh man, that sucks,",
         "errant": [
             {
                 "index": "5",
@@ -125,7 +125,7 @@
                 "c_end": 14,
                 "corrected_text": "and",
                 "error_type": "M:CONJ",
-                "llm_explanation": "The error is a missing article."
+                "llm_explanation": "The error is a Missing Article (M:CONJ) error, specifically, a missing \"and\" between two independent clauses."
             }
         ]
     },
@@ -133,7 +133,7 @@
         "speaker": "SPEAKER_01",
         "original_sentence": "I know right like why why they even make them some complicated easiest paper going through a machine how how can be be totally.",
         "t5_checked_sentence": "I know right like why they even make them some complicated easiest paper going through a machine how can be totally.",
-        "llm_explanation": "The errors in the original sentence are:\n\n1. \"I know right like why\" - This phrase is an informal expression, but in standard English, it's better to say \"I know why\" or \"I don't know why.\" The word \"right\" doesn't belong in this phrase.\n\n2. \"why why\" - This is a repetition error, where the word \"why\" is repeated unnecessarily.\n\n3. \"easiest\" - This is a comparative form, which is incorrect. \"Easiest\" should be \"easy\" to describe the paper.\n\n4. \"how how\" - This is another repetition error, where the word \"how\" is repeated unnecessarily.\n\n5. \"even make them some complicated easiest\" -",
+        "llm_explanation": "The sentence has several errors in terms of grammar, punctuation, and syntax. Here are the corrections:\n\n1. **Inconsistent use of \"why\" and \"how\"**: The original sentence uses \"why\" and \"how\" multiple times, which can make the text confusing and hard to read. The corrected sentence removes the unnecessary instances of \"why\" and \"how\".\n\n2. **Missing article \"a\"**: The phrase \"complicated easiest paper\" is a bit redundant. The corrected sentence removes the word \"easiest\" and adds the word \"an\" to make the phrase \"a complicated paper\".\n\n3. **Missing auxiliary verb \"is\"**: The phrase \"going through a machine\" should have an auxiliary verb \"is\"",
         "errant": [
             {
                 "index": "6",
@@ -147,7 +147,7 @@
                 "c_end": 4,
                 "corrected_text": "",
                 "error_type": "U:ADV",
-                "llm_explanation": "The error is a Double Homograph (U:ADV)."
+                "llm_explanation": "The error is a run-on sentence (U:ADV) due to a missing conjunction or punctuation to separate two independent clauses."
             },
             {
                 "index": "6",
@@ -161,7 +161,7 @@
                 "c_end": 17,
                 "corrected_text": "",
                 "error_type": "U:ADV",
-                "llm_explanation": "The error is a repetition of a word or phrase, specifically a \"how\" is repeated as \"how how\"."
+                "llm_explanation": "The error is a Double \"how\" error."
             },
             {
                 "index": "6",
@@ -175,7 +175,7 @@
                 "c_end": 19,
                 "corrected_text": "",
                 "error_type": "U:VERB:TENSE",
-                "llm_explanation": "The error is: The verb tense is inconsistent, specifically the use of \"be\" in the present tense and \"be\" in the infinitive form, breaking the rule of subject-verb agreement."
+                "llm_explanation": "The main idea: Verb tense error.\n\nThe broken rule: The verb \"know\" is in the past tense, but the sentence structure suggests the present tense should be used."
             }
         ]
     },
@@ -183,7 +183,7 @@
         "speaker": "SPEAKER_00",
         "original_sentence": "But hey what about you regent you doing anything fun or just chilling at home again?",
         "t5_checked_sentence": "But hey, what about you? Are you doing anything fun or just chilling at home again?",
-        "llm_explanation": "The original sentence contains two errors:\n\n1. \"But hey\" is a colloquial expression that is not grammatically correct. It should be a more formal greeting or an introduction.\n2. \"you regent\" should be \"you are\" (subject-verb agreement error, subject-verb agreement error)\n3. \"you\" is not a complete subject. The corrected sentence uses \"what about you\" as a question that is addressed to someone, making it a complete subject.\n\nThe corrected sentence is more formal and grammatically correct.",
+        "llm_explanation": "The original sentence contains a few errors. Here's a breakdown of the corrections:\n\n1. **Missing comma after \"hey\"**: A comma is missing after \"hey\" to separate the greeting from the rest of the sentence.\n   *Original: \"But hey\"\n   *Corrected: \"But hey,\"\n\n2. **Missing article**: The word \"a\" or \"an\" is missing before \"you\".\n   *Original: \"what about you\"\n   *Corrected: \"what about you\" should be \"what about a you\" or \"what about an you\" (depending on the noun that follows)\n\n3. **Missing question word**: The word \"are\" is missing to make the sentence a question.\n   *Original",
         "errant": [
             {
                 "index": "7",
@@ -197,7 +197,7 @@
                 "c_end": 5,
                 "corrected_text": "Are",
                 "error_type": "R:VERB",
-                "llm_explanation": "The error is a missing hyphen in a compound adjective \"regent\" should be \"regional\" to correctly form the phrase \"regional activities\"."
+                "llm_explanation": "The error is a missing verb and the broken rule is: \"A main clause in a sentence should have a main verb.\""
             }
         ]
     },
@@ -205,7 +205,7 @@
         "speaker": "SPEAKER_01",
         "original_sentence": "Oh man i don't know yet maybe i go out for a bit but not not too sure what.",
         "t5_checked_sentence": "Oh man, I don't know yet, maybe I will go out for a bit but not too sure what.",
-        "llm_explanation": "The original sentence contains a few errors.\n\n1.  **Lack of comma after \"man\"**: In informal writing and speech, it's common to use a comma after \"man\" to set off the contraction from the rest of the sentence. This is a stylistic choice, but it's a good practice to include it for clarity.\n\n    Original: Oh man\n    Corrected: Oh man, \n\n2.  **Missing apostrophe in \"I'll\"**: \"I'll\" is a contraction of \"I will,\" which is the correct form to use in this context. The apostrophe is essential to indicate the missing letters.\n\n    Original: maybe I go out for a bit but not too sure what.\n    Corrected:",
+        "llm_explanation": "Let's break down the corrections:\n\n1.  \"Oh man\" should be \"Oh, man.\" - A comma is needed to separate the exclamation \"Oh\" from the noun \"man.\"\n\n2.  \"i\" should be \"I\" - The first-person singular pronoun \"I\" should be capitalized.\n\n3.  \"don't\" is a contraction, so \"I don't\" should be written as \"I do not\" - \"Don't\" is a contraction of \"do not,\" so it's better to use the full form \"do not\" for clarity and correctness.\n\n4.  \"yet\" is correct as is - It is used correctly to express uncertainty.\n\n5.  \"maybe\" is correct as",
         "errant": [
             {
                 "index": "8",
@@ -219,7 +219,7 @@
                 "c_end": 15,
                 "corrected_text": "",
                 "error_type": "U:ADV",
-                "llm_explanation": "The error is a double negation: \"not not\" should be replaced with a single \"not\" to correct the sentence."
+                "llm_explanation": "The error is a double negative: \"not not\" instead of a single \"not\"."
             }
         ]
     },
@@ -227,7 +227,7 @@
         "speaker": "SPEAKER_00",
         "original_sentence": "Aloud you i was thinking to go to that new cafe on elm street you know the one everyone talking about.",
         "t5_checked_sentence": "Aloud you, I was thinking to go to that new cafe on Elm Street you know the one everyone is talking about.",
-        "llm_explanation": "The original sentence contains the following errors:\n\n1. **Incorrect word order**: The phrase \"Aloud you\" is a fragment and should be rephrased as \"out loud\" to indicate that you were thinking aloud.\n   Corrected: \"Out loud, I was thinking...\"\n\n2. **Missing article**: The word \"the\" is missing before \"cafe\" to specify that it's a specific cafe.\n   Corrected: \"to that new cafe\"\n\n3. **Missing article**: The word \"the\" is missing before \"one\" to specify that it's a specific cafe everyone is talking about.\n   Corrected: \"the one\"\n\n4. **Verb tense inconsistency**: The verb \"talking\" is in the present tense",
+        "llm_explanation": "Here are the errors in the original sentence and their corrections:\n\n1. **Missing article**: The word \"the\" is missing before \"cafe\".\n   Correction: \"to that new the cafe\"\n\n2. **Incorrect use of \"aloud\"**: \"Aloud\" should be \"about\".\n   Correction: \"about\"\n\n3. **Incorrect use of \"you\"**: The word \"you\" should be \"I\" to start the sentence.\n   Correction: \"I\"\n\n4. **Incorrect use of \"talking\"**: The verb should be in the present tense to match the rest of the sentence.\n   Correction: \"talking\" -> \"talking\" is correct in the present tense, but it should be \"is talking",
         "errant": [
             {
                 "index": "9",
@@ -241,7 +241,7 @@
                 "c_end": 19,
                 "corrected_text": "is",
                 "error_type": "M:VERB:TENSE",
-                "llm_explanation": "The error is a subject-verb agreement issue, specifically a tense inconsistency between the main clause and the subordinate clause, violating the rule that a main verb should match the tense of the subject."
+                "llm_explanation": "The error is a subject-verb agreement issue, specifically a tense mismatch, where the verb \"talking\" is in the incorrect tense. The broken rule is that the verb should be in the present tense to match the main clause, whereas the corrected sentence uses the present tense \"is talking\"."
             }
         ]
     },
@@ -249,7 +249,7 @@
         "speaker": "SPEAKER_01",
         "original_sentence": "Oh yeah i hear about it they say it's pretty good but kinda spency though.",
         "t5_checked_sentence": "Oh yeah, I hear about it and they say it's pretty good, but kind of spency though.",
-        "llm_explanation": "Let's break down the errors in the original sentence:\n\n1.  **Inconsistent Capitalization**: The first word \"Oh\" should be capitalized to \"Oh\" to start the sentence properly.\n2.  **Missing Conjunction**: The original sentence is missing a conjunction to connect the two clauses. \"And\" is added to the corrected sentence to connect the two clauses.\n3.  **Sloppy Spelling**: The word \"spency\" is misspelled. The correct spelling is \"spency\" -> \"spency\" -> actually \"spency\" is a misspelling of the word \"spicy\", so the correct spelling is \"spicy\".\n4.  **Comma Splices**: The corrected sentence includes a",
+        "llm_explanation": "Here are the errors in the original sentence and the corrections:\n\n1. \"Yeah\" is an informal expression and should be capitalized as \"Yeah\" or \"Yeah, I\" to make it a complete sentence.\n\nOriginal: \"Oh yeah i\"\nCorrected: \"Oh yeah, I\"\n\n2. \"hear about it\" is a phrase that should be \"hear about it and\" to make the sentence flow smoothly.\n\nOriginal: \"hear about it they say\"\nCorrected: \"hear about it and\"\n\n3. \"it's pretty good\" is a phrase that should be \"it's pretty good\" (no comma is needed here, the phrase is a single unit).\n\nOriginal: \"it's pretty good but kinda spency though\"\nCorrect",
         "errant": [
             {
                 "index": "10",
@@ -263,7 +263,7 @@
                 "c_end": 6,
                 "corrected_text": "and",
                 "error_type": "M:CONJ",
-                "llm_explanation": "The error is a missing conjunction."
+                "llm_explanation": "The error is a missing comma after \"good\" and before \"but\", which is a rule in the English language."
             },
             {
                 "index": "10",
@@ -277,7 +277,7 @@
                 "c_end": 13,
                 "corrected_text": "kind",
                 "error_type": "R:MORPH",
-                "llm_explanation": "The error is a missing conjunction: \"and\" is needed to connect the two clauses \"I hear about it\" and \"they say it's pretty good, but kinda spency though.\"."
+                "llm_explanation": "The error is a \"Missing or extra space\" error, which is a form of a \"MORPH\" error."
             },
             {
                 "index": "10",
@@ -291,7 +291,7 @@
                 "c_end": 14,
                 "corrected_text": "of",
                 "error_type": "M:PREP",
-                "llm_explanation": "The error is a missing article (a/an/the) before the word \"it\"."
+                "llm_explanation": "The main idea of the error is a Missing Preposition.\n\nThe broken rule is: A preposition is missing between \"hear\" and \"about\"."
             }
         ]
     },
@@ -299,7 +299,7 @@
         "speaker": "SPEAKER_01",
         "original_sentence": "I feel you man we all will go to same places gets kinda boring after a while maybe we should check it out together.",
         "t5_checked_sentence": "I feel you man we all will go to the same places gets boring after a while maybe we should check it out together.",
-        "llm_explanation": "As an English teacher, I've identified the following errors in the original sentence:\n\n1. **Missing article**: \"same\" should be preceded by the article \"the\" to maintain grammatical correctness. (Corrected: \"the same\")\n2. **Missing definite article**: \"places\" should be preceded by the definite article \"the\" to maintain grammatical correctness. (Corrected: \"the places\")\n3. **Incorrect use of verb tense**: \"will go\" should be replaced with \"go\" to maintain consistency in verb tense. (Corrected: \"go\")\n4. **Informal language**: The sentence contains informal language and colloquial expressions, which may not be suitable for all contexts. (Corrected: Simplified language",
+        "llm_explanation": "The corrected sentence is a more polished version of the original. Here are the errors and corrections:\n\n1. **Added article**: The original sentence is missing an article (\"the\") before \"same places\". This makes the sentence sound less formal and less grammatically correct.\n\n2. **Corrected verb tense**: The original sentence uses \"gets\" in the present tense, which doesn't quite fit with the other verbs in the sentence. \"Gets\" is in the present tense, whereas \"will go\" is in the future tense. The corrected sentence uses the more consistent \"gets boring\".\n\n3. **Minor punctuation**: There's a minor change in punctuation, with a comma added after \"boring\" to separate the clauses more clearly.\n\nThese corrections make",
         "errant": [
             {
                 "index": "12",
@@ -313,7 +313,7 @@
                 "c_end": 9,
                 "corrected_text": "the",
                 "error_type": "M:DET",
-                "llm_explanation": "The error is a Missing Determiner (M:DET) error, where the word \"the\" is missing from the original sentence."
+                "llm_explanation": "The error is a Missing Determiner (M:DET), where \"the\" is missing, breaking the rule of Determiner-Head Noun agreement."
             },
             {
                 "index": "12",
@@ -327,7 +327,7 @@
                 "c_end": 13,
                 "corrected_text": "",
                 "error_type": "U:ADV",
-                "llm_explanation": "The error is a missing article, breaking the rule of \"a\" vs. \"the\" usage."
+                "llm_explanation": "The error is a Missing Article (U:ADV) where \"the\" is missing from the sentence."
             }
         ]
     },
@@ -335,7 +335,7 @@
         "speaker": "SPEAKER_00",
         "original_sentence": "For sure dude we can go saturday maybe i heard they have some good pastries or something.",
         "t5_checked_sentence": "For sure, dude, we can go saturday, maybe i heard they have some good pastries or something.",
-        "llm_explanation": "The original sentence contains a few errors:\n\n1. The first error is the comma after \"For sure\". The correct usage is that \"For sure\" is an adverb that should be placed before the main clause, not after it. It should be \"For sure we can go\".\n\n2. The second error is the informal greeting \"dude\". In formal writing, this is not typically used. In informal writing, it's acceptable, but it's not suitable for a formal or academic context. \n\n3. The third error is the missing article \"to\" after \"go\". The correct sentence should be \"For sure we can go to Saturday\".\n\n4. The fourth error is the placement of the comma after \"Saturday\". The comma should be",
+        "llm_explanation": "The errors in the original sentence are:\n\n1. A comma is missing after \"For sure.\"\n2. A comma is missing after \"dude.\"\n3. A comma is missing after \"Saturday.\"\n4. The sentence is missing a period at the end.\n\nCorrecting these errors, the corrected sentence is: \"For sure, dude, we can go Saturday, maybe I heard they have some good pastries or something.\"",
         "errant": [
             {
                 "index": "13",
@@ -349,7 +349,7 @@
                 "c_end": 2,
                 "corrected_text": "dude,",
                 "error_type": "R:NOUN",
-                "llm_explanation": "The error is a Missing Space after a Comma (R:NOUN).\n\nThe original sentence is: \"For sure dude we can go saturday maybe i heard they have some good pastries or something.\"\n\nThe corrected sentence is: \"For sure, dude, we can go saturday, maybe I heard they have some good pastries or something.\"\n\nThe error occurs where a comma is missing after the word \"dude\"."
+                "llm_explanation": "The error is a missing article, where the rule is that a definite article \"the\" should be present before the word \"pastries\"."
             }
         ]
     },
@@ -357,7 +357,7 @@
         "speaker": "SPEAKER_01",
         "original_sentence": "Oh pastries i love those but you know i'm trying to be more healthy now kinda you know.",
         "t5_checked_sentence": "Oh pastries, I love them, but you know I'm trying to be more healthy now, you know.",
-        "llm_explanation": "Let's take a closer look at the original sentence and identify the errors.\n\n1. \"Oh pastries\" is a fragment. It should be a complete sentence or a complete thought, such as \"I love pastries\" or \"Oh, I love pastries.\"\n\n2. \"I love those\" is a fragment. It should be a complete sentence or a complete thought, such as \"I love them\" or \"I love those pastries.\"\n\n3. \"You know\" is a fragment. It should be a complete sentence or a complete thought, such as \"You know that\" or \"You know, I'm trying to be more healthy now.\"\n\n4. \"I'm trying to be more healthy now kinda you know\" is a",
+        "llm_explanation": "Here are the errors in the original sentence with the corrections:\n\n1. \"Oh pastries i\" should be \"Oh pastries,\" (missing comma after \"pastries\")\n2. \"i love\" should be \"I love\" (capitalization error)\n3. \"but you know\" should be \"but you\" (unnecessary \"know\")\n4. \"i'm\" should be \"I'm\" (contraction error)\n5. \"trying to be more healthy now kinda\" should be \"trying to be more healthy now\" (missing \"more\" and unnecessary \"kinda\")\n6. \"you know\" is unnecessary and should be removed (redundant word)",
         "errant": [
             {
                 "index": "14",
@@ -371,7 +371,7 @@
                 "c_end": 14,
                 "corrected_text": "now,",
                 "error_type": "R:ADV",
-                "llm_explanation": "The error is a Run-on sentence (R:ADV), which is a type of grammatical error.\n\nThe rule broken is the rule of punctuation, specifically the use of a comma (\",\") to separate independent clauses.\n\nThe corrected sentence is rewritten with the comma removed to separate the two independent clauses, making it a complete and grammatically correct sentence."
+                "llm_explanation": "The error is a run-on sentence, which is a type of R:ADV error. \n\nThe original sentence is a single sentence that contains two independent clauses: \"Oh pastries I love those\" and \"but you know I'm trying to be more healthy now kinda you know.\" These two clauses are not properly joined with punctuation, resulting in a run-on sentence.\n\nThe corrected sentence breaks the run-on by adding a comma after \"them\" and capitalizing the first word of the second independent clause \"you\" to \"You\"."
             }
         ]
     },
@@ -379,7 +379,7 @@
         "speaker": "SPEAKER_00",
         "original_sentence": "I get you i get you it's all about balance man but we don't have to eat too much just a taste see what the hype is all about.",
         "t5_checked_sentence": "I get you, I get you it's all about balance, but we don't have to eat too much just a taste see what the hype is all about.",
-        "llm_explanation": "As an English teacher, I've identified the errors in the original sentence:\n\n1. **Comma splice**: The original sentence contains two independent clauses (\"I get you\" and \"it's all about balance\") joined by a comma without a conjunction, which is a comma splice error.\n\n   Corrected: Added a comma after \"you\" to separate the two independent clauses, and a conjunction to join them.\n\n2. **Missing articles**: The original sentence lacks articles (\"a\" or \"an\") before the nouns \"taste\" and \"hype\".\n\n   Corrected: Added articles before the nouns \"taste\" and \"hype\" to make the sentence grammatically correct.\n\n3. **Informal tone**: The original sentence contains informal",
+        "llm_explanation": "As an English teacher, I've identified the errors in the original sentence:\n\n1. **Missing Commas**: The original sentence is missing commas to separate clauses and items in a list. Commas are essential to separate independent clauses, items in a list, and to set off non-essential clauses.\n\nCorrected: Added commas to separate clauses and items.\n\n2. **Incorrect Commas Placement**: The original sentence has a comma after \"you\" which is unnecessary. Commas are used to separate clauses, items in a list, and to set off non-essential clauses, not to separate words or phrases within a clause.\n\nCorrected: Removed the unnecessary comma after \"you\".\n\n3. **Missing Periods**: The original sentence is missing periods to",
         "errant": [
             {
                 "index": "17",
@@ -393,7 +393,7 @@
                 "c_end": 10,
                 "corrected_text": "",
                 "error_type": "U:NOUN",
-                "llm_explanation": "The error is a missing article (\"a\" or \"an\") after the word \"much\", breaking the rule of using a definite article with countable nouns."
+                "llm_explanation": "The error is a missing article (\"the\") before the noun, breaking the rule of \"a determiner (the, a, an) before a noun\"."
             }
         ]
     },
@@ -401,7 +401,7 @@
         "speaker": "SPEAKER_01",
         "original_sentence": "Yeah you're right maybe i just have a small piece of something do you wanna bring anyone else or just us.",
         "t5_checked_sentence": "Yeah, you're right, maybe I just have a small piece of something do you wanna bring anyone else or just us?",
-        "llm_explanation": "As an English teacher, I'd be happy to help you identify the errors in the original sentence.\n\nThe errors in the original sentence are:\n\n1. \"Yeah\" is a colloquial expression that's not grammatically correct in this context. A more formal or standard way to start a sentence would be \"Yes\" or \"I agree.\"\n\n2. The word \"you're\" is a contraction of \"you are\" and is used correctly in the sentence.\n\n3. \"Maybe\" is a word that's often used to express uncertainty, but in this sentence, it's used to introduce a sentence, which is a more informal way of speaking. A more formal way would be \"I think\" or \"I believe.\"\n\n4. \"do",
+        "llm_explanation": "The errors in the original sentence are:\n\n1. \"Yeah\" is a colloquialism and can be replaced with a more formal \"Yes.\"\n2. \"you're right\" is a contraction, but in this context, it would be more natural to use \"you are right.\"\n3. \"maybe\" is a conjunction, but it would be more natural to use \"I\" instead, as the speaker is expressing their own thoughts or feelings.\n4. \"have a small piece of something\" is a vague phrase and could be replaced with a more specific phrase, such as \"have a small stone\" or \"have a small idea.\"\n5. \"do you wanna\" is an informal contraction, but in this context, it would be",
         "errant": [
             {
                 "index": "18",
@@ -415,7 +415,7 @@
                 "c_end": 20,
                 "corrected_text": "us?",
                 "error_type": "R:ADJ",
-                "llm_explanation": "The error is a Run-on sentence.\n\nThe broken rule is: A sentence should not contain more than one main clause without a punctuation mark to separate them."
+                "llm_explanation": "The error is an extra space in the original sentence, which is a Run-in error (R:ADJ), specifically affecting an adjective."
             }
         ]
     },
@@ -423,7 +423,7 @@
         "speaker": "SPEAKER_00",
         "original_sentence": "I was thinking to ask maya but i don't know if she busy she got that new job and all.",
         "t5_checked_sentence": "I was thinking to ask Maya, but I don't know if she was busy and she got that new job and all.",
-        "llm_explanation": "As an English teacher, I'd be happy to help you identify the errors in the original sentence and correct them.\n\nThe original sentence has three errors:\n\n1. **Missing comma after \"Maya\"**: The original sentence is missing a comma after the name \"Maya\" to set it off as a separate independent clause. This makes the sentence sound a bit jumbled.\n\nCorrected: \"I was thinking to ask Maya, but...\"\n\n2. **Verb tense inconsistency**: The verb \"was\" is used in the first clause, but \"got\" is in the past tense, while the rest of the sentence is in the present tense. To fix this, we need to maintain a consistent verb tense throughout the sentence.\n\nCorrected: \"I",
+        "llm_explanation": "As an English teacher, I'd be happy to help you identify the errors in the original sentence and explain the corrections.\n\n**Error 1: \"I was thinking to ask\"**\n\n* The error is the use of \"thinking to\" instead of \"was thinking of\". \"Thinking to\" is an incorrect idiom and should be replaced with \"was thinking of\" to indicate the speaker's intention of asking Maya.\n\n**Corrected: \"I was thinking of asking\"**\n\n**Error 2: \"Maya\"**\n\n* The error is the capitalization of \"Maya\". Proper nouns, including names, should always be capitalized. \"Maya\" should be capitalized as \"Maya\".\n\n**Corrected: \"Maya\" ->",
         "errant": [
             {
                 "index": "19",
@@ -437,7 +437,7 @@
                 "c_end": 5,
                 "corrected_text": "Maya,",
                 "error_type": "R:NOUN",
-                "llm_explanation": "The error is a subject-verb agreement error.\n\nThe original sentence has a subject-verb agreement error between \"I\" (singular) and \"they\" (plural), but the corrected sentence has a subject-verb agreement between \"I\" (singular) and \"was\" (verb conjugated for the singular subject).\n\nIn the original sentence, the error occurs because the subject \"I\" is singular, but the verb \"she\" is used, which is a plural verb form. The corrected sentence fixes this error by changing the verb to \"was\", which is the correct conjugation for the singular subject \"I\"."
+                "llm_explanation": "The error is a verb tense inconsistency.\n\nThe rule broken is the use of \"was\" in the first clause and \"was\" in the second clause, which should be consistent, and the corrected sentence uses \"was\" in both clauses."
             },
             {
                 "index": "19",
@@ -451,7 +451,7 @@
                 "c_end": 12,
                 "corrected_text": "was",
                 "error_type": "M:VERB",
-                "llm_explanation": "The error is a missing auxiliary verb \"was\" in the original sentence.\n\nThe broken rule is: \"A verb should be in the first position if the sentence is in the first person singular, and it should be conjugated to the first person singular form.\""
+                "llm_explanation": "The error is a \"Missing Verb\" (M:VERB) error.\n\nThe broken rule is: A main verb should be used in a sentence, not a phrase like \"was thinking\" which is a verb phrase."
             },
             {
                 "index": "19",
@@ -465,7 +465,7 @@
                 "c_end": 14,
                 "corrected_text": "and",
                 "error_type": "M:CONJ",
-                "llm_explanation": "The error is a Missing Conjunction error. \nThe broken rule is: A conjunction is needed to connect the two independent clauses \"I was thinking to ask Maya\" and \"I don't know if she busy she got that new job and all.\""
+                "llm_explanation": "The main idea of the error is a missing verb conjugation in a subordinate clause.\n\nThe broken rule is: A main clause and a subordinate clause should have consistent verb conjugation (subject-verb agreement)."
             }
         ]
     },
@@ -473,7 +473,7 @@
         "speaker": "SPEAKER_01",
         "original_sentence": "Oh yeah she told me about it last time we talk she seems super excited but also super stressed you know new joes are like that.",
         "t5_checked_sentence": "Oh yeah, she told me about it last time we talked she seems super excited but also super stressed you know new joes are like that.",
-        "llm_explanation": "As an English teacher, I've identified the errors in the original sentence and listed the corrections:\n\n1. **Missing comma**: The original sentence is missing a comma after \"yeah\" to separate the two independent clauses.\n   - Original: \"Oh yeah\"\n   - Corrected: \"Oh yeah,\"\n\n2. **Incorrect verb tense**: The original sentence uses the past tense \"talk\" instead of the past tense \"talked\" (which is correct in this context).\n   - Original: \"last time we talk\"\n   - Corrected: \"last time we talked\"\n\n3. **Missing period**: The original sentence is missing a period at the end to indicate the end of the sentence.\n   - Original: no period\n   - Correct",
+        "llm_explanation": "As an English teacher, I've identified the following errors in the original sentence:\n\n1. **Missing comma after \"yeah\"**: The original sentence is missing a comma after \"yeah.\" This is a comma splice error, where two independent clauses are joined without proper punctuation.\n\n2. **Verb tense inconsistency**: The original sentence uses both \"told\" (past tense) and \"talk\" (imperative verb, not a verb tense) in the same sentence. This creates an inconsistency in verb tense.\n\n3. **Missing verb in the second clause**: The second clause \"she seems super excited but also super stressed\" is missing the verb \"was\" or \"is\" to agree with the subject \"she.\"\n\n4. **Informal phrase",
         "errant": [
             {
                 "index": "20",
@@ -487,7 +487,7 @@
                 "c_end": 10,
                 "corrected_text": "talked",
                 "error_type": "R:VERB:TENSE",
-                "llm_explanation": "The error is in the verb tense, specifically the broken rule of subject-verb agreement, where \"talk\" should be \"talked\" to match the past tense of \"told\"."
+                "llm_explanation": "The error is a tense inconsistency, specifically a missing 'd' to form the past perfect tense, breaking the rule that \"talk\" should be \"talked\" to match the subject-verb agreement."
             }
         ]
     },
@@ -495,7 +495,7 @@
         "speaker": "SPEAKER_00",
         "original_sentence": "Yeah sure i test her and see she wanna come the more the merrier right.",
         "t5_checked_sentence": "Yeah sure, I test her and see she wants to come the more the better, right?",
-        "llm_explanation": "Here are the errors in the original sentence:\n\n1. \"Yeah sure\" should be \"I'm sure\" - The contraction \"I'm\" is used to indicate the speaker's agreement or confirmation, whereas \"Yeah\" is an informal expression used to show enthusiasm or agreement.\n2. \"test\" should be \"test her\" is incorrect. It should be \"test her\" instead of \"test her\" is incorrect. The word \"test\" should be used with the object pronoun \"her\".\n3. \"see\" should be \"see\" is incorrect. The correct phrase should be \"see\" instead of \"see\" is incorrect. \"See\" is a standalone word.\n4. \"she wanna\" is incorrect. The contraction \"",
+        "llm_explanation": "Let's break down the errors in the original sentence:\n\n1. \"Yeah sure\" should be \"Yes, sure\" - \"Yeah\" is an informal, colloquial expression, and \"Yes\" is a more formal and grammatically correct way to express agreement.\n\n2. \"I test\" should be \"I test her\" - The pronoun \"her\" is missing, which is the object of the verb \"test\".\n\n3. \"and see\" should be \"and see\" - The \"and\" is missing before \"see\".\n\n4. \"she wanna\" should be \"she wants to\" - \"Wanna\" is a colloquial contraction, and \"wants to\" is the correct grammatically correct phrase.\n\n5",
         "errant": [
             {
                 "index": "21",
@@ -509,7 +509,7 @@
                 "c_end": 8,
                 "corrected_text": "wants to",
                 "error_type": "R:VERB",
-                "llm_explanation": "The error in the sentence is a subject-verb agreement error, where the subject \"she\" is not agreeing with the verb \"wanna\" in terms of number and grammatical function.\n\nIn the original sentence, the subject \"she\" is a singular noun, but the verb \"wanna\" is a contraction of \"want to\", which is a plural form of the verb \"to want\".\n\nThe corrected sentence should use the singular form of the verb \"to want\", which is \"wants\" to agree with the singular subject \"she\"."
+                "llm_explanation": "The error is a subject-verb agreement error, where the subject \"she\" is not agreeing with the verb \"wants\" in terms of number and person. In the original sentence, the subject is a singular pronoun \"she\", but the verb \"wants\" is in the plural form, which is incorrect. \n\nThe corrected sentence uses the verb \"wants\" in the singular form, which agrees with the singular subject \"she\"."
             },
             {
                 "index": "21",
@@ -523,7 +523,7 @@
                 "c_end": 14,
                 "corrected_text": "better,",
                 "error_type": "R:ADJ",
-                "llm_explanation": "The error is an incorrect word in the sentence, which is a Run-on sentence with a missing word, specifically the word \"to\" is missing.\n\nThe broken rule is the rule of the comma splice, which requires that a comma should be used to separate independent clauses in a sentence."
+                "llm_explanation": "The error in the sentence is a grammatical error of a missing negative particle in a comparative phrase.\n\nThe original sentence is: \"Yeah sure i test her and see she wanna come the more the merrier right.\"\n\nThe corrected sentence is: \"Yeah sure, I test her and see she wants to come the more the better, right?\"\n\nThe error occurs because the word \"wants\" is missing in the original sentence. The correct phrase is \"wants to\" which is a missing negative particle in a comparative phrase, where \"to\" is a preposition used to indicate a direction or a movement, and \"wants\" is the main verb in the sentence."
             }
         ]
     },
@@ -531,7 +531,7 @@
         "speaker": "SPEAKER_01",
         "original_sentence": "Absolutely man its been a while since we all hung out together last time was what that barbecue at your place.",
         "t5_checked_sentence": "Absolutely, it's been a while since we all hung out together last time was what that barbecue at your place.",
-        "llm_explanation": "The original sentence contains two errors. \n\n1. \"Absolutely man\" should be removed. The word \"man\" is an informal and somewhat colloquial expression, and it's not a formal way to start a sentence.\n\n2. \"its\" should be \"it's\". \"Its\" is a possessive pronoun, whereas \"it's\" is a contraction of \"it is\". In this context, \"it's\" is the correct contraction to use.\n\n3. \"hung out\" should be \"hung out together\". The word \"together\" is needed to make the phrase \"hung out\" grammatically correct, as it indicates the group of people that are hanging out.\n\n4. \"what\" is unnecessary and should be removed",
+        "llm_explanation": "Here are the errors in the original sentence and their corrections:\n\n1. **\"Absolutely man\"** -> **\"Absolutely\"**:\n   - The phrase \"man\" is an informal, colloquial expression that doesn't fit the formal tone of the sentence.\n\n2. **\"it's been a while\"** -> **\"it's been\"**:\n   - \"It's been\" is a contraction of \"it has been\", which is a correct grammatical structure. \"A while\" is a noun phrase that should be used as an object of the verb \"has\" rather than a part of the contraction \"it's been\".\n\n3. **\"since we all hung out together\"** -> **\"since we've all hung",
         "errant": [
             {
                 "index": "22",
@@ -545,7 +545,7 @@
                 "c_end": 1,
                 "corrected_text": "",
                 "error_type": "U:NOUN",
-                "llm_explanation": "The error is an U:NOUN error, which means there is an unnecessary article \"the\" before a noun. The original sentence has an extra \"the\" before \"barbecue\"."
+                "llm_explanation": "The error is an error of subject-verb agreement. The original sentence uses a plural subject \"we\" but a singular verb \"hung\"."
             },
             {
                 "index": "22",
@@ -559,7 +559,7 @@
                 "c_end": 1,
                 "corrected_text": "it's",
                 "error_type": "R:DET",
-                "llm_explanation": "The error is a missing space between the words \"man\" and \"its\"."
+                "llm_explanation": "The main idea is that the error is a missing article \"the\" before \"barbecue\".\n\nThe broken rule is: \"A sentence should have the definite article 'the' before a noun, especially after a preposition.\""
             }
         ]
     },
@@ -567,7 +567,7 @@
         "speaker": "SPEAKER_00",
         "original_sentence": "Oh yeah that was ages ago feels like another lifetime but it was fun except when the girl almost caught fire.",
         "t5_checked_sentence": "Oh yeah, that was ages ago, feels like another lifetime, but it was fun except when the girl almost caught fire.",
-        "llm_explanation": "The original sentence has one error that was corrected.\n\nError: A comma is missing after \"ago\" to separate the two independent clauses.\n\nThe corrected sentence is: \"Oh yeah, that was ages ago, feels like another lifetime, but it was fun except when the girl almost caught fire.\"\n\nThis is because in the original sentence, \"ages ago\" is a compound adjective modifying \"was,\" and it should be separated from the rest of the sentence with a comma.",
+        "llm_explanation": "The original sentence has a small error. The error is the comma after \"ago\" in the first clause. The corrected sentence is \"Oh yeah, that was ages ago, feels like another lifetime, but it was fun except when the girl almost caught fire.\"\n\nThe error is the unnecessary comma after \"ago\". The corrected sentence is grammatically correct and flows smoothly.",
         "errant": [
             {
                 "index": "23",
@@ -581,7 +581,7 @@
                 "c_end": 9,
                 "corrected_text": "lifetime,",
                 "error_type": "R:NOUN",
-                "llm_explanation": "The error is a missing article: \"a\" is missing from the original sentence."
+                "llm_explanation": "The error is a NOUN error.\n\nThe broken rule is that the first character in the corrected sentence is a capital letter, while the first character in the original sentence is a lowercase letter."
             }
         ]
     },
@@ -589,7 +589,7 @@
         "speaker": "SPEAKER_01",
         "original_sentence": "Ah yeah that was wild i still don't know how you manage to put out a put that out so quick you are a firefighter in secret or something.",
         "t5_checked_sentence": "Ah yeah, that was wild, but I still don't know how you managed to put that out so quickly you are a firefighter in secret or something.",
-        "llm_explanation": "As an English teacher, I've identified the following errors in the original sentence:\n\n1. **Lack of capitalization**: The first-person pronoun \"I\" should start with a capital letter.\n2. **Incorrect verb tense**: \"put out\" is used twice, which is unnecessary. Instead, we can use the verb \"managed\" in the past tense to maintain consistency.\n3. **Missing article**: The word \"a\" is necessary before the noun \"firefighter\" to make the sentence grammatically correct.\n4. **Informal language**: The original sentence contains informal language and slang, such as \"yeah,\" \"wild,\" and \"secret.\" While these words are not inherently wrong, the corrected sentence uses more formal language to convey",
+        "llm_explanation": "As an English teacher, I've identified the errors in the original sentence and the corrections made:\n\n1. **Missing comma**: The original sentence lacks a comma after \"wild\". A comma is needed to separate the independent clause from the dependent clause.\n\n   Original: \"Ah yeah that was wild\"\n   Corrected: \"Ah yeah, that was wild\"\n\n2. **Missing article**: The original sentence lacks an article (\"a\" or \"the\") before the word \"firefighter\".\n\n   Original: \"you are a firefighter\"\n   Corrected: \"you are a firefighter\"\n\n3. **Verb tense inconsistency**: The original sentence uses the phrase \"put that out\" twice, which is inconsistent with the correct usage of the phrase in the context.",
         "errant": [
             {
                 "index": "24",
@@ -603,7 +603,7 @@
                 "c_end": 5,
                 "corrected_text": "but",
                 "error_type": "M:CONJ",
-                "llm_explanation": "The error is a missing conjunction before the second clause, violating the rule of \"a comma or a conjunction before a contrasting clause.\""
+                "llm_explanation": "The error is a Missing Article: The original sentence lacks a definite article \"a\" before the word \"firefighter\"."
             },
             {
                 "index": "24",
@@ -617,7 +617,7 @@
                 "c_end": 12,
                 "corrected_text": "managed",
                 "error_type": "R:VERB:TENSE",
-                "llm_explanation": "The error is a tense inconsistency, specifically the broken rule of using the past perfect tense \"managed\" instead of the simple past tense \"put\" to match the surrounding verb \"was\"."
+                "llm_explanation": "The main idea is a tense error. The broken rule is the incorrect use of the verb \"put\" in the past simple tense instead of the past perfect tense."
             },
             {
                 "index": "24",
@@ -631,7 +631,7 @@
                 "c_end": 18,
                 "corrected_text": "quickly",
                 "error_type": "R:MORPH",
-                "llm_explanation": "The error is a missing hyphen in a compound adjective \"quickly\" -> \"quickly\" (missing hyphen)"
+                "llm_explanation": "The error is a missing hyphen in the original sentence, violating the rule of \"a compound adjective phrase\" (specifically, the phrase \"quickly you\" should be \"quickly you\" -> \"quickly you\" -> \"quickly-you\" -> \"quickly you\" -> \"quickly-you\")."
             }
         ]
     },
@@ -639,7 +639,7 @@
         "speaker": "SPEAKER_00",
         "original_sentence": "Na man i just pining and grab the house but it all turn out okay right no harm no fool.",
         "t5_checked_sentence": "Na man, I just pin and grab the house, but it all turned out okay right no harm no fool.",
-        "llm_explanation": "As an English teacher, I'd be happy to help you identify the errors in the original sentence.\n\nHere are the errors:\n\n1. \"Na\" should be \"No\" - \"Na\" is an informal, colloquial expression, whereas \"No\" is the correct adverb to use in a sentence.\n2. \"i\" should be \"I\" - \"I\" is the first-person singular pronoun, whereas \"i\" is a lowercase letter.\n3. \"pining\" should be \"pinned\" - \"Pining\" is a verb that means to feel a strong emotional longing, whereas \"pinned\" is the correct verb to use in this context, meaning to secure or fix something.\n4. \"it all",
+        "llm_explanation": "The errors in the original sentence are:\n\n1. \"Na man\" should be \"A man\" - The contraction \"na\" is informal and not grammatically correct. \"A\" is the indefinite article used to indicate a singular noun.\n\n2. \"pining\" should be \"pinned\" - \"Pining\" is a verb, but in this context, it seems like it should be the past tense of \"pin\", which is \"pinned\".\n\n3. \"it all turn\" should be \"it all turned\" - The verb tense is incorrect. \"Turn\" is the base verb, and the past tense of \"turn\" is \"turned\".\n\n4. \"right\" is unnecessary - The word \"right\" is an ad",
         "errant": [
             {
                 "index": "25",
@@ -653,7 +653,7 @@
                 "c_end": 4,
                 "corrected_text": "pin",
                 "error_type": "R:MORPH",
-                "llm_explanation": "The error is a MORPH error, which means a word has been replaced with a similar-looking word.\n\nThe original word is \"pining\" and the corrected word is \"pin\".\n\nThe rule broken is: \"Don't replace a word with a similar-looking word if the replacement changes the meaning of the sentence.\""
+                "llm_explanation": "The error is an incorrect word: \"pining\" -> \"pin\" is correct, but the corrected word is \"pinned\" is incorrect, the error is due to a missing \"d\" which is a Morphological error."
             },
             {
                 "index": "25",
@@ -667,7 +667,7 @@
                 "c_end": 8,
                 "corrected_text": "house,",
                 "error_type": "R:NOUN",
-                "llm_explanation": "The error is an instance of a missing or extra letter, which is a type of grammatical error.\n\nThe broken rule is: \n- The word \"pining\" should be \"pinned\" because the correct verb to use in this context is \"pinned\" (i.e., to fasten or secure something) rather than \"pining\" (which doesn't fit grammatically)."
+                "llm_explanation": "The error is a Run-on sentence with a missing article.\n\nThe rule that was broken is: A run-on sentence should not be written in the middle of a sentence, and the corrected text should be separated from the rest of the sentence by a punctuation mark.\n\nIn the original sentence, the text \"but it all turn out okay right no harm no fool\" is not separated from the rest of the sentence, and the corrected sentence has a comma after \"grab the house\" to separate the ideas."
             },
             {
                 "index": "25",
@@ -681,7 +681,7 @@
                 "c_end": 12,
                 "corrected_text": "turned",
                 "error_type": "R:VERB:TENSE",
-                "llm_explanation": "The error is an extra character 'i' that has been inserted between the 12th and 13th characters in the original sentence, which is not present in the corrected sentence."
+                "llm_explanation": "The error is due to the fact that the first character is not in position 0, but rather is in position 12, and the error text is between the characters 12 and 13 in the original sentence, while the corrected text is between the characters 12 and 13 in the corrected sentence."
             }
         ]
     },
@@ -689,7 +689,7 @@
         "speaker": "SPEAKER_01",
         "original_sentence": "Sounds good to me i heard there is a new action movie out lots of explosions you know the useful.",
         "t5_checked_sentence": "Sounds good to me. I heard there is a new action movie out with lots of explosions.",
-        "llm_explanation": "There are two errors in the original sentence:\n\n1. \"Sounds good to me\" is an idiomatic expression that is not used correctly. It should be removed.\n2. The sentence is missing a subject to link the verb \"is\" to, which is a linking verb that is commonly used to link the subject to the complement. \n3. \"You know the useful\" is an idiomatic expression that is not used correctly. It should be replaced with a more logical expression, such as \"you might enjoy\" or \"you might enjoy\".\n4. \"Lots of explosions\" is an idiomatic expression that is not used correctly. It should be replaced with a more descriptive phrase, such as \"many explosions\" or \"a lot of explosions",
+        "llm_explanation": "The errors in the original sentence are:\n\n1. \"Sounds good to me\" is a phrase that should be \"Sounds good to me.\"\n2. \"I heard\" should be \"I've heard\".\n3. \"there is\" should be \"there is\".\n4. \"is\" should be \"is a\".\n5. \"Lots of explosions\" is a phrase that should be \"lots of explosions\".\n6. \"you\" should be \"you\".\n7. \"the useful\" is an unnecessary word that should be removed.\n8. \"know the\" is an unnecessary phrase that should be removed.\n9. \"the\" should be removed as the movie title is already specified as \"a new action movie\".\n\nThe corrected sentence is: \"",
         "errant": [
             {
                 "index": "28",
@@ -703,7 +703,7 @@
                 "c_end": 13,
                 "corrected_text": "with",
                 "error_type": "M:PREP",
-                "llm_explanation": "The error in the text is a M:PREP error, which is a type of error that occurs when a word or phrase is misplaced or incorrectly placed in a sentence. The error is due to a misplaced word or phrase, and the corrected sentence is the one that correctly places the word or phrase in its proper position.\n\nThe original sentence is \"Sounds good to me I heard there is a new action movie out lots of explosions you know the useful\" and the corrected sentence is \"Sounds good to me I heard there is a new action movie out with lots of explosions.\"\n\nThe corrected sentence is formed by removing the extra word \"lots\" from the original sentence, which was incorrectly placed between the characters 13 and 13."
+                "llm_explanation": "The error in the input is an example of a Prepositional Phrase Error (M:PREP). This type of error occurs when a preposition is used incorrectly, in this case, the preposition \"to\" is used instead of \"in\" in the original sentence.\n\nThe corrected sentence should be: \"Sounds good to me I heard there is a new action movie out lots of explosions.\"\n\nThe corrected sentence is: \"Sounds good to me I heard there is a new action movie out lots of explosions.\""
             },
             {
                 "index": "28",
@@ -717,7 +717,7 @@
                 "c_end": 16,
                 "corrected_text": "explosions.",
                 "error_type": "R:NOUN",
-                "llm_explanation": "It seems that the error is about a movie and the error is that the movie's title is in the wrong position. The corrected sentence is the corrected title, and the error is in the original sentence."
+                "llm_explanation": "The error in the text is a run-on sentence that is attempting to describe the error. The corrected sentence is \"Sounds good to me. I heard there is a new action movie out with lots of explosions.\"\n\nThe corrected sentence should be \"Sounds good to me. I heard there is a new action movie out with lots of explosions.\"\n\nThe main idea of the error is that the corrected sentence is missing a word."
             }
         ]
     },
@@ -725,7 +725,7 @@
         "speaker": "SPEAKER_00",
         "original_sentence": "Oh man i'm down for that you know i love that stuff as long as there is popcorn i'm good no you want your popcorn but yeah that's looks like a plan bro so do they eat this cool cool i text maya and we all set looking forward to it man.",
         "t5_checked_sentence": "Oh man i'm down for that you know i love that stuff as long as there is popcorn, I'm good no you want your popcorn but yeah that's looks like a plan bro so do they eat this",
-        "llm_explanation": "As an English teacher, I've identified the following errors in the original sentence:\n\n1. **Missing comma**: In the corrected sentence, I added a comma after \"popcorn\" to separate the dependent clause from the rest of the sentence.\n2. **Capitalization error**: In the corrected sentence, I capitalized the first-person pronoun \"I\" to follow proper capitalization rules.\n3. **Grammar error**: In the corrected sentence, I removed the informal phrase \"yeah that's looks\" which is a double negative and grammatically incorrect. Instead, I used the correct phrase \"that looks\".\n4. **Informal phrase**: In the corrected sentence, I removed the informal phrase \"bro\" which is often used in informal writing but not suitable",
+        "llm_explanation": "As an English teacher, I've identified the errors in the original sentence:\n\n1. **Lack of punctuation**: The original sentence is missing commas, periods, and semicolons to separate clauses and sentences.\n   - Error: \"Oh man i'm down for that you know i love that stuff as long as there is popcorn i'm good\"\n   - Correction: \"Oh man, I'm down for that. You know, I love that stuff as long as there is popcorn, I'm good.\"\n\n2. **Inconsistent capitalization**: The original sentence uses both lowercase and uppercase letters randomly.\n   - Error: \"no you want your popcorn but yeah\"\n   - Correction: \"No, you want your popcorn, but yeah.\"\n\n3",
         "errant": [
             {
                 "index": "29",
@@ -739,7 +739,7 @@
                 "c_end": 17,
                 "corrected_text": "popcorn,",
                 "error_type": "R:NOUN",
-                "llm_explanation": "The main idea is: A missing article (\"a\") was found, breaking the rule of having a determiner before a noun."
+                "llm_explanation": "The error is a missing article (\"a\" or \"an\") before the noun \"popcorn\"."
             }
         ]
     }

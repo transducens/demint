@@ -15,6 +15,9 @@ output_directory = "./cache/explained_sentences"
 
 
 def explain_sentences(file_manager, chat_llm, input_path="", output_path=""):
+    print("-" * 50)
+    print("Explaining sentences from:", input_path)
+    
     if not os.path.isfile(input_path):
         print(f"{input_path} is not found.")
         print(f"Processing {input_path}")
@@ -91,6 +94,9 @@ def explain_sentences(file_manager, chat_llm, input_path="", output_path=""):
 
     file_manager.save_to_json_file(output_path, explained_sentences)
 
+    print(f"Explained sentences saved to: {output_path}")
+    print("-" * 50)
+
     return explained_sentences
 
 
@@ -110,7 +116,7 @@ def explain_sentences_of_directory(
 
         # Check if it's a file (not a directory)
         if os.path.isfile(errant_evaluation_path):
-            print(f"Found diarized transcript file: {errant_evaluation_path}")
+            # print(f"Found diarized transcript file: {errant_evaluation_path}")
 
             explain_sentences(
                 file_manager,
@@ -140,7 +146,7 @@ def main():
     llm = ChatFactory.get_instance(llm_modelId)
     args = get_args()
 
-    print("Starting to explain sentences...")
+    #print("Starting to explain sentences...")
 
     if args.errant_file:
         if args.errant_directory:

@@ -56,12 +56,12 @@ class LLamaChat(IChat):
             # Verify the model loading and print some information
             print()
             print(f"Model loaded: {self.__model_id}")
-            print(self.__model)
-            print()
-            print(f"Type of model: {type(self.__model)}")
-            print()
-            print(f"Type of tokenizer: {type(self.__tokenizer)}")
-            print()
+            # print(self.__model)
+            # print()
+            # print(f"Type of model: {type(self.__model)}")
+            # print()
+            # print(f"Type of tokenizer: {type(self.__tokenizer)}")
+            # print()
 
             # Test the model that the inference works (optional)
             #self.test_model()

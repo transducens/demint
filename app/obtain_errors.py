@@ -8,6 +8,7 @@ from app.grammar_checker import GrammarChecker
 
 
 input_directory = "./cache/raw_sorted_sentence_collection"
+# Only using the all errors version for now
 output_directories = {
     'errant_all_errors':                './cache/errant_all_evaluation',
     'errant_detailed_errors':           './cache/errant_detailed_evaluation',
@@ -22,8 +23,10 @@ ignore_errors_list = [
 ]
 
 
-# TODO add the other formats
 def obtain_errors(file_manager, grammar_checker_t5, lang='en', input_path="", output_path=""):
+    print("-" * 50)
+    print("Obtaining errors from:", input_path)
+
     if not os.path.isfile(input_path):
         print(f"{input_path} is not found.")
         print(f"Processing {input_path}")
@@ -54,12 +57,13 @@ def obtain_errors(file_manager, grammar_checker_t5, lang='en', input_path="", ou
         annotations = annotator.annotate(annotated_original_sentence, annotated_t5_checked_sentence)            
 
         for e in annotations:
-            print(e)
             error_type = e.type
 
             if error_type in ignore_errors_list:
-                print(f"Ignoring error type: {error_type}")
+                #print(f"Ignoring error type: {error_type}")
                 continue
+
+            print(e)
 
             original_text = e.o_str
             corrected_text = e.c_str
@@ -82,6 +86,9 @@ def obtain_errors(file_manager, grammar_checker_t5, lang='en', input_path="", ou
 
     file_manager.save_to_json_file(output_path, all_errors)
 
+    print(f"Saved all errors to: {output_path}")
+    print("-" * 50)
+
     return all_errors, detailed_errors, corrected_errors, simple_errors
 
 def obtain_errors_of_directory(
@@ -101,7 +108,7 @@ def obtain_errors_of_directory(
 
         # Check if it's a file (not a directory)
         if os.path.isfile(sentence_collection_path):
-            print(f"Found diarized transcript file: {sentence_collection_path}")
+            #print(f"Found diarized transcript file: {sentence_collection_path}")
 
             obtain_errors(
                 file_manager, 

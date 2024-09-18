@@ -60,5 +60,5 @@ class ChatFactory:
             # Extends the llm_ids list with the supported models of the current chat class.
             llm_ids.extend(chat.get_supported_models())
 
-        print(llm_ids)
+        #print(llm_ids)
         return llm_ids  # Returns the list of all supported model IDs.

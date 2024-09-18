@@ -230,6 +230,7 @@ def group_durations(durations):
 
 def perform_diarization(audio_file, output_path, device):
     # Main method to perform diarization and transcription
+    print('-' * 50)
     print("Diarization has started:", audio_file)
 
     # Check if the wav_file exists
@@ -276,7 +277,8 @@ def perform_diarization(audio_file, output_path, device):
     #     if duration > 29500:
     #         print(duration)
 
-    print("Diarization has completed.")
+    print("Diarization has completed and stored in:", output_path)
+    print('-' * 50)
 
     return diarization
 
@@ -290,7 +292,7 @@ def perform_diarization_of_directory(audio_directory="assets/audios", cache_dire
 
         # Check if it's a file (not a directory)
         if os.path.isfile(audio_path):
-            print(f"Found audio file: {audio_path}")
+            #print(f"Found audio file: {audio_path}")
 
             audio_name, _ = os.path.splitext(audio_file)
             output_path = os.path.join(cache_directory, audio_name)

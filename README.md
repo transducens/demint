@@ -234,7 +234,7 @@ options:
 
 **Explain obtained errors**
 
-Using an LLM (by default Llama 3.1 8B), explains all errors with more detail (by default from `cache/errant_all_evaluation/` ) and stores them (by default in `cache/explained_sentences/`) with the same name in JSON format.
+Using an LLM (by default Llama 3.1 8B Instruct), explains all errors with more detail (by default from `cache/errant_all_evaluation/` ) and stores them (by default in `cache/explained_sentences/`) with the same name in JSON format.
 ```bash
 # Explain the obtained errors from the errant evaluation files.
 # From cache/errant_all_evaluation/ to cache/explained_sentences/

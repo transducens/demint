@@ -622,7 +622,7 @@ def get_arguments():
         exit(0)
 
     if conversation_name is None:
-        raise ValueError("The conversation name is not provided. Please provide a conversation name using the --conver flag.")
+        raise ValueError("The conversation name is not provided. Please provide a conversation name using the --conver flag.\nFor more information use the --help flag.")
 
     # arguments = {
     #     "speaker": args.speaker,

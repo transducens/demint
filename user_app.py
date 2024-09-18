@@ -319,6 +319,7 @@ def chat_with_ai(user_input, history):
                     categories = list(category_list.keys())
                     category = categories[index_category]
                     list_tuples = category_errors[category]
+                    index_error += 1
 
                     if index_error >= len(list_tuples):
                         index_category += 1

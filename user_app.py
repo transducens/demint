@@ -2,6 +2,10 @@ import time
 import gradio as gr
 import os
 import argparse
+import warnings
+
+# Suppress the warnings
+warnings.filterwarnings("ignore")
 
 from english_tutor import EnglishTutor
 from app.file_manager import FileManager
@@ -592,7 +596,7 @@ def get_arguments_env():
 def get_arguments():
     global log_conversation, selected_speaker, conversation_name, port
     global kind_teacher_port, kind_teacher_address
-    parser = argparse.ArgumentParser(description="English Tutor")
+    parser = argparse.ArgumentParser(description="English Tutor Chatbot")
 
     parser.add_argument("--conver", required=True, type=str, help="The transcripted conversation to show. Default is diarization_result")
     parser.add_argument("--speaker", type=str, default="All speakers", help="The speaker to show in the transcript. Default is All speakers.")

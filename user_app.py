@@ -221,16 +221,18 @@ def chat_with_ai(user_input, history):
             output = output.lower()
             if output == 'yes':
                 #response = error_explanation()
+                """
                 context = create_context(history, "I want a short explanation of the gramatical error")
             
                 final_prompt = (
                     f"You are an English teacher. I want you to correct the mistakes I have made based on the following context: \n\n"
                     f"CONTEXT:\n{context}\n"
                     f"QUESTION:\n Create a short explanation of the gramatical error using the mistake description provided in the context and alaways on the student phrase without saying the correct one.")
-
+                """
+                
                 response = create_prompt([final_prompt])
                 chat_response = "What do you want to do next?"
-                response += f"\n\n **{chat_response}**"
+                response = f"\n\n **{chat_response}**"
                 output = response
                 state = 1
             else:

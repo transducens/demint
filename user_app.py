@@ -153,8 +153,190 @@ def get_speakers():
     
     return sorted_speakers
 
-# Chat with the AI using the given query.
 def chat_with_ai(user_input, history):
+    global user_message, chat_answer, history_chat, highlighted_sentence_id, state
+    global category_list, category_errors, index_category, index_error, count, log_conversation, chat_response, state_change
+  
+    user_message = user_input
+    history_chat = history
+    final_prompt = None
+
+    output = ""
+
+    match state:
+        case -1:
+            categories = list(category_list.keys())
+
+            if index_category >= len(categories):
+                state = 100
+                output = "No more errors left to check. You have complete the class."
+            else:
+                category = categories[index_category]
+                list_tuples = category_errors[category]
+                if index_error >= len(list_tuples):
+                    index_category += 1
+                    index_error = 0
+
+                    if index_category >= len(categories):
+                        state = 100
+                        output = "No more error categories left to check. You have complete the class."
+                        return "", history, ""
+                
+                tuple_error = list_tuples[index_error]
+                #highlighted_sentence_id = tuple_error[0]
+                        
+                incorrect_sentence, correct_sentence, explanation = select_error(tuple_error[0], tuple_error[1])
+
+                prompt = (f"Base on the following context:\n\n"
+                          f"INCORRECT SENTENCE:\n{incorrect_sentence}\n\n"
+                          f"CORRECT SENTENCE:\n{correct_sentence}\n\n"
+                          f"EXPLANATION:\n{explanation}\n\n"
+                          f"TASK:\n Base on the incorrect and correct sentences, explain briefly the error using the explanation provided. The word or words that form part of the error are located between brackets Bear in mind that the explanation might be inaccurate. In those cases do nnot use it. Do not make any reference to the correct sentence\n\n")
+            
+                response = create_prompt([prompt])
+                output = "**You've made a mistake in the following sentence:**\n\n*" + incorrect_sentence + "*\n\n"
+                output += response + "\n\n"
+
+                chat_response = "Do you want to practice this error?"
+                output += f"\n\n **{chat_response}**"
+                state = 0
+
+        case 0:
+            context = "You ask the student: \n"
+            context += chat_response
+
+            context += "\n\nThe student responce is the following:\n"
+            context += "\n\n" + user_input + "\n"
+
+            prompt = (f"Base on the following context:\n\n"
+                        f"CONTEXT:\n{context}"
+                        f"TASK:\n You have asked the student if he wants to check his english errors of an expecific category. Determine if the students wants it based of the following answer. Your answer must be 'yes' or 'no'.\n\n"
+                        f"ANSWER:\n{user_input}")
+                        
+            output = create_prompt([prompt])
+
+            if english_tutor.get_chat_llm()[:3] != 'gpt':
+                output = sentiment_analisys(output)
+
+            output = output.lower()
+            if output == 'yes':
+                #response = error_explanation()
+                context = create_context(history, "I want a short explanation of the gramatical error")
+            
+                final_prompt = (
+                    f"You are an English teacher. I want you to correct the mistakes I have made based on the following context: \n\n"
+                    f"CONTEXT:\n{context}\n"
+                    f"QUESTION:\n Create a short explanation of the gramatical error using the mistake description provided in the context and alaways on the student phrase without saying the correct one.")
+
+                response = create_prompt([final_prompt])
+                chat_response = "What do you want to do next?"
+                response += f"\n\n **{chat_response}**"
+                output = response
+                state = 1
+            else:
+                index_error += 1
+
+                categories = list(category_list.keys())
+                category = list(category_list.keys())[index_category]
+                list_tuples = category_errors[category]
+
+                if index_error >= len(list_tuples):
+                    index_category += 1
+                    index_error = 0
+
+                    if index_category >= len(categories):
+                        state = 100
+                        output = "No more error categories left to check. You have complete the class."
+                        return "", history, ""
+                
+                tuple_error = list_tuples[index_error]
+
+                incorrect_sentence, correct_sentence, explanation = select_error(tuple_error[0], tuple_error[1])
+
+                prompt = (f"Base on the following context:\n\n"
+                          f"INCORRECT SENTENCE:\n{incorrect_sentence}\n\n"
+                          f"CORRECT SENTENCE:\n{correct_sentence}\n\n"
+                          f"EXPLANATION:\n{explanation}\n\n"
+                          f"TASK:\n Base on the incorrect and correct sentences, explain briefly the error using the explanation provided. The word or words that form part of the error are located between brackets Bear in mind that the explanation might be inaccurate. In those cases do nnot use it. Do not make any reference to the correct sentence\n\n")
+            
+                response = create_prompt([prompt])
+                output = "**You've made a mistake in the following sentence:**\n\n*" + incorrect_sentence + "*\n\n"
+                output += response + "\n\n"
+
+                chat_response = "Do you want to practice this other error?"
+                output += f"\n\n **{chat_response}**"
+                state = 0
+        case 1:
+            output = new_new_change_state(user_input, history)
+            print(output)
+            print(type(output))
+            print(output.split('"'))
+            next_id = output.split('"')[3]
+            output = output.split('"')[7]
+
+            if next_id == 'i2' or next_id == 'i3' or next_id == 'i4' or count == 6:
+                if count == 6:
+                    output += "\nI think we can move to the next exercise.\n"
+
+                count = 0
+                history = list()
+                categories = list(category_list.keys())
+
+                if index_category >= len(categories):
+                    state = 100
+                    output += "No more errors left to check. You have complete the class."
+                else:
+                    category = categories[index_category]
+                    list_tuples = category_errors[category]
+                    if index_error >= len(list_tuples):
+                        index_category += 1
+                        index_error = 0
+
+                        if index_category >= len(categories):
+                            state = 100
+                            output += "No more error categories left to check. You have complete the class."
+                            return "", history, ""
+                
+                    tuple_error = list_tuples[index_error]
+                    #highlighted_sentence_id = tuple_error[0]
+                        
+                    incorrect_sentence, correct_sentence, explanation = select_error(tuple_error[0], tuple_error[1])
+
+                    prompt = (f"Base on the following context:\n\n"
+                              f"INCORRECT SENTENCE:\n{incorrect_sentence}\n\n"
+                              f"CORRECT SENTENCE:\n{correct_sentence}\n\n"
+                              f"EXPLANATION:\n{explanation}\n\n"
+                              f"TASK:\n Base on the incorrect and correct sentences, explain briefly the error using the explanation provided. The word or words that form part of the error are located between brackets Bear in mind that the explanation might be inaccurate. In those cases do nnot use it. Do not make any reference to the correct sentence\n\n")
+            
+                    response = create_prompt([prompt])
+                    output += "**You've made a mistake in the following sentence:**\n\n*" + incorrect_sentence + "*\n\n"
+                    output += response + "\n\n"
+
+                    chat_response = "Do you want to practice this error?"
+                    output += f"\n\n **{chat_response}**"
+                    state = 0
+            else:
+                count += 1
+        case _:
+            output = "No more error categories left to check. You have complete the class."
+
+    if highlighted_sentence_id == 1:
+        error_sentence_id = ""
+    else:
+        error_sentence_id = "sentence_" + str(highlighted_sentence_id)
+
+    history.append((user_input, output))   # must be Tuples
+    
+    if log_conversation:
+        log_conversation_item(user_input, output)
+
+        if final_prompt != None:
+            log_prompts(final_prompt, output)
+
+    return "", history, error_sentence_id   
+
+# Chat with the AI using the given query.
+def chat_with_ai_obsoleto(user_input, history):
     global user_message, chat_answer, history_chat, highlighted_sentence_id, state
     global category_list, category_errors, index_category, index_error, count, log_conversation, chat_response, state_change
   
@@ -170,7 +352,6 @@ def chat_with_ai(user_input, history):
             output = "Most frecuent error type: " + category + ". Want to practice it?"
             state = 0
         case 0:
-            #print(chat_response)
             #output = ask_error(user_input)
             context = "You ask the student: \n"
             context += chat_response
@@ -197,7 +378,6 @@ def chat_with_ai(user_input, history):
                     output = "No more error categories left to check. You have complete the class."
                 else:
                     category = categories[index_category]
-                    print(category)
                     list_tuples = category_errors[category]
                     if index_error >= len(list_tuples):
                         index_category += 1
@@ -212,7 +392,6 @@ def chat_with_ai(user_input, history):
                             state = 0
                     else:
                         tuple_error = list_tuples[index_error]
-                        print("tuple_error: ", tuple_error)
                         #highlighted_sentence_id = tuple_error[0]
                         
                         incorrect_sentence, correct_sentence, explanation = select_error(tuple_error[0], tuple_error[1])
@@ -373,7 +552,7 @@ def chat_with_ai(user_input, history):
                     final_prompt = (
                         f"You are an English teacher. I want you to help me learn English: \n\n"
                         f"CONTEXT:\n{context}\n"
-                        f"QUESTION:\n Create an simple exercise of English base on the english rules and mistake description provided in the context in order to me to practice. The exercise must be just a simple sentence for the student to complete.")
+                        f"QUESTION:\n Create an simple exercise of English base on the english rules and mistake description provided in the context in order to me to practice. The exercise must be just a simple sentence for the student to complete. Do not show the answer.")
 
                     output = create_prompt([final_prompt])
 
@@ -430,7 +609,6 @@ def chat_with_ai(user_input, history):
         error_sentence_id = "sentence_" + str(highlighted_sentence_id)
 
     history.append((user_input, output))   # must be Tuples
-    print("history: ", history)
     
     if log_conversation:
         log_conversation_item(user_input, output)
@@ -665,8 +843,72 @@ def create_prompt(prompts):
 
     response = english_tutor.get_answer(prompt, max_new_tokens)
 
-    print("Response: ", response)
+    return response
 
+def new_new_change_state(user_response, history):
+    global error
+    #errant = cl.user_session.get("error")
+    errant = error
+
+    mistake_description = errant['llm_explanation']
+    RAG_context = errant['rag']
+    error_type = errant['error_type']
+    exercise_sentence = errant['original_sentence']
+
+    content_list = [f'{item["content"]}' for item in RAG_context]
+    context_str = "\n----------\n".join(content_list)
+
+    teacher_suggestion = None
+    if teacher_model != None:
+        list_history = history.copy()
+        list_history.append((user_response))
+        kind_teacher_prompt = teacher_model.format_messages(list_history)
+        kind_teacher_response = teacher_model.get_response(kind_teacher_prompt)
+        teacher_suggestion = teacher_model.format_response(kind_teacher_response)
+
+    prompt = "You are an English tutoring chatbot that helps non-native speakers analyze grammatical errors in sentences and correct them. Your goal is to help the user understand their mistakes, practice correcting the sentence with the error or other sentences with similar errors posed as exercises, and provide guidance based on various sources. The text that will be analyzed results from the transcription of a speech conversation between the user and other humans; therefore it may contain informal language. Your focus should be on the grammatical errors and not on the informal aspects of the conversation or the potential presence of incomplete sentences.\n\n"
+    prompt += "There are specific intentions that the user might express during the interaction as indicated below. Each intention is represented by an id such as I1 that you will use later to identify the user's intention.\n"
+    prompt += "I1. The user wants to do an exercise where they correct a sentence with a similar error.\n"
+    prompt += "I2. The user wants to move on to the next error.\n"
+    prompt += "I3. The user does not understand the error and needs an additional explanation.\n"
+    prompt += "I4. The user has understood everything.\n"
+    prompt += "I5. The user wants to try writing the correct form of their erroneous sentence so that you can evaluate it.\n"
+    prompt += "I6. The user has an intention related to the conversation, requiring a response in context.\n"
+    prompt += "I7. The user has an unrelated intention, and you should gently remind them to stay on topic.\n"
+    prompt += "I8. The user is giving the answer to an exercise you proposed.\n\n"
+    prompt += "Your task is to identify the user's intention based on their input and respond appropriately. You are provided next with some information on the error that may help you generate responses. Although this information may be relevant in some cases, it may be inaccurate in others. Therefore, it is not mandatory that you use all the information provided.\n"
+    prompt += "The information on the error obtained from different sources is:\n"
+    prompt += f"- Error type as identified by the tool ERRANT: {error_type}\n"
+    prompt += f"- Explanation of the error given by an AI model: {mistake_description}\n"
+    #prompt += f"- Explanation of the error given by a grammar checker model: {grammar_checker_explanation}\n"
+    prompt += f"- Potential relevant passages from English textbooks (retrieved via RAG): {context_str}\n"
+    prompt += f"- The last few turns of the conversation excluding the last user turn: {history}\n"
+    prompt += f"- The last turn of the conversation: {user_response}\n"
+
+    if teacher_model != None:
+        prompt += f"- A suggestion for the teacher's response given by a AI teacher model with no specific knowledge of English learning: {teacher_suggestion}\n"
+    
+    prompt += "### Instructions for response generation:\n"
+    prompt += "1. Identify the user's intention.\n"
+    prompt += "If the intention is:\n"
+    prompt += f"- **I1**: Create a short simple English sentence with an error similar to the one the user made. Guide the user to attempt correcting {exercise_sentence} in your response.\n"
+    prompt += "- **I2**: Confirm their understanding and offer to analyze the next error.\n"
+    prompt += "- **I3**: Provide a detailed explanation using the provided information and your own knowledge of English grammar. Make sure you do not provide the correct sentence as part of the explanation as the user should try to correct it themselves. Ask then the user if they want to practice or move on to another error.\n"
+    prompt += "- **I4**: Acknowledge their understanding and tell them that you are ready to move on to the next error.\n"
+    prompt += "- **I5**: Ask the user to provide the correct form of their erroneous sentence.\n"
+    prompt += "- **I6**: Respond contextually using the provided information.\n"
+    prompt += "- **I7**: Politely remind the user to focus on the session and offer options related to language learning: practice, explanation, or moving on to the next error.\n"
+    prompt += "- **I8**: Evaluate the user's response according to your proposed exercise and provide feedback.\n"
+    prompt += "3. Always try to consider the user's intention and the provided context when generating responses. However, you can also exceptionally generate responses that do not directly use the provided information if you think they are more appropriate for the situation.\n"
+    prompt += "4. Make your responses sound natural and engaging to the user, but at the same time, be clear and concise in your explanations. Generate responses between 1 and 5 sentences long.\n"
+    prompt += "5. There is a sequence of interactions with the user that you should try to follow: explain the error, practice with other sentences, and get a correct sentence from the user. However, you can skip some steps if you think they are not necessary for the user's learning process.\n\n"
+    prompt += "Generate both the identified intention and the next response to the user in a structured JSON format like this:"
+    prompt += "{\n"
+    prompt += "intention: INTENTION_ID,\n"
+    prompt += "response: GENERATED_RESPONSE\n"
+    prompt += "}"
+
+    response = english_tutor.get_answer(prompt, max_new_tokens).lower() 
     return response
 
 def new_change_state(user_response, history):
@@ -685,34 +927,6 @@ def new_change_state(user_response, history):
 
     response = english_tutor.get_answer(prompt, max_new_tokens).lower()
     return response
-
-def change_state(user_response):
-
-    state_changed = -1
-    init = "The student gave you the following answer: " + user_response
-
-    prompt = init + "\n\nAt the end, is the student asking for a grammar explanation? Answer only with a 'yes' or a 'no'"
-    response = english_tutor.get_answer(prompt, max_new_tokens).lower()
-    print("Response change_state: ", response)
-    
-    if response != 'yes':
-        prompt = init + "\n\nAt the end, is the student asking for an example? Answer only with a 'yes' or a 'no'"
-        response = english_tutor.get_answer(prompt, max_new_tokens).lower()
-    else:
-         return 3
-
-    print("Response change_state: ", response)
-    if response != 'yes':
-        prompt = init + "\n\nAt the end, is the student asking for an exercise? Answer only with a 'yes' or a 'no'"
-        response = english_tutor.get_answer(prompt, max_new_tokens).lower()
-    else:
-        return 4
-
-    print("Response change_state: ", response)
-    if response == 'yes':
-        return 5
-
-    return state_changed
 
 def sentiment_analisys(response):
     final_prompt = (f"Base on the following sentence:\n\n"
@@ -749,7 +963,6 @@ def ask_error(student_response):
                     f"ANSWER:\n{student_response}")
 
     response = english_tutor.get_answer(final_prompt, max_new_tokens)
-    print("Respuesta: ", response)
     
     if english_tutor.get_chat_llm()[:3] != 'gpt':
         final_prompt = (f"Base on the following sentence:\n\n"
@@ -758,8 +971,6 @@ def ask_error(student_response):
         
         response = english_tutor.get_answer(final_prompt, max_new_tokens)
         response = response.split('>')[1].split('<')[0]
-
-    print("Respuesta final: ", response)
 
     return response
 
@@ -779,7 +990,6 @@ def ask_grammar(student_response):
                     f"ANSWER:\n{student_response}")
 
     response = english_tutor.get_answer(final_prompt, max_new_tokens)
-    print("Respuesta: ", response)
 
     if english_tutor.get_chat_llm()[:3] != 'gpt':
         final_prompt = (f"Base on the following sentence:\n\n"
@@ -788,8 +998,6 @@ def ask_grammar(student_response):
         
         response = english_tutor.get_answer(final_prompt, max_new_tokens)
         response = response.split('>')[1].split('<')[0]
-
-    print("Respuesta final: ", response)
 
     return response
 
@@ -809,7 +1017,6 @@ def ask_example(student_response):
                     f"ANSWER:\n{student_response}")
 
     response =  english_tutor.get_answer(final_prompt, max_new_tokens)
-    print("Respuesta: ", response)
 
     if english_tutor.get_chat_llm()[:3] != 'gpt':    
         final_prompt = (f"Base on the following sentence:\n\n"
@@ -835,7 +1042,6 @@ def ask_exercise(student_response):
                     f"ANSWER:\n{student_response}")
 
     response = english_tutor.get_answer(final_prompt, max_new_tokens)
-    print("Respuesta: ", response)
     
     if english_tutor.get_chat_llm()[:3] != 'gpt':
         final_prompt = (f"Base on the following sentence:\n\n"
@@ -861,7 +1067,6 @@ def ask_sentence(student_response):
                     f"ANSWER:\n{student_response}")
 
     response = english_tutor.get_answer(final_prompt, max_new_tokens)
-    print("Respuesta: ", response)
     
     if english_tutor.get_chat_llm()[:3] != 'gpt':
         final_prompt = (f"Base on the following sentence:\n\n"
@@ -966,7 +1171,6 @@ def safe_guard(student_response):
                     f"ANSWER:\n{student_response}")
 
     response = english_tutor.get_answer(final_prompt, max_new_tokens)
-    print("Respuesta: ", response)
     
     final_prompt = (f"Base on the following sentence:\n\n"
                     f"SENTENCE:\n{response}"

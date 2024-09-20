@@ -30,7 +30,8 @@ def transcribe(audio, pipe):
     return text
 
 def transcribe_audio(input_path, output_path, pipe):
-    print(f"Starting to transcribe audio files of {input_path} and saving the transcript to {output_path} ")
+    print("-" * 50)
+    print(f"Starting to transcribe audio files of {input_path}")
 
     if not os.path.isdir(input_path):
         print(f"Failed to open {input_path}. It is not a directory.")
@@ -64,7 +65,7 @@ def transcribe_audio(input_path, output_path, pipe):
         #print(type(audio))
         transcript = transcribe(audio, pipe)
         end_time = start_time + librosa.get_duration(filename=(os.path.join(input_path, x)))
-        print(transcript)
+        #print(transcript)
         
         start = str(datetime.timedelta(seconds=start_time))
         end = str(datetime.timedelta(seconds=end_time))
@@ -77,6 +78,9 @@ def transcribe_audio(input_path, output_path, pipe):
 
     with open(os.path.join(output_path), 'w') as f:
         json.dump(content, f) 
+    
+    print(f"Transcription is completed and saved to {output_path}")
+    print("-" * 50)
     
 
 def transcribe_audio_of_all_directory(
@@ -95,7 +99,7 @@ def transcribe_audio_of_all_directory(
 
         # Check if it's a directory and not a file
         if os.path.isdir(diarized_audio_path):
-            print(f"Found diarized audio directory: {diarized_audio_path}")
+            #print(f"Found diarized audio directory: {diarized_audio_path}")
 
             transcribe_audio(diarized_audio_path, diarized_transcript_path + '.json', pipe)
 
@@ -123,15 +127,6 @@ def main():
     model.generation_config.language = "<|en|>"
     model.generation_config.task = "transcribe"
 
-    # Temp block (testing original whisper model)
-    # Load the original Whisper model directly
-    # model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-large-v3")
-
-    # # Set the generation configuration for the model
-    # model.generation_config.language = "<|en|>"
-    # model.generation_config.task = "transcribe"
-    # End of temp block
-
     tokenizer = WhisperTokenizer.from_pretrained("openai/whisper-large-v3", task="transcribe")
     feature_extractor = WhisperFeatureExtractor.from_pretrained("openai/whisper-large-v3")
 
@@ -151,7 +146,6 @@ def main():
             transcribe_audio(args.audio_directory, os.path.join(args.transcript_directory, audio_name + '.json'), pipe)
         else:
             audio_name = os.path.basename(os.path.normpath(args.audio_directory))
-            print("############" + audio_name)
             transcribe_audio(args.audio_directory, os.path.join(diarized_transcript_dir, audio_name + '.json'), pipe)
 
     elif args.all_audios_directory:
@@ -170,4 +164,12 @@ def main():
 
 
 if __name__ == '__main__':
+    print("*" * 50)
+    print("TRANSCRIPTION STARTED")
+    print("*" * 50)
+
     main()
+
+    print("*" * 50)
+    print("TRANSCRIPTION COMPLETED")
+    print("*" * 50)

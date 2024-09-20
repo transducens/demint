@@ -1,13 +1,14 @@
-import gradio as gr
-import tracemalloc
 import time
+import gradio as gr
 import os
 import argparse
+import warnings
+
+# Suppress the warnings
+warnings.filterwarnings("ignore")
 
 from english_tutor import EnglishTutor
 from app.file_manager import FileManager
-import app.prepare_sentences as prepare_sentences
-import app.rag_sentences as rag_sentences
 from app.teacher_model import TeacherModel
 
 english_tutor: EnglishTutor | None = None
@@ -43,7 +44,6 @@ port = 7860
 selected_speaker = "All speakers"
 
 
-tracemalloc.start()
 
 prompt_question = [
     f"QUESTION:\n Create a short explanation of the gramatical error using the mistake description provided in the context and alaways on the student phrase without saying the correct one.",
@@ -89,6 +89,9 @@ def initialize_global_variables():
                 raise ValueError("Error connecting to Teacher Model")
     except:
         teacher_model = None
+        print("~" * 50)
+        print("ERROR: Could not connect to Teacher Model")
+        print("~" * 50)
 
     load_data() # Load the data from the cache files
 
@@ -773,9 +776,11 @@ def get_arguments_env():
 # Gets the arguments from the command line.
 def get_arguments():
     global log_conversation, selected_speaker, conversation_name, port
-    parser = argparse.ArgumentParser(description="English Tutor")
+    global kind_teacher_port, kind_teacher_address
+    parser = argparse.ArgumentParser(description="English Tutor Chatbot")
 
-    parser.add_argument("--conver", required=True, type=str, help="The transcripted conversation to show. Default is diarization_result")
+    parser.add_argument("-l", "--list", action="store_true", help="List all the conversations available.")
+    parser.add_argument("--conver", required=False, type=str, help="The transcripted conversation to show. Default is diarization_result")
     parser.add_argument("--speaker", type=str, default="All speakers", help="The speaker to show in the transcript. Default is All speakers.")
     parser.add_argument("--port", type=int, default=7860, help="The port in which the server will run. Default is 7860")
     parser.add_argument("--no_log", action="store_true", help="If the flag is called, the chatbot conversation will not save logs of the execution. Default is False.")
@@ -790,6 +795,15 @@ def get_arguments():
     selected_speaker = args.speaker
     kind_teacher_port = args.port_kind_teacher
     kind_teacher_address = args.address_kind_teacher
+    
+    # If the list flag is called, then list all the conversations available and exit.
+    if args.list:
+        list_available_conversations()
+        print()
+        exit(0)
+
+    if conversation_name is None:
+        raise ValueError("The conversation name is not provided. Please provide a conversation name using the --conver flag.\nFor more information use the --help flag.")
 
     # arguments = {
     #     "speaker": args.speaker,
@@ -829,12 +843,14 @@ def create_context(history, user_input):
     if teacher_model != None:
         list_history = history.copy()
         list_history.append((user_input))
-        kind_teacher_prompt = teacher_model.format_messages(list_history)
-        kind_teacher_response = teacher_model.get_response(kind_teacher_prompt)
-        kind_teacher_response = teacher_model.format_response(kind_teacher_response)
-        
-        context += "\n\nA teacher would respond in the following way. Only use this if the teacher response is related to the current topic:\n"
-        context += "\n\n" + kind_teacher_response + "\n" 
+        kind_teacher_prompt = teacher_model.format_messages(messages=list_history)
+        try:
+            kind_teacher_response = teacher_model.get_response(kind_teacher_prompt)
+            kind_teacher_response = teacher_model.format_response(kind_teacher_response)
+            context += "\n\nA teacher would respond in the following way. Only use this if the teacher response is related to the current topic:\n"
+            context += "\n\n" + kind_teacher_response + "\n" 
+        except:
+            print("ERROR: Could not reach Kind Teacher Server. Ignoring its response.")
 
     return context
 
@@ -1272,9 +1288,46 @@ def reset_states():
     index_category = 0
     index_error = 0
 
+def list_available_conversations():
+    conversations_sentence_collection = []
+    conversations_rag_sentences = []
+    available_conversations = []
+    file_manager = FileManager()
+    input_directories = {
+        'sentences_collection': f"cache/raw_sorted_sentence_collection/",
+        'explained_sentences': f"cache/rag_sentences/",
+    }
+
+    # Loop through the files in the directory
+    for file in os.listdir(input_directories['sentences_collection']):
+        if file.endswith(".json"):
+            conversations_sentence_collection.append(file)
+
+    for file in os.listdir(input_directories['explained_sentences']):
+        if file.endswith(".json"):
+            conversations_rag_sentences.append(file)
+
+    available_conversations = [item for item in conversations_sentence_collection if item in conversations_rag_sentences]
+
+    print()
+    print("Available conversations and speakers:")
+    for conv in available_conversations:
+        sorted_speakers = ["All speakers"]
+        conver_path = input_directories['sentences_collection'] + conv
+
+        sorted_sentences_collection = file_manager.read_from_json_file(conver_path)
+        sorted_speakers += sorted( {value['speaker'] for value in sorted_sentences_collection.values()} )
+
+        print("-", conv[:-5])
+        for sp in sorted_speakers:
+            print("  -", sp)
+        print()
+
+
 js = "./app/gradio_javascript.js"
 css = "./app/gradio_css.css"
 head_html = ""
+
 with open("./app/gradio_head_html.html", 'r') as file:
     head_html = file.read()
 

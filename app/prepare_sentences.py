@@ -14,7 +14,8 @@ output_directory = "./cache/raw_sorted_sentence_collection"
 def prepare_sorted_sentence_collection(file_manager, input_path, output_path):
     raw_sentence_collection = {}
     index = 1
-    print("Creating sorted sentence collection ...")
+    print("-" * 50)
+    print("Creating sorted sentence collection of:", input_path)
     
     diarization = file_manager.read_from_json_file(input_path)
     if diarization is None:
@@ -32,6 +33,9 @@ def prepare_sorted_sentence_collection(file_manager, input_path, output_path):
         index += 1
 
     file_manager.save_to_json_file(output_path, raw_sentence_collection)
+
+    print(f"Saved sorted sentence collection to: {output_path}")
+    print("-" * 50)
 
     return raw_sentence_collection
 
@@ -90,7 +94,7 @@ def prepare_sentences_collection_of_directory(
 
         # Check if it's a file (not a directory)
         if os.path.isfile(diarized_transcript_path):
-            print(f"Found diarized transcript file: {diarized_transcript_path}")
+            #print(f"Found diarized transcript file: {diarized_transcript_path}")
 
             prepare_sorted_sentence_collection(file_manager, diarized_transcript_path, sentence_collection_path)
 
@@ -142,4 +146,12 @@ def main():
 
 
 if "__main__" == __name__:
+    print("*" * 50)
+    print("PREPARING SENTENCES STARTED")
+    print("*" * 50)
+
     main()
+
+    print("*" * 50)
+    print("PREPARING SENTENCES COMPLETED")
+    print("*" * 50)

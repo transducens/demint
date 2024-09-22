@@ -575,8 +575,6 @@ def chat_with_ai_obsoleto(user_input, history):
                         f"You are an English teacher. I want you to help me learn English: \n\n"
                         f"CONTEXT:\n{context}\n"
                         f"QUESTION:\n Create an simple exercise of English base on the english rules and mistake description provided in the context in order to me to practice. The exercise must be just a simple sentence for the student to complete. Do not show the answer.")
-                        f"QUESTION:\n Create an simple exercise of English base on the english rules and mistake description provided in the context in order to me to practice. The exercise must be just a simple sentence for the student to complete. Do not show the answer.")
-
                     output = create_prompt([final_prompt])
 
                     output += "\n\n **Complete the exercise**"

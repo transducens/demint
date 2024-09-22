@@ -3,6 +3,7 @@ import gradio as gr
 import os
 import argparse
 import warnings
+import json
 
 # Suppress the warnings
 warnings.filterwarnings("ignore")
@@ -233,7 +234,7 @@ def chat_with_ai(user_input, history):
                     f"QUESTION:\n Create a short explanation of the gramatical error using the mistake description provided in the context and alaways on the student phrase without saying the correct one.")
                 """
                 
-                response = create_prompt([final_prompt])
+                #response = create_prompt([final_prompt])
                 chat_response = "What do you want to do next?"
                 response = f"\n\n **{chat_response}**"
                 output = response
@@ -272,14 +273,30 @@ def chat_with_ai(user_input, history):
                 output += f"\n\n **{chat_response}**"
                 state = 0
         case 1:
-            output = new_new_change_state(user_input, history)
-            print(output)
-            print(type(output))
-            print(output.split('"'))
-            next_id = output.split('"')[3]
-            output = output.split('"')[7]
+            json_output = new_new_change_state(user_input, history)
+            
+            print(json_output)
+            print(type(json_output))
+            print(json_output.split('"'))
 
-            if next_id == 'i2' or next_id == 'i3' or next_id == 'i4' or count == 6:
+            if len(json_output.split('"')) == 9:
+                next_id = json_output.split('"')[3]
+                output = json_output.split('"')[7]
+            else:
+                next_id = json_output.split('"')[1]
+                output = json_output.split('"')[3]
+            
+            """
+            next_id = json_output.split('"')[3]
+            output = json_output.split('"')[7]
+            
+            
+            json_response = json.loads(json_output)
+            next_id = json_response["intention"]
+            output = json_response["response"]
+            """
+
+            if next_id == 'i2' or next_id == 'i4' or count == 6:
                 if count == 6:
                     output += "\nI think we can move to the next exercise.\n"
 
@@ -557,6 +574,7 @@ def chat_with_ai_obsoleto(user_input, history):
                     final_prompt = (
                         f"You are an English teacher. I want you to help me learn English: \n\n"
                         f"CONTEXT:\n{context}\n"
+                        f"QUESTION:\n Create an simple exercise of English base on the english rules and mistake description provided in the context in order to me to practice. The exercise must be just a simple sentence for the student to complete. Do not show the answer.")
                         f"QUESTION:\n Create an simple exercise of English base on the english rules and mistake description provided in the context in order to me to practice. The exercise must be just a simple sentence for the student to complete. Do not show the answer.")
 
                     output = create_prompt([final_prompt])
@@ -861,6 +879,72 @@ def create_prompt(prompts):
 
     response = english_tutor.get_answer(prompt, max_new_tokens)
 
+    return response
+
+def new_new_change_state(user_response, history):
+    global error
+    #errant = cl.user_session.get("error")
+    errant = error
+
+    mistake_description = errant['llm_explanation']
+    RAG_context = errant['rag']
+    error_type = errant['error_type']
+    exercise_sentence = errant['original_sentence']
+
+    content_list = [f'{item["content"]}' for item in RAG_context]
+    context_str = "\n----------\n".join(content_list)
+
+    teacher_suggestion = None
+    if teacher_model != None:
+        list_history = history.copy()
+        list_history.append((user_response))
+        kind_teacher_prompt = teacher_model.format_messages(list_history)
+        kind_teacher_response = teacher_model.get_response(kind_teacher_prompt)
+        teacher_suggestion = teacher_model.format_response(kind_teacher_response)
+
+    prompt = "You are an English tutoring chatbot that helps non-native speakers analyze grammatical errors in sentences and correct them. Your goal is to help the user understand their mistakes, practice correcting the sentence with the error or other sentences with similar errors posed as exercises, and provide guidance based on various sources. The text that will be analyzed results from the transcription of a speech conversation between the user and other humans; therefore it may contain informal language. Your focus should be on the grammatical errors and not on the informal aspects of the conversation or the potential presence of incomplete sentences.\n\n"
+    prompt += "There are specific intentions that the user might express during the interaction as indicated below. Each intention is represented by an id such as I1 that you will use later to identify the user's intention.\n"
+    prompt += "I1. The user wants to do an exercise where they correct a sentence with a similar error.\n"
+    prompt += "I2. The user wants to move on to the next error.\n"
+    prompt += "I3. The user does not understand the error and needs an additional explanation.\n"
+    prompt += "I4. The user has understood everything.\n"
+    prompt += "I5. The user wants to try writing the correct form of their erroneous sentence so that you can evaluate it.\n"
+    prompt += "I6. The user has an intention related to the conversation, requiring a response in context.\n"
+    prompt += "I7. The user has an unrelated intention, and you should gently remind them to stay on topic.\n"
+    prompt += "I8. The user is giving the answer to an exercise you proposed.\n\n"
+    prompt += "Your task is to identify the user's intention based on their input and respond appropriately. You are provided next with some information on the error that may help you generate responses. Although this information may be relevant in some cases, it may be inaccurate in others. Therefore, it is not mandatory that you use all the information provided.\n"
+    prompt += "The information on the error obtained from different sources is:\n"
+    prompt += f"- Error type as identified by the tool ERRANT: {error_type}\n"
+    prompt += f"- Explanation of the error given by an AI model: {mistake_description}\n"
+    #prompt += f"- Explanation of the error given by a grammar checker model: {grammar_checker_explanation}\n"
+    prompt += f"- Potential relevant passages from English textbooks (retrieved via RAG): {context_str}\n"
+    prompt += f"- The last few turns of the conversation excluding the last user turn: {history}\n"
+    prompt += f"- The last turn of the conversation: {user_response}\n"
+
+    if teacher_model != None:
+        prompt += f"- A suggestion for the teacher's response given by a AI teacher model with no specific knowledge of English learning: {teacher_suggestion}\n"
+    
+    prompt += "### Instructions for response generation:\n"
+    prompt += "1. Identify the user's intention.\n"
+    prompt += "If the intention is:\n"
+    prompt += f"- **I1**: Create a short simple English sentence with an error similar to the one the user made. Guide the user to attempt correcting {exercise_sentence} in your response.\n"
+    prompt += "- **I2**: Confirm their understanding and offer to analyze the next error.\n"
+    prompt += "- **I3**: Provide a detailed explanation using the provided information and your own knowledge of English grammar. Make sure you do not provide the correct sentence as part of the explanation as the user should try to correct it themselves. Ask then the user if they want to practice or move on to another error.\n"
+    prompt += "- **I4**: Acknowledge their understanding and tell them that you are ready to move on to the next error.\n"
+    prompt += "- **I5**: Ask the user to provide the correct form of their erroneous sentence.\n"
+    prompt += "- **I6**: Respond contextually using the provided information.\n"
+    prompt += "- **I7**: Politely remind the user to focus on the session and offer options related to language learning: practice, explanation, or moving on to the next error.\n"
+    prompt += "- **I8**: Evaluate the user's response according to your proposed exercise and provide feedback.\n"
+    prompt += "3. Always try to consider the user's intention and the provided context when generating responses. However, you can also exceptionally generate responses that do not directly use the provided information if you think they are more appropriate for the situation.\n"
+    prompt += "4. Make your responses sound natural and engaging to the user, but at the same time, be clear and concise in your explanations. Generate responses between 1 and 5 sentences long.\n"
+    prompt += "5. There is a sequence of interactions with the user that you should try to follow: explain the error, practice with other sentences, and get a correct sentence from the user. However, you can skip some steps if you think they are not necessary for the user's learning process.\n\n"
+    prompt += "Generate both the identified intention and the next response to the user in a structured JSON format like this:"
+    prompt += "{\n"
+    prompt += "intention: INTENTION_ID,\n"
+    prompt += "response: GENERATED_RESPONSE\n"
+    prompt += "}"
+
+    response = english_tutor.get_answer(prompt, max_new_tokens).lower() 
     return response
 
 def new_new_change_state(user_response, history):

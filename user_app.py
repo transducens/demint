@@ -3,6 +3,7 @@ import gradio as gr
 import os
 import argparse
 import warnings
+import json
 
 # Suppress the warnings
 warnings.filterwarnings("ignore")
@@ -233,7 +234,7 @@ def chat_with_ai(user_input, history):
                     f"QUESTION:\n Create a short explanation of the gramatical error using the mistake description provided in the context and alaways on the student phrase without saying the correct one.")
                 """
                 
-                response = create_prompt([final_prompt])
+                #response = create_prompt([final_prompt])
                 chat_response = "What do you want to do next?"
                 response = f"\n\n **{chat_response}**"
                 output = response
@@ -272,14 +273,30 @@ def chat_with_ai(user_input, history):
                 output += f"\n\n **{chat_response}**"
                 state = 0
         case 1:
-            output = new_new_change_state(user_input, history)
-            print(output)
-            print(type(output))
-            print(output.split('"'))
-            next_id = output.split('"')[3]
-            output = output.split('"')[7]
+            json_output = new_new_change_state(user_input, history)
+            
+            print(json_output)
+            print(type(json_output))
+            print(json_output.split('"'))
 
-            if next_id == 'i2' or next_id == 'i3' or next_id == 'i4' or count == 6:
+            if len(json_output.split('"')) == 9:
+                next_id = json_output.split('"')[3]
+                output = json_output.split('"')[7]
+            else:
+                next_id = json_output.split('"')[1]
+                output = json_output.split('"')[3]
+            
+            """
+            next_id = json_output.split('"')[3]
+            output = json_output.split('"')[7]
+            
+            
+            json_response = json.loads(json_output)
+            next_id = json_response["intention"]
+            output = json_response["response"]
+            """
+
+            if next_id == 'i2' or next_id == 'i4' or count == 6:
                 if count == 6:
                     output += "\nI think we can move to the next exercise.\n"
 

@@ -16,7 +16,7 @@ body {
     flex-direction: column;
     height: 10vh;
     visibility: collapse; /* visible / collapse */
-    display: none;
+    display: none;  /* comment / uncomment */
 }
 .transcript {
     height: 80vh;

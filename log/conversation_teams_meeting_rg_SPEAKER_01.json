@@ -34,5 +34,17 @@
                 "assistant": "**You've made a mistake in the following sentence:**\n\n*I know right like **[why]** why they even make them some complicated easiest paper going through a machine how how can be be totally.*\n\nIn the incorrect sentence, the error involves the repeated use of the word \"why.\" The first \"why\" does not contribute any meaning to the sentence and only serves to confuse the reader. This is an example of a repetition error where the word is needlessly duplicated, detracting from the clarity and flow of the sentence.\n\n\n\n **Do you want to practice this error?**"
             }
         ]
+    },
+    {
+        "conversation": [
+            {
+                "assistant": "Hello! I am your English tutor. I will help you to learn English. Are you ready?"
+            },
+            {
+                "user": "hello",
+                "assistant": "The original sentence is: \"I know right like why why they even make them some complicated easiest paper going through a machine how how can be be totally.\" This sentence contains a run-on error, where multiple independent clauses are incorrectly combined.\n\nWould you like to practice with other sentences with similar mistakes, get a detailed explanation of this error, or move to the next error?",
+                "timestamp": "2024-09-23 16:47:24"
+            }
+        ]
     }
 ]

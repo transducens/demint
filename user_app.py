@@ -51,6 +51,8 @@ conversation_name = ""
 port = 7860
 selected_speaker = "All speakers"
 
+
+
 from openai import OpenAI
 
 from pydantic import BaseModel
@@ -512,8 +514,13 @@ def build_transcript(speaker_name: str):
     return result
 
 def handle_dropdown_selection(speaker_name: str):
-    print("Called handle_dropdown_selection")
-    return build_transcript(speaker_name)
+    global selected_speaker
+    selected_speaker = speaker_name
+
+    reset_states()
+
+    print("Called handle_dropdown_selection with speaker: ", speaker_name)
+    return build_transcript(speaker_name), [("Hello, I am " + selected_speaker, welcome_message)], ""
 
 def clean_cache():
     global speakers_context, selected_speaker_text, english_tutor
@@ -656,6 +663,11 @@ def select_error(index_sentence = 0, index_error = 0):
 
 def reset_states():
     global state, index_category, index_error
+    global selected_speaker, highlighted_sentence_id
+
+    print("Resetting states with speaker: ", selected_speaker)
+
+    initialize_global_variables()
 
     state = -1
     index_category = 0
@@ -706,6 +718,7 @@ with open("./app/gradio_head_html.html", 'r') as file:
 
 js_autoscroll_by_id = "(sentence_id) => {js_autoscroll_by_id(sentence_id);}"
 js_toggle_visibility = "(msg, hist, htxt) => {js_toggle_visibility(); return [msg, hist];}"
+js_refresh_page = "(param) => {js_refresh_page(param); return param;}"
 
 
 print("Version of gradio: " + gr.__version__, flush=True)
@@ -719,6 +732,18 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
     print("*" * 50)
 
     page_state = gr.State("loaded", render=False)
+    user_initial_message = "Hello, I am " + selected_speaker
+    chatbot = gr.Chatbot(
+        layout="bubble",
+        bubble_full_width=False,
+        elem_id = "chatbot",
+        height="80vh",
+        value = [(user_initial_message, welcome_message)],
+        label = "Chatbot DeMINT",
+        avatar_images = ("./public/user.png", "./public/logo_dark.png"),
+        render=False,
+    )
+    hidden_textbox = gr.Textbox(value="", visible=False, render=True)
 
     # All Components container
     with gr.Row():
@@ -734,27 +759,17 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
                         )
                 with gr.Row(elem_classes="transcript"):
                     speaker_text = gr.Markdown(
-                        value=handle_dropdown_selection(selected_speaker),
-                            latex_delimiters=[], # Disable LaTeX rendering
-                        )
-                    dropdown.change(fn=handle_dropdown_selection, inputs=[dropdown], outputs=[speaker_text])
-            
+                        value=handle_dropdown_selection(selected_speaker)[0],
+                        latex_delimiters=[], # Disable LaTeX rendering
+                    )
+                    dropdown.change(fn=handle_dropdown_selection, inputs=[dropdown], outputs=[speaker_text, chatbot, hidden_textbox])
 
 
         # Block for chatting with the AI.
         with gr.Column(scale=0.7, variant="default"):
             with gr.Group():
             # lg.primary.svelte-cmf5ev
-                user_initial_message = "Hello, I am " + selected_speaker
-                chatbot = gr.Chatbot(
-                    layout="bubble",
-                    bubble_full_width=False,
-                    elem_id = "chatbot",
-                    height="80vh",
-                    value = [(user_initial_message, welcome_message)],
-                    label = "Chatbot DeMINT",
-                    avatar_images = ("./public/user.png", "./public/logo_dark.png"),
-                )
+                chatbot.render()
                 with gr.Row(elem_id="option_buttons"):
                     option1 = gr.Button(
                         value="Option 1",
@@ -794,7 +809,6 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
                         elem_classes="svelte-cmf5ev",
                         scale=1,
                     )
-            hidden_textbox = gr.Textbox(value="", visible=False, render=True)
 
             submit_button.click(chat_with_ai, [txtbox, chatbot], [txtbox, chatbot, hidden_textbox], show_progress="hidden") # js=js_toggle_visibility
             txtbox.submit(chat_with_ai, [txtbox, chatbot], [txtbox, chatbot, hidden_textbox], show_progress="hidden") # js=js_toggle_visibility

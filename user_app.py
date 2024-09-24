@@ -291,9 +291,11 @@ Generate responses in the following JSON format:
     # return response
 
 
-def get_next_error(index_category, index_error, categories, category_errors):
+def get_next_error(categories, category_errors):
+    global index_error, index_category
+
     if index_category >= len(categories):
-        return False
+        return False, None, None
     
     category = categories[index_category]
     list_tuples = category_errors[category]
@@ -302,12 +304,13 @@ def get_next_error(index_category, index_error, categories, category_errors):
         index_error = 0
 
     if index_category >= len(categories):
-        return False
+        return False, None, None
     
     list_tuples = category_errors[category]
     tuple_error = list_tuples[index_error]
     
     return True, tuple_error[0], tuple_error[1]
+
 
 def parse_gpt4_output(output):
     if output.parsed:
@@ -326,7 +329,7 @@ def chat_with_ai(user_input, history):
     global category_list, category_errors, index_category, index_error, count, log_conversation, chat_response, state_change
     
     categories = list(category_list.keys())
-    next_error_exists, sentence_id, error_id = get_next_error(index_category, index_error, categories, category_errors)
+    next_error_exists, sentence_id, error_id = get_next_error(categories, category_errors)
 
     if not next_error_exists:
         output = "No errors left to check. The class is finished."
@@ -349,10 +352,15 @@ def chat_with_ai(user_input, history):
         count = 0
         index_error += 1
 
-        next_error_exists, sentence_id, error_id = get_next_error(index_category, index_error, categories, category_errors)
+        next_error_exists, sentence_id, error_id = get_next_error(categories, category_errors)
 
         if not next_error_exists:
             output = "No errors left to check. The class is finished."
+
+            if log_conversation:
+                log_conversation_item(user_input, output)
+                log_prompts(prompt, output)
+
             return "", history, ""
     
         select_error(sentence_id, error_id)

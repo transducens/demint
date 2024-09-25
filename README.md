@@ -81,6 +81,11 @@ Go to the root directory `demint`.
 
 ## Download audio from YouTube (optional)
 
+<details>
+<summary>
+More details.
+</summary>
+
 ### Option 1
 Download directly the audio from YouTube (internally gets converted using ffmpeg) and it gets stored in 'assets/audios/', if possible with 'wav' extension.
 
@@ -131,6 +136,7 @@ options:
   -ad AUDIO_DIRECTORY, --audio_directory AUDIO_DIRECTORY
                         Path to the directory where the output audio files will be saved.
 ```
+</details>
 
 ## Create cache files
 

@@ -64,7 +64,7 @@ Finally, set up HuggingFace. To use models from the HuggingFace hub, log in usin
 huggingface-cli login
 ```
 
-When prompted, enter your HuggingFace API token. You can find or generate this token in the settings section of your HuggingFace account.
+When prompted, enter your HuggingFace API token. You can find or [generate this token](https://huggingface.co/docs/hub/security-tokens#how-to-manage-user-access-tokens) in the settings section of your HuggingFace account.
 
 Additionally, you must accept the user conditions to use the following models:
 

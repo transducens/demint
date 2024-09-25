@@ -337,6 +337,7 @@ def chat_with_ai(user_input, history):
 
     if not next_error_exists:
         output = "No errors left to check. The class is finished."
+        history.append((user_input, output))
         return "", history, ""
     
     select_error(sentence_id, error_id)
@@ -353,13 +354,13 @@ def chat_with_ai(user_input, history):
     count += 1
 
     if intention == 'I2' or intention == 'I4' or count==6:
-        count = 1
         index_error += 1
 
         next_error_exists, sentence_id, error_id = get_next_error(categories, category_errors)
 
         if not next_error_exists:
             output = "No errors left to check. The class is finished."
+            history.append((user_input, output))
             return "", history, ""
     
         select_error(sentence_id, error_id)
@@ -370,7 +371,13 @@ def chat_with_ai(user_input, history):
         if not parse_worked:
             # set intention!!!!!!!!!!!!
             pass
+
         output= "Next error. " + output
+
+        if count == 6:
+            output = "We have already spent too much time on this error, let's move on.  " + output
+        
+        count = 1
 
     # 1 is intialized to 1 menaing no actual sentence; this is a flag only activated at 
     # the beginning of the conversation when no sentence is highlighted

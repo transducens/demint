@@ -66,12 +66,6 @@ huggingface-cli login
 
 Enter your HuggingFace API token when prompted. You can find or create an API token in your HuggingFace account's settings.
 
-For OpenAI API access, set your API key as an environment variable:
-
-```bash
-export OPENAI_API_KEY=[your OpenAI API key]
-```
-
 
 # Preparing data
 Go to the root directory `demint`.

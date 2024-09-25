@@ -51,6 +51,8 @@ conversation_name = ""
 port = 7860
 selected_speaker = "All speakers"
 
+
+
 from openai import OpenAI
 
 from pydantic import BaseModel
@@ -108,7 +110,8 @@ def initialize_global_variables():
     category_errors = {}
     state_change = False
 
-    index_category = index_error = 0
+    index_category = 0
+    index_error = 0
 
     list_errors()
 
@@ -289,21 +292,28 @@ Generate responses in the following JSON format:
     # return response
 
 
-def get_next_error(index_category, index_error, categories, category_errors):
+def get_next_error(categories, category_errors):
+    global index_category, index_error
     if index_category >= len(categories):
-        return False
+        return False, None, None
     
     category = categories[index_category]
     list_tuples = category_errors[category]
     if index_error >= len(list_tuples):
         index_category += 1
         index_error = 0
-
+        
     if index_category >= len(categories):
-        return False
+        return False, None, None
     
+    category = categories[index_category]
+    list_tuples = category_errors[category]
+
     list_tuples = category_errors[category]
     tuple_error = list_tuples[index_error]
+
+    print("tuple_error[0]: ", tuple_error[0])
+    print("tuple_error[1]: ", tuple_error[1])
     
     return True, tuple_error[0], tuple_error[1]
 
@@ -316,15 +326,14 @@ def parse_gpt4_output(output):
         return True, intention, output
     else:
         print(output.refusal)
-        return False
-
+        return False, None, None
 # ---------------------------------------------
 def chat_with_ai(user_input, history):
     global user_message, chat_answer, history_chat, highlighted_sentence_id, state
     global category_list, category_errors, index_category, index_error, count, log_conversation, chat_response, state_change
     
     categories = list(category_list.keys())
-    next_error_exists, sentence_id, error_id = get_next_error(index_category, index_error, categories, category_errors)
+    next_error_exists, sentence_id, error_id = get_next_error(categories, category_errors)
 
     if not next_error_exists:
         output = "No errors left to check. The class is finished."
@@ -344,10 +353,10 @@ def chat_with_ai(user_input, history):
     count += 1
 
     if intention == 'I2' or intention == 'I4' or count==6:
-        count = 0
+        count = 1
         index_error += 1
 
-        next_error_exists, sentence_id, error_id = get_next_error(index_category, index_error, categories, category_errors)
+        next_error_exists, sentence_id, error_id = get_next_error(categories, category_errors)
 
         if not next_error_exists:
             output = "No errors left to check. The class is finished."
@@ -512,8 +521,13 @@ def build_transcript(speaker_name: str):
     return result
 
 def handle_dropdown_selection(speaker_name: str):
-    print("Called handle_dropdown_selection")
-    return build_transcript(speaker_name)
+    global selected_speaker
+    selected_speaker = speaker_name
+
+    reset_states()
+
+    print("Called handle_dropdown_selection with speaker: ", speaker_name)
+    return build_transcript(speaker_name), [("Hello, I am " + selected_speaker, welcome_message)], ""
 
 def clean_cache():
     global speakers_context, selected_speaker_text, english_tutor
@@ -656,6 +670,11 @@ def select_error(index_sentence = 0, index_error = 0):
 
 def reset_states():
     global state, index_category, index_error
+    global selected_speaker, highlighted_sentence_id
+
+    print("Resetting states with speaker: ", selected_speaker)
+
+    initialize_global_variables()
 
     state = -1
     index_category = 0
@@ -706,6 +725,7 @@ with open("./app/gradio_head_html.html", 'r') as file:
 
 js_autoscroll_by_id = "(sentence_id) => {js_autoscroll_by_id(sentence_id);}"
 js_toggle_visibility = "(msg, hist, htxt) => {js_toggle_visibility(); return [msg, hist];}"
+js_refresh_page = "(param) => {js_refresh_page(param); return param;}"
 
 
 print("Version of gradio: " + gr.__version__, flush=True)
@@ -719,6 +739,18 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
     print("*" * 50)
 
     page_state = gr.State("loaded", render=False)
+    user_initial_message = "Hello, I am " + selected_speaker
+    chatbot = gr.Chatbot(
+        layout="bubble",
+        bubble_full_width=False,
+        elem_id = "chatbot",
+        height="80vh",
+        value = [(user_initial_message, welcome_message)],
+        label = "Chatbot DeMINT",
+        avatar_images = ("./public/user.png", "./public/logo_dark.png"),
+        render=False,
+    )
+    hidden_textbox = gr.Textbox(value="", visible=False, render=True)
 
     # All Components container
     with gr.Row():
@@ -734,27 +766,17 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
                         )
                 with gr.Row(elem_classes="transcript"):
                     speaker_text = gr.Markdown(
-                        value=handle_dropdown_selection(selected_speaker),
-                            latex_delimiters=[], # Disable LaTeX rendering
-                        )
-                    dropdown.change(fn=handle_dropdown_selection, inputs=[dropdown], outputs=[speaker_text])
-            
+                        value=handle_dropdown_selection(selected_speaker)[0],
+                        latex_delimiters=[], # Disable LaTeX rendering
+                    )
+                    dropdown.change(fn=handle_dropdown_selection, inputs=[dropdown], outputs=[speaker_text, chatbot, hidden_textbox])
 
 
         # Block for chatting with the AI.
         with gr.Column(scale=0.7, variant="default"):
             with gr.Group():
             # lg.primary.svelte-cmf5ev
-                user_initial_message = "Hello, I am " + selected_speaker
-                chatbot = gr.Chatbot(
-                    layout="bubble",
-                    bubble_full_width=False,
-                    elem_id = "chatbot",
-                    height="80vh",
-                    value = [(user_initial_message, welcome_message)],
-                    label = "Chatbot DeMINT",
-                    avatar_images = ("./public/user.png", "./public/logo_dark.png"),
-                )
+                chatbot.render()
                 with gr.Row(elem_id="option_buttons"):
                     option1 = gr.Button(
                         value="Option 1",
@@ -794,7 +816,6 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
                         elem_classes="svelte-cmf5ev",
                         scale=1,
                     )
-            hidden_textbox = gr.Textbox(value="", visible=False, render=True)
 
             submit_button.click(chat_with_ai, [txtbox, chatbot], [txtbox, chatbot, hidden_textbox], show_progress="hidden") # js=js_toggle_visibility
             txtbox.submit(chat_with_ai, [txtbox, chatbot], [txtbox, chatbot, hidden_textbox], show_progress="hidden") # js=js_toggle_visibility

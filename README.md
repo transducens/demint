@@ -5,6 +5,7 @@
 - [DeMINT](#demint-automated-language-debriefing-for-english-learners-via-ai-chatbot-analysis-of-meeting-transcripts)
   - [Project Overview](#project-overview)
   - [Project Goals](#project-goals)
+  - [Installation and Setup](#installation-and-setup)
   - [Preparing Data](#preparing-data)
     - [Download Audio from Youtube (optional)](#download-audio-from-youtube-optional)
     - [Create Cache Files](#create-cache-files)
@@ -38,6 +39,39 @@ DeMINT aims to develop a conversational system that helps non-native English spe
 The project will culminate in a pilot study to assess the system’s effectiveness among L2-English learners.
 
 <img src="demint-diagram.png" width="700">
+
+# Installation and setup
+
+Clone the project repository:
+
+```bash
+git clone https://github.com/transducens/demint.git
+cd demint
+```
+
+Install Conda following [the official tutorial](https://conda.io/projects/conda/en/latest/user-guide/install/index.html).
+Then create the Conda environment and install dependencies:
+
+```bash
+conda env create -f environment.yml
+conda activate DeMINT
+pip install -r requirements.txt
+```
+
+Finally, set up HuggingFace and OpenAI API access. To use models from the HuggingFace hub, log in using the CLI:
+
+```bash
+huggingface-cli login
+```
+
+Enter your HuggingFace API token when prompted. You can find or create an API token in your HuggingFace account's settings.
+
+For OpenAI API access, set your API key as an environment variable:
+
+```bash
+export OPENAI_API_KEY=[your OpenAI API key]
+```
+
 
 # Preparing data
 Go to the root directory `demint`.

@@ -58,13 +58,22 @@ conda activate DeMINT
 pip install -r requirements.txt
 ```
 
-Finally, set up HuggingFace and OpenAI API access. To use models from the HuggingFace hub, log in using the CLI:
+Finally, set up HuggingFace. To use models from the HuggingFace hub, log in using the CLI:
 
 ```bash
 huggingface-cli login
 ```
 
-Enter your HuggingFace API token when prompted. You can find or create an API token in your HuggingFace account's settings.
+When prompted, enter your HuggingFace API token. You can find or generate this token in the settings section of your HuggingFace account.
+
+Additionally, you must accept the user conditions to use the following models:
+
+- [pyannote/speaker-diarization-3.1](https://huggingface.co/pyannote/speaker-diarization-3.1)
+- [pyannote/segmentation-3.0](https://hf.co/pyannote/segmentation-3.0)
+- [openai/whisper-large-v3](https://huggingface.co/openai/whisper-large-v3)
+- [meta-llama/Meta-Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct)
+
+If you wish to use any other models from HuggingFace, you may also need to accept their respective user conditions.
 
 
 # Preparing data

@@ -110,7 +110,8 @@ def initialize_global_variables():
     category_errors = {}
     state_change = False
 
-    index_category = index_error = 0
+    index_category = 0
+    index_error = 0
 
     list_errors()
 
@@ -292,8 +293,7 @@ Generate responses in the following JSON format:
 
 
 def get_next_error(categories, category_errors):
-    global index_error, index_category
-
+    global index_category, index_error
     if index_category >= len(categories):
         return False, None, None
     
@@ -302,15 +302,20 @@ def get_next_error(categories, category_errors):
     if index_error >= len(list_tuples):
         index_category += 1
         index_error = 0
-
+        
     if index_category >= len(categories):
         return False, None, None
     
+    category = categories[index_category]
+    list_tuples = category_errors[category]
+
     list_tuples = category_errors[category]
     tuple_error = list_tuples[index_error]
+
+    print("tuple_error[0]: ", tuple_error[0])
+    print("tuple_error[1]: ", tuple_error[1])
     
     return True, tuple_error[0], tuple_error[1]
-
 
 def parse_gpt4_output(output):
     if output.parsed:
@@ -321,18 +326,22 @@ def parse_gpt4_output(output):
         return True, intention, output
     else:
         print(output.refusal)
-        return False
-
+        return False, None, None
 # ---------------------------------------------
 def chat_with_ai(user_input, history):
     global user_message, chat_answer, history_chat, highlighted_sentence_id, state
     global category_list, category_errors, index_category, index_error, count, log_conversation, chat_response, state_change
     
+    # If message is empty, ignore the message
+    # if ' '.join(user_input.split()) == "":
+    #     return "", history, ""
+
     categories = list(category_list.keys())
     next_error_exists, sentence_id, error_id = get_next_error(categories, category_errors)
 
     if not next_error_exists:
         output = "No errors left to check. The class is finished."
+        history.append((user_input, output))
         return "", history, ""
     
     select_error(sentence_id, error_id)
@@ -349,18 +358,13 @@ def chat_with_ai(user_input, history):
     count += 1
 
     if intention == 'I2' or intention == 'I4' or count==6:
-        count = 0
         index_error += 1
 
         next_error_exists, sentence_id, error_id = get_next_error(categories, category_errors)
 
         if not next_error_exists:
             output = "No errors left to check. The class is finished."
-
-            if log_conversation:
-                log_conversation_item(user_input, output)
-                log_prompts(prompt, output)
-
+            history.append((user_input, output))
             return "", history, ""
     
         select_error(sentence_id, error_id)
@@ -371,7 +375,13 @@ def chat_with_ai(user_input, history):
         if not parse_worked:
             # set intention!!!!!!!!!!!!
             pass
+
         output= "Next error. " + output
+
+        if count == 6:
+            output = "We have already spent too much time on this error, let's move on.  " + output
+        
+        count = 1
 
     # 1 is intialized to 1 menaing no actual sentence; this is a flag only activated at 
     # the beginning of the conversation when no sentence is highlighted

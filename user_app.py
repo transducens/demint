@@ -332,6 +332,10 @@ def chat_with_ai(user_input, history):
     global user_message, chat_answer, history_chat, highlighted_sentence_id, state
     global category_list, category_errors, index_category, index_error, count, log_conversation, chat_response, state_change
     
+    # If message is empty, ignore the message
+    # if ' '.join(user_input.split()) == "":
+    #     return "", history, ""
+
     categories = list(category_list.keys())
     next_error_exists, sentence_id, error_id = get_next_error(categories, category_errors)
 

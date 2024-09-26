@@ -5,6 +5,7 @@
 - [DeMINT](#demint-automated-language-debriefing-for-english-learners-via-ai-chatbot-analysis-of-meeting-transcripts)
   - [Project Overview](#project-overview)
   - [Project Goals](#project-goals)
+  - [Installation and Setup](#installation-and-setup)
   - [Preparing Data](#preparing-data)
     - [Download Audio from Youtube (optional)](#download-audio-from-youtube-optional)
     - [Create Cache Files](#create-cache-files)
@@ -39,10 +40,51 @@ The project will culminate in a pilot study to assess the system’s effectivene
 
 <img src="demint-diagram.png" width="700">
 
+# Installation and setup
+
+Clone the project repository:
+
+```bash
+git clone https://github.com/transducens/demint.git
+cd demint
+```
+
+Install Conda following [the official tutorial](https://conda.io/projects/conda/en/latest/user-guide/install/index.html).
+Then create the Conda environment and install dependencies:
+
+```bash
+conda env create -f environment.yml
+conda activate DeMINT
+pip install -r requirements.txt
+```
+
+Finally, set up HuggingFace. To use models from the HuggingFace hub, log in using the CLI:
+
+```bash
+huggingface-cli login
+```
+
+When prompted, enter your HuggingFace API token. You can find or [generate this token](https://huggingface.co/docs/hub/security-tokens#how-to-manage-user-access-tokens) in the settings section of your HuggingFace account.
+
+Additionally, you must accept the user conditions to use the following models:
+
+- [pyannote/speaker-diarization-3.1](https://huggingface.co/pyannote/speaker-diarization-3.1)
+- [pyannote/segmentation-3.0](https://hf.co/pyannote/segmentation-3.0)
+- [openai/whisper-large-v3](https://huggingface.co/openai/whisper-large-v3)
+- [meta-llama/Meta-Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct)
+
+If you wish to use any other models from HuggingFace, you may also need to accept their respective user conditions.
+
+
 # Preparing data
 Go to the root directory `demint`.
 
 ## Download audio from YouTube (optional)
+
+<details>
+<summary>
+More details.
+</summary>
 
 ### Option 1
 Download directly the audio from YouTube (internally gets converted using ffmpeg) and it gets stored in 'assets/audios/', if possible with 'wav' extension.
@@ -94,6 +136,7 @@ options:
   -ad AUDIO_DIRECTORY, --audio_directory AUDIO_DIRECTORY
                         Path to the directory where the output audio files will be saved.
 ```
+</details>
 
 ## Create cache files
 

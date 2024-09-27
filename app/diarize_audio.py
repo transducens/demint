@@ -72,7 +72,7 @@ def divide_long_segment(audio_segment:AudioSegment):
     ready = False
     while not ready:
         silence_threshold += 5
-        print("Treshold:", silence_threshold)
+        print("Treshold:", silence_threshold, flush=True)
 
         # Split the original audio into chunks
         audio_chunks = split_on_silence(sound_file, 
@@ -124,31 +124,31 @@ def cut_audio_segment(audio_path, diarized_segments, output_path):
         
         time_treshold = 0   # 300
         if end_time - start_time < time_treshold:
-            print(f"Ignored segment, duration less than {time_treshold} miliseconds:")
+            print(f"Ignored segment, duration less than {time_treshold} miliseconds:", flush=True)
             continue
 
         # If the segment is longer than 29 seconds, divide it into smaller segments
         # and save them separately
         elif end_time - start_time > 29000:
-            print("Segment duration longer than 29 seconds:", end_time - start_time)
+            print("Segment duration longer than 29 seconds:", end_time - start_time, flush=True)
             audio_chunk_lengths = divide_long_segment(segment)
             sub_start_time = 0
             for length in audio_chunk_lengths:
                 if length < time_treshold:
-                    print(f"Ignored segment, duration less than {time_treshold} miliseconds:")
+                    print(f"Ignored segment, duration less than {time_treshold} miliseconds:", flush=True)
                     continue
                 sub_end_time = sub_start_time + length
                 subsegment = segment[sub_start_time:sub_end_time]
                 subsegment_path = os.path.join(output_path, f"{audio_index}_{speaker_id}{audio_extension}")
                 subsegment.export(subsegment_path, format="wav")
-                print(f"Subsegment {audio_index} saved from {sub_start_time} to {sub_end_time} milliseconds. With a duration of {length} milliseconds.")
+                print(f"Subsegment {audio_index} saved from {sub_start_time} to {sub_end_time} milliseconds. With a duration of {length} milliseconds.", flush=True)
                 audio_index += 1
                 sub_start_time = sub_end_time
         else:
             # Save the segment
             segment_path = os.path.join(output_path, f"{audio_index}_{speaker_id}{audio_extension}")
             segment.export(segment_path, format="wav")
-            print(f"Segment {audio_index} saved from {start_time} to {end_time} milliseconds. With a duration of {end_time - start_time} milliseconds.")
+            print(f"Segment {audio_index} saved from {start_time} to {end_time} milliseconds. With a duration of {end_time - start_time} milliseconds.", flush=True)
             audio_index += 1
 
 # Joins the times of the segments that belong to the same speaker and are consecutive
@@ -230,23 +230,23 @@ def group_durations(durations):
 
 def perform_diarization(audio_file, output_path, device):
     # Main method to perform diarization and transcription
-    print('-' * 50)
-    print("Diarization has started:", audio_file)
+    print('-' * 50, flush=True)
+    print("Diarization has started:", audio_file, flush=True)
 
     # Check if the wav_file exists
     if not os.path.exists(audio_file):
-        print(f"Error: File {audio_file} not found.")
+        print(f"Error: File {audio_file} not found.", flush=True)
         return None
 
     # If the output directory already exists, remove it first
     if os.path.exists(output_path):
-        print(f"Removing existing directory: {output_path} before creating a new one.")
+        print(f"Removing existing directory: {output_path} before creating a new one.", flush=True)
         os.system(f"rm -rf {output_path}")
 
     # Load model
     diarization_model = Pipeline.from_pretrained("pyannote/speaker-diarization-3.1")
     if not diarization_model:
-        print("Error: Diarization model could not be loaded.")
+        print("Error: Diarization model could not be loaded.", flush=True)
         return None
     
     diarization_model = diarization_model.to(device=device)
@@ -275,10 +275,10 @@ def perform_diarization(audio_file, output_path, device):
 
     # for duration in durations:
     #     if duration > 29500:
-    #         print(duration)
+    #         print(duration, flush=True)
 
-    print("Diarization has completed and stored in:", output_path)
-    print('-' * 50)
+    print("Diarization has completed and stored in:", output_path, flush=True)
+    print('-' * 50, flush=True)
 
     return diarization
 
@@ -292,7 +292,7 @@ def perform_diarization_of_directory(audio_directory="assets/audios", cache_dire
 
         # Check if it's a file (not a directory)
         if os.path.isfile(audio_path):
-            #print(f"Found audio file: {audio_path}")
+            #print(f"Found audio file: {audio_path}", flush=True)
 
             audio_name, _ = os.path.splitext(audio_file)
             output_path = os.path.join(cache_directory, audio_name)
@@ -313,7 +313,7 @@ def main():
 
     # Diarizaton of the audio file
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print(f"Audio device: {device}")
+    print(f"Audio device: {device}", flush=True)
     audio_directory = input_directory
     cache_directory = output_directory
     args = get_args()
@@ -346,12 +346,12 @@ def main():
 
 
 if __name__ == '__main__':
-    print("*" * 50)
-    print("DIARIZATION OF AUDIOS STARTED")
-    print("*" * 50)
+    print("*" * 50, flush=True)
+    print("DIARIZATION OF AUDIOS STARTED", flush=True)
+    print("*" * 50, flush=True)
 
     main()
 
-    print("*" * 50)
-    print("DIARIZATION OF AUDIOS COMPLETED")
-    print("*" * 50)
+    print("*" * 50, flush=True)
+    print("DIARIZATION OF AUDIOS COMPLETED", flush=True)
+    print("*" * 50, flush=True)

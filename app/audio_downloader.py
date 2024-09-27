@@ -14,11 +14,11 @@ class AudioDownloaderYTDLP:
         elif self.video_url != "":
             video_url = self.video_url
         else:
-            print("No video URL provided.")
+            print("No video URL provided.", flush=True)
             return
         output_filename = output_filename if output_filename != "" else self.output_filename
              
-        print(f"Downloading VIDEO... {video_url}")
+        print(f"Downloading VIDEO... {video_url}", flush=True)
 
         ydl_opts = {
             'format': 'm4a/bestaudio/best', # Best quality audio
@@ -38,7 +38,7 @@ class AudioDownloaderYTDLP:
         elif self.video_url != "":
             video_url = self.video_url
         else:
-            print("No video URL provided.")
+            print("No video URL provided.", flush=True)
             return
         
         ydl_opts = {
@@ -68,10 +68,10 @@ def main(url:str, name:str):
     #video_downloader.video_url = "https://youtu.be/_Bx_x-gvLw0?si=y2Bi5cw6CizEd5Oa"
     video_downloader.video_url = url
     audio_info = video_downloader.get_audio_info()
-    print(audio_info)
+    print(audio_info, flush=True)
     name = name if name else audio_info['title']
     video_downloader.output_filename = os.path.join(video_downloader.output_directory, name)
-    print("The path is:", video_downloader.output_filename)
+    print("The path is:", video_downloader.output_filename, flush=True)
     video_downloader.download_audio()
 
 

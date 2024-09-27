@@ -7,11 +7,11 @@ input_directory = "assets/videos"
 output_directory = "assets/audios"
 
 def extract_audio(video_file="", audio_file=""):
-    print('-' * 50)
-    print(f"Extracting audio from video file: {video_file}")
+    print('-' * 50, flush=True)
+    print(f"Extracting audio from video file: {video_file}", flush=True)
 
     if not os.path.exists(video_file):
-        print(f"Error: File {video_file} not found.")
+        print(f"Error: File {video_file} not found.", flush=True)
         return 0
     
     # Load the video file
@@ -37,8 +37,8 @@ def extract_audio(video_file="", audio_file=""):
     # Remove the temporary file
     os.remove(temp_audio_file)
     
-    print(f"Audio extraction completed and stored in: {audio_file}")
-    print('-' * 50)
+    print(f"Audio extraction completed and stored in: {audio_file}", flush=True)
+    print('-' * 50, flush=True)
 
     return 1
 
@@ -106,12 +106,12 @@ def main():
 
 
 if "__main__" == __name__:
-    print("*" * 50)
-    print("EXTRACTING AUDIO STARTED")
-    print("*" * 50)
+    print("*" * 50, flush=True)
+    print("EXTRACTING AUDIO STARTED", flush=True)
+    print("*" * 50, flush=True)
     
     main()
 
-    print("*" * 50)
-    print("EXTRACTING AUDIO COMPLETED")
-    print("*" * 50)
+    print("*" * 50, flush=True)
+    print("EXTRACTING AUDIO COMPLETED", flush=True)
+    print("*" * 50, flush=True)

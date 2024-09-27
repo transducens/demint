@@ -64,16 +64,16 @@ class Whisper:
         self.__model = get_peft_model(self.__model, lora_config)
         self.__model.print_trainable_parameters()
 
-        print(self.__model.config.max_length)
+        print(self.__model.config.max_length, flush=True)
         self.__model.config.max_length = 800
-        print(self.__model.config.max_length)
+        print(self.__model.config.max_length, flush=True)
 
     def load_dataset(self):
         common_voice = load_dataset("audiofolder", data_dir=os.path.join("C"))
         return common_voice
 
     def prepare_dataset(self, batch):
-        #print(batch)
+        #print(batch, flush=True)
         audio = batch["audio"]
         batch["input_features"] = self.__feature_extractor(audio["array"], sampling_rate=audio["sampling_rate"]).input_features[0]
         batch["labels"] = self.__tokenizer(batch["sentence"]).input_ids

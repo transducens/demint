@@ -39,7 +39,7 @@ class Voice_Synthesizer:
                         if len(l[4].split(" ")) >= 3:
                             dialog += [l[4]]
 
-        print(len(dialog))
+        print(len(dialog), flush=True)
         return dialog
 
     def dialog_reader(self, dir, corpus):
@@ -55,8 +55,8 @@ class Voice_Synthesizer:
     def get_audio(self, conversation, save_dir):
         count = 0
         for dialog in conversation:
-            print(count)
-            print(dialog)
+            print(count, flush=True)
+            print(dialog, flush=True)
             inputs = self.__processor(
                 text=dialog,
                 return_tensors="pt",
@@ -64,24 +64,24 @@ class Voice_Synthesizer:
 
             speech_values = self.__model.generate(**inputs)
 
-            print(self.__model.config.sample_rate)
+            print(self.__model.config.sample_rate, flush=True)
             sampling_rate = self.__model.config.sample_rate
             scipy.io.wavfile.write(os.path.join(save_dir, str(count) + ".wav"), rate = sampling_rate, data=speech_values.cpu().numpy().squeeze())
 
             """
             sample_rate, clip = wavfile.read((os.path.join(save_dir, str(count) + ".wav")))
-            print(sample_rate)
+            print(sample_rate, flush=True)
             number_of_samples = round(len(clip) * float(16_000) / sample_rate)
             clip = sps.resample(clip, number_of_samples)
-            print(clip)
+            print(clip, flush=True)
             scipy.io.wavfile.write(os.path.join(save_dir, str(count) + ".wav"), rate = sampling_rate, data=clip)
             """
             
             audio_file = os.path.join(save_dir, str(count) + ".wav")
             y, sr = librosa.load(audio_file, sr=None)
 
-            print("sr: ", sr)
-            print("y: ", y)
+            print("sr: ", sr, flush=True)
+            print("y: ", y, flush=True)
 
             y_resampled = librosa.resample(y = y, orig_sr = sr, target_sr = 16000)
 
@@ -89,7 +89,7 @@ class Voice_Synthesizer:
             sf.write(output_audio_file, y_resampled, 16000)
 
             sample_rate, clip = wavfile.read((os.path.join(save_dir, str(count) + ".wav")))
-            print(sample_rate)
+            print(sample_rate, flush=True)
 
             count += 1
 
@@ -97,8 +97,8 @@ if __name__ == '__main__':
     voice = Voice_Synthesizer()
 
     file_list = voice.file_list("/Users/rafael/Desktop/TFM/Transformes/Demint/TSCC", ".tsv")
-    print(file_list)
-    print(len(file_list))
+    print(file_list, flush=True)
+    print(len(file_list), flush=True)
 
     dialog = voice.read_tsv(file_list)
     voice.get_audio(dialog, os.path.join(os.getcwd(), "audio"))

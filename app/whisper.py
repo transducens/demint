@@ -73,19 +73,19 @@ class Whisper:
 
         common_voice["train"] = load_dataset("mozilla-foundation/common_voice_11_0", "es", split="train+validation", use_auth_token=True)
         common_voice["test"] = load_dataset("mozilla-foundation/common_voice_11_0", "es", split="test", use_auth_token=True)
-        print(common_voice)
-        print(common_voice["train"][15])
+        print(common_voice, flush=True)
+        print(common_voice["train"][15], flush=True)
         common_voice = common_voice.remove_columns(["accent", "age", "client_id", "down_votes", "gender", "locale", "path", "segment", "up_votes"])
-        print(common_voice)
-        print(common_voice["train"][15])
+        print(common_voice, flush=True)
+        print(common_voice["train"][15], flush=True)
 
         return common_voice
     """
 
     def load_dataset(self):
         common_voice = load_dataset("audiofolder", data_dir=os.path.join("TSCC_database"))
-        print(common_voice)
-        print(common_voice["train"][15])
+        print(common_voice, flush=True)
+        print(common_voice["train"][15], flush=True)
 
         return common_voice
 

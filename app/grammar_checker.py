@@ -28,16 +28,16 @@ class GrammarChecker:
     def __init__(self, gec_model="GECTOR_2024"):
         self.__gec_model=gec_model
         if gec_model=="LT_API":
-            print("Using Language Tool API model to correct sentences")
+            print("Using Language Tool API model to correct sentences", flush=True)
             self.__tool = lt.LT_Checker(gec_model=gec_model)
         elif gec_model=="LT_SERVER":
-            print("Using Language Tool local server model to correct sentences")
+            print("Using Language Tool local server model to correct sentences", flush=True)
             self.__tool = lt.LT_Checker(gec_model=gec_model)
         elif self.__gec_model=="LT_SERVER":
-            print("Using GECToR_2024 model to correct sentences")
+            print("Using GECToR_2024 model to correct sentences", flush=True)
             # Had to be used in another conda environment, check correct_sentences() function
         elif self.__gec_model=="T5":
-            print("Using T5 model to correct sentences")
+            print("Using T5 model to correct sentences", flush=True)
             self.__tool = t5.T5_model()
 
     def correct_sentences(self, sentences):
@@ -45,14 +45,13 @@ class GrammarChecker:
             return self.__tool.correct_sentences(sentences)    
         
         elif self.__gec_model=="GECTOR_2024":
-            print("We in")
             command = [
                 "conda", "run", "-n", "gector_env",
                 "python", "app/gec/gector_large/predict.py",
             ].extend(self.sentence_to_quoted_list(sentences))
-            print(f"Command: {command}")
+            print(f"Command: {command}", flush=True)
             result = subprocess.run(command, capture_output=True, text=True)
-            print(result.stdout)
+            print(result.stdout, flush=True)
 
     def check(self, sentence):
         if(self.__gec_model=="LT_SERVER" or self.__gec_model=="LT_API"):

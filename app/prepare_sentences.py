@@ -14,13 +14,13 @@ output_directory = "./cache/raw_sorted_sentence_collection"
 def prepare_sorted_sentence_collection(file_manager, input_path, output_path):
     raw_sentence_collection = {}
     index = 1
-    print("-" * 50)
-    print("Creating sorted sentence collection of:", input_path)
+    print("-" * 50, flush=True)
+    print("Creating sorted sentence collection of:", input_path, flush=True)
     
     diarization = file_manager.read_from_json_file(input_path)
     if diarization is None:
-        print(f"{input_path} is not found.")
-        print(f"Processing {input_path}")
+        print(f"{input_path} is not found.", flush=True)
+        print(f"Processing {input_path}", flush=True)
         return
     speakers_context = process_diarizated_text(diarization)
     
@@ -34,8 +34,8 @@ def prepare_sorted_sentence_collection(file_manager, input_path, output_path):
 
     file_manager.save_to_json_file(output_path, raw_sentence_collection)
 
-    print(f"Saved sorted sentence collection to: {output_path}")
-    print("-" * 50)
+    print(f"Saved sorted sentence collection to: {output_path}", flush=True)
+    print("-" * 50, flush=True)
 
     return raw_sentence_collection
 
@@ -94,7 +94,7 @@ def prepare_sentences_collection_of_directory(
 
         # Check if it's a file (not a directory)
         if os.path.isfile(diarized_transcript_path):
-            #print(f"Found diarized transcript file: {diarized_transcript_path}")
+            #print(f"Found diarized transcript file: {diarized_transcript_path}", flush=True)
 
             prepare_sorted_sentence_collection(file_manager, diarized_transcript_path, sentence_collection_path)
 
@@ -146,12 +146,12 @@ def main():
 
 
 if "__main__" == __name__:
-    print("*" * 50)
-    print("PREPARING SENTENCES STARTED")
-    print("*" * 50)
+    print("*" * 50, flush=True)
+    print("PREPARING SENTENCES STARTED", flush=True)
+    print("*" * 50, flush=True)
 
     main()
 
-    print("*" * 50)
-    print("PREPARING SENTENCES COMPLETED")
-    print("*" * 50)
+    print("*" * 50, flush=True)
+    print("PREPARING SENTENCES COMPLETED", flush=True)
+    print("*" * 50, flush=True)

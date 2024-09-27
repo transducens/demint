@@ -312,13 +312,8 @@ def get_next_error(categories, category_errors):
     list_tuples = category_errors[category]
     tuple_error = list_tuples[index_error]
 
-<<<<<<< HEAD
-    print("tuple_error[0]: ", tuple_error[0])
-    print("tuple_error[1]: ", tuple_error[1])
-=======
     print("tuple_error[0]: ", tuple_error[0], flush=True)
     print("tuple_error[1]: ", tuple_error[1], flush=True)
->>>>>>> 5d1b9393269f7358f5c24babf62f771577f276bd
     
     return True, tuple_error[0], tuple_error[1]
 
@@ -330,11 +325,7 @@ def parse_gpt4_output(output):
         print(output, flush=True)
         return True, intention, output
     else:
-<<<<<<< HEAD
-        print(output.refusal)
-=======
         print(output.refusal, flush=True)
->>>>>>> 5d1b9393269f7358f5c24babf62f771577f276bd
         return False, None, None
 # ---------------------------------------------
 def chat_with_ai(user_input, history):
@@ -360,27 +351,20 @@ def chat_with_ai(user_input, history):
 
     parse_worked, intention, output = parse_gpt4_output(output)
     if not parse_worked:
-        # set intention!!!!!!!!!!!!
+        # set intention
         pass
 
     #if next_id == 'I2' or next_id == 'I3' or next_id == 'I4':
     count += 1
 
     if intention == 'I2' or intention == 'I4' or count==6:
-<<<<<<< HEAD
-        count = 1
-=======
->>>>>>> 5d1b9393269f7358f5c24babf62f771577f276bd
         index_error += 1
 
         next_error_exists, sentence_id, error_id = get_next_error(categories, category_errors)
 
         if not next_error_exists:
             output = "No errors left to check. The class is finished."
-<<<<<<< HEAD
-=======
             history.append((user_input, output))
->>>>>>> 5d1b9393269f7358f5c24babf62f771577f276bd
             return "", history, ""
     
         select_error(sentence_id, error_id)
@@ -389,7 +373,7 @@ def chat_with_ai(user_input, history):
         output, prompt = new_new_change_state(user_message, history)
         parse_worked, intention, output = parse_gpt4_output(output)
         if not parse_worked:
-            # set intention!!!!!!!!!!!!
+            # set intention
             pass
 
         output= "Next error. " + output
@@ -403,8 +387,15 @@ def chat_with_ai(user_input, history):
     # the beginning of the conversation when no sentence is highlighted
     if highlighted_sentence_id == 1:
         error_sentence_id = ""
+        error_init = None
+        error_end = None
     else:
         error_sentence_id = "sentence_" + str(highlighted_sentence_id)
+        error_init = error["o_start"]
+        error_end = error["o_end"]
+
+    error_tuple = (error_sentence_id, (error_init, error_end))
+    print(error_tuple)
 
     history.append((user_input, output))   # must be tuples
     

@@ -20,11 +20,18 @@ function js_toggle_visibility() {
 }
 
 function js_autoscroll_by_id(error_info) {
+
+    // Remove the square brackets and any surrounding spaces
+    error_info = error_info.replace(/[\[\]]/g, '');
+    // Split the string by commas and remove any leading/trailing spaces from each component
+    error_info = error_info.split(',').map(item => item.trim());
+
     const id_holder = error_info[0];
     const error_start = error_info[1];
     const error_end = error_info[2];
     console.log("Searching for id:", id_holder);
     const element = document.getElementById(id_holder);
+    
     if (element) {
         console.log("Found id:", id_holder);
         const anchors = document.querySelectorAll('#transcript_id a');
@@ -47,7 +54,7 @@ function js_autoscroll_by_id(error_info) {
         var crossedOutMiddle = `<span style="text-decoration: line-through;">${middle}</span>`;
 
         // Recombine the text with the crossed out middle part
-        element.innerHTML = start + crossedOutMiddle + end;
+        //element.innerHTML = start + crossedOutMiddle + end; // TODO: This doesn't work in Gradio
 
         // highlight the selected sentence with error
         //element.scrollIntoView({behavior: 'smooth'}); // doesn't work in Chrome 126.0.6478.126

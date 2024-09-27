@@ -394,8 +394,8 @@ def chat_with_ai(user_input, history):
         error_init = error["o_start"]
         error_end = error["o_end"]
 
-    error_tuple = (error_sentence_id, (error_init, error_end))
-    print(error_tuple)
+    error_info = [error_sentence_id, error_init, error_end]
+    print(error_info, flush=True)
 
     history.append((user_input, output))   # must be tuples
     
@@ -403,7 +403,7 @@ def chat_with_ai(user_input, history):
         log_conversation_item(user_input, output)
         log_prompts(prompt, output)
 
-    return "", history, error_sentence_id
+    return "", history, error_info
 
 
 def log_conversation_item(user_input, bot_response):

@@ -7,7 +7,8 @@ a {
 body {
     background-color: #0b0f19;
 }
-.base-container {
+
+.base_container {
     display: flex;
     flex-wrap: wrap; /* This ensures that components move to the next line if they don’t fit */
     justify-content: space-between; /* Adjusts the space between components */

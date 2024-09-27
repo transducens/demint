@@ -727,6 +727,12 @@ def list_available_conversations():
         print(flush=True)
 
 
+def parse_hidden_textbox(hidden_textbox):
+    global highlighted_sentence_id
+    if hidden_textbox != "":
+        highlighted_sentence_id = int(hidden_textbox.split("_")[-1])
+
+
 js = "./public/gradio_javascript.js"
 css = "./public/gradio_css.css"
 head_html = ""
@@ -734,7 +740,7 @@ head_html = ""
 with open("./public/gradio_head_html.html", 'r') as file:
     head_html = file.read()
 
-js_autoscroll_by_id = "(sentence_id) => {js_autoscroll_by_id(sentence_id);}"
+js_autoscroll_by_id = "(error_info) => {js_autoscroll_by_id(error_info);}"
 js_toggle_visibility = "(msg, hist, htxt) => {js_toggle_visibility(); return [msg, hist];}"
 js_refresh_page = "(param) => {js_refresh_page(param); return param;}"
 
@@ -788,31 +794,6 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
             with gr.Group():
             # lg.primary.svelte-cmf5ev
                 chatbot.render()
-                with gr.Row(elem_id="option_buttons"):
-                    option1 = gr.Button(
-                        value="Option 1",
-                        elem_id="option1",
-                        scale=1,
-                        elem_classes="option_button",
-                    )
-                    option2 = gr.Button(
-                        value="Option 2",
-                        elem_id="option2",
-                        scale=1,
-                        elem_classes="option_button",
-                    )
-                    option3 = gr.Button(
-                        value="Option 3",
-                        elem_id="option3",
-                        scale=1,
-                        elem_classes="option_button",
-                    )
-                    option4 = gr.Button(
-                        value="Option 4",
-                        elem_id="option4",
-                        scale=1,
-                        elem_classes="option_button",
-                    )
                 with gr.Row(elem_id="chat_input"):
                     txtbox = gr.Textbox(
                         label="",

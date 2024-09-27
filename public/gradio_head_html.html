@@ -19,8 +19,10 @@ function js_toggle_visibility() {
     }
 }
 
-function js_autoscroll_by_id(id_param) {
-    const id_holder = id_param
+function js_autoscroll_by_id(error_info) {
+    const id_holder = error_info[0];
+    const error_start = error_info[1];
+    const error_end = error_info[2];
     console.log("Searching for id:", id_holder);
     const element = document.getElementById(id_holder);
     if (element) {
@@ -30,9 +32,27 @@ function js_autoscroll_by_id(id_param) {
             anchor.style.backgroundColor = 'transparent';
         });
         
+        // cross out the error in the sentence
+        text = element.textContent;
+        console.log("Text of error element: ", text);
+        // index 13 is the first sentence character (avoiding speaker name
+        const sentence_offset = 13;
+        error_start += sentence_offset;
+        error_end += sentence_offset;
+        var start = text.slice(0, error_start);  // 
+        var middle = text.slice(error_start, error_end); // The last character is not included, the first character is included
+        var end = text.slice(error_end);
+
+        // Wrap the middle text with a span and apply a strikethrough style
+        var crossedOutMiddle = `<span style="text-decoration: line-through;">${middle}</span>`;
+
+        // Recombine the text with the crossed out middle part
+        element.innerHTML = start + crossedOutMiddle + end;
+
+        // highlight the selected sentence with error
         //element.scrollIntoView({behavior: 'smooth'}); // doesn't work in Chrome 126.0.6478.126
         element.scrollIntoView({block: 'center'}); 
-        element.animate([{ backgroundColor: 'darkred' }, { backgroundColor: 'transparent' }], { duration: 3000, iterations: 1 }); 
+        element.animate([{ backgroundColor: 'darkred' }, { backgroundColor: 'transparent' }], { duration: 1000, iterations: 1 }); 
         element.style.backgroundColor = 'darkred';
     } 
     else { 

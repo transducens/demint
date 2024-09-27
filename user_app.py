@@ -764,7 +764,7 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
     hidden_textbox = gr.Textbox(value="", visible=False, render=True)
 
     # All Components container
-    with gr.Row():
+    with gr.Row(elem_classes="base_container"):
         # Block for the transcript of the speakers in the audio.
         with gr.Column(scale=0.3):
             with gr.Group():

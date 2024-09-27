@@ -24,17 +24,17 @@ ignore_errors_list = [
 
 
 def obtain_errors(file_manager, grammar_checker_t5, lang='en', input_path="", output_path=""):
-    print("-" * 50)
-    print("Obtaining errors from:", input_path)
+    print("-" * 50, flush=True)
+    print("Obtaining errors from:", input_path, flush=True)
 
     if not os.path.isfile(input_path):
-        print(f"{input_path} is not found.")
-        print(f"Processing {input_path}")
+        print(f"{input_path} is not found.", flush=True)
+        print(f"Processing {input_path}", flush=True)
         prepare_sentences.main()
 
     raw_sentence_collection = file_manager.read_from_json_file(input_path)
     if raw_sentence_collection is None:
-        print(f"Error: {input_path} not found.")
+        print(f"Error: {input_path} not found.", flush=True)
         return None
     
     annotator = errant.load(lang)
@@ -60,10 +60,10 @@ def obtain_errors(file_manager, grammar_checker_t5, lang='en', input_path="", ou
             error_type = e.type
 
             if error_type in ignore_errors_list:
-                #print(f"Ignoring error type: {error_type}")
+                #print(f"Ignoring error type: {error_type}", flush=True)
                 continue
 
-            print(e)
+            print(e, flush=True)
 
             original_text = e.o_str
             corrected_text = e.c_str
@@ -86,8 +86,8 @@ def obtain_errors(file_manager, grammar_checker_t5, lang='en', input_path="", ou
 
     file_manager.save_to_json_file(output_path, all_errors)
 
-    print(f"Saved all errors to: {output_path}")
-    print("-" * 50)
+    print(f"Saved all errors to: {output_path}", flush=True)
+    print("-" * 50, flush=True)
 
     return all_errors, detailed_errors, corrected_errors, simple_errors
 
@@ -108,7 +108,7 @@ def obtain_errors_of_directory(
 
         # Check if it's a file (not a directory)
         if os.path.isfile(sentence_collection_path):
-            #print(f"Found diarized transcript file: {sentence_collection_path}")
+            #print(f"Found diarized transcript file: {sentence_collection_path}", flush=True)
 
             obtain_errors(
                 file_manager, 
@@ -166,12 +166,12 @@ def main():
 
 
 if "__main__" == __name__:
-    print("*" * 50)
-    print("OBTAINING ERRORS STARTED")
-    print("*" * 50)
+    print("*" * 50, flush=True)
+    print("OBTAINING ERRORS STARTED", flush=True)
+    print("*" * 50, flush=True)
 
     main()
 
-    print("*" * 50)
-    print("OBTAINING ERRORS COMPLETED")
-    print("*" * 50)
+    print("*" * 50, flush=True)
+    print("OBTAINING ERRORS COMPLETED", flush=True)
+    print("*" * 50, flush=True)

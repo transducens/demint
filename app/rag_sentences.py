@@ -12,18 +12,18 @@ output_directory = "./cache/rag_sentences"
 
 
 def rag_sentences(file_manager, rag_engine, rag_passages=1, input_path="", output_path=""):
-    print("-" * 50)
-    print("Getting RAG data from:", input_path)
+    print("-" * 50, flush=True)
+    print("Getting RAG data from:", input_path, flush=True)
 
     if not os.path.isfile(input_path):
-        print(f"{input_path} is not found.")
-        print(f"Processing {input_path}")
+        print(f"{input_path} is not found.", flush=True)
+        print(f"Processing {input_path}", flush=True)
         explain_sentences.main()
         
     explained_sentences = file_manager.read_from_json_file(input_path)
 
     for id in explained_sentences.keys():
-        print("Processing sentence: ", id)
+        print("Processing sentence: ", id, flush=True)
         errant_annotation_list = explained_sentences[id]['errant']
 
         for index_errant, errant_annotation in enumerate(errant_annotation_list):
@@ -34,7 +34,7 @@ def rag_sentences(file_manager, rag_engine, rag_passages=1, input_path="", outpu
             if rag_engine is not None:
                 rag = rag_engine.search(errant_llm_explained, rag_passages)
             else:
-                print("RAG engine is not available.")
+                print("RAG engine is not available.", flush=True)
                 return None
             
             errant_annotation_list[index_errant]['rag'] = rag
@@ -44,8 +44,8 @@ def rag_sentences(file_manager, rag_engine, rag_passages=1, input_path="", outpu
 
     file_manager.save_to_json_file(output_path, explained_sentences)
 
-    print(f"RAG sentences saved to: {output_path}")
-    print("-" * 50)
+    print(f"RAG sentences saved to: {output_path}", flush=True)
+    print("-" * 50, flush=True)
 
     return explained_sentences
 
@@ -67,7 +67,7 @@ def rag_sentences_of_directory(
 
         # Check if it's a file (not a directory)
         if os.path.isfile(explained_sentences_path):
-            #print(f"Found diarized transcript file: {explained_sentences_path}")
+            #print(f"Found diarized transcript file: {explained_sentences_path}", flush=True)
 
             rag_sentences(
                 file_manager,
@@ -127,12 +127,12 @@ def main():
 
 
 if "__main__" == __name__:
-    print("*" * 50)
-    print("GETTING RAG DATA STARTED")
-    print("*" * 50)
+    print("*" * 50, flush=True)
+    print("GETTING RAG DATA STARTED", flush=True)
+    print("*" * 50, flush=True)
 
     main()
 
-    print("*" * 50)
-    print("GETTING RAG DATA COMPLETED")
-    print("*" * 50)
+    print("*" * 50, flush=True)
+    print("GETTING RAG DATA COMPLETED", flush=True)
+    print("*" * 50, flush=True)

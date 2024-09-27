@@ -13,11 +13,11 @@ class VideoDownloaderPytube:
         if video_url:
             self.video_url = video_url
         elif not self.video_url:
-            print("No video URL provided.")
+            print("No video URL provided.", flush=True)
             return
         output_filename = output_filename if output_filename != "" else self.output_filename
              
-        print(f"Downloading VIDEO... {self.video_url}")
+        print(f"Downloading VIDEO... {self.video_url}", flush=True)
 
         # Use pytube(yt) to download video from the given URL
         yt_handler =  yt.YouTube(self.video_url)
@@ -25,14 +25,14 @@ class VideoDownloaderPytube:
         video_stream = yt_handler.streams.first()
         # Download the video
         video_stream.download(filename=output_filename)
-        print(f"Video saved as {output_filename}")
+        print(f"Video saved as {output_filename}", flush=True)
 
     # Use pytube(yt) to get information about the video from the given URL
     def get_video_info(self, video_url=""):
         if video_url:
             self.video_url = video_url
         elif not self.video_url:
-            print("No video URL provided.")
+            print("No video URL provided.", flush=True)
             return
 
         yt_handler = yt.YouTube(self.video_url)
@@ -61,11 +61,11 @@ class VideoDownloaderYTDLP:
         if video_url:
             self.video_url = video_url
         elif not self.video_url:
-            print("No video URL provided.")
+            print("No video URL provided.", flush=True)
             return
         output_filename = output_filename if output_filename != "" else self.output_filename
              
-        print(f"Downloading VIDEO... {self.video_url}")
+        print(f"Downloading VIDEO... {self.video_url}", flush=True)
 
         ydl_opts = {
             'format': 'bestvideo+bestaudio/best',  # Best quality video and audio
@@ -79,7 +79,7 @@ class VideoDownloaderYTDLP:
         if video_url:
             self.video_url = video_url
         elif not self.video_url:
-            print("No video URL provided.")
+            print("No video URL provided.", flush=True)
             return
         
         ydl_opts = {
@@ -110,11 +110,11 @@ def main(url:str, name:str):
     video_downloader.video_url = url
 
     video_info = video_downloader.get_video_info()
-    print(video_info)
+    print(video_info, flush=True)
     
     name = name if name else video_info['title']
     video_downloader.output_filename = os.path.join(video_downloader.output_directory, name + '.' + video_info['extension'])
-    print("The path is:", video_downloader.output_filename)
+    print("The path is:", video_downloader.output_filename, flush=True)
     
     video_downloader.download_video()
 

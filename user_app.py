@@ -76,29 +76,29 @@ def initialize_global_variables():
     if english_tutor is None:
         # english_tutor = EnglishTutor()
         english_tutor = OpenAI()
-        print("*" * 50)
-        print("Loaded English Tutor")
-        print("*" * 50)
+        print("*" * 50, flush=True)
+        print("Loaded English Tutor", flush=True)
+        print("*" * 50, flush=True)
 
     try:
         if teacher_model is None:
             teacher_model = TeacherModel(address=kind_teacher_address, port=kind_teacher_port)
 
             if teacher_model.test_connection():
-                print("*" * 50)
-                print("Confirmed connection with Teacher Model")
-                print("*" * 50)
+                print("*" * 50, flush=True)
+                print("Confirmed connection with Teacher Model", flush=True)
+                print("*" * 50, flush=True)
             else:
                 raise ValueError("Error connecting to Teacher Model")
     except:
         teacher_model = None
-        print("~" * 50)
-        print("ERROR: Could not connect to Teacher Model")
-        print("~" * 50)
+        print("~" * 50, flush=True)
+        print("ERROR: Could not connect to Teacher Model", flush=True)
+        print("~" * 50, flush=True)
 
-    print("Before load data", flush=True)
+    #print("Before load data", flush=True)
     load_data() # Load the data from the cache files
-    print("After load data", flush=True)
+    #print("After load data", flush=True)
 
     if selected_speaker != "All speakers" and selected_speaker not in speakers:
         raise ValueError(f"The speaker '{selected_speaker}' is not in the list of speakers.")
@@ -135,7 +135,7 @@ def load_data():
         'explained_sentences': f"cache/rag_sentences/{conversation_name}.json",
     }
 
-    print(f"Reading cache files from: {input_files['sentences_collection']} and {input_files['explained_sentences']}")
+    print(f"Reading cache files from: {input_files['sentences_collection']} and {input_files['explained_sentences']}", flush=True)
     
     if (not os.path.isfile(input_files['sentences_collection']) 
         or not os.path.isfile(input_files['explained_sentences'])):
@@ -146,9 +146,9 @@ def load_data():
     speakers = get_speakers()
 
     end_load = time.time()
-    print("*" * 50)
-    print(f"Loaded data. Time: {end_load - start_load} seconds")
-    print("*" * 50)
+    print("*" * 50, flush=True)
+    print(f"Loaded data. Time: {end_load - start_load} seconds", flush=True)
+    print("*" * 50, flush=True)
 
     return explained_sentences, sentences_collection, speakers
 
@@ -312,8 +312,13 @@ def get_next_error(categories, category_errors):
     list_tuples = category_errors[category]
     tuple_error = list_tuples[index_error]
 
+<<<<<<< HEAD
     print("tuple_error[0]: ", tuple_error[0])
     print("tuple_error[1]: ", tuple_error[1])
+=======
+    print("tuple_error[0]: ", tuple_error[0], flush=True)
+    print("tuple_error[1]: ", tuple_error[1], flush=True)
+>>>>>>> 5d1b9393269f7358f5c24babf62f771577f276bd
     
     return True, tuple_error[0], tuple_error[1]
 
@@ -321,22 +326,31 @@ def parse_gpt4_output(output):
     if output.parsed:
         intention= output.parsed.intention
         output = output.parsed.response
-        print(intention)
-        print(output)
+        print(intention, flush=True)
+        print(output, flush=True)
         return True, intention, output
     else:
+<<<<<<< HEAD
         print(output.refusal)
+=======
+        print(output.refusal, flush=True)
+>>>>>>> 5d1b9393269f7358f5c24babf62f771577f276bd
         return False, None, None
 # ---------------------------------------------
 def chat_with_ai(user_input, history):
     global user_message, chat_answer, history_chat, highlighted_sentence_id, state
     global category_list, category_errors, index_category, index_error, count, log_conversation, chat_response, state_change
     
+    # If message is empty, ignore the message
+    # if ' '.join(user_input.split()) == "":
+    #     return "", history, ""
+
     categories = list(category_list.keys())
     next_error_exists, sentence_id, error_id = get_next_error(categories, category_errors)
 
     if not next_error_exists:
         output = "No errors left to check. The class is finished."
+        history.append((user_input, output))
         return "", history, ""
     
     select_error(sentence_id, error_id)
@@ -353,13 +367,20 @@ def chat_with_ai(user_input, history):
     count += 1
 
     if intention == 'I2' or intention == 'I4' or count==6:
+<<<<<<< HEAD
         count = 1
+=======
+>>>>>>> 5d1b9393269f7358f5c24babf62f771577f276bd
         index_error += 1
 
         next_error_exists, sentence_id, error_id = get_next_error(categories, category_errors)
 
         if not next_error_exists:
             output = "No errors left to check. The class is finished."
+<<<<<<< HEAD
+=======
+            history.append((user_input, output))
+>>>>>>> 5d1b9393269f7358f5c24babf62f771577f276bd
             return "", history, ""
     
         select_error(sentence_id, error_id)
@@ -370,7 +391,13 @@ def chat_with_ai(user_input, history):
         if not parse_worked:
             # set intention!!!!!!!!!!!!
             pass
+
         output= "Next error. " + output
+
+        if count == 6:
+            output = "We have already spent too much time on this error, let's move on.  " + output
+        
+        count = 1
 
     # 1 is intialized to 1 menaing no actual sentence; this is a flag only activated at 
     # the beginning of the conversation when no sentence is highlighted
@@ -526,7 +553,7 @@ def handle_dropdown_selection(speaker_name: str):
 
     reset_states()
 
-    print("Called handle_dropdown_selection with speaker: ", speaker_name)
+    print("Called handle_dropdown_selection with speaker: ", speaker_name, flush=True)
     return build_transcript(speaker_name), [("Hello, I am " + selected_speaker, welcome_message)], ""
 
 def clean_cache():
@@ -622,8 +649,8 @@ def list_errors():
         index_sentence += 1
         
     category_list = {k: v for k, v in sorted(category_list.items(), key=lambda item: item[1], reverse=True)}
-    print((category_list))
-    print(category_errors)
+    print((category_list), flush=True)
+    print(category_errors, flush=True)
 
     return
 
@@ -672,7 +699,7 @@ def reset_states():
     global state, index_category, index_error
     global selected_speaker, highlighted_sentence_id
 
-    print("Resetting states with speaker: ", selected_speaker)
+    print("Resetting states with speaker: ", selected_speaker, flush=True)
 
     initialize_global_variables()
 
@@ -701,8 +728,8 @@ def list_available_conversations():
 
     available_conversations = [item for item in conversations_sentence_collection if item in conversations_rag_sentences]
 
-    print()
-    print("Available conversations and speakers:")
+    print(flush=True)
+    print("Available conversations and speakers:", flush=True)
     for conv in available_conversations:
         sorted_speakers = ["All speakers"]
         conver_path = input_directories['sentences_collection'] + conv
@@ -710,17 +737,17 @@ def list_available_conversations():
         sorted_sentences_collection = file_manager.read_from_json_file(conver_path)
         sorted_speakers += sorted( {value['speaker'] for value in sorted_sentences_collection.values()} )
 
-        print("-", conv[:-5])
+        print("-", conv[:-5], flush=True)
         for sp in sorted_speakers:
-            print("  -", sp)
-        print()
+            print("  -", sp, flush=True)
+        print(flush=True)
 
 
-js = "./app/gradio_javascript.js"
-css = "./app/gradio_css.css"
+js = "./public/gradio_javascript.js"
+css = "./public/gradio_css.css"
 head_html = ""
 
-with open("./app/gradio_head_html.html", 'r') as file:
+with open("./public/gradio_head_html.html", 'r') as file:
     head_html = file.read()
 
 js_autoscroll_by_id = "(sentence_id) => {js_autoscroll_by_id(sentence_id);}"
@@ -734,9 +761,9 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
     print("Creating the interface", flush=True)
     get_arguments()
     initialize_global_variables()
-    print("*" * 50)
-    print("Selected speaker: ", selected_speaker)
-    print("*" * 50)
+    print("*" * 50, flush=True)
+    print("Selected speaker: ", selected_speaker, flush=True)
+    print("*" * 50, flush=True)
 
     page_state = gr.State("loaded", render=False)
     user_initial_message = "Hello, I am " + selected_speaker
@@ -825,7 +852,7 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
     demo.unload(reset_states)
 
 if __name__ == '__main__':
-    print("Launching the interface")
+    print("Launching the interface", flush=True)
     is_public_link = True
     demo.launch(
         share=is_public_link,

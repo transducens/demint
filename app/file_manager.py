@@ -9,7 +9,7 @@ class FileManager:
             with open(file_path, "r", encoding="utf-8") as file:
                 return json.load(file)
         else:
-            print(f"JSON file not found: {file_path}")
+            print(f"JSON file not found: {file_path}", flush=True)
         return None
 
     @staticmethod

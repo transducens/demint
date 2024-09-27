@@ -15,12 +15,12 @@ output_directory = "./cache/explained_sentences"
 
 
 def explain_sentences(file_manager, chat_llm, input_path="", output_path=""):
-    print("-" * 50)
-    print("Explaining sentences from:", input_path)
+    print("-" * 50, flush=True)
+    print("Explaining sentences from:", input_path, flush=True)
     
     if not os.path.isfile(input_path):
-        print(f"{input_path} is not found.")
-        print(f"Processing {input_path}")
+        print(f"{input_path} is not found.", flush=True)
+        print(f"Processing {input_path}", flush=True)
         obtain_errors.main()
 
     errant_all_evaluation = file_manager.read_from_json_file(input_path)
@@ -94,8 +94,8 @@ def explain_sentences(file_manager, chat_llm, input_path="", output_path=""):
 
     file_manager.save_to_json_file(output_path, explained_sentences)
 
-    print(f"Explained sentences saved to: {output_path}")
-    print("-" * 50)
+    print(f"Explained sentences saved to: {output_path}", flush=True)
+    print("-" * 50, flush=True)
 
     return explained_sentences
 
@@ -116,7 +116,7 @@ def explain_sentences_of_directory(
 
         # Check if it's a file (not a directory)
         if os.path.isfile(errant_evaluation_path):
-            # print(f"Found diarized transcript file: {errant_evaluation_path}")
+            # print(f"Found diarized transcript file: {errant_evaluation_path}", flush=True)
 
             explain_sentences(
                 file_manager,
@@ -146,7 +146,7 @@ def main():
     llm = ChatFactory.get_instance(llm_modelId)
     args = get_args()
 
-    #print("Starting to explain sentences...")
+    #print("Starting to explain sentences...", flush=True)
 
     if args.errant_file:
         if args.errant_directory:
@@ -182,17 +182,17 @@ def main():
             torch.cuda.empty_cache()
 
 if "__main__" == __name__:
-    print("*" * 50)
-    print("EXPLANATION OF ERRORS STARTED")
-    print("*" * 50)
+    print("*" * 50, flush=True)
+    print("EXPLANATION OF ERRORS STARTED", flush=True)
+    print("*" * 50, flush=True)
 
     start = time.time()
     main()
     end = time.time()
     elapsed_time = end - start
     # Print the time it took to explain the sentences in the format {hh:mm:ss}
-    print(f"Time taken to explain sentences: {time.strftime('%H:%M:%S', time.gmtime(elapsed_time))}")
+    print(f"Time taken to explain sentences: {time.strftime('%H:%M:%S', time.gmtime(elapsed_time))}", flush=True)
 
-    print("*" * 50)
-    print("EXPLANATION OF ERRORS COMPLETED")
-    print("*" * 50)
+    print("*" * 50, flush=True)
+    print("EXPLANATION OF ERRORS COMPLETED", flush=True)
+    print("*" * 50, flush=True)

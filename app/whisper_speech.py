@@ -2,17 +2,17 @@ from transformers import WhisperForConditionalGeneration, pipeline
 import csv
 from transformers import WhisperTokenizer, WhisperFeatureExtractor
 from transformers import WhisperForConditionalGeneration
+from huggingface_hub import hf_hub_download
+import joblib
 from peft import PeftModel, PeftConfig
 
 import torch
 import os
-import re
 from pyannote.audio import Pipeline
 from pyannote.audio.pipelines.utils.hook import ProgressHook
 from pydub import AudioSegment
 from pydub.silence import split_on_silence
 import librosa
-import numpy as np
 import datetime
 import json
 from scipy.io import wavfile
@@ -24,48 +24,71 @@ input_directory = "./cache/diarized_audios"
 output_directory = "./cache/diarized_transcripts"
 
 
+def download_adapter_model():
+    model_name = "whisper-v3-LoRA-en_students"
+    print(f"Downloading the adapter model '{model_name}' from the Hugging Face Hub.", flush=True)
+
+    # Define the path for the directory
+    local_directory = os.path.expanduser("~/.cache/huggingface/hub")
+
+    # Check if the directory exists
+    if not os.path.exists(local_directory):
+        # If it doesn't exist, create it
+        os.makedirs(local_directory)
+        print(f"Directory '{local_directory}' created.", flush=True)
+    else:
+        print(f"Directory '{local_directory}' already exists.", flush=True)
+
+    repo_id = f"Transducens/{model_name}"
+    repo_adapter_dir = f"{model_name}/checkpoint-5000/adapter_model"
+    repo_filename_config = f"{repo_adapter_dir}/adapter_config.json"
+    repo_filename_tensors = f"{repo_adapter_dir}/adapter_model.safetensors"
+
+    adapter_config = hf_hub_download(repo_id=repo_id, filename=repo_filename_config, local_dir=local_directory)
+    adapter_model_tensors = hf_hub_download(repo_id=repo_id, filename=repo_filename_tensors, local_dir=local_directory)
+
+    print(f"Dowloaded the adapter model '{model_name}' from the Hugging Face Hub.", flush=True)
+
+    return os.path.join(local_directory, repo_adapter_dir)
+
 def transcribe(audio, pipe):
     p = pipe(audio, return_timestamps=False)
     text = p["text"]
     return text
 
 def transcribe_audio(input_path, output_path, pipe):
-    print("-" * 50)
-    print(f"Starting to transcribe audio files of {input_path}")
+    print("-" * 50, flush=True)
+    print(f"Starting to transcribe audio files of {input_path}", flush=True)
 
     if not os.path.isdir(input_path):
-        print(f"Failed to open {input_path}. It is not a directory.")
+        print(f"Failed to open {input_path}. It is not a directory.", flush=True)
         return
 
-    ff = os.listdir(input_path)
+    audio_files = os.listdir(input_path)
     content = []
     start_time = 0
-    ff.sort(key=lambda x: int(x.split('_')[0]))
-    for x in ff:
-        name = x.split('.')[0]
+    audio_files.sort(key=lambda x: int(x.split('_')[0]))
+    for af in audio_files:
+        name = af.split('.')[0]
         speaker = name.split('_')[1]
 
-        audio_file = os.path.join(input_path, x)
+        audio_file = os.path.join(input_path, af)
         yyy, sr = librosa.load(audio_file, sr=None)
         waveform = librosa.resample(y = yyy, orig_sr = sr, target_sr = 16000)
-        output_audio_file = os.path.join(input_path, x)
+        output_audio_file = os.path.join(input_path, af)
         sf.write(output_audio_file, waveform, 16000)
 
-        samplerate, audio = wavfile.read(os.path.join(input_path, x))
-        data = []
-        """for numpyx in audio:
-            for numpyy in numpyx:
-                data.append(numpyy)"""
+        samplerate, audio = wavfile.read(os.path.join(input_path, af))
 
         #audio = np.array(data)
-        print(x)
-        #print(audio)
-        #print(audio.shape)
-        #print(samplerate)
-        #print(type(audio))
+        print(af, flush=True)
+        #print(audio, flush=True)
+        #print(audio.shape, flush=True)
+        #print(samplerate, flush=True)
+        #print(type(audio), flush=True)
         transcript = transcribe(audio, pipe)
-        end_time = start_time + librosa.get_duration(filename=(os.path.join(input_path, x)))
-        #print(transcript)
+        end_time = start_time + librosa.get_duration(filename=(os.path.join(input_path, af)))
+        #print(transcript, flush=True)
         
         start = str(datetime.timedelta(seconds=start_time))
         end = str(datetime.timedelta(seconds=end_time))
@@ -79,8 +102,8 @@ def transcribe_audio(input_path, output_path, pipe):
     with open(os.path.join(output_path), 'w') as f:
         json.dump(content, f) 
     
-    print(f"Transcription is completed and saved to {output_path}")
-    print("-" * 50)
+    print(f"Transcription is completed and saved to {output_path}", flush=True)
+    print("-" * 50, flush=True)
     
 
 def transcribe_audio_of_all_directory(
@@ -99,7 +122,7 @@ def transcribe_audio_of_all_directory(
 
         # Check if it's a directory and not a file
         if os.path.isdir(diarized_audio_path):
-            #print(f"Found diarized audio directory: {diarized_audio_path}")
+            #print(f"Found diarized audio directory: {diarized_audio_path}", flush=True)
 
             transcribe_audio(diarized_audio_path, diarized_transcript_path + '.json', pipe)
 
@@ -118,7 +141,11 @@ def main():
 
     device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
-    peft_model_id = "LoRA_Test/checkpoint-5000/adapter_model" # Use the same model ID as before.
+    # Manually download the finetuned Whisper adapter model from the Hugging Face Hub
+    # And safe it to the cache directory along with the other models.
+    adapter_path = download_adapter_model()
+
+    peft_model_id = adapter_path # Use the same model ID as before.
     peft_config = PeftConfig.from_pretrained(peft_model_id)
     model = WhisperForConditionalGeneration.from_pretrained(
       peft_config.base_model_name_or_path, load_in_8bit=False)
@@ -164,12 +191,12 @@ def main():
 
 
 if __name__ == '__main__':
-    print("*" * 50)
-    print("TRANSCRIPTION STARTED")
-    print("*" * 50)
+    print("*" * 50, flush=True)
+    print("TRANSCRIPTION STARTED", flush=True)
+    print("*" * 50, flush=True)
 
     main()
 
-    print("*" * 50)
-    print("TRANSCRIPTION COMPLETED")
-    print("*" * 50)
+    print("*" * 50, flush=True)
+    print("TRANSCRIPTION COMPLETED", flush=True)
+    print("*" * 50, flush=True)

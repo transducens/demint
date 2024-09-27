@@ -28,10 +28,10 @@ class TeacherModel:
         self.update_url(type_message=TYPE_MESSAGE["GET"])
         response = requests.get(self.url, headers=headers)
         if response.status_code == 200:
-            print("Connection successful")
+            print("Connection successful", flush=True)
             return True
         else:
-            print(f"Error connection with teacher model: {response.status_code}")
+            print(f"Error connection with teacher model: {response.status_code}", flush=True)
             return False
 
     def update_url(self, address="", port="", type_message=""):
@@ -84,7 +84,7 @@ class TeacherModel:
             "stream": False
         }
 
-        print(data)
+        print(data, flush=True)
         response = requests.post(self.url, headers=self.headers, data=json.dumps(data))
 
         if response.status_code == 200:
@@ -93,9 +93,9 @@ class TeacherModel:
             return f"Error: {response.status_code}"
         
     def format_response(self, response):
-        print("====================================")
-        print(response)
-        print("====================================")
+        print("====================================", flush=True)
+        print(response, flush=True)
+        print("====================================", flush=True)
         return response["choices"][0]["message"]["content"]
 
 
@@ -126,7 +126,7 @@ def test():
     formatted_messages = teacher.format_messages(messages)
     response = teacher.get_response(formatted_messages)
     response = teacher.format_response(response)
-    print(response)
+    print(response, flush=True)
     
     
 

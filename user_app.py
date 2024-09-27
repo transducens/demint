@@ -351,7 +351,7 @@ def chat_with_ai(user_input, history):
 
     parse_worked, intention, output = parse_gpt4_output(output)
     if not parse_worked:
-        # set intention!!!!!!!!!!!!
+        # set intention
         pass
 
     #if next_id == 'I2' or next_id == 'I3' or next_id == 'I4':
@@ -373,7 +373,7 @@ def chat_with_ai(user_input, history):
         output, prompt = new_new_change_state(user_message, history)
         parse_worked, intention, output = parse_gpt4_output(output)
         if not parse_worked:
-            # set intention!!!!!!!!!!!!
+            # set intention
             pass
 
         output= "Next error. " + output
@@ -387,8 +387,15 @@ def chat_with_ai(user_input, history):
     # the beginning of the conversation when no sentence is highlighted
     if highlighted_sentence_id == 1:
         error_sentence_id = ""
+        error_init = None
+        error_end = None
     else:
         error_sentence_id = "sentence_" + str(highlighted_sentence_id)
+        error_init = error["o_start"]
+        error_end = error["o_end"]
+
+    error_tuple = (error_sentence_id, (error_init, error_end))
+    print(error_tuple)
 
     history.append((user_input, output))   # must be tuples
     

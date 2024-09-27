@@ -64,34 +64,30 @@ def transcribe_audio(input_path, output_path, pipe):
         print(f"Failed to open {input_path}. It is not a directory.", flush=True)
         return
 
-    ff = os.listdir(input_path)
+    audio_files = os.listdir(input_path)
     content = []
     start_time = 0
-    ff.sort(key=lambda x: int(x.split('_')[0]))
-    for x in ff:
-        name = x.split('.')[0]
+    audio_files.sort(key=lambda x: int(x.split('_')[0]))
+    for af in audio_files:
+        name = af.split('.')[0]
         speaker = name.split('_')[1]
 
-        audio_file = os.path.join(input_path, x)
+        audio_file = os.path.join(input_path, af)
         yyy, sr = librosa.load(audio_file, sr=None)
         waveform = librosa.resample(y = yyy, orig_sr = sr, target_sr = 16000)
-        output_audio_file = os.path.join(input_path, x)
+        output_audio_file = os.path.join(input_path, af)
         sf.write(output_audio_file, waveform, 16000)
 
-        samplerate, audio = wavfile.read(os.path.join(input_path, x))
-        data = []
-        """for numpyx in audio:
-            for numpyy in numpyx:
-                data.append(numpyy)"""
+        samplerate, audio = wavfile.read(os.path.join(input_path, af))
 
         #audio = np.array(data)
-        print(x, flush=True)
+        print(af, flush=True)
         #print(audio, flush=True)
         #print(audio.shape, flush=True)
         #print(samplerate, flush=True)
         #print(type(audio), flush=True)
         transcript = transcribe(audio, pipe)
-        end_time = start_time + librosa.get_duration(filename=(os.path.join(input_path, x)))
+        end_time = start_time + librosa.get_duration(filename=(os.path.join(input_path, af)))
         #print(transcript, flush=True)
         
         start = str(datetime.timedelta(seconds=start_time))

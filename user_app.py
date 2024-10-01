@@ -391,8 +391,13 @@ def chat_with_ai(user_input, history):
         error_end = None
     else:
         error_sentence_id = "sentence_" + str(highlighted_sentence_id)
-        error_init = error["o_start"]
-        error_end = error["o_end"]
+        try:
+            error_init = error["o_start"]
+            error_end = error["o_end"]
+        except:
+            print("Error information about beginning and ending not available", flush=True)
+            error_init = 0
+            error_end = 0
 
     error_info = [error_sentence_id, error_init, error_end]
     print(error_info, flush=True)
@@ -504,18 +509,18 @@ def build_transcript(speaker_name: str):
     if sentences_collection is not None:
         # All speakers text
         if selected_speaker == 'All speakers':
-            text_to_show = "\n\n"
+            text_to_show = ""
             for index, value in sentences_collection.items():
                 # Label each line and print it
                 text_to_show += (
                     '<a id="sentence_' + index + '">'
                     + '<span class="speaker_name"> ' + value['speaker'] + " </span> " 
-                    + value['original_sentence'] + "\n\n"
-                    + "</a>"
+                    + value['original_sentence']
+                    + "</a><br><br>"
                 )
         else:
             # specific speaker text
-            text_to_show = "\n\n"
+            text_to_show = ""
             for index, value in sentences_collection.items():
                 if value['speaker'] == selected_speaker:
                     # Highlight the lines of the selected speaker
@@ -524,14 +529,14 @@ def build_transcript(speaker_name: str):
                             + '<span class="selected_speaker_name"> ' + value['speaker'] + " </span> " 
                             + value['original_sentence'] + "</a>"),
                             background_color=speaker_color
-                        ) + "\n\n"
+                        ) + "<br><br>"
                 else:
                     # Label each line and print it
                     text_to_show += (
                     '<a id="sentence_' + index + '">'
                     + '<span class="speaker_name"> ' + value['speaker'] + " </span> " 
-                    + value['original_sentence'] + "\n\n"
-                    + "</a>"
+                    + value['original_sentence']
+                    + "</a><br><br>"
                 )
             
     # Add scrollable container

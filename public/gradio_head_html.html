@@ -19,16 +19,113 @@ function js_toggle_visibility() {
     }
 }
 
+
+function joinSpanStrings(words) {
+    let result = [];
+    let spanBuffer = ''; // to hold span elements
+    let insideSpan = false;
+    let insideBufferCount = 0; // counter for words inside the span
+    let spanContent = false; // flag to track when we are inside the span content
+
+    console.log("Words to process: ", words);
+
+    for (let word of words) {
+        if ( (word.startsWith('<span') || word.startsWith('[<span')) && (!word.endsWith('</span>') || !word.endsWith('</span>]')) ) {
+            // Starting a span tag
+            spanBuffer += word;
+            insideSpan = true;
+            insideBufferCount = 0; // reset counter since we are starting a new span
+        } else if (insideSpan) {
+            // If inside a span, continue buffering the word
+            spanBuffer += " " + word;
+
+            if (spanContent) {
+                insideBufferCount++; // increase the count for span's content words
+            }
+            // If the word is part of the span's content (not part of opening or closing tags)
+            else if (word.includes('>') && !spanContent) {
+                spanContent = true;
+                //insideBufferCount++; // increase the count for span's content words
+            }
+
+            if (word.endsWith('</span>') || word.endsWith('</span>]')) {
+                // Closing the span tag
+                insideBufferCount--; // decrease the count for closing tag
+                result.push([spanBuffer, insideBufferCount]); // add span and count to result
+                spanBuffer = ''; // reset the span buffer
+                insideSpan = false;
+                spanContent = false; // reset flag
+            }
+
+            
+        } else {
+            // If not part of a span, add the word to result
+            result.push([word, 1]);
+        }
+    }
+
+    return result;
+}
+
+
+function separate_text(text, first_word_index, last_word_index) {
+    // Split the text into words
+    var words = text.split(" ").filter(word => word !== "");
+    words = joinSpanStrings(words);
+    console.log("Words: ", words);
+    
+    // Get the three parts of the text
+    let part1 = "" // words.slice(0, first_word_index).join(" ");
+    let part2 = "" // words.slice(first_word_index, last_word_index).join(" ");
+    let part3 = "" // words.slice(last_word_index).join(" ");
+
+    let counter = 0;
+    let iteration = 0;
+    let part1_end = 0;
+    while(iteration < words.length){
+        if (counter == first_word_index){
+            if (counter == 0){
+                part1 = "";
+                part1_end = 0;
+            }
+            else {
+                part1 = words.slice(0, iteration).map(item => item[0]).join(" ");
+                part1_end = iteration;
+                console.log("Part1: ", part1);
+            }
+        }
+        else if (counter == last_word_index){
+            part2 = words.slice(part1_end, iteration).map(item => item[0]).join(" ");
+            part3 = words.slice(iteration).map(item => item[0]).join(" ");
+        }
+
+        
+        // console.log("Counter: ", counter, "Iteration: ", iteration);
+        // console.log("Words[iteration]: ", words[iteration]);
+        counter += words[iteration][1];
+        iteration += 1;
+    }
+
+
+    
+    console.log("Crossing: ", part2, "\nStart:", first_word_index, "\nEnd:", last_word_index);
+    
+    // Return the three parts as a tuple
+    return [part1, part2, part3];
+}
+
 function js_autoscroll_by_id(error_info) {
 
     // Remove the square brackets and any surrounding spaces
-    error_info = error_info.replace(/[\[\]]/g, '');
+    error_info = error_info.replace(/[\[\]']/g, '');
     // Split the string by commas and remove any leading/trailing spaces from each component
     error_info = error_info.split(',').map(item => item.trim());
 
+    console.log("Error info:", error_info);
+
     const id_holder = error_info[0];
-    const error_start = error_info[1];
-    const error_end = error_info[2];
+    var error_start = Number(error_info[1]);
+    var error_end = Number(error_info[2]);
     console.log("Searching for id:", id_holder);
     const element = document.getElementById(id_holder);
     
@@ -40,22 +137,26 @@ function js_autoscroll_by_id(error_info) {
         });
         
         // cross out the error in the sentence
-        text = element.textContent;
-        console.log("Text of error element: ", text);
-        // index 13 is the first sentence character (avoiding speaker name
-        const sentence_offset = 13;
-        error_start += sentence_offset;
-        error_end += sentence_offset;
-        var start = text.slice(0, error_start);  // 
-        var middle = text.slice(error_start, error_end); // The last character is not included, the first character is included
-        var end = text.slice(error_end);
+        if (error_start != error_end) {
+            text = element.innerHTML;
+            console.log("Text of error element: ", text);
+            separated_text = separate_text(text, error_start + 1, error_end + 1);
+            
+            var start = separated_text[0]; 
+            var middle = separated_text[1];
+            var end = separated_text[2];
 
-        // Wrap the middle text with a span and apply a strikethrough style
-        var crossedOutMiddle = `<span style="text-decoration: line-through;">${middle}</span>`;
+            // Wrap the middle text with a span and apply a strikethrough style
+            var crossedOutMiddle = `<span style="text-decoration: line-through; font-weight: bold;"> ${middle} </span>`;
 
-        // Recombine the text with the crossed out middle part
-        //element.innerHTML = start + crossedOutMiddle + end; // TODO: This doesn't work in Gradio
+            // Recombine the text with the crossed out middle part
+            if (!(crossedOutMiddle[0] == '[' && crossedOutMiddle[crossedOutMiddle.length-1] == ']')) {
+                crossedOutMiddle = '[' + crossedOutMiddle + ']';
+            }
 
+            console.log("Joined result:", [start, crossedOutMiddle, end].join(' '));
+            element.innerHTML = [start, crossedOutMiddle, end].join(' ');
+        };
         // highlight the selected sentence with error
         //element.scrollIntoView({behavior: 'smooth'}); // doesn't work in Chrome 126.0.6478.126
         element.scrollIntoView({block: 'center'}); 

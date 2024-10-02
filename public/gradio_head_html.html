@@ -20,6 +20,24 @@ function js_toggle_visibility() {
 }
 
 
+function removeAllSpans(componentId) {
+    // Get the component by its ID
+    const component = document.getElementById(componentId);
+    
+    if (component) {
+        // Find all span elements inside the component
+        const spans = component.getElementsByTagName('span');
+        
+        // Convert HTMLCollection to an array and remove each span
+        while (spans.length > 0) {
+            spans[0].parentNode.removeChild(spans[0]);
+        }
+    } else {
+        console.warn(`No element found with ID: ${componentId}`);
+    }
+}
+
+
 function joinSpanStrings(words) {
     let result = [];
     let spanBuffer = ''; // to hold span elements
@@ -35,6 +53,7 @@ function joinSpanStrings(words) {
             spanBuffer += word;
             insideSpan = true;
             insideBufferCount = 0; // reset counter since we are starting a new span
+            spanContent = false; // reset flag
         } else if (insideSpan) {
             // If inside a span, continue buffering the word
             spanBuffer += " " + word;
@@ -56,8 +75,13 @@ function joinSpanStrings(words) {
                 insideSpan = false;
                 spanContent = false; // reset flag
             }
-
-            
+        }
+        // Out of a span and found a closing span tag
+        else if (word.endsWith('</span>') || word.endsWith('</span>]')) {
+            // Closing the span tag
+            result.push([word, 0]); // add span and count to result
+            insideSpan = false;
+            spanContent = false; // reset flag
         } else {
             // If not part of a span, add the word to result
             result.push([word, 1]);
@@ -133,9 +157,16 @@ function js_autoscroll_by_id(error_info) {
         console.log("Found id:", id_holder);
         const anchors = document.querySelectorAll('#transcript_id a');
         anchors.forEach(anchor => {
+            // Clears all background colors
             anchor.style.backgroundColor = 'transparent';
+
+            const spans = anchor.getElementsByTagName('span');
+            // Loop through each span and set its background color to transparent
+            for (let i = 0; i < spans.length; i++) {
+                spans[i].style.backgroundColor = 'transparent';
+            }
         });
-        
+
         // cross out the error in the sentence
         if (error_start != error_end) {
             text = element.innerHTML;
@@ -147,16 +178,23 @@ function js_autoscroll_by_id(error_info) {
             var end = separated_text[2];
 
             // Wrap the middle text with a span and apply a strikethrough style
-            var crossedOutMiddle = `<span style="text-decoration: line-through; font-weight: bold;"> ${middle} </span>`;
+            var crossedOutMiddle = `<span style="text-decoration: line-through; font-weight: bold; background-color: #8F00FF;"> ${middle} </span>`;
 
             // Recombine the text with the crossed out middle part
-            if (!(crossedOutMiddle[0] == '[' && crossedOutMiddle[crossedOutMiddle.length-1] == ']')) {
+            if ( !(/\[.*\]/.test(middle)) ) {
                 crossedOutMiddle = '[' + crossedOutMiddle + ']';
             }
 
             console.log("Joined result:", [start, crossedOutMiddle, end].join(' '));
             element.innerHTML = [start, crossedOutMiddle, end].join(' ');
-        };
+        }
+        else {
+            if (error_start == -1 && error_end == -1) {
+                console.error("Error location in the sentence not found");
+            }
+            // Add the correction here
+            // Not part of the project because the scope is not showing the solution to the user
+        }
         // highlight the selected sentence with error
         //element.scrollIntoView({behavior: 'smooth'}); // doesn't work in Chrome 126.0.6478.126
         element.scrollIntoView({block: 'center'}); 

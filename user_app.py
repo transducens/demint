@@ -396,8 +396,8 @@ def chat_with_ai(user_input, history):
             error_end = error["o_end"]
         except:
             print("Error information about beginning and ending not available", flush=True)
-            error_init = 0
-            error_end = 0
+            error_init = -1
+            error_end = -1
 
     error_info = [error_sentence_id, error_init, error_end]
     print(error_info, flush=True)
@@ -654,6 +654,9 @@ def select_error(index_sentence = 0, index_error = 0):
     global error, highlighted_sentence_id
     errors_speaker = list(explained_sentences_speaker.values())
     error = errors_speaker[index_sentence]['errant'][index_error]
+
+    # Temp
+    print(f"Selected error start: {error['o_start']} and end: {error['o_end']}", flush=True)
 
     highlighted_sentence_id = list(explained_sentences_speaker.items())[index_sentence][0]
     

@@ -25,6 +25,11 @@ DeMINT ("Automated Language Debriefing for English Learners via AI Chatbot Analy
 
 DeMINT's architecture was presented at UTTER 2nd User Day, an online event held on July 5, 2024. The [video](https://www.youtube.com/watch?v=TzEK9JlxVH4) of the presentation is now available online. The project is being executed by the Transducens research group at Universitat d'Alacant, Spain. 
 
+The trained models are available on Huggingface in the [DeMINT Collection](https://huggingface.co/collections/Transducens/demint-66e186ec6d0adec2becd16b4). You can access them here:
+- [Kind teacher](https://huggingface.co/Transducens/kind_teacher)
+- [Distil_whisper-v3-LoRA-en_students](https://huggingface.co/Transducens/distil_whisper-v3-LoRA-en_students)
+- [Whisper-v3-LoRA-en_students](https://huggingface.co/Transducens/whisper-v3-LoRA-en_students)
+
 ## Project goals
 
 DeMINT aims to develop a conversational system that helps non-native English speakers improve their language skills by analyzing transcripts of video conferences in which they have participated. The system integrates cutting-edge techniques in conversational AI, including:

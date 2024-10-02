@@ -7,6 +7,12 @@ a {
 body {
     background-color: #0b0f19;
 }
+
+.base_container {
+    display: flex;
+    flex-wrap: wrap; /* This ensures that components move to the next line if they don’t fit */
+    justify-content: space-between; /* Adjusts the space between components */
+}
 .fullscreen {
     height: 90vh;
     width: 150vh;
@@ -14,6 +20,7 @@ body {
 .dropdown {
     display: flex;
     flex-direction: column;
+    flex: 1 1 auto; /* Allows components to resize proportionally */
     height: 10vh;
     visibility: visible; /* visible / collapse */
     /* display: none;  comment / uncomment */
@@ -22,6 +29,7 @@ body {
     height: 80vh;
     display: flex;
     flex-direction: column;
+    flex: 1 1 auto;
     overflow-y: scroll;
     padding: 10px; 
     border: 1px solid #ddd; 

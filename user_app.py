@@ -391,11 +391,16 @@ def chat_with_ai(user_input, history):
         error_end = None
     else:
         error_sentence_id = "sentence_" + str(highlighted_sentence_id)
-        error_init = error["o_start"]
-        error_end = error["o_end"]
+        try:
+            error_init = error["o_start"]
+            error_end = error["o_end"]
+        except:
+            print("Error information about beginning and ending not available", flush=True)
+            error_init = -1
+            error_end = -1
 
-    error_tuple = (error_sentence_id, (error_init, error_end))
-    print(error_tuple)
+    error_info = [error_sentence_id, error_init, error_end]
+    print(error_info, flush=True)
 
     history.append((user_input, output))   # must be tuples
     
@@ -403,7 +408,7 @@ def chat_with_ai(user_input, history):
         log_conversation_item(user_input, output)
         log_prompts(prompt, output)
 
-    return "", history, error_sentence_id
+    return "", history, error_info
 
 
 def log_conversation_item(user_input, bot_response):
@@ -504,18 +509,18 @@ def build_transcript(speaker_name: str):
     if sentences_collection is not None:
         # All speakers text
         if selected_speaker == 'All speakers':
-            text_to_show = "\n\n"
+            text_to_show = ""
             for index, value in sentences_collection.items():
                 # Label each line and print it
                 text_to_show += (
                     '<a id="sentence_' + index + '">'
                     + '<span class="speaker_name"> ' + value['speaker'] + " </span> " 
-                    + value['original_sentence'] + "\n\n"
-                    + "</a>"
+                    + value['original_sentence']
+                    + "</a><br><br>"
                 )
         else:
             # specific speaker text
-            text_to_show = "\n\n"
+            text_to_show = ""
             for index, value in sentences_collection.items():
                 if value['speaker'] == selected_speaker:
                     # Highlight the lines of the selected speaker
@@ -524,14 +529,14 @@ def build_transcript(speaker_name: str):
                             + '<span class="selected_speaker_name"> ' + value['speaker'] + " </span> " 
                             + value['original_sentence'] + "</a>"),
                             background_color=speaker_color
-                        ) + "\n\n"
+                        ) + "<br><br>"
                 else:
                     # Label each line and print it
                     text_to_show += (
                     '<a id="sentence_' + index + '">'
                     + '<span class="speaker_name"> ' + value['speaker'] + " </span> " 
-                    + value['original_sentence'] + "\n\n"
-                    + "</a>"
+                    + value['original_sentence']
+                    + "</a><br><br>"
                 )
             
     # Add scrollable container
@@ -650,6 +655,9 @@ def select_error(index_sentence = 0, index_error = 0):
     errors_speaker = list(explained_sentences_speaker.values())
     error = errors_speaker[index_sentence]['errant'][index_error]
 
+    # Temp
+    print(f"Selected error start: {error['o_start']} and end: {error['o_end']}", flush=True)
+
     highlighted_sentence_id = list(explained_sentences_speaker.items())[index_sentence][0]
     
     original_sentence = error["original_sentence"]
@@ -741,7 +749,7 @@ head_html = ""
 with open("./public/gradio_head_html.html", 'r') as file:
     head_html = file.read()
 
-js_autoscroll_by_id = "(sentence_id) => {js_autoscroll_by_id(sentence_id);}"
+js_autoscroll_by_id = "(error_info) => {js_autoscroll_by_id(error_info);}"
 js_toggle_visibility = "(msg, hist, htxt) => {js_toggle_visibility(); return [msg, hist];}"
 js_refresh_page = "(param) => {js_refresh_page(param); return param;}"
 
@@ -771,7 +779,7 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
     hidden_textbox = gr.Textbox(value="", visible=False, render=True)
 
     # All Components container
-    with gr.Row():
+    with gr.Row(elem_classes="base_container"):
         # Block for the transcript of the speakers in the audio.
         with gr.Column(scale=0.3):
             with gr.Group():
@@ -795,31 +803,6 @@ with gr.Blocks(fill_height=True, theme=gr.themes.Base(), css=css, js=js, head=he
             with gr.Group():
             # lg.primary.svelte-cmf5ev
                 chatbot.render()
-                with gr.Row(elem_id="option_buttons"):
-                    option1 = gr.Button(
-                        value="Option 1",
-                        elem_id="option1",
-                        scale=1,
-                        elem_classes="option_button",
-                    )
-                    option2 = gr.Button(
-                        value="Option 2",
-                        elem_id="option2",
-                        scale=1,
-                        elem_classes="option_button",
-                    )
-                    option3 = gr.Button(
-                        value="Option 3",
-                        elem_id="option3",
-                        scale=1,
-                        elem_classes="option_button",
-                    )
-                    option4 = gr.Button(
-                        value="Option 4",
-                        elem_id="option4",
-                        scale=1,
-                        elem_classes="option_button",
-                    )
                 with gr.Row(elem_id="chat_input"):
                     txtbox = gr.Textbox(
                         label="",

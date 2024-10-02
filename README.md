@@ -4,6 +4,7 @@
 ## Table of Contents
 - [DeMINT](#demint-automated-language-debriefing-for-english-learners-via-ai-chatbot-analysis-of-meeting-transcripts)
   - [Project Overview](#project-overview)
+    - [Trained Models](#trained-models)  
   - [Project Goals](#project-goals)
   - [Installation and Setup](#installation-and-setup)
   - [Preparing Data](#preparing-data)
@@ -25,10 +26,21 @@ DeMINT ("Automated Language Debriefing for English Learners via AI Chatbot Analy
 
 DeMINT's architecture was presented at UTTER 2nd User Day, an online event held on July 5, 2024. The [video](https://www.youtube.com/watch?v=TzEK9JlxVH4) of the presentation is now available online. The project is being executed by the Transducens research group at Universitat d'Alacant, Spain. 
 
-The trained models are available on Huggingface in the [DeMINT Collection](https://huggingface.co/collections/Transducens/demint-66e186ec6d0adec2becd16b4). You can access them here:
-- [Kind teacher](https://huggingface.co/Transducens/kind_teacher)
-- [Distil_whisper-v3-LoRA-en_students](https://huggingface.co/Transducens/distil_whisper-v3-LoRA-en_students)
-- [Whisper-v3-LoRA-en_students](https://huggingface.co/Transducens/whisper-v3-LoRA-en_students)
+### Trained models
+
+The trained models are available on Huggingface in the [DeMINT Collection](https://huggingface.co/collections/Transducens/demint-66e186ec6d0adec2becd16b4).
+
+**[Kind teacher](https://huggingface.co/Transducens/kind_teacher)**
+This fine-tuned LLM, trained on real-life empathetic teacher-student conversations, processes recent dialogue to guide teacher responses. We used datasets like the Teacher-Student Chatroom Corpus (TSCCv2), CIMA, the Multicultural Classroom Discourse Dataset, MathDial, and Conversational Uptake for fine-tuning. Llama-3.1-8B is being evaluated, and instead of using libraries like Axolotl or Huggingface TRL, we opted for the LLaMA-Factory toolkit for fine-tuning on custom data, achieving parameter-efficient results via the QLoRA method. More information can be found in the model card [Kind teache](https://huggingface.co/Transducens/kind_teacher) in HuggingFace.
+
+**Distil Whisper**
+
+This fine-tuned version of OpenAI's Whisper model is trained to handle incorrect or informal English, including mispronunciations, grammatical mistakes, slang, and non-native speaker errors. It improves transcription accuracy in language learning, casual conversations, and analysis of non-native English speakers. More information can be found in the model card [Distil_whisper-v3-LoRA-en_students](https://huggingface.co/Transducens/distil_whisper-v3-LoRA-en_students) in HuggingFace.
+
+**Whisper**
+
+This fine-tuned version of OpenAI's Whisper model is trained to transcribe non-standard English, including mispronunciations, grammatical errors, slang, and non-native speaker input, improving transcription accuracy in language learning and casual conversation scenarios. More information can be found in the model card [Whisper-v3-LoRA-en_students](https://huggingface.co/Transducens/whisper-v3-LoRA-en_students) in HuggingFace.
+
 
 ## Project goals
 

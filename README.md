@@ -343,7 +343,7 @@ bash clean_cache.sh
 
 # Download audio from YouTube (optional)
 
-The project is meant to use already recorded videos with some videocall platform but optionally you can download videos from YouTube with these commands.
+The project is designed to work with pre-recorded videos from a video call platform. Alternatively, you can download videos from YouTube using the following commands.
 
 <details>
 <summary>

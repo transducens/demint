@@ -104,6 +104,33 @@ bash run_pipeline.sh
 
 ## Running the chatbot
 
+In order to run the chatbot application, you need to set the OpenAI API key as an environment variable:
+
+```bash
+export OPENAI_API_KEY="my_chatgpt_key_goes_here"
+```
+
+Then, run the chatbot application:
+
+```bash
+python user_app.py [-h] [-l] [--conver CONVER] [--speaker SPEAKER] \ 
+  [--port PORT] [--no_log] [--port_kind_teacher PORT_KIND_TEACHER] \
+  [--address_kind_teacher ADDRESS_KIND_TEACHER]
+```
+
+The arguments are as follows:
+
+- `-h`, `--help`: Show this help message and exit.
+- `-l`, `--list`: List all the available conversations.
+- `--conver CONVER`: The transcribed conversation to display. Default is `diarization_result`.
+- `--speaker SPEAKER`: The speaker to display in the transcript. Default is `All speakers`.
+- `--port PORT`: The port on which the server will run. Default is `8000`.
+- `--no_log`: If this flag is set, the chatbot conversation logs will not be saved. Default is `False`.
+- `--port_kind_teacher PORT_KIND_TEACHER`: The port on which the kind teacher will run. Default is `8000`.
+- `--address_kind_teacher ADDRESS_KIND_TEACHER`: The address at which the kind teacher will run. Default is `localhost`.
+
+Gradio will automatically open the application in your default web browser. If it does not, a local URL will be provided in the terminal output.
+
 ### Running the empathetic teacher server (optional)
 
 Running the empathetic teacher server is optional. If the server is not running when the chatbot is executed, the chatbot will not use the empathetic teacher. In order to use the empathetic teacher in the chatbot, follow these steps.
@@ -133,42 +160,13 @@ cd kind_teacher_server
 [CUDA_VISIBLE_DEVICES=0] llamafactory-cli api run_api_inference_1.yaml
 ```
 
-### Run the chatbot application
-
-In order to run the chatbot application, you need to set the OpenAI API key as an environment variable:
-
-```bash
-export OPENAI_API_KEY="my_chatgpt_key_goes_here"
-```
-
-Then, run the chatbot application:
-
-```bash
-python user_app.py [-h] [-l] [--conver CONVER] [--speaker SPEAKER] \ 
-  [--port PORT] [--no_log] [--port_kind_teacher PORT_KIND_TEACHER] \
-  [--address_kind_teacher ADDRESS_KIND_TEACHER]
-```
-
-The arguments are as follows:
-
-- `-h`, `--help`: Show this help message and exit.
-- `-l`, `--list`: List all the available conversations.
-- `--conver CONVER`: The transcribed conversation to display. Default is `diarization_result`.
-- `--speaker SPEAKER`: The speaker to display in the transcript. Default is `All speakers`.
-- `--port PORT`: The port on which the server will run. Default is `8000`.
-- `--no_log`: If this flag is set, the chatbot conversation logs will not be saved. Default is `False`.
-- `--port_kind_teacher PORT_KIND_TEACHER`: The port on which the kind teacher will run. Default is `8000`.
-- `--address_kind_teacher ADDRESS_KIND_TEACHER`: The address at which the kind teacher will run. Default is `localhost`.
-
-Gradio will automatically open the application in your default web browser. If it does not, a local URL will be provided in the terminal output.
-
 ### Cache files
 
 Fot the correct execution of the chatbot application, the JSON files in `cache/rag_sentences` and `cache/raw_sorted_sentence_collection` are required. It is also necessary that the conversation to be used in the chatbot has the same name in both directories.
 
 The cache files can be cleaned using the script `clean_cache.sh`.
 
-## Optional step-by-step data pre-processing
+## Step-by-step data pre-processing (optional)
 
 These steps are optional. If you have already run the pipeline using the `run_pipeline.sh` script, you can skip this section. Run each program with the `-h` flag to see the available options.
 

@@ -79,65 +79,6 @@ If you wish to use any other models from HuggingFace, you may also need to accep
 # Preparing data
 Go to the root directory `demint`.
 
-## Download audio from YouTube (optional)
-
-<details>
-<summary>
-More details.
-</summary>
-
-### Option 1
-Download directly the audio from YouTube (internally gets converted using ffmpeg) and it gets stored in 'assets/audios/', if possible with 'wav' extension.
-
-**Download audio file**
-
-```bash
-usage: python -m app.audio_downloader [-h] -u URL [-n NAME]
-
-Description of your script
-
-options:
-  -h, --help            show this help message and exit
-  -u URL, --url URL     URL of the video to download
-  -n NAME, --name NAME  Name set to the downloaded video file
-
-```
-
-### Option 2
-Download the video from YouTube and store it in 'assets/videos/'. Then extract the audio of all the videos from the directory 'assets/videos/' and store them in 'assets/audios/' with 'wav' extension.
-
-**Download video file**
-```bash
-usage: python -m app.video_downloader [-h] -u URL [-n NAME]
-
-Description of your script
-
-options:
-  -h, --help            show this help message and exit
-  -u URL, --url URL     URL of the video to download
-  -n NAME, --name NAME  Name set to the downloaded video file
-```
-
-**Extract audio**
-```bash
-# Extract audio from a video file.
-# From assets/videos/ to assets/audios/
-usage: python -m app.extract_audio [-h] [-vf VIDEO_FILE] [-af AUDIO_FILE] [-vd VIDEO_DIRECTORY]
-                        [-ad AUDIO_DIRECTORY]
-
-options:
-  -h, --help            show this help message and exit
-  -vf VIDEO_FILE, --video_file VIDEO_FILE
-                        Path to where the input video file is located.
-  -af AUDIO_FILE, --audio_file AUDIO_FILE
-                        Path to where the output audio file will be saved.
-  -vd VIDEO_DIRECTORY, --video_directory VIDEO_DIRECTORY
-                        Path to the directory containing the input video files.
-  -ad AUDIO_DIRECTORY, --audio_directory AUDIO_DIRECTORY
-                        Path to the directory where the output audio files will be saved.
-```
-</details>
-
 ## Create cache files
 
 Fot the correct execution of the application, the files from `cache/rag_sentences/` and `cache/raw_sorted_sentence_collection/` are required.
@@ -391,13 +332,75 @@ options:
 
 ```
 
+Gradio will automatically open the application in your default web browser. If it doesn't, a local URL will be provided in the terminal output.
+
+
 # Clean the cache files
 
 ```bash 
 bash clean_cache.sh
 ```
 
-Gradio will automatically open the application in your default web browser. If it doesn't, a local URL will be provided in the terminal output.
+# Download audio from YouTube (optional)
+
+The project is meant to use already recorded videos with some videocall platform but optionally you can download videos from YouTube with these commands.
+
+<details>
+<summary>
+More details.
+</summary>
+
+## Option 1
+Download directly the audio from YouTube (internally gets converted using ffmpeg) and it gets stored in 'assets/audios/', if possible with 'wav' extension.
+
+**Download audio file**
+
+```bash
+usage: python -m app.audio_downloader [-h] -u URL [-n NAME]
+
+Description of your script
+
+options:
+  -h, --help            show this help message and exit
+  -u URL, --url URL     URL of the video to download
+  -n NAME, --name NAME  Name set to the downloaded video file
+
+```
+
+## Option 2
+Download the video from YouTube and store it in 'assets/videos/'. Then extract the audio of all the videos from the directory 'assets/videos/' and store them in 'assets/audios/' with 'wav' extension.
+
+**Download video file**
+```bash
+usage: python -m app.video_downloader [-h] -u URL [-n NAME]
+
+Description of your script
+
+options:
+  -h, --help            show this help message and exit
+  -u URL, --url URL     URL of the video to download
+  -n NAME, --name NAME  Name set to the downloaded video file
+```
+
+**Extract audio**
+```bash
+# Extract audio from a video file.
+# From assets/videos/ to assets/audios/
+usage: python -m app.extract_audio [-h] [-vf VIDEO_FILE] [-af AUDIO_FILE] [-vd VIDEO_DIRECTORY]
+                        [-ad AUDIO_DIRECTORY]
+
+options:
+  -h, --help            show this help message and exit
+  -vf VIDEO_FILE, --video_file VIDEO_FILE
+                        Path to where the input video file is located.
+  -af AUDIO_FILE, --audio_file AUDIO_FILE
+                        Path to where the output audio file will be saved.
+  -vd VIDEO_DIRECTORY, --video_directory VIDEO_DIRECTORY
+                        Path to the directory containing the input video files.
+  -ad AUDIO_DIRECTORY, --audio_directory AUDIO_DIRECTORY
+                        Path to the directory where the output audio files will be saved.
+```
+</details>
 
 ## How to cite this work
 

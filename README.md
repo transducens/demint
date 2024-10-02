@@ -7,12 +7,12 @@
   - [Project Goals](#project-goals)
   - [Installation and Setup](#installation-and-setup)
   - [Preparing Data](#preparing-data)
-    - [Download Audio from Youtube (optional)](#download-audio-from-youtube-optional)
     - [Create Cache Files](#create-cache-files)
   - [Run application](#run-application)
     - [Run Kind Teacher Server](#run-kind-teacher-server)
     - [Run the Chatbot Application](#run-the-chatbot-application)
   - [Clean the Cache Files](#clean-the-cache-files)
+  - [Download Audio from Youtube (optional)](#download-audio-from-youtube-optional)
   - [How to Cite this Work](#how-to-cite-this-work)
   - [Documents](#documents)
 

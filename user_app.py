@@ -655,9 +655,6 @@ def select_error(index_sentence = 0, index_error = 0):
     errors_speaker = list(explained_sentences_speaker.values())
     error = errors_speaker[index_sentence]['errant'][index_error]
 
-    # Temp
-    print(f"Selected error start: {error['o_start']} and end: {error['o_end']}", flush=True)
-
     highlighted_sentence_id = list(explained_sentences_speaker.items())[index_sentence][0]
     
     original_sentence = error["original_sentence"]

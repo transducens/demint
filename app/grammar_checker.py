@@ -25,15 +25,15 @@ class GrammarChecker:
         "LT_SERVER"
     }
 
-    def __init__(self, gec_model="GECTOR_2024"):
+    def __init__(self, gec_model="T5"):
         self.__gec_model=gec_model
-        if gec_model=="LT_API":
+        if self.__gec_model=="LT_API":
             print("Using Language Tool API model to correct sentences", flush=True)
             self.__tool = lt.LT_Checker(gec_model=gec_model)
-        elif gec_model=="LT_SERVER":
+        elif self.__gec_model=="LT_SERVER":
             print("Using Language Tool local server model to correct sentences", flush=True)
             self.__tool = lt.LT_Checker(gec_model=gec_model)
-        elif self.__gec_model=="LT_SERVER":
+        elif self.__gec_model=="GECTOR_2024":
             print("Using GECToR_2024 model to correct sentences", flush=True)
             # Had to be used in another conda environment, check correct_sentences() function
         elif self.__gec_model=="T5":

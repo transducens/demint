@@ -1,4 +1,4 @@
-model_name_or_path: Transducens/kind_teacher
+model_name_or_path: Transducens/empathetic-teacher
 template: llama3
 quantization_bit: 4 
 finetuning_type: lora 

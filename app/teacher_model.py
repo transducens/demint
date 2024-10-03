@@ -4,7 +4,7 @@ import json
 TYPE_MESSAGE = {"GET": "/models", "POST": "/chat/completions"}
 
 class TeacherModel:
-    def __init__(self, address="localhost", port=8000, model="Transducens/kind_teacher", temperature=1.0, top_p=0.7, max_tokens=150):
+    def __init__(self, address="localhost", port=8000, model="Transducens/empathetic-teacher", temperature=1.0, top_p=0.7, max_tokens=150):
         try:
             self.port = port
             self.address = address

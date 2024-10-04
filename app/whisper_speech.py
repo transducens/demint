@@ -24,33 +24,6 @@ input_directory = "./cache/diarized_audios"
 output_directory = "./cache/diarized_transcripts"
 
 
-def download_adapter_model():
-    model_name = "whisper-v3-LoRA-en_students"
-    print(f"Downloading the adapter model '{model_name}' from the Hugging Face Hub.", flush=True)
-
-    # Define the path for the directory
-    local_directory = os.path.expanduser("~/.cache/huggingface/hub")
-
-    # Check if the directory exists
-    if not os.path.exists(local_directory):
-        # If it doesn't exist, create it
-        os.makedirs(local_directory)
-        print(f"Directory '{local_directory}' created.", flush=True)
-    else:
-        print(f"Directory '{local_directory}' already exists.", flush=True)
-
-    repo_id = f"Transducens/{model_name}"
-    repo_adapter_dir = f"{model_name}/checkpoint-5000/adapter_model"
-    repo_filename_config = f"{repo_adapter_dir}/adapter_config.json"
-    repo_filename_tensors = f"{repo_adapter_dir}/adapter_model.safetensors"
-
-    adapter_config = hf_hub_download(repo_id=repo_id, filename=repo_filename_config, local_dir=local_directory)
-    adapter_model_tensors = hf_hub_download(repo_id=repo_id, filename=repo_filename_tensors, local_dir=local_directory)
-
-    print(f"Dowloaded the adapter model '{model_name}' from the Hugging Face Hub.", flush=True)
-
-    return os.path.join(local_directory, repo_adapter_dir)
-
 def transcribe(audio, pipe):
     p = pipe(audio, return_timestamps=False)
     text = p["text"]
@@ -141,11 +114,7 @@ def main():
 
     device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
-    # Manually download the finetuned Whisper adapter model from the Hugging Face Hub
-    # And safe it to the cache directory along with the other models.
-    adapter_path = download_adapter_model()
-
-    peft_model_id = adapter_path # Use the same model ID as before.
+    peft_model_id = "Transducens/error-preserving-whisper"
     peft_config = PeftConfig.from_pretrained(peft_model_id)
     model = WhisperForConditionalGeneration.from_pretrained(
       peft_config.base_model_name_or_path, load_in_8bit=False)

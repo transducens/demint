@@ -43,6 +43,6 @@ class ContentExtractor:
 if __name__ == '__main__':
     extractor = ContentExtractor()
     paragraphs = extractor.get_content("pdf_rag", 400, 0.25)
-    print(paragraphs)
+    print(paragraphs, flush=True)
 
-
+    

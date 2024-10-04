@@ -91,7 +91,6 @@ Additionally, you may need to request access to use the following gated models:
 
 If you wish to use any other models from HuggingFace, you may also need to accept their respective user conditions.
 
-
 ## Running the data pre-processing pipeline
 
 Go to the root directory `demint`. There are two options to run the prep-processing pipeline: via a single script or by running each step individually. The former is recommended for simplicity. Detailed instructions for the step-by-step process are provided [below](#optional-step-by-step-data-pre-processing). 
@@ -238,6 +237,19 @@ Using an LLM (by default Llama 3.1-8B-Instruct), this explains all errors with m
 python -m app.explain_sentences [-h] [-ef ERRANT_FILE] [-xf EXPLAINED_FILE] \
   [-ed ERRANT_DIRECTORY] [-xd EXPLAINED_DIRECTORY]
 ```
+
+**Prepare RAG indexes**
+
+Retrieval Augmented Generation (RAG) indexation is typically handled automatically during the `app/rag_sentences` stage of the data pre-processing pipeline. However, you can also perform indexation manually beforehand. This allows the pipeline to use pre-generated indexes, rather than extracting them during runtime.
+
+1. Copy the pdf files you want to use for RAG in the `pdf_rag` folder.
+
+2. Execute the `app/rag/RAGFactory` module. Internally, this module relies on:
+    - `app/rag/content_extractor` to extract text content from all PDF files stored in the `pdf_rag` folder.
+    - `app/rag/rag_ragatouille` to create indexes, which are saved in the folder `app/.ragatouille/colbert/indexes/tutor`.
+
+For the indexation process, the model [colbert-ir/colbertv2.0](https://huggingface.co/colbert-ir/colbertv2.0) is used in conjunction with the tool [RAGatouille](https://github.com/AnswerDotAI/RAGatouille).
+
 
 **Get RAG data about the sentences**
 

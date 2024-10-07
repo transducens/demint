@@ -1,0 +1,18 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+.idea/
+__pycache__
+/ffmpeg
+/audio
+/.files
+/.ragatouille
+init_env.sh
+check_dependencies.py
+.env
+*.webm
+*.wav
+*.mp4
+*.mp3
+*.avi
+*.pyc

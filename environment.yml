@@ -1,0 +1,6 @@
+name: DeMINT
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - cuda-toolkit # not in pip. Used for RAG.

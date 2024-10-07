@@ -41,4 +41,4 @@ if __name__ == '__main__':
     factory = RAGFactory()
     rag_engine = factory.get_instance("ragatouille")    # Run indexation using RAGatouille
     #result = rag_engine.search("present perfect", 5)   # Run rag search
-    #print(result)
+    #print("RAG result:", result)

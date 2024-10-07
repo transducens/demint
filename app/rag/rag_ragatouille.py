@@ -12,7 +12,7 @@ split_documents = True
 class RAGatouilleTutor(IRagEngine):
     def __init__(self, model_name="colbert-ir/colbertv2.0"):
         #self.index_path = f".ragatouille/colbert/indexes/{index_name}/"
-        self.index_path = "./app/.ragatouille/colbert/indexes/tutor/"
+        self.index_path = ".ragatouille/colbert/indexes/tutor/"
         self.INDEX = None
         self.__model_name = model_name
 
@@ -39,7 +39,7 @@ class RAGatouilleTutor(IRagEngine):
 
     def search(self, query, k=5):
         if os.path.exists(self.index_path) is False:
-            print("Index ragatouille does not exist.")
+            print(f"Index ragatouille does not exist in path '{self.index_path}'")
             return
 
         if self.INDEX is None:

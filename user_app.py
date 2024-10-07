@@ -3,22 +3,18 @@ import time
 import gradio as gr
 import os
 import argparse
-import warnings
+
 
 welcome_message = "Hello! I am your English tutor. I will help you to learn English. Are you ready?"
 
 # Suppress the warnings
 # warnings.filterwarnings("ignore")
 
-# takes too long to load:
-# from english_tutor import EnglishTutor
 from app.file_manager import FileManager
 from app.teacher_model import TeacherModel
 
 print("Starting the application", flush=True)
 
-
-# english_tutor: EnglishTutor | None = None
 english_tutor = None
 teacher_model: TeacherModel | None = None
 sentences_collection: dict | None = None
@@ -74,7 +70,6 @@ def initialize_global_variables():
     response = chat_response = ""
 
     if english_tutor is None:
-        # english_tutor = EnglishTutor()
         english_tutor = OpenAI()
         print("*" * 50, flush=True)
         print("Loaded English Tutor", flush=True)

@@ -25,7 +25,7 @@ class RAGFactory:
                     collection = ContentExtractor.get_content(part_count=part_count, overlap=overlap)
 
                 print("Preparing index...")
-                instance.prepare_index(collection)
+                #instance.prepare_index(collection)
                 print("Index prepared...")
 
                 RAGFactory._instances[rag_type] = instance
@@ -40,5 +40,5 @@ class RAGFactory:
 if __name__ == '__main__':
     factory = RAGFactory()
     rag_engine = factory.get_instance("ragatouille")    # Run indexation using RAGatouille
-    #result = rag_engine.search("present perfect", 5)   # Run rag search
-    #print(result)
+    result = rag_engine.search("present perfect", 5)   # Run rag search
+    print("RAG result:", result)

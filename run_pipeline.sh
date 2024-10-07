@@ -1,9 +1,9 @@
 #!/bin/bash
 
-exec 2>/dev/null  # Avoids printing warnings
+#exec 2>/dev/null  # Avoids printing warnings
 set -e  # If any error occurs, it stops the executiong of the pipeline
 
-CUDA="CUDA_VISIBLE_DEVICES=1"
+CUDA="CUDA_VISIBLE_DEVICES=0"
 
 eval "${CUDA} python -m app.extract_audio"  # from assets/videos to assets/audios 
 eval "${CUDA} python -m app.diarize_audio"  # from assets/audios to cache/diarized_audios

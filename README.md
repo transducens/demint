@@ -259,6 +259,41 @@ This indexes RAG data related to the extracted errors (by default from `cache/ex
 python -m app.rag_sentences [-h] [-xf EXPLAINED_FILE] [-rf RAG_FILE] [-xd EXPLAINED_DIRECTORY] [-rd RAG_DIRECTORY]
 ```
 
+## Usage
+
+To list all available conversations along with their respective speakers, use the following command:
+
+```bash
+python user_app.py -l
+```
+
+When you run this, you should see an output similar to the following:
+
+```bash
+Available conversations and speakers:
+- meeting-dm01-dm02
+  - All speakers
+  - SPEAKER_00
+  - SPEAKER_01
+
+- meeting-dm01-dm07
+  - All speakers
+  - SPEAKER_00
+  - SPEAKER_01
+```
+
+If you'd like to start the chatbot for a specific conversation, you can do so by executing the following command:
+
+```bash
+python user_app.py --speaker SPEAKER_00 --conver meeting-dm01-dm02
+```
+
+And for more help, you can run the following command:
+
+```bash
+python user_app.py -h
+```
+
 ## Documents
 
 - There was a data management plan addressing issues such as data collection, data generation, data sharing, property rights and privacy, and long-term preservation and re-use, in compliance with national and EU legislation.

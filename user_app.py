@@ -175,7 +175,7 @@ def new_new_change_state(user_response, history):
     if teacher_model != None:
         list_history = history.copy()
         list_history.append((user_response))
-        kind_teacher_prompt = teacher_model.format_messages(list_history)
+        kind_teacher_prompt = teacher_model.format_messages(messages=list_history)
         kind_teacher_response = teacher_model.get_response(kind_teacher_prompt)
         teacher_suggestion = teacher_model.format_response(kind_teacher_response)
     else:

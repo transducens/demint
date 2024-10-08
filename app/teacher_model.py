@@ -123,7 +123,7 @@ def test():
             "content": "I need help to understand the concept of gravity."
         }
     ]
-    formatted_messages = teacher.format_messages(messages)
+    formatted_messages = teacher.format_messages(messages=messages)
     response = teacher.get_response(formatted_messages)
     response = teacher.format_response(response)
     print(response, flush=True)

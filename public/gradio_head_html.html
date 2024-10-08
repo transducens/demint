@@ -50,7 +50,7 @@ function joinSpanStrings(words) {
     for (let word of words) {
         if ( (word.startsWith('<span') || word.startsWith('[<span')) && (!word.endsWith('</span>') || !word.endsWith('</span>]')) ) {
             // Starting a span tag
-            spanBuffer += word;
+            spanBuffer += " " + word;
             insideSpan = true;
             insideBufferCount = 0; // reset counter since we are starting a new span
             spanContent = false; // reset flag
@@ -177,12 +177,20 @@ function js_autoscroll_by_id(error_info) {
             var middle = separated_text[1];
             var end = separated_text[2];
 
-            // Wrap the middle text with a span and apply a strikethrough style
-            var crossedOutMiddle = `<span style="text-decoration: line-through; font-weight: bold; background-color: #8F00FF;"> ${middle} </span>`;
-
-            // Recombine the text with the crossed out middle part
-            if ( !(/\[.*\]/.test(middle)) ) {
-                crossedOutMiddle = '[' + crossedOutMiddle + ']';
+            middle = middle.trim();
+            if ( (middle.startsWith('<span') || middle.startsWith('[<span')) && (middle.endsWith('</span>') || middle.endsWith('</span>]')) ) {
+                middle = middle.replace(/background-color: transparent;/g, 'background-color: #8F00FF;');
+                console.log("Middle crossed and highlighted text:", middle);
+                crossedOutMiddle = middle;
+            }
+            else{
+                // Wrap the middle text with a span and apply a strikethrough style
+                var crossedOutMiddle = `<span style="text-decoration: line-through; font-weight: bold; background-color: #8F00FF;"> ${middle} </span>`;
+                
+                // Recombine the text with the crossed out middle part
+                if ( !(/\[.*\]/.test(middle)) ) {
+                    crossedOutMiddle = ' [' + crossedOutMiddle + '] ';
+                }
             }
 
             console.log("Joined result:", [start, crossedOutMiddle, end].join(' '));

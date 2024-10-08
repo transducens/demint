@@ -150,12 +150,9 @@ export KIND_TEACHER_PORT=8000
 export KIND_TEACHER_HOST="localhost"
 ```
 
-Port and address of the server can be modified manually in `kind_teacher_server/src/llamafactory/api/app.py`. 
-
 Finally, run the server:
 
 ```bash
-cd kind_teacher_server
 [CUDA_VISIBLE_DEVICES=0] llamafactory-cli api run_api_inference_1.yaml
 ```
 

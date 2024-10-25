@@ -26,7 +26,7 @@ The project culminated in a pilot study to assess the system’s effectiveness a
 
 ## System description and how to cite this work
 
-The paper "[DeMINT](https://aclanthology.org/volumes/2024.nlp4call-1/): Automated Language Debriefing for English Learners via AI Chatbot Analysis of Meeting Transcripts" presented at NLP4CALL 2024 thoroughly describes the system's architecture. If you use DeMINT in your research, please cite it as follows:
+The paper "[DeMINT](https://aclanthology.org/2024.nlp4call-1.14/): Automated Language Debriefing for English Learners via AI Chatbot Analysis of Meeting Transcripts" presented at NLP4CALL 2024 thoroughly describes the system's architecture. If you use DeMINT in your research, please cite it as follows:
 
 ```bibtex
 @inproceedings{demint2024,
@@ -40,9 +40,10 @@ The paper "[DeMINT](https://aclanthology.org/volumes/2024.nlp4call-1/): Automate
   title = {{DeMINT}: Automated Language Debriefing for English Learners via {AI} 
            Chatbot Analysis of Meeting Transcripts},
   booktitle = {Proceedings of the 13th Workshop on NLP for Computer Assisted Language Learning},
+  pages = {187--198}
   month = october,
   year = {2024},
-  url = {https://aclanthology.org/volumes/2024.nlp4call-1/},
+  url = {https://aclanthology.org/2024.nlp4call-1.14/},
 }
 ```
 

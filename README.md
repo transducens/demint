@@ -40,7 +40,7 @@ The paper "[DeMINT](https://aclanthology.org/2024.nlp4call-1.14/): Automated Lan
   title = {{DeMINT}: Automated Language Debriefing for English Learners via {AI} 
            Chatbot Analysis of Meeting Transcripts},
   booktitle = {Proceedings of the 13th Workshop on NLP for Computer Assisted Language Learning},
-  pages = {187--198}
+  pages = {187--198},
   month = october,
   year = {2024},
   url = {https://aclanthology.org/2024.nlp4call-1.14/},
